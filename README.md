@@ -1,7 +1,7 @@
 # Payara Server
 
 
-![Payara Logo](https://s3-eu-west-1.amazonaws.com/payara.co/Fish-alone.jpg)
+![Payara Logo](payara-logo-blue.png)
 
 
 Payara Server began life in 2014, derived from GlassFish 4.1. Since then, Payara Server has been refined with bug fixes, enhanced with new features, and has grown a strong community following. The documentation here will be updated with all the significant changes made with each new release.
