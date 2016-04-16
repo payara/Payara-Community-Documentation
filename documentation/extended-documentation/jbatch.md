@@ -11,13 +11,14 @@
   * [4.2 Setting a Table Prefix and/or Suffix using Asadmin](#42-setting-a-table-prefix-andor-suffix-using-asadmin)
   * [4.3 Setting a Table Prefix and/or Suffix in the domain.xml file](#43-setting-a-table-prefix-andor-suffix-in-the-domainxml-file)
 * [5. Using MySQL, PostgreSQL, Oracle, or DB2 with JBatch](#5-using-mysql-postgresql-oracle-or-db2-with-jbatch)
-  * [5.1 Usage Restrictions](#51-Usage-Restrictions)
+  * [5.1 Usage Restrictions](#51-usage-restrictions)
+  * [5.2 MySQL](#52-mysql)
 * [6. Altered Asadmin Commands](#6-altered-asadmin-commands)
   * [6.1 set-batch-runtime-configuration](#61-set-batch-runtime-configuration)
   
   
 # 1. Overview
-This page shall cover how to use the additional JBatch functionality in Payara 4.1.1.154.  
+This page shall cover how to use the additional JBatch functionality in Payara 4.1.1.161.  
 
 # 2. Documentation Conventions
 _${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.  
@@ -106,6 +107,14 @@ In the Admin Console:
 ## 5.1 Usage Restrictions
 
 JBatch will not create internally more than one set of Jbatch tables per schema. So in your schema if there exists a set of JBatch tables with prefixes and suffixes in the table names and then specify in the Glassfish JBatch configuration for the same schema above that you wish to use JBatch tables under a different name (for example no table prefix and suffix) then during the Jbatch initialisation phase, JBatch will attempt to create these tables since they do not exist. However since the table constraint names already exist for the existing JBatch tables in the same schema, table creation will fail. One can of course run a sql script to create the relevant JBatch schema objects under different names.
+
+## 5.2 MySQL
+
+For MySQL database use, it is recommended the following additional property be set:
+
+| Name | Value | Description |
+|-----------------------------|----------|-------------------------------------------------------------------|
+| zeroDateTimeBehavior | convertToNull | Action for DATETIME values that are composed entirely of zeros (used by MySQL to represent invalid dates) |
 
 # 6. Altered Asadmin Commands
 

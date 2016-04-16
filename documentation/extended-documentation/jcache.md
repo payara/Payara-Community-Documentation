@@ -12,7 +12,7 @@
 
 
 # 1. Overview
-This page covers how to use the JCache functionality in Payara 4.1.1.154.  
+This page covers how to use the JCache functionality in Payara 4.1.1.161.  
 JSR107 (JCache) is implemented in Payara by Hazelcast.
 
 # 2. Documentation Conventions
