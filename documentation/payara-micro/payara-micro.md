@@ -41,7 +41,7 @@
     * [13.2.3 Javadoc](#1323-javadoc)
 
 # 1. Overview
-This page shall cover how to use Payara Micro 4.1.153.  
+This page shall cover how to use Payara Micro 4.1.1.154.  
 
 Payara Micro is an embedded release of Payara built from the Payara Embedded Web release. It allows you to deploy and run WAR files from the command line with a single command, and also features automatic, dynamic clustering with Hazelcast.
 
@@ -585,44 +585,6 @@ Both return a Map with a key/value type of `<InstanceDescriptor, Future<T>>`, wh
 
 # 12. Firing and Listening for CDI Events
 Payara Micro has the ability to listen for and fire CDI events across the cluster of a PayaraMicroRuntime instance.
-
-The first thing you must do to listen for CDI events is create an event bus. To do this inject the ClusteredCDIEventBus class into your code like so:
-`@Inject
-    ClusteredCDIEventBus bus;`
-
-Then initialize the bus:
-
-    `@Override
-    public void init() throws ServletException {
-        super.init();
-        theBean.init();
-        
-        // The clustered CDI bus must be intialised to receive events
-        bus.initialize();
-    } `
-
-There are 2 key annotations for firing and listening to CDI Events in Payara Micro. 
-
-The first is @Outbound.
-The @Outbound annotation indicates the event should be sent outbound from the micro service. CustomMessage is just a standard POJO from the example application. You can send any POJO from your application as long as it is Serializable.
-
-For Example:
-
-`@Inject
-    @Outbound
-    Event<CustomMessage> event;`
-
-To send the event you then just use the standard CDI api;
-
-`CustomMessage message = new CustomMessage ( 'test', 'server-1');
- event.fire(message);`
-
-The second annotation is @Inbound.
-The @Inbound annotation tells Payara Micro that you are interested in receiving events raised by other Payara Micro instances in the microservices fabric;
-
-  `  public void observe(@Observes @Inbound CustomMessage event) {
-        Logger.getLogger(this.getClass().getName()).log(Level.INFO, "MessageReceiverBean Received Event {0}", event);
-    }`
 
 You can view the methods associated with CDI Events in the [appendices](#13223-cdi-methods).
 

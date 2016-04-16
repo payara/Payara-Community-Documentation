@@ -9,6 +9,7 @@
     * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
     * [Payara Server 4.1.152.1 Release Notes](release-notes/release-notes-152.1.md)
     * [Payara Server 4.1.153 Release Notes](release-notes/release-notes-153.md)
+    * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
 * Core Documentation
 * Extended Documentation
     * [JBatch](documentation/extended-documentation/jbatch.md)

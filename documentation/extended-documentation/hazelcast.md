@@ -28,7 +28,7 @@
   * [7.4 restart-hazelcast](#74-restart-hazelcast)
 
 # 1. Overview
-This page covers how to use the Hazelcast functionality in Payara 4.1.153.  
+This page covers how to use the Hazelcast functionality in Payara 4.1.1.154.  
 Hazelcast is an In-Memory Data Grid, providing Web and EJB session persistence, and implementing JSR107 (JCache) in Payara Server.
 
 # 2. Documentation Conventions
