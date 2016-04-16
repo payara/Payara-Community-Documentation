@@ -12,8 +12,16 @@
     * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
 * Core Documentation
 * Extended Documentation
+    * [Advanced JDBC](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)
+        * [Advanced Connection Pool Properties](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)
+        * [Log JDBC Calls](documentation/extended-documentation/advanced-jdbc/log-jdbc-calls.md)
+        * [Slow SQL Logger](documentation/extended-documentation/advanced-jdbc/slow-sql-logger.md)
+        * [SQL Trace Listeners](documentation/extended-documentation/advanced-jdbc/sql-trace-listeners.md)
     * [JBatch](documentation/extended-documentation/jbatch.md)
     * [JCache](documentation/extended-documentation/jcache.md)
     * [Hazelcast](documentation/extended-documentation/hazelcast.md)
+    * [Health Check Service](documentation/extended-documentation/health-check-service/health-check-service.md)
+        * [Asadmin Commands](documentation/extended-documentation/health-check-service/asadmin-commands.md)
+        * [Configuration](documentation/extended-documentation/health-check-service/configuration.md)
 * Payara Micro Documentation
     * [Payara Micro Overview](documentation/payara-micro/payara-micro.md)
