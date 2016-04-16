@@ -4,11 +4,15 @@
 * [3. Using JCache in your Applications](#3-using-jcache-in-your-applications)
   * [3.1 Accessing the JSR107 Caching Provider and Cache Manager](#31-accessing-the-jsr107-caching-provider-and-cache-manager)
     * [3.1.1 Using Injection](#311-using-injection)
-  * [3.2 Using JCache Annotations](#32-using-jcache-annotations)
+  * [3.2 Creating a Cache using Injection](#32-creating-a-cache-using-injection)
+    * [3.2.1 Creating a custom Cache using Injection](#321-creating-a-custom-cache-using-injection)
+  * [3.3 Using JCache Annotations](#33-using-jcache-annotations)
+* [4. Appendices](#4-appendices)
+  * [4.1 NamedCache Annotation](#41-namedcache-annotation)
 
 
 # 1. Overview
-This page covers how to use the JCache functionality in Payara 4.1.152.1.  
+This page covers how to use the JCache functionality in Payara 4.1.153.  
 JSR107 (JCache) is implemented in Payara by Hazelcast.
 
 # 2. Documentation Conventions
@@ -43,7 +47,41 @@ CacheManager manager;
 CachingProvider provider;
 ```
 
-## 3.2 Using JCache Annotations
+## 3.2 Creating a Cache using Injection
+You can create a cache using either the [`getCache`](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/CacheManager.html#getCache%28java.lang.String,%20java.lang.Class,%20java.lang.Class%29) method of a [CacheManager](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/CacheManager.html), or using injection. Creating the cache with injection uses the Caching Provider and Cache Manager described above.
+
+Creating a cache with injection can be done like so:
+
+```Java
+import javax.inject.Inject;
+import javax.cache.Cache;
+...
+@Inject
+Cache cache;
+```
+
+The name of this cache will be the canonical name of the class it is created in. Caches created in this way will also have JMX statistics and management enabled.
+
+### 3.2.1 Creating a custom Cache using Injection
+You can determine the name and other attributes of a cache created through injection using the `@NamedCache` annotation.
+
+You can specify the desired custom values as a comma separated list of parameters of the `NamedCache` annotation when creating a cache.
+
+For example, to inject a cache with a custom name and with JMX management enabled:
+
+```Java
+import fish.payara.cdi.jsr107.impl.NamedCache;
+import javax.inject.Inject;
+import javax.cache.Cache;
+...
+@NamedCache(cacheName = "custom", managementEnabled = true)
+@Inject
+Cache cache;
+```
+
+The full array of parameters can be seen in the [NamedCache](#41-namedcache-annotation) section of the [appendices](#4-appendices).
+
+## 3.3 Using JCache Annotations
 Payara has the necessary interceptors implemented for allowing the full set of JCache annotations to be used.
 
 The JCache annotations are as follows:
@@ -55,3 +93,25 @@ The JCache annotations are as follows:
 * [@CacheDefaults](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheDefaults.html) - Allows the configuration of defaults for CacheResult, CachePut, CacheRemove, and CacheRemoveAll at the class level.
 * [@CacheKey](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheKey.html) - Marks a method parameter as the key of a cache.
 * [@CacheValue](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheValue.html) - Marks a method parameter as the value of a cache key.
+
+# 4. Appendices
+
+## 4.1 NamedCache Annotation
+
+Configuration Option | Description | Default Value
+--- | --- | ---
+`String cacheName` | Sets the name of the cache. | The canonical name of the class receiving the injected cache.
+`Class keyClass` | Sets the class of the cache keys. | _Object.class_
+`Class valueClass` | Sets the class of the cache values. | _Object.class_
+`boolean statisticsEnabled` | Enables or disables JMX statistics. | _false_
+`boolean managementEnabled` | Enables or disables JMX management. | _false_
+`boolean readThrough` | Enables or disables cache read through. If set to true, a _CacheLoader_ factory class must be specified. | _false_
+`boolean writeThrough` | Enables or disables cache write through. If set to true, a _CacheWriter_ factory class must be specified. | _false_
+`Class cacheLoaderFactoryClass` | Sets the [CacheLoader](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/integration/CacheLoader.html) factory class to be attached to the cache. | If not specified, this option is not used.
+`Class cacheWriterFactoryClass` | Sets the [CacheWriter](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/integration/CacheWriter.html) factory class to be attached to the cache. | If not specified, this option is not used.
+`Class expiryPolicyFactoryClass` | Sets the [ExpiryPolicy](https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/expiry/ExpiryPolicy.html) factory class to be attached to the cache. | If not specified, this option is not used.
+
+
+
+
+

@@ -17,7 +17,7 @@
   
   
 # 1. Overview
-This page shall cover how to use the additional JBatch functionality in Payara 4.1.152.1.  
+This page shall cover how to use the additional JBatch functionality in Payara 4.1.153.  
 
 # 2. Documentation Conventions
 _${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.  
