@@ -1,7 +1,7 @@
 # Advance Connection Pool Properties in Deployment Descriptors
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
-From Payara 161 (4.1.1.161), Payara Server now supports the advanced connection pool properties usually only available for connection pools created via the administration console for Datasource connection pools deployed with an application via the application deployment descriptor or datasource annotations. This means your application scoped datasources now can fully utilise Payara Server's powerful connection pool support.
+From Payara 161 (4.1.1.162), Payara Server now supports the advanced connection pool properties usually only available for connection pools created via the administration console for Datasource connection pools deployed with an application via the application deployment descriptor or datasource annotations. This means your application scoped datasources now can fully utilise Payara Server's powerful connection pool support.
 
 ## Payara Micro Support
 All the advanced properties are now also supported on Payara Micro datasources deployed with your microservices application. Bringing advanced debugging and diagnostics support.

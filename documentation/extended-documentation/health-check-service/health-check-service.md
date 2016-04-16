@@ -1,5 +1,5 @@
 #Healthcheck Service
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
 In the 161 release we also have the new Healthcheck Service. Payara Server now periodically checks;
 
@@ -13,6 +13,6 @@ If there is a problem with any of these metrics and they exceed a configurable t
 
 For more details and configuration see the pages below.
 
-[Healthcheck Service Configuration] (Health-Check-Services-Configuration-(Payara-4.1.1.161.1))
+[Healthcheck Service Configuration] (Health-Check-Services-Configuration-(Payara-4.1.1.162))
 
-[Healthcheck asadmin commands](Health-Check-Services-Admin-Commands-(Payara-4.1.1.161.1))
+[Healthcheck asadmin commands](Health-Check-Services-Admin-Commands-(Payara-4.1.1.162))

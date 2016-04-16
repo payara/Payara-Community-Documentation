@@ -12,6 +12,7 @@
     * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
     * [Payara Server 4.1.1.161 Release Notes](release-notes/release-notes-161.md)
     * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
+    * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
 * Core Documentation
 * Extended Documentation
     * [Advanced JDBC](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)

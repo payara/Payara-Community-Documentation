@@ -1,4 +1,4 @@
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
 Health Check Services offer 4 admin commands to enable/disable health checking, list all available services or do configuration per service basis.
 

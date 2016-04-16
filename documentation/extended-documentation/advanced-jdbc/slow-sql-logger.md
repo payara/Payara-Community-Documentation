@@ -1,7 +1,7 @@
 # Slow SQL Logger
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
-Many performance problems in Enterprise Applications can be traced to slow database access. Payara Server 161 (4.1.1.161) includes capabilities to detect and log slow SQL queries executed via a Connection pool. The Slow SQL logger monitors all queries executed on the connection pool and if they exceed a configurable execution time in seconds a warning message is logged into the server log. The warning message (see below) logs the SQL query and the stack trace to the code executing the query. This enables rapid diagnosis pinpointing the exact lines of code to investigate.
+Many performance problems in Enterprise Applications can be traced to slow database access. Payara Server 161 (4.1.1.162) includes capabilities to detect and log slow SQL queries executed via a Connection pool. The Slow SQL logger monitors all queries executed on the connection pool and if they exceed a configurable execution time in seconds a warning message is logged into the server log. The warning message (see below) logs the SQL query and the stack trace to the code executing the query. This enables rapid diagnosis pinpointing the exact lines of code to investigate.
 
 ## Configuring the Slow SQL Logger
 There are a number of ways to configure the slow SQL threshold time on a connection pool.

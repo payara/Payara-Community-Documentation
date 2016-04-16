@@ -1,4 +1,4 @@
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
 Payara provides services for monitoring the health of the server by collecting information on CPU Usage, Machine Memory and Heap Memory Usage and Garbage Collector Execution Times. The Health Check Services can be configured through the domain.xml as given follows:
 ```xml

@@ -41,7 +41,7 @@
     * [13.2.3 Javadoc](#1323-javadoc)
 
 # 1. Overview
-This page shall cover how to use Payara Micro 4.1.1.161.  
+This page shall cover how to use Payara Micro 4.1.1.162.  
 
 Payara Micro is an embedded release of Payara built from the Payara Embedded Web release. It allows you to deploy and run WAR files from the command line with a single command, and also features automatic, dynamic clustering with Hazelcast.
 

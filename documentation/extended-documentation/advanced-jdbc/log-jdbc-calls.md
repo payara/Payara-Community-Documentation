@@ -1,7 +1,7 @@
 # JDBC Call Logging (SQL Tracing)
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Payara Server and Micro 161 (4.1.1.162) onwards_
 
-From Payara 161 (4.1.1.161) tracing of all SQL calls through a Payara Server connection pool is possible, with the time taken to execute the call also recorded. SQL Tracing is ideal fo debugging those hard to pin down performance issues during the development phase and as all SQL is visible SQL tracing is also a great way to see the SQL generated out of your JPA code. With "Log JDBC Calls" configured on the connection call each call into the Connection pool is timed and logged to the server log at FINE level. A typical log message with Log JDBC Enabled is shown below;
+From Payara 161 (4.1.1.162) tracing of all SQL calls through a Payara Server connection pool is possible, with the time taken to execute the call also recorded. SQL Tracing is ideal fo debugging those hard to pin down performance issues during the development phase and as all SQL is visible SQL tracing is also a great way to see the SQL generated out of your JPA code. With "Log JDBC Calls" configured on the connection call each call into the Connection pool is timed and logged to the server log at FINE level. A typical log message with Log JDBC Enabled is shown below;
 
 ```shell
 [#|2016-02-04T18:51:01.467+0000|FINE|Payara 4.1|javax.enterprise.resource.sqltrace.com.sun.gjc.util|_ThreadID=35;_ThreadName=http-listener-1(5);_TimeMillis=1454611861467;_LevelValue=500;ClassName=com.sun.gjc.util.SQLTraceLogger;MethodName=sqlTrace;|
