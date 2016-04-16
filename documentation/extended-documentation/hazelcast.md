@@ -28,7 +28,7 @@
   * [7.4 restart-hazelcast](#74-restart-hazelcast)
 
 # 1. Overview
-This page covers how to use the Hazelcast functionality in Payara 4.1.152.  
+This page covers how to use the Hazelcast functionality in Payara 4.1.152.1.  
 Hazelcast is an In-Memory Data Grid, providing Web and EJB session persistence, and implementing JSR107 (JCache) in Payara Server.
 
 # 2. Documentation Conventions
@@ -79,7 +79,7 @@ From here, the following configuration options are available to you (excluding t
 | Property                    | Description                                                                                                                          |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | Dynamic                     | Determines if the Hazelcast member embedded in Payara will be restarted to apply any changes made                               |
-| Override Configuration File | Specifies the Hazelcast configuration file to use. The path specified is relative to the domain config directory.               |
+| Override Configuration File | Specifies the Hazelcast configuration file to use. The path specified is relative to the domain config directory. If you are using a custom GlassFish server configuration for a cluster or standalone instance e.g. cluster-config then the hazelcast configuration file should be placed in the directory with the same name e.g. $domain_root/config/cluster-config. This will ensure it is replicated to the node during startup.                |
 | Start Port                  | Determines the port to start Hazelcast on. If this port is in use, Hazelcast will increment this port until it finds one it can use. |
 | Multicast Port              | The multicast port for communications in the Hazelcast cluster.                                                                     |
 | Multicast Group             | The multicast group for communications in the Hazelcast cluster.                                                                     |
@@ -141,7 +141,7 @@ To import the Hazelcast package, you will need to set the Payara Hazelcast packa
     <scope>provided</scope>
 </dependency>
 ```
-    
+
 The Hazelcast JAR (for non-Maven projects), can either be downloaded from the [Hazelcast website](http://hazelcast.org/download/), or you can make use of the JAR packaged with Payara. The JAR packaged with Payara can be found at _${Product-Root}/glassfish/modules/hazelcast.jar_.  
 
 The following will initialise a _HazelcastInstance_ variable with the instance embedded in Payara:
@@ -150,7 +150,7 @@ The following will initialise a _HazelcastInstance_ variable with the instance e
 Context ctx = new InitialContext();  
 HazelcastInstance instance = (HazelcastInstace) ctx.lookup("payara/Hazelcast");  
 ```
-        
+
 You will have to wrap this in a try-catch clause, or throw the _Naming Exception_ that this could generate.  
 
 # 6. Using Hazelcast for the Web and EJB Container Persistence
