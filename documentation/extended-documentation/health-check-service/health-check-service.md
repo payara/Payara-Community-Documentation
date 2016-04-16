@@ -13,6 +13,6 @@ If there is a problem with any of these metrics and they exceed a configurable t
 
 For more details and configuration see the pages below.
 
-[Healthcheck Service Configuration] (Health-Check-Services-Configuration-(Payara-4.1.1.161))
+[Healthcheck Service Configuration] (Health-Check-Services-Configuration-(Payara-4.1.1.161.1))
 
-[Healthcheck asadmin commands](Health-Check-Services-Admin-Commands-(Payara-4.1.1.161))
+[Healthcheck asadmin commands](Health-Check-Services-Admin-Commands-(Payara-4.1.1.161.1))
