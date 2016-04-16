@@ -8,7 +8,7 @@ There are a number of ways to configure the slow SQL threshold time on a connect
 
 ### Administration Console
 To configure slow SQL logging on a connection pool via the administration console. Navigate to the Connection Pool's Advanced Properties tab and specify the Slow Query Log Threshold time in seconds (-1) disables the feature. 
-![Slow SQL Logging settings in the administration console](images/slowsqllogging.png)
+![Slow SQL Logging settings in the administration console](/images/slowsqllogging.png)
 
 ### asadmin
 The Slow Query log Threshold Time for a connection pool can also be configured via asadmin using the set command to set the slow-query-threshold-in-seconds property of your connection pool. For example the command below sets the threshold on the __TimerPool to 50 seconds.
