@@ -3,7 +3,7 @@
 * [General Info](general-info/general-info.md)
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
-* Release Notes
+* [Release Notes](release-notes/release-notes.md)
     * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
     * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
     * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
@@ -13,8 +13,8 @@
     * [Payara Server 4.1.1.161 Release Notes](release-notes/release-notes-161.md)
     * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
     * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
-* Core Documentation
-* Extended Documentation
+* [Core Documentation](documentation/core-documentation/core-documentation.md)
+* [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Advanced JDBC](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)
         * [Advanced Connection Pool Properties](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)
         * [Log JDBC Calls](documentation/extended-documentation/advanced-jdbc/log-jdbc-calls.md)
@@ -26,5 +26,4 @@
     * [Health Check Service](documentation/extended-documentation/health-check-service/health-check-service.md)
         * [Asadmin Commands](documentation/extended-documentation/health-check-service/asadmin-commands.md)
         * [Configuration](documentation/extended-documentation/health-check-service/configuration.md)
-* Payara Micro Documentation
-    * [Payara Micro Overview](documentation/payara-micro/payara-micro.md)
+* [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
