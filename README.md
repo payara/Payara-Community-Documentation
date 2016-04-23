@@ -1,6 +1,3 @@
-# Payara Server
-
-
 ![Payara Logo](payara-logo-blue.png)
 
 
