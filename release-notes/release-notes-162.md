@@ -1,7 +1,7 @@
 # Release Highlights
 
 # Updated Modules
-This section details the modules that have been updated since the last release (4.1.1.154).
+This section details the modules that have been updated since the last release (4.1.1.161.1).
 
 # Enhancements
 This section details the issues marked as enhancements that have been implemented for this release.

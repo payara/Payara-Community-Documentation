@@ -1,5 +1,5 @@
 # Updated Modules
-This section details the modules that have been updated since the last release (4.1.1.154).
+This section details the modules that have been updated since the last release (4.1.1.161).
 
 * Metro 2.3.2-b608.payara-p3 (Removed Pax-Logging)
 
