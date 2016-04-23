@@ -1,4 +1,4 @@
-![Payara Logo](https://s3-eu-west-1.amazonaws.com/payara.co/Fish-alone.jpg)
+![Payara Logo](payara-logo-blue.png)
 
 ## Welcome to the Payara wiki General Information Page!
 This page provides some general information about the Payara Project.
