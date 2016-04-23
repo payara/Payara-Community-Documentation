@@ -1,4 +1,4 @@
-![Payara Logo](payara-logo-blue.png)
+![Payara Logo](/images/payara-logo-blue.png)
 
 ## Welcome to the Payara wiki General Information Page!
 This page provides some general information about the Payara Project.
