@@ -1,4 +1,4 @@
-![Payara Logo](payara-logo-blue.png)
+![Payara Logo](/images/payara-logo-blue.png)
 
 ## Welcome to the Payara wiki Build Instructions Page!
 This page provides instructions on how to build the Payara source code.
