@@ -14,6 +14,7 @@
       * [4.2.2.1 Deploying an Application to Multiple Bootstrapped Instances Programmatically](#4221-deploying-an-application-to-multiple-bootstrapped-instances-programmatically)
 * [5. Configuring an Instance](#5-configuring-an-instance)
   * [5.1 Configuring an Instance from the Command Line](#51-configuring-an-instance-from-the-command-line)
+    * [5.1.1 Precedence](#511-precedence)
   * [5.2 Configuring an Instance Programmatically](#52-configuring-an-instance-programmatically)
 * [6. Stopping an Instance](#6-stopping-an-instance)
   * [6.1 Stopping an Instance from the Command Line](#61-stopping-an-instance-from-the-command-line)
@@ -430,6 +431,13 @@ As an example, see below for starting an instance with a non-default HTTP port:
 ```Shell
 java -jar payara-micro.jar --port 2468
 ```
+
+### 5.1.1 Precedence
+If specifying multiple options at once, the following precedence is followed:
+
+_rootDir < domainConfig < autoBindHttp | autoBindSsl < port | sslPort_
+
+In English: The domain.xml in the directory specified by the _rootDir_ option (if one exists) is overriden by the domain.xml specified with the _domainConfig_ option. The Http and Https port numbers specified in either of these domain.xml files are overidden to be the default values of 8080 and 8081 when the _autoBindHttp_ or _autoBindSsl_ options are enabled respectively. These default port values are then overriden in turn by the port numbers specified with the _port_ or _sslPort_ options.
 
 ## 5.2 Configuring an Instance Programmatically
 There are various methods available for configuring a Payara Micro instance programmatically. You can only configure an instance before it is bootstrapped however.
