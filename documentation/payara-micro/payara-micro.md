@@ -734,6 +734,7 @@ Configuration Option | Description | Default Value
 `--outputUberJar` |  packages up an uber jar at the specified path based on the command line arguments and exits | |
 `--systemProperties` | Reads system properties from a file | |
 `--logo` | Reveals the #BadAssFish or a custom logo on boot | |
+`--disablePhoneHome` | Disables _Phone Home_ activities for this instance | If not set, _Phone Home_ is active
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
 ## 13.2 Payara Micro API
