@@ -7,6 +7,7 @@
 * [4. Deploying Applications](#4-deploying-applications)
   * [4.1 Deploying an Application from the Command Line](#41-deploying-an-application-from-the-command-line)
     * [4.1.1 Deploying Multiple Applications from the Command Line](#411-deploying-multiple-applications-from-the-command-line)
+    * [4.1.2 Deploying Applications from a Maven Repository](#412-deploying-applications-from-a-maven-repository)
   * [4.2 Deploying Applications Programmatically](#42-deploying-applications-programmatically)
     * [4.2.1 Deploying an Application during Bootstrap](#421-deploying-an-application-programmatically-during-bootstrap)
       * [4.2.1.1 Deploying Multiple Applications Programmatically during Bootstrap](#4211-deploying-multiple-applications-programmatically-during-bootstrap)
