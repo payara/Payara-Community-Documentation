@@ -30,7 +30,10 @@ Once enabled or disabled, the asadmin recorder will remain enabled/disabled unti
 | Command | Description | Options |
 |------------------------------------|--------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | get-asadmin-recorder-configuration | Returns the current configuration of the Asadmin Recorder service. |  |
-| set-asadmin-recorder-configuration | Configures the Asadmin Recorder service. | `--enabled` - Enables or Disables the Asadmin Recorder service.    `--outputLocation` - Specifies the absolute file path of where the recorded asadmin commands will be written to `--filterCommands` - Specifies whether or not the commands specified with the _--filteredcommands_ option should be excluded from being recorded or not. `--filteredCommands` - A comma separated list of asadmin commands to exclude from being recorded. |
+| set-asadmin-recorder-configuration | Configures the Asadmin Recorder service. | `--enabled` - Enables or Disables the Asadmin Recorder service.  
+`--outputLocation` - Specifies the absolute file path of where the recorded asadmin commands will be written to.  
+`--filterCommands` - Specifies whether or not the commands specified with the _--filteredcommands_ option should be excluded from being recorded or not.  
+`--filteredCommands` - A comma separated list of asadmin commands to exclude from being recorded. |
 | enable-asadmin-recorder | Enables the Asadmin Recorder service with it's current configuration settings. |  |
 | disable-asadmin-recorder | Disables the Asadmin Recorder service. |  |
 | asadmin-recorder-enabled | Returns whether or not the Asadmin Recorder service is enabled. |  |
