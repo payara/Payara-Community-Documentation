@@ -169,6 +169,18 @@ java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSH
 
 This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
 
+By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `--additionalRepository` option:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/
+```
+
+To search through multiple additional repositories, you can simply call the option multiple times:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
+```
+
 ## 4.2 Deploying Applications Programmatically
 This section details deploying applications from within your code.
 
