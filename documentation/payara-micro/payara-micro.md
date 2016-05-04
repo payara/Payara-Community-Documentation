@@ -159,6 +159,15 @@ Alternatively, you can use the `--deploymentDir` option. This option specifies a
 java -jar payara-micro.jar --deploymentDir /home/user/deployments
 ```
 
+### 4.1.2 Deploying Applications from a Maven repository
+You can deploy an application directly from a Maven repository using the `--deployFromGAV` option. This option accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT"
+```
+
+This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
+
 ## 4.2 Deploying Applications Programmatically
 This section details deploying applications from within your code.
 
