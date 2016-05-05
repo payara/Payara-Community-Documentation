@@ -627,7 +627,7 @@ In your project's POM, include the following dependency:
 <dependency>
     <groupId>fish.payara.extras</groupId>
     <artifactId>payara-micro</artifactId>
-    <version>4.1.152.1</version>
+    <version>4.1.1.162</version>
 </dependency>
 ```
 
