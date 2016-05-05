@@ -1,4 +1,8 @@
 # Release Highlights
+Our highlights for the 162 release are our new asadmin command recorder and the ability to disable CDI for applications.
+
+The asadmin recorder feature will allow you view the commands you have run from the admin console. These can be used to investigate what the console is really doing or used in automation scripts. 
+The ability to edit the glassfish-web.xml to disable CDI will prevent Payara from automatically using CDI with deployed applications. Thus removing reliance on switches to disable CDI for applications that do not support it.
 
 # New Features
 This section details the newly developed additions to Payara Server.
@@ -8,28 +12,29 @@ This section details the newly developed additions to Payara Server.
 * [697/PAYARA-163 - connection pool checker impl](https://github.com/payara/Payara/pull/697)
 * [724/PAYARA-201 - Initial working Asadmin Recorder with Admin Console integration](https://github.com/payara/Payara/pull/742)
 * [777/PAYARA-629 - Disable CDI for an entire deployment in deployment descriptor](https://github.com/payara/Payara/pull/777)
-* [629/627 - Invocation Webservice deployed from directory](https://github.com/payara/Payara/pull/629)
+* [627 - Invocation Webservice deployed from directory](https://github.com/payara/Payara/pull/629)
 * [784/PAYARA-685 - Phone Home Service Creation](https://github.com/payara/Payara/pull/784)
-* 
+
 
 
 
 # Updated Modules
 This section details the modules that have been updated since the last release (4.1.1.161.1).
-* [Guava 18.0]
-* weld 2.3
+* Guava 18.0
+* Weld 2.3.2.Final
 * Tyrus 1.12
 * hk2 2.4.0
-* mojarra 2.2.13
+* Mojarra 2.2.13
+* Grizzly 2.3.24
+* Shoal 1.7.0
+* 4.0.1-p3(Patched to payara-p3)
+* Hazelcast 3.6.2
 
 
 
 # Enhancements
 This section details the issues marked as enhancements that have been implemented for this release.
 * [602/PAYARA-639 - Unique IDs are kept based on the name of the EJB](https://github.com/payara/Payara/pull/602)
-* [635/PAYARA-577 - get weld 2.3.x working on payara](https://github.com/payara/Payara/pull/635)
-* [661/PAYARA-587 - Upgraded to Tyrus 1.12](https://github.com/payara/Payara/pull/661)
-* [665/PAYARA-585 - grizzly upgrade](https://github.com/payara/Payara/pull/665)
 * [677/PAYARA-593 - Cleanup on Admin Console](https://github.com/payara/Payara/pull/677)
 * [691/PAYARA-610 - integrated healthcheck with payara micro](https://github.com/payara/Payara/pull/691)
 * [694/PAYARA-263 - Autobinding port precedence warnings](https://github.com/payara/Payara/pull/694)
@@ -45,7 +50,6 @@ This section details the issues marked as enhancements that have been implemente
 * [750/PAYARA-688 - Add ability to pass a system properties file to Payara Micro](https://github.com/payara/Payara/pull/750)
 * [776/PAYARA-707 - edit of message for tls](https://github.com/payara/Payara/pull/776)
 * [749/PAYARA-686 - Clean up the help message by indicating whether a command line flag has a parameter or not](https://github.com/payara/Payara/pull/749)
-* [767/PAYARA-597 - upgrade to latest hazelcast 3.6.2](https://github.com/payara/Payara/pull/767)
 * [772/PAYARA-728 - Implement new index page](https://github.com/payara/Payara/pull/772)
 * [774/PAYARA-672 - add PostgreSQL ejbtimer table creation sql](https://github.com/payara/Payara/pull/774)
 * [785/PAYARA-390 - allow monitoring of asynchronous methods](https://github.com/payara/Payara/pull/785)
@@ -58,7 +62,7 @@ This section details the issues marked as bugs that have been fixed for this rel
 This section details the fixes implemented by the Payara team or community.
 * [617/PAYARA-657 - GLASSFISH-21486: EntityManager should not be detached in extended Persistence context](https://github.com/payara/Payara/pull/617)
 * [637/PAYARA-599 - Remove Boot time OSGI warnings](https://github.com/payara/Payara/pull/637)
-* [640/PAYARA-658 - GLASSFISH-20818: Pass passwords from passwordfile to commands
+* [640/PAYARA-658 - GLASSFISH-20818: Pass passwords from passwordfile to commands](https://github.com/payara/Payara/pull/640)
 * [649/PAYARA-624 - mixed cluster session replication](https://github.com/payara/Payara/pull/649)
 * [656/PAYARA-594 - Spurious AllPermission warning](https://github.com/payara/Payara/pull/656)
 * [658/PAYARA-542 - Cannot enable secure ciphers for admin listener](https://github.com/payara/Payara/pull/658)
@@ -93,7 +97,6 @@ This section details the fixes implemented by the Payara team or community.
 * [762/PAYARA-717 - invokeMethod now depends on getDeclaredMethod as recursive instead of getMethod](https://github.com/payara/Payara/pull/762)
 * [766/PAYARA-708 - Admin-console-still-shows-Grizzly-Snoop-option-despite-the-feature-being-removed](https://github.com/payara/Payara/pull/766)
 * [783/PAYARA-738 - references to weld osgi bundle.jar should be fixed](https://github.com/payara/Payara/pull/783)
-* 
 
 
 
