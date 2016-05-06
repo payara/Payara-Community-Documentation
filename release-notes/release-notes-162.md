@@ -27,7 +27,7 @@ This section details the modules that have been updated since the last release (
 * Mojarra 2.2.13
 * Grizzly 2.3.24
 * Shoal 1.7.0
-* 4.0.1-p3(Patched to payara-p3)
+* Corba 4.0.1-p3(Patched to payara-p3)
 * Hazelcast 3.6.2
 
 
