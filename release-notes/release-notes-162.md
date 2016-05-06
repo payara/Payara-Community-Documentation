@@ -1,8 +1,12 @@
 # Release Highlights
-Our highlights for the 162 release are our new asadmin command recorder and the ability to disable CDI for applications.
+Our highlights for the 162 release are our new asadmin command recorder, Payara micro's new ability to create uber jars and Payara servers ability to disable CDI for applications.
 
 The asadmin recorder feature will allow you view the commands you have run from the admin console. These can be used to investigate what the console is really doing or used in automation scripts. 
+
+Payara Micro now has --outputUberJar option that allows you to create easily distributed uber-jars from your war files.
+
 The ability to edit the glassfish-web.xml to disable CDI will prevent Payara from automatically using CDI with deployed applications. Thus removing reliance on switches to disable CDI for applications that do not support it.
+
 
 # New Features
 This section details the newly developed additions to Payara Server.
@@ -26,8 +30,6 @@ This section details the modules that have been updated since the last release (
 * hk2 2.4.0
 * Mojarra 2.2.13
 * Grizzly 2.3.24
-* Shoal 1.7.0
-* Corba 4.0.1-p3(Patched to payara-p3)
 * Hazelcast 3.6.2
 
 
