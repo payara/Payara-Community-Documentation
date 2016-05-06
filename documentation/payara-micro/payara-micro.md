@@ -406,7 +406,12 @@ public class EmbeddedPayara
 
 See the [previous section](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance) for an example on using the `run` method on a subset of instances in a cluster.
 
-# 5. Configuring an Instance
+# 4.3 Deploying an Exploded War
+
+An exploded war can be deployed to a Payara Micro instance just be specifying the path to the exploded war root directory on the `--deploy` command line or via the api. The exploded war can be redeployed by creating a file .reload in the root directory of the explded war and updating its timestamp for example using 
+`touch .reload` in LINUX.
+
+# 5 Configuring an Instance
 This section details how to configure a Payara Micro instance.
 
 ## 5.1 Configuring an Instance from the Command Line
@@ -465,6 +470,73 @@ public class EmbeddedPayara
     }
 }
 ```
+
+It is also possible to configure an instance programmatically by specifying a domain.xml file that is packaged within your application by passing a resource string to the setApplicationDomainXML method. The path in the string will be rsolved using the getResource method of the Thread context class loader. 
+
+```Java
+import fish.payara.micro.BootstrapException;
+import fish.payara.micro.PayaraMicro;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+        PayaraMicro.getInstance().setApplicationDomainXML("config/domain.xml").bootStrap();
+    }
+}
+```
+
+## 5.3 Packaging a Configured Instance as an Uber Jar
+Sometimes it is preferable to package up your deployments, your configuration ainto a single jar file. To do this in Payara Micro use the `--outputUberJar` command line option for example;
+
+```shell
+java -jar payara-micro.jar --deploy test.war --outputUberJar test.jar
+```
+
+this will package up the payara-micro.jar and the war file into a single jar. this jar will then be able to be run with;
+
+```shell
+java -jar test.jar
+```
+
+Any additional command line options you specify when creating an uber jar are recorded and retained when you run the uber jar with no parameters. For example
+
+```shell
+java -jar payara-micro.jar --deploy test.war --port 9080 --lite --clusterName test-cluster --clusterPassword test-password --outputUberJar test2.jar
+```
+
+All the command line option for port etc. will be retained when the uber jar is ran with no parameters.
+
+## 5.4 Configuring Payara Micro via System Properties
+
+Payara Micro can also be configured via System properties. These can either be set on the command line or passed into Payara Micro using the `--systemProperties` command line option which will load the properties from the specified file.
+
+Payara micro supports the following system properties.
+
+System Property | Equivalent Command Line Flag
+--- | ---
+payaramicro.domainConfig |--domainConfig
+payaramicro.hzConfigFile |--hzConfigFile 
+payaramicro.autoBindHttp |--autoBindHttp
+payaramicro.autoBindRange|--autoBindrange
+payaramicro.autoBindSsl|--autoBindSsl
+payaramicro.enableHealthCheck|--enableHealthCheck
+payaramicro.port|--port
+payaramicro.mcAddress|--mcAddress
+payaramicro.mcPort|--mcPort
+payaramicro.clusterName|--clusterName
+payaramicro.clusterPassword|--clusterPassword
+payaramicro.lite|--lite
+payaramicro.maxHttpThreads|--maxHttpThreads
+payaramicro.minHttpThreads|--minHttpThreads
+payaramicro.noCluster|--noCluster
+payaramicro.disablePhoneHome|--disablePhoneHome
+payaramicro.rootDir|--rootDir
+payaramicro.name|--name
+
+## 5.5 Configuring Alternate Keystores for SSL
+Payara Micro comes with keystores embedded within the jar file. These can be overridden using the standard Java SSL system properties. `javax.net.ssl.trustStore` etc.
+
 
 # 6. Stopping an Instance
 This section describes how to shut down a Payara Micro instance.
@@ -529,7 +601,22 @@ The `--startPort` option is used to determine which port the Payara Micro instan
 
 For example, if there are already two Payara Micro instances running, which have bound ports 5900 and 5901, then a third instance started with a _startPort_ value of 5900 will first try to bind to 5900, then to 5901, then finally settle on 5902.
 
-If you wish to have multiple clusters, then you can make use of the `--mcAddress` and ``mcPort` options to define a different multicast address and port; assign a different address and port to each set of instances you wish to operate in a separate cluster and they will automatically make their own cluster on the new multicast address and port.
+If you wish to have multiple clusters, then you can make use of the `--mcAddress` and ``mcPort` options to define a different multicast address and port; assign a different address and port to each set of instances you wish to operate in a separate cluster and they will automatically make their own cluster on the new multicast address and port. You can also use `--clusterName` and `--clusterPassword` to segregate clusters. 
+
+# 7.1 Lite Cluster Members
+
+If you specify on the command line or through the API that a Payara Micro instance is a lite instance. Then the Payara Micro instance will join the cluster but will not store any clustered data, for example web session data or JCache data. This is very useful for a number of scenarios;
+
+You can create a cluster topology whereby a web application is hosted in a number of payara micro instances and the garbage collection ergonomics for these instances are tuned for throughput, in addition a number of payara micro instances are also in the cluster with no applications deployed and these instances are tuned for long lived web session data. In this case the web application instances could be designated as lite cluster members to ensure no web session data is stored within their JVMs.
+
+Lite members can also be used purely if you want a clustered payara micro instance to join the same cluster and receive CDI events or clustered events but without storing any data.
+
+# 7.2 Preventing Cluster Cross Talk
+
+By default Payara Micro clusters automatically discover other cluster members via multicast. This can lead to the situation whereby different development environments being used by different teams cluster together as they are using the same multicast address and multicast port. This can lead to confusing errors. To prevent cluster cross-talk ensure that the multicast-address and muticast-port are set to different values on each unique cluster. In the case where this is not possible payara micro provides the capability to set a cluster name and a cluster password both through the command line or through the api. If all the multicast settings are similar, instances will only cluster together if all the instances have the same cluster name and cluster password.
+
+# 7.3 Clustering with Payara Server
+Payara Micro can cluster with Payara Server and share web session and JCache data. To cluster with Payara Server just start up a Payara Micro instance with the same multicast address, multicast port, cluster name and cluster password as configured in your Payara Server.
 
 # 8. Payara Micro and Maven
 Payara Micro has been uploaded to Maven central, allowing you to include it as a dependency in your POM. This allows you to easily add the required Payara Micro classes and methods to your application to use Payara Micro programmatically.
@@ -540,7 +627,7 @@ In your project's POM, include the following dependency:
 <dependency>
     <groupId>fish.payara.extras</groupId>
     <artifactId>payara-micro</artifactId>
-    <version>4.1.152.1</version>
+    <version>4.1.1.162</version>
 </dependency>
 ```
 
@@ -600,6 +687,8 @@ Configuration Option | Description | Default Value
 `--mcAddress` | Sets the cluster multicast group for the instance. | 224.2.2.4
 `--mcPort` | Sets the cluster multicast port. | 2904
 `--startPort` | Sets the cluster start port number. | 5900
+`--clusterName`| Sets the cluster group name |
+`--clusterPassword` | Sets the cluster group password |
 `--name` | Sets the instance name. | Generated Universally Unique Identifier.
 `--rootDir` | Sets the root configuration directory and saves the configuration across restarts. | If not set, has no value and defaults to the temp directory.
 `--deploymentDir` | Sets a directory which will be scanned for WAR files for auto-deployment. | If not set, has no value and is not used.
@@ -611,6 +700,10 @@ Configuration Option | Description | Default Value
 `--autoBindHttp` | Enables auto-binding for the HTTP port | _false_
 `--autoBindSsl` | Enables auto-binding for the HTTPS port | _false_
 `--autoBindRange` | Sets the range for HTTP and HTTPS port auto-binding. | 5
+`--lite` | sets the micro container to lite mode which means it clusters with other Payara Micro instances but does not store clustered data | |
+`--outputUberJar` |  packages up an uber jar at the specified path based on the command line arguments and exits | |
+`--systemProperties` | Reads system properties from a file | |
+`--logo` | Reveals the #BadAssFish or a custom logo on boot | |
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
 ## 13.2 Payara Micro API
