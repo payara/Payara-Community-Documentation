@@ -26,4 +26,9 @@
     * [Health Check Service](documentation/extended-documentation/health-check-service/health-check-service.md)
         * [Asadmin Commands](documentation/extended-documentation/health-check-service/asadmin-commands.md)
         * [Configuration](documentation/extended-documentation/health-check-service/configuration.md)
-* [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
+    * [Asadmin Recorder Service](documentation/extended-documentation/asadmin-recorder.md)
+    * [Phone Home](documentation/extended-documentation/phone-home/phone-home.md)
+        * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
+    * [System Properties](documentation/extended-documentation/system-properties.md)
+* Payara Micro Documentation
+    * [Payara Micro Overview](documentation/payara-micro/payara-micro.md)

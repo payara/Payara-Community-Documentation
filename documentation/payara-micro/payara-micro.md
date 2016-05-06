@@ -7,6 +7,7 @@
 * [4. Deploying Applications](#4-deploying-applications)
   * [4.1 Deploying an Application from the Command Line](#41-deploying-an-application-from-the-command-line)
     * [4.1.1 Deploying Multiple Applications from the Command Line](#411-deploying-multiple-applications-from-the-command-line)
+    * [4.1.2 Deploying Applications from a Maven Repository](#412-deploying-applications-from-a-maven-repository)
   * [4.2 Deploying Applications Programmatically](#42-deploying-applications-programmatically)
     * [4.2.1 Deploying an Application during Bootstrap](#421-deploying-an-application-programmatically-during-bootstrap)
       * [4.2.1.1 Deploying Multiple Applications Programmatically during Bootstrap](#4211-deploying-multiple-applications-programmatically-during-bootstrap)
@@ -14,6 +15,7 @@
       * [4.2.2.1 Deploying an Application to Multiple Bootstrapped Instances Programmatically](#4221-deploying-an-application-to-multiple-bootstrapped-instances-programmatically)
 * [5. Configuring an Instance](#5-configuring-an-instance)
   * [5.1 Configuring an Instance from the Command Line](#51-configuring-an-instance-from-the-command-line)
+    * [5.1.1 Precedence](#511-precedence)
   * [5.2 Configuring an Instance Programmatically](#52-configuring-an-instance-programmatically)
 * [6. Stopping an Instance](#6-stopping-an-instance)
   * [6.1 Stopping an Instance from the Command Line](#61-stopping-an-instance-from-the-command-line)
@@ -156,6 +158,27 @@ Alternatively, you can use the `--deploymentDir` option. This option specifies a
 
 ```Shell
 java -jar payara-micro.jar --deploymentDir /home/user/deployments
+```
+
+### 4.1.2 Deploying Applications from a Maven repository
+You can deploy an application directly from a Maven repository using the `--deployFromGAV` option. This option accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT"
+```
+
+This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
+
+By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `--additionalRepository` option:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/
+```
+
+To search through multiple additional repositories, you can simply call the option multiple times:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
 ```
 
 ## 4.2 Deploying Applications Programmatically
@@ -431,6 +454,13 @@ As an example, see below for starting an instance with a non-default HTTP port:
 java -jar payara-micro.jar --port 2468
 ```
 
+### 5.1.1 Precedence
+If specifying multiple options at once, the following precedence is followed:
+
+_rootDir < domainConfig < autoBindHttp | autoBindSsl < port | sslPort_
+
+In English: The domain.xml in the directory specified by the _rootDir_ option (if one exists) is overriden by the domain.xml specified with the _domainConfig_ option. The Http and Https port numbers specified in either of these domain.xml files are overidden to be the default values of 8080 and 8081 when the _autoBindHttp_ or _autoBindSsl_ options are enabled respectively. These default port values are then overriden in turn by the port numbers specified with the _port_ or _sslPort_ options.
+
 ## 5.2 Configuring an Instance Programmatically
 There are various methods available for configuring a Payara Micro instance programmatically. You can only configure an instance before it is bootstrapped however.
 
@@ -704,6 +734,7 @@ Configuration Option | Description | Default Value
 `--outputUberJar` |  packages up an uber jar at the specified path based on the command line arguments and exits | |
 `--systemProperties` | Reads system properties from a file | |
 `--logo` | Reveals the #BadAssFish or a custom logo on boot | |
+`--disablePhoneHome` | Disables _Phone Home_ activities for this instance | If not set, _Phone Home_ is active
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
 ## 13.2 Payara Micro API
