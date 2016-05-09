@@ -197,7 +197,7 @@ public class EmbeddedPayara
 {
     public static void main(String[] args) throws BootstrapException 
     {
-        PayaraMicro.getInstance().addDeployment(/home/user/example.war).bootStrap();
+        PayaraMicro.getInstance().addDeployment("/home/user/example.war").bootStrap();
     }
 }
 ```
