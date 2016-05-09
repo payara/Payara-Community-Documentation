@@ -197,7 +197,7 @@ public class EmbeddedPayara
 {
     public static void main(String[] args) throws BootstrapException 
     {
-        PayaraMicro.getInstance().addDeployment(/home/user/example.war).bootStrap();
+        PayaraMicro.getInstance().addDeployment("/home/user/example.war").bootStrap();
     }
 }
 ```
@@ -517,7 +517,7 @@ public class EmbeddedPayara
 ```
 
 ## 5.3 Packaging a Configured Instance as an Uber Jar
-Sometimes it is preferable to package up your deployments, your configuration ainto a single jar file. To do this in Payara Micro use the `--outputUberJar` command line option for example;
+Sometimes it is preferable to package the application, configuration and dependencies into a single executable jar. To do this with Payara Micro use the `--outputUberJar` command line option for example;
 
 ```shell
 java -jar payara-micro.jar --deploy test.war --outputUberJar test.jar
