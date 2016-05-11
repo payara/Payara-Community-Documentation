@@ -1,14 +1,14 @@
 # Contents
 * [1. Overview](#1-overview)
 * [2. Documentation Conventions](#2-documentation-conventions)
-* [3. Default Class and Library Loading](#3-default-loading)
-  * [3.1 Possible issues with default behavior](#31-possible-issues)
-* [4. Solutions to the Class Loading issue](#4-solutions)
-  * [4.1 Globally override Payara-included libraries](#41-global-override)
-  * [4.2 WAR Files](#42-override-war-files)
-  * [4.3 EAR Files](#43-override-ear-files)
-  * [4.4 Payara domain](#44-override-payara-domain)
-* [5. Conclusion and Recommendations](#5-conclusion)
+* [3. Default Class and Library Loading](#3-default-class-and-library-loading)
+  * [3.1 Possible issues with default behavior](#31-possible-issues-with-default-behavior)
+* [4. Solutions to the Class Loading issue](#4-solutions-to-the-class-loading-issue)
+  * [4.1 Globally override Payara-included libraries](#41-globally-override-payara-included-libraries)
+  * [4.2 WAR Files](#42-war-files)
+  * [4.3 EAR Files](#43-ear-files)
+  * [4.4 Payara domain](#44-payara-domain)
+* [5. Conclusion and Recommendations](#5-conclusion-and-recommendations)
 
 # 1. Overview
 This page covers how to use the Enhanced Class and Library Loading functionality in Payara 4.1.1.162.  
