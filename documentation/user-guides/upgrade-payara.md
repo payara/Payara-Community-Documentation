@@ -1,8 +1,6 @@
 # Upgrade Payara Server
 
-The answer to the question of “how do I upgrade?” is always “it depends” because everyone’s situation is going to be slightly different. This blog will cover some of the most straightforward ways which should apply in the majority of cases.
-
-Either of the following two methods would work in most circumstances:
+There are two valid methods of fully upgrading to a new release of Payara Server. Either of the following two methods would work in most circumstances:
 
 * Backing up and restoring the existing configuration to a new installation
 
