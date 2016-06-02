@@ -3,7 +3,6 @@
 There are two valid methods of fully upgrading to a new release of Payara Server. Either of the following two methods would work in most circumstances:
 
 * Backing up and restoring the existing configuration to a new installation
-
 * Maintaining completely separate domain and node directories and pointing the new version to the existing directories
 
 ### Method 1: Backup and Restore
@@ -13,11 +12,8 @@ There are detailed instructions on backup and restore already in my recent blog 
 In summary, the method would involve the following steps:
 
 * Stop the running domain
-
-o The asadmin `backup-domain` subcommand will only work if the domain is not running so, if this method is chosen for a production system, there would need to be an arranged period of downtime
-
+    * The asadmin `backup-domain` subcommand will only work if the domain is not running so, if this method is chosen for a production system, there would need to be an arranged period of downtime
 * Run `asadmin backup-domain` from the existing Payara Server installation
-
 * Once the domain has been backed up, restore the domain to the newly downloaded Payara Server installation by running `asadmin restore-domain` from the bin directory of the new Payara Server installation
 
 After following those steps, you should be left with a similar directory structure to the following:
@@ -87,7 +83,7 @@ Then you could start your domain with whatever version of Payara you wanted:
 /opt/payara/162/payara41/bin/asadmin start-domain --domaindir /opt/payara/domains myDomain
 ```
 
-***Note**: the `--domaindir` option specifies the parent directory for your domain...so where you would store all of your domains. There is then a space and then the name of the domain you want to start - domain1 is still the default*
+> ***Note***: *the `--domaindir` option specifies the parent directory for your domain...so where you would store all of your domains. There is then a space and then the name of the domain you want to start - domain1 is still the default*
 
 You can start nodes in the same way:
 
