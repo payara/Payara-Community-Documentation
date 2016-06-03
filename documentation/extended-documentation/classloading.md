@@ -42,17 +42,17 @@ Class Loading is accomplished in the following order:
 * Libraries from the Domain - _${Domain}_/lib
 * And finally, libraries from Payara itself - _${Product-Root}_/modules
 
-This is Payara-specific feature
+This is a Payara-specific feature
 
 # 4.2 WAR Files
-For WAR files, you can include `<class-loader delegate="true"/>` in your `WEB-INF/glassfish-web.xml`
-With this option, your `WEB-INF/lib/xxx.jar` libraries libraries will take precedence over Payara-included libraries.
+For WAR files, you can include `<class-loader delegate="false"/>` in your `WEB-INF/glassfish-web.xml`
+With this option, your `WEB-INF/lib/xxx.jar` libraries will take precedence over Payara-included libraries.
 
 # 4.3 EAR Files
 For EAR files, you can include `<classloading-delegate>false</classloading-delegate>` in your `META-INF/glassfish-application.xml` file.
 With this option, your EAR-included libraries will override Payara-included libraries.
 
-This is Payara-specific feature
+This is a Payara-specific feature
 
 # 4.4 Payara domain
 The only way to enable libraries in the _${Domain}_/lib to override Payara-included libraries ( _${Product-Root}_/modules )
