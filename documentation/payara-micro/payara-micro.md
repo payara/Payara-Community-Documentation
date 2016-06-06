@@ -432,7 +432,7 @@ public class EmbeddedPayara
 See the [previous section](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance) for an example on using the `run` method on a subset of instances in a cluster.
 
 ## 4.2.3 Deploying an Application Programmatically from a Maven Repository
-To deploy an application Programmatically directly from a Maven repository, you will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()` method. This method accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
+To deploy an application programmatically directly from a Maven repository, you will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()` method. This method accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
 
 ```Java
 import fish.payara.micro.PayaraMicro;
@@ -463,7 +463,7 @@ public class EmbeddedPayara
 }
 ```
 
-To search through multiple additional repositories, you can simply call the `addRepoUrl` method add URL of the repository separated by a comma :
+To search through multiple additional repositories, you can simply call the `addRepoUrl` method, using commas to separate URLs:
 
 ```Java
 import fish.payara.micro.PayaraMicro;
