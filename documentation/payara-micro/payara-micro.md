@@ -13,6 +13,8 @@
       * [4.2.1.1 Deploying Multiple Applications Programmatically during Bootstrap](#4211-deploying-multiple-applications-programmatically-during-bootstrap)
     * [4.2.2 Deploying an Application Programmatically to Bootstrapped Instances](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance)
       * [4.2.2.1 Deploying an Application to Multiple Bootstrapped Instances Programmatically](#4221-deploying-an-application-to-multiple-bootstrapped-instances-programmatically)
+    * [4.2.3 Deploying an Application Programmatically from a Maven Repository] (#423-deploying-an-application-programmatically-from-a-maven-repository)
+      * [4.2.3.1 Deploying Multiple Applications from a Maven Repository] (#4231-deploying-multiple-applications-from-a-maven-repository)
 * [5. Configuring an Instance](#5-configuring-an-instance)
   * [5.1 Configuring an Instance from the Command Line](#51-configuring-an-instance-from-the-command-line)
     * [5.1.1 Precedence](#511-precedence)
@@ -89,7 +91,7 @@ public class EmbeddedPayara
 { 
     public static void main(String[] args) throws BootstrapException
     {   
-        PayaraMicro.bootStrap();
+        PayaraMicro.bootstrap();
     }    
 }
 ```
@@ -428,6 +430,77 @@ public class EmbeddedPayara
 ```
 
 See the [previous section](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance) for an example on using the `run` method on a subset of instances in a cluster.
+
+## 4.2.3 Deploying an Application Programmatically from a Maven Repository
+To deploy an application programmatically directly from a Maven repository, you will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()` method. This method accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
+
+```Java
+import fish.payara.micro.PayaraMicro;
+import fish.payara.micro.BootstrapException;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+       PayaraMicro.getInstance().addDeployFromGAV("fish.payara.testing,clusterjsp,1.1").bootStrap();
+    }
+}
+```
+
+By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `addRepoUrl()` method:
+
+```Java
+import fish.payara.micro.PayaraMicro;
+import fish.payara.micro.BootstrapException;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+       PayaraMicro.getInstance().addRepoUrl("https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer");
+       PayaraMicro.getInstance().addDeployFromGAV("fish.payara.testing,clusterjsp,1.1").bootStrap();
+    }
+}
+```
+
+To search through multiple additional repositories, you can simply call the `addRepoUrl` method, using commas to separate URLs:
+
+```Java
+import fish.payara.micro.PayaraMicro;
+import fish.payara.micro.BootstrapException;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+       PayaraMicro micro = PayaraMicro.getInstance();
+       micro.addRepoUrl("https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer", "https://maven.java.net/content/repositories/promoted/");
+       micro.addDeployFromGAV("fish.payara.testing,clusterjsp,1.1");
+       micro.bootStrap();
+    }
+}
+```
+
+### 4.2.3.1 Deploying Multiple Applications from a Maven Repository
+Similar to when deploying multiples applications from the command line, you must call the `addDeployFromGAV` method for each application you wish to deploy directly from a Maven repository.
+
+For example, to deploy two applications:
+
+```Java
+import fish.payara.micro.PayaraMicro;
+import fish.payara.micro.BootstrapException;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+       PayaraMicro micro = PayaraMicro.getInstance();
+       micro.addDeployFromGAV("fish.payara.testing,clusterjsp,1.1");
+       micro.addDeployFromGAV("fish.payara.testing,clusterjsp,1.2");
+       micro.bootStrap();
+    }
+}
+```
 
 # 4.3 Deploying an Exploded War
 
