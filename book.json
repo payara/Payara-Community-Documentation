@@ -10,15 +10,15 @@
                     "selected": true
                 },
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/161.1",
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/161.1",
                     "text": "161.1"
                 },
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/161",
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/161",
                     "text": "161"
                 },
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/154",
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/154",
                     "text": "154"
                 }
             ]
