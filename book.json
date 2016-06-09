@@ -2,7 +2,7 @@
     "plugins": [ "versions" ],
     "pluginsConfig": {
         "versions": {
-            "type" : "dontLoadAnyVersions"
+            "type" : "dontLoadAnyVersions",
             "options": [
                 {
                     "value": "https://payara.gitbooks.io/payara-server/content/",
