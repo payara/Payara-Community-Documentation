@@ -27,5 +27,4 @@
     * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
     * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
     * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
-* Payara Micro Documentation
-    * [Payara Micro Overview](documentation/payara-micro/payara-micro.md)
+* [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
