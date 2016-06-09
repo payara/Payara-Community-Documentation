@@ -2,7 +2,7 @@
     "plugins": [ "versions" ],
     "pluginsConfig": {
         "versions": {
-            "type" : "dontLoadAnyVersions",
+            "gitbookConfigURL": "https://raw.githubusercontent.com/OndrejM/Payara-Server-Documentation/next-versions/book.json",
             "options": [
                 {
                     "value": "https://payara.gitbooks.io/payara-server/content/",
