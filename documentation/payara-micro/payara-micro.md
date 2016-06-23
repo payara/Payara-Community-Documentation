@@ -183,6 +183,27 @@ To search through multiple additional repositories, you can simply call the opti
 java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
 ```
 
+### 4.1.2 Deploying Applications from a Maven repository
+You can deploy an application directly from a Maven repository using the `--deployFromGAV` option. This option accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT"
+```
+
+This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
+
+By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `--additionalRepository` option:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/
+```
+
+To search through multiple additional repositories, you can simply call the option multiple times:
+
+```Shell
+java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
+```
+
 ## 4.2 Deploying Applications Programmatically
 This section details deploying applications from within your code.
 
@@ -199,7 +220,7 @@ public class EmbeddedPayara
 {
     public static void main(String[] args) throws BootstrapException 
     {
-        PayaraMicro.getInstance().addDeployment(/home/user/example.war).bootStrap();
+        PayaraMicro.getInstance().addDeployment("/home/user/example.war").bootStrap();
     }
 }
 ```
@@ -534,6 +555,13 @@ _rootDir < domainConfig < autoBindHttp | autoBindSsl < port | sslPort_
 
 In English: The domain.xml in the directory specified by the _rootDir_ option (if one exists) is overriden by the domain.xml specified with the _domainConfig_ option. The Http and Https port numbers specified in either of these domain.xml files are overidden to be the default values of 8080 and 8081 when the _autoBindHttp_ or _autoBindSsl_ options are enabled respectively. These default port values are then overriden in turn by the port numbers specified with the _port_ or _sslPort_ options.
 
+### 5.1.1 Precedence
+If specifying multiple options at once, the following precedence is followed:
+
+_rootDir < domainConfig < autoBindHttp | autoBindSsl < port | sslPort_
+
+In English: The domain.xml in the directory specified by the _rootDir_ option (if one exists) is overriden by the domain.xml specified with the _domainConfig_ option. The Http and Https port numbers specified in either of these domain.xml files are overidden to be the default values of 8080 and 8081 when the _autoBindHttp_ or _autoBindSsl_ options are enabled respectively. These default port values are then overriden in turn by the port numbers specified with the _port_ or _sslPort_ options.
+
 ## 5.2 Configuring an Instance Programmatically
 There are various methods available for configuring a Payara Micro instance programmatically. You can only configure an instance before it is bootstrapped however.
 
@@ -590,7 +618,7 @@ public class EmbeddedPayara
 ```
 
 ## 5.3 Packaging a Configured Instance as an Uber Jar
-Sometimes it is preferable to package up your deployments, your configuration ainto a single jar file. To do this in Payara Micro use the `--outputUberJar` command line option for example;
+Sometimes it is preferable to package the application, configuration and dependencies into a single executable jar. To do this with Payara Micro use the `--outputUberJar` command line option for example;
 
 ```shell
 java -jar payara-micro.jar --deploy test.war --outputUberJar test.jar

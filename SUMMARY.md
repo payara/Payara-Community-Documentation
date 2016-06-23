@@ -30,5 +30,6 @@
     * [Phone Home](documentation/extended-documentation/phone-home/phone-home.md)
         * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
     * [System Properties](documentation/extended-documentation/system-properties.md)
+    * [Classloading](documentation/extended-documentation/classloading.md)
 * Payara Micro Documentation
     * [Payara Micro Overview](documentation/payara-micro/payara-micro.md)

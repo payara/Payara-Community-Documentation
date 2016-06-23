@@ -17,3 +17,4 @@ _${Cluster-Config}_ - This refers to the name of a cluster configuration.
 | Option | Value Type | Description | Accepted Values | Default |
 |---------------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------|---------|
 | fish.payara.clientHttpsProtocol | String | Sets the TLS version to be used by the asadmin client. This is separate from the TLS version set for HTTPS communication on a listener. | TLSv1, TLSv1.1, TLSv1.2 | TLSv1.2 |
+| fish.payara.classloading.delegate | Boolean | When set to false, libraries from applications, and _${Domain}_/lib will override the library in _${Product-Root}_/modules directory | true, false | true |
