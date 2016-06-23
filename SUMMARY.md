@@ -23,7 +23,7 @@
        * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
    * [System Properties](documentation/extended-documentation/system-properties.md)
    * [Classloading](documentation/extended-documentation/classloading.md)
-   * Production Ready Domain
+   * [Production Ready Domain](documentation/extended-documentation/production_ready_domain.md)
 * [User Guides](documentation/user-guides/user-guides.md)
    * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
    * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
