@@ -5,9 +5,10 @@
             "gitbookConfigURL": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/next/book.json",
             "options": [
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/",
-                    "text": "LATEST"
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/162/,
+                    "text": "162"
                 }
+                
             ]
         }
     }
