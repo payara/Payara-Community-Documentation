@@ -1,0 +1,14 @@
+{
+    "plugins": [ "versions" ],
+    "pluginsConfig": {
+        "versions": {
+            "gitbookConfigURL": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/next/book.json",
+            "options": [
+                {
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/154/",
+                    "text": "154"
+                }
+            ]
+        }
+    }
+} 
