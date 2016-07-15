@@ -31,6 +31,6 @@
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
    * [Starting an Instance](documentation/payara-micro/starting-instance.md)
    * [Deploying Applications](documentation/payara-micro/deploying/deploying.md)
-       * [Deploying from the Command Line](documentation/payara-micro/deploying/deploy-cmd-line.md)
-       * [Deploying Programmatically](documentation/payara-micro/deploying/deploy-cmd-line.md)
+       * [From the Command Line](documentation/payara-micro/deploying/deploy-cmd-line.md)
+       * [Deploying Programmatically](documentation/payara-micro/deploying/deploy-program.md)
        * [Deploying an Exploded War](documentation/payara-micro/deploying/deploy-exploded-war.md)
