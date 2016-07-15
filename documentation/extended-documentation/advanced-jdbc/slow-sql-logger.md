@@ -7,7 +7,8 @@ Many performance problems in Enterprise Applications can be traced to slow datab
 There are a number of ways to configure the slow SQL threshold time on a connection pool.
 
 ### Administration Console
-To configure slow SQL logging on a connection pool via the administration console. Navigate to the Connection Pool's Advanced Properties tab and specify the Slow Query Log Threshold time in seconds (-1) disables the feature. 
+To configure slow SQL logging on a connection pool via the administration console, navigate to the Connection Pool's Advanced Properties tab.
+Then specify the Slow Query Log Threshold time in seconds. The value (-1) disables slow SQL logging feature. 
 ![Slow SQL Logging settings in the administration console](/images/slowsqllogging.png)
 
 ### asadmin
