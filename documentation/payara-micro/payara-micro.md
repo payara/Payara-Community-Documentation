@@ -62,129 +62,13 @@ Any paths listed throughout the documentation will use the Unix/Linux file path 
 The owning class of an API method will not be explicitly stated unless it is not clear if an instance has been started or not; methods that operate on Payara Micro instances before they have been bootstrapped (instances that have not yet been started) are contained in the `PayaraMicro` class, whereas methods that operate on bootstrapped instances (running instances) are contained within the `PayaraMicroRuntime` class. 
 
 # 3. Starting an Instance
-This section details the very basics of starting an instance.
 
-## 3.1 Starting an Instance from the Command Line
-To start an instance of Payara Micro from the command line, you simply run the JAR:  
-
-```Shell
-java -jar payara-micro.jar
-```
-
-This single command is all you need to run Payara Micro instances; additional configuration options are all a part of this command.
-
-## 3.2 Starting an Instance Programmatically
-You need to import two classes from the fish.payara.micro package (contained in the Payara Micro JAR, see [section 8](#8-payara-micro-and-maven) for instructions on importing this JAR with Maven):  
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-```
-
-You can then start an instance with default settings by calling the `bootstrap()` method from the PayaraMicro class. 
-This initialisation will throw a _BootstrapException_ exception, so you will need to surround it with a try-catch, or have the parent method throw the exception.
-
-A simple example is as follows:
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-
-public class EmbeddedPayara 
-{ 
-    public static void main(String[] args) throws BootstrapException
-    {   
-        PayaraMicro.bootstrap();
-    }    
-}
-```
-
-To start an instance with non-default settings (configuration changes or deploying applications upon startup), you have to call the `getInstance()` method before using `bootstrap()`. More details on this can be found in the [Configuring an Instance](#52-configuring-an-instance-programmatically) section.
-The use of the `getInstance()` method does not exclude you from using the default settings however; calling the `bootstrap()` method on its own (as shown in the example above) is functionally equivalent to calling the `bootstrap()` method directly after the `getInstance()` method, such as in the example below:
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-
-public class EmbeddedPayara 
-{ 
-    public static void main(String[] args) throws BootstrapException
-    {   
-        PayaraMicro.getInstance().bootStrap();
-    }    
-}
-```
-
-The `bootStrap()` method returns a `PayaraMicroRuntime` object instance, which is comes with various methods that afford you control over the instance and its cluster after you have bootstrapped it. To take advantage of this, you have to initialise a `PayaraMicroRuntime` object from the `bootStrap` method, like so:
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-import fish.payara.micro.PayaraMicroRuntime;
-
-public class EmbeddedPayara 
-{ 
-    public static void main(String[] args) throws BootstrapException
-    {   
-        PayaraMicroRuntime instance = PayaraMicro.bootStrap();
-    }    
-}
-```
+See [Starting an Instance](starting-instance.md)
 
 # 4. Deploying Applications
-This section details how to deploy applications.
 
-## 4.1 Deploying an Application from the Command Line
-As noted in [section 3.1](#31-starting-an-instance-from-the-command-line), all Payara Micro actions are run for the Payara Micro JAR, all in one command; it is not possible to start an instance with one command, and deploy an application to it with another.
+See [Deploying Applications](deploying.md)
 
-The general structure of starting, configuring, and deploying an application to an instance is as follows:
-
-```Shell
-java -jar payara-micro.jar _--option1_ _--option2_ ...
-```
-
-To deploy a WAR file to an instance, you need to use the `--deploy` option, followed by the path to the application to deploy. 
-See below for an example of starting a Payara Micro instance and deploying a WAR file:
-
-```Shell
-java -jar payara-micro.jar --deploy /home/user/example.war
-```
-
-### 4.1.1 Deploying Multiple Applications from the Command Line
-If you want to deploy multiple applications to an instance with the `--deploy` option, you must use it once for each application to be deployed; it does not accept multiple paths.
-
-For example, to deploy two applications:
-
-```Shell
-java -jar payara-micro.jar --deploy /home/user/example.war --deploy /home/user/test.war
-```
-
-Alternatively, you can use the `--deploymentDir` option. This option specifies a directory to scan for deployable archives, allowing you to store all of the applications you wish to be deployed in a directory, and have them be deployed automatically upon instance startup.
-
-```Shell
-java -jar payara-micro.jar --deploymentDir /home/user/deployments
-```
-
-### 4.1.2 Deploying Applications from a Maven repository
-You can deploy an application directly from a Maven repository using the `--deployFromGAV` option. This option accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
-
-```Shell
-java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT"
-```
-
-This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
-
-By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `--additionalRepository` option:
-
-```Shell
-java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/
-```
-
-To search through multiple additional repositories, you can simply call the option multiple times:
-
-```Shell
-java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
-```
 
 ## 4.2 Deploying Applications Programmatically
 This section details deploying applications from within your code.

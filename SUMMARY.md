@@ -29,4 +29,6 @@
    * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
    * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
+   * [Starting an Instance](documentation/payara-micro/starting-instance.md)
+   * [Deploying Applications](deploying.md)
 
