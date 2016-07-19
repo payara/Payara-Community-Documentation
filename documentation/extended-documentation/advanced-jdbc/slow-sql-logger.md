@@ -8,7 +8,7 @@ There are a number of ways to configure the slow SQL threshold time on a connect
 
 ### Administration Console
 To configure slow SQL logging on a connection pool via the administration console, navigate to the Connection Pool's Advanced Properties tab.
-Then specify the Slow Query Log Threshold time in seconds. The value (-1) disables slow SQL logging feature. 
+Then specify the Slow Query Log Threshold time in seconds or use a decimal value to signify milliseconds. The value (-1) disables slow SQL logging feature. 
 ![Slow SQL Logging settings in the administration console](/images/slowsqllogging.png)
 
 ### asadmin
@@ -17,6 +17,12 @@ The Slow Query log Threshold Time for a connection pool can also be configured v
 ```shell
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.slow-query-threshold-in-seconds=50
 ```
+
+You can also set the threshold time to milliseconds simply by passing a decimal value. Below is a example of setting the threshold on the __TimerPool to 200 millseconds.
+```shell
+asadmin set domain.resources.jdbc-connection-pool.__TimerPool.slow-query-threshold-in-seconds=0.2
+```
+
 ### Deployment
 In Java EE 7 a JDBC datasource can be deployed by adding annotations to a JavaEE component. The Slow Query Threshold time can be configured via these annotations. Using annotations is the best way to configure the Slow SQL Query logger on Payara Micro.
 ```java
