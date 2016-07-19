@@ -30,22 +30,25 @@
 * [12. Logging to a file](#12-logging-to-a-file)
   * [12.1 Logging to a file from the Command Line](#121-logging-to-a-file-from-the-command-line)
   * [12.2 Logging to a file Programmatically](#122-logging-to-a-file-programmatically)
-* [13. Firing and Listening for CDI Events](#13-firing-and-listening-for-cdi-events)
-* [14. Appendices](#14-appendices)
-  * [14.1 Payara Micro Command Line Options](#141-payara-micro-command-line-options)
-  * [14.2 Payara Micro API](#142-payara-micro-api)
-    * [14.2.1 Configuration Methods](#1421-configuration-methods)
-    * [14.2.2 Operation Methods](#1422-operation-methods)
-      * [14.2.2.1 Deployment Methods](#14221-deployment-methods)
-        * [14.2.2.1.1 PayaraMicro.class Methods](#142211-payaramicroclass-methods)
-        * [14.2.2.1.2 PayaraMicroRuntime.class Methods](#142212-payaramicroruntimeclass-methods)
-      * [14.2.2.2 Setup and Shutdown Methods](#14222-setup-and-shutdown-methods)
-        * [14.2.2.2.1 PayaraMicro.class Methods](#142221-payaramicroclass-methods)
-        * [14.2.2.2.2 PayaraMicroRuntime.class Methods](#142222-payaramicroruntimeclass-methods)
-      * [14.2.2.3 CDI Methods](#14223-cdi-methods)
-      * [14.2.2.4 Run Methods](#14224-run-methods)
-      * [14.2.2.5 Get Methods](#14225-get-methods)
-    * [14.2.3 Javadoc](#1423-javadoc)
+* [13. Using your own Properties file for logging](#13-using-your-own-properties-file-for-logging)
+  * [13.1 Using your own Properties file for logging from the Command Line](#131-using-your-own-properties-file-for-logging-from-the-command-line)
+  * [13.2 Using your own Properties file for logging Programmatically](#132-using-your-own-properties-file-for-logging-programmatically)
+* [14. Firing and Listening for CDI Events](#14-firing-and-listening-for-cdi-events)
+* [15. Appendices](#15-appendices)
+  * [15.1 Payara Micro Command Line Options](#151-payara-micro-command-line-options)
+  * [15.2 Payara Micro API](#152-payara-micro-api)
+    * [15.2.1 Configuration Methods](#1521-configuration-methods)
+    * [15.2.2 Operation Methods](#1522-operation-methods)
+      * [15.2.2.1 Deployment Methods](#15221-deployment-methods)
+        * [15.2.2.1.1 PayaraMicro.class Methods](#152211-payaramicroclass-methods)
+        * [15.2.2.1.2 PayaraMicroRuntime.class Methods](#152212-payaramicroruntimeclass-methods)
+      * [15.2.2.2 Setup and Shutdown Methods](#15222-setup-and-shutdown-methods)
+        * [15.2.2.2.1 PayaraMicro.class Methods](#152221-payaramicroclass-methods)
+        * [15.2.2.2.2 PayaraMicroRuntime.class Methods](#152222-payaramicroruntimeclass-methods)
+      * [15.2.2.3 CDI Methods](#15223-cdi-methods)
+      * [15.2.2.4 Run Methods](#15224-run-methods)
+      * [15.2.2.5 Get Methods](#15225-get-methods)
+    * [15.2.3 Javadoc](#1523-javadoc)
 
 # 1. Overview
 This page shall cover how to use Payara Micro 4.1.1.162.  
@@ -516,7 +519,7 @@ This section details how to configure a Payara Micro instance.
 ## 5.1 Configuring an Instance from the Command Line
 As described in [section 4.1](#41-deploying-an-application-from-the-command-line), the starting and configuration of an instance has to be done in its entirety on one line.
 
-The options available can be seen by running the JAR with the `--help` option, or by consulting the [Payara Micro Command Line Options](#141-payara-micro-command-line-options) section in the [Appendices](#14-appendices).
+The options available can be seen by running the JAR with the `--help` option, or by consulting the [Payara Micro Command Line Options](#151-payara-micro-command-line-options) section in the [Appendices](#15-appendices).
 
 The general structure of starting, configuring, and deploying an application to an instance is as follows:
 
@@ -540,7 +543,7 @@ In English: The domain.xml in the directory specified by the _rootDir_ option (i
 ## 5.2 Configuring an Instance Programmatically
 There are various methods available for configuring a Payara Micro instance programmatically. You can only configure an instance before it is bootstrapped however.
 
-The configuration methods available to you should be detected by your IDE, allowing you to view them using the auto-complete feature common to most popular IDEs. Alternatively, you can consult the [Payara Micro Configuration Methods](#1421-payara-micro-configuration-methods) section in the [Appendices](#14-appendices).
+The configuration methods available to you should be detected by your IDE, allowing you to view them using the auto-complete feature common to most popular IDEs. Alternatively, you can consult the [Payara Micro Configuration Methods](#1521-payara-micro-configuration-methods) section in the [Appendices](#15-appendices).
 
 As noted before, in the [Deploying an Application Programmatically](#421-deploying-an-application-programmatically-during-bootstrap) section, you can either call the desired configuration commands on one line during instance initialisation, or on separate lines after creating a `PayaraMicro` variable.
 
@@ -765,7 +768,7 @@ Be aware that the auto-bind feature does not currently read port values from dom
 # 10. Running Asadmin Commands on Bootstrapped Instances
 There are two methods available for running asadmin commands, both named `run`.
 
-The first, `run(String command, String... args )`, runs the specified asadmin command on all instances in a runtime's cluster. It returns a `Map<InstanceDescriptor, Future<ClusterCommandResult>>`, as detailed in the [appendices](#14224-run-methods).
+The first, `run(String command, String... args )`, runs the specified asadmin command on all instances in a runtime's cluster. It returns a `Map<InstanceDescriptor, Future<ClusterCommandResult>>`, as detailed in the [appendices](#15224-run-methods).
 
 The second, `run(Collection<InstanceDescriptor> members, String command, String... args )`, runs the specified asadmin commond on all instances contained in the Collection supplied. It returns a Map of the same type as the other run method. You can use the 
 
@@ -804,14 +807,50 @@ public class EmbeddedPayara
 }
 ```
 
-# 13. Firing and Listening for CDI Events
+# 13. Using your own Properties file for logging
+This section describes how to use your own Properties file for logging.
+
+**NOTE**: This will override the default logging.properties file.
+
+## 13.1 Using your own Properties file for logging from the Command Line
+There are two ways you can use your own Properties file from the command line: you could either set a system property using `java.util.logging.config.file=/home/user/MyLogging.properties` or by using the `--propFile` option, followed by a path and and your file name or just by providing your file name. 
+
+Setting a system property:
+
+```shell
+java -jar -Djava.util.logging.config.file=/home/user/MyLogging.properties payara-micro.jar
+```
+
+Using `propFile` option:
+
+```shell
+java -jar payara-micro.jar --propFile /home/user/MyLogging.properties
+```
+
+## 13.2 Using your own Properties file for logging Programmatically
+To use your own Properties file for logging programmatically, you will need to use `setPropFile(String FileName)` method.
+
+```Java
+import fish.payara.micro.PayaraMicro;
+import fish.payara.micro.BootstrapException;
+
+public class EmbeddedPayara 
+{
+    public static void main(String[] args) throws BootstrapException 
+    {
+         PayaraMicro.getInstance().setPropFile("/home/user/MyLogging.properties").bootStrap();
+    }
+}
+```
+
+# 14. Firing and Listening for CDI Events
 Payara Micro has the ability to listen for and fire CDI events across the cluster of a PayaraMicroRuntime instance.
 
-You can view the methods associated with CDI Events in the [appendices](#14223-cdi-methods).
+You can view the methods associated with CDI Events in the [appendices](#15223-cdi-methods).
 
-# 14. Appendices
+# 15. Appendices
 
-## 14.1 Payara Micro Command Line Options
+## 15.1 Payara Micro Command Line Options
 
 Configuration Option | Description | Default Value
 --- | --- | ---
@@ -842,10 +881,10 @@ Configuration Option | Description | Default Value
 `--logToFile` | Outputs all the Log entries to a user defined file
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
-## 14.2 Payara Micro API
+## 15.2 Payara Micro API
 This section contains documentation on the Payara Micro API.
 
-### 14.2.1 Configuration Methods
+### 15.2.1 Configuration Methods
 This section details the PayaraMicro.class configuration methods that are used during the bootstrap process.
 
 Configuration Operand | Description | Get Method | Set Method | Default Value | Command Line Equivalent
@@ -866,19 +905,19 @@ HTTP Auto-Binding | Enables or Disables auto-binding of the HTTP port for an ins
 HTTPS Auto-Binding | Enables or Disables auto-binding of the HTTPS port for an instance. | `boolean getSslAutoBind()` | `PayaraMicro setSslAutoBind(boolean sslAutoBind)` | _false_ | `--autoBindSsl`
 Auto-Bind Range | Sets the range for HTTP and HTTPS port auto-binding. | `int getAutoBindRange()` | `PayaraMicro setAutoBindRange(int autoBindRange)` | 5 | `--autoBindRange`
 
-### 14.2.2 Operation Methods
+### 15.2.2 Operation Methods
 This section details the other methods of the Payara Micro API that operate Payara Micro instances. `PayaraMicro.class` methods are used during the bootstrap process, whereas `PayaraMicroRuntime.class` methods are used on running instances.
 
-#### 14.2.2.1 Deployment Methods
+#### 15.2.2.1 Deployment Methods
 This section details the methods used for the deployment of applications to Payara Micro instances.
 
-##### 14.2.2.1.1 PayaraMicro.class Methods
+##### 15.2.2.1.1 PayaraMicro.class Methods
 Method | Description | Command Line Equivalent
 --- | --- | --- | ---
 `PayaraMicro addDeployment(String pathToWar)` | Adds the file found at the location of the `pathToWar` parameter to the list of files to be deployed upon starting the instance. | `--deploy`
 `PayaraMicro addDeploymentFile(File file)` | Adds the file associated with the `file` parameter to the list of files to be deployed upon starting the instance. | `--deploy`
 
-##### 14.2.2.1.2 PayaraMicroRuntime.class Methods
+##### 15.2.2.1.2 PayaraMicroRuntime.class Methods
 Method | Description
 --- | ---
 `boolean deploy(String name, InputStream is)` | Deploys an application from an InputStream with the name specified.
@@ -886,10 +925,10 @@ Method | Description
 `boolean deploy(File war)` | Deploys the application located at the _war_ parameter path.
 `boolean undeploy(String name)` | Un-deploys the specified application.
 
-#### 14.2.2.2 Setup and Shutdown Methods
+#### 15.2.2.2 Setup and Shutdown Methods
 This section details the methods required for setting up Payara Micro instances.
 
-##### 14.2.2.2.1 PayaraMicro.class Methods
+##### 15.2.2.2.1 PayaraMicro.class Methods
 Method | Description
 --- | ---
 `PayaraMicroRuntime bootStrap() throws BootstrapException` | Checks the supplied configuration parameters and starts a Payara Micro instance.
@@ -897,12 +936,12 @@ Method | Description
 `PayaraMicro getInstance(boolean create)` | Obtains the static singleton instance of the Payara Micro server. If one does not exist and `create` is set to true, one will be created and returned, otherwise returns _null_.
 `void shutdown() throws BootstrapException` | Stops and shuts down the Payara Micro instance.
 
-##### 14.2.2.2.2 PayaraMicroRuntime.class Methods
+##### 15.2.2.2.2 PayaraMicroRuntime.class Methods
 Method | Description
 --- | ---
 `void shutdown() throws BootstrapException` | Stops and shuts down the Payara Micro instance.
 
-#### 14.2.2.3 CDI Methods
+#### 15.2.2.3 CDI Methods
 This section details the methods used for firing CDI Events across running instances.
 
 Method | Description
@@ -913,7 +952,7 @@ Method | Description
 `void removeClusterListener(PayaraClusterListener listener)` | Removes a Cluster Listener.
 `void publishCDIEvent(PayaraClusteredCDIEvent event)` | Publishes a CDI Event.
 
-#### 14.2.2.4 Run Methods
+#### 15.2.2.4 Run Methods
 This section details the methods used for running _asadmin_ commands or _Callable_ objects on bootstrapped instances.
 
 Method | Description
@@ -923,8 +962,8 @@ Method | Description
 `<T extends Serializable> Map<InstanceDescriptor, Future<T>> run (Callable<T> callable)` | Runs a Callable object on all members of a Payara Micro Cluster.
 `<T extends Serializable> Map<InstanceDescriptor, Future<T>> run (Collection<InstanceDescriptor> members, Callable<T> callable)` | Runs a Callable object on specified members of a Payara Micro Cluster.
 
-#### 14.2.2.5 Get Methods
-This section details the methods used for getting information on running Payara Micro instances. For information on the _Get_ methods of an un-bootstrapped instance, see the [Configuration Methods section](#1421-configuration-methods).
+#### 15.2.2.5 Get Methods
+This section details the methods used for getting information on running Payara Micro instances. For information on the _Get_ methods of an un-bootstrapped instance, see the [Configuration Methods section](#1521-configuration-methods).
 
 Method | Description
 --- | ---
@@ -933,6 +972,6 @@ Method | Description
 `String getInstanceName()` | Returns the instance name.
 `InstanceDescriptor getLocalDescriptor()` | Returns the instance descriptor of the instance the method is run on.
 
-### 14.2.3 Javadoc
+### 15.2.3 Javadoc
 
 The Javadoc for the most recent version of the Payara Micro API can be found here: http://payara.github.io/Payara/nucleus_API/payara-modules/payara-micro/target/apidocs/
