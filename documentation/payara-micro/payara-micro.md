@@ -643,7 +643,7 @@ payaramicro.disablePhoneHome|--disablePhoneHome
 payaramicro.rootDir|--rootDir
 payaramicro.name|--name
 payaramicro.logToFile|--logToFile
-payaramicro.propsFile|----propFile
+payaramicro.propsFile|--propFile
 
 ## 5.5 Configuring Alternate Keystores for SSL
 Payara Micro comes with keystores embedded within the jar file. These can be overridden using the standard Java SSL system properties. `javax.net.ssl.trustStore` etc.
