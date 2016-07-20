@@ -643,6 +643,7 @@ payaramicro.disablePhoneHome|--disablePhoneHome
 payaramicro.rootDir|--rootDir
 payaramicro.name|--name
 payaramicro.logToFile|--logToFile
+payaramicro.propsFile|----propFile
 
 ## 5.5 Configuring Alternate Keystores for SSL
 Payara Micro comes with keystores embedded within the jar file. These can be overridden using the standard Java SSL system properties. `javax.net.ssl.trustStore` etc.
@@ -878,7 +879,8 @@ Configuration Option | Description | Default Value
 `--systemProperties` | Reads system properties from a file | |
 `--logo` | Reveals the #BadAssFish or a custom logo on boot | |
 `--disablePhoneHome` | Disables _Phone Home_ activities for this instance | If not set, _Phone Home_ is active
-`--logToFile` | Outputs all the Log entries to a user defined file
+`--logToFile` | Outputs all the Log entries to a user defined file | |
+`--propFile` | Allows user to set their own logging properties file | |
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
 ## 15.2 Payara Micro API
