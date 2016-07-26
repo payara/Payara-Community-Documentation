@@ -1,4 +1,5 @@
 # Deploying an Application Programmatically during Bootstrap
+
 There are two methods you can use to deploy an application during the bootstrapping process: `addDeployment(String pathToWar)`, and `addDeploymentFile(File file)`.
 
 The first, `addDeployment(String pathToWar)`, accepts a String that points to the path of the file to be deployed. For example:

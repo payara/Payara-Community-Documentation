@@ -1,4 +1,5 @@
 # Deploying an Application Programmatically to a Bootstrapped Instance
+
 There are three methods available for deploying an application to a bootstrapped instance: `deploy(File war)`, `deploy(String name, InputStream is)`, and `deploy(String name, String contextRoot, InputStream is)`.
 
 The first works in the same way as the `addDeploymentFile` method described in [section 4.2.1](#421-deploying-an-application-programmatically-during-bootstrap).

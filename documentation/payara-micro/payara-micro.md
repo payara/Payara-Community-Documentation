@@ -80,139 +80,28 @@ See [Deploying Applications](deploying/deploying.md)
 
 
 # 5 Configuring an Instance
-This section details how to configure a Payara Micro instance.
+
+See [Configuring an Instance](configuring/configuring.md)
 
 ## 5.1 Configuring an Instance from the Command Line
-As described in [section 4.1](#41-deploying-an-application-from-the-command-line), the starting and configuration of an instance has to be done in its entirety on one line.
 
-The options available can be seen by running the JAR with the `--help` option, or by consulting the [Payara Micro Command Line Options](#141-payara-micro-command-line-options) section in the [Appendices](#14-appendices).
-
-The general structure of starting, configuring, and deploying an application to an instance is as follows:
-
-```Shell
-java -jar payara-micro.jar _--option1_ _--option2_ ...
-```
-
-As an example, see below for starting an instance with a non-default HTTP port:
-
-```Shell
-java -jar payara-micro.jar --port 2468
-```
-
-### 5.1.1 Precedence
-If specifying multiple options at once, the following precedence is followed:
-
-_rootDir < domainConfig < autoBindHttp | autoBindSsl < port | sslPort_
-
-In English: The domain.xml in the directory specified by the _rootDir_ option (if one exists) is overriden by the domain.xml specified with the _domainConfig_ option. The Http and Https port numbers specified in either of these domain.xml files are overidden to be the default values of 8080 and 8081 when the _autoBindHttp_ or _autoBindSsl_ options are enabled respectively. These default port values are then overriden in turn by the port numbers specified with the _port_ or _sslPort_ options.
+See [Configuring an Instance from the Command Line](configuring/config-cmd-line.md)
 
 ## 5.2 Configuring an Instance Programmatically
-There are various methods available for configuring a Payara Micro instance programmatically. You can only configure an instance before it is bootstrapped however.
 
-The configuration methods available to you should be detected by your IDE, allowing you to view them using the auto-complete feature common to most popular IDEs. Alternatively, you can consult the [Payara Micro Configuration Methods](#1421-payara-micro-configuration-methods) section in the [Appendices](#14-appendices).
-
-As noted before, in the [Deploying an Application Programmatically](#421-deploying-an-application-programmatically-during-bootstrap) section, you can either call the desired configuration commands on one line during instance initialisation, or on separate lines after creating a `PayaraMicro` variable.
-
-As an example of configuring an instance to use a different HTTP and Cluster start port on one line, see here:
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
-        PayaraMicro.getInstance().setHttpPort(2468).setClusterStartPort(5902).bootStrap();
-    }
-}
-```
-
-For the example of the same, but done across multiple lines, see here:
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
-        PayaraMicro micro = PayaraMicro.getInstance();
-        micro.setHttpPort(2468);
-        micro.setClusterStartPort(5902);
-        micro.bootStrap();
-    }
-}
-```
-
-It is also possible to configure an instance programmatically by specifying a domain.xml file that is packaged within your application by passing a resource string to the setApplicationDomainXML method. The path in the string will be rsolved using the getResource method of the Thread context class loader. 
-
-```Java
-import fish.payara.micro.BootstrapException;
-import fish.payara.micro.PayaraMicro;
-
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
-        PayaraMicro.getInstance().setApplicationDomainXML("config/domain.xml").bootStrap();
-    }
-}
-```
+See [Configuring an Instance Programmatically](configuring/config-program.md)
 
 ## 5.3 Packaging a Configured Instance as an Uber Jar
-Sometimes it is preferable to package the application, configuration and dependencies into a single executable jar. To do this with Payara Micro use the `--outputUberJar` command line option for example;
 
-```shell
-java -jar payara-micro.jar --deploy test.war --outputUberJar test.jar
-```
-
-this will package up the payara-micro.jar and the war file into a single jar. this jar will then be able to be run with;
-
-```shell
-java -jar test.jar
-```
-
-Any additional command line options you specify when creating an uber jar are recorded and retained when you run the uber jar with no parameters. For example
-
-```shell
-java -jar payara-micro.jar --deploy test.war --port 9080 --lite --clusterName test-cluster --clusterPassword test-password --outputUberJar test2.jar
-```
-
-All the command line option for port etc. will be retained when the uber jar is ran with no parameters.
+See [Packaging a Configured Instance as an Uber Jar](configuring/package-uberjar.md)
 
 ## 5.4 Configuring Payara Micro via System Properties
 
-Payara Micro can also be configured via System properties. These can either be set on the command line or passed into Payara Micro using the `--systemProperties` command line option which will load the properties from the specified file.
-
-Payara micro supports the following system properties.
-
-System Property | Equivalent Command Line Flag
---- | ---
-payaramicro.domainConfig |--domainConfig
-payaramicro.hzConfigFile |--hzConfigFile 
-payaramicro.autoBindHttp |--autoBindHttp
-payaramicro.autoBindRange|--autoBindrange
-payaramicro.autoBindSsl|--autoBindSsl
-payaramicro.enableHealthCheck|--enableHealthCheck
-payaramicro.port|--port
-payaramicro.mcAddress|--mcAddress
-payaramicro.mcPort|--mcPort
-payaramicro.clusterName|--clusterName
-payaramicro.clusterPassword|--clusterPassword
-payaramicro.lite|--lite
-payaramicro.maxHttpThreads|--maxHttpThreads
-payaramicro.minHttpThreads|--minHttpThreads
-payaramicro.noCluster|--noCluster
-payaramicro.disablePhoneHome|--disablePhoneHome
-payaramicro.rootDir|--rootDir
-payaramicro.name|--name
-payaramicro.logToFile|--logToFile
+See [Configuring Payara Micro via System Properties](configuring/config-sys-props.md)
 
 ## 5.5 Configuring Alternate Keystores for SSL
-Payara Micro comes with keystores embedded within the jar file. These can be overridden using the standard Java SSL system properties. `javax.net.ssl.trustStore` etc.
 
+See [Configuring Alternate Keystores for SSL](configuring/config-keystores.md)
 
 # 6. Stopping an Instance
 This section describes how to shut down a Payara Micro instance.
