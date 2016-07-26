@@ -1,4 +1,6 @@
-# Deploying an Application from the Command Line
+# Deploying Applications on the Command Line
+
+## Deploying an Application
 As noted in section [Starting an Instance](../starting-instance.md#starting-an-instance-from-the-command-line), all Payara Micro actions are run for the Payara Micro JAR, all in one command; it is not possible to start an instance with one command, and deploy an application to it with another.
 
 The general structure of starting, configuring, and deploying an application to an instance is as follows:
@@ -7,6 +9,8 @@ The general structure of starting, configuring, and deploying an application to 
 java -jar payara-micro.jar _--option1_ _--option2_ ...
 ```
 
+### Deploying an application package
+
 To deploy a WAR file to an instance, you need to use the `--deploy` option, followed by the path to the application to deploy. 
 See below for an example of starting a Payara Micro instance and deploying a WAR file:
 
@@ -14,7 +18,12 @@ See below for an example of starting a Payara Micro instance and deploying a WAR
 java -jar payara-micro.jar --deploy /home/user/example.war
 ```
 
-## Deploying Multiple Applications from the Command Line
+### Deploying an Exploded War
+
+An exploded war can be deployed to a Payara Micro instance just be specifying the path to the exploded war root directory on the `--deploy` command line or via the api. The exploded war can be redeployed by creating a file .reload in the root directory of the explded war and updating its timestamp for example using 
+`touch .reload` in LINUX.
+
+## Deploying Multiple Applications
 If you want to deploy multiple applications to an instance with the ``--deploy` option, you must use it once for each application to be deployed; it does not accept multiple paths.
 
 For example, to deploy two applications:

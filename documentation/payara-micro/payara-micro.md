@@ -76,7 +76,7 @@ See [Deploying Programmatically](deploying/deploy-cmd-line.md)
 
 # 4.3 Deploying an Exploded War
 
-See [Deploying an Exploded War](deploying/deploy-exploded-war.md)
+See [Deploying Applications](deploying/deploying.md)
 
 
 # 5 Configuring an Instance

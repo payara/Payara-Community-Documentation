@@ -33,4 +33,6 @@
    * [Deploying Applications](documentation/payara-micro/deploying/deploying.md)
        * [From the Command Line](documentation/payara-micro/deploying/deploy-cmd-line.md)
        * [Deploying Programmatically](documentation/payara-micro/deploying/deploy-program.md)
-       * [Deploying an Exploded War](documentation/payara-micro/deploying/deploy-exploded-war.md)
+          * [Deploying during Bootstrap](deploy-program-bootstrap.md)
+          * [Deploying to a Bootstrapped Instance](deploy-program-after-bootstrap.md)
+          * [Deploying from a Maven Repository](deploy-program-maven.md)
