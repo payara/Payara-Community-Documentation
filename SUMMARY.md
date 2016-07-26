@@ -43,4 +43,9 @@
        * [Configuring Payara Micro via System Properties](documentation/payara-micro/configuring/config-sys-props.md)
        * [Configuring Alternate Keystores for SSL](documentation/payara-micro/configuring/config-keystores.md)
    * [Stopping an Instance](documentation/payara-micro/stopping/stopping.md)
-       * 
+   * [Automatic Clustering](documentation/payara-micro/clustering/clustering.md)
+   * [Maven Support](documentation/payara-micro/maven/maven.md)
+   * [HTTP and HTTPS Auto-Binding](documentation/payara-micro/port-autobinding.md)
+   * [Running Asadmin Commands on Bootstrapped Instances](documentation/payara-micro/asadmin.md)
+   * [Running Callable Objects on Bootstrapped Instances](documentation/payara-micro/callable-objects.md)
+   * [Firing and Listening for remote CDI Events](documentation/payara-micro/cdi-events.md)

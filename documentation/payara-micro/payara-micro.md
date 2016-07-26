@@ -108,122 +108,28 @@ See [Configuring Alternate Keystores for SSL](configuring/config-keystores.md)
 See [Stopping an Instance](stopping/stopping.md)
 
 # 7. Payara Micro Automatic Clustering
-This section details how the Payara Micro automatic clustering works.
 
-The integration of Hazelcast into Payara Micro allows instances to automatically, and dynamically, cluster together. When two instances are pointed at the same multicast address and port, they will automatically cluster together. 
-
-You can see evidence of the automatic clustering by simply starting two instances (with different HTTP port configurations), and you should see the following in the log output:
-
-```
-Members [2] {
-        Member [192.168.174.130]:5900 this
-        Member [192.168.174.130]:5901
-```
-
-The `--startPort` option is used to determine which port the Payara Micro instance will **first** try to bind to, if the port is already bound to (say, by another Payara Micro instance), then the Payara Micro instance will simply increment the _startPort_ value and try again until it finds a port it can bind to.
-
-For example, if there are already two Payara Micro instances running, which have bound ports 5900 and 5901, then a third instance started with a _startPort_ value of 5900 will first try to bind to 5900, then to 5901, then finally settle on 5902.
-
-If you wish to have multiple clusters, then you can make use of the `--mcAddress` and ``mcPort` options to define a different multicast address and port; assign a different address and port to each set of instances you wish to operate in a separate cluster and they will automatically make their own cluster on the new multicast address and port. You can also use `--clusterName` and `--clusterPassword` to segregate clusters. 
-
-# 7.1 Lite Cluster Members
-
-If you specify on the command line or through the API that a Payara Micro instance is a lite instance. Then the Payara Micro instance will join the cluster but will not store any clustered data, for example web session data or JCache data. This is very useful for a number of scenarios;
-
-You can create a cluster topology whereby a web application is hosted in a number of payara micro instances and the garbage collection ergonomics for these instances are tuned for throughput, in addition a number of payara micro instances are also in the cluster with no applications deployed and these instances are tuned for long lived web session data. In this case the web application instances could be designated as lite cluster members to ensure no web session data is stored within their JVMs.
-
-Lite members can also be used purely if you want a clustered payara micro instance to join the same cluster and receive CDI events or clustered events but without storing any data.
-
-# 7.2 Preventing Cluster Cross Talk
-
-By default Payara Micro clusters automatically discover other cluster members via multicast. This can lead to the situation whereby different development environments being used by different teams cluster together as they are using the same multicast address and multicast port. This can lead to confusing errors. To prevent cluster cross-talk ensure that the multicast-address and muticast-port are set to different values on each unique cluster. In the case where this is not possible payara micro provides the capability to set a cluster name and a cluster password both through the command line or through the api. If all the multicast settings are similar, instances will only cluster together if all the instances have the same cluster name and cluster password.
-
-# 7.3 Clustering with Payara Server
-Payara Micro can cluster with Payara Server and share web session and JCache data. To cluster with Payara Server just start up a Payara Micro instance with the same multicast address, multicast port, cluster name and cluster password as configured in your Payara Server.
+See [Automatic Clustering](clustering/clustering.md)
 
 # 8. Payara Micro and Maven
-Payara Micro has been uploaded to Maven central, allowing you to include it as a dependency in your POM. This allows you to easily add the required Payara Micro classes and methods to your application to use Payara Micro programmatically.
 
-In your project's POM, include the following dependency:
-
-```MAVEN_POM
-<dependency>
-    <groupId>fish.payara.extras</groupId>
-    <artifactId>payara-micro</artifactId>
-    <version>4.1.1.162</version>
-</dependency>
-```
+See [Maven Support](maven/maven.md)
 
 # 9. Payara Micro HTTP and HTTPS Auto-Binding
-Payara Micro supports an auto-binding feature for its HTTP and HTTPS port, allowing Payara Micro to dynamically find a free HTTP or HTTPS port as required during startup.
 
-This feature is controlled through these three options:  
-* --autoBindHttp – Enables auto-bind functionality for the HTTP port  
-* --autoBindSsl – Enables auto-bind functionality for the HTTPS port  
-* --autoBindRange – Sets the range for the auto-bind feature  
-
-When auto-binding is enabled, Payara Micro will attempt to connect to the port specified with the `--port` or `--sslPort` option (or, if these options are not specified, to port 8080 and 8181 respectively), and if that port is busy, it will instead try to bind on the next port up, repeating this process until it finds a free port, or the `--autoBindRange` limiter is reached.  
-
-For example, if ports 8080, 8081, and 8181 were busy, and ports 8082 and 8182 were free, then starting Payara Micro with the following command would have the HTTP port bind to 8082 and the HTTPS port bind to 8182:
-
-```Shell
-java -jar payara-micro.jar --autoBindHttp --sslPort 8181 --autoBindSsl
-```
-
-Whereas the following would fail to start in the same situation because `--autoBindRange` is not large enough (no free port within the range of 8080-8081):
-
-```Shell
-java -jar payara-micro.jar --port 8080 --autoBindHttp --sslPort 8181 --autoBindSsl --autoBindRange 1
-```
-
-Be aware that the auto-bind feature does not currently read port values from domain.xml files; if the `--port` and `--sslPort` options are not used, then the `--autoBindHttp` and `--autoBindSsl` options will assume that the HTTP and HTTPS ports will be at the default values of 8080 and 8181 respectively.
+See [HTTP and HTTPS Auto-Binding](port-autobinding.md)
 
 # 10. Running Asadmin Commands on Bootstrapped Instances
-There are two methods available for running asadmin commands, both named `run`.
 
-The first, `run(String command, String... args )`, runs the specified asadmin command on all instances in a runtime's cluster. It returns a `Map<InstanceDescriptor, Future<ClusterCommandResult>>`, as detailed in the [appendices](#14224-run-methods).
-
-The second, `run(Collection<InstanceDescriptor> members, String command, String... args )`, runs the specified asadmin commond on all instances contained in the Collection supplied. It returns a Map of the same type as the other run method. You can use the 
-
-Examples on using the first and second methods can be seen in sections [4.2.2](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance) and [4.2.2.1](#4221-deploying-an-application-to multiple-bootstrapped-instances-programmatically) respectively. The first example shows one way in which you can construct a Collection containing a subset of the running instances in a cluster using the `getClusteredPayara()` method to get the _InstanceDescriptor_ identifiers.
+See [Running Asadmin Commands on Bootstrapped Instances](asadmin.md)
 
 # 11. Running Callable Objects on Bootstrapped Instances
-Like with running asadmin commands, there are two methods available for running Callable objects, both also named `run`.
 
-The two methods also work in a similar way to the two asadmin run methods: the first, `run(Callable<T> callable)`, runs the specified Callable on all instances in a runtime's cluster, and the second, `run(Collection<InstanceDescriptor> members, Callable<T> callable)`, runs the Callable on a subset of the instances in a runtime's cluster.
-Both return a Map with a key/value type of `<InstanceDescriptor, Future<T>>`, where the type variable _T_ is Serializable.
-# 12. Logging to a file
-This section describes how to print all the Payara Micro log messages into a file.
+See [Running Callable Objects on Bootstrapped Instances](callable-objects.md)
 
-## 12.1 Logging to a file from the Command Line
+# 12. Firing and Listening for CDI Events
 
-To print all of the Payara Micro log messages into a file from the command line, you will need to use the `--logToFile` option, followed by either a path to where you want to put the log file or by giving the name of a file you want to print the logs into. If a file name is not given, a default file called payara-server.log is generated. 
-
-```shell
-java -jar payara-micro.jar --logToFile /home/user/PayaraMicro.log
-```
-
-## 12.2 Logging to a file Programmatically
-
-To print all the Payara Micro log messages into a file programmatically, you will need to use `setUserLogFile(String filePath)` method. 
-
-```Java
-import fish.payara.micro.PayaraMicro;
-import fish.payara.micro.BootstrapException;
-
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
-         PayaraMicro.getInstance().setUserLogFile("/home/user/PayaraMicro.log").bootStrap();
-    }
-}
-```
-
-# 13. Firing and Listening for CDI Events
-Payara Micro has the ability to listen for and fire CDI events across the cluster of a PayaraMicroRuntime instance.
-
-You can view the methods associated with CDI Events in the [appendices](#14223-cdi-methods).
+See [Firing and Listening for remote CDI Events](cdi-events.md)
 
 # 14. Appendices
 
