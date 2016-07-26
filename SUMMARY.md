@@ -42,3 +42,5 @@
        * [Packaging a Configured Instance as an Uber Jar](documentation/payara-micro/configuring/package-uberjar.md)
        * [Configuring Payara Micro via System Properties](documentation/payara-micro/configuring/config-sys-props.md)
        * [Configuring Alternate Keystores for SSL](documentation/payara-micro/configuring/config-keystores.md)
+   * [Stopping an Instance](documentation/payara-micro/stopping/stopping.md)
+       * 
