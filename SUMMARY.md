@@ -35,6 +35,7 @@
        * [Programmatically](documentation/payara-micro/deploying/deploy-program.md)
           * [During Bootstrap](documentation/payara-micro/deploying/deploy-program-bootstrap.md)
           * [To a Bootstrapped Instance](documentation/payara-micro/deploying/deploy-program-after-bootstrap.md)
+          * [Using an asadmin Command](documentation/payara-micro/deploying/deploy-program-asadmin.md)
           * [From a Maven Repository](documentation/payara-micro/deploying/deploy-program-maven.md)
    * [Configuring an Instance](documentation/payara-micro/configuring/configuring.md)
        * [From the Command Line](documentation/payara-micro/configuring/config-cmd-line.md)
