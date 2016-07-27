@@ -24,4 +24,4 @@ payaramicro.noCluster|--noCluster
 payaramicro.disablePhoneHome|--disablePhoneHome
 payaramicro.rootDir|--rootDir
 payaramicro.name|--name
-
+payaramicro.logToFile|--logToFile

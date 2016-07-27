@@ -49,6 +49,7 @@
    * [HTTP(S) Auto-Binding](documentation/payara-micro/port-autobinding.md)
    * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
    * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
+   * [Logging to a file](documentation/payara-micro/logging-to-file.md)
    * [Remote CDI Events](documentation/payara-micro/cdi-events.md)
    * [Payara Micro Appendices](documentation/payara-micro/appendices/appendices.md)
       * [Command Line Options](documentation/payara-micro/appendices/cmd-line-opts.md)
