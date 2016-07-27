@@ -11,7 +11,7 @@ java -jar payara-micro.jar
 This single command is all you need to run Payara Micro instances; additional configuration options are all a part of this command.
 
 ## Starting an Instance Programmatically
-You need to import two classes from the fish.payara.micro package (contained in the Payara Micro JAR, see [section 8](#8-payara-micro-and-maven) for instructions on importing this JAR with Maven):  
+You need to import two classes from the fish.payara.micro package (contained in the Payara Micro JAR, see section [Maven Support](maven/maven.md) for instructions on importing this JAR with Maven):  
 
 ```Java
 import fish.payara.micro.BootstrapException;
@@ -36,7 +36,7 @@ public class EmbeddedPayara
 }
 ```
 
-To start an instance with non-default settings (configuration changes or deploying applications upon startup), you have to call the `getInstance()` method before using `bootstrap()`. More details on this can be found in the [Configuring an Instance](#52-configuring-an-instance-programmatically) section.
+To start an instance with non-default settings (configuration changes or deploying applications upon startup), you have to call the `getInstance()` method before using `bootstrap()`. More details on this can be found in the [Configuring an Instance Programmatically](configuring/config-program.md) section.
 The use of the `getInstance()` method does not exclude you from using the default settings however; calling the `bootstrap()` method on its own (as shown in the example above) is functionally equivalent to calling the `bootstrap()` method directly after the `getInstance()` method, such as in the example below:
 
 ```Java

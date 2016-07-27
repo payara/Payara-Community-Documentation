@@ -1,8 +1,13 @@
 # Deploying an Application Programmatically to a Bootstrapped Instance
 
-There are three methods available for deploying an application to a bootstrapped instance: `deploy(File war)`, `deploy(String name, InputStream is)`, and `deploy(String name, String contextRoot, InputStream is)`.
+There are three methods available for deploying an application to a bootstrapped instance: 
 
-The first works in the same way as the `addDeploymentFile` method described in [section 4.2.1](#421-deploying-an-application-programmatically-during-bootstrap).
+   * `deploy(File war)`
+   * `deploy(String name, InputStream is)`
+   * `deploy(String name, String contextRoot, InputStream is)`
+
+### `deploy(File war)`
+The first method works in the same way as the `addDeploymentFile` method described in the section [Deploying Programmatically during Bootstrap](deploy-program-bootstrap.md#deploying-multiple-applications-programmatically-during-bootstrap).
 
 ```Java
 import fish.payara.micro.BootstrapException;
@@ -21,7 +26,8 @@ public class EmbeddedPayara
 }
 ```
 
-The second method allows you to deplor WARs from an InputStream:
+### `deploy(String name, InputStream is)`
+This method allows you to deploy WARs from an InputStream:
 
 ```Java
 import fish.payara.micro.PayaraMicro;
@@ -52,7 +58,8 @@ public class EmbeddedPayara
 }
 ```
 
-The third method works in the same way as the previous method, but allows you to specify the context root of the application. The following example would deploy the _test_ application to a context root of _/app_:
+### `deploy(String name, String contextRoot, InputStream is)`
+This method works in the same way as the previous method, but allows you to specify the context root of the application. The following example would deploy the _test_ application to a context root of _/app_:
 
 ```Java
 import fish.payara.micro.PayaraMicro;
@@ -83,7 +90,10 @@ public class EmbeddedPayara
 }
 ```
 
-As an alternative to using the methods above, you can use the `run(Collection<InstanceDescriptor> members, String command, String... args )` method to run the `deploy` asadmin command. To deploy to a single instance, you must create a _members_ Collection only containing a single instance.
+## Deploying Applications Using asadmin Commands
+
+### Deploying on a Local Instance
+As an alternative to using the `deploy` methods above, you can use the `run(Collection<InstanceDescriptor> members, String command, String... args )` method to run the `deploy` asadmin command. To deploy to a single instance, you must create a _members_ Collection only containing a single instance.
 
 As an example of deploying an application to only the local instance with the run command:
 
@@ -124,9 +134,10 @@ public class EmbeddedPayara
 }
 ```
 
-## Deploying an Application to Multiple Bootstrapped Instances Programmatically
-As noted to in the [previous section](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance), you can use the `run` method to run the `deploy` asadmin command on one or more clustered instances.
-There are two _run_ methods available for running asadmin commands: one which runs an asadmin command on a subset of instances in a cluster, and another than runs an asadmin command on all instances in a cluster. More detail on these can be found in the [Running Asadmin Commands on Bootstrapped Instances](#10-running-asadmin-commands-on-bootstrapped-instances) section.
+### Deploying an Application to Multiple Bootstrapped Instances
+You can use the `run` method to run the `deploy` asadmin command on multiple clustered instances.
+There are two _run_ methods available for running asadmin commands: one which runs an asadmin command on a subset of instances in a cluster, and another than runs an asadmin command on all instances in a cluster. 
+More detail on these can be found in the [Running Asadmin Commands on Bootstrapped Instances](../asadmin.md) section.
 
 As an example of deploying an application to all instances in a cluster:
 
@@ -147,6 +158,5 @@ public class EmbeddedPayara
 }
 ```
 
-See the [previous section](#422-deploying-an-application-programmatically-to-a-bootstrapped-instance) for an example on using the `run` method on a subset of instances in a cluster.
-
+See the example for deploying on local instance on using the `run` method on a subset of instances in a cluster.
 

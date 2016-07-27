@@ -1,4 +1,4 @@
-# Running Asadmin Commands on Bootstrapped Instances
+# Running asadmin Commands on Bootstrapped Instances
 There are two methods available for running asadmin commands, both named `run`.
 
 The first, `run(String command, String... args )`, runs the specified asadmin command on all instances in a runtime's cluster. It returns a `Map<InstanceDescriptor, Future<ClusterCommandResult>>`, as detailed in the [appendices](#13224-run-methods).

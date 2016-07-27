@@ -1,4 +1,4 @@
-# Deploying Applications on the Command Line
+# Deploying Applications From the Command Line
 
 ## Deploying an Application
 As noted in section [Starting an Instance](../starting-instance.md#starting-an-instance-from-the-command-line), all Payara Micro actions are run for the Payara Micro JAR, all in one command; it is not possible to start an instance with one command, and deploy an application to it with another.
@@ -45,7 +45,7 @@ You can deploy an application directly from a Maven repository using the `--depl
 java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT"
 ```
 
-This option can be used multiple times, and in conjunction with the standard `--deploy` options, as described in section [4.1.1](#411-deploying-multiple-applications-from-the-command-line).
+This option can be used multiple times, and in conjunction with the standard `--deploy` options.
 
 By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `--additionalRepository` option:
 

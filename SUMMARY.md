@@ -46,7 +46,7 @@
    * [Automatic Clustering](documentation/payara-micro/clustering/clustering.md)
    * [Maven Support](documentation/payara-micro/maven/maven.md)
    * [HTTP(S) Auto-Binding](documentation/payara-micro/port-autobinding.md)
-   * [Running Asadmin Commands](documentation/payara-micro/asadmin.md)
+   * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
    * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
    * [Remote CDI Events](documentation/payara-micro/cdi-events.md)
    * [Payara Micro Appendices](documentation/payara-micro/appendices/appendices.md)
