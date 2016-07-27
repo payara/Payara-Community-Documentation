@@ -1,5 +1,6 @@
 # Deploying an Application Programmatically from a Maven Repository
 
+## Deploying an Artefact Using Maven Coordinates
 To deploy an application programmatically directly from a Maven repository, you will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()` method. This method accepts a comma separated string denoting a maven artefact's _groupId_, _artifactId_, and _version_ attributes.
 
 ```Java
@@ -15,6 +16,7 @@ public class EmbeddedPayara
 }
 ```
 
+## Specifying Additional Maven Repositories
 By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `addRepoUrl()` method:
 
 ```Java

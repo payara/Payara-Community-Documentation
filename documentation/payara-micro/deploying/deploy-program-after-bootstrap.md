@@ -7,7 +7,7 @@ There are three methods available for deploying an application to a bootstrapped
    * `deploy(String name, String contextRoot, InputStream is)`
 
 ### `deploy(File war)`
-The first method works in the same way as the `addDeploymentFile` method described in the section [Deploying Programmatically during Bootstrap](deploy-program-bootstrap.md#deploying-multiple-applications-programmatically-during-bootstrap).
+The first method works in the same way as the `addDeploymentFile` method described in the section [Deploying Programmatically during Bootstrap](deploy-program-bootstrap.md).
 
 ```Java
 import fish.payara.micro.BootstrapException;
