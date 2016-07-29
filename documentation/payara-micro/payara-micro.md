@@ -643,7 +643,7 @@ payaramicro.disablePhoneHome|--disablePhoneHome
 payaramicro.rootDir|--rootDir
 payaramicro.name|--name
 payaramicro.logToFile|--logToFile
-payaramicro.propsFile|--propFile
+payaramicro.logPropertiesFile|--logProperties
 
 ## 5.5 Configuring Alternate Keystores for SSL
 Payara Micro comes with keystores embedded within the jar file. These can be overridden using the standard Java SSL system properties. `javax.net.ssl.trustStore` etc.
@@ -814,7 +814,7 @@ This section describes how to use your own Properties file for logging.
 **NOTE**: This will override the default logging.properties file.
 
 ## 13.1 Using your own Properties file for logging from the Command Line
-There are two ways you can use your own Properties file from the command line: you could either set a system property using `java.util.logging.config.file=/home/user/MyLogging.properties` or by using the `--propFile` option, followed by a path and and your file name or just by providing your file name. 
+There are two ways you can use your own Properties file from the command line: you could either set a system property using `java.util.logging.config.file=/home/user/MyLogging.properties` or by using the `--logProperties` option, followed by a path and and your file name or just by providing your file name. 
 
 Setting a system property:
 
@@ -822,14 +822,14 @@ Setting a system property:
 java -jar -Djava.util.logging.config.file=/home/user/MyLogging.properties payara-micro.jar
 ```
 
-Using `propFile` option:
+Using `--logProperties` option:
 
 ```shell
-java -jar payara-micro.jar --propFile /home/user/MyLogging.properties
+java -jar payara-micro.jar --logProperties /home/user/MyLogging.properties
 ```
 
 ## 13.2 Using your own Properties file for logging Programmatically
-To use your own Properties file for logging programmatically, you will need to use `setPropFile(String FileName)` method.
+To use your own Properties file for logging programmatically, you will need to use `setLogPropertiesFile(String FileName)` method.
 
 ```Java
 import fish.payara.micro.PayaraMicro;
@@ -839,7 +839,7 @@ public class EmbeddedPayara
 {
     public static void main(String[] args) throws BootstrapException 
     {
-         PayaraMicro.getInstance().setPropFile("/home/user/MyLogging.properties").bootStrap();
+         PayaraMicro.getInstance().setLogPropertiesFile("/home/user/MyLogging.properties").bootStrap();
     }
 }
 ```
@@ -880,7 +880,7 @@ Configuration Option | Description | Default Value
 `--logo` | Reveals the #BadAssFish or a custom logo on boot | |
 `--disablePhoneHome` | Disables _Phone Home_ activities for this instance | If not set, _Phone Home_ is active
 `--logToFile` | Outputs all the Log entries to a user defined file | |
-`--propFile` | Allows user to set their own logging properties file | |
+`--logProperties` | Allows user to set their own logging properties file | |
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
 ## 15.2 Payara Micro API
