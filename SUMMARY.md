@@ -7,6 +7,7 @@
 * [Release Notes](release-notes/release-notes.md)
    * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
+    * [JACC](documentation/core-documentation/jacc.md) 
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
    * [Advanced JDBC](documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md)
        * [Log JDBC Calls](documentation/extended-documentation/advanced-jdbc/log-jdbc-calls.md)
