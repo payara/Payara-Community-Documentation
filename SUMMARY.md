@@ -1,11 +1,15 @@
 # Summary
 
+### General Info
+
 * [Introduction](README.md)
 * [General Info](general-info/general-info.md)
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
 * [Release Notes](release-notes/release-notes.md)
    * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
+
+### Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
     * [JACC](documentation/core-documentation/jacc.md) 
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
@@ -31,3 +35,16 @@
    * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
 
+### Appendices
+
+* [History of Release Notes](release-notes/release-notes-history.md)
+   * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
+   * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
+   * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
+   * [Payara Server 4.1.1.161 Release Notes](release-notes/release-notes-161.md)
+   * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
+   * [Payara Server 4.1.153 Release Notes](release-notes/release-notes-153.md)
+   * [Payara Server 4.1.152.1 Release Notes](release-notes/release-notes-152.1.md)
+   * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
+   * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
+   * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
