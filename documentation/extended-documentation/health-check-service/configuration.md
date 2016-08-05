@@ -28,23 +28,27 @@ The main configuration tag is the `<health-check-service-configuration>` and it 
 * `<machine-memory-usage-checker>`: Calculates the machine memory usage and prints out the percentage along with the total and used physical memory size.
 * `<heap-memory-usage-checker>`: Calculates the heap memory usage and prints out the percentage along with initial and committed heap sizes.
 * `<hogging-threads-checker>`: Identifies the threads that are stuck CPU-wise.
+* `<connection-pool-checker>`: Calculates the ratio of free\/used connections available for all JDBC connections pool an prints the percentage of used connections for each active pool.
 
-They can all have the base attributes from the list given as follows.
 
-* **enabled**:Enables\/Disables the specified checker
-* **name**: Name of the checker that will be printed in the log messages for tracing
+They all have the following base attributes, that need to be specified:
+
+* **enabled**:Enables\/Disables the specified checker.
+* **name**: Name of the checker that will be printed in the log messages for tracing.
 * **unit**: The time unit value, which could either be: `NANOSECONDS`, `MICROSECONDS`, `MILLISECONDS`, `SECONDS`, `HOURS`, `DAYS`. 
-* **time**: The time interval specified in given unit to execute the checker
+* **time**: The time interval value \(as an integer\) specified in given unit to execute the checker for the metric.
 
 ## Threshold configurations
 
-Just like with the There are threshold configurations for some of the checkers and checker tags that support this configuration are listed below.
+Just like with the  `healthcheck-configure-service-threshold`  command, there are threshold configurations for the following checkers and checker tags:
 
 * `<cpu-usage-checker>`
 * `<machine-memory-usage-checker>`
 * `<heap-memory-usage-checker>`
+* `<connection-pool-checker>` 
 
-The threshold configurations can be specified in 3 different levels: _critical_, _warning_ and _good_. By default their values are **80**, **50** and **0** respectively. A sample configuration for the cpu-usage-checker is given as follows:
+
+The threshold configurations are specified for 3 different levels: _critical_, _warning_ and _good_. By default their values are **80**, **50** and **0** respectively. A sample configuration for the `cpu-usage-checker` is given as follows:
 
 ```xml
 <cpu-usage-checker enabled="true" unit="SECONDS" name="CPU" time="3">
@@ -54,12 +58,22 @@ The threshold configurations can be specified in 3 different levels: _critical_,
 </cpu-usage-checker>
 ```
 
-## Checkers with Customised Configuration
+Keep in mind that all threshold values must be provided, otherwise the configuration will not work appropriately and will cause a startup error.
+
+## Checkers with Customized Configuration
 
 #### `<hogging-threads-checker>`
 
-Hogging Threads Checker offers 2 properties for configuration. They are as follows:
+The Hogging Threads Checker offers the following 2 properties for configuration:
 
-* `threshold-percentage`: Defines the minimum percentage needed to count the thread is hogged CPU-wise. The percentage is calculated with the ratio of elapsed CPU time to checker execution interval. It default value is 95.
+* `threshold-percentage`: Defines the minimum percentage needed to count the thread is hogged CPU-wise. The percentage is calculated with the ratio of elapsed CPU time to checker execution interval. It default value is _95_.
 * `retry-count`: Represents the count value that should be reached by the hogged thread in order to give health check messages to the user. Its default value is 3.
+
+A sample of this configuration could be:
+```
+<health-check-service-configuration enabled="true">
+      <hogging-threads-checker unit="MINUTES" time="1" enabled="true" threshold-percentage="65" retry-count="10"></hogging-threads-checker>
+ </health-check-service-configuration>
+
+```
 
