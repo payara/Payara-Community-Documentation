@@ -10,7 +10,7 @@ In the 161 release we also have the new Healthcheck Service. Payara Server now p
 * Payara Server’s JVM Heap Usage 
 * CPU Usage of individual threads  
 
-If there is a problem with any of these metrics and they exceed a configurable threshold then a  GOOD, WARNING or CRITICAL event message is logged to the server’s log file. This allows operations teams to rapidly detect problems or work out what happened after problems have occurred. These events will be presented in a similar manner to this:
+If there is a problem with any of these metrics and they exceed a configurable threshold then a  GOOD, WARNING or CRITICAL event message is logged to the server’s log file. This allows operations teams to rapidly detect problems or work out what happened after these problems have occurred. Such events will be presented in a similar manner to this:
 
 ```
 [2016-05-24T03:52:28.690+0000] [Payara 4.1] [INFO] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=72 _ThreadName=healthcheck-service-3 [timeMillis: 1464061948690] [levelValue: 800] [[CPUC:Health Check Result:[[status=WARNING, message='CPU%: 75.6, Time CPU used: 267 milliseconds'']']]]
