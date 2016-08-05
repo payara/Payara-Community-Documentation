@@ -1,18 +1,23 @@
-#Healthcheck Service
-_Payara Server and Micro 161 (4.1.1.162) onwards_
+# Healthcheck Service
 
-In the 161 release we also have the new Healthcheck Service. Payara Server now periodically checks;
+_Payara Server and Micro 161 \(4.1.1.161\) onwards_
 
-*     Host CPU Usage
-*     Host Memory Usage
-*     Payara Server’s JVM Garbage Collections
-*     Payara Server’s JVM Heap Usage
-*     CPU Usage of individual threads
+In the 161 release we also have the new Healthcheck Service. Payara Server now periodically checks the following metrics:
 
-If there is a problem with any of these metrics and they exceed a configurable threshold then a Warning, Error or Critical message is logged to the server’s log file. Again enabling operations teams to rapidly detect problems or work out what happened after problems have occurred.
+* Host CPU Usage 
+* Host Memory Usage 
+* Payara Server’s JVM Garbage Collections 
+* Payara Server’s JVM Heap Usage 
+* CPU Usage of individual threads  
 
-For more details and configuration see the pages below.
+If there is a problem with any of these metrics and they exceed a configurable threshold then a  GOOD, WARNING or CRITICAL event message is logged to the server’s log file. This allows operations teams to rapidly detect problems or work out what happened after problems have occurred. These events will be presented in a similar manner to this:
 
-[Healthcheck Service Configuration] (Health-Check-Services-Configuration-(Payara-4.1.1.162))
+```
+[2016-05-24T03:52:28.690+0000] [Payara 4.1] [INFO] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=72 _ThreadName=healthcheck-service-3 [timeMillis: 1464061948690] [levelValue: 800] [[CPUC:Health Check Result:[[status=WARNING, message='CPU%: 75.6, Time CPU used: 267 milliseconds'']']]]
 
-[Healthcheck asadmin commands](Health-Check-Services-Admin-Commands-(Payara-4.1.1.162))
+[2016-05-24T21:11:36.579+0000] [Payara 4.1] [SEVERE\] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=71 _ThreadName=healthcheck-service-3] [timeMillis: 1464124296579\] [levelValue: 1000] [[HOGT:Health Check Result:[[status=CRITICAL, message='Thread with &lt;id-name&gt;: 145-testing-thread-1 is a hogging thread for the last 59 seconds 999 milliseconds'']']]]
+
+```
+
+The Healthcheck service can be configured using standard asadmin commands or directly modifying the _domain.xml_ file.
+
