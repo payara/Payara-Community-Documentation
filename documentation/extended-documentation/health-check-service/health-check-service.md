@@ -15,8 +15,7 @@ If there is a problem with any of these metrics and they exceed a configurable t
 ```
 [2016-05-24T03:52:28.690+0000] [Payara 4.1] [INFO] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=72 _ThreadName=healthcheck-service-3 [timeMillis: 1464061948690] [levelValue: 800] [[CPUC:Health Check Result:[[status=WARNING, message='CPU%: 75.6, Time CPU used: 267 milliseconds'']']]]
 
-[2016-05-24T21:11:36.579+0000] [Payara 4.1] [SEVERE\] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=71 _ThreadName=healthcheck-service-3] [timeMillis: 1464124296579\] [levelValue: 1000] [[HOGT:Health Check Result:[[status=CRITICAL, message='Thread with &lt;id-name&gt;: 145-testing-thread-1 is a hogging thread for the last 59 seconds 999 milliseconds'']']]]
-
+[2016-05-24T21:11:36.579+0000] [Payara 4.1] [SEVERE] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=71 _ThreadName=healthcheck-service-3] [timeMillis: 1464124296579] [levelValue: 1000] [[HOGT:Health Check Result:[[status=CRITICAL, message='Thread with <id-name>: 145-testing-thread-1 is a hogging thread for the last 59 seconds 999 milliseconds'']']]]
 ```
 
 The Healthcheck service can be configured using either standard _asadmin_ commands or directly modifying the _domain.xml_ file.
