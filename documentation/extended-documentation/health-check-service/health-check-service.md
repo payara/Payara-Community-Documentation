@@ -19,5 +19,5 @@ If there is a problem with any of these metrics and they exceed a configurable t
 
 ```
 
-The Healthcheck service can be configured using standard asadmin commands or directly modifying the _domain.xml_ file.
+The Healthcheck service can be configured using either standard _asadmin_ commands or directly modifying the _domain.xml_ file.
 
