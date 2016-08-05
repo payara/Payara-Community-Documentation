@@ -6,14 +6,22 @@ The Health Check Services can be configured through the domain.xml as given foll
 
 ```xml
 <health-check-service-configuration enabled="true">
-    <cpu-usage-checker unit="SECONDS" name="CPU" time="5" enabled="true"></cpu-usage-checker>
     <garbage-collector-checker unit="SECONDS" name="GC" time="5" enabled="true"></garbage-collector-checker>
-    <machine-memory-usage-checker enabled="true" unit="SECONDS" name="MMEM" time="5">
+    <cpu-usage-checker unit="SECONDS" name="CPU" time="5" enabled="true">
         <property name="threshold-critical" value="90"></property>
         <property name="threshold-warning" value="70"></property>
         <property name="threshold-good" value="0"></property>
+    </cpu-usage-checker>
+    <machine-memory-usage-checker enabled="true" unit="SECONDS" name="MMEM" time="5">
+        <property name="threshold-critical" value="95"></property>
+        <property name="threshold-warning" value="60"></property>
+        <property name="threshold-good" value="20"></property>
     </machine-memory-usage-checker>
-    <heap-memory-usage-checker unit="SECONDS" name="HEAP" time="5" enabled="true"></heap-memory-usage-checker>
+    <heap-memory-usage-checker unit="SECONDS" name="HEAP" time="5" enabled="true">
+        <property name="threshold-critical" value="92"></property>
+        <property name="threshold-warning" value="75"></property>
+        <property name="threshold-good" value="15"></property>
+    </heap-memory-usage-checker>
 </health-check-service-configuration>
 ```
 
@@ -30,7 +38,6 @@ The main configuration tag is the `<health-check-service-configuration>` and it 
 * `<hogging-threads-checker>`: Identifies the threads that are stuck CPU-wise.
 * `<connection-pool-checker>`: Calculates the ratio of free\/used connections available for all JDBC connections pool an prints the percentage of used connections for each active pool.
 
-
 They all have the following base attributes, that need to be specified:
 
 * **enabled**:Enables\/Disables the specified checker.
@@ -46,7 +53,6 @@ Just like with the  `healthcheck-configure-service-threshold`  command, there ar
 * `<machine-memory-usage-checker>`
 * `<heap-memory-usage-checker>`
 * `<connection-pool-checker>` 
-
 
 The threshold configurations are specified for 3 different levels: _critical_, _warning_ and _good_. By default their values are **80**, **50** and **0** respectively. A sample configuration for the `cpu-usage-checker` is given as follows:
 
@@ -70,6 +76,7 @@ The Hogging Threads Checker offers the following 2 properties for configuration:
 * `retry-count`: Represents the count value that should be reached by the hogged thread in order to give health check messages to the user. Its default value is 3.
 
 A sample of this configuration could be:
+
 ```
 <health-check-service-configuration enabled="true">
       <hogging-threads-checker unit="MINUTES" time="1" enabled="true" threshold-percentage="65" retry-count="10"></hogging-threads-checker>
