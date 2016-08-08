@@ -78,3 +78,52 @@ asadmin> notification-configure-notifier \
 --notifierEnabled=true \
 --dynamic=true
 ```
+
+## `get-notification-configuration`
+
+**Usage:** `asadmin> get-notification-configuration`
+
+**Aim:** This command can be used to list the details of the Notification Service.
+
+#### Command Options:
+
+There are no options for this command.
+
+#### Example:
+```
+asadmin> get-notification-configuration
+```
+
+will give output similar to the following:
+
+> ```
+> Enabled  Notifier Enabled  Notifier Name  
+> false    false             service-log    
+> Command get-notification-configuration executed successfully.
+> ```
+
+## `set-notification-configuration`
+
+**Usage:** `asadmin> set-notification-configuration --enabled=true --dynamic=true --notifierName="service-log" --notifierEnabled=true --notifierDynamic=true`
+
+**Aim:** This command can be used to set all configuration of the Notification Service at once. It effectively wraps `notification-configure` and `notification-configure-notifier` in one command.
+
+#### Command Options:
+
+| Option | Type | Description | Default | Mandatory |
+|--------|------|-------------|---------|-----------|
+| `--enabled=true` | Boolean | Enables or disables the service | False | No |
+| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | False | No |
+| `--notifierName` | String | The name of the notifier to use | `service-log` | Yes |
+| `--notifierEnabled` | Boolean | Enables or disables notifications | false | Yes | 
+| `--notifierDynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
+
+####Example:
+```
+asadmin> set-requesttracing-configuration
+    --enabled=true \
+    --dynamic=true
+    --notifierName="service-log" \
+    --notifierEnabled=true \
+    --notifierDynamic=true
+```
