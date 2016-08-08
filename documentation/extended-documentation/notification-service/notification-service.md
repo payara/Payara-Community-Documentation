@@ -15,4 +15,10 @@ The main configuration tag `notification-service-configuration` which has only o
 
 The `<log-notifier-configuration>` tag registers a log notifier to the pub-sub model of notification service where it subscribes to each log notification event that would get published either by health check services or request tracing services.
 
+The Notification service can be configured through the admin console:
+
+![Notification service admin console screenshot](/images/notification-configuration.png)
+
+In {{ book.currentVersion }}, the only available notifier is the `service-log` notifier, so configuration options are limited.
+
 * [Asadmin Commands](asadmin-commands.md)
