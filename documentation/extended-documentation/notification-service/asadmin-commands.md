@@ -59,7 +59,7 @@ asadmin> requesttracing-configure-notifier
 ```
 
 ## `notification-configure-notifier`
-**Usage:** `asadmin> notification-configure-notifier`
+**Usage:** `asadmin> notification-configure-notifier --notifierName=${name} --notifierEnabled=true --dynamic=true`
 
 **Aim:** Enables or disables an individual notifier for the notification service to use.
 
