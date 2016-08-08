@@ -1,3 +1,6 @@
+# Request Tracing
+#### Configuration
+
 The request tracing service configuration is stored in the `domain.xml` file. As with any aspect of Payara Server configuration, we do not recommend modifying the `domain.xml` due to the likelihood of typos causing problems.
 
 ```
