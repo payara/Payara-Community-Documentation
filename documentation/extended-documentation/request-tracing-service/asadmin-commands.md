@@ -14,7 +14,7 @@
 | Option | Type | Description | Default | Mandatory |
 |--------|------|-------------|---------|-----------|
 | `--enabled=true` | Boolean | Enables or disables the service | false | Yes |
-| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 10 | No |
+| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 30 | No |
 | `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
 | `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
 
@@ -94,3 +94,32 @@ will give output similar to the following:
 > Command get-requesttracing-configuration executed successfully.
 > ```
 
+## `set-requesttracing-configuration`
+
+**Usage:** `asadmin> set-requesttracing-configuration`
+
+**Aim:** This command can be used to set all configuration of the Request Tracing Service at once. It effectively wraps `requesttracing-configure` and `requesttracing-configure-notifier` in one command.
+
+#### Command Options:
+
+| Option | Type | Description | Default | Mandatory |
+|--------|------|-------------|---------|-----------|
+| `--enabled=true` | Boolean | Enables or disables the service | false | Yes |
+| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 30 | No |
+| `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
+| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
+| `--notifierName` | String | The name of the notifier to use | `service-log` | Yes |
+| `--notifierEnabled` | Boolean | Enables or disables notifications | false | Yes | 
+| `--notifierDynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
+
+####Example:
+```
+asadmin> set-requesttracing-configuration
+    --enabled=true \
+    --thresholdValue=10 \
+    --thresholdUnit="SECONDS" \
+    --dynamic=true
+    --notifierName="service-log" \
+    --notifierEnabled=true \
+    --notifierDynamic=true
+```
