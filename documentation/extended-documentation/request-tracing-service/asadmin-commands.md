@@ -3,11 +3,10 @@
 
 
 ## `requesttracing-configure`
-Enables or  the service and provides ways to configure threshold time by specifying a value and a unit.
 
 **Usage:** `asadmin> requesttracing-configure --enabled=true --thresholdValue=10 --thresholdUnit="SECONDS" --dynamic=true`
 
-**Aim:** Enables or  the service and provides ways to configure threshold time by specifying a value and a unit.
+**Aim:** Enables or disables the service and provides ways to configure threshold time by specifying a value and a unit.
 
 
 #### Command Options:
@@ -15,8 +14,8 @@ Enables or  the service and provides ways to configure threshold time by specify
 | Option | Type | Description | Default | Mandatory |
 |--------|------|-------------|---------|-----------|
 | `--enabled=true` | Boolean | Enables or disables the service | False | No |
-| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 3 | No |
-| `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `MINUTES` | No |
+| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 10 | No |
+| `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
 | `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | False | No |
 
 The argument `--dynamic=true` is necessary to turn on the service for a running server, otherwise the change would only be applied after a server restart.
