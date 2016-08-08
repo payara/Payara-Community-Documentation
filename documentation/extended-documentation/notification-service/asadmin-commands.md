@@ -29,7 +29,7 @@ asadmin> notification-configure \
 ##`notifier-list-services`
 **Usage:** `asadmin> notifier-list-services`
 
-**Aim:** Lists available notifiers to use with the service. These can then be configured individually or referenced by other service commands, for example the [`requesttracing-configure-notifier`](/documentation/extended-documentation/request-tracing-service/request-tracing-service.md#requesttracing-configure-notifier) command.
+**Aim:** Lists available notifiers to use with the service. These can then be configured individually or referenced by other service commands, for example the [`requesttracing-configure-notifier`](/documentation/extended-documentation/request-tracing-service/asadmin-commands.md#requesttracing-configure-notifier) command.
 
 
 #### Command Options
