@@ -1,7 +1,6 @@
 # Notification Service
 #### Command Reference
 
-----
 
 ## `notification-configure`
 
