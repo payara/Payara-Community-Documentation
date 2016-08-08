@@ -13,10 +13,10 @@
 
 | Option | Type | Description | Default | Mandatory |
 |--------|------|-------------|---------|-----------|
-| `--enabled=true` | Boolean | Enables or disables the service | False | No |
+| `--enabled=true` | Boolean | Enables or disables the service | false | Yes |
 | `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 10 | No |
 | `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
-| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | False | No |
+| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
 
 The argument `--dynamic=true` is necessary to turn on the service for a running server, otherwise the change would only be applied after a server restart.
 
@@ -41,8 +41,8 @@ asadmin> requesttracing-configure \
 | Option | Type | Description | Default | Mandatory |
 |--------|------|-------------|---------|-----------|
 | `--notifierName` | String | The name of the notifier to use | `service-log` | Yes |
-| `--notifierEnabled` | Boolean | Enables or disables notifications | False | No | 
-| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | False | No |
+| `--notifierEnabled` | Boolean | Enables or disables notifications | false | Yes | 
+| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
 
 #### Example:
 In order to configure the notifier for request tracing, the asadmin command to list available notifiers should be run first:
@@ -93,3 +93,4 @@ will give output similar to the following:
 > true     SECONDS        10              service-log    true              
 > Command get-requesttracing-configuration executed successfully.
 > ```
+
