@@ -1,9 +1,6 @@
 # Request Tracing
 #### Command Reference
 
-It’s possible to configure Request Tracing Service with the asadmin tool instead of using the admin console.
-
-----
 
 ## `requesttracing-configure`
 Enables or  the service and provides ways to configure threshold time by specifying a value and a unit.
