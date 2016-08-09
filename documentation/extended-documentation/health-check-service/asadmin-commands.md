@@ -1,48 +1,77 @@
-# Overview of the asadmin commands
+# Healthcheck Service
+#### Command Reference
 
-_Payara Server and Micro 161 \(4.1.1.161\) onwards_
-
-The Health Check service offers the following 5 _asadmin_ commands:
+The Health Check service offers 5 asadmin commands:
 
 ## `healthcheck-configure`
+__Usage:__ `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false`
 
-Enables or disables the health check service. The command updates the _domain.xml_ with the provided configuration but does not apply changes directly to the working service by default.
+__Aim:__  Enables or disables the health check service. The command updates the `domain.xml` with the provided configuration but does not apply changes directly to the working service by default.
 
-| Option | Type | Description | Default Value | Mandatory |
+#### Command Options:
+
+| Option | Type | Description | Default | Mandatory |
 | --- | --- | --- | --- | --- |
-| --target | String | The instance or cluster that will enable or disable its service | _server _ | no |
-| --dynamic | Boolean | Whether to apply the changes directly to the server without a reboot | _false_ | no |
-| --enabled | Boolean | Whether to enable or disable the service | N\/A | yes |
+| `--target` | String | The instance or cluster that will enable or disable its service | server | no |
+| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
+| `--enabled` | Boolean | Whether to enable or disable the service | N/A | yes |
+
+#### Example: 
+To enable the Healthcheck service such that it will only activate from the next time the server is restarted, the following command would be used:
+```
+asadmin> healthcheck-configure \
+    --enabled=true \
+    --dynamic=false
+```
 
 ## `healthcheck-list-services`
+__Usage:__ `asadmin> healthcheck-list-services`
 
-Lists the names of all metric services that can be configured for monitoring. Currently the listed values are:
+__Aim:__ Lists the names of all metric services that can be configured for monitoring. 
 
-```
-Available Health Check Services:
+#### Command Options
+There are no options for this command.
 
- healthcheck-cpool
- healthcheck-cpu
- healthcheck-gc
- healthcheck-heap
- healthcheck-threads
- healthcheck-machinemem
-```
+#### Example
+
+Running the command will show output similar to the example below:
+
+> ```
+> Available Health Check Services:
+> 
+> healthcheck-cpool
+> healthcheck-cpu
+> healthcheck-gc
+> healthcheck-heap
+> healthcheck-threads
+> healthcheck-machinemem
+> ```
 
 ## `healthcheck-configure-service`
+__Usage:__ `asadmin> healthcheck-configure-service --serviceName=<service.name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
 
-Enables or disables the monitoring of an specific metric. If enabling the service for an specific metric, the command also configures the frequency of monitoring for that metric. Command updates the domain.xml with provided configurations but does not apply changes directly to the working service by default. _dynamic_ attribute should be set to _true_ in order to apply the changes directly.
+__Aim:__ Enables or disables the monitoring of an specific metric. If enabling the service for an specific metric, the command also configures the frequency of monitoring for that metric. Command updates the domain.xml with provided configurations but does not apply changes directly to the working service by default. _dynamic_ attribute should be set to _true_ in order to apply the changes directly.
 
-| Option | Type | Description | Default Value | Mandatory |
+#### Command Options
+
+| Option | Type | Description | Default | Mandatory |
 | --- | --- | --- | --- | --- |
-| --target | String | The instance or cluster that will enable or disable its metric configuration | _server _ | no |
-| --dynamic | Boolean | Whether to apply the changes directly to the server without a reboot | _false_ | no |
-| --enabled | Boolean | Whether to enable or disable the metric monitoring | N\/A | yes |
-| --serviceName | String | The metric service name. Must correspond to one of the values listed before | N\/A | yes |
-| --time | Integer | The amount of time units that the service will use to periodically monitor the metric | N\/A | yes |
-| --unit | Enum | The time unit to set the frequency of the metric monitoring. Must correspond to one of \[MICROSECONDS \| MILLISECONDS \| SECONDS \| MINUTES \| HOURS \| DAYS\] | N\/A | yes |
+| `--target` | String | The instance or cluster that will enable or disable its metric configuration | server | no |
+| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
+| `--enabled` | Boolean | Whether to enable or disable the metric monitoring | - | yes |
+| `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes |
+| `--time` | Integer | The amount of time units that the service will use to periodically monitor the metric | 5 | no |
+| `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid [`java.util.concurrent.TimeUnit`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html) | `MINUTES` | no |
 
-If this command gets executed before having the `<health-check-service-configuration>` tag defined in the _domain.xml_, it will also create the regarding tag. Keep in mind that if the `enabled` attribute of `<health-check-service-configuration>` is set to false, all services reside under the tag will be in passive mode.
+If this command gets executed before running the [`healthcheck-configure`](#healthcheck-configure) command, the command will succeed and the configuration will be saved, but the healthcheck service will not be enabled.
+
+### Example
+A very basic command to simply enable the GC checker and activate it without needing a restart would be as follows:
+
+```
+asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-gc --dynamic=true
+```
+
 
 ## `healthcheck-configure-service-threshold`
 
