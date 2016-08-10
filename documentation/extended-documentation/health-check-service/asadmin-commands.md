@@ -1,7 +1,6 @@
 # Healthcheck Service
 #### Command Reference
 
-The Health Check service offers 5 asadmin commands:
 
 ## `healthcheck-configure`
 __Usage:__ `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false`
@@ -45,7 +44,7 @@ Running the command will show output similar to the example below:
 > healthcheck-heap
 > healthcheck-threads
 > healthcheck-machinemem
-> ```
+```
 
 ## `healthcheck-configure-service`
 __Usage:__ `asadmin> healthcheck-configure-service --serviceName=<service.name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
@@ -65,7 +64,7 @@ __Aim:__ Enables or disables the monitoring of an specific metric. If enabling t
 
 If this command gets executed before running the [`healthcheck-configure`](#healthcheck-configure) command, the command will succeed and the configuration will be saved, but the healthcheck service will not be enabled.
 
-### Example
+#### Example
 A very basic command to simply enable the GC checker and activate it without needing a restart would be as follows:
 
 ```
@@ -75,33 +74,61 @@ asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-
 
 ## `healthcheck-configure-service-threshold`
 
-Configures **CRITICAL**, **WARNING **and **GOOD **threshold values for a service specified with its name. Command updates the domain.xml with provided configurations but does not apply changes directly to the working service by default. _dynamic_ attribute should be set to _true_ in order to apply the changes directly. This command only configures thresholds for the following metrics:
+__Usage:__ `asadmin> healthcheck-configure-service-threshold --serviceName=<service.name> --dynamic=true|false --thresholdCritical=90 --thresholdWarning=50 --thresholdGood=0`
+
+__Aim:__ Configures `CRITICAL`, `WARNING` and `GOOD` threshold values for a service specified with its name. Command updates the domain.xml with provided configurations but does not apply changes directly to the working service by default. The `dynamic` attribute should be set to `true` in order to apply the changes directly.
+
+This command only configures thresholds for the following metrics:
 
 * CPU Usage
 * JVM Heap Space
 * Host Memory
 * JDBC Connection Pools
 
-| Option | Type | Description | Default Value | Mandatory |
+#### Command Options
+
+| Option | Type | Description | Default | Mandatory |
 | --- | --- | --- | --- | --- |
-| --target | String | The instance or cluster that will be configured | _server _ | no |
-| --dynamic | Boolean | Whether to apply the changes directly to the server without a reboot | _false_ | no |
-| --serviceName | String | The metric service name. Must correspond to one of the values listed before | N\/A | yes |
-| --thresholdCritical | Integer | The threshold value that this metric must surpass to log a **CRITICAL** event. A value between _WARNING VALUE_ and _100_ must be used | 90 | no |
-| --thresholdWarning | Integer | The threshold value that this metric must surpass to log a **WARNING** event. A value between _GOOD VALUE_ and _CRITICAL VALUE_ must be used | 50 | no |
-| --thresholdGood | Integer | The threshold value that this metric must surpass to log a **GOOD** event. A value between _0_ and _WARNING VALUE_ must be used | 0 | no |
+| `--target` | String | The instance or cluster that will be configured | server | no |
+| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
+| `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes |
+| `--thresholdCritical` | Integer | The threshold value that this metric must surpass to log a **`CRITICAL`** event. A value between _WARNING VALUE_ and _100_ must be used | 90 | no |
+| `--thresholdWarning` | Integer | The threshold value that this metric must surpass to log a **`WARNING`** event. A value between _GOOD VALUE_ and _CRITICAL VALUE_ must be used | 50 | no |
+| `--thresholdGood` | Integer | The threshold value that this metric must surpass to log a **`GOOD`** event. A value between _0_ and _WARNING VALUE_ must be used | 0 | no |
 
 In order to execute this command for an specific metric, the `healthcheck-configure-service` command needs to be executed first.
 
-### Important!
+### *Important!*
 
-There is no _asadmin_ command to configure the threshold values for the **Hogging Threads** or **Garbage Collection** metrics. In the case of the Hogging Threads metrics, check the domain.xml configuration section on how to adjust its parameters.
+There is no asadmin command to configure the threshold values for the **Hogging Threads** or **Garbage Collection** metrics. In the case of Hogging Threads metrics, check the domain.xml configuration section on how to adjust its parameters.
 
 In the case of the Garbage Collection metric, there is no configuration available for this metric; since the service calculates and prints out how many times garbage collections were executed within the time elapsed since the last check. The service will determine the severity of the messages based on how much the CPU time is being taken by the GC when measuring.
 
+#### Example
+Monitoring the health of JDBC connection pools is a common need. In that scenario, it is very unlikely that on-the-fly configuration changes would be made, so a very high `CRITICAL` threshold can be set. Likewise, a nonzero `GOOD` threshold is needed because an empty or unused connection pool may not be healthy either. (The actual `GOOD` threshold would need to be arrived at following testing).
+
+The following command would apply these settings to the connection pool checker:
+
+```
+asadmin> healthcheck-configure-service-threshold \
+    --serviceName=healthcheck-cpool \
+    --dynamic=true \
+    --thresholdCritical=95 \
+    --thresholdWarning=70 \
+    --thresholdGood=30
+```
+
 ## `get-healthcheck-configuration`
 
-Lists the current configuration for the health check service and for the configured metrics in a tabular format. A sample output is as follows:
+__Usage:__ `asadmin> get-healthcheck-configuration`		
+￼  		￼  
+__Aim:__ Lists the current configuration for the health check service and for the configured metrics in a tabular format.
+
+#### Command Options
+There are no options for this command.
+
+#### Example
+A sample output is as follows:
 
 ```
 Health Check Service Configuration is enabled?: true
