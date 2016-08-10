@@ -38,9 +38,9 @@
    * [Classloading](documentation/extended-documentation/classloading.md)
    * [Production Ready Domain](documentation/extended-documentation/production_ready_domain.md)
 * [User Guides](documentation/user-guides/user-guides.md)
-   * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
-   * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
-   * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
+    * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
+    * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
+    * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
 
 ### Appendices
