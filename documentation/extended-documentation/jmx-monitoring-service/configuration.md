@@ -66,7 +66,7 @@ asadmin> set-monitoring-configuration --logfrequency 60 --enabled false
 
 ### Enabling the monitoring service
 
-After configuring the monitoring service, there are two options to enable it. The service can either be enabled for next startup or the service can be dynamically enabled on a running instance of Payara. To enable the service dynamically on the default running instance of Payara the command to run is:
+After configuring the monitoring service, there are two options to enable it. The service can either be enabled for next startup or the service can be dynamically enabled on a running instance of Payara (provided a non-empty configuration existed at server startup). To enable the service dynamically on the default running instance of Payara the command to run is:
 
 ```shell
 asadmin> set-monitoring-configuration --dynamic true --enabled true

@@ -12,7 +12,7 @@ Aim: Sets the monitoring service configuration and can dynamically reload the co
 | Option | Type | Description | Default | Mandatory |
 |--------|------|-------------|---------|-----------|
 | `--target` | String | The instance or cluster to get the monitoring service configuration of | server | no |
-| `--dynamic` | Boolean | Whether or not to dynamically reload the configuration | false | no |
+| `--dynamic` | Boolean | Whether or not to dynamically reload the configuration. This requires a non-empty configuration to have existed at server startup and can be achieved by setting any option or property to have a value | false | no |
 | `--enabled` | Boolean | The enabled state of the service | N/A | yes |
 | `--amx` | Boolean | Whether or not to boot AMX on startup | N/A | no |
 | `--logfrequency` | Long | The numerical value for the rate at which messages are logged | N/A | no |
