@@ -59,7 +59,7 @@ __Aim:__ Enables or disables the monitoring of an specific metric. If enabling t
 | `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
 | `--enabled` | Boolean | Whether to enable or disable the metric monitoring | - | yes |
 | `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes |
-| `--name` | String | A user determined name for easy identification. This name is used in the service output, so any useful name can be chosen. | One of: <br />`CONP`<br />`CPUC`<br />`GBGC`<br />`HEAP`<br />`HOGT`<br />`MEMM` | no |
+| `--name` | String | A user determined name for easy identification. This name is used in the service output, so any useful name can be chosen, though it should be unique among the services you have configured. | One of: <br />`CONP`<br />`CPUC`<br />`GBGC`<br />`HEAP`<br />`HOGT`<br />`MEMM` | no |
 | `--time` | Integer | The amount of time units that the service will use to periodically monitor the metric | 5 | no |
 | `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid [`java.util.concurrent.TimeUnit`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html) | `MINUTES` | no |
 
