@@ -15,6 +15,7 @@ The documentation here will be updated with all the significant changes made wit
 
 Payara Server is released on a quarterly cadence and versioned with the year and quarter number to reflect that:
 
+    2016 Q3 - Payara Server 4.1.163
     2016 Q2 - Payara Server 4.1.162
     2016 Q1 - Payara Server 4.1.161
 
