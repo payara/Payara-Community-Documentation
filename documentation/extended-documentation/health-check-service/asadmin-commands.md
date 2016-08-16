@@ -47,7 +47,7 @@ Running the command will show output similar to the example below:
 ```
 
 ## `healthcheck-configure-service`
-__Usage:__ `asadmin> healthcheck-configure-service --serviceName=<service.name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
+__Usage:__ `asadmin> healthcheck-configure-service --serviceName=<service.name> --name=<name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
 
 __Aim:__ Enables or disables the monitoring of an specific metric. If enabling the service for an specific metric, the command also configures the frequency of monitoring for that metric. Command updates the domain.xml with provided configurations but does not apply changes directly to the working service by default. _dynamic_ attribute should be set to _true_ in order to apply the changes directly.
 
@@ -59,6 +59,7 @@ __Aim:__ Enables or disables the monitoring of an specific metric. If enabling t
 | `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
 | `--enabled` | Boolean | Whether to enable or disable the metric monitoring | - | yes |
 | `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes |
+| `--name` | String | A user determined name for easy identification. This name is used in the service output, so any useful name can be chosen, though it should be unique among the services you have configured. | One of: <br />`CONP`<br />`CPUC`<br />`GBGC`<br />`HEAP`<br />`HOGT`<br />`MEMM` | no |
 | `--time` | Integer | The amount of time units that the service will use to periodically monitor the metric | 5 | no |
 | `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid [`java.util.concurrent.TimeUnit`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html) | `MINUTES` | no |
 
@@ -68,7 +69,7 @@ If this command gets executed before running the [`healthcheck-configure`](#heal
 A very basic command to simply enable the GC checker and activate it without needing a restart would be as follows:
 
 ```
-asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-gc --dynamic=true
+asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-gc --name=MYAPP-GC --dynamic=true
 ```
 
 
