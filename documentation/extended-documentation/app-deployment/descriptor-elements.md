@@ -10,11 +10,3 @@ Configure whether the implicit CDI scanning, as defined by CDI 1.1, is in place 
 If implicit CDI scanning causes problems for an EAR assembly, the value `false` will disable implicit CDI scanning for all CDI modules inside the EAR assembly. 
 This value can be forcibly overridden during deployment, either by an argument to asadmin deploy command, or by a checkbox in the web admin console.
 
-## property
-
-
-
-| name                    | applies to                     | description                                     | possible values |  default value |
-|-------------------------|--------------------------------|-------------------------------------------------|-----------------| ------|
-| `default-role-mapping`  |   root elements in `glassfish-web.xml`,`glassfish-ejb-jar.xml`,  `glassfish-application.xml`  | Enable default role mapping. Keep in mind that in EAR deployments,`glassfish-application.xml` is the only one that takes effect, and not `glassfish-ejb-jar.xml` or `glassfish-web.xml`   |  `true` - enables default role mapping | `false` |
-

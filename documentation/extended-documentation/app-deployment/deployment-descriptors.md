@@ -6,16 +6,5 @@ Payara Server supports additional configuration in some GlassFish Server descrip
 ## glassfish-application.xml
 
  - glassfish-application
-     - property
      - classloading-delegate
      - enable-implicit-cdi
-
-## glassfish-web.xml
-
- - glassfish-web-app
-     - property
-
-## glassfish-ejb-jar.xml
-
- - glassfish-ejb-jar
-     - property
