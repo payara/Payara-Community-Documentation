@@ -1,11 +1,9 @@
 ![Payara Logo](/images/payara-logo-blue.png)
 
-Payara Server began life in 2014, derived from GlassFish 4.1. Since then, Payara Server has been refined with bug fixes,
-enhanced with new features, and has grown a strong community following.
-The documentation here will be updated with all the significant changes made with each new release.
+Payara Server began life in 2014, derived from GlassFish 4.1. Since then, Payara Server has been refined with bug fixes, enhanced with new features, and has grown a strong community following. The documentation here will be updated with all the significant changes made with each new release.
 
 [Payara Server Documentation](getting-started/getting-started.md)
-  - The documentation of Payara Server edition, consisting of basic information,                                                                       [features shared with GlassFish 4](documentation/core-documentation/core-documentation.md),                                                                       and [additional features](documentation/extended-documentation/extended-documentation.md)
+  - The documentation of Payara Server edition. Consists of basic information, [features shared with GlassFish 4](documentation/core-documentation/core-documentation.md), and [additional features](documentation/extended-documentation/extended-documentation.md)
 
 [User Guides](documentation/user-guides/user-guides.md)
   - Useful guides and tutorials
@@ -15,6 +13,7 @@ The documentation here will be updated with all the significant changes made wit
 
 Payara Server is released on a quarterly cadence and versioned with the year and quarter number to reflect that:
 
+    2016 Q3 - Payara Server 4.1.163
     2016 Q2 - Payara Server 4.1.162
     2016 Q1 - Payara Server 4.1.161
 
