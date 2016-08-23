@@ -11,7 +11,7 @@
 
 ### Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
-    * [JACC](documentation/core-documentation/jacc.md) 
+    * [JACC](documentation/core-documentation/jacc.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
    * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
        * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -67,6 +67,7 @@
    * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
    * [Logging to a file](documentation/payara-micro/logging-to-file.md)
    * [Remote CDI Events](documentation/payara-micro/cdi-events.md)
+   * [Persistent EJB timers](documentation/payara-micro/persistent-ejb-timers.md)
    * [Payara Micro Appendices](documentation/payara-micro/appendices/appendices.md)
       * [Command Line Options](documentation/payara-micro/appendices/cmd-line-opts.md)
       * [Payara Micro API](documentation/payara-micro/appendices/micro-api.md)
