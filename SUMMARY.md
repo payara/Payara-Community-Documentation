@@ -11,7 +11,7 @@
 
 ### Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
-    * [JACC](documentation/core-documentation/jacc.md) 
+    * [JACC](documentation/core-documentation/jacc.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
    * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
        * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -44,6 +44,10 @@
     * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
     * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
     * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
+    * [Configure a connection pool](documentation/user-guides/connection-pools/connection-pools.md)
+       * [Connection pool sizing](documentation/user-guides/connection-pools/sizing.md)
+       * [Connection validation](documentation/user-guides/connection-pools/validation.md)
+       * [Statement and Connection Leak Detection](documentation/user-guides/connection-pools/leak-detection.md)
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
    * [Starting an Instance](documentation/payara-micro/starting-instance.md)
    * [Deploying Applications](documentation/payara-micro/deploying/deploying.md)
