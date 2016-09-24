@@ -116,6 +116,8 @@ For MySQL database use, it is recommended the following additional property be s
 |-----------------------------|----------|-------------------------------------------------------------------|
 | zeroDateTimeBehavior | convertToNull | Action for DATETIME values that are composed entirely of zeros (used by MySQL to represent invalid dates) |
 
+Depending on the version of MySQL you may also need to set the server property sql_mode to blank as JBatch uses null and zero dates.
+
 # 6. Altered Asadmin Commands
 
 ## 6.1 set-batch-runtime-configuration
