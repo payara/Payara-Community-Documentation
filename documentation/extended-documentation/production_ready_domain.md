@@ -2,7 +2,7 @@
 
 # 1. Overview
 
-This page details the new production ready domain available in Payara Server 4.1.1.162.
+This page details the new production ready domain available in Payara Server 4.1.1.152.
 # 2. Documentation Conventions
 
 Any paths listed throughout the documentation will use the Unix/Linux file path structure (forward slashes).
@@ -10,7 +10,7 @@ Any paths listed throughout the documentation will use the Unix/Linux file path 
 JVM Options are listed in the *key=value* notation (when applicable).
 # 3. Production Ready Domain
 
-With Payara Server 4.1.1.162, there is a new domain called **payaradomain** in the *${PAYARA_HOME}/glassfish/domains/* folder of that is fine-tuned to be used in production environments.
+With Payara Server 4.1.1.152, there is a new domain called **payaradomain** in the *${PAYARA_HOME}/glassfish/domains/* folder of that is fine-tuned to be used in production environments.
 
 The following changes are made for this domain configuration:
 ## 3.1. JVM Options
