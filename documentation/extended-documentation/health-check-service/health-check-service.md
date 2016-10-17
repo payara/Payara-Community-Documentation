@@ -7,6 +7,7 @@ Since version 4.1.1.161, Payara Server includes the Health Check Service. When e
 *     Payara Server’s JVM Garbage Collections
 *     Payara Server’s JVM Heap Usage
 *     CPU Usage of individual threads
+*     Detects stuck threads
 
 If there is a problem with any of these metrics and they exceed a configurable threshold then a `GOOD`, `WARNING` or `CRITICAL` event message is logged to the server log file. This allows operations teams to rapidly detect problems or work out what happened after these problems have occurred. Such events will be presented in a similar manner to this:
 ￼  		￼  
