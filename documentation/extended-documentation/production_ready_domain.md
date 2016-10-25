@@ -18,6 +18,7 @@ asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/p
 ###Differences to `domain1`
 The configuration of `payaradomain` has been made with production in mind, so there are a number of differences when compared to `domain1` which are listed below. Not all of these will be wanted for development environments, but all are good practice for production domains.
 
+#####Differences in Server Configuration
 1. Autodeployment has been disabled  
 Payara Server comes with a deployment scanner. This is a security risk for production, so is disabled by default. in the domain.xml  
 
@@ -42,7 +43,7 @@ The property `fish.payara.classloading.delegate` has been set to `false`
 
 10. The maximum size for the thread pool `http-thread-pool` has been increased from `5` to `50`.
 
-#####JVM Options
+#####Differences in JVM Options
 With the aim of `payaradomain` being to target production, we have excluded `PermGen` configuration, since it is only relevant in Java 7. Payara Server does support Java 7, but JDK 7 reached end-of-life and therefore it is a security risk to run a JVM lower than version 8 in production.
 
 The following JVM options are present in `domain1`, but different in `payaradomain`:
