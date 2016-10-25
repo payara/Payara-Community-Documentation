@@ -12,7 +12,7 @@ Configuration Option | Description | Default Value
 `--clusterPassword` | Sets the cluster group password |
 `--name` | Sets the instance name. | Generated Universally Unique Identifier.
 `--rootDir` | Sets the root configuration directory and saves the configuration across restarts. | If not set, has no value and defaults to the temp directory.
-`--deploymentDir` | Sets a directory which will be scanned for WAR files for auto-deployment. | If not set, has no value and is not used.
+`--deploymentDir`<br />`--deployDir` | Sets a directory which will be scanned for WAR files for auto-deployment. | If not set, has no value and is not used.
 `--deploy` | Specifies a WAR file to deploy. | If not set, has no value and is not used.
 `--domainConfig` | Overrides the server configuration with an alternative domain.xml file. | If not set, the domain.xml contained in the Payara Micro JAR is used.
 `--minHttpThreads` | Sets the minimum number of threads in the HTTP thread pool. | 10
