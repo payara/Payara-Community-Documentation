@@ -19,3 +19,8 @@ a:hover {
 .book-summary ul.summary li.active > a {
   text-decoration: underline;
 }
+
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
