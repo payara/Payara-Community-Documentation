@@ -11,6 +11,11 @@ a:hover {
   /* color: white !important; */
 }
 
+.book-summary ul.summary li li a, .book-summary ul.summary li li.active a {
+  font-weight: 400;
+  /* color: white !important; */
+}
+
 .book-summary ul.summary li.active > a {
   background-color: black;
   color: white;
