@@ -1,0 +1,27 @@
+a:hover {
+  opacity: 0.7 !important;
+}
+
+.book-summary {
+  /* background-color: #70b7d5 !important;*/
+}
+
+.book-summary ul.summary li > a, .book-summary ul.summary li.active > a {
+  font-weight: 700;
+  /* color: white !important; */
+}
+
+.book-summary ul.summary li li > a, .book-summary ul.summary li li.active > a {
+  font-weight: 400;
+  /* color: white !important; */
+}
+
+.book-summary ul.summary li.active > a {
+  background-color: #0a303d;
+  color: #DDDDDD;
+}
+
+.book-summary ul.summary li a, .book-summary ul.summary li span {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

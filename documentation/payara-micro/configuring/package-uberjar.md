@@ -17,7 +17,7 @@ Any additional command line options you specify when creating an uber jar are re
 java -jar payara-micro.jar --deploy test.war --port 9080 --lite --clusterName test-cluster --clusterPassword test-password --outputUberJar test2.jar
 ```
 
-All the command line option for port etc. will be retained when the uber jar is ran with no parameters.
+All the command line options for port etc. will be retained when the uber jar is ran with no parameters.
 
 
 ### Uber JAR Context Root
