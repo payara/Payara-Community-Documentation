@@ -17,11 +17,8 @@ a:hover {
 }
 
 .book-summary ul.summary li.active > a {
-  background-color: black;
-  color: white;
-}
-
-.book-summary ul.summary li.active > a {
+  background-color: #0a303d;
+  color: #DDDDDD;
   text-decoration: underline;
 }
 
