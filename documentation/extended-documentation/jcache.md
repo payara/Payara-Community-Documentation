@@ -3,15 +3,20 @@
 * [1. Overview](#1-overview)
 * [2. Documentation Conventions](#2-documentation-conventions)
 * [3. Using JCache in your Applications](#3-using-jcache-in-your-applications)
+
   * [3.1 Accessing the JSR107 Caching Provider and Cache Manager](#31-accessing-the-jsr107-caching-provider-and-cache-manager)
+
     * [3.1.1 Using Injection](#311-using-injection)
 
   * [3.2 Creating a Cache using Injection](#32-creating-a-cache-using-injection)
+
     * [3.2.1 Creating a custom Cache using Injection](#321-creating-a-custom-cache-using-injection)
 
   * [3.3 Using JCache Annotations](#33-using-jcache-annotations)
 
+
 * [4. Appendices](#4-appendices)
+
   * [4.1 NamedCache Annotation](#41-namedcache-annotation)
 
 
@@ -104,6 +109,27 @@ Cache cache;
 ```
 
 The full array of parameters can be seen in the [NamedCache](#41-namedcache-annotation) section of the [appendices](#4-appendices).
+
+If you only want to set the name of the cache but don't want to depend on the `@NamedCache` annotation since it's part of the _Payara Extras_ dependencies, you can use the `@CacheDefaults` annotation on the bean class:
+
+```Java
+
+import fish.payara.cdi.jsr107.impl.NamedCache;
+import javax.inject.Inject;
+import javax.cache.Cache;
+import javax.cache.annotation.CacheDefaults;
+import javax.enterprise.context.ApplicationScoped;
+...
+@ApplicationScoped
+@CacheDefaults(cacheName = "custom")
+public class CacheBean {
+    ...
+    @Inject
+    Cache cache;
+    ...
+}
+```
+Keep in mind that this solution only works if your bean has one injected cache only. If you are in a situation where you must inject more than one cache into the bean then consider using the _@NamedCache_ annotation to avoid name collisions.
 
 ## 3.3 Using JCache Annotations
 
