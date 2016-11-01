@@ -18,6 +18,4 @@ If implicit CDI scanning causes problems for an EAR assembly, the value `false` 
 </glassfish-application>
 ```
 
-This value can be forcibly overridden during deployment, either by an argument to asadmin deploy command, or by a checkbox in the web admin console.
-
-The default behaviour of the admin console is for the checkbox for implicit CDI scanning to be enabled; As of the 164 release of Payara Server, however, the checkbox will take the value of `enable-implicit-cdi` in the `glassgish-application.xml`, or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR.
+The default behaviour of the admin console is for the checkbox for implicit CDI scanning to be enabled; As of the 164 release of Payara Server, however, the checkbox will take the value of `enable-implicit-cdi` in the `glassfish-application.xml`, or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR.
