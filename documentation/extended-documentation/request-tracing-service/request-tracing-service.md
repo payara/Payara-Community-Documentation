@@ -26,6 +26,7 @@ Once a request is being traced, the Request Tracing service collects events duri
  - a JTA transaction is started/finished
  - JASPIC authentication
 
+--------------------------
 
 * [Asadmin Commands](asadmin-commands.md)
 * [Configuration](configuration.md)

@@ -15,7 +15,8 @@ The main configuration tag `notification-service-configuration`  has only one at
 
 The `<log-notifier-configuration>` tag registers a log notifier to the pub-sub model of the notification service. The notifier subscribes to each log notification event that would get published either by health check services or request tracing services, and writes information about the event into the server log file.
 
-By default, each Payara Server domain is configured with log notifier enabled in the domain.xml, by setting `enabed="true"` for both `notification-service-configuration` and `log-notifier-configuration`. This is the recommended setup until more notifiers are available, as the default value of `enabled` is false, which means that notifications are ignored.
+The default value for the attribute `enabled` is `false` for both `notification-service-configuration` and `log-notifier-configuration`. This would mean that notifications are ignored.
+However, each stock Payara Server domain is configured with log notifier enabled in the domain.xml, by setting `enabled="true"` for both elements. This is the recommended setup until more notifiers are available. This setup ensures that notification messages are always written into the log file.
 
 The Notification service can be configured through the admin console:
 
