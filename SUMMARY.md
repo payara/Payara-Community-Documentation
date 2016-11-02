@@ -39,7 +39,6 @@
         * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
     * [System Properties](documentation/extended-documentation/system-properties.md)
     * [Classloading](documentation/extended-documentation/classloading.md)
-    * [Alternate Store for EJB Timers](documentation/extended-documentation/alternate-store-for-ejb-timers.md)
 * [User Guides](documentation/user-guides/user-guides.md)
     * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
     * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
