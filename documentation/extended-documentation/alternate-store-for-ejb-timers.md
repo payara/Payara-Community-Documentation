@@ -10,7 +10,7 @@ Starting with release _4.1.1.164_, the distributed Hazelcast cache can be used t
 
  _${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.  _${Domain}_ - This refers to the name of your Payara domain.  `...` - Denotes a skipping of unrelated code that would be present in the actual file or program. 
 
-## 3. EJB Timers Storage Configuration
+## 3. EJB Persistent Timers Storage Configuration
 
 Traditionally, persistent EJB timers are set to be stored inside a relational database of configured under the EJB Container component of the server's configuration (on _${Domain}/config/domain.xml_):
 
@@ -20,7 +20,18 @@ Traditionally, persistent EJB timers are set to be stored inside a relational da
 </ejb-container>
 ```
 
-By default, the server will use the pre-configured `jdbc/__TimerPool` datasource to store persistent timers into an embedded Derby database saved into the _${Domain}/applications/databases_ directory.
+By default, the server will use the pre-configured `jdbc/__TimerPool` datasource to store persistent timers into an embedded Derby database saved into the _${Domain}/applications/databases_ directory. To set the Hazelcast distributed cache to store persistent timers, assign the `ejb-timer-service attribute` on the `ejb-timer-service` element to _"Hazelcast"_:
+
+````xml
+<ejb-container>
+ <ejb-timer-service ejb-timer-service="Hazelcast"></ejb-timer-service>
+</ejb-container>
+```
+
+Take into account that this change can only be made on the domain.xml configuration, as no alternate _asadmin_ commands (and by extension a visual element on the admin console) are available.
+
+Keep in mind that to use this altenate data store for persistent EJB timers, **Hazelcast ** must be enabled first. 
+
 
 
 
