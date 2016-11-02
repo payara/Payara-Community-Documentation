@@ -34,7 +34,7 @@ By default, the server will use the pre-configured `jdbc/__TimerPool` datasource
 
 Take into account that this change can only be made on the domain.xml configuration, as no alternate _asadmin_ commands (and by extension a visual element on the admin console) are available.
 
-Keep in mind that to use this altenate data store for persistent EJB timers, **Hazelcast ** must be enabled first. 
+Keep in mind that to use this altenate data store for persistent EJB timers, **Hazelcast** must be [enabled](extended-documentation/hazelcast.md#3-enabling-hazelcast) first. 
 
 
 
