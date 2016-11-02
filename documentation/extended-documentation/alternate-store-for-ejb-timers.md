@@ -2,15 +2,19 @@
 
 ## Contents
 
-## 1. Overview
+* [1. Overview](#1-overview)
+* [2. Documentation Conventions](#2-documentation-conventions)
+* [3. EJB Persistent Timers Storage Configuration](#3-ejb-persistent-timers-configuration)
 
-Starting with release _4.1.1.164_, the distributed Hazelcast cache can be used to store the persistent EJB timers of deployed Java EE applications on the server. 
+# 1. Overview
 
-## 2. Documentation Conventions
+Starting with release _4.1.1.164_, the distributed Hazelcast cache can be used to store the persistent EJB timers of deployed Java EE applications on the server in a similar manner offered by [Payara Micro's configuration](payara-micro/persistent-ejb-timers.md)
+
+# 2. Documentation Conventions
 
  _${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.  _${Domain}_ - This refers to the name of your Payara domain.  `...` - Denotes a skipping of unrelated code that would be present in the actual file or program. 
 
-## 3. EJB Persistent Timers Storage Configuration
+# 3. EJB Persistent Timers Storage Configuration
 
 Traditionally, persistent EJB timers are set to be stored inside a relational database of configured under the EJB Container component of the server's configuration (on _${Domain}/config/domain.xml_):
 
