@@ -38,6 +38,7 @@
     * [Phone Home](documentation/extended-documentation/phone-home/phone-home.md)
         * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
     * [System Properties](documentation/extended-documentation/system-properties.md)
+    * [Production Ready Domain](documentation/extended-documentation/production-ready-domain.md)
     * [Classloading](documentation/extended-documentation/classloading.md)
 * [User Guides](documentation/user-guides/user-guides.md)
     * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
