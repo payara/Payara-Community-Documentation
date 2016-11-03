@@ -16,6 +16,7 @@ Configure whether to enable or disable the calling of `ServletContainerInitializ
 
 For performance considerations, you can explicitly disable the servlet container initializer by configuring the container-initializer-enabled element to `false`. This can help deploy web applications that cause conflicts with a custom bootstrapping process or depend on external libraries to complete it.
 
+The default value for this configuration element is `true`.
 
 ## default-role-mapping (_property_)
 
