@@ -100,10 +100,8 @@ This command only configures thresholds for the following metrics:
 In order to execute this command for an specific metric, the `healthcheck-configure-service` command needs to be executed first.
 
 ### *Important!*
+There is no _asadmin_ command to configure the _**Garbage Collection**_ metric, since the service calculates and prints out how many times garbage collections were executed within the time elapsed since the last check. The service will determine the severity of the messages based on how much the CPU time is being taken by the GC when measuring. 
 
-There is no asadmin command to configure the threshold values for the **Hogging Threads** or **Garbage Collection** metrics. In the case of Hogging Threads metrics, check the domain.xml configuration section on how to adjust its parameters.
-
-In the case of the Garbage Collection metric, there is no configuration available for this metric; since the service calculates and prints out how many times garbage collections were executed within the time elapsed since the last check. The service will determine the severity of the messages based on how much the CPU time is being taken by the GC when measuring.
 
 #### Example
 Monitoring the health of JDBC connection pools is a common need. In that scenario, it is very unlikely that on-the-fly configuration changes would be made, so a very high `CRITICAL` threshold can be set. Likewise, a nonzero `GOOD` threshold is needed because an empty or unused connection pool may not be healthy either. (The actual `GOOD` threshold would need to be arrived at following testing).
@@ -118,6 +116,43 @@ asadmin> healthcheck-configure-service-threshold \
     --thresholdWarning=70 \
     --thresholdGood=30
 ```
+
+## `healthcheck-hoggingthreads-configure`
+
+__Usage:__ `asadmin> healthcheck-hoggingthreads-configure --dynamic=true|false --threshold-percentage=50 --retry-count=3`
+
+__Aim:__ Configures the healthcheck service to scan for threads hogging the CPU. The service will determine which threads fullfill this conditions by calculating a parcentage of usage with the ratio of elapsed time to the checker service execution interval. If this percentage exceeds the `threshold-percentage`, the thread will be marked as a hogging thread.
+
+You can also use this command to enable this metric checking and also configure the frequency of monitoring combining the functions of the `healthcheck-configure` and `healthcheck-configure-service` commands. 
+
+### Command Options
+
+| Option | Type | Description | Default | Mandatory |
+| --- | --- | --- | --- | --- |
+| `--target` | String | The instance or cluster that will be configured | server | no |
+| `--enabled` | Boolean | Whether to enable or disable the service | true | no |
+| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
+| `--threshold-percentage` | Integer | The threshold value that this metric will be compared to mark threads as hogging-threads | 95 | no |
+| `--retry-count` | Integer | The number of retries that the checker service will execute in order to identify a hogging thread | 3 | no |
+| `--time` | Integer | The periodic amount of time units the checker service will use to monitor hogging threads | 1 | no |
+| `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid [`java.util.concurrent.TimeUnit`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html) | `SECONDS` | no|
+
+#### Example
+
+Monitoring which threads hog the CPU is extremely important since this can lead to performance degradation, deadlocks and extreme bottlenecks issues that web applications can incur. In some cases the defaults are all that is needed, but imagine that in a critical system you want to set the threshold percentage to **90%**, and you want to make sure that the healthcheck service guarantees the state of such threads with a retry count of 5. Additionally, you want to set the frequency of this check for every _20 seconds_. 
+
+The following command would apply these settings to the connection pool checker:
+
+```
+asadmin> healthcheck-hoggingthreads-configure \
+    --dynamic=true \
+    --threshold-percentage=90 \
+    --retry-count=5 \
+    --time=20 \
+    --unit=SECONDS
+``` 
+
+
 
 ## `get-healthcheck-configuration`
 
