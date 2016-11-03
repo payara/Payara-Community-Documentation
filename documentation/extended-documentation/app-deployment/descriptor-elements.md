@@ -14,7 +14,7 @@ This value can be forcibly overridden during deployment, either by an argument t
 
 Configure whether to enable or disable the calling of `ServletContainerInitializer` component classes defined in JAR files bundled inside the WAR assembly.
 
-For performance considerations, you can explicitly disable the servlet container initializer by configuring the container-initializer-enabled element to `false`. This can help deploy web applications that cause conflicts with a custom bootstrapping process or depend on external libraries to complete the bootstrap process.
+For performance considerations, you can explicitly disable the servlet container initializer by configuring the container-initializer-enabled element to `false`. This can help deploy web applications that cause conflicts with a custom bootstrapping process or depend on external libraries to complete it.
 
 
 ## default-role-mapping (_property_)
