@@ -1,6 +1,6 @@
 # Request Tracing in Payara Micro
 
-The request tracing service was made available in Payara Micro from the 4.1.1.164 release. The service itself is exactly the same and will trace all the same events.
+The [request tracing service](/documentation/extended-documentation/request-tracing-service/request-tracing-service.md) was made available in Payara Micro from the 4.1.1.164 release. The service itself is exactly the same and will trace all the same events.
 
 ### Usage
 Payara Micro exposes 3 command line options to configure request tracing. To be explicit about the desired configuration, all three arguments can be used, but this is not necessary since the command to enable tracing can also accept configuration.
