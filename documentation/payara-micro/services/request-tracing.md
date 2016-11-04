@@ -17,7 +17,9 @@ Since all three options can be specified with an extra parameter following the `
 
 #####Shorthand Notation
 
-To enable and configure request tracing with a single command, the `--enableRequestTracing` option expects **one** string to follow it. In other words, the value and unit need to be a single string with no spaces, so `500ms` would be allowed, but `500 ms` would not. In the second case, the unit is ignored and the default `SECONDS` is kept.
+To enable and configure request tracing with a single command, the `--enableRequestTracing` option allows you to provide **one** string following it to set the threshold unit and/or value.
+
+In other words, the value and unit need to be a single string with no spaces, so `500ms` would be allowed, but `500 ms` would not. In the second case, the unit is ignored and the default `SECONDS` is kept.
 
 Notation for units is as follows:
 
