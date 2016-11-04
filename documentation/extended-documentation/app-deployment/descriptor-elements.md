@@ -36,3 +36,35 @@ Both the `glassfish-application.xml` and the `glassfish-web.xml` files support t
 ```
 
 In the above example, all JARs will be excluded by default, then all JARs beginning with `ejba` will be scanned, along with the JAR named `conflicting-web-library`.
+
+## `container-initializer-enabled`
+
+This property configures whether to enable or disable the calling of `ServletContainerInitializer` component classes defined in JAR files bundled inside the WAR assembly.
+
+For performance considerations, you can explicitly disable the servlet container initializer by setting the `container-initializer-enabled` element to `false`. This can help deployment in web applications that cause conflicts with a custom bootstrapping process or depend on external libraries.
+
+The default value for this configuration element is `true`.
+
+## `default-role-mapping`
+
+With this property, you can set whether to enable the default group to role mappings for your application's security settings. This element is set up as a `property` element with a `Boolean` value attribute like this:
+
+```xml
+<property name="default-role-mapping" value="true">
+  <description>Enable default group to role mapping</description>
+</property>
+```
+
+Enabling the default group to role mappings will cause all named groups in the application's linked security realm to be mapped to a role of the same name. This will save you the time of having to redefine the same roles and map them to the realm groups each time they are modified.
+
+This will have the same effect as executing the following asadmin command:
+
+```sh
+asadmin set configs.config.server-config.security-service.activate-default-principal-to-role-mapping=true
+```
+
+Except it's effect will only limit itself to the application instead of all applications deployed on the server. This setting is configured by default to `true` on the [production-ready-domain](../production-ready-domain.md)
+
+The default value of this property is `false`. This property can be set in the `glassfish-web.xml`, `glassfish-ejb-jar.xml` and `glassfish-application.xml` deployment descriptors.
+
+In an EAR assembly, only the property set in the `glassfish-application.xml` will take effect and any set in the `glassfish-web.xml` and `glassfish-ejb-jar.xml` will be ignored. Setting this configuration property in any of these files will always take precedence over any setting configured on the server.
