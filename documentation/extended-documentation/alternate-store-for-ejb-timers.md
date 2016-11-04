@@ -4,7 +4,7 @@
 
 * [1. Overview](#1-overview)
 * [2. Documentation Conventions](#2-documentation-conventions)
-* [3. EJB Persistent Timers Storage Configuration](#3-ejb-persistent-timers-configuration)
+* [3. EJB Persistent Timers Storage Configuration](#3-ejb-persistent-timers-storage-configuration)
 
 # 1. Overview
 

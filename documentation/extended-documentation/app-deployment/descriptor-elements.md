@@ -34,7 +34,7 @@ If you enable the default group to role mappings, all named groups in the applic
 asadmin set configs.config.server-config.security-service.activate-default-principal-to-role-mapping=true
 ```
 
-Except it's effect will only limit itself to the application instead of all applications deployed on the server. This setting is configured by default to `true` on the [production-ready-domain](extended-documentation/production_ready_domain.md)
+Except it's effect will only limit itself to the application instead of all applications deployed on the server. This setting is configured by default to `true` on the [production-ready-domain](../production-ready-domain.md)
 
 The default value of this property is `false`. This property can be set in the _glassfish-web_, _glassfish-ejb-jar_ and _glassfish-application_ XML deployment descriptors. On an **EAR** assembly, only the property set at the _glassfish-application.xml_ takes effect and the ones in the _glassfish-web.xml_ and _glassfish-ejb-jar.xml_ are ignored. Setting this configuration property on these files will always override any setting configured on the server.
 
