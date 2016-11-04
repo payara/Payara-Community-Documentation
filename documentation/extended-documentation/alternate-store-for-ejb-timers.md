@@ -4,11 +4,11 @@
 
 * [1. Overview](#1-overview)
 * [2. Documentation Conventions](#2-documentation-conventions)
-* [3. EJB Persistent Timers Storage Configuration](#3-ejb-persistent-timers-configuration)
+* [3. EJB Persistent Timers Storage Configuration](#3-ejb-persistent-timers-storage-configuration)
 
 # 1. Overview
 
-Starting with release _4.1.1.164_, the distributed Hazelcast cache can be used to store the persistent EJB timers of deployed Java EE applications on the server in a similar manner offered by [Payara Micro's configuration](payara-micro/persistent-ejb-timers.md)
+Starting with release _4.1.1.164_, the distributed Hazelcast cache can be used to store the persistent EJB timers of deployed Java EE applications on the server in a similar manner offered by [Payara Micro's configuration](./payara-micro/persistent-ejb-timers.md)
 
 # 2. Documentation Conventions
 
@@ -34,7 +34,7 @@ By default, the server will use the pre-configured `jdbc/__TimerPool` datasource
 
 Take into account that this change can only be made on the domain.xml configuration, as no alternate _asadmin_ commands (and by extension a visual element on the admin console) are available.
 
-Keep in mind that to use this altenate data store for persistent EJB timers, **Hazelcast** must be [enabled](extended-documentation/hazelcast.md#3-enabling-hazelcast) first. 
+Keep in mind that to use this altenate data store for persistent EJB timers, **Hazelcast** must be [enabled](./hazelcast.md#3-enabling-hazelcast) first. 
 
 
 
