@@ -9,7 +9,7 @@ For more information about how Payara Server loads the required classes and libr
 
 In a WAR file, it is possible to set the property `bean-discovery-mode` equal to `none` to turn off implicit scanning of the archive for bean defining annotations, as defined by CDI 1.1. This has been made available as part of the CDI 1.1 specification; the default value of this setting is defined as `annotated` in the specification, so the archive is scanned for any bean-defining annotations.
 
-In the `glassfish-application.xml` deployment descriptor for an EAR file, it is now possible to set the property `enable-implicit-cdi` to `false` to achieve the same goal for all modules inside the EAR assembly. The default value is `true`, in line with the default value for WAR files.
+In the `glassfish-application.xml` deployment descriptor for an EAR file, the property `enable-implicit-cdi` can be set to `false` to achieve the same goal for all modules inside the EAR assembly. The default value is `true`, in line with the default value for WAR files.
 
 If implicit CDI scanning causes problems for an EAR assembly, the value `false` will disable implicit CDI scanning for all CDI modules inside the EAR assembly:
 
@@ -19,7 +19,10 @@ If implicit CDI scanning causes problems for an EAR assembly, the value `false` 
 </glassfish-application>
 ```
 
-The default behaviour of the admin console is for the checkbox for implicit CDI scanning to be enabled; As of the 164 release of Payara Server, however, the checkbox will take the value of `enable-implicit-cdi` in the `glassfish-application.xml`, or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR.
+**Note**:  
+When implicit CDI is controlled by using either the `enable-implicit-cdi` property in the `glassfish-application.xml` or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR, the admin console checkbox ***is ignored***.
+
+The default behaviour of the admin console is for the "Implicit CDI" checkbox to be enabled, but this will **not** override the application configuration.
 
 ### `scanning-exclude` and `scanning-include`
 Modern WAR and EAR files very often include a number of 3rd party JARs. In situations where some JARs require CDI scanning and others may break if scanned, these can now be explicitly included or excluded from scanning.
