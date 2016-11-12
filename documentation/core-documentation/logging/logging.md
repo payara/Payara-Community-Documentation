@@ -2,7 +2,7 @@
 
 Payara Server captures information about events that occur and records this information using its logging mechanism into log files.
 
-In a Payara Server domain, the information is logged the following files by default:
+In a Payara Server domain, the information is logged into the following files by default:
 
 | Instance                   | Log File Name and Location          |
 |----------------------------|-------------------------------------|
@@ -15,6 +15,6 @@ If an instance is started using `-verbose` option, the instance keeps running in
 Payara Server uses Java Logging (JUL) to format and output log records. The default configuration file is `domain-dir/config/logging.properties`.
 
 Logging can be configured by `asadmin` commands (`set-log-attributes`, `set-log-file-format`, `set-log-levels`, `delete-log-levels`, ...).
-It can be also configured in Web Admin Console, in `Configurations`, under the section `Logger Settings`, as on the following picture.
+It can also be configured in Web Admin Console, in `Configurations`, under the section `Logger Settings`, as on the following picture.
 
 ![Logger Settings](images/logging_setup.png)
