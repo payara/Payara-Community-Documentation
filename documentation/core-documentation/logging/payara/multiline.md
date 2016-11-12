@@ -1,6 +1,6 @@
 # Multiline Mode for Logging
 
-_Since version 164_
+_Since version 4.1.1.164_
 
 When Multiline mode is enabled, the log message body is printed on a new line after the message header for each log record. This will lead to a more human-readable format of the log file.
 
