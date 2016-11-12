@@ -24,6 +24,6 @@ asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.comp
 
 The log files can be viewed in Admin Console in the same way as if they were uncompressed. The only difference is that their name ends in `.gz` extension and it takes much longer to open them and display their contents.
 
-This is an example how the Log Viewer may look like with 2 compressed log files:
+This is an example how the Log Viewer may look like with 3 compressed log files:
 
 ![Log Viewer with compressed log files](images/zipped_logs.png)
