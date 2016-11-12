@@ -70,6 +70,7 @@
     * [HTTP\(S\) Auto-Binding](documentation/payara-micro/port-autobinding.md)
     * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
     * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
+    * [Request Tracing](documentation/payara-micro/services/request-tracing.md)
     * [Logging to a file](documentation/payara-micro/logging-to-file.md)
     * [Remote CDI Events](documentation/payara-micro/cdi-events.md)
     * [Persistent EJB timers](documentation/payara-micro/persistent-ejb-timers.md)
