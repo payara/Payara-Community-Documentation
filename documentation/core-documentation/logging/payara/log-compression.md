@@ -14,7 +14,7 @@ When log rotation is configured, you can turn on compression of rotated files in
 
 ## Using `asadmin` utility
 
-With `asadmin` utility, the same can be achieved by setting a respective log attribute to either `true` or `false`:
+With `asadmin` utility, the same can be achieved by setting the respective log attribute to either `true` or `false`:
 
 ```
 asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.compressOnRotation='true'
