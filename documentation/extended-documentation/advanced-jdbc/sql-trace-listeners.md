@@ -1,7 +1,6 @@
 #SQL Trace Listeners
-_Payara Server and Micro 161 (4.1.1.162) onwards_
 
-Payara Server 161 (4.1.1.162) provides support for custom SQL Trace Listeners. A SQL Trace Listener is registered against a datasource and is called after each method call on the Payara Server connection pool. SQL Trace Listeners enable a developer to track all calls to the database and can be used to develop custom Auditing, Error handling or monitoring. SQL Trace Listeners can be enabled globally on a datasource if you class is on the server classpath or can be enabled on an application specific datasource deployed within a WAR or EAR deployment, in which case the class only needs to be on the classpath of your application i.e. contained within your WAR or EAR.
+Since version 4.1.1.161, Payara Server provides support for custom SQL Trace Listeners. A SQL Trace Listener is registered against a datasource and is called after each method call on the Payara Server connection pool. SQL Trace Listeners enable a developer to track all calls to the database and can be used to develop custom Auditing, Error handling or monitoring. SQL Trace Listeners can be enabled globally on a datasource if you class is on the server classpath or can be enabled on an application specific datasource deployed within a WAR or EAR deployment, in which case the class only needs to be on the classpath of your application i.e. contained within your WAR or EAR.
 
 ## SQL Trace listener Interface
 
