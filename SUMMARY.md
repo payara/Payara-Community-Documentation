@@ -6,7 +6,7 @@
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
 * [Release Notes](release-notes/release-notes.md)
-    * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
+    * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
 
 ## Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
