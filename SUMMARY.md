@@ -6,11 +6,17 @@
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
 * [Release Notes](release-notes/release-notes.md)
-    * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
+    * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
 
 ## Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
     * [JACC](documentation/core-documentation/jacc.md)
+    * [Logging](documentation/core-documentation/logging/logging.md)
+        * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
+          * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
+          * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
+          * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
+
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
         * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -70,6 +76,7 @@
     * [HTTP\(S\) Auto-Binding](documentation/payara-micro/port-autobinding.md)
     * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
     * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
+    * [Request Tracing](documentation/payara-micro/services/request-tracing.md)
     * [Logging to a file](documentation/payara-micro/logging-to-file.md)
     * [Remote CDI Events](documentation/payara-micro/cdi-events.md)
     * [Persistent EJB timers](documentation/payara-micro/persistent-ejb-timers.md)
@@ -92,4 +99,3 @@
     * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
     * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
     * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
-
