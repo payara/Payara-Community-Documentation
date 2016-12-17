@@ -13,10 +13,9 @@
     * [JACC](documentation/core-documentation/jacc.md)
     * [Logging](documentation/core-documentation/logging/logging.md)
         * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
-          * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
-          * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
-          * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
-
+            * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
+            * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
+            * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
         * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -99,3 +98,6 @@
     * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
     * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
     * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
+* [Reference Information](reference-information.md)
+    * [Security Fix List](security-fix-list.md)
+
