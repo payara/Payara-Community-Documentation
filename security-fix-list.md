@@ -2,7 +2,7 @@
 
 | ID | Status | Summary | Observations |
 | :--- | :--- | :--- | :--- |
-| [CVE-2007-6726](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6726) | FIXED | Apache Commons Compress bzip2 vulnerability allows DDoS attacks | Payara Server does not make use of Apache Commons Compress |
+| [CVE-2007-6726](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6726) | FIXED | XSS Vulnerabilities in Dojo libraries used for admin console | Since 4.1.1.163 |
 | [CVE-2012-2098](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2098) | N/A | Apache Commons Compress bzip2 vulnerability allows DDoS attacks | Payara Server does not make use of Apache Commons Compress |
 | [CVE-2013-2035](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2035) | FIXED | Race condition in outdated jLine code allows arbitrary code execution | Since 4.1.1.171 |
 | [CVE-2015-0254](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0254) | N/A | Vulnerabilities on Apache JSTL allows arbitrary code injection | Payara Server uses the FEATURE_SECURE_PROCESSING feature of JAXP so is not affected |
