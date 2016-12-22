@@ -26,6 +26,7 @@
   * [7.2 get-hazelcast-configuration](#72-get-hazelcast-configuration)
   * [7.3 list-hazelcast-members](#73-list-hazelcast-members)
   * [7.4 restart-hazelcast](#74-restart-hazelcast)
+  * [7.5 list-hazelcast-cluster-members](#75-list-hazelcast-cluster-members)
 
 # 1. Overview
 This page covers how to use the Hazelcast functionality in Payara 4.1.1.162.  
@@ -263,3 +264,28 @@ Restarts the Hazelcast instances attached to a server or cluster. This command r
 
 Example:  
 `asadmin restart-hazelcast --target=server`
+
+## 7.5 list-hazelcast-cluster-members
+
+Lists information about the instances in the domain's Hazelcast cluster, including Payara Micro instances.
+
+Usage: `list-hazelcast-cluster-members [--type=type]`
+
+| Option | Shortcut | Description | Default | Mandatory |
+|----------|----------|----------------------------------------------------------------|---------|-----------|
+| `--type` |  | Accepts a String of `micro` or `server`, and filters the result to only list information about Payara Micro or Payara Server instances respectively | | No |
+
+Example to list all instances in the cluster:
+
+```
+asadmin list-hazelcast-cluster-members
+```
+
+Example to list only Payara Micro instances in the cluster:
+
+```
+asadmin list-hazelcast-cluster-members --type=micro
+```
+
+
+
