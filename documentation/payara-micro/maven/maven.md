@@ -2,7 +2,7 @@
 
 ## Artifacts in Maven Central
 
-Payara Micro has been uploaded to Maven Central, allowing you to include it as a dependency in your POM.
+Payara Micro has been uploaded to Maven Central, allowing you to include it as a dependency in your POM.  
 This allows you to easily add the required Payara Micro classes and methods to your application to use Payara Micro programmatically.
 
 In your project's POM, include the following dependency:
@@ -11,9 +11,11 @@ In your project's POM, include the following dependency:
 <dependency>
     <groupId>fish.payara.extras</groupId>
     <artifactId>payara-micro</artifactId>
-    <version>{{ book.currentVersion }}</version>
+    <version>${payara.version}</version>
 </dependency>
 ```
+
+`${payara.version}` is a maven property, which specifies the version of the maven artifact, e.g. {{ book.currentVersion }}.
 
 ## Run Payara Micro using Maven
 
@@ -27,7 +29,7 @@ It is possible to run Payara Micro using the `java` goal of the Maven Exec plugi
       <dependency>
           <groupId>fish.payara.extras</groupId>
           <artifactId>payara-micro</artifactId>
-          <version>{{ book.currentVersion }}</version>
+          <version>${payara.version}</version>
       </dependency>
   </dependencies>
   <executions>
@@ -67,7 +69,7 @@ The `java` goal of the Maven Exec plugin can also be used to build an executable
       <dependency>
           <groupId>fish.payara.extras</groupId>
           <artifactId>payara-micro</artifactId>
-          <version>{{ book.currentVersion }}</version>
+          <version>${payara.version}</version>
       </dependency>
   </dependencies>
   <executions>
@@ -96,3 +98,6 @@ The `java` goal of the Maven Exec plugin can also be used to build an executable
   </executions>
 </plugin>
 ```
+
+
+
