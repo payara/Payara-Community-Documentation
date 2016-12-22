@@ -274,7 +274,7 @@ Usage: `list-hazelcast-cluster-members [--type=type]`
 
 | Option | Shortcut | Description | Default | Mandatory |
 |----------|----------|----------------------------------------------------------------|---------|-----------|
-| `--type` |  | Accepts a String of `micro` or `server`, and filters the result to only list information about Payara Micro or Payara Server instances respectively | | No |
+| --type |  | Accepts a String of `micro` or `server`, and filters the result to only list information about Payara Micro or Payara Server instances respectively | | No |
 
 Example to list all instances in the cluster:
 
