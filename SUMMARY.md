@@ -5,18 +5,19 @@
 * [General Info](general-info/general-info.md)
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
+* [Security Fixes Summary](security-fix-list.md)
 * [Release Notes](release-notes/release-notes.md)
     * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
+    * [Security Fixes Summary](release-notes/security-fix-list.md)
 
 ## Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
     * [JACC](documentation/core-documentation/jacc.md)
     * [Logging](documentation/core-documentation/logging/logging.md)
         * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
-          * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
-          * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
-          * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
-
+            * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
+            * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
+            * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
         * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -99,3 +100,4 @@
     * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
     * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
     * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
+
