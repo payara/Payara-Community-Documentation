@@ -8,6 +8,7 @@
 * [Security Fixes Summary](security-fix-list.md)
 * [Release Notes](release-notes/release-notes.md)
     * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
+    * [Security Fixes Summary](release-notes/security-fix-list.md)
 
 ## Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
