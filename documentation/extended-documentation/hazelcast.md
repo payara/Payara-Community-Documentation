@@ -54,7 +54,7 @@ The command requires the Admin Server to be running, and will expect it to be li
 
 `asadmin set-hazelcast-configuration --enabled=true`
 
-If no target is specified, the command will enable Hazelcast on the Admin Server instance. To enable Hazelcast on another instance or cluster, use the _--target_ option like so:
+If no target is specified, the command will enable Hazelcast on the domain configuration _(server-config)_. To enable Hazelcast on another instance or cluster, use the _--target_ option like so:
 
 `asadmin set-hazelcast-configuration --enabled=true --target=${Target}`
 
@@ -64,7 +64,7 @@ The _dynamic_ option of the asadmin command defaults to false, so to enable Haze
 
 ## 3.3 Enabling Hazelcast in the domain.xml file
 * Open up the _domain.xml_ file in your text editor of choice, it can be found under _${Product\_Root}/glassfish/domains/${Domain}/config/_  
-* Find the _\<hazelcast-runtime-configuration\>_ tag under the appropriate _\<config\>_ tag (e.g. _\<config name="server-config"\>_ for the Admin Server), and add _enabled="true"_ to it, like so:  
+* Find the _\<hazelcast-runtime-configuration\>_ tag under the appropriate _\<config\>_ tag (e.g. _\<config name="server-config"\>_ for the domain and the Admin Server), and add _enabled="true"_ to it, like so:  
 `<hazelcast-runtime-configuration enabled="true"/>`
   * Note - If you're editing the _domain.xml_ of a domain that has not been started at least once, this tag will not exist and you will have to add it in yourself
 
@@ -73,8 +73,9 @@ Payara Server supports configuring Hazelcast through the Admin Console or _domai
 
 ## 4.1 Configuring Hazelcast with the Admin Console
 Navigate to the Hazelcast configuration page as detailed in [Enabling Hazelcast through the Admin Console](#31-enabling-hazelcast-through-the-admin-console):  
-* Click on the cluster, standalone instance, or Admin Server instance (_server_) to load the _General Information_ page of the cluster or instance.
+* Click on the Domain, specific cluster, or standalone instance
 * Click on the _Hazelcast_ tab to see the _Hazelcast Configuration_ page.  
+
 From here, the following configuration options are available to you (excluding the _Enabled_ property detailed above):  
 
 | Property                    | Description                                                                                                                          |
