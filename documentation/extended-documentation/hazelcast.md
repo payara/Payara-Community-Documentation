@@ -44,9 +44,9 @@ In the default domain configuration of Payara, Hazelcast is not enabled. It can 
 
 ## 3.1 Enabling Hazelcast through the Admin Console
 From the Admin Console home:
-* Click on the cluster, standalone instance, or Admin Server instance (_server_) to load the _General Information_ page of the cluster or instance.
+* Click on the Domain, specific cluster, or standalone instance
 * Click on the _Hazelcast_ tab to see the _Hazelcast Configuration_ page.
-* Check the _Enabled_ box, and save your changes   
+* Check the _Enabled_ box, and save your changes
 
 ## 3.2 Enabling Hazelcast using Asadmin
 The _set-hazelcast-configuration_ asadmin command requires you to specify whether or not Hazelcast is enabled each time you run it. This command is also used to configure Hazelcast, which will be covered [here](#42-configuring-hazelcast-using-asadmin).
