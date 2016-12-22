@@ -32,6 +32,7 @@
   * [JBatch](documentation/extended-documentation/jbatch.md)
   * [JCache](documentation/extended-documentation/jcache.md)
   * [Hazelcast](/documentation/extended-documentation/hazelcast.md)
+    * [Managing Cluster Members](/documentation/extended-documentation/hazelcast/cluster-members.md)
   * [Alternate Store for EJB Timers](documentation/extended-documentation/alternate-store-for-ejb-timers.md)
   * [Health Check Service](documentation/extended-documentation/health-check-service/health-check-service.md)
     * [Asadmin Commands](documentation/extended-documentation/health-check-service/asadmin-commands.md)
@@ -53,6 +54,7 @@
   * [Default Thread Pool Size](documentation/extended-documentation/default-thread-pool-size.md)
 
 * [User Guides](documentation/user-guides/user-guides.md)
+
   * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
   * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
   * [Upgrade Payara Server](documentation/user-guides/upgrade-payara.md)
@@ -60,6 +62,7 @@
     * [Connection pool sizing](documentation/user-guides/connection-pools/sizing.md)
     * [Connection validation](documentation/user-guides/connection-pools/validation.md)
     * [Statement and Connection Leak Detection](documentation/user-guides/connection-pools/leak-detection.md)
+
 * [Payara Micro Documentation](documentation/payara-micro/payara-micro.md)
   * [Starting an Instance](documentation/payara-micro/starting-instance.md)
   * [Deploying Applications](documentation/payara-micro/deploying/deploying.md)
