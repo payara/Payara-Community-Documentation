@@ -1,4 +1,5 @@
 # New Features
+
 * [1063/PAYARA-182 - Java EE Concurrent Context Interceptor](https://github.com/payara/Payara/pull/1063)
 * [1068/PAYARA-179 - Request Tracing for inbound JMS to MDB](https://github.com/payara/Payara/pull/1068)
 * [1083/PAYARA-1038 - Add Request Tracing Event for JASPIC authentication](https://github.com/payara/Payara/pull/1083)
@@ -11,6 +12,7 @@
 * [1152/PAYARA-618 - Enable the DAS to discover Payara Micro instances](https://github.com/payara/Payara/pull/1152)
 
 # Enhancements
+
 * [980/PAYARA-846 - Add new improvements to payaradomain](https://github.com/payara/Payara/pull/980)
 * [996/PAYARA-936 - Provide default group to role mapping](https://github.com/payara/Payara/pull/996)
 * [1032/PAYARA-955 - Rolling upgrades for versioned apps](https://github.com/payara/Payara/pull/1032)
@@ -24,10 +26,11 @@
 * [1125/PAYARA-1107 - JCache beans created by JSR107Producer use generics](https://github.com/payara/Payara/pull/1125)
 * [1126/PAYARA-1106 - Use name from CacheDefaults when injecting JCache](https://github.com/payara/Payara/pull/1126)
 * [1130/PAYARA-923 - Provide option to compress log files on rotation](https://github.com/payara/Payara/pull/1130)
-* [1150/PAYARA-1140 - Allow to use colon (:) to separate coordinates in maven deployer](https://github.com/payara/Payara/pull/1150)
+* [1150/PAYARA-1140 - Allow to use colon \(:\) to separate coordinates in maven deployer](https://github.com/payara/Payara/pull/1150)
 * [1156/PAYARA-1071 - Admin console integration for JSON Log Formatter](https://github.com/payara/Payara/pull/1156)
 
 # Component Upgrades
+
 * Jersey 2.22.2
 * Hazelcast 3.7.1
 * Eclipselink 2.6.3
@@ -38,6 +41,7 @@
 * Weld 2.4.0.Final
 
 # Fixed Issues
+
 * [668/PAYARA-947 - CDI EJB Field producers' validation fail with incompatible types](https://github.com/payara/Payara/pull/668)
 * [959/PAYARA-1010 - BufferUnderflowException in case of using java 8 with lambdas](https://github.com/payara/Payara/pull/959)
 * [986/PAYARA-1075 - Deployment of application fails when a resource adapter is not deployed to all instances](https://github.com/payara/Payara/pull/986)
@@ -67,12 +71,17 @@
 * [1159/PAYARA-1127 - Unable to set ClientInfo for connection with H2 1.4.192](https://github.com/payara/Payara/pull/1159)
 
 ## Security Fixes
+
 * [1024/PAYARA-989 - Security Issue in Payara](https://github.com/payara/Payara/pull/1024)
 * [1051/PAYARA-1011 - Fix CVE-2016-5388](https://github.com/payara/Payara/pull/1051)
 
 ## Upstream Fixes
+
 * [1052/PAYARA-1010/GLASSFISH-21510 - BufferUnderflowException in case of using java 8 with lambdas](https://github.com/payara/Payara/pull/1052)
 * [1089/PAYARA-1067 - Undefined behaviour when interceptor method is overloaded in interceptor class](https://github.com/payara/Payara/pull/1089)
 * [1090/PAYARA-892/GLASSFISH-20606 - create-domain assigns wrong values for JMS port](https://github.com/payara/Payara/pull/1090)
 * [1123/PAYARA-1056 - Sums of thread pool statistics counters not correct](https://github.com/payara/Payara/pull/1123)
 * [1157/PAYARA-1008 - Fix PWC6117: File "null" not found errors](https://github.com/payara/Payara/pull/1157)
+
+
+

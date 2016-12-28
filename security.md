@@ -8,9 +8,16 @@ If you don't know in which release a security update has been included for a spe
 
 ## Reporting Security Issues with Payara Server
 
-Payara Services Limited is very active at identifying and fixing possible security vulnerabilities included into Payara Server and Payara Micro that are either inherited from GlassFish upstream or introduced by new features developed. 
+Payara Services Limited is very active at identifying and fixing possible security vulnerabilities included into Payara Server and Payara Micro that are either inherited from GlassFish upstream or introduced by new features developed.
 
-We strongly encourage users to report such problems 
+We strongly encourage users to report such problems in the following ways:
+
+1. If you are a customer of support services, create a ticket in the [support portal](http://support.payara.fish) describing the security vulnerabilities detected as you would do for any other bug reports.
+2. If not a customer of support services, please send an email with the described vulnerabilities detected to [security@payara.fish](/mailto:security@payara.fish). **Please don't use this address to report bugs or issues unrelated to security vulnerabilities** as they will be ignored, instead use the GitHub repository page for raising a [new issue](https://github.com/payara/Payara/issues) detailing the problem at hand.
+
+Also, note that all networked servers are subject to denial of service \(_DoS_\) attacks, and we cannot provide fixes to generic problems \(such as a client streaming lots of data to your server, or re-requesting the same URL repeatedly\). Instead, focus on security issues that can be targeted at specific topics like session hacking, XSS injection, CSRF attacks and so forth.
+
+Lastly, you can also direct inquiries about reported CVE issues detected in similar Java plataforms or application servers \(like Apache Tomcat,  JBoss Wildfly, etc.\) and let us research whether  or not Payara Server is affected by such issues.
 
 
 
