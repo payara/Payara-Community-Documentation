@@ -1,8 +1,9 @@
 # Contents
 
 * [1. Overview](#1-overview)
-* [2. Reporting Security Issues](#2-reporting-security-issues)
+* [2. Download Security Fixes](#2-download-security-fixes)
 * [3. Locating Security Vulnerabilities](#3-locating-security-vulnerabilities)
+* [4. Reporting Security Issues](#4-reporting-security-issues)
 
 ## 1. Overview
 
