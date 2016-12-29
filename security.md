@@ -2,20 +2,23 @@
 
 * [1. Overview](#1-overview)
 * [2. Reporting Security Issues](#2-reporting-security-issues)
+* [3. Locating Security Vulnerabilities](#3-locating-security-vulnerabilities)
 
 ## 1. Overview
 
 This section describes how to deal with known or unknown security issues related to Payara Server and Payara Micro.
 
+## 2. Download Security Fixes
+
 Reported security vulnerabilities by the community or Payara Services Limited's costumers are patched and released either in specific patch releases \(for paid support customers exclusively\) or quarterly releases. To get the specific fix for a reported vulnerability, please download the specific release that fixed that vulnerability.
 
-## 2. Locating Security Vulnerabilities
+## 3. Locating Security Vulnerabilities
 
 In order to locate the release a security update has been included for a specific vulnerability, search in the [security fixes summary](/release-notes/security-fix-list.md) page for the specific vulnerability using its [CVE identifier](https://cve.mitre.org/cve/identifiers/).
 
-For each of these security vulnerabilities, a reference to the _**Pull Requests**_ merged to fix them is given for auditing purposes. If a security vulnerability has been reported, but is not related or it doesn't affect Payara Server or Payara Micro in any way, a proper justification will be detailed in the observations of such vulnerability. This is done to track reported vulnerabilities and keep users informed about them. 
+For each of these security vulnerabilities, a reference to the _**Pull Requests**_ merged to fix them is given for auditing purposes. If a security vulnerability has been reported, but is not related or it doesn't affect Payara Server or Payara Micro in any way, a proper justification will be detailed in the observations of such vulnerability. This is done to track reported vulnerabilities and keep users informed about them.
 
-## 3. Reporting Security Issues
+## 4. Reporting Security Issues
 
 Payara Services Limited is very active at identifying and fixing possible security vulnerabilities included into Payara Server and Payara Micro that are either inherited from GlassFish upstream or introduced by new features developed.
 
