@@ -1,6 +1,11 @@
+# Contents
 
-
-## 
+* [1. Overview](#1-overwiew)
+* [2. Prerequisites](#2-prerequisites)
+* [3. Configuring Maven](#3-configuring-maven)
+* [4. Getting the Source Code](#4-getting-the-source-code)
+* [5. Building Payara Server](#5-building-payara-server)
+* [6. Building Payara Micro](#6-building-payara-micro)
 
 ## 1. Overwiew
 
@@ -40,7 +45,7 @@ To download the Payara Server's source code, open a terminal or Git Bash window,
 
 This will download the Payara Server's source code, and initialise git, in a directory called _Payara_.
 
-## 5. Building Payara
+## 5. Building Payara Server
 
 With your Git Bash or terminal window, navigate into the downloaded _Payara_ directory, and run:
 
