@@ -7,7 +7,7 @@
 
 ## 1. Overview
 
-This section describes how to deal with known or unknown security issues related to Payara Server and Payara Micro.
+This section describes how to deal with known or unknown security issues and common vulnerabilities and exploits \(CVEs\) related to Payara Server and Payara Micro.
 
 ## 2. Download Security Fixes
 
