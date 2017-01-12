@@ -25,4 +25,4 @@ By default Payara Micro clusters automatically discover other cluster members vi
 
 ## Other forms of discovery
 
-Besides the multicast discovery, Hazelcast supports other forms of the discovery, e.g. by specifying a range of IP addresses (via the tcp joiner). These forms of discovery are not configurable directly from Payara Micro, but can be configured using a standard Hazelcast configuration file provided with the `--hzConfigFile` command line argument.
+Besides the multicast discovery, Hazelcast supports other forms of discovery, e.g. by specifying a range of IP addresses (via the tcp joiner). These forms of discovery are not configurable directly from Payara Micro, but can be configured using a standard Hazelcast configuration file provided with the `--hzConfigFile` command line argument.
