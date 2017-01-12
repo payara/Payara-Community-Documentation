@@ -23,6 +23,6 @@ If you wish to have multiple clusters, then you can make use of the `--mcAddress
 By default Payara Micro clusters automatically discover other cluster members via multicast. This can lead to the situation whereby different development environments being used by different teams cluster together as they are using the same multicast address and multicast port. This can lead to confusing errors. To prevent cluster cross-talk make sure that the multicast-address and multicast-port are set to different values on each unique cluster. In the case where this is not possible Payara Micro provides the ability to set a cluster name and a cluster password both through the command line or through the API. If all the multicast settings are similar, instances will only cluster together if all the instances have the same cluster name and cluster password.
 
 
-## Other forms of the discovery
+## Other forms of discovery
 
 Besides the multicast discovery, Hazelcast supports other forms of the discovery, e.g. by specifying a range of IP addresses (via the tcp joiner). These forms of discovery are not configurable directly from Payara Micro, but can be configured using a standard Hazelcast configuration file provided with the `--hzConfigFile` command line argument.
