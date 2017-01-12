@@ -3,22 +3,22 @@
 ## General Info
 
 * [Introduction](README.md)
-* [General Info](general-info/general-info.md)
+* [General Information](general-info/general-info.md)
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
 * [Release Notes](release-notes/release-notes.md)
-  * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
+    * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
+    * [Security Fixes Summary](release-notes/security-fix-list.md)
 
 ## Technical Documentation
 
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
-
-  * [JACC](documentation/core-documentation/jacc.md)
-  * [Logging](documentation/core-documentation/logging/logging.md)
-    * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
-      * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
-      * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
-      * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
+    * [JACC](documentation/core-documentation/jacc.md)
+    * [Logging](documentation/core-documentation/logging/logging.md)
+        * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
+            * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
+            * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
+            * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
 
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
 
@@ -101,16 +101,15 @@
 ## Appendices
 
 * [History of Release Notes](release-notes/release-notes-history.md)
-  * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
-  * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
-  * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
-  * [Payara Server 4.1.1.161 Release Notes](release-notes/release-notes-161.md)
-  * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
-  * [Payara Server 4.1.153 Release Notes](release-notes/release-notes-153.md)
-  * [Payara Server 4.1.152.1 Release Notes](release-notes/release-notes-152.1.md)
-  * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
-  * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
-  * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
 
-
+    * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
+    * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
+    * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
+    * [Payara Server 4.1.1.161 Release Notes](release-notes/release-notes-161.md)
+    * [Payara Server 4.1.1.154 Release Notes](release-notes/release-notes-154.md)
+    * [Payara Server 4.1.153 Release Notes](release-notes/release-notes-153.md)
+    * [Payara Server 4.1.152.1 Release Notes](release-notes/release-notes-152.1.md)
+    * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
+    * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
+    * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
 
