@@ -133,7 +133,7 @@ git push origin <YourBranchName>:<YourBranchName>
 
 We have a simple format when dealing with Github pull requests to help the community easily recognise what is being worked on, and what a pull request aims to add or fix. Two examples are shown below:
 
-![](../images/githubtitleexample.png)
+![](../images/githubtitleexample.PNG)
 Seen above are two exemplar issues from Github, demonstrating both preferred title formats for Github pull requests. Internally, the development team uses JIRA to log work to be done - issues published by the devs will be tagged with the appropriate (seperate) PAYARA-#### label. _This is not required for community input_. Community submissions merely need to be labelled with a descriptive title that concisely explains the purpose of the pull request along with a "fixes #<GithubNumber>" tag if it fixes a github issue.
 
 ### Internal JIRA Guidance
