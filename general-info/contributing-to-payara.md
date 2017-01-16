@@ -3,7 +3,7 @@
 As with many open source projects Payara is hosted on Github, allowing anyone to contribute code and help with its development. To make sure that development is coordinated and that changes are easily tracked, we have a series of steps that should be followed in order to get your code merged.
 
 ## Legal Bits
-Payara is an open source project; as part of this, we have specific legal requirements concerning how we distribute code contributed to the project. Before any code contributed by our community is pulled into our repository we must have a signed Contributor License Agreement from any contributor. This can be downloaded from the main repository at [https://github.com/payara/Payara/blob/master/PayaraCLA.pdf](https://github.com/payara/Payara/blob/master/PayaraCLA.pdf) and should be signed, scanned, and forwarded to [info@payara.fish](mailto:info@payara.fish). As compensation for wading through the legalese, all contributors who send in a signed Contributor License Agreement receive a Payara goodie bag.
+Payara is an open source project; as part of this we have specific legal requirements concerning how we distribute code contributed to the project. Before any code contributed by our community is pulled into our repository we must have a signed Contributor License Agreement from any contributor. This can be downloaded from the main repository at [https://github.com/payara/Payara/blob/master/PayaraCLA.pdf](https://github.com/payara/Payara/blob/master/PayaraCLA.pdf) and should be signed, scanned, and forwarded to [info@payara.fish](mailto:info@payara.fish). As compensation for wading through the legalese, all contributors who send in a signed Contributor License Agreement receive a Payara goodie bag.
 
 As we must also comply with the upstream Oracle Common Development and Distribution license the following line should be added to any changed file:
 
@@ -90,11 +90,11 @@ From within your IDE you can then attach a debugger to the default port of 9009.
 When you are finished working on your issue, add the files to your git with a comment describing the addressed issue via JIRA and/or the Github issue number:
 
 ```
-git add  . [or specify specific files
+git add  . [or specify specific files]
 ```
 
 ```
-git commit -m "PAYARA-#### [fixes #<GithubNumber>
+git commit -m "PAYARA-#### [fixes #<GithubNumber>]
 ```
 
 Before you merge the branch, ensure that you have updated your master to match the upstream payara. This can be accomplished by using the following:
@@ -133,7 +133,7 @@ git push origin <YourBranchName>:<YourBranchName>
 
 We have a simple format when dealing with Github pull requests to help the community easily recognise what is being worked on, and what a pull request aims to add or fix. Two examples are shown below:
 
-![](../images/githubtitleexample.PNG)
+![](../images/githubtitleexample.png)
 Seen above are two exemplar issues from Github, demonstrating both preferred title formats for Github pull requests. Internally, the development team uses JIRA to log work to be done - issues published by the devs will be tagged with the appropriate (seperate) PAYARA-#### label. _This is not required for community input_. Community submissions merely need to be labelled with a descriptive title that concisely explains the purpose of the pull request along with a "fixes #<GithubNumber>" tag if it fixes a github issue.
 
 ### Internal JIRA Guidance
