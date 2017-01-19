@@ -21,6 +21,7 @@
       * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
       * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
+<<<<<<< HEAD
   * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
     * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
     * [Elements of the Decriptor Files](documentation/extended-documentation/app-deployment/descriptor-elements.md)
