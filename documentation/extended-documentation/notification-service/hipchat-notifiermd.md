@@ -1,5 +1,5 @@
 # HipChat Notifier
-HipChat is a team chat application created by HipChat. It can be used for teams to discuss topics in separate "rooms", but also supports integrations from services to notify users of events.
+HipChat is a team chat application created by Atlassian. It can be used for teams to discuss topics in separate "rooms", but also supports integrations from services to notify users of events.
 
 Payara Server has now included functionality to send notifications from the [notification service](/documentation/extended-documentation/notification-service/notification-service.md) to a HipChat room
 
