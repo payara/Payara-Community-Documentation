@@ -147,7 +147,7 @@ Represents the result of requesting a session token.
 |---|---|---|
 |**command**  <br>*optional*|The name of the resource/object that is the target of the operation (in case of a succesful operation) or the name of the method or command executed (in case of a failed operation).|string|
 |**exit_code**  <br>*optional*|The result of the operation's execution, either SUCCESS or FAILURE|string|
-|**extraProperties**  <br>*optional*||[extraProperties](#tokenresult-extraproperties)|
+|**extraProperties**  <br>*optional*|Holds the session token|[extraProperties](#tokenresult-extraproperties)|
 |**message**  <br>*optional*|Details the message the server sends in case of encountering an error in executing the operation. If no error was encountered, this property is empty.|string|
 
 <a name="tokenresult-extraproperties"></a>
