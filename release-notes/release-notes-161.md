@@ -1,21 +1,24 @@
 # Release Highlights
-The most eye catching feature in this release is a new look for the Admin Console; we’ve given the Admin Console another go over from our initial attempt, rebranding it to look more distinctly Payara!  
 
-The more exciting highlight of this release is the Healthcheck Service. In its initial release, this service allows you to monitor CPU usage, the number of times Garbage Collection has occurred, the machine memory usage, the heap memory usage, and any hogging threads. 
-Documentation for it can be found [here](Health-Check-Services-Configuration-(Payara-4.1.1.161)), and documentation for the asadmin commands can be found [here](Health-Check-Services-Admin-Commands-(Payara-4.1.1.161)). 
+The most eye catching feature in this release is a new look for the Admin Console; we’ve given the Admin Console another go over from our initial attempt, rebranding it to look more distinctly Payara!
+
+The more exciting highlight of this release is the Healthcheck Service. In its initial release, this service allows you to monitor CPU usage, the number of times Garbage Collection has occurred, the machine memory usage, the heap memory usage, and any hogging threads.   
+Documentation for it can be found [here](Health-Check-Services-Configuration-(Payara-4.1.1.161)\), and documentation for the asadmin commands can be found [here](Health-Check-Services-Admin-Commands-(Payara-4.1.1.161)\).
 
 # Updated Modules
-This section details the modules that have been updated since the last release (4.1.1.154).
+
+This section details the modules that have been updated since the last release \(4.1.1.154\).
 
 * Jersey 2.22.1
-* EclipseLink 2.6.2 (Patched to payara-p1)
-* GlassFish Corba 4.0.1 (Patched to payara-p3)
-* Woodstock 4.0.2.10 (Patched to payara-p2)
-* Metro 2.3.2-b608 (Patched to payara-p2)
-* MQ 5.1.1-b02 (Patched to payara-p1)
+* EclipseLink 2.6.2 \(Patched to payara-p1\)
+* GlassFish Corba 4.0.1 \(Patched to payara-p3\)
+* Woodstock 4.0.2.10 \(Patched to payara-p2\)
+* Metro 2.3.2-b608 \(Patched to payara-p2\)
+* MQ 5.1.1-b02 \(Patched to payara-p1\)
 * Apache commons-fileupload 1.3.1
 
 # Enhancements
+
 This section details the issues marked as enhancements that have been implemented for this release.
 
 * [511 – Add support for Informix for persisted ejb timers](https://github.com/payara/Payara/issues/511)
@@ -34,9 +37,11 @@ This section details the issues marked as enhancements that have been implemente
 * [619/PAYARA-488 – Restart behaviour when running windows service](https://github.com/payara/Payara/pull/619)
 
 # Fixed Issues
+
 This section details the issues marked as bugs that have been fixed for this release.
 
 ### Payara Fixes
+
 This section details the fixes implemented by the Payara team or community.
 
 * [195/PAYARA-222 – Jbatch and Postgresql db as job repository fails](https://github.com/payara/Payara/issues/195)
@@ -52,10 +57,10 @@ This section details the fixes implemented by the Payara team or community.
 * [505/PAYARA-510 – Payara does NOT rollback when RuntimeException occurs in CDI @Transactional method using JDBC](https://github.com/payara/Payara/issues/505)
 * [510/PAYARA-547 - @DataSourceDefinition defined data source can't be used in persistence.xml](https://github.com/payara/Payara/issues/510)
 * [525/PAYARA-449 – Sporadic “attempted duplicate class definition for name” in Payara 4.1.153](https://github.com/payara/Payara/issues/525)
-* [534/PAYARA-446 – Multiple cookies cannot be added using Headers.putAll()](https://github.com/payara/Payara/pull/534)
+* [534/PAYARA-446 – Multiple cookies cannot be added using Headers.putAll\(\)](https://github.com/payara/Payara/pull/534)
 * [535/PAYARA-526 - Problems with jndi lookup](https://github.com/payara/Payara/issues/535)
 * [536/PAYARA-551 - Websocket @OnOpen sometimes isn't called](https://github.com/payara/Payara/issues/536)
-* [539/PAYARA-556 - ACC needs 3 seconds for initialContext.lookup("myHome")](https://github.com/payara/Payara/issues/539)
+* [539/PAYARA-556 - ACC needs 3 seconds for initialContext.lookup\("myHome"\)](https://github.com/payara/Payara/issues/539)
 * [540/PAYARA-520 – Fix Batch: SQL string is not Query](https://github.com/payara/Payara/issues/540)
 * [545/PAYARA-492 – Fix WSIT enabled WS services](https://github.com/payara/Payara/pull/545)
 * [549/PAYARA-480 - Warnings when connecting via JMX](https://github.com/payara/Payara/issues/549)
@@ -70,9 +75,13 @@ This section details the fixes implemented by the Payara team or community.
 * [596/PAYARA-568 - Payara Blue uses incorrect key algorithm ](https://github.com/payara/Payara/issues/596)
 * [603/PAYARA-560 – Not all batch objects use prefix/suffix](https://github.com/payara/Payara/issues/603)
 * [615/PAYARA-495 - Fix FileNotFoundException "noop=true"](https://github.com/payara/Payara/pull/615)
-* [618 – Deployment of EJB_Timer_App when app has orm.xml](https://github.com/payara/Payara/issues/618)
+* [618 – Deployment of EJB\_Timer\_App when app has orm.xml](https://github.com/payara/Payara/issues/618)
 * [627 – Webservice deployed from directory archive on windows fails](https://github.com/payara/Payara/issues/627)
 * [632/PAYARA-602 - Update woodstock version to fix exploit](https://github.com/payara/Payara/pull/632)
 
 # Known Issues
-Known issues can be seen on our GitHub issues page here: https://github.com/payara/Payara/issues
+
+Known issues can be seen on our GitHub issues page here: [https://github.com/payara/Payara/issues](https://github.com/payara/Payara/issues)
+
+
+
