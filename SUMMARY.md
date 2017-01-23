@@ -87,11 +87,14 @@
             * [Configuration Methods](documentation/payara-micro/appendices/config-methods.md)
             * [Operation Methods](documentation/payara-micro/appendices/operation-methods.md)
             * [Javadoc](documentation/payara-micro/appendices/javadoc.md)
+* [REST API Documentation](rest-api-documentation.md)
+    * [Overview](overview.md)
+    * [Security](security.md)
+    * Paths
+    * Definitions
 
 ## Appendices
-
 * [History of Release Notes](release-notes/release-notes-history.md)
-
     * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
     * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
     * [Payara Server 4.1.1.161.1 Release Notes](release-notes/release-notes-161.1.md)
