@@ -19,5 +19,16 @@ In order to succesfully consume the endpoints in this API, it must be taken into
 
 
 ### URI scheme
-*BasePath* : /
+*BasePath* : /  
 *Schemes* : HTTP, HTTPS
+
+
+### Tags
+
+* configuration : Used for domain configuration operations
+* logging : Used for domain logging purposes
+* monitoring : Used for monitoring operations
+* sessions : Used for session management
+
+
+

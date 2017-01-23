@@ -1,51 +1,25 @@
 
 <a name="paths"></a>
-## Paths
+## Resources
 
-<a name="management-domain-view-log-get"></a>
-### Retrieves the domain log's contents.
-```
-GET /management/domain/view-log
-```
-
-
-#### Description
-Get the server's log contents of the target domain. Each time this operation is executed, the response will include the `X-Text-Append-Next` header to retrieve changes made to the log since the operation was called.
-
-
-#### Parameters
-
-|Type|Name|Description|Schema|
-|---|---|---|---|
-|**Query**|**start**  <br>*optional*|Use this parameter to skip a determined number of characters in the log file.|number(integer)|
-
-
-#### Responses
-
-|HTTP Code|Description|Schema|
-|---|---|---|
-|**200**|The contents of the domain's log as requested.  <br>**Headers** :   <br>`X-Text-Append-Next` (string(url)) : An URL that can be used to retrieve the changes made to this log after this call was executed.|No Content|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
-
-
-#### Produces
-
-* `text/plain`
+<a name="configuration_resource"></a>
+### Configuration
+Used for domain configuration operations
 
 
 <a name="management-domain-resource-post"></a>
-### Adds new resources or updates the configuration of existing ones.
+#### Add or Update a resource
 ```
 POST /management/domain/{resource}
 ```
 
 
-#### Description
+##### Description
 Use this operation to add new resources to the configuration tree or to update the configuration of an existing resource. If the resource is a parent resource, then the operation would add a new child resource. Otherwise, the operation would update the resource's configuration.
 **IMPORTANT** - Since *OpenAPI* doesn't support defining variable unnamed parameters to be used when sending a form, a single parameter named `parameter` is defined as a marker.
 
 
-#### Parameters
+##### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
@@ -54,7 +28,7 @@ Use this operation to add new resources to the configuration tree or to update t
 |**FormData**|**parameter**  <br>*optional*|Pass the parameters used to create or update the resource accordingly.|string|
 
 
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -64,14 +38,14 @@ Use this operation to add new resources to the configuration tree or to update t
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
 
 
-#### Produces
+##### Produces
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
 
-#### Security
+##### Security
 
 |Type|Name|
 |---|---|
@@ -80,24 +54,24 @@ Use this operation to add new resources to the configuration tree or to update t
 
 
 <a name="management-domain-resource-get"></a>
-### Retrieves the contextual information of a resource.
+#### Get information for a resource
 ```
 GET /management/domain/{resource}
 ```
 
 
-#### Description
+##### Description
 Use this operation to determine a resource current configuration and what are its supported methods, method parameters and available commands.
 
 
-#### Parameters
+##### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**resource**  <br>*required*|The qualified name of the resource on the configuration tree. Input this parameter using **dotted** path notation, e.g if the object's name is *nodes.node.localhost-domain1* then the correct value is *nodes/node/localhost-domain1*|string|
 
 
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -106,14 +80,14 @@ Use this operation to determine a resource current configuration and what are it
 |**404**|The specified resource does not exist|No Content|
 
 
-#### Produces
+##### Produces
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
 
-#### Security
+##### Security
 
 |Type|Name|
 |---|---|
@@ -122,17 +96,17 @@ Use this operation to determine a resource current configuration and what are it
 
 
 <a name="management-domain-resource-delete"></a>
-### Deletes resources on the domain's configuration
+#### Delete a resource
 ```
 DELETE /management/domain/{resource}
 ```
 
 
-#### Description
+##### Description
 Removes the specified resource from the configuration's tree. The deleted resource will no longer be present in the *child-resources* list of the parent's resource.
 
 
-#### Parameters
+##### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
@@ -140,7 +114,7 @@ Removes the specified resource from the configuration's tree. The deleted resour
 |**Path**|**resource**  <br>*required*|The qualified name of the resource.|string|
 
 
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -150,14 +124,14 @@ Removes the specified resource from the configuration's tree. The deleted resour
 |**404**|The target resource does not exists.|No Content|
 
 
-#### Produces
+##### Produces
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
 
-#### Security
+##### Security
 
 |Type|Name|
 |---|---|
@@ -165,101 +139,54 @@ Removes the specified resource from the configuration's tree. The deleted resour
 |**apiKey**|**[token_cookie](#token_cookie)**|
 
 
-<a name="management-sessions-post"></a>
-### Get a new session token
+<a name="logging_resource"></a>
+### Logging
+Used for domain logging purposes
+
+
+<a name="management-domain-view-log-get"></a>
+#### Get domain log
 ```
-POST /management/sessions
+GET /management/domain/view-log
 ```
 
 
-#### Description
-Use this method for retrieving a special session token that can be used to authenticate an user when executing administration or monitoring operations.
+##### Description
+Get the server's log contents of the target domain. Each time this operation is executed, the response will include the `X-Text-Append-Next` header to retrieve changes made to the log since the operation was called.
 
 
-#### Parameters
+##### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Header**|**X-Requested-By**  <br>*required*|This header must ALWAYS be set to the value ***GlassFish REST HTML interface***|string|
+|**Query**|**start**  <br>*optional*|Use this parameter to skip a determined number of characters in the log file.|number(integer)|
 
 
-#### Responses
-
-|HTTP Code|Description|Schema|
-|---|---|---|
-|**200**|Returns the session token succesfully|[TokenResult](#tokenresult)|
-|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
-
-
-#### Produces
-
-* `application/json`
-* `application/xml`
-* `text/html`
-
-
-#### Security
-
-|Type|Name|
-|---|---|
-|**basic**|**[simple_auth](#simple_auth)**|
-
-
-<a name="management-sessions-token-delete"></a>
-### Deletes a session token
-```
-DELETE /management/sessions/{token}
-```
-
-
-#### Description
-Retires a session token so that users can no longer do requests authenticating such token.
-
-
-#### Parameters
-
-|Type|Name|Description|Schema|
-|---|---|---|---|
-|**Header**|**X-Requested-By**  <br>*required*|This header must ALWAYS be set to the value ***GlassFish REST HTML interface***|string|
-|**Path**|**token**  <br>*required*|The session token to delete|string|
-
-
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The session token was deleted succesfully.|[GeneralResult](#generalresult)|
-|**400**|The operation has failed. Either the `X-Requested-By` header was not set correctly or the supplied token does not exist.|[GeneralResult](#generalresult)|
+|**200**|The contents of the domain's log as requested.  <br>**Headers** :   <br>`X-Text-Append-Next` (string(url)) : An URL that can be used to retrieve the changes made to this log after this call was executed.|No Content|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
 
 
-#### Produces
+##### Produces
 
-* `application/json`
-* `application/xml`
-* `text/html`
-
-
-#### Security
-
-|Type|Name|
-|---|---|
-|**basic**|**[simple_auth](#simple_auth)**|
+* `text/plain`
 
 
 <a name="management-view-log-details-get"></a>
-### Retrieves the domain's formatted log details.
+#### Get log entries
 ```
 GET /management/view-log/details
 ```
 
 
-#### Description
+##### Description
 Get the server's log details of the target domain. The details can be retrieved on both JSON or XML formats. If the 'Accept' header is omitted, the default format is XML.
 
 
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -267,31 +194,36 @@ Get the server's log details of the target domain. The details can be retrieved 
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
 
 
-#### Produces
+##### Produces
 
 * `application/json`
 * `application/xml`
 
 
+<a name="monitoring_resource"></a>
+### Monitoring
+Used for monitoring operations
+
+
 <a name="monitoring-domain-resource-get"></a>
-### Retrieves monitoring statistics for a resource
+#### Get monitoring statistics
 ```
 GET /monitoring/domain/{resource}
 ```
 
 
-#### Description
+##### Description
 Retrieves the monitoring statistics for a monitorable resource in the domain. In order to retrieve the monitoring statistics for a specific resource, you must configure the monitoring level of the specific category the resource falls into (JVM, Connection Pools, ORB, etc.) first.
 
 
-#### Parameters
+##### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Path**|**resource**  <br>*required*|The name of the monitored resource under the special monitoring tree structure used for Payara. Input this parameter using **dotted** path notation, e.g if the resource's name is *server.jvm.class-loading* then the correct value is *server/jvm/class-loading*|string|
 
 
-#### Responses
+##### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -300,19 +232,107 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 |**404**|Either the resource does not exist or the category (parent resource) of the resource has not been configured for being monitored yet.|[GeneralResult](#generalresult)|
 
 
-#### Produces
+##### Produces
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
 
-#### Security
+##### Security
 
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
 |**apiKey**|**[token_cookie](#token_cookie)**|
+
+
+<a name="sessions_resource"></a>
+### Sessions
+Used for session management
+
+
+<a name="management-sessions-post"></a>
+#### Get session token
+```
+POST /management/sessions
+```
+
+
+##### Description
+Use this method for retrieving a special session token that can be used to authenticate an user when executing administration or monitoring operations.
+
+
+##### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Header**|**X-Requested-By**  <br>*required*|This header must ALWAYS be set to the value ***GlassFish REST HTML interface***|string|
+
+
+##### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|Returns the session token succesfully|[TokenResult](#tokenresult)|
+|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
+
+
+##### Produces
+
+* `application/json`
+* `application/xml`
+* `text/html`
+
+
+##### Security
+
+|Type|Name|
+|---|---|
+|**basic**|**[simple_auth](#simple_auth)**|
+
+
+<a name="management-sessions-token-delete"></a>
+#### Delete session token
+```
+DELETE /management/sessions/{token}
+```
+
+
+##### Description
+Retires a session token so that users can no longer do requests authenticating such token.
+
+
+##### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Header**|**X-Requested-By**  <br>*required*|This header must ALWAYS be set to the value ***GlassFish REST HTML interface***|string|
+|**Path**|**token**  <br>*required*|The session token to delete|string|
+
+
+##### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|The session token was deleted succesfully.|[GeneralResult](#generalresult)|
+|**400**|The operation has failed. Either the `X-Requested-By` header was not set correctly or the supplied token does not exist.|[GeneralResult](#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
+
+
+##### Produces
+
+* `application/json`
+* `application/xml`
+* `text/html`
+
+
+##### Security
+
+|Type|Name|
+|---|---|
+|**basic**|**[simple_auth](#simple_auth)**|
 
 
 
