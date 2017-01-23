@@ -5,10 +5,10 @@ As with many open source projects Payara is hosted on Github, allowing anyone to
 ## Legal Bits
 Payara is an open source project; as part of this we have specific legal requirements concerning how we distribute code contributed to the project. Before any code contributed by our community is pulled into our repository we must have a signed Contributor License Agreement from any contributor. This can be downloaded from the main repository at [https://github.com/payara/Payara/blob/master/PayaraCLA.pdf](https://github.com/payara/Payara/blob/master/PayaraCLA.pdf) and should be signed, scanned, and forwarded to [info@payara.fish](mailto:info@payara.fish). As compensation for wading through the legalese, all contributors who send in a signed Contributor License Agreement receive a Payara goodie bag.
 
-As we must also comply with the upstream Oracle Common Development and Distribution license the following line should be added to any changed file:
+As we must also comply with Oracle's license the following line should be added to any changed file:
 
 ```
-Portions Copyright [2016] C2B2 Consulting Limited and/or its affiliates
+Portions Copyright [2016] Payara Foundation and/or its affiliates
 ```
 
 ## Getting Payara
@@ -22,7 +22,7 @@ Install git on your local environment and use the below command to download your
 git clone https://github.com/<YourUsername>/Payara
 ```
 
-Git works using "repositories" - stores of data. By default, you have your remote repository on Github, as well as your local repository on your computer. To ensure that future versions of payara incorporate everyones changes, in addition to the current branch there is an upstream branch, where merged changes can be stationed before being added to the project. Adding your own remote repository as the default ("origin") and the upstream payara repository will ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following two commands:
+Add the Payara git as an upstream to ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following two commands within your local git repository:
 
 ```
 git remote add upstream https://github.com/payara/Payara
@@ -65,8 +65,6 @@ To start working on an issue, create a new branch on your github repo with the f
 git checkout -b <BranchName>
 ```
 
-*If you are working on a JIRA assigned task, please append PAYARA-####, where #### is the JIRA number.*
-
 Start working on your project within your IDE and make any changes you wish.
 
 ## Debugging Payara
@@ -94,7 +92,7 @@ git add  . [or specify specific files]
 ```
 
 ```
-git commit -m "PAYARA-#### [fixes #<GithubNumber>]
+git commit -m "A meaningful commit message"
 ```
 
 Before you merge the branch, ensure that you have updated your master to match the upstream payara. This can be accomplished by using the following:
@@ -117,10 +115,10 @@ Flip back to your own branch, with your changes:
 git checkout <YourBranchName>
 ```
 
-Merge said changes with the master branch by rebasing your code (effectivaly a neater marge for private repos):
+Rebase your code to sync yourself to master:
 
 ```
-git rebase master
+git rebase upstream/master
 ```
 
 Finally, push the changes from your branch to a new branch on the main repo (origin), with the same name (so as to preserve the issue numbers and history):
@@ -134,7 +132,7 @@ git push origin <YourBranchName>:<YourBranchName>
 We have a simple format when dealing with Github pull requests to help the community easily recognise what is being worked on, and what a pull request aims to add or fix. Two examples are shown below:
 
 ![](../images/githubtitleexample.PNG)
-Seen above are two exemplar issues from Github, demonstrating both preferred title formats for Github pull requests. Internally, the development team uses JIRA to log work to be done - issues published by the devs will be tagged with the appropriate (seperate) PAYARA-#### label. _This is not required for community input_. Community submissions merely need to be labelled with a descriptive title that concisely explains the purpose of the pull request along with a "fixes #<GithubNumber>" tag if it fixes a github issue.
+Seen above are two exemplar issues from Github, demonstrating both preferred title formats for Github pull requests. Internally, the development team uses JIRA to log work to be done - issues published by the devs will be tagged with the appropriate (seperate) PAYARA-#### label. _This is not required for community input_. Community submissions merely need to be labelled with a descriptive title that concisely explains the purpose of the pull request along with a "fixes #<GithubNumber>" tag if it fixes a github issue. Each pull request should aim to address one issue, either a bug fix or a new feature. Large pull requests which contain numerous fixes are harder to test and fix and you may be asked to split them up.
 
 ### Internal JIRA Guidance
 
@@ -142,7 +140,7 @@ Please limit Pull Requests to one JIRA issue apiece. Whilst it is neater to merg
 
 ## Feature requests and issues
 
-A large portion of our work is prompted by the actions of the community. If you have an issue which you have found with Payara, or a feature which you would like to be implemented we welcome the raising of github issues.
+A large portion of our work is prompted by the actions of the community. If you have an issue which you have found with Payara, or a feature which you would like to be implemented we welcome the raising of github issues. The template for github issues can be viewed [https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.md](here) as well as when a new issue is created.
 
 ## Reporting bugs
 
