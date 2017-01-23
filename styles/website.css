@@ -4,7 +4,7 @@ a:hover {
 
 .book .book-summary .exc-trigger:before {
     /*override style for the expandable list caret*/
-    content: "\f054" !important;
+    content: "\f054";
     line-height: 0.1em !important;
     vertical-align: 1em !important;
 }
