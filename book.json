@@ -1,5 +1,5 @@
 {
-    "plugins": [ "versions" ],
+    "plugins": [ "versions@2.1.4" ],
     "pluginsConfig": {
         "versions": {
             "gitbookConfigURL": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/config/book.json",
