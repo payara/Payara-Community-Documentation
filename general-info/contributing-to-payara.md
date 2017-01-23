@@ -12,7 +12,8 @@ Portions Copyright [2016] Payara Foundation and/or its affiliates
 ```
 
 ## Getting Payara
-You will need to create a personal Github account and fork the repository at [https://github.com/payara/payara.git](github) to yourself.
+You will need to create a personal Github account and fork the repository at [https://github.com/payara/payara.git](github) to yourself. There are more detailed guides on github, [https://guides.github.com/introduction/flow/](here) and [https://guides.github.com/activities/forking/](here), but the commands below should get you started:
+
 ![](../images/forkingpayarafromgit.png)
 Once you have your own up-to-date version of payara, you can now download it to your computer.
 
