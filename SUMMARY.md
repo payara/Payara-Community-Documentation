@@ -5,10 +5,10 @@
 * [General Info](general-info/general-info.md)
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
-* [Security](security.md)
+* [Security](security/security.md)
 * [Release Notes](release-notes/release-notes.md)
     * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
-    * [Security Fixes Summary](release-notes/security-fix-list.md)
+    * [Security Fixes Summary](security/security-fix-list.md)
 
 ## Technical Documentation
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
