@@ -16,6 +16,7 @@ POST /management/domain/{resource}
 
 ##### Description
 Use this operation to add new resources to the configuration tree or to update the configuration of an existing resource. If the resource is a parent resource, then the operation would add a new child resource. Otherwise, the operation would update the resource's configuration.
+
 **IMPORTANT** - Since *OpenAPI* doesn't support defining variable unnamed parameters to be used when sending a form, a single parameter named `parameter` is defined as a marker.
 
 
