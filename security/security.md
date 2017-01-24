@@ -27,10 +27,9 @@ Payara Services Limited is very active at identifying and fixing possible securi
 
 We strongly encourage users to report such problems in the following ways:
 
-1. If you have a support contract, create a ticket for your support provider, describing the security vulnerabilities detected as you would do for any other bug reports.
+1. If you have a support contract, create a ticket describing the security vulnerabilities detected as you would do for any other bug reports.
 2. If you do not have a support contract, please send an email with the described vulnerabilities detected to [security@payara.fish](/mailto:security@payara.fish). **Please don't use this address to report bugs or issues unrelated to security vulnerabilities** as they will be ignored, instead use the GitHub repository [issues page](https://github.com/payara/Payara/issues) for raising a new issue detailing the problem at hand.
 
 Also, note that all networked servers are subject to denial of service \(_DoS_\) attacks, and we cannot provide fixes to generic problems \(such as a client streaming lots of data to your server, or re-requesting the same URL repeatedly\). Instead, focus on security issues that can be targeted at specific topics like session hacking, XSS injection, CSRF attacks and so forth.
 
 Lastly, you can also direct inquiries about reported CVE issues detected in similar Java plataforms or application servers \(like Apache Tomcat,  JBoss Wildfly, etc.\) and let us research whether  or not Payara Server is affected by such issues.
-
