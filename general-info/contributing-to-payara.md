@@ -18,35 +18,25 @@ When on the Payara GitHub page, click on the "Fork" button on the top right. Thi
 
 ![](../images/forkingpayarafromgit.png)
 
-Once you have your own up-to-date fork of payara, you can now clone the repository (creating a local repository on your computer).
+Once you have your own up-to-date fork of Payara, you can now clone the repository (creating a local repository on your computer).
 
-Install Git on your local environment and use the below command to download your remote copy of payara:
+Install Git on your local environment and use the below command to download your remote copy of Payara:
 
 ```
 git clone https://github.com/<YourUsername>/Payara
 ```
-
-Add the Payara Git as an upstream to ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following two commands within your local Git repository:
+This will also add your fork of Payara as "origin" within your local repository.
+Now add the Payara Git as an upstream to ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following command within your local Git repository:
 
 ```
 git remote add upstream https://github.com/payara/Payara
-```
-
-```
-git remote add origin https://github.com/<YourUsername>/Payara
 ```
 
 You are now free to start working on Payara issues, adding new features, or tinkering with the codebase.
 ## Updating your fork
 As Payara is under continuous development, our master branch is regularly updated with dev and community commits. It is worth synchronising your repository with the upstream repository you added previously.
 
-To get the latest updates from the upstream master branch and merge them into your local repository, enter the following command:
-
-```
-git fetch upstream
-```
-
-Then ensure that you are on your local master branch (as opposed to any issue branches you may have):
+To get the latest updates from the upstream master branch first ensure that you are on your local master branch:
 
 ```
 git checkout master
@@ -82,12 +72,15 @@ Please note that this will only push the branch as it stands - you will have to 
 ## Debugging Payara
 
 To debug Payara the first step is to build it, to give you something to debug and hopefully catch any glaring issues. A guide to building Payara Server from source can be found [here](https://github.com/payara/Payara/wiki/Build-Instructions).
-Once you have built Payara Server, the full distribution will be available within your local repository under the path
+Once you have built Payara Server, the full distribution will be available as a .zip file within your local repository under the path:
 
 ```
 <YourLocalRepo>/appserver/distributions/payara/target
 ```
-
+and the exploded version is a directory below in stage:
+```
+<YourLocalRepo>/appserver/distributions/payara/target/stage
+```
 In order to debug Payara, first build the server with your changes. Run it in debug mode by using the following command:
 
 ```
@@ -111,34 +104,23 @@ git commit -m "A meaningful commit message"
 Before you merge the branch, ensure that you have updated your master to match the upstream payara. This can be accomplished by using the following:
 
 First, switch to the master branch:
-
 ```
 git checkout master
 ```
-
-Then synchronise your branch with the changes from master:
-
+Then pull the changes from upstream onto your local master
 ```
-git pull upstream master
+git pull upstream/master
 ```
 
-Flip back to your own branch, with your changes:
+Finally, rebase then push the changes from your branch to a new branch on your remote GitHub repository (origin):
 
 ```
-git checkout <YourBranchName>
-```
-
-Rebase your code to sync yourself to master:
-
-```
-git rebase upstream/master
-```
-
-Finally, push the changes from your branch to a new branch on the main repository (origin), with the same name (so as to preserve the issue numbers and history):
-
-```
+git checkout -b <YourBranchName>
+git rebase master
 git push origin <YourBranchName>:<YourBranchName>
 ```
+
+Once you have it within your remote GitHub repository, you are then able to request that your code be merged into Payara via a pull request on GitHub.
 
 ## Feature requests and issues
 
