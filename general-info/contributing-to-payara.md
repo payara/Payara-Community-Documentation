@@ -1,6 +1,6 @@
 # Contributing to Payara
 
-As with many open source projects Payara is hosted on Github, allowing anyone to contribute code and help with its development. To make sure that development is coordinated and that changes are easily tracked, we have a series of steps that should be followed in order to get your code merged.
+As with many open source projects Payara is hosted on GitHub, allowing anyone to contribute code and help with its development. To make sure that development is coordinated and that changes are easily tracked, we have a series of steps that should be followed in order to get your code merged.
 
 ## Legal Bits
 Payara is an open source project; as part of this we have specific legal requirements concerning how we distribute code contributed to the project. Before any code contributed by our community is pulled into our repository we must have a signed Contributor License Agreement from any contributor. This can be downloaded from the main repository at [https://github.com/payara/Payara/blob/master/PayaraCLA.pdf](https://github.com/payara/Payara/blob/master/PayaraCLA.pdf) and should be signed, scanned, and forwarded to [info@payara.fish](mailto:info@payara.fish). As compensation for wading through the legalese, all contributors who send in a signed Contributor License Agreement receive a Payara goodie bag.
@@ -11,19 +11,22 @@ As we must also comply with Oracle's license the following line should be added 
 Portions Copyright [2016] Payara Foundation and/or its affiliates
 ```
 
-## Getting Payara
-You will need to create a personal Github account and fork the repository at [GitHub](https://github.com/payara/payara.git) to yourself. There are more detailed guides on github, [here](https://guides.github.com/activities/forking/) and [here](https://guides.github.com/activities/contributing-to-open-source/), but the commands below should get you started:
+## Getting the Payara Source Code
+You will need to create a personal GitHub account and fork the repository at [GitHub](https://github.com/payara/payara.git) to yourself. There are more detailed guides on GitHub, [here](https://guides.github.com/activities/forking/) and [here](https://guides.github.com/activities/contributing-to-open-source/), but the commands below should get you started:
+
+When on the Payara GitHub page, click on the "Fork" button on the top right. This will create your own fork of Payara as a remote repository on your GitHub account.
 
 ![](../images/forkingpayarafromgit.png)
-Once you have your own up-to-date version of payara, you can now download it to your computer.
 
-Install git on your local environment and use the below command to download your remote copy of payara:
+Once you have your own up-to-date fork of payara, you can now clone the repository (creating a local repository on your computer).
+
+Install Git on your local environment and use the below command to download your remote copy of payara:
 
 ```
 git clone https://github.com/<YourUsername>/Payara
 ```
 
-Add the Payara git as an upstream to ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following two commands within your local git repository:
+Add the Payara Git as an upstream to ensure that you are always able to synchronise yourself with the project as it goes forward. Run the following two commands within your local Git repository:
 
 ```
 git remote add upstream https://github.com/payara/Payara
@@ -35,9 +38,9 @@ git remote add origin https://github.com/<YourUsername>/Payara
 
 You are now free to start working on Payara issues, adding new features, or tinkering with the codebase.
 ## Updating your fork
-As Payara is under continuous development, our upstream branch is regularly updated with dev and community commits. It is worth synchronising your repository with the upstream repo you added previously.
+As Payara is under continuous development, our master branch is regularly updated with dev and community commits. It is worth synchronising your repository with the upstream repository you added previously.
 
-To get the latest updates from upstream and merge them into your local repo, enter the following command:
+To get the latest updates from the upstream master branch and merge them into your local repository, enter the following command:
 
 ```
 git fetch upstream
@@ -60,7 +63,7 @@ git push origin master
 ```
 
 ## Working on an issue
-To start working on an issue, create a new branch on your github repo with the following command:
+To start working on an issue, create a new branch in your local Git repository with the following command:
 
 ```
 git checkout -b <BranchName>
@@ -68,9 +71,18 @@ git checkout -b <BranchName>
 
 Start working on your project within your IDE and make any changes you wish.
 
+To push your new branch to your remote GitHub repository:
+
+```
+git push origin YourBranch
+```
+
+Please note that this will only push the branch as it stands - you will have to add your files and recommit after any changes you make!
+
 ## Debugging Payara
 
-Once you have built Payara Server the full distribution will be available within your local repository under the path
+To debug Payara the first step is to build it, to give you something to debug and hopefully catch any glaring issues. A guide to building Payara Server from source can be found [here](https://github.com/payara/Payara/wiki/Build-Instructions).
+Once you have built Payara Server, the full distribution will be available within your local repository under the path
 
 ```
 <YourLocalRepo>/appserver/distributions/payara/target
@@ -84,9 +96,9 @@ In order to debug Payara, first build the server with your changes. Run it in de
 
 From within your IDE you can then attach a debugger to the default port of 9009.
 
-## Pushing issues to Github
+## Pushing commits to your GitHub Remote Repository
 
-When you are finished working on your issue, add the files to your git with a comment describing the addressed issue via JIRA and/or the Github issue number:
+When you are finished working on your issue, add the files to your Git with a comment describing the addressed issue and the GitHub issue number if there is one:
 
 ```
 git add  . [or specify specific files]
@@ -122,31 +134,20 @@ Rebase your code to sync yourself to master:
 git rebase upstream/master
 ```
 
-Finally, push the changes from your branch to a new branch on the main repo (origin), with the same name (so as to preserve the issue numbers and history):
+Finally, push the changes from your branch to a new branch on the main repository (origin), with the same name (so as to preserve the issue numbers and history):
 
 ```
 git push origin <YourBranchName>:<YourBranchName>
 ```
 
-## Github Title Guidance
-
-We have a simple format when dealing with Github pull requests to help the community easily recognise what is being worked on, and what a pull request aims to add or fix. Two examples are shown below:
-
-![](../images/githubtitleexample.PNG)
-Seen above are two exemplar issues from Github, demonstrating both preferred title formats for Github pull requests. Internally, the development team uses JIRA to log work to be done - issues published by the devs will be tagged with the appropriate (seperate) PAYARA-#### label. _This is not required for community input_. Community submissions merely need to be labelled with a descriptive title that concisely explains the purpose of the pull request along with a "fixes #<GithubNumber>" tag if it fixes a github issue. Each pull request should aim to address one issue, either a bug fix or a new feature. Large pull requests which contain numerous fixes are harder to test and fix and you may be asked to split them up.
-
-### Internal JIRA Guidance
-
-Please limit Pull Requests to one JIRA issue apiece. Whilst it is neater to merge several jira issues at once, with one issue per merge it becomes far easier to see where conflicts and issues arise.
-
 ## Feature requests and issues
 
-A large portion of our work is prompted by the actions of the community. If you have an issue which you have found with Payara, or a feature which you would like to be implemented we welcome the raising of github issues. The template for github issues can be viewed [https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.md](here) as well as when a new issue is created.
+A large portion of our work is prompted by the actions of the community. If you have an issue which you have found with Payara, or a feature which you would like to be implemented we welcome the raising of GitHub issues. The template for GitHub issues can be viewed [https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.md](here) as well as when a new issue is created.
 
 ## Reporting bugs
 
-If you find a bug within Payara, please post it as a github issue. Github is our main repository for community found issues with Payara and our support team frequently monitor it for new issues. As with submitting issues, a concise title which clearly explains the issue combined with a comment explaining what the found issue is and either how it arose and a stacktrace of the issue, or a test case which is able to reproduce the issue will help us deliver a patch.
+If you find a bug within Payara, please post it as a GitHub issue. GitHub is our main repository for community found issues with Payara and our support team frequently monitor it for new issues. As with submitting issues, a concise title which clearly explains the issue combined with a comment explaining what the found issue is and either how it arose and a stacktrace of the issue, or a test case which is able to reproduce the issue will help us deliver a patch.
 
 ## Responses
 
-We continually check the github posted issues for bugs, feature requests, and assorted issues. If you have posted an issue, chances are it has been read by a member of staff. Requests for further information and labels are often posted in order to make it easier for the dev team to see issues. However if your issue has not received a comment or label, don't take this as it having not been read or acted upon!
+We continually check GitHub issues for bugs, feature requests, and assorted issues. If you have posted an issue, chances are it has been read by a member of staff. Requests for further information and labels are often posted in order to make it easier for the dev team to see issues. However if your issue has not received a comment or label, don't take this as it having not been read or acted upon!
