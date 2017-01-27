@@ -18,6 +18,11 @@
             * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
             * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
             * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
+	* [REST API Documentation](documentation/core-documentation/rest-api/rest-api-documentation.md)
+		* [Overview](documentation/core-documentation/rest-api/overview.md)
+	    * [Security](documentation/core-documentation/rest-api/security.md)
+	    * [Paths](documentation/core-documentation/rest-api/paths.md)
+	    * [Definitions](documentation/core-documentation/rest-api/definitions.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
         * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -87,11 +92,6 @@
             * [Configuration Methods](documentation/payara-micro/appendices/config-methods.md)
             * [Operation Methods](documentation/payara-micro/appendices/operation-methods.md)
             * [Javadoc](documentation/payara-micro/appendices/javadoc.md)
-* [REST API Documentation](documentation/rest-api/rest-api-documentation.md)
-    * [Overview](documentation/rest-api/overview.md)
-    * [Security](documentation/rest-api/security.md)
-    * [Paths](documentation/rest-api/paths.md)
-    * [Definitions](documentation/rest-api/definitions.md)
 
 ## Appendices
 * [History of Release Notes](release-notes/release-notes-history.md)
