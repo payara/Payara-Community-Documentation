@@ -31,7 +31,7 @@ Use this operation to add new resources to the configuration tree or to update t
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](/documentation/core-documentation/rest-api/definitions.md#operationresult)|
+|**200**|The operation has executed successfully and contextual information about the result is returned.|[OperationResult](/documentation/core-documentation/rest-api/definitions.md#operationresult)|
 |**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
@@ -117,7 +117,7 @@ Removes the specified resource from the configuration's tree. The deleted resour
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](/documentation/core-documentation/rest-api/definitions.md#operationresult)|
+|**200**|The operation has executed successfully and contextual information about the result is returned.|[OperationResult](/documentation/core-documentation/rest-api/definitions.md#operationresult)|
 |**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**404**|The target resource does not exists.|No Content|
@@ -273,7 +273,7 @@ Use this method for retrieving a special session token that can be used to authe
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|Returns the session token succesfully|[TokenResult](/documentation/core-documentation/rest-api/definitions.md#tokenresult)|
+|**200**|Returns the session token successfully|[TokenResult](/documentation/core-documentation/rest-api/definitions.md#tokenresult)|
 |**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
@@ -315,7 +315,7 @@ Retires a session token so that users can no longer do requests authenticating s
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The session token was deleted succesfully.|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**200**|The session token was deleted successfully.|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**400**|The operation has failed. Either the `X-Requested-By` header was not set correctly or the supplied token does not exist.|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](/documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
