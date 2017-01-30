@@ -49,7 +49,7 @@ Use this operation to add new resources to the configuration tree or to update t
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**basic**|**[token_cookie](#token_cookie)**|
+|**apiKey**|**[token_cookie](#token_cookie)**|
 
 
 <a name="getconfiguration"></a>
@@ -91,7 +91,7 @@ Use this operation to determine the current configuration of a resource and what
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**basic**|**[token_cookie](#token_cookie)**|
+|**apiKey**|**[token_cookie](#token_cookie)**|
 
 
 <a name="deleteconfiguration"></a>
@@ -135,7 +135,7 @@ Removes the specified resource from the configuration's tree. The deleted resour
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**basic**|**[token_cookie](#token_cookie)**|
+|**apiKey**|**[token_cookie](#token_cookie)**|
 
 
 <a name="logging_resource"></a>
@@ -243,7 +243,7 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**basic**|**[token_cookie](#token_cookie)**|
+|**apiKey**|**[token_cookie](#token_cookie)**|
 
 
 <a name="sessions_resource"></a>
