@@ -31,9 +31,9 @@ Use this operation to add new resources to the configuration tree or to update t
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](documentation/core-documentation/rest-api/definitions#operationresult)|
-|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](documentation/core-documentation/rest-api/definitions.md#operationresult)|
+|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
 
 
@@ -48,8 +48,8 @@ Use this operation to add new resources to the configuration tree or to update t
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
-|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security#token_cookie)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
+|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security.md#token_cookie)**|
 
 
 <a name="getconfiguration"></a>
@@ -74,8 +74,8 @@ Use this operation to determine the current configuration of a resource and what
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|An object representing the contextual information for the resource|[OperationResult](documentation/core-documentation/rest-api/definitions#operationresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|An object representing the contextual information for the resource|[OperationResult](documentation/core-documentation/rest-api/definitions.md#operationresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**404**|The specified resource does not exist|No Content|
 
 
@@ -90,8 +90,8 @@ Use this operation to determine the current configuration of a resource and what
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
-|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security#token_cookie)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
+|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security.md#token_cookie)**|
 
 
 <a name="deleteconfiguration"></a>
@@ -117,9 +117,9 @@ Removes the specified resource from the configuration's tree. The deleted resour
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](documentation/core-documentation/rest-api/definitions#operationresult)|
-|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](documentation/core-documentation/rest-api/definitions.md#operationresult)|
+|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 |**404**|The target resource does not exists.|No Content|
 
 
@@ -134,8 +134,8 @@ Removes the specified resource from the configuration's tree. The deleted resour
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
-|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security#token_cookie)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
+|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security.md#token_cookie)**|
 
 
 <a name="logging_resource"></a>
@@ -166,7 +166,7 @@ Get the server's log contents of the target domain. Each time this operation is 
 |HTTP Code|Description|Schema|
 |---|---|---|
 |**200**|The contents of the domain's log as requested.  <br>**Headers** :   <br>`X-Text-Append-Next` (string(url)) : An URL that can be used to retrieve the changes made to this log after this call was executed.|No Content|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
 
 ##### Produces
@@ -189,8 +189,8 @@ Get the server's log details of the target domain. The details can be retrieved 
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|An array of the log records retrieved.|< [LogRecord](documentation/core-documentation/rest-api/definitions#logrecord) > array|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|An array of the log records retrieved.|< [LogRecord](documentation/core-documentation/rest-api/definitions.md#logrecord) > array|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
 
 ##### Produces
@@ -226,9 +226,9 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|An object representing the contextual information for the resource, with the monitoring statistics if a child resource. If the resource is parent resource, then the child resources that can be monitored will be returned.|[MonitoringResult](documentation/core-documentation/rest-api/definitions#monitoringresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**404**|Either the resource does not exist or the category (parent resource) of the resource has not been configured for being monitored yet.|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|An object representing the contextual information for the resource, with the monitoring statistics if a child resource. If the resource is parent resource, then the child resources that can be monitored will be returned.|[MonitoringResult](documentation/core-documentation/rest-api/definitions.md#monitoringresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**404**|Either the resource does not exist or the category (parent resource) of the resource has not been configured for being monitored yet.|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
 
 ##### Produces
@@ -242,8 +242,8 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
-|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security#token_cookie)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
+|**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security.md#token_cookie)**|
 
 
 <a name="sessions_resource"></a>
@@ -273,9 +273,9 @@ Use this method for retrieving a special session token that can be used to authe
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|Returns the session token succesfully|[TokenResult](documentation/core-documentation/rest-api/definitions#tokenresult)|
-|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|Returns the session token succesfully|[TokenResult](documentation/core-documentation/rest-api/definitions.md#tokenresult)|
+|**400**|The operation has failed. The `X-Requested-By` header was not set correctly.|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
 
 ##### Produces
@@ -289,7 +289,7 @@ Use this method for retrieving a special session token that can be used to authe
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
 
 
 <a name="deletesessiontoken"></a>
@@ -315,9 +315,9 @@ Retires a session token so that users can no longer do requests authenticating s
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The session token was deleted succesfully.|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**400**|The operation has failed. Either the `X-Requested-By` header was not set correctly or the supplied token does not exist.|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**200**|The session token was deleted succesfully.|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**400**|The operation has failed. Either the `X-Requested-By` header was not set correctly or the supplied token does not exist.|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions.md#generalresult)|
 
 
 ##### Produces
@@ -331,4 +331,4 @@ Retires a session token so that users can no longer do requests authenticating s
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security#simple-auth)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
