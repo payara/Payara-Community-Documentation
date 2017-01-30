@@ -21,7 +21,7 @@ Represents the general result of an administration or monitoring operation.
 
 |Name|Description|Schema|
 |---|---|---|
-|**command**  <br>*optional*|The name of the resource/object that is the target of the operation (in case of a succesful operation) or the name of the method or command executed (in case of a failed operation).|string|
+|**command**  <br>*optional*|The name of the resource/object that is the target of the operation (in case of a successful operation) or the name of the method or command executed (in case of a failed operation).|string|
 |**exit_code**  <br>*optional*|The result of the operation's execution, either SUCCESS or FAILURE|string|
 |**message**  <br>*optional*|Details the message the server sends in case of encountering an error in executing the operation. If no error was encountered, this property is empty.|string|
 
@@ -156,6 +156,3 @@ Represents the result of requesting a session token.
 |Name|Description|Schema|
 |---|---|---|
 |**token**  <br>*optional*|A session token used for authenticating user requests|string|
-
-
-
