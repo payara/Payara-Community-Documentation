@@ -38,7 +38,7 @@ Represents a log record in the target domain.
 |**loggedLevel**  <br>*optional*|The level of the logged event (EMERGENCY, ALERT,  SEVERE, WARNING, INFO, CONFIG, FINE, FINER, and FINEST)|string|
 |**loggerName**  <br>*optional*|Name of the logger that registered the log event.|string|
 |**messageID**  <br>*optional*|Identifier of the logged event.|string|
-|**nameValuePairs**  <br>*optional*|Contains a key-value duple of the ID and name of the thread that created the message in the format "_ThreadID=thread-id;_ThreadName=thread-name;"|string|
+|**nameValuePairs**  <br>*optional*|Contains a key-value tuple of the ID and name of the thread that created the message in the format "_ThreadID=thread-id;_ThreadName=thread-name;"|string|
 |**productName**  <br>*optional*|A shorthand alias for the product's edition, profile and version, e.g Payara 4.1|string|
 |**recordNumber**  <br>*optional*|The identifier of this log record in a numerical format|integer(int32)|
 
@@ -88,7 +88,7 @@ Represents the result of a monitoring operation when querying for a specific res
 
 |Name|Description|Schema|
 |---|---|---|
-|**childResources**  <br>*optional*|A list of child resources for the target resource. Each child resource is specified as a key-value pair of the resource`s name and it`s URL. This property is only available for the results of query operations.|< string, string(url) > map|
+|**childResources**  <br>*optional*|A list of child resources for the target resource. Each child resource is specified as a key-value pair of the resource\`s name and it\`s URL. This property is only available for the results of query operations.|< string, string(url) > map|
 |**entity**  <br>*optional*|A list of the metric information and statistics retrieved since the last monitoring was executed. Each property of this object represents a separate metric/statistic.|< string, [Statistic](#statistic) > map|
 
 
@@ -133,7 +133,7 @@ Represents compilation data for the metric of a resource's statistics.
 |**lowwatermark**  <br>*optional*|The lowest value of the statistic since its monitoring began. Used for ranged statistics|integer(int32)|
 |**name**  <br>*optional*|The name of the statistic as shown in client applications|string|
 |**starttime**  <br>*optional*|The time at which the monitoring of the statistic began in UNIX format.|integer(int32)|
-|**unit**  <br>*optional*|The unit of measurement of the statistic, which is one of the following units of measurement<br>* count - The cumulative value of an attribute.<br>* range - The lowest, highest and current value of an attribute over time.<br>* boundedrange - Same as range, but with fixed limits.<br>* string - Used to represent the textual state of an object (for example 'CONNECTED', 'DISCONNECTED')<br>* time - Values of an attribute that are used to provide timing measurements (time taken to perform an operation, average time, etc.)|string|
+|**unit**  <br>*optional*|<p>The unit of measurement of the statistic, which is one of the following units of measurement:</p><br><ul><br>  <li>count - The cumulative value of an attribute.</li><br>  <li>range - The lowest, highest and current value of an attribute over time.</li><br>  <li>boundedrange - Same as range, but with fixed limits.</li><br>  <li>string - Used to represent the textual state of an object (for example 'CONNECTED', 'DISCONNECTED')</li><br>  <li>time - Values of an attribute that are used to provide timing measurements (time taken to perform an operation, average time, etc.)</li><br></ul>|string|
 
 
 <a name="tokenresult"></a>

@@ -17,8 +17,6 @@ POST /management/domain/{resource}
 ##### Description
 Use this operation to add new resources to the configuration tree or to update the configuration of an existing resource. If the resource is a parent resource, then the operation would add a new child resource. Otherwise, the operation would update the resource's configuration.
 
-**IMPORTANT** - Since *OpenAPI* doesn't support defining variable unnamed parameters to be used when sending a form, a single parameter named `parameter` is defined as a marker.
-
 
 ##### Parameters
 
@@ -26,7 +24,7 @@ Use this operation to add new resources to the configuration tree or to update t
 |---|---|---|---|
 |**Header**|**X-Requested-By**  <br>*required*|This header must ALWAYS be set to the value ***GlassFish REST HTML interface***|string|
 |**Path**|**resource**  <br>*required*|The qualified name of the resource. If adding a child resource, the name of the resource's parent. If updating a resource's configuration then it is the name of the target resource.|string|
-|**FormData**|**parameter**  <br>*optional*|Pass the parameters used to create or update the resource accordingly.|string|
+|**FormData**|**parameter**  <br>*optional*|The name *parameter* is a placeholder for any parameters the resource uses for its creation or update. If multiple parameters are used, repeat this placeholder for each one.|string|
 
 
 ##### Responses
@@ -34,7 +32,7 @@ Use this operation to add new resources to the configuration tree or to update t
 |HTTP Code|Description|Schema|
 |---|---|---|
 |**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](#operationresult)|
-|**400**|The operation has failed. One of the possible reasons are <br>  * The command or method\`s request parameters aren\`t set correctly.<br>  * The `X-Requested-By` header was not set correctly.<br>  * An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)|[GeneralResult](#generalresult)|
+|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method\`s request parameters aren\`t set correctly.</li><br>    <li>The `X-Requested-By` header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
 
@@ -62,7 +60,7 @@ GET /management/domain/{resource}
 
 
 ##### Description
-Use this operation to determine a resource current configuration and what are its supported methods, method parameters and available commands.
+Use this operation to determine the current configuration of a resource and what are its supported methods, method parameters and available commands.
 
 
 ##### Parameters
