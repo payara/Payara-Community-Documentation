@@ -7,7 +7,7 @@
 Used for domain configuration operations
 
 
-<a name="management-domain-resource-post"></a>
+<a name="submitconfiguration"></a>
 #### Add or Update a resource
 ```
 POST /management/domain/{resource}
@@ -32,7 +32,7 @@ Use this operation to add new resources to the configuration tree or to update t
 |HTTP Code|Description|Schema|
 |---|---|---|
 |**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](#operationresult)|
-|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method\`s request parameters aren\`t set correctly.</li><br>    <li>The `X-Requested-By` header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](#generalresult)|
+|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](#generalresult)|
 |**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
 
@@ -49,10 +49,10 @@ Use this operation to add new resources to the configuration tree or to update t
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**apiKey**|**[token_cookie](#token_cookie)**|
+|**basic**|**[token_cookie](#token_cookie)**|
 
 
-<a name="management-domain-resource-get"></a>
+<a name="getconfiguration"></a>
 #### Get information for a resource
 ```
 GET /management/domain/{resource}
@@ -91,10 +91,10 @@ Use this operation to determine the current configuration of a resource and what
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**apiKey**|**[token_cookie](#token_cookie)**|
+|**basic**|**[token_cookie](#token_cookie)**|
 
 
-<a name="management-domain-resource-delete"></a>
+<a name="deleteconfiguration"></a>
 #### Delete a resource
 ```
 DELETE /management/domain/{resource}
@@ -135,7 +135,7 @@ Removes the specified resource from the configuration's tree. The deleted resour
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**apiKey**|**[token_cookie](#token_cookie)**|
+|**basic**|**[token_cookie](#token_cookie)**|
 
 
 <a name="logging_resource"></a>
@@ -143,7 +143,7 @@ Removes the specified resource from the configuration's tree. The deleted resour
 Used for domain logging purposes
 
 
-<a name="management-domain-view-log-get"></a>
+<a name="getlog"></a>
 #### Get domain log
 ```
 GET /management/domain/view-log
@@ -174,7 +174,7 @@ Get the server's log contents of the target domain. Each time this operation is 
 * `text/plain`
 
 
-<a name="management-view-log-details-get"></a>
+<a name="getlogdetails"></a>
 #### Get log entries
 ```
 GET /management/view-log/details
@@ -204,7 +204,7 @@ Get the server's log details of the target domain. The details can be retrieved 
 Used for monitoring operations
 
 
-<a name="monitoring-domain-resource-get"></a>
+<a name="getstatistics"></a>
 #### Get monitoring statistics
 ```
 GET /monitoring/domain/{resource}
@@ -243,7 +243,7 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 |Type|Name|
 |---|---|
 |**basic**|**[simple_auth](#simple_auth)**|
-|**apiKey**|**[token_cookie](#token_cookie)**|
+|**basic**|**[token_cookie](#token_cookie)**|
 
 
 <a name="sessions_resource"></a>
@@ -251,7 +251,7 @@ Retrieves the monitoring statistics for a monitorable resource in the domain. In
 Used for session management
 
 
-<a name="management-sessions-post"></a>
+<a name="getsessiontoken"></a>
 #### Get session token
 ```
 POST /management/sessions
@@ -292,7 +292,7 @@ Use this method for retrieving a special session token that can be used to authe
 |**basic**|**[simple_auth](#simple_auth)**|
 
 
-<a name="management-sessions-token-delete"></a>
+<a name="deletesessiontoken"></a>
 #### Delete session token
 ```
 DELETE /management/sessions/{token}

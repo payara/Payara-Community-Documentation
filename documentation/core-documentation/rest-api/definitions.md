@@ -133,7 +133,7 @@ Represents compilation data for the metric of a resource's statistics.
 |**lowwatermark**  <br>*optional*|The lowest value of the statistic since its monitoring began. Used for ranged statistics|integer(int32)|
 |**name**  <br>*optional*|The name of the statistic as shown in client applications|string|
 |**starttime**  <br>*optional*|The time at which the monitoring of the statistic began in UNIX format.|integer(int32)|
-|**unit**  <br>*optional*|<p>The unit of measurement of the statistic, which is one of the following units of measurement:</p><br><ul><br>  <li>count - The cumulative value of an attribute.</li><br>  <li>range - The lowest, highest and current value of an attribute over time.</li><br>  <li>boundedrange - Same as range, but with fixed limits.</li><br>  <li>string - Used to represent the textual state of an object (for example 'CONNECTED', 'DISCONNECTED')</li><br>  <li>time - Values of an attribute that are used to provide timing measurements (time taken to perform an operation, average time, etc.)</li><br></ul>|string|
+|**unit**  <br>*optional*|<p>The unit of measurement of the statistic, which is one of the following units of measurement:</p><br><ul><br>  <li><b>count</b> - The cumulative value of an attribute.</li><br>  <li><b>range</b> - The lowest, highest and current value of an attribute over time.</li><br>  <li><b>boundedrange</b> - Same as range, but with fixed limits.</li><br>  <li><b>string</b> - Used to represent the textual state of an object (for example 'CONNECTED', 'DISCONNECTED')</li><br>  <li><b>time</b> - Values of an attribute that are used to provide timing measurements (time taken to perform an operation, average time, etc.)</li><br></ul>|string|
 
 
 <a name="tokenresult"></a>

@@ -11,9 +11,11 @@ Basic authentication using **Username** and **Password** credentials sent using 
 
 <a name="token_cookie"></a>
 ### token_cookie
-*Type* : apiKey  
-*Name* : gfresttoken  
-*In* : HEADER
+API Key authentication using a session token. In order to retrieve a session tokem, authenticate using the `simple_auth` security scheme to the `/management/sessions/` endpoint. Pass this token to the respective endpoint setting the `gfresttoken` cookie.
+
+**IMPORTANT** - Since [OpenAPI v2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#securityRequirementObject) does not support cookies for API key security declaration, a *HEADER* definition is used as a placeholder.
+
+*Type* : basic
 
 
 
