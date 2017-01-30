@@ -48,7 +48,7 @@ Use this operation to add new resources to the configuration tree or to update t
 
 |Type|Name|
 |---|---|
-|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple-auth)**|
+|**basic**|**[simple_auth](documentation/core-documentation/rest-api/security.md#simple_auth)**|
 |**apiKey**|**[token_cookie](documentation/core-documentation/rest-api/security.md#token_cookie)**|
 
 
