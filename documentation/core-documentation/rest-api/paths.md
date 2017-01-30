@@ -31,9 +31,9 @@ Use this operation to add new resources to the configuration tree or to update t
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](#operationresult)|
-|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](#generalresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
+|**200**|The operation has executed succesfully and contextual information about the result is returned.|[OperationResult](documentation/core-documentation/rest-api/definitions#operationresult)|
+|**400**|The operation has failed. One of the possible reasons are:<br>  <ul><br>    <li>The command or method`s request parameters aren`t set correctly.</li><br>    <li>The <code>X-Requested-By</code> header was not set correctly.</li><br>    <li>An integrity error has ocurred with the target resource, for example a resource already exists with the same JNDI name. (An operation result object is returned for examination)</li><br>  </ul>|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/definitions#generalresult)|
 |**404**|Either the parent resource (when adding new resources) or the target resource (when updating a resource) does not exists.|No Content|
 
 
@@ -74,8 +74,8 @@ Use this operation to determine the current configuration of a resource and what
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|An object representing the contextual information for the resource|[OperationResult](#operationresult)|
-|**401**|Users credentials are not valid to execute this operation|[GeneralResult](#generalresult)|
+|**200**|An object representing the contextual information for the resource|[OperationResult](documentation/core-documentation/rest-api/#operationresult)|
+|**401**|Users credentials are not valid to execute this operation|[GeneralResult](documentation/core-documentation/rest-api/#generalresult)|
 |**404**|The specified resource does not exist|No Content|
 
 
