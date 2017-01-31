@@ -10,7 +10,7 @@ The second approach is usually **recommended** in most cases: Tunneling through 
 
 ## Configuring a static port for the Message Queue Port Mapper
 
-To assign the static port number to a connection service, determine which connection service and protocol you are using to establish a connection with the broker and set the appropriate configuration property according to the following table:
+To assign the static port number to a connection service, determine which connection service and protocol you are using to establish connections with the broker and set the appropriate configuration property according to the following table:
 
 | Connection Service | Protocol | Configuration Property |
 | :--- | :--- | :--- |
@@ -23,7 +23,7 @@ To correctly assign this configuration property, you need to determine the type 
 
 ### How to set the property in EMBEDDED mode
 
-On **EMBEDDED** mode, the OpenMQ broker is executed as part of the same JVM process the application server is running \(Only works with Payara Server Full Edition\). Considering this, the configuration property must be set as part of the JVM settings of the current domain. To configure the JMS service for example:
+On **EMBEDDED** mode, the OpenMQ broker is executed as part of the same JVM process the application server is running \(Only works with Payara Server Full Edition\). Considering this, the configuration property must be set as part of the JVM settings of the domain. To configure the JMS service using the respective `asadmin` command you can do this:
 
 ```
 ./asadmin create-jvm-options --target=server-config -Dimq.jms.tcp.port=10234
@@ -33,7 +33,7 @@ Where _10234_ is the static port set up in the firewall.
 
 ### How to set the property in LOCAL mode
 
-On **LOCAL **mode, the OpenMQ broker is executed in a separate JVM process from the application server's. To set the configuration property correctly, is recommended to set it as part of the start arguments the server uses to start the broker at domain startup. To configure the JMS service for example:
+On **LOCAL **mode, the OpenMQ broker is executed in a separate JVM process from the application server's. To set the configuration property correctly, is recommended to set it as part of the start arguments the server uses to start the broker at domain startup. To configure the JMS service using the respective `asadmin` command you can do this:
 
 ```
 ./asadmin set configs.config.server-config.jms-service.start-args=-Dimq.jms.tcp.port=10234
@@ -46,7 +46,7 @@ Where _10234_ is the static port set up in the firewall.
 
 On **REMOTE** mode, the OpenMQ broker is completely independent from the Payara Server installation. Since it's the responsability of a third party to configure and manage the lifecyle of the broker, the property must be configured directly on it instead of the server/domain. 
 
-The recommended way to do this is to pass the property as a start argument (_JVM_ argument, along with other arguments for memory, GC, etc.) when manually starting the broker. To configure the JMS service for example:
+The recommended way to do this is to pass the property as a start argument (_JVM_ argument, along with other arguments for memory, GC, etc.) when manually starting the broker. To configure the JMS service using the `imqbrokerd` utility you can do this:
 
 ```
 ./imqbrokerd -varhome ${MQ_HOME}/data/imq -name mq_server -port 7676 -vmargs "-Dimq.jms.tcp.port=10234 -Xms256 -Xmx256m -XX:+UseG1GC"
