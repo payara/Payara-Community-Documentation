@@ -27,7 +27,7 @@ Assuming you already have a HipChat account, the steps to create a room and gene
 
   ![](/assets/hipchat-room-tokens.png)
 
-- Finally, give your token a label which 
+- Finally, give your token an informative label, since this will be displayed in your room when notifications are received:
 
   ![](/assets/hipchat-create-token.png)
 
