@@ -34,7 +34,7 @@ Assuming you already have a HipChat account, the steps to create a room and gene
 
 #### Payara Server Configuration
 Once you have a token, the configuration of the notifier within Payara Server involves just one step. In the Admin Console, simply add the room name and token to the appropriate fields, as shown below:
-![](/images/admin-console-hipchat-notifier-configuration.png)
+![](/assets/admin-console-hipchat-notifier-configuration.png)
 
 Make sure that the "Enabled" box is ticked so that the notifier will be used. If you would like the changes to take effect without needing a restart, tick the "Dynamic" box as well.
 
@@ -43,3 +43,19 @@ To make these changes via the asadmin tool, use the following command, which mir
 ```
 asadmin> notification-hipchat-configure --enabled=true --roomName="payara-notifications" --token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --dynamic=true
 ```
+
+#### Troubleshooting
+When you have correctly configured the HipChat notifier, it can be used to push notifications to your configured room. If you do not see any notifications, check the following:
+
+* Is the HipChat notifier enabled?
+* Is the notification service itself enabled?
+* Is there a service configured to use the notifier? (e.g. the HealthCheck service)
+* Is the service configured to send notifications frequently enough to observe?
+* Have you enabled the service after configuring it?
+
+Once configuring is complete and both the notification service and the service you are using are enabled, you should see output like the example, which shows the Healthcheck service outputting CPU information every 3 seconds:
+
+
+
+![](/assets/hipchat-notifications.png)
+.
