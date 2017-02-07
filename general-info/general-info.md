@@ -50,10 +50,9 @@ The [Payara project is hosted on GitHub](https://github.com/payara/Payara), allo
 GitHub also allowa the community access to view and edit the source code very easy and in a public manner.
 
 ### 3.1. How to Contribute
+For an in-depth guide on how to contribute to Payara, see here: https://github.com/payara/Payara-Server-Documentation/blob/master/general-info/contributing-to-payara.md.
 
-We make use of the [Fork and Pull model](https://help.github.com/articles/using-pull-requests/). This means that if you want to make any changes, you'll need to fork the Payara's GiHub repository and make your changes in your own repository. You will then need to create a pull request back into the Payara project's master branch to merge your changes into the main project.
-
-Before we merge your pull request though, you must read and sign the Individual [Contributor License Agreement \(CLA\)](https://github.com/payara/Payara/blob/master/PayaraCLA.pdf) before sending it to us at the address specified on the document, or as an email attachment to [info@payara.co](/mailto:info@payara.fish).
+In brief, we make use of the Fork and Pull model (see here: https://help.github.com/articles/using-pull-requests/). This means that if you want to make any changes, you'll need to fork the Payara project and make your changes in your own repository. Before we merge your pull request though, you must read and sign the Individual Contributor License Agreement (CLA) before sending it to us at the address specified on the document, or as an email attachment to [info@payara.fish](mailto:info@payara.fish).
 
 Once we've received the CLA and checked it for any mistakes, we'll allow any pull requests you've made to start being merged.
 
@@ -66,6 +65,3 @@ We make use of GitHub's integrated [issue tracker](https://github.com/payara/Pay
 Someone on the Payara team, or someone from the community, will then investigate and converse with you about the enhancement request or bug report.
 
 We also attach labels and milestones to issues to help both us, and the community, manage the workflow of these issues.
-
-
-
