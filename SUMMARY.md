@@ -20,6 +20,11 @@
       * [Compression of log files](documentation/core-documentation/logging/payara/log-compression.md)
       * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
       * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
+  * [REST API Documentation](documentation/core-documentation/rest-api/rest-api-documentation.md)
+		* [Overview](documentation/core-documentation/rest-api/overview.md)
+	  * [Security](documentation/core-documentation/rest-api/security.md)
+	  * [Resources](documentation/core-documentation/rest-api/resources.md)
+	  * [Definitions](documentation/core-documentation/rest-api/definitions.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
   * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
     * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -106,4 +111,3 @@
   * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
   * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
   * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
-
