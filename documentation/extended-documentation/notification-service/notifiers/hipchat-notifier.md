@@ -52,6 +52,7 @@ When you have correctly configured the HipChat notifier, it can be used to push 
 * Is there a service configured to use the notifier? (e.g. the HealthCheck service)
 * Is the service configured to send notifications frequently enough to observe?
 * Have you enabled the service after configuring it?
+* Check that you have not hit the [rate limit for the HipChat API](https://developer.atlassian.com/hipchat/guide/hipchat-rest-api/api-rate-limits)
 
 Once configuring is complete and both the notification service and the service you are using are enabled, you should see output like the example, which shows the Healthcheck service outputting CPU information every 3 seconds:
 
