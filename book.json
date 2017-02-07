@@ -1,5 +1,8 @@
 {
-    "plugins": [ "versions" ],
+    "plugins": [
+        "expandable-chapters",
+        "versions"
+        ],
 
 
     "pluginsConfig": {
