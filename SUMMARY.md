@@ -21,7 +21,7 @@
 	* [REST API Documentation](documentation/core-documentation/rest-api/rest-api-documentation.md)
 		* [Overview](documentation/core-documentation/rest-api/overview.md)
 	    * [Security](documentation/core-documentation/rest-api/security.md)
-	    * [Paths](documentation/core-documentation/rest-api/paths.md)
+	    * [Resources](documentation/core-documentation/rest-api/resources.md)
 	    * [Definitions](documentation/core-documentation/rest-api/definitions.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
     * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
