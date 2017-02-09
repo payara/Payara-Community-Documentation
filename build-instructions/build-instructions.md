@@ -78,7 +78,7 @@ appserver/extras/payara-micro/payara-micro-microprofile-distributions/target
 
 ## Additional Build Profiles
 
-There are a number of included additional Maven build profiles:
+There are a number of additional Maven build profiles:
 ```Shell
 mvn clean install
 mvn clean install -PBuildExtras
