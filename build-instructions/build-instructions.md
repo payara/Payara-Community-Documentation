@@ -50,11 +50,55 @@ mvn clean install -DskipTests
 
 ## Building Payara Micro
 
-To save some time on the main build Payara Micro is not automatically built from the top level maven project. To build Payara Micro you must previously build the full Payara as described above. Once that has been built
+From 164 Payara Micro is now included as part of the default build. As it depends on sections of Payara, it can't be built on it's own. To build Payara Micro:
 
 ```Shell
-cd appserver/extras/embedded/payara-micro
 mvn clean install -DskipTests
 ```
 
-After the build has completed the Payara Micro jar is in the target directory.
+After the build has completed the Payara Micro jar can be found in the target directory at:
+
+```Shell
+appserver/extras/payara-micro/payara-micro-distribution/target/
+```
+
+## Building Payara Microprofile
+
+Payara Microprofile is built as part of Payara Micro. To build Payara Microprofile you can run:
+
+```Shell
+mvn clean install -DskipTests
+```
+
+Payara Microprofile can be found in its target directory at:
+
+```Shell
+appserver/extras/payara-micro/payara-micro-microprofile-distributions/target
+```
+
+## Additional Build Profiles
+
+There are a number of included additional Maven build profiles:
+```Shell
+mvn clean install
+mvn clean install -PBuildExtras
+mvn clean install -PQuickBuild
+```
+
+| Payara Version |  clean install | -PBuildExtras | -PQuickBuild |
+| ---- | ---- | ---- | ---- | 
+| Payara Server |✓|✓|✓|
+| Payara Server (Web Profile) |✓ |✓ | |
+| Payara Server Multi Language |✓ |✓ | |
+| Payara Server Multi Language (Web Profile) |✓ |✓ | |
+| Payara Server Minimal |✓ |✓ |✓ |
+| Payara Micro |✓ |✓ | |
+| Payara Microprofile |✓|✓ | |
+| Payara Embedded | |✓ | |
+| Payara Embedded (Web Profile) | |✓ | |
+
+To save time on builds, you can also add the flag _skipTests_:
+```Shell
+mvn clean install -DskipTests
+```
+This will cut out all build tests so will save quite a bit of time but may result in a buggy build.
