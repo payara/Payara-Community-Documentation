@@ -36,6 +36,7 @@
   * [JBatch](documentation/extended-documentation/jbatch.md)
   * [JCache](documentation/extended-documentation/jcache.md)
   * [Hazelcast](documentation/extended-documentation/hazelcast.md)
+  * [Remote CDI Events](documentation/extended-documentation/cdi-events.md)
   * [Alternate Store for EJB Timers](documentation/extended-documentation/alternate-store-for-ejb-timers.md)
   * [Health Check Service](documentation/extended-documentation/health-check-service/health-check-service.md)
     * [Asadmin Commands](documentation/extended-documentation/health-check-service/asadmin-commands.md)
