@@ -104,8 +104,6 @@ When you have correctly configured the Slack notifier, it can be used to push no
 
 Here's a sample of how the notifications are visualized on the Slack Desktop application:
 
-**TODO - ADD IMAGE WHEN INTEGRATION WORKS
-**
-
+![Slack Notifications Sample](/images/slack-notifications-sample.png)
 
 
