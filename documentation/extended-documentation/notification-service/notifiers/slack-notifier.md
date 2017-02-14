@@ -13,9 +13,9 @@
 
 # 1. Overview
 
-[Slack ](https://slack.com/)is a functional enterprise chat and team collaboration tool inspired by IRC. It allows an organization to create specific **domains** and discuss work topics or subject in separate **channels** that can be public or private. 
+[Slack ](https://slack.com/)is a functional enterprise chat and team collaboration tool inspired by IRC. It allows an organization to create specific **domains** and discuss work topics or subjects in separate **channels** that can either be public or private. 
 
-Payara Server includes a special notifier to send notifications from the [Notification service](/documentation/extended-documentation/notification-service/notification-service.md) to an organization's domain channel using the Slack API integrations .
+Payara Server includes a special notifier to send notifications from the [Notification service](/documentation/extended-documentation/notification-service/notification-service.md) to an organization's domain channel using Slack API integrations.
 
 # 2. Slack Integration Configuration
 
