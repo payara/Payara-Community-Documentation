@@ -50,13 +50,13 @@ mvn clean install -DskipTests
 
 ## Building Payara Micro
 
-From 164 Payara Micro is now included as part of the default build. As it depends on sections of Payara, it can't be built on it's own. To build Payara Micro:
+From 164, Payara Micro is now included as part of the default build. As it depends on modules of Payara Server, it can't be built on its own. To build Payara Micro:
 
 ```Shell
 mvn clean install -DskipTests
 ```
 
-After the build has completed the Payara Micro jar can be found in the target directory at:
+After the build has completed, the Payara Micro jar can be found in the target directory at:
 
 ```Shell
 appserver/extras/payara-micro/payara-micro-distribution/target/
@@ -64,7 +64,7 @@ appserver/extras/payara-micro/payara-micro-distribution/target/
 
 ## Building Payara Microprofile
 
-Payara Microprofile is built as part of Payara Micro. To build Payara Microprofile you can run:
+Payara Microprofile is built as part of Payara Micro. To build Payara Microprofile, you can run:
 
 ```Shell
 mvn clean install -DskipTests
@@ -101,4 +101,4 @@ To save time on builds, you can also add the flag _skipTests_:
 ```Shell
 mvn clean install -DskipTests
 ```
-This will cut out all build tests so will save quite a bit of time but may result in a buggy build.
+This will cut out all build tests so will save quite a bit of time.
