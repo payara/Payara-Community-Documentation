@@ -46,8 +46,6 @@ import javax.cache.Cache;
 Cache cache;
 ```
 
-The full array of parameters can be seen in the [NamedCache](#41-namedcache-annotation) section of the [appendices](#4-appendices).
-
 If you only want to set the name of the cache but don't want to depend on the `@NamedCache` annotation since it's part of the _Payara Extras_ dependencies, you can use the `@CacheDefaults` annotation on the bean class:
 
 ```Java
