@@ -35,7 +35,7 @@
     * [SQL Trace Listeners](documentation/extended-documentation/advanced-jdbc/sql-trace-listeners.md)
   * [JBatch](documentation/extended-documentation/jbatch.md)
   * [JCache](documentation/extended-documentation/jcache.md)
-    * [Accessing Cache provider and manager](documentation/extended-documentation/jcache/jcache-accessing.md)
+    * [Cache provider and manager](documentation/extended-documentation/jcache/jcache-accessing.md)
     * [Creating a Cache Instance](documentation/extended-documentation/jcache/jcache-creating.md)
     * [Using JCache Annotations](documentation/extended-documentation/jcache/jcache-annotations.md)
   * [Hazelcast](documentation/extended-documentation/hazelcast.md)
