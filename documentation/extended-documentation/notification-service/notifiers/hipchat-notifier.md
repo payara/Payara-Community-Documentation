@@ -17,7 +17,7 @@ At a high level, the steps to configure the HipChat notifier are:
 Assuming you already have a HipChat account, the steps to create a room and generate a notification token are as follows:
 
 1. Create a new room in HipChat where your notifications will be sent, if one does not exist. The example below shows the creation of a room called "*payara-notifications*"   
-  
+
   ![](/assets/hipchat-create-room.png)
 - After you have created the target room, or if a room already exists, visit `https://${your-team-name}.hipchat.com/rooms` and search for the room name to filter out any others, as shown below:
 
@@ -42,6 +42,19 @@ To make these changes via the asadmin tool, use the following command, which mir
 
 ```
 asadmin> notification-hipchat-configure --enabled=true --roomName="payara-notifications" --token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" --dynamic=true
+```
+
+To check the current applied configuration from asadmin, run the command:
+```Shell
+asadmin get-hipchat-notifier-configuration
+```
+
+This will return the current configuration, with whether it is currently enabled, the room name, and the token in use:
+
+```Shell
+$ asadmin get-hipchat-notifier-configuration
+Enabled         Room Name                 Token
+true            payara-notifications      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 #### Troubleshooting
