@@ -44,7 +44,6 @@
     * [Asadmin Commands](documentation/extended-documentation/notification-service/asadmin-commands.md)
     * [Notifiers](documentation/extended-documentation/notification-service/notifiers.md)
       * [Hipchat Notifier](documentation/extended-documentation/notification-service/notifiers/hipchat-notifier.md)
-      * [Slack Notifier](documentation/extended-documentation/notification-service/notifiers/slack-notifier.md)
   * [Request Tracing Service](documentation/extended-documentation/request-tracing-service/request-tracing-service.md)
     * [Asadmin Commands](documentation/extended-documentation/request-tracing-service/asadmin-commands.md)
     * [Configuration](documentation/extended-documentation/request-tracing-service/configuration.md)
