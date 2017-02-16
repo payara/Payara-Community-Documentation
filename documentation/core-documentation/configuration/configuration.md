@@ -1,3 +1,3 @@
 # Payara Server configuration files
 
-The documentation about Payara server configuration files.
+Documentation about Payara server configuration files.
