@@ -14,6 +14,8 @@
 ## Technical Documentation
 
 * [Core Documentation](documentation/core-documentation/core-documentation.md)
+  * [Server Configuration](documentation/core-documentation/configuration/configuration.md)
+    * [Variables in the configuration](documentation/core-documentation/configuration/var-substitution.md)
   * [JACC](documentation/core-documentation/jacc.md)
   * [Logging](documentation/core-documentation/logging/logging.md)
     * [Payara Logging Improvements](documentation/core-documentation/logging/payara/payara-specific.md)
