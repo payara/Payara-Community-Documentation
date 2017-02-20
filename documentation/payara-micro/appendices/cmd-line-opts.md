@@ -5,7 +5,8 @@ All of the options listed below are case-insensitive from version `4.1.1.171`; p
 Configuration Option | Description | Default Value
 --- | --- | ---
 `--nocluster` | Disables clustering for this instance. | _false_
-`--deploy <file-path>` | specifies a war file to deploy |
+`--deploymentdir`<br />`--deploydir` | Sets a directory which will be scanned for WAR files for auto-deployment. | If not set, has no value and is not used.
+`--deploy <file-path>` | Specifies a WAR file to deploy | If not set, has no value and is not used.
 `--port` | Sets the HTTP port that the instance will bind to. | 8080
 `--sslport` | Sets the HTTPs port that the instance will bind to. | If not set, has no value and HTTPS is disabled.
 `--name` | Sets the instance name. | Generated Universally Unique Identifier.
@@ -17,8 +18,6 @@ Configuration Option | Description | Default Value
 `--hostaware` | Enable Host Aware Partitioning. When enabled cluster backups will not be stored on members with the same IP Address | 
 `--startport` | Sets the cluster start port number. | 5900
 `--rootdir` | Sets the root configuration directory and saves the configuration across restarts. | If not set, has no value and defaults to the temp directory.
-`--deploymentdir`<br />`--deploydir` | Sets a directory which will be scanned for WAR files for auto-deployment. | If not set, has no value and is not used.
-`--deploy` | Specifies a WAR file to deploy. | If not set, has no value and is not used.
 `--domainconfig` | Overrides the server configuration with an alternative domain.xml file. | If not set, the domain.xml contained in the Payara Micro JAR is used.
 `--minhttpthreads` | Sets the minimum number of threads in the HTTP thread pool. | 10
 `--maxhttpthreads` | Sets the maximum number of threads in the HTTP thread pool. | 10
