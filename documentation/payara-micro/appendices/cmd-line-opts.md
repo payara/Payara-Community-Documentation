@@ -1,5 +1,7 @@
 # Payara Micro Command Line Options
 
+All of the options listed below are case-insensitive from version `4.1.1.171`; prior versions need the option to be set with [camelCase](https://en.wikipedia.org/wiki/Camel_case) (with an initial lower-case letter)
+
 Configuration Option | Description | Default Value
 --- | --- | ---
 `--noCluster` | Disables clustering for this instance. | _false_
@@ -21,10 +23,10 @@ Configuration Option | Description | Default Value
 `--autoBindHttp` | Enables auto-binding for the HTTP port | _false_
 `--autoBindSsl` | Enables auto-binding for the HTTPS port | _false_
 `--autoBindRange` | Sets the range for HTTP and HTTPS port auto-binding. | 5
-`--lite` | sets the micro container to lite mode which means it clusters with other Payara Micro instances but does not store clustered data | |
-`--outputUberJar` |  packages up an uber jar at the specified path based on the command line arguments and exits | |
-`--systemProperties` | Reads system properties from a file | |
-`--logo` | Reveals the #BadAssFish or a custom logo on boot | |
+`--lite` | sets the micro container to lite mode which means it clusters with other Payara Micro instances but does not store clustered data |
+`--outputUberJar` |  packages up an uber jar at the specified path based on the command line arguments and exits |
+`--systemProperties` | Reads system properties from a file |
+`--logo` | Reveals the #BadAssFish or a custom logo on boot |
 `--disablePhoneHome` | Disables _Phone Home_ activities for this instance | If not set, _Phone Home_ is active
 `--help` | Displays the configuration options and then exits. | If not set, this option is not used.
 
