@@ -3,9 +3,9 @@
 
 
 ## `healthcheck-configure`
-__Usage:__ `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false`
+__Usage:__ `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
 
-__Aim:__  Enables or disables the health check service. The command updates the `domain.xml` with the provided configuration but does not apply changes directly to the working service by default.
+__Aim:__  Enables or disables the health check service. The command updates the `domain.xml` with the provided configuration but does not apply changes directly to the working service by default. It can also store a given number of historical health checks.
 
 #### Command Options:
 
@@ -14,19 +14,23 @@ __Aim:__  Enables or disables the health check service. The command updates the 
 | `--target` | String | The instance or cluster that will enable or disable its service | server | no |
 | `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
 | `--enabled` | Boolean | Whether to enable or disable the service | N/A | yes |
+| `--historicaltraceenabled` | Boolean | Enables historic checks if present | false | no |
+| `--historicaltracestoresize` | Integer | Sets the maximum number of health checks to store | 20 | no |
 
-#### Example: 
+#### Example:
 To enable the Healthcheck service such that it will only activate from the next time the server is restarted, the following command would be used:
 ```
 asadmin> healthcheck-configure \
     --enabled=true \
-    --dynamic=false
+    --dynamic=false \
+    --historicaltraceenabled \
+    --historicaltracestoresize=20
 ```
 
 ## `healthcheck-list-services`
 __Usage:__ `asadmin> healthcheck-list-services`
 
-__Aim:__ Lists the names of all metric services that can be configured for monitoring. 
+__Aim:__ Lists the names of all metric services that can be configured for monitoring.
 
 #### Command Options
 There are no options for this command.
@@ -37,7 +41,7 @@ Running the command will show output similar to the example below:
 
 > ```
 > Available Health Check Services:
-> 
+>
 > healthcheck-cpool
 > healthcheck-cpu
 > healthcheck-gc
@@ -100,7 +104,7 @@ This command only configures thresholds for the following metrics:
 In order to execute this command for an specific metric, the `healthcheck-configure-service` command needs to be executed first.
 
 ### *Important!*
-There is no _asadmin_ command to configure the _**Garbage Collection**_ metric, since the service calculates and prints out how many times garbage collections were executed within the time elapsed since the last check. The service will determine the severity of the messages based on how much the CPU time is being taken by the GC when measuring. 
+There is no _asadmin_ command to configure the _**Garbage Collection**_ metric, since the service calculates and prints out how many times garbage collections were executed within the time elapsed since the last check. The service will determine the severity of the messages based on how much the CPU time is being taken by the GC when measuring.
 
 
 #### Example
@@ -123,7 +127,7 @@ __Usage:__ `asadmin> healthcheck-hoggingthreads-configure --dynamic=true|false -
 
 __Aim:__ Configures the healthcheck service to scan for threads hogging the CPU. The service will determine which threads fullfill this conditions by calculating a parcentage of usage with the ratio of elapsed time to the checker service execution interval. If this percentage exceeds the `threshold-percentage`, the thread will be marked as a hogging thread.
 
-You can also use this command to enable this metric checking and also configure the frequency of monitoring combining the functions of the `healthcheck-configure` and `healthcheck-configure-service` commands. 
+You can also use this command to enable this metric checking and also configure the frequency of monitoring combining the functions of the `healthcheck-configure` and `healthcheck-configure-service` commands.
 
 ### Command Options
 
@@ -139,7 +143,7 @@ You can also use this command to enable this metric checking and also configure 
 
 #### Example
 
-Monitoring which threads hog the CPU is extremely important since this can lead to performance degradation, deadlocks and extreme bottlenecks issues that web applications can incur. In some cases the defaults are all that is needed, but imagine that in a critical system you want to set the threshold percentage to **90%**, and you want to make sure that the healthcheck service guarantees the state of such threads with a retry count of 5. Additionally, you want to set the frequency of this check for every _20 seconds_. 
+Monitoring which threads hog the CPU is extremely important since this can lead to performance degradation, deadlocks and extreme bottlenecks issues that web applications can incur. In some cases the defaults are all that is needed, but imagine that in a critical system you want to set the threshold percentage to **90%**, and you want to make sure that the healthcheck service guarantees the state of such threads with a retry count of 5. Additionally, you want to set the frequency of this check for every _20 seconds_.
 
 The following command would apply these settings to the connection pool checker:
 
@@ -150,7 +154,7 @@ asadmin> healthcheck-hoggingthreads-configure \
     --retry-count=5 \
     --time=20 \
     --unit=SECONDS
-``` 
+```
 
 
 
@@ -183,4 +187,3 @@ CPU     false      10      SECONDS  40                      20                  
 HP      false      8       SECONDS  -                       -                      -
 MM      false      7       SECONDS  -                       -                      -
 ```
-
