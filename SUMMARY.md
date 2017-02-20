@@ -86,6 +86,7 @@
     * [Packaging as an Uber Jar](documentation/payara-micro/configuring/package-uberjar.md)
     * [Via System Properties](documentation/payara-micro/configuring/config-sys-props.md)
     * [Alternate Keystores for SSL](documentation/payara-micro/configuring/config-keystores.md)
+    * [Instance Names](documentation/payara-micro/configuring/instance-names.md)
   * [Stopping an Instance](documentation/payara-micro/stopping/stopping.md)
   * [Automatic Clustering](documentation/payara-micro/clustering/clustering.md)
   * [Maven Support](documentation/payara-micro/maven/maven.md)
