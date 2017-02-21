@@ -23,7 +23,7 @@ Configuration Option | Description | Default Value
 `--maxhttpthreads` | Sets the maximum number of threads in the HTTP thread pool. | 10
 `--hzconfigfile` | Sets the Hazelcast configuration file to use for overriding the in-built Hazelcast cluster configuration. | if not set, the in-built Hazelcast configuration file is used.
 `--autobindhttp` | Enables auto-binding for the HTTP port | _false_
-`--autohindssl` | Enables auto-binding for the HTTPS port | _false_
+`--autobindssl` | Enables auto-binding for the HTTPS port | _false_
 `--autobindrange` | Sets the range for HTTP and HTTPS port auto-binding. | 5
 `--lite` | sets the micro container to lite mode which means it clusters with other Payara Micro instances but does not store clustered data |
 `--enablehealthcheck <boolean>` | enables/disables Health Check Service | disabled
