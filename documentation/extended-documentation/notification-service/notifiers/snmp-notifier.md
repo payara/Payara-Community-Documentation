@@ -40,7 +40,9 @@ The notifier configures all traps with the `public` community string by default.
 
 Agents expose management data as variables composed in a structured hierarchy. SNMP does not define which variables are exposed by a managed component. Instead, SNMP uses an extensible design which allows applications and services to define their own hierarchies and other metadata (such as type and description of the variable), which are described in a Management Information Base (MIB). MIBs describe the structure of the management data of a device subsystem using a hierarchical namespace composed of Object Identifiers (OID). Each OID uniquely identifies a variable sent in the SNMP trap by the agent.
 
-In order for a **network management system** to understand a trap sent to it by an agent, the management system must know what OID defines. Therefore, it must have the MIB for that trap loaded. TODO -- Additional information about the OID that the notifier uses and its default
+TODO -- Additional information about the OID that the notifier uses and its default
+
+In order for a **network management system** to understand a trap sent to it by an agent, the management system must know what the OID defines. Therefore, it must have the MIB for that trap loaded in its configuration.
 
 ## Payara Server Configuration
 
