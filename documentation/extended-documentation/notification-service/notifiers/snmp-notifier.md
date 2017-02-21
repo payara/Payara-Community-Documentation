@@ -42,12 +42,17 @@ The notifier configures all traps with the `public` community string by default.
 
 In order for a network management system to understand a trap sent to it by an agent, the management system must know what the object identifier \(OID\) defines. Therefore, it must have the MIB for that trap loaded. This provides the correct OID information so that the network management system can understand the traps sent to it.
 
+## Payara Server Configuration
+
+To setup the SNMP notifier on Payara Server you need to input the values mentioned earlier in the domain configuration. As usual you can do this using the administration web console, from the command line or editing the _domain.xml_ configuration file directly.
+
+**NOTE**: Keep in mind that the only required value to configure the notifier is the **hostname** of your network management system. All other values will assume the defaults discussed earlier.
 
 ### Using the Administration Web Console
 
 To configure the Notification Service in the Administration Console, go to _Configuration -&gt; \[instance-configuration \(like server-config\)\] -&gt; Notification Service_ and click on the **SNMP** tab:
 
-...
+
 
 ### From the Command Line
 
