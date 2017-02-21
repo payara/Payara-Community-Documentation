@@ -4,15 +4,44 @@ The **S**imple **N**etwork **M**anagement **P**rotocol is a standard Internet Pr
 
 ## Basic Concepts
 
-Payara Server notifies network management systems using SNMP traps. A SNMP trap is a special PDU \(Protocol Data Unit\) that is used to generate an asynchronous notification from an _agent \_to a \_manager._ Each SNMP trap usually contains standard fields that are used by the network management system. Payara Server uses the following fields in its traps:
+The basic elements in every SNMP communication are the following:
 
-* **sysUpTime**: Provides the amount of time that has elapsed between the last network reinitialization and generation of the trap.
+* **Managed Component**: This is the device or service that is managed and monitored by SNMP, in this specific case, Payara Server.
+* **SNMP Agent**: A specialized software that gathers data on the overall status of the managed component and exposes specific instructions over interfaces for its management. In our case, the SNMP Notifier acts as a SNMP agent.
+* **SNMP Manager**: A server machine that runs a network management system, which is configured to monitor and manage all devices and services in a network by "_talking_" to the agents and gathering all relevant information.
 
-* Message --
+The SNMP protocol works using PDUs \(Protocol Data Units\) in order to allow managers and agents to work with a defined set of instructions. The notifier currently operates using the **TRAP** PDU to handle notification events.
+
+### SNMP Traps
+
+Payara Server notifies network management systems using SNMP traps. A SNMP trap is a special PDU that is used to generate an asynchronous notification from an _agent_ to a _manager_. An important point to stress with traps is that they are asynchronous events that can occur at any time, which means that a _manager_ expects to receive updates in a PASSIVE manner, thus saving resources.  
+
+In order to correctly configure Payara Server to send traps to a manager, the following information must be reviewed in tandem with the configuration of the _manager_:
+
+* **Hostname**: This is the hostname of the server's where the manager software resides.
+* **Port**: This is the UDP port where the manager sofware is receiving SNMP traps. By default the protocol usually uses port 162.
+* **Version**: The version used by the SNMP trap.
+* **Community**: This is the community string used to "secure" the communication to the manager
+* **OID**: The object identifier used by the trap in order to allow the manager to correctly interpret the status of the server.
+
+#### Version
+
+Currently, the SNMP protocol is supported on three versions: **v1**, **v2c** and **v3**. Version 1 is extremely unsecure since authentication is managed only with the community string. Version 2c is an enhanced version of v1 in that improves the message formats and the protocol operations, using stronger authentication guards using the simplistic community string mechanism. Finally, Version 3 improves security and remote management discarding the use of community strings.
+
+Currently the notifier configuration only supports **v1** and **v2c**, hence the need to correctly configure a community string as well. By default all traps are configured to use **v2c**, since it's guaranteed to be supported by almost all network manager systems.
+
+#### Community
+
+The community string is used to to establish trust between managers and agents. The community names are essentially passwords; most vendors ship their equipment with default community strings: `public` for a read-only community (allows reading data values, but doesn't allow modification) and `private` for the read-write community (allowed to read and modify data values). It's important to change these defaults on production environments. 
+
+The notifier configures all traps with the `public` community string by default.
+
+#### OID - Object Identifier
+
+
 
 In order for a network management system to understand a trap sent to it by an agent, the management system must know what the object identifier \(OID\) defines. Therefore, it must have the MIB for that trap loaded. This provides the correct OID information so that the network management system can understand the traps sent to it.
 
-An important point to stress with SNMP traps is that they are asynchronous events that can occur at any time, which means that your network managing software expects to receive updates in a PASSIVE manner.
 
 ### Using the Administration Web Console
 
@@ -52,5 +81,9 @@ To configure the Notification Service in the _domain.xml_ configuration file, lo
     <snmp-notifier-configuration host="localhost" oid=".1.3.6.1.2.1.1.8" community="public" version="v2c" enabled="true" port="162"></snmp-notifier-configuration>
 </notification-service-configuration>
 ```
+
+## Troubleshooting
+
+TODO
 
 
