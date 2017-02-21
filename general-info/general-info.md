@@ -58,3 +58,6 @@ We also attach labels and milestones to issues to help both us, and the communit
 We make use of GitBook to store and host our technical documentation about Payara, as well as general information \(such as this document\) about the Payara project.
 
 For technical documentation, we only store documentation that we have written, which typically pertains to new or modified features and commands made by us or the community; we do not host GlassFish documentation, nor will we rewrite it for unmodified modules.
+
+
+
