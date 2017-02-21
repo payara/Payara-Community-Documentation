@@ -28,7 +28,7 @@ To configure the Notification Service from the command line, use the `notificati
 asadmin > notification-snmp-configure --enabled=true --dynamic=true --hostname=localhost --port=162 --community=public --oid=".1.3.6.1.2.1.1.8" --version=v2c
 ```
 
-You can use the `--enabled` and `--dynamic` options to enable/disable the Slack notifier on demand.
+You can use the `--enabled` and `--dynamic` options to enable/disable the SNMP notifier on demand.
 
 Also, you can retrieve the current configuration for the SNMP notifier using the `get-slack-notifier-configuration` asadmin command like this:
 
