@@ -7,15 +7,14 @@
             "gitbookConfigURL": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/config/book.json",
             "options": [
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/",
-                    "text": "LATEST (171)"
+                    "value": "https://payara.gitbooks.io/payara-server/content/v/164/",
+                    "text": "164"
                 }
             ]
         }
     },
 
-
     "variables": {
-        "currentVersion": "4.1.1.171"
+        "currentVersion": "4.1.1.164"
     }
 } 
