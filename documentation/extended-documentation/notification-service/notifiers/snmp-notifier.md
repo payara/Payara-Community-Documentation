@@ -2,7 +2,7 @@
 
 The **S**imple **N**etwork **M**anagement **P**rotocol is a standard Internet Protocol that was designed to collect and organize information about all managed devices and services that belong to the same network. **SNMP **is supported by a huge variety of devices, including network devices like routers, modems and switches, servers and in the latter years extended to cover IoT devices and specialized equipment connected to the cloud.
 
-## Basic Concepts
+## SNMP Concepts
 
 The basic elements in every SNMP communication are the following:
 
@@ -10,7 +10,7 @@ The basic elements in every SNMP communication are the following:
 * **SNMP Agent**: A specialized software that gathers data on the overall status of the managed component and exposes specific instructions over interfaces for its management. In our case, the SNMP Notifier acts as a SNMP agent.
 * **SNMP Manager**: A server machine that runs a network management system, which is configured to monitor and manage all devices and services in a network by "_talking_" to the agents and gathering all relevant information.
 
-The SNMP protocol works using PDUs \(Protocol Data Units\) in order to allow managers and agents to work with a defined set of instructions. The notifier currently operates using the **TRAP** PDU to handle notification events.
+The SNMP protocol works using PDUs (Protocol Data Units) in order to allow managers and agents to work with a defined set of instructions. The notifier currently operates using the **TRAP** PDU to handle notification events.
 
 ### SNMP Traps
 
@@ -38,25 +38,25 @@ The notifier configures all traps with the `public` community string by default.
 
 #### OID - Object Identifier
 
+Agents expose management data as variables composed in a structured hierarchy. SNMP does not define which variables are exposed by a managed component. Instead, SNMP uses an extensible design which allows applications and services to define their own hierarchies and other metadata (such as type and description of the variable), which are described in a Management Information Base (MIB). MIBs describe the structure of the management data of a device subsystem using a hierarchical namespace composed of Object Identifiers (OID). Each OID uniquely identifies a variable sent in the SNMP trap by the agent.
 
-
-In order for a network management system to understand a trap sent to it by an agent, the management system must know what the object identifier \(OID\) defines. Therefore, it must have the MIB for that trap loaded. This provides the correct OID information so that the network management system can understand the traps sent to it.
+In order for a **network management system** to understand a trap sent to it by an agent, the management system must know what OID defines. Therefore, it must have the MIB for that trap loaded. TODO -- Additional information about the OID that the notifier uses and its default
 
 ## Payara Server Configuration
 
 To setup the SNMP notifier on Payara Server you need to input the values mentioned earlier in the domain configuration. As usual you can do this using the administration web console, from the command line or editing the _domain.xml_ configuration file directly.
 
-**NOTE**: Keep in mind that the only required value to configure the notifier is the **hostname** of your network management system. All other values will assume the defaults discussed earlier.
+**NOTE**: Keep in mind that the only required value to configure the notifier is the **hostname** of your network management system. All other values will assume the defaults discussed earlier if not configured explicitly.
 
 ### Using the Administration Web Console
 
 To configure the Notification Service in the Administration Console, go to _Configuration -&gt; \[instance-configuration \(like server-config\)\] -&gt; Notification Service_ and click on the **SNMP** tab:
 
-
+![Notification Service in Admin Console](/images/notification-snmp-admin-console.png)
 
 ### From the Command Line
 
-To configure the Notification Service from the command line, use the `notification-snmp-configure` asadmin command, specifying the tokens like this:
+To configure the Notification Service from the command line, use the `notification-snmp-configure` asadmin command like this:
 
 ```
 asadmin > notification-snmp-configure --enabled=true --dynamic=true --hostname=localhost --port=162 --community=public --oid=".1.3.6.1.2.1.1.8" --version=v2c
@@ -79,7 +79,7 @@ true       example      .1.3.6.1.2.1.1.8     v2c       127.0.0.1   162
 
 ### On the _domain.xml_ configuration file
 
-To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration` element in the tree and insert slack-notifier-configuration with the respective attributes like this:
+To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration` element in the tree and insert the `snmp-notifier-configuration` element with the respective attributes like this:
 
 ```
 <notification-service-configuration enabled="true">
