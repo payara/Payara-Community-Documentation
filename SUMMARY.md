@@ -7,9 +7,9 @@
 * [Getting Started](getting-started/getting-started.md)
 * [Build Instructions](build-instructions/build-instructions.md)
 * [Security](security/security.md)
-* [Release Notes](release-notes/release-notes.md)
-  * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
   * [Security Fixes Summary](security/security-fix-list.md)
+* [Release Notes](release-notes/release-notes.md)
+  * [Payara Server 4.1.1.171 Release Notes](release-notes/release-notes-171.md)
 
 ## Technical Documentation
 
@@ -23,10 +23,10 @@
       * [Multiline Mode](documentation/core-documentation/logging/payara/multiline.md)
       * [JSON Log Formatter](documentation/core-documentation/logging/payara/json-formatter.md)
   * [REST API Documentation](documentation/core-documentation/rest-api/rest-api-documentation.md)
-	* [Overview](documentation/core-documentation/rest-api/overview.md)
-	* [Security](documentation/core-documentation/rest-api/security.md)
-	* [Resources](documentation/core-documentation/rest-api/resources.md)
-	* [Definitions](documentation/core-documentation/rest-api/definitions.md)
+    * [Overview](documentation/core-documentation/rest-api/overview.md)
+    * [Security](documentation/core-documentation/rest-api/security.md)
+    * [Resources](documentation/core-documentation/rest-api/resources.md)
+    * [Definitions](documentation/core-documentation/rest-api/definitions.md)
 * [Extended Documentation](documentation/extended-documentation/extended-documentation.md)
   * [Application Deployment](documentation/extended-documentation/app-deployment/app-deployment.md)
     * [Deployment Descriptor Files](documentation/extended-documentation/app-deployment/deployment-descriptors.md)
@@ -48,7 +48,7 @@
     * [Configuration](documentation/extended-documentation/health-check-service/configuration.md)
   * [Notification Service](documentation/extended-documentation/notification-service/notification-service.md)
     * [Asadmin Commands](documentation/extended-documentation/notification-service/asadmin-commands.md)
-    * [Notifiers](documentation/extended-documentation/notification-service/notifiers.md)
+    * [Notifiers](documentation/extended-documentation/notification-service/notifiers/notifiers.md)
       * [Hipchat Notifier](documentation/extended-documentation/notification-service/notifiers/hipchat-notifier.md)
       * [Slack Notifier](documentation/extended-documentation/notification-service/notifiers/slack-notifier.md)
   * [Request Tracing Service](documentation/extended-documentation/request-tracing-service/request-tracing-service.md)
@@ -110,6 +110,7 @@
 ## Appendices
 
 * [History of Release Notes](release-notes/release-notes-history.md)
+  * [Payara Server 4.1.1.171 Release Notes](release-notes/release-notes-171.md) 
   * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
   * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
   * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)

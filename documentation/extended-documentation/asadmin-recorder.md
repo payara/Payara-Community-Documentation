@@ -56,7 +56,7 @@ asadmin set-asadmin-recorder-configuration --enabled true --outputLocation /home
 ```
 
 # 5. Running the Generated Scripts
-Documentation on running asadmin scripts can be found in the [core documentation](documentation/core-documentation/core-documentation.md), under the _Run a Set of asadmin Subcommands From a File_ section.
+Documentation on running asadmin scripts can be found in the [Core Documentation](../core-documentation/core-documentation.md), in the GlassFish Server Administration Guide, under the _Run a Set of asadmin Subcommands From a File_ section.
 
 # 6. Appendices
 ## 6.1 Asadmin Commands
