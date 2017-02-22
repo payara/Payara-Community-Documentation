@@ -1,40 +1,51 @@
-![Payara Logo](/images/payara-logo-blue.png)
+# Contents
 
-## Welcome to the Payara wiki Build Instructions Page!
-This page provides instructions on how to build the Payara source code.
+* [1. Overview](#1-overwiew)
+* [2. Prerequisites](#2-prerequisites)
+* [3. Configuring Maven](#3-configuring-maven)
+* [4. Getting the Source Code](#4-getting-the-source-code)
+* [5. Building Payara Server](#5-building-payara-server)
+* [6. Building Payara Micro](#6-building-payara-micro)
 
-## Prerequisites
-To build and run Payara, your environment must be set up with the following:
+## 1. Overwiew
+
+This page provides instructions on how to build the Payara Server's source code.
+
+## 2. Prerequisites
+
+To build and run Payara Server, your environment must be set up with the following:
 
 * Oracle JDK 7 Update 65 or later, or Oracle JDK 8 Update 20 or later.
 * Maven 3.0.3 or above
 * Git
-* A JAVA_HOME environment variable pointing to the JDK install location (e.g. /home/user/jdk11.8.0_45/)
-* A PATH environment variable that has a pointer to the Java binaries (JAVA_HOME/bin)
+* A `JAVA_HOME` environment variable pointing to the JDK install location \(e.g. /home/user/jdk11.8.0\_45/\)
+* A `PATH` environment variable that has a pointer to the Java binaries \(JAVA\_HOME/bin\)
 
-You can also optionally add the Maven _bin_ folder to the PATH environment variable as well, and the documentation will assume that you have done so.
+You can also optionally add the Maven _bin_ folder to the `PATH` environment variable as well, and the documentation will assume that you have done so.
 
-## Configuring Maven
-If using JDK 7, you will need to increase the heap size and PermGen size to prevent the build process from running out of memory.
+## 3. Configuring Maven
 
-Create a MAVEN_OPTS environment variable and set it as:
+If using JDK 7, you will need to increase the heap size and _PermGen_ size to prevent the build process from running out of memory.
+
+Create a `MAVEN_OPTS` environment variable and set it as:
 
 ```Shell
--Xmx1024m -XX:MaxPermSize=512m 
+-Xmx1024m -XX:MaxPermSize=512m
 ```
 
-If using JDK 8, PermGen has been replaced by Metaspace, which can increse its maximum size on its own, so you only need to increase the heap size:
+If using JDK 8, _PermGen_ has been replaced by _Metaspace_, which can increase its maximum size on its own, so you only need to increase the heap size:
 
 ```Shell
 -Xmx1024m
 ```
 
-## Getting the Source Code
-To download the Payara source code, open a terminal or Git Bash window, navigate to the directory you would like the source code to be downloaded to, and run `git clone https://github.com/payara/Payara.git`.
+## 4. Getting the Source Code
 
-This will download the Payara source code, and initialise git, in a directory called _Payara_.
+To download the Payara Server's source code, open a terminal or Git Bash window, navigate to the directory you would like the source code to be downloaded to, and run `git clone https://github.com/payara/Payara.git`.
 
-## Building Payara
+This will download the Payara Server's source code, and initialise git, in a directory called _Payara_.
+
+## 5. Building Payara Server
 
 With your Git Bash or terminal window, navigate into the downloaded _Payara_ directory, and run:
 
@@ -48,13 +59,57 @@ This will build Payara and run the integrated GlassFish unit tests. To save a bi
 mvn clean install -DskipTests
 ```
 
-## Building Payara Micro
+## 6. Building Payara Micro
 
-To save some time on the main build Payara Micro is not automatically built from the top level maven project. To build Payara Micro you must previously build the full Payara as described above. Once that has been built
+Since 164, Payara Micro is included as part of the default build. As it depends on modules of Payara Server, it can't be built on its own. To build Payara Micro:
 
 ```Shell
-cd appserver/extras/embedded/payara-micro
 mvn clean install -DskipTests
 ```
 
-After the build has completed the Payara Micro jar is in the target directory.
+After the build has completed, the Payara Micro jar can be found in the target directory at:
+
+```Shell
+appserver/extras/payara-micro/payara-micro-distribution/target/
+```
+
+## Building Payara Microprofile
+
+Payara Microprofile is built as part of Payara Micro. To build Payara Microprofile, you can run:
+
+```Shell
+mvn clean install -DskipTests
+```
+
+Payara Microprofile can be found in its target directory at:
+
+```Shell
+appserver/extras/payara-micro/payara-micro-microprofile-distributions/target
+```
+
+## Additional Build Profiles
+
+There are a number of additional Maven build profiles:
+```Shell
+mvn clean install
+mvn clean install -PBuildExtras
+mvn clean install -PQuickBuild
+```
+
+| Payara Version |  clean install | -PBuildExtras | -PQuickBuild |
+| ---- | ---- | ---- | ---- | 
+| Payara Server |✓|✓|✓|
+| Payara Server (Web Profile) |✓ |✓ | |
+| Payara Server Multi Language |✓ |✓ | |
+| Payara Server Multi Language (Web Profile) |✓ |✓ | |
+| Payara Server Minimal |✓ |✓ |✓ |
+| Payara Micro |✓ |✓ | |
+| Payara Microprofile |✓|✓ | |
+| Payara Embedded | |✓ | |
+| Payara Embedded (Web Profile) | |✓ | |
+
+To save time on builds, you can also add the flag _skipTests_:
+```Shell
+mvn clean install -DskipTests
+```
+This will cut out all build tests so will save quite a bit of time.

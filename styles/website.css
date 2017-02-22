@@ -2,8 +2,11 @@ a:hover {
   opacity: 0.7 !important;
 }
 
-.book-summary {
-  /* background-color: #70b7d5 !important;*/
+.book .book-summary .exc-trigger:before {
+    /*override style for the expandable list caret*/
+    content: "\f054";
+    line-height: 0.1em !important;
+    vertical-align: 1em !important;
 }
 
 .book-summary ul.summary li > a, .book-summary ul.summary li.active > a {
