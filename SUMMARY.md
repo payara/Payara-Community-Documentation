@@ -48,7 +48,7 @@
     * [Configuration](documentation/extended-documentation/health-check-service/configuration.md)
   * [Notification Service](documentation/extended-documentation/notification-service/notification-service.md)
     * [Asadmin Commands](documentation/extended-documentation/notification-service/asadmin-commands.md)
-    * [Notifiers](documentation/extended-documentation/notification-service/notifiers.md)
+    * [Notifiers](documentation/extended-documentation/notification-service/notifiers/notifiers.md)
       * [Hipchat Notifier](documentation/extended-documentation/notification-service/notifiers/hipchat-notifier.md)
       * [Slack Notifier](documentation/extended-documentation/notification-service/notifiers/slack-notifier.md)
   * [Request Tracing Service](documentation/extended-documentation/request-tracing-service/request-tracing-service.md)
