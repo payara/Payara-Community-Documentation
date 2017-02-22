@@ -52,6 +52,77 @@ Finally, select the Permissions option in the sidebar and add the user we create
 
 With this, the XMPP server's configuration is finished.
 
+## Payara Server Configuration
+
+With the XMPP server properly configured, now it's time to setup the _Notification Service_ in the domain configuration. As usual you can do this using the administration web console, from the command line or editing the _domain.xml_ configuration file directly.
+
+The configuration settings required by the service are the following:
+
+* _Server's Location_: _Hostname_ and _Port_ where the XMPP is listening for requests. The hostname is required, the port defaults to 5222 if not provided.
+* _Service name_: Used by the service to manage group chat sessions, always required.
+* _Room ID_: The ID of the room that will be used to host the notification events, always required.  
+* _Credentials_: The _Username_ and _Password_ of the user that will post notification events in the room.
+
+You can also configure an option whether or not to disable security transport (SSL) when establishing communication to the server. The default value for this setting is `false`.
+
+### Using the Administration Web Console
+
+To configure the Notification Service in the Administration Console, go to _Configuration -&gt; \[instance-configuration \(like server-config\)\] -&gt; Notification Service_ and click on the **XMPP** tab:
+
+
+
+Check the **Enabled** box \(and the **Dynamic** box too if you don't want to restart the domain\) and input the required information.
+
+**NOTE**: The room's ID is incorrectly labeled as Room Name, so be sure to input the room's ID instead.  
+
+Hit the **Save** button to preserve the changes.
+
+### From the Command Line
+
+To configure the Notification Service from the command line, use the `notification-xmpp-configure` asadmin command, specifying the configuration options like this:
+
+```
+asadmin > notification-xmpp-configure --enabled=true --dynamic=true --hostname="172.28.128.3" --port="5222" --username="payara_notifier" --password="******" --securityDisabled=false --roomname=server
+```
+
+You can use the `--enabled` and `--dynamic` options to enable/disable the XMPP notifier on demand.
+
+Also, you can retrieve the current configuration for the XMPP notifier using the `get-xmpp-notifier-configuration` asadmin command like this:
+
+```
+asadmin > get-xmpp-notifier-configuration
+
+Enabled  Host          Port  Service Name            Username         Password  Security Disabled  Room Name
+true     172.28.128.3  5222  conference.payara.fish  payara_notifier  payara    true               server
+```
+
+### On the _domain.xml_ configuration file
+
+To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration element` in the tree and insert the `xmpp-notifier-configuration` with the respective configuration attributes like this:
+
+```
+<notification-service-configuration enabled="true">
+    <xmpp-notifier-configuration room-name="server" service-name="conference.payara.fish" password="******" security-disabled="true" host="172.28.128.3" username="payara_notifier"></xmpp-notifier-configuration>
+</notification-service-configuration>
+```
+
+## Troubleshooting
+
+When you have correctly configured the XMPP notifier, it can be used to push notifications to your configured server. You can visualize the messages in a XMPP client of your choice. If you do not see any notification event messages in the client, check the following:
+
+* Is the XMPP notifier enabled?
+* Is the Notification Service itself enabled?
+* Is there a service configured to use the notifier? \(e.g. the HealthCheck service\)
+* Is the service configured to send notifications frequently enough to observe?
+* Have you enabled the service after configuring it?
+* Is the XMPP server correctly configured?
+* Is there a firewall between both servers that is correctly configured to allow sending messages in the respective port?
+* Are the room permissions configured correctly?
+* If using secure transport, was the server configured with a valid SSL certificate for the domain's name?
+
+Here's a sample of how the notifications are visualized on a chat room using the [Spark](https://www.igniterealtime.org/projects/spark/) XMPP client:
+
+
 
 
 
