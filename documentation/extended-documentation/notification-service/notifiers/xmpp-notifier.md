@@ -28,27 +28,51 @@ Proceed to download and install the OpenFire server by following the instruction
 
 Since the server was recently installed it will finish its bootstrapping. Select the language that will be used by the administration interface:
 
+![OpenFire Language Select Screen](/images/xmpp-notifier-openfire-install-1.png)
+
 Now, proceed to configure the domain name and FQDN of your server. You can also alter the ports for the admin console and configure secure access using property encryption if necessary. 
+
+![OpenFire Server Settings Screen](/images/xmpp-notifier-openfire-install-2.png)
 
 To use OpenFire on production environments, its recommended to install an external database that will be used to store its configuration and data. For the sake of simplicity, we will choose to use and embedded database:
 
+![OpenFire Database Select Screen](/images/xmpp-notifier-openfire-install-3.png)
+
 Configure the user store that will be used by the server. Generally speaking, is not uncommon that an organization uses an LDAP server to store profiles so that option is still available. As with the previous configuration we will use the simpler option:
+
+![OpenFire Profile Screen](/images/xmpp-notifier-openfire-install-4.png)
 
 Finally, configure the credentials for the **admin** user:
 
+![OpenFire Admin User Screen](/images/xmpp-notifier-openfire-install-5.png)
+
 With the server installation complete, login to the admin console with the credentials we just provided:
+
+![OpenFire Login](/images/xmpp-notifier-openfire-login.png)
 
 Now we need to create the user that will be used to post the notifications on the room. Select the **User/Groups** option in the top menu:
 
+![OpenFire User Summary](/images/xmpp-notifier-openfire-users-1.png)
+
 Click on the **Create New User** option in the sidebar. Input the information for this new user \(**Username**, **Name** and **Password** are required\):
+
+![OpenFire New User](/images/xmpp-notifier-openfire-users-2.png)
 
 With the user created, we will proceed to create the room used to display notifications. Select the **Group Chat** option in the top menu:
 
+![OpenFire Room Summary](/images/xmpp-notifier-openfire-create-room-1.png)
+
 Now, click on the Create New Room option in the sidebar. Be sure to input the room's **ID**, **Name** and **Description** as requested:
+
+![OpenFire New Room](/images/xmpp-notifier-openfire-create-room-2.png)
 
 Check that the room was created successfully. Click on the room's link to enter its details. Take special note of the Service Name, which will be used to configure the notifier later:
 
+![OpenFire Room Details](/images/xmpp-notifier-openfire-room-details.png)
+
 Finally, select the Permissions option in the sidebar and add the user we created earlier in the **Room Occupants** section. You can do this by searching using its JID/username in the search box:
+
+![OpenFire Room Permissions](/images/xmpp-notifier-openfire-room-permissions.png)
 
 With this, the XMPP server's configuration is finished.
 
@@ -69,7 +93,7 @@ You can also configure an option whether or not to disable security transport (S
 
 To configure the Notification Service in the Administration Console, go to _Configuration -&gt; \[instance-configuration \(like server-config\)\] -&gt; Notification Service_ and click on the **XMPP** tab:
 
-
+![XMPP Notifier in Admin Console](/images/xmpp-notifier-admin-console.png)
 
 Check the **Enabled** box \(and the **Dynamic** box too if you don't want to restart the domain\) and input the required information.
 
@@ -118,11 +142,11 @@ When you have correctly configured the XMPP notifier, it can be used to push not
 * Is the XMPP server correctly configured?
 * Is there a firewall between both servers that is correctly configured to allow sending messages in the respective port?
 * Are the room permissions configured correctly?
-* If using secure transport, was the server configured with a valid SSL certificate for the domain's name?
+* If using secure transport, was the server configured with a valid SSL certificate for the server's domain name?
 
 Here's a sample of how the notifications are visualized on a chat room using the [Spark](https://www.igniterealtime.org/projects/spark/) XMPP client:
 
-
+![Spark Chat Room](/images/xmpp-notifier-spark-chat.png)
 
 
 
