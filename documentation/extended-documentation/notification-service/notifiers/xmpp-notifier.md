@@ -14,7 +14,7 @@ XMPP works using a _client-server_ architecture, akin to other messaging solutio
 
 No matter what XMPP server you or your organization is using, the Payara XMPP Notifier Service will be able to communicate with it and push notifications to a specific chat room hosted on the server.
 
-The following are the requirements needed to be fullfilled by the XMPP server's:
+The following are the requirements needed to be fullfilled by the XMPP server:
 
 * Configure the XMPP server with a valid domain name/FQDN
 * If considering secure communication, the XMPP server must have a valid SSL certificate configured for its FQDN
