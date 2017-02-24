@@ -12,15 +12,15 @@ XMPP works using a _client-server_ architecture, akin to other messaging solutio
 * [CommuniGate Pro](https://www.communigate.com/default.html) \(Commercial\)
 * [Jabberd 2](http://jabberd2.org/) \(Open Source\)
 
-No matter what XMPP server you or your organization is using, the Payara Server Notifier Service will be able to communicate with it and push notifications to a specific chat room hosted on the server. 
+No matter what XMPP server you or your organization is using, the Payara XMPP Notifier Service will be able to communicate with it and push notifications to a specific chat room hosted on the server.
 
 The following are the requirements needed to be fullfilled by the XMPP server's:
 
-* Configure the XMPP server with a valid domain's name/FQDN
+* Configure the XMPP server with a valid domain name/FQDN
 * If considering secure communication, the XMPP server must have a valid SSL certificate configured for its FQDN
 * Configure the service for text-based conferencing \(this service is usually named **conference** and is a subdomain of the server\)
 * Create room that will be used to receive the notifications sent by Payara Server.
-* Create an user that is allowed to access the room created and push notification messages.
+* Create a user that is allowed to access the room created and push notification messages.
 
 We will use OpenFire to illustrate how to correctly configure these requirements. If you are using a different server, check its documentation and follow the instructions on how to configure them correctly.
 
@@ -89,7 +89,7 @@ The configuration settings required by the service are the following:
 * _Room ID_: The ID of the room that will be used to host the notification events, always required.  
 * _Credentials_: The _Username_ and _Password_ of the user that will post notification events in the room.
 
-You can also configure an option whether or not to disable security transport \(SSL\) when establishing communication to the server. The default value for this setting is `false`. It's not recommended to disable secure access on production environments, so use it with discretion. 
+You can also configure an option whether or not to disable security transport \(SSL\) when establishing communication to the server. The default value for this setting is `false`. It's not recommended to disable secure access on production environments, so use it with discretion.
 
 ### Using the Administration Web Console
 
@@ -99,7 +99,7 @@ To configure the Notification Service in the Administration Console, go to _Conf
 
 Check the **Enabled** box \(and the **Dynamic** box too if you don't want to restart the domain\) and input the required information.
 
-**NOTE**: The room's ID is incorrectly labeled as _Room Name_, so be sure to always input the room's ID.
+**NOTE**: On release _171_, the room's ID is incorrectly labeled as _Room Name_, so be sure to always input the room's ID. This will be fixed on future releases.
 
 Hit the **Save** button to preserve the changes.
 
@@ -124,7 +124,7 @@ true     172.28.128.3  5222  conference.payara.fish  payara_notifier  payara    
 
 ### On the _domain.xml_ configuration file
 
-To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration element` in the tree and insert the `xmpp-notifier-configuration` with the respective configuration attributes like this:
+Modifying the domain.xml configuration is not a supported configuration method, so be careful when considering this option. To configure the Notification Service in the _Domain.xml_ configuration file, locate the `notification-service-configuration element` in the tree and insert the `xmpp-notifier-configuration` with the respective configuration attributes like this:
 
 ```
 <notification-service-configuration enabled="true">
