@@ -65,6 +65,7 @@
   * [Production Ready Domain](documentation/extended-documentation/production-ready-domain.md)
   * [Classloading](documentation/extended-documentation/classloading.md)
   * [Default Thread Pool Size](documentation/extended-documentation/default-thread-pool-size.md)
+  * [Public API](documentation/extended-documentation/app-deployment/public-api.md)
 * [User Guides](documentation/user-guides/user-guides.md)
   * [Payara Server Domain Backup](documentation/user-guides/backup-domain.md)
   * [Restore a Payara Server Domain](documentation/user-guides/restore-domain.md)
