@@ -15,7 +15,9 @@ In your project's POM, include the following dependency:
 </dependency>
 ```
 
-`${payara.version}` is a maven property, which specifies the version of the maven artifact, e.g. {{ book.currentVersion }}.
+`${payara.version}` is a Maven property, which specifies the version of the Maven artifact, e.g. {{ book.currentVersion }}.
+
+Starting from release _4.1.1.171_, you need to add a dependency to the [Public API](/documentation/extended-documentation/app-deployment/public-api.md) when developing applications that use proprietary features (`@Traced` or `@NamedCache` for example)  
 
 ## Run Payara Micro using Maven
 
