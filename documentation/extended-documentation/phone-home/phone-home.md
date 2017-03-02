@@ -20,6 +20,7 @@ The following information is sent in each phone home call:
 * Domain uptime  
 * Number of nodes in the domain  
 * Number of instances in the domain  
+* A randomly generated UUID
 
 
 # Phone Home Source Code
