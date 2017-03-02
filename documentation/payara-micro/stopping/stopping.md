@@ -2,6 +2,8 @@
 This section describes how to shut down a Payara Micro instance.
 
 ## 6.1 Stopping an Instance from the Command Line
+_Since Payara 4.1.1.171_
+
 Payara Micro instances can be stopped by either:
 
 * Using `CTRL-C` on the terminal in which Payara Micro is running.
