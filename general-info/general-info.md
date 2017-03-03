@@ -32,7 +32,7 @@ Releases made to date include:
 
 _Since Payara Server 4.1.152_
 
-We will be implementing a strategy concerning pulling in changes from the GlassFish upstream, and to making changes late into a release's development time.
+We currently have a set strategy to balance receiving the latest Glassfish upstream changes with a need to avoiding making late changes to a release.
 
 #### Change Freeze
 
