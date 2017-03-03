@@ -1,4 +1,4 @@
-#Advanced JDBC Configuration and Diagnostics.
+# Advanced JDBC Configuration and Diagnostics.
 _Payara Server and Micro 161 (4.1.1.161) onwards_
 
 Payara Server 161 (4.1.1.161) and Payara Micro 161 introduce new capabilites for advanced JDBC connection pool configuration and diagnostics.
@@ -11,7 +11,7 @@ Connection pools can be configured to log a warning whenever a database query ex
 See [Slow-SQL-Logger](slow-sql-logger.md) for detailed information.
 
 ## Full JDBC Tracing
-Connection pools can be configured to log all JDBC calls made to the connection pool including the SQL and execution times of the call. This is especially useful in development to understand the SQL generated via frameworks like JPA and see what the performance characteristics look like. As the tracing is done at the connection pool level all direct SQL or other data access technologies are captured. 
+Connection pools can be configured to log all JDBC calls made to the connection pool including the SQL and execution times of the call. This is especially useful in development to understand the SQL generated via frameworks like JPA and see what the performance characteristics look like. As the tracing is done at the connection pool level all direct SQL or other data access technologies are captured.
 
 See [Log-JDBC-Calls](log-jdbc-calls.md) for detailed information.
 
@@ -25,6 +25,12 @@ See [SQL Trace Listeners](sql-trace-listeners.md) for detailed Information.
 All connection pool properties available on the administration console for Payara Server global datasources can now be configured on application scoped datasources deployed via deployment descriptors or annotations.
 
 See [Advanced Connection Pool Properties](advanced-connection-pool-properties.md) for detailed information.
+
+## JDBC Connection Validation Changes
+
+From Payara 4.1.1.171 the GlassFish API has had a slight change to allow for timeouts with the `table` and `custom-validation` connection validation types.
+
+This has added a second parameter to the `isConnectionValid()` method, from `isConnectionValid(Connection con)` to `isConnectionValid(Connection con, int statementTimeout)`.
 
 ## Payara Micro Support
 
