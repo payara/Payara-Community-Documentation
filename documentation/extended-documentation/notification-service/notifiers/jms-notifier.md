@@ -84,16 +84,41 @@ CPUC:Health Check Result:[[status=GOOD, message='CPU%: 1.45, Time CPU used: 3 se
 CPUC:Health Check Result:[[status=CRITICAL, message='CPU%: 109.71, Time CPU used: 7 milliseconds'']']]]
 ```
 
-### Getting Configuration
+## Asadmin Commands
+
+#### Set the JMS notifier configuration
+
+To set the JMS notifier configuration, the following asadmin command will reflect the configuration in the screenshot above:
+
+```
+asadmin> notification-jms-configure --dynamic=true --enabled=true \
+--contextFactoryClass=com.sun.enterprise.naming.SerialInitContextFactory \
+--connectionFactoryName=jms//__defaultConnectionFactory \
+--queueName=notifierQueue \
+--url=localhost:7676 \
+--username= \
+--password= \
+--target=server-config \
+```
+#### Get the JMS notifier configuration
 To get the current JMS notifier configuration using asadmin, run the command:
 
-```Shell
-asadmin get-jms-notifier-configuration
+```
+asadmin> get-jms-notifier-configuration
 ```
 
 This will return the details of the current JMS notifier configuation; see below for an example:
 
-```Shell
-Enabled     Context Factory Class                               Connection Factory Name        Queue Name     URL                  Username    Password
-true        com.sun.enterprise.naming.SerialInitContextFactory  jms/_defaultConnectionFactory  notifierQueue  localhost:7676
 ```
+Enabled     Context Factory Class                               Connection Factory Name         Queue Name     URL                  Username    Password
+true        com.sun.enterprise.naming.SerialInitContextFactory  jms/__defaultConnectionFactory  notifierQueue  localhost:7676
+```
+
+## Troubleshooting
+When you have correctly configured the JMS notifier, it can be used to push notifications to your configured queue. If you do not see any notifications, check the following:
+
+* Is your MDB or other JMS client correctly configured to consume messages from the correct queue? (e.g. check for typos)
+* Are the JMS queue details correctly entered in the JMS notifier configuration? (check the server.log for errors)
+* Is the JMS queue available? If you have configured your own JMS broker, is it responding? If the broker is remote, check that it is reachable.
+* Is the service using the notifier configured to send notifications frequently enough to observe?
+* Is the service using the notifier correctly configured and also enabled?
