@@ -17,6 +17,12 @@ This page covers how to download Payara Server, start Payara Server, access the 
 Payara Server can be downloaded from \([http://www.payara.fish/downloads](http://www.payara.fish/downloads)\).  
 Download to a directory of your choosing and then unzip. On Linux based systems you can use the following command:
 
+```Shell
+unzip payara-<version>.zip
+```
+
+By default, this will unzip the archive into `{current-directory}/payara41`.
+
 # 3. Starting Payara Server
 
 To start Payara Server, execute the following command:
@@ -49,6 +55,3 @@ To deploy a WAR file, you need to use the `deploy option`, followed by the path 
 * The current display should be the Deploy Applications or Modules page. Select Packaged File to be uploaded to the Server and click browse. Navigate to where your application is located, select the file and click Open. You should be returned to the same page with some settings listed.
 * Change any settings if needed otherwise accept the default settings and click ok to be returned to the applications page. Your application should now be listed.
 * Finally, under the action tab click launch. The default URL for application is `http://localhost:8080/ your_application`.
-
-
-
