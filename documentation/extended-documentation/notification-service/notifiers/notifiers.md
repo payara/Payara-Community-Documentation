@@ -3,7 +3,7 @@
 Payara Server's Notification service ships with a number of notifiers that are fully integrated to communicate with a variety of channels. As of {{ book.currentVersion }}, the available notifiers are as follows:
 
 * Log Notifier: Default notifier that writes notification events to the server's log
-* [Email Notifier](): Sends notifications as emails using a managed Java Mail session.
+* [Email Notifier](email-notifier.md): Sends notifications as emails using a managed Java Mail session.
 * [JMS Notifier](jms-notifier.md): Sends notifications as JMS messages using a managed message queue.
 * [Event Bus](): Distributes notifications to the Hazelcast Event Bus.
 * [HipChat Notifier](hipchat-notifier.md): Sends notifications events to a Hipchat room.
