@@ -3,10 +3,19 @@ The Java Message Service (JMS) API is a messaging API which can be used to enabl
 
 ## Requirements
 
+To use JMS as a notification target, you will need the following:
+
 1. **A JMS broker**<br />_Payara Server ships with embedded OpenMQ_
 2. **Payara Server Full edition**<br />_The Web edition does not come with native JMS capabilities_
 
+If you are using Payara Server _Full_ edition, the easiest way to configure the JMS notifier is to use the embedded OpenMQ broker, as described here.
+
 ## Configuration
+
+Configuration requires a few steps. At a high level, this means:
+* Create a target JMS queue to received notifications (if none exists)
+* Configure the JMS notifier to use the queue configured
+
 
 1. Create a new JMS queue to receive the notification messages from the notifier:
   ![](/assets/edit-jms-destination.png)
@@ -27,9 +36,19 @@ The above example uses the embedded OpenMQ broker provided in Payara Server Full
   asadmin notification-jms-configure --dynamic=true --enabled=true --contextFactoryClass=com.sun.enterprise.naming.SerialInitContextFactory --target=server-config --queueName=notifierQueue --url=localhost:7676 --connectionFactoryName=jms/_defaultConnectionFactory
   ```
 
-3. Next, enable a service to push data through the notifier. For example, the HealthCheck service's CPU metric can be configured to push CPU metrics to a notifier every 5 seconds.
+&nbsp;
+##### Verify the Configuration
+For verification purposes, it may be useful to enable a service to push notifications through the JMS notifier to demonstrate that it is working. To do this, we will also need a Message-Driven Bean (MDB) to consume the notifications and demonstrate that they are being received on the queue.
 
-4. To Consume Messages using JMS 2.0:
+
+1. First, enable a service to push data through the notifier. For example, the HealthCheck service's CPU metric can be configured to push CPU metrics to a notifier every 5 seconds:
+```
+asadmin> healthcheck-configure --enabled=true --dynamic=true
+asadmin> healthcheck-configure-service --serviceName=healthcheck-cpu --enabled=true --dynamic=true --time=5 --unit=SECONDS
+```
+Providing the JMS notifier is already configured, these messages will begin to be sent to the configured queue right away.
+
+2. To Consume Messages using a JMS 2.0 compliant MDB, the following class will work for a local queue named `notifierQueue`:
 ```Java
 @MessageDriven(activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/notifierQueue"),
@@ -47,7 +66,7 @@ public class NotificationConsumer implements MessageListener {
 }
 ```
 
-5. View the result of the MessageDrivenBean's `onMessage()` command. In this example, the CPU metric of the healthcheck service was configured to notify every 5 seconds, so the result of simply printing to `System.out` is log messages similar to the following:
+3. View the result of the MessageDrivenBean's `onMessage()` command. In this example, the CPU metric of the healthcheck service was configured to notify every 5 seconds, so the result of simply printing to `System.out` is log messages similar to the following:
 
 ```Shell
 [2017-02-24T14:25:02.019+0000] [Payara 4.1] [INFO] [] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=151 _ThreadName=admin-thread-pool::admin-listener(9)] [timeMillis: 1487946302019] [levelValue: 800] [[
