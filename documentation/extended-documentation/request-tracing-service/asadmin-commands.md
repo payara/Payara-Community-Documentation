@@ -2,6 +2,8 @@
 
 # Command Reference
 
+## `set-requesttracing-configuration`
+
 **Usage:** `asadmin> set-requesttracing-configuration`
 
 **Aim:** This command can be used to set all configuration of the Request Tracing Service at once. It effectively wraps `requesttracing-configure` and `requesttracing-configure-notifier` in one command.
@@ -127,5 +129,3 @@ will give output similar to the following:
 > true     SECONDS        10              service-log    true              
 > Command get-requesttracing-configuration executed successfully.
 > ```
-
-## `set-requesttracing-configuration`
