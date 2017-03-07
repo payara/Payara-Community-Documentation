@@ -9,6 +9,7 @@ Payara Micro instances can be stopped by either:
 * Sending a kill signal to the process ID of Payara Micro.
 
 Since: 4.1.1.171
+
 ## Stopping an Instance Programmatically
 To shut down a Payara Micro instance programmatically, you will need to use the `shutdown()` method of the `PayaraMicro` or `PayaraMicroRuntime` class.
 
