@@ -28,9 +28,7 @@ See [Advanced Connection Pool Properties](advanced-connection-pool-properties.md
 
 ## JDBC Connection Validation Changes
 
-From Payara 4.1.1.171 the GlassFish API has had a slight change to allow for timeouts with the `table` and `custom-validation` connection validation types.
-
-This has added a second parameter to the `isConnectionValid()` method, from `isConnectionValid(Connection con)` to `isConnectionValid(Connection con, int statementTimeout)`.
+See the [JDBC Connection Validation page](/documentation/core-documentation/jdbc/jdbc-connection-validation.md) in the core documentation for information on changes between GlassFish Server and Payara Server's JDBC Connection Validation.
 
 ## Payara Micro Support
 
