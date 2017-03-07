@@ -1,15 +1,15 @@
 # Stopping an Instance
 This section describes how to shut down a Payara Micro instance.
 
-## 6.1 Stopping an Instance from the Command Line
-_Since Payara 4.1.1.171_
+## Stopping an Instance from the Command Line
 
 Payara Micro instances can be stopped by either:
 
 * Using `CTRL-C` on the terminal in which Payara Micro is running.
 * Sending a kill signal to the process ID of Payara Micro.
 
-## 6.2 Stopping an Instance Programmatically
+Since: 4.1.1.171
+## Stopping an Instance Programmatically
 To shut down a Payara Micro instance programmatically, you will need to use the `shutdown()` method of the `PayaraMicro` or `PayaraMicroRuntime` class.
 
 The `shutdown()` method of the `PayaraMicro` class must be called on the instance of Payara Micro that you want to shut down, so will realistically only be used on a `PayaraMicro` instance variable:
