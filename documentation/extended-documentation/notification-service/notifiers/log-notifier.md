@@ -21,7 +21,7 @@ To enable the log notifier specifically, run the command:
 asadmin notification-log-configure --enabled=true --dynamic=true
 ```
 
-More details on specific commands for the notification service can be found on the notification service page.
+More details on specific commands for the notification service can be found on the [notification service](/documentation/extended-documentation/notification-service/notification-service.md](/documentation/extended-documentation/notification-service/notification-service.md) page.
 
 ### Log Configuration
 
