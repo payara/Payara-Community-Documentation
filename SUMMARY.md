@@ -59,8 +59,10 @@
   * [JMX Monitoring Service](documentation/extended-documentation/jmx-monitoring-service/jmx-monitoring-service.md)
     * [Configuration](documentation/extended-documentation/jmx-monitoring-service/configuration.md)
     * [Asadmin Commands](documentation/extended-documentation/jmx-monitoring-service/asadmin-commands.md)
-  * [Phone Home](documentation/extended-documentation/phone-home/phone-home.md)
+  * [Phone Home](documentation/extended-documentation/phone-home/overview.md)
+    * [Gathered Data](documentation/extended-documentation/phone-home/phone-home-information.md)
     * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
+    * [Disabling Phone Home](documentation/extended-documentation/phone-home/disabling-phone-home.md)
   * [System Properties](documentation/extended-documentation/system-properties.md)
   * [Production Ready Domain](documentation/extended-documentation/production-ready-domain.md)
   * [Classloading](documentation/extended-documentation/classloading.md)
@@ -112,7 +114,7 @@
 ## Appendices
 
 * [History of Release Notes](release-notes/release-notes-history.md)
-  * [Payara Server 4.1.1.171 Release Notes](release-notes/release-notes-171.md) 
+  * [Payara Server 4.1.1.171 Release Notes](release-notes/release-notes-171.md)
   * [Payara Server 4.1.1.164 Release Notes](release-notes/release-notes-164.md)
   * [Payara Server 4.1.1.163 Release Notes](release-notes/release-notes-163.md)
   * [Payara Server 4.1.1.162 Release Notes](release-notes/release-notes-162.md)
