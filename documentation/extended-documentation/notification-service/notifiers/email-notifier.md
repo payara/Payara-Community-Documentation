@@ -3,7 +3,7 @@
 Payara Server is now able to direct notifications from the [Notification service](/documentation/extended-documentation/notification-service/notification-service.md) to a single given email address.
 
 ## Requirements
-To use an email address as a notification target you must have a valid email address, and the SMTP address and valid access credentials for your email host.
+A valid JavaMail session and an inbox to receive notifications.
 
 ## Configuration
 At a high level, the steps to configure the email notifier are:
@@ -12,16 +12,25 @@ At a high level, the steps to configure the email notifier are:
 1. Create the notifier via the asadmin command or the Admin Console.
 
 ### Email Notifier Configuration
-If you don't already have a JavaMail session set up, you will need one to send the notifications. Instructions on setting up a JavaMail session can be found [in the core documentation](/documentation/core-documentation/javamail.md).
+You will need a JavaMail session to send the notifications; instructions on setting up a JavaMail session can be found [in the core documentation](/documentation/core-documentation/javamail.md).
 
-The email notifier is enabled from the Notification tab of your instance configuration. Here the jndiName of the JavaMail session and the intended address are entered. The email notifier supports a single email address.
+The email notifier is configured in the Email tab of the Notification Section of your instance configuration.
 
-  ![](/assets/admin-console-email-notifier-configuration-2.png)
+On the Email tab there are four fields:
+
+ * `Enabled` determines whether the notifier should be activated.
+ * `Dynamic` sets whether the notifier will be enabled without a restart - `true` enables it immediately, while `false` requires a restart.
+ * `jndiName` sets the name of the Java Naming and Directory Interface (JNDI) of the configured JavaMail session.
+ * `to` sets the email address which will receive the email notifications. Currently only one `to` address can be specified.
+
+
+
+  ![](/assets/admin-console-email-notifier-configuration.png)
 
 The same configuration can be set using an asadmin command, as shown below:
 
 ````Shell
-asadmin notification-email-configure --jndiName=emailNotifier --to=notifications@payara.fish --enabled=true --dynamic=true
+asadmin notification-email-configure --jndiName=mail/exampleEmailNotifier --to=notifications@example.com --enabled=true --dynamic=true
 ````
 
 To check the currently applied configuration from asadmin, run the command:
@@ -29,7 +38,7 @@ To check the currently applied configuration from asadmin, run the command:
 asadmin get-email-notifier-configuration
 ```
 
-This will return the current configuration, whether it is enabled, the "to" address, and the JNDI name of the JavaMail session in use.
+This will return the current configuration of the email notifier in full, including whether it is enabled, the "to" address, and the JNDI name of the JavaMail session in use.
 
 As an example output:
 
