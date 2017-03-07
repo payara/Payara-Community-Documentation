@@ -13,7 +13,7 @@ By default, the log notifier will receive notifications from the notification se
 
 The log notifier is, by default, disabled on new domains.
 
-The notification service will automatically enable the log notifier when activated - the log notifier will not work without the notification service.
+The [notification service](/documentation/extended-documentation/notification-service/notification-service.md)](/documentation/extended-documentation/notification-service/notification-service.md) will automatically enable the log notifier when activated - the log notifier will not work without the notification service.
 
 To enable the log notifier specifically, run the command:
 
@@ -29,4 +29,11 @@ To get the current configuration of the log notifier, run the command below:
 
 ```Shell
 asadmin get-log-notifier-configuration
+```
+
+This will return the details of the current log notifier configuration; see below for an example:
+
+```Shell
+Enabled
+true
 ```
