@@ -27,7 +27,7 @@ Rather than using the asadmin command to modify the domain.xml, your domain.xml 
 
 ## Disabling Phone Home on Micro Launch
 
-When starting payara Mciro and Payara Microprofile, the Phone Home Service can be disabled with the command-line argument "`--disablephonehome`":
+When starting Payara Micro and Payara MicroProfile, the Phone Home Service can be disabled with the command-line argument "`--disablephonehome`":
 
 ```Shell
 java -jar payara-micro.jar --disablephonehome

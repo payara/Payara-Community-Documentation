@@ -39,7 +39,7 @@ The phone home service was designed as a non-intrusive survey tool which would o
 
 The phone home service acts as a step towards an automated Payara Server update facility.
 
-As of Payara 4.1.1.162 no new fields are planned to be added to the phone home service.
+As of Payara 4.1.1.164 no new fields are planned to be added to the phone home service.
 
 ## Source Code
 
