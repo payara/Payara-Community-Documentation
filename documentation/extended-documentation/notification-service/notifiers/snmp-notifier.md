@@ -10,11 +10,11 @@ The basic elements in every SNMP communication are the following:
 * **SNMP Agent**: A specialized software that gathers data on the overall status of the managed component and exposes specific instructions over interfaces for its management. In our case, the SNMP Notifier acts as a SNMP agent.
 * **SNMP Manager**: A server machine that runs a network management system, which is configured to monitor and manage all devices and services in a network by "_talking_" to the agents and gathering all relevant information.
 
-The SNMP protocol works using PDUs (Protocol Data Units) in order to allow managers and agents to work with a defined set of instructions. The notifier currently operates using the **TRAP** PDU to handle notification events.
+The SNMP protocol works using PDUs \(Protocol Data Units\) in order to allow managers and agents to work with a defined set of instructions. The notifier currently operates using the **TRAP** PDU to handle notification events.
 
 ### SNMP Traps
 
-Payara Server notifies network management systems using SNMP traps. A SNMP trap is a special PDU that is used to generate an asynchronous notification from an _agent_ to a _manager_. An important point to stress with traps is that they are asynchronous events that can occur at any time, which means that a _manager_ expects to receive updates in a PASSIVE manner, thus saving resources.  
+Payara Server notifies network management systems using SNMP traps. A SNMP trap is a special PDU that is used to generate an asynchronous notification from an _agent_ to a _manager_. An important point to stress with traps is that they are asynchronous events that can occur at any time, which means that a _manager_ expects to receive updates in a PASSIVE manner, thus saving resources.
 
 In order to correctly configure Payara Server to send traps to a manager, the following information must be reviewed in tandem with the configuration of the _manager_:
 
@@ -32,15 +32,15 @@ Currently the notifier configuration only supports **v1** and **v2c**, hence the
 
 #### Community
 
-The community string is used to to establish trust between managers and agents. The community names are essentially passwords; most vendors ship their equipment with default community strings: `public` for a read-only community (allows reading data values, but doesn't allow modification) and `private` for the read-write community (allowed to read and modify data values). It's important to change these defaults on production environments. 
+The community string is used to to establish trust between managers and agents. The community names are essentially passwords; most vendors ship their equipment with default community strings: `public` for a read-only community \(allows reading data values, but doesn't allow modification\) and `private` for the read-write community \(allowed to read and modify data values\). It's important to change these defaults on production environments.
 
 The notifier configures all traps with the `public` community string by default.
 
 #### OID - Object Identifier
 
-Agents expose management data as variables composed in a structured hierarchy. SNMP does not define which variables are exposed by a managed component. Instead, SNMP uses an extensible design which allows applications and services to define their own hierarchies and other metadata (such as type and description of the variable), which are described in a Management Information Base (MIB). MIBs describe the structure of the management data of a device subsystem using a hierarchical namespace composed of Object Identifiers (OID). Each OID uniquely identifies a variable sent in the SNMP trap by the agent.
+Agents expose management data as variables composed in a structured hierarchy. SNMP does not define which variables are exposed by a managed component. Instead, SNMP uses an extensible design which allows applications and services to define their own hierarchies and other metadata \(such as type and description of the variable\), which are described in a Management Information Base \(MIB\). MIBs describe the structure of the management data of a device subsystem using a hierarchical namespace composed of Object Identifiers \(OID\). Each OID uniquely identifies a variable sent in the SNMP trap by the agent.
 
-TODO -- Additional information about the OID that the notifier uses and its default
+TODO -- Additional information about the OID that the notifier uses and its default value
 
 In order for a **network management system** to understand a trap sent to it by an agent, the management system must know what the OID defines. Therefore, it must have the MIB for that trap loaded in its configuration.
 
@@ -92,5 +92,4 @@ To configure the Notification Service in the _domain.xml_ configuration file, lo
 ## Troubleshooting
 
 TODO
-
 
