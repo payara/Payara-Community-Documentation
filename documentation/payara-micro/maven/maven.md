@@ -69,7 +69,7 @@ For example, in order to build and execute the maven WAR artifact in Payara Micr
             <argument>-jar</argument>
             <argument>${project.build.directory}/payara-micro.jar</argument>
             <argument>--deploy</argument>
-            <argument>${project.build.directory}/${artifactId}-${version}.war</argument>
+            <argument>${project.build.directory}/${project.build.finalName}.war</argument>
         </arguments>
     </configuration>
 </plugin>
