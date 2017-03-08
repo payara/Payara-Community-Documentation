@@ -19,14 +19,9 @@ The public API is released as a Maven artifact in **Maven Central**. To use it i
 <dependency>
     <groupId>fish.payara.api</groupId>
     <artifactId>payara-api</artifactId>
-    <version>{VERSION}</version>
+    <version>${payara.version}</version>
     <scope>provided</scope>
 </dependency>
 ```
 
-Where the `{VERSION}` of the artifact corresponds with the version of Payara Server \(starting from _4.1.1.171_\).
-
-# Github Repository
-
-As of release release _4.1.1.171_, the Public API is hosted on a separate [GitHub repository](https://github.com/payara/Payara-API) to simplify the handling of the source code. The licensing and contribution models are exactly the same as the ones used for the main repository to host the code of Payara Server.
-
+Where the `${payara.version}` of the artifact corresponds with the version of Payara Server \(starting from _4.1.1.171_\).
