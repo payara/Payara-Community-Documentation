@@ -22,7 +22,6 @@ Starting from release _4.1.1.171_, you need to add a dependency to the [Public A
 ## Run Payara Micro using Maven
 
 It is possible to run Payara Micro using the `exec` goal of the Maven Exec plugin.
-The main class to execute is `fish.payara.micro.PayaraMicro`.
 For example, in order to build and execute the maven WAR artifact in Payara Micro, you can issue the `mvn clean package exec:exec` command with the following Exec plugin configuration:
 
 ```xml
