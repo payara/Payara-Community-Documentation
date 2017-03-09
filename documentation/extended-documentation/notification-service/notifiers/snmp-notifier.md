@@ -42,6 +42,8 @@ Agents expose management data as variables composed in a structured hierarchy. S
 
 TODO -- Additional information about the OID that the notifier uses and its default value
 
+
+
 In order for a **network management system** to understand a trap sent to it by an agent, the management system must know what the OID defines. Therefore, it must have the MIB for that trap loaded in its configuration.
 
 ## Payara Server Configuration
@@ -81,7 +83,7 @@ true       example      .1.3.6.1.2.1.1.8     v2c       127.0.0.1   162
 
 ### On the _domain.xml_ configuration file
 
-To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration` element in the tree and insert the `snmp-notifier-configuration` element with the respective attributes like this:
+Modifying the domain.xml configuration is not a supported configuration method, so be careful when considering this option. To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration` element in the tree and insert the `snmp-notifier-configuration` element with the respective attributes like this:
 
 ```
 <notification-service-configuration enabled="true">
@@ -91,5 +93,20 @@ To configure the Notification Service in the _domain.xml_ configuration file, lo
 
 ## Troubleshooting
 
-TODO
+When you have correctly configured the SNMP notifier, it can be used to push notifications to your configured server. You can visualize the notification messages on your network management system of your choice. If you do not see any notification event messages, check the following:
+
+* Is the SNMP notifier enabled?
+* Is the Notification Service itself enabled?
+* Is there a service configured to use the notifier? \(e.g. the HealthCheck service\)
+* Is the service configured to send notifications frequently enough to observe?
+* Have you enabled the service after configuring it?
+* Does the SNMP network management supports SNMP traps?
+* Does the SNMP network management system support the configured protocol version? 
+* Is the community string correctly supported by the SNMP network management system?
+* Are the SNMP management system's MIB correctly configured to verify traps sent with the configured OID?
+* Is there a firewall between Payara Server and the network management system that is correctly configured to allow sending SNMP traps in the respective port?
+
+Here's a sample of how the SNMP traps are visualized using [MG-Soft's Trap Ringer](http://www.mg-soft.com/tringer.html) software:
+
+![SNMP Traps on TRinger](/images/notification-snmp-trap-ringer-pro-output.png)
 
