@@ -6,6 +6,11 @@ This feature is not yet available in Payara Server Web Profile.
 
 Since: 4.1.1.171 (Payara Server), 4.1.153 (Payara Micro)
 
+## Requirements
+
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the [Hazelcast](hazelcast.md) section for more details.
+
+
 ## Initializing the event bus
 
 The event bus is initialized automatically after an application is started. No additional configuration is necessary to fire and listen to remote events.
