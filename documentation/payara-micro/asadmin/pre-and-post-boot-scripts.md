@@ -28,7 +28,19 @@ set-hazelcast-configuration --clusterName=my-production-cluster --target=server-
 
 ## Configuring Boot Scripts
 
-There are multiple ways to configure a Micro instance to use boot scripts. 
+There are multiple ways to configure a Micro instance to use boot scripts.
+
+### Configuring Boot Scripts from the command line
+
+When running a Payara Micro from the command line, use the `--prebootcommandfile` and `--postbootcommandfile` options to specify the script file locations like this:
+
+```
+java -jar payara-micro.jar --prebootcommandfile prepare-resources.txt --postbootcommandfile ready-production-use.txt
+```
+
+
+
+
 
 
 
