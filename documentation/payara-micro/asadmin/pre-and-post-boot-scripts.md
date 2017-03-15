@@ -37,3 +37,9 @@ When running a Payara Micro from the command line, use the `--prebootcommandfile
 ```
 java -jar payara-micro.jar --prebootcommandfile prepare-resources.txt --postbootcommandfile ready-production-use.txt
 ```
+
+### Configuring Boot Scripts inside the application
+
+### Configuring Boot Scripts programmatically
+
+
