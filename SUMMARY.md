@@ -36,6 +36,7 @@
     * [Log JDBC Calls](documentation/extended-documentation/advanced-jdbc/log-jdbc-calls.md)
     * [Slow SQL Logger](documentation/extended-documentation/advanced-jdbc/slow-sql-logger.md)
     * [SQL Trace Listeners](documentation/extended-documentation/advanced-jdbc/sql-trace-listeners.md)
+    * [Advanced Connection Pool Configuration](documentation/extended-documentation/advanced-jdbc/advanced-connection-pool-properties.md)
   * [JBatch](documentation/extended-documentation/jbatch.md)
   * [JCache](documentation/extended-documentation/jcache.md)
     * [Cache provider and manager](documentation/extended-documentation/jcache/jcache-accessing.md)
