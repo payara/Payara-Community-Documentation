@@ -10,9 +10,11 @@ JavaMail sessions are added from the `Resources` tab on the left pane of the Adm
 
 ![](/assets/admin-console-javamail-location.png)
 
-Emails will be sent with a return address of `example@example.com`, using `SMTP` to send mail and `IMAP` to retrieve mail. With the current implementation of the JavaMail API there is no alternative transport protocol provided by default, though as an alternative to the default store protocol of `imap`, `pop3` is available. All protocols entered also have their associated protocol class which can be modified; more details on [the JavaMail API can be found on java.net](https://javamail.java.net/nonav/docs/api/overview-summary.html).
+Emails will be sent with a return address of `example@example.com`, using `SMTP` to send mail and `IMAP` to retrieve mail. With the current implementation of the JavaMail API there is no alternative transport protocol provided by default, though as an alternative to the default store protocol of `imap`, `pop3` is available.
 
-Typically, when setting up `SMTP` access three additional properties must be specified in the Additional Properties table: enabling startTLS, enabling authentication, and the password. These allow for extra security when sending emails and will not always be required - check with your email provider for their specific configuration.
+All protocols require that their associated protocol package be included; more details on [the JavaMail API can be found on java.net](https://javamail.java.net/nonav/docs/api/overview-summary.html).
+
+Typically, when setting up `SMTP` access, three additional properties must be specified in the Additional Properties table: enabling startTLS, enabling authentication, and the password. These allow for extra security when sending emails and will not always be required - check with your email provider for their specific configuration.
 
 The example below shows the configuration of a mail host:
 

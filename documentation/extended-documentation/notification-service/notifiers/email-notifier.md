@@ -3,7 +3,7 @@
 Payara Server is now able to direct notifications from the [Notification service](/documentation/extended-documentation/notification-service/notification-service.md) to a single given email address.
 
 ## Requirements
-A valid JavaMail session and an inbox to receive notifications.
+A valid JavaMail session.
 
 ## Configuration
 At a high level, the steps to configure the email notifier are:
