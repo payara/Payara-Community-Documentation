@@ -27,7 +27,7 @@
   * [7.3 list-hazelcast-members](#73-list-hazelcast-members)
   * [7.4 restart-hazelcast](#74-restart-hazelcast)
   * [7.5 list-hazelcast-cluster-members](#75-list-hazelcast-cluster-members)
-
+****
 # 1. Overview
 This page covers how to use the Hazelcast functionality in Payara 4.1.1.162.  
 Hazelcast is an In-Memory Data Grid, providing Web and EJB session persistence, and implementing JSR107 (JCache) in Payara Server.
@@ -86,7 +86,7 @@ From here, the following configuration options are available to you (excluding t
 | Multicast Port              | The multicast port for communications in the Hazelcast cluster.                                                                     |
 | Multicast Group             | The multicast group for communications in the Hazelcast cluster.                                                                     |
 | JNDI Name                   | The JNDI name to bind the Hazelcast instance to.                                                                                     |
-| Host Aware Partitioning     | Whether or not to enable [host-aware partitioning](http://docs.hazelcast.org/docs/latest/manual/html-single/index.html#grouping-types) for the cluster. Host aware partitioning MUST BE enabled on all members of the cluster (including Payara Micro instances) for this feature to work |
+| Host Aware Partitioning     | Whether or not to enable [host-aware partitioning](http://docs.hazelcast.org/docs/latest/manual/html-single/index.html#grouping-types) for the cluster. Host aware partitioning **must be** enabled on all members of the cluster (including Payara Micro instances) for this feature to work correctly. |
 
 Enter your required values, and click _Save_. Restarting the domain or instance/cluster is not necessary for any changes made to take effect.
 
