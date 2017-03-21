@@ -97,6 +97,7 @@
   * [HTTP\(S\) Auto-Binding](documentation/payara-micro/port-autobinding.md)
   * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
     * [Send asadmin commands](documentation/payara-micro/asadmin/send-asadmin-commands.md)
+    * [Using the Payara Micro API](documentation/payara-micro/asadmin/using-the-payara-micro-api.md)
     * [Pre and Post Boot Scripts](documentation/payara-micro/asadmin/pre-and-post-boot-scripts.md)
   * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
   * [Request Tracing](documentation/payara-micro/services/request-tracing.md)

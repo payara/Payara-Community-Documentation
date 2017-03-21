@@ -4,7 +4,8 @@ There are scenarios that require customizing the configuration of a Payara Micro
 
 There are multiple ways that can be used to execute administration commands on a Payara Micro instance:
 
-*    Send the administration commands from a Payara Server's DAS.
-*    Prepare scripts with administration commands that are executed either before or after the instance bootstraps itself.
+*  Send the administration commands from a Payara Server's DAS.
+*  Using the Payara Micro API on bootstrapped instances.
+*  Prepare scripts with administration commands that are executed either before or after the instance bootstraps itself.
   
 
