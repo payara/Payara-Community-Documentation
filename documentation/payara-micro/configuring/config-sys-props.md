@@ -25,7 +25,7 @@ Payara micro supports the following system properties.
 | payaramicro.rootDir | --rootDir |
 | payaramicro.name | --name |
 | payaramicro.logToFile | --logToFile |
-| payaramicro.hostAware | --hostAware |
+| payaramicro.hostAware | --hostaware |
 
 
 
