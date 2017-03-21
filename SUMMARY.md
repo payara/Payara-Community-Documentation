@@ -96,7 +96,6 @@
   * [Maven Support](documentation/payara-micro/maven/maven.md)
   * [HTTP\(S\) Auto-Binding](documentation/payara-micro/port-autobinding.md)
   * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
-    * [Pre and Post Boot Scripts](documentation/payara-micro/asadmin/pre-and-post-boot-scripts.md)
   * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
   * [Request Tracing](documentation/payara-micro/services/request-tracing.md)
   * [Logging to a file](documentation/payara-micro/logging-to-file.md)
