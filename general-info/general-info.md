@@ -12,11 +12,27 @@ The Payara Server naming strategy works off of the pre-existing GlassFish naming
 
 In the case of updates, we will simply attach an additional point number to the end of the version number described above. For example, if a patch is released for Payara 4.1.152, the version number would be 4.1.152.1. This will be in addition to any extra point releases that Oracle do for GlassFish, so it's possible for a version number to be something like 4.1.1.152.1!
 
-Releases will also have a name attached to the release. For example, the name attached to Payara Server 4.1.152 is \#badassfish.
+Releases made to date include:
+
+    2017 Q1 - Payara Server 4.1.1.171
+
+    2016 Q4 - Payara Server 4.1.1.164
+    2016 Q3 - Payara Server 4.1.1.163
+    2016 Q2 - Payara Server 4.1.1.162
+    2016 Q1 - Payara Server 4.1.1.161
+
+    2015 Q4 - Payara Server 4.1.1.154
+    2015 Q3 - Payara Server 4.1.153
+    2015 Q2 - Payara Server 4.1.152
+    2015 Q1 - Payara Server 4.1.151
+
+    2014 Q4 - Payara Server 4.1.144
 
 ### Work Strategy
 
-From Payara Server 4.1.152 onwards, we will be implementing a strategy concerning pulling in changes from the GlassFish upstream, and to making changes late into a release's development time.
+_Since Payara Server 4.1.152_
+
+We currently have a set strategy to balance receiving the latest Glassfish upstream changes with a need to avoiding making late changes to a release.
 
 #### Change Freeze
 
@@ -58,6 +74,3 @@ We also attach labels and milestones to issues to help both us, and the communit
 We make use of GitBook to store and host our technical documentation about Payara, as well as general information \(such as this document\) about the Payara project.
 
 For technical documentation, we only store documentation that we have written, which typically pertains to new or modified features and commands made by us or the community; we do not host GlassFish documentation, nor will we rewrite it for unmodified modules.
-
-
-

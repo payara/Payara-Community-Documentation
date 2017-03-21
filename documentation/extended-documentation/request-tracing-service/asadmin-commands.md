@@ -1,6 +1,38 @@
 # Request Tracing
-#### Command Reference
 
+# Command Reference
+
+## `set-requesttracing-configuration`
+
+**Usage:** `asadmin> set-requesttracing-configuration`
+
+**Aim:** This command can be used to set all configuration of the Request Tracing Service at once. It effectively wraps `requesttracing-configure` and `requesttracing-configure-notifier` in one command.
+
+#### Command Options:
+
+| Option | Type | Description | Default | Mandatory |
+|--------|------|-------------|---------|-----------|
+| `--enabled=true` | Boolean | Enables or disables the service | false | Yes |
+| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 30 | No |
+| `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
+| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
+| `--notifierEnabled` | Boolean | Enables or disables notifications | false | Yes |
+| `--notifierDynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
+| `--historicaltraceenabled` | Boolean | When present, enables the storage of the slowest historical request traces. | false | No |
+| `--historicaltracestoresize` | Integer | Sets how many request traces will be stored. | 20 | No |
+
+#### Example:
+```
+asadmin> set-requesttracing-configuration
+    --enabled=true \
+    --thresholdValue=10 \
+    --thresholdUnit="SECONDS" \
+    --dynamic=true
+    --notifierEnabled=true \
+    --notifierDynamic=true \
+    --historicaltraceenabled \
+    --historicaltracestoresize=20
+```
 
 ## `requesttracing-configure`
 
@@ -97,35 +129,3 @@ will give output similar to the following:
 > true     SECONDS        10              service-log    true              
 > Command get-requesttracing-configuration executed successfully.
 > ```
-
-## `set-requesttracing-configuration`
-
-**Usage:** `asadmin> set-requesttracing-configuration`
-
-**Aim:** This command can be used to set all configuration of the Request Tracing Service at once. It effectively wraps `requesttracing-configure` and `requesttracing-configure-notifier` in one command.
-
-#### Command Options:
-
-| Option | Type | Description | Default | Mandatory |
-|--------|------|-------------|---------|-----------|
-| `--enabled=true` | Boolean | Enables or disables the service | false | Yes |
-| `--thresholdValue=10` | Integer | Sets the number of time units which trigger the tracing of a request | 30 | No |
-| `--thresholdUnit="SECONDS"` | TimeUnit | Sets the time unit to use for the threshold | `SECONDS` | No |
-| `--dynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
-| `--notifierEnabled` | Boolean | Enables or disables notifications | false | Yes |
-| `--notifierDynamic=true` | Boolean | When set to true, applies the changes without a restart. Otherwise a restart is required. | false | No |
-| `--historicaltraceenabled` | Boolean | When present, enables the storage of the slowest historical request traces. | false | No |
-| `--historicaltracestoresize` | Integer | Sets how many request traces will be stored. | 20 | No |
-
-#### Example:
-```
-asadmin> set-requesttracing-configuration
-    --enabled=true \
-    --thresholdValue=10 \
-    --thresholdUnit="SECONDS" \
-    --dynamic=true
-    --notifierEnabled=true \
-    --notifierDynamic=true \
-    --historicaltraceenabled \
-    --historicaltracestoresize=20
-```
