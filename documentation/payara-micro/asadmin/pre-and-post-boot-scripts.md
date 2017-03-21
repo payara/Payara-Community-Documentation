@@ -19,7 +19,7 @@ set configs.config.server-config.admin-service.das-config.dynamic-reload-enabled
 set configs.config.server-config.admin-service.das-config.autodeploy-enabled=false
 
 #Optimizing Heap size
-delete-jvm-options -client:Xmx1024:-Xms512
+delete-jvm-options -client:-Xmx1024:-Xms512
 create-jvm-options -server:-Xmx2048:-Xms2048
 
 #Configuring Hazelcast cluster
@@ -42,5 +42,5 @@ java -jar payara-micro.jar --prebootcommandfile prepare-resources.txt --postboot
 
 Examining the JAR structure will confirm the scripts have been transferred succesfully:
 
-
+![Uber JAR Command scripts structure](/images/uber-jar-command-scripts-structure.png)
 
