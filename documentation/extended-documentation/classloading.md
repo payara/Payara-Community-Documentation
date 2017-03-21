@@ -4,18 +4,23 @@ This page covers how to use the Enhanced Class and Library Loading functionality
 
 # Default Class and Library Loading
 
-Payara Server comes included with many standard Java libraries and packages, for example Google Guava, Jackson, Logback and others.
+Payara Server comes included with many standard Java libraries and packages, for example **Google Guava**, **Jackson**, **Logback** and others.
 
-By default, due to the way standard classloading works, if a class is found in one of Payara Server included libraries, it will be the one used for an specific application, even if the application itself includes a different version of the same library.
+By default, due to the way standard classloading works; if a class is found in one of the library or modules that are included within Payara Server, it will be the one used for an specific application, even if the application itself includes a different version of the same library.
 
-Possible issues with default behavior
-In some cases, application developer will want to include a different version of the libraries that are already included in Payara.
+## Possible issues with default behavior
+
+In some cases, application developers will want to include different version of the libraries that are already included in Payara. Here are some of the most common use cases:
+
+1. 
+
 A common case is a later version of Guava or Jackson.  Another case is to include older versions of these packages for compatibility.
 Unfortunately, due to the default class loading behavior, this will not be possible, and Payara-included libraries will take precedence.
 
 # Solutions to the Class Loading issue
 
 # 4.1 Globally override Payara-included libraries
+
 You can set the system property `fish.payara.classloading.delegate` to `false`.
 This way, any library that is included by the application developer will override the one that's included in Payara.
 Class Loading is accomplished in the following order:
@@ -36,7 +41,7 @@ This option is also provided by GlassFish Server 4 Open Source Edition.
 For EAR files, you can include `<classloading-delegate>false</classloading-delegate>` in your `META-INF/glassfish-application.xml` file.
 With this option, your EAR-included libraries will override Payara-included libraries.
 
-# 4.4 Payara domain
+# 4.4 Payara Domain
 The only way to enable libraries in the _${Domain}_/lib to override Payara-included libraries ( _${Product-Root}_/modules )
 is to set the system property `fish.payara.classloading.delegate` to `false` as described above.
 
