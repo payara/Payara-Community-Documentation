@@ -1,25 +1,19 @@
-# 1. Classloading 
+# Enhanced Classloading 
 
 This page covers how to use the Enhanced Class and Library Loading functionality introduced on _Payara 4.1.1.162_.  
 
-# 2. Documentation Conventions
-_${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.  
-_${Domain}_ - This refers to the name of your Payara domain.  
-_${Target}_ - This refers to the name of an instance or cluster.  
-`...` - Denotes a skipping of unrelated code that would be present in the actual file or program.  
-_${Cluster-Config}_ - This refers to the name of a cluster configuration.
+# Default Class and Library Loading
 
-# 3. Default Class and Library Loading
-Payara server comes included with many Java libraries and packages, for example Google Guava, Jackson, Logback and others.
-By default, due to the way Java Class Loading works, if a class is found in one of Payara-included libraries, it will be the one
-used in your application, even if you include a different version of the same library in your application package.
+Payara Server comes included with many standard Java libraries and packages, for example Google Guava, Jackson, Logback and others.
 
-# 3.1 Possible issues with default behavior
+By default, due to the way standard classloading works, if a class is found in one of Payara Server included libraries, it will be the one used for an specific application, even if the application itself includes a different version of the same library.
+
+Possible issues with default behavior
 In some cases, application developer will want to include a different version of the libraries that are already included in Payara.
 A common case is a later version of Guava or Jackson.  Another case is to include older versions of these packages for compatibility.
 Unfortunately, due to the default class loading behavior, this will not be possible, and Payara-included libraries will take precedence.
 
-# 4 Solutions to the Class Loading issue
+# Solutions to the Class Loading issue
 
 # 4.1 Globally override Payara-included libraries
 You can set the system property `fish.payara.classloading.delegate` to `false`.
