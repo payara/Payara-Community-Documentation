@@ -1,4 +1,5 @@
 # Running Asadmin Commands on Micro from a Domain Administration Server
+
 Asadmin commands can be sent from the Domain Administration Server (DAS) to micro instances that are running within the same cluster as the DAS server. This can be achieved either using the admin console or using asadmin commands.
 
 ## Sending Asadmin Commands using the Admin Console
