@@ -28,18 +28,19 @@ set-hazelcast-configuration --clusterName=my-production-cluster --target=server-
 
 ## Configuring Boot Scripts
 
-There are multiple ways to configure a Micro instance to use boot scripts.
-
-### Configuring Boot Scripts from the command line
-
 When running a Payara Micro from the command line, use the `--prebootcommandfile` and `--postbootcommandfile` options to specify the script file locations like this:
 
 ```
 java -jar payara-micro.jar --prebootcommandfile prepare-resources.txt --postbootcommandfile ready-production-use.txt
 ```
 
-### Configuring Boot Scripts inside the application
+When creating an Uber JAR using the --outputUberJAR option, the scripts are transferred inside the MICRO-INF/ directory of the resulting JAR artifact as the `pre-boot-commands.txt` and `post-boot-commands.txt files`. For example, when generating the Uber JAR like this: 
 
-### Configuring Boot Scripts programmatically
+```
+java -jar payara-micro.jar --prebootcommandfile prepare-resources.txt --postbootcommandfile ready-production-use.txt --outputUberJar custom-micro.jar
+```
+
+Examining the JAR structure will confirm the scripts have been transferred succesfully:
+
 
 
