@@ -108,7 +108,7 @@ The following example demonstrates setting all of the options on a cluster calle
 | multicast-group              | Multicast Group             | The multicast group for communications in the Hazelcast cluster.                                                                     |
 | multicast-port               | Multicast Port              | The multicast port for group communications in the Hazelcast cluster.                                                                |
 | jndi-name                    | JNDI Name                   | The JNDI name to bind the Hazelcast instance to.                                                                                     |
-| host-aware-partitioning      | Host Aware Partitioning     | Enables/Disable Host Aware partitioning for the cluster.                                                                             |
+| host-aware-partitioning      | Host Aware Partitioning     | Enables/disables Host Aware partitioning for the cluster.                                                                             |
 
 See here for an example configuration demonstrating each property:
 
