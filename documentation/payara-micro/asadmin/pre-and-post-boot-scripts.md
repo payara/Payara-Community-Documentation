@@ -44,3 +44,9 @@ Examining the JAR structure will confirm the scripts have been transferred succe
 
 ![Uber JAR Command scripts structure](/images/uber-jar-command-scripts-structure.png)
 
+## Restrictions on Preboot Scripts
+
+Keep in mind when writing a **preboot** command script, that the commands prepared will be running before the server has booted, which means not all available asadmin subcommands will yield results (for example deploying or listing applications).
+
+It's recommended to create preboot scripts that use simple set commands to change the configuration of existing resources (adding new resouces might not work on all cases) like network listeners, standard domain configuration and such.
+
