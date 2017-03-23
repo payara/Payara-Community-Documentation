@@ -19,7 +19,7 @@ Unfortunately, due to the default class loading behavior, this will not be possi
 
 # Solutions to the Class Loading issue
 
-# 4.1 Globally override Payara-included libraries
+# Globally override Payara-included libraries
 
 You can set the system property `fish.payara.classloading.delegate` to `false`.
 This way, any library that is included by the application developer will override the one that's included in Payara.
@@ -32,20 +32,22 @@ Class Loading is accomplished in the following order:
 
 This is a Payara-specific feature
 
-# 4.2 WAR Files
+# WAR Files
 For WAR files, you can include `<class-loader delegate="false"/>` in your `WEB-INF/glassfish-web.xml`. 
 With this option, your `WEB-INF/lib/xxx.jar` libraries will take precedence over Payara-included libraries.
 This option is also provided by GlassFish Server 4 Open Source Edition.
 
-# 4.3 EAR Files
+# EAR Files
 For EAR files, you can include `<classloading-delegate>false</classloading-delegate>` in your `META-INF/glassfish-application.xml` file.
 With this option, your EAR-included libraries will override Payara-included libraries.
 
-# 4.4 Payara Domain
+# Payara Domain
 The only way to enable libraries in the _${Domain}_/lib to override Payara-included libraries ( _${Product-Root}_/modules )
 is to set the system property `fish.payara.classloading.delegate` to `false` as described above.
 
-# 5. Conclusion and Recommendations
+# Extreme Classloading Isolation
+
+# Conclusion and Recommendations
 We recommend that you set the system property `fish.payara.classloading.delegate` to `false` as this behavior is the desired behavior
 for most cases.  The reason this is not the default out-of-the-box is because Payara wants to keep drop-in replacement compatibility
 with GlassFish.
