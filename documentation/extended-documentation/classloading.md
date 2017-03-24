@@ -1,6 +1,6 @@
-# Enhanced Classloading 
+# Enhanced Classloading
 
-This page covers the enhanced classloading functionality introduced on _Payara 4.1.1.162_.  
+This page covers the enhanced classloading functionality introduced on _Payara 4.1.1.162_.
 
 # Default Class and Library Loading
 
@@ -17,26 +17,26 @@ Unfortunately, due to the way the default classloading works, this will not be p
 
 # Disable Classloading delegation
 
-In order for the server's classloader to load classes from libraries of different versions to the ones shipped with it, it's possible to disable the **default classloader delegation**. It can be altered to allow the server to load classes in the following order:
+In order for the server's classloader to load classes from libraries of different versions to the ones shipped with it, it's possible to disable the **default classloader delegation**. It can be altered to allow the server to load classes from libraries located at different sources in the following order:
 
-* First, libraries on WAR applications (included on _WEB-INF/lib_)
-* Then, libraries on EAR applications (included on _/lib_)
-* Then, libraries from the domain (located at _${Domain}/lib_)
-* Finally, libraries from the server (located at _${Product-Root}/modules_)
+* First, libraries on WAR applications \(included on _WEB-INF/lib_\)
+* Then, libraries on EAR applications \(included on _/lib_\)
+* Then, libraries from the domain \(located at _${Domain}/lib_\)
+* Finally, libraries from the server \(located at _${Product-Root}/modules_\)
 
 ## Disable Classloading delegation globally
 
-To disable classloading delegation globally, you can set the system property `fish.payara.classloading.delegate` to `false`. This way, any library that is included on deployed applications will override the ones that are included in the server. 
+To disable classloading delegation globally, you can set the system property `fish.payara.classloading.delegate` to `false`. This way, any library that is included on deployed applications will override the ones that are included in the server.
 
-Libraries included at the domain level (_${Domain}/lib_) will take precedence over the libraries included at the server. 
+Libraries included at the domain level \(_${Domain}/lib_\) will take precedence over the libraries included at the server.
 
 ## Disable Classloading delegation locally
 
-It's possible to disable classloading delegation directly at the application level. This can be done for both WAR and EAR applications. 
+It's possible to disable classloading delegation directly at the application level. This can be done for both WAR and EAR applications.
 
 ### On WAR Applications
 
-For **WAR** applications, you can include `<class-loader delegate="false"/>` element in the `glassfish-web.xml` deployment descriptor. Here's an example: 
+For **WAR** applications, you can include `<class-loader delegate="false"/>` element in the `glassfish-web.xml` deployment descriptor. Here's an example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -54,7 +54,7 @@ With this, all libraries included on the `WEB-INF/lib/` directory will take prec
 
 ### On EAR Applications
 
-For **EAR** applications, you can include the `<classloading-delegate>false</classloading-delegate>` element in the `glassfish-application.xml` deployment descriptor. Here is an example: 
+For **EAR** applications, you can include the `<classloading-delegate>false</classloading-delegate>` element in the `glassfish-application.xml` deployment descriptor. Here is an example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -70,9 +70,9 @@ With this, all libraries included on the EAR's `lib/` directory will take preced
 
 # Extreme Classloading Isolation
 
-Starting from release _4.1.1.171_, it's possible to configure an extreme isolation level on the classloading delegation for deployed applications. With this extreme isolation behavior, a deployed application can force the server to load only classes that belong to **whitelisted packages** defined on its deployment descriptors. 
+Starting from release _4.1.1.171_, it's possible to configure an extreme isolation level on the classloading delegation for deployed applications. With this extreme isolation behavior, a deployed application can force the server to load only classes that belong to **whitelisted packages** defined on its deployment descriptors.
 
-To configure whitelist packaging you can use the `<whitelist-package>` element on the _glassfish-web.xml_ (WAR artifacts) or the _glassfish-application.xml_ (EAR artifacts). This element can be included multiple times to whitelist multiple packages. Here is an example of whitelisting both the **Google Guava** and **Jackson** packages for a WAR application:
+To configure whitelist packaging you can use the `<whitelist-package>` element on the _glassfish-web.xml_ \(WAR artifacts\) or the _glassfish-application.xml_ \(EAR artifacts\). This element can be included multiple times to whitelist multiple packages. Here is an example of whitelisting both the **Google Guava** and **Jackson** packages for a WAR application:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
