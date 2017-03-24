@@ -9,12 +9,14 @@ Payara Server supports additional configuration settings by using the Glassfish 
      - classloading-delegate
      - enable-implicit-cdi
      - default-role-mapping (_property_)
+     - whitelist-package
 
 ## glassfish-web.xml
 
  - glassfish-web-app
     - container-initialized-enabled
     - default-role-mapping (_property_)
+    - whitelist-package
 
 ## glassfish-ejb-jar.xml
 
