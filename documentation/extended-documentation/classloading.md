@@ -1,10 +1,10 @@
 # Enhanced Classloading 
 
-This page covers the Enhanced classloading functionality introduced on _Payara 4.1.1.162_.  
+This page covers the enhanced classloading functionality introduced on _Payara 4.1.1.162_.  
 
 # Default Class and Library Loading
 
-Payara Server has included many standard Java libraries and packages, for example **Google Guava**, **Jackson**, **Logback** and others. These libraries are located on the _${Product-Root}/modules_ directory.
+Payara Server has included many standard Java libraries and packages, for example **Google Guava**, **Jackson**, **Logback** and others to use . These libraries are located on the _${Product-Root}/modules_ directory.
 
 The default classloading mechanism of Payara Server Works like this: When loading classes that belong to a library or framework that is included in the server, the server **will always** load those classes even if the application itself includes different versions.
 
