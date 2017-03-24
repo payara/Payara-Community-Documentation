@@ -1,7 +1,9 @@
 # Elements of the Deployment Descriptor Files
+
 This page is a reference for extra elements added to either the `glassfish-application.xml` or the `glassfish-web.xml` files in Payara Server.
 
 ### `classloading-delegate`
+
 With this option, the libraries included in the EAR assembly will override libraries included in Payara Server distribution. 
 For more information about how Payara Server loads the required classes and libraries, see the [Classloading](../classloading.md) section.
 
