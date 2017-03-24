@@ -1,57 +1,42 @@
 # Enhanced Classloading 
 
-This page covers how to use the Enhanced Class and Library Loading functionality introduced on _Payara 4.1.1.162_.  
+This page covers the Enhanced classloading functionality introduced on _Payara 4.1.1.162_.  
 
 # Default Class and Library Loading
 
-Payara Server comes included with many standard Java libraries and packages, for example **Google Guava**, **Jackson**, **Logback** and others.
+Payara Server has included many standard Java libraries and packages, for example **Google Guava**, **Jackson**, **Logback** and others. These libraries are located on the _${Product-Root}/modules_ directory.
 
-By default, due to the way standard classloading works; if a class is found in one of the library or modules that are included within Payara Server, it will be the one used for an specific application, even if the application itself includes a different version of the same library.
+The default classloading mechanism of Payara Server Works like this: When loading classes that belong to a library or framework that is included in the server, the server **will always** load those classes even if the application itself includes different versions.
 
-## Possible issues with default behavior
+In some cases, application developers will want to include a different version of the libraries that are already included on the server. Common use cases for this are:
 
-In some cases, application developers will want to include different version of the libraries that are already included in Payara. Here are some of the most common use cases:
+1. Use a newer version of a library that is included in the server. For example, Payara Server includes the Jackson library, and you might need to use a newer version that includes a specific feature you want to use.
+2. Use an older version of a library included within the server in order to support legacy applications. For example, you are using an older version of **Icefaces** that depends on an older version of JSF.
 
-1. 
+Unfortunately, due to the way the default classloading works, this will not be possible, and all libraries included with the server libraries will take precedence.
 
-A common case is a later version of Guava or Jackson.  Another case is to include older versions of these packages for compatibility.
-Unfortunately, due to the default class loading behavior, this will not be possible, and Payara-included libraries will take precedence.
+# Disable Classloading delegation
 
-# Solutions to the Class Loading issue
+In order for the server's classloader to load classes from libraries of different versions to the ones shipped with it, it's possible to disable the **default classloader delegation**. It can be altered to allow the server to load classes in the following order:
 
-## Globally override Payara-included libraries
+* First, libraries on WAR applications (included on _WEB-INF/lib_)
+* Then, libraries on EAR applications (included on _/lib_)
+* Then, libraries from the domain (located at _${Domain}/lib_)
+* Finally, libraries from the server (located at _${Product-Root}/modules_)
 
-You can set the system property `fish.payara.classloading.delegate` to `false`.
-This way, any library that is included by the application developer will override the one that's included in Payara.
-Class Loading is accomplished in the following order:
+## Disable Classloading delegation globally
 
-* Libraries From WAR files - `WEB-INF/lib` - Optional, controlled by the `<class-loader>` directive in `web.xml`
-* Libraries From EAR files - usually `/lib`
-* Libraries from the Domain - _${Domain}_/lib
-* And finally, libraries from Payara itself - _${Product-Root}_/modules
+To disable classloading delegation globally, you can set the system property `fish.payara.classloading.delegate` to `false`. This way, any library that is included on deployed applications will override the ones that are included in the server. 
 
-This is a Payara-specific feature
+Libraries included at the domain level (_${Domain}/lib_) will take precedence over the libraries included at the server. 
 
-## WAR Files
+## Disable Classloading delegation locally
 
-For WAR files, you can include `<class-loader delegate="false"/>` in your `WEB-INF/glassfish-web.xml`. 
-With this option, your `WEB-INF/lib/xxx.jar` libraries will take precedence over Payara-included libraries.
-This option is also provided by GlassFish Server 4 Open Source Edition.
+It's possible to disable classloading delegation directly at the application level. This can be done for both WAR and EAR applications. 
 
-## EAR Files
+### On WAR Applications
 
-For EAR files, you can include `<classloading-delegate>false</classloading-delegate>` in your `META-INF/glassfish-application.xml` file.
-With this option, your EAR-included libraries will override Payara-included libraries.
-
-# Payara Domain
-
-The only way to enable libraries in the _${Domain}_/lib to override Payara-included libraries ( _${Product-Root}_/modules) is to set the system property `fish.payara.classloading.delegate` to `false` as described above.
-
-# Extreme Classloading Isolation
-
-Starting from release _4.1.1.171_, it's possible to configure a extreme isolation level on the classloading mechanism for applications deployed to Payara Server. With this extreme isolation behavior, a deployed application can force the server to load only classes that belong to **whitelisted packages** defined on its deployment descriptors. 
-
-To configure whitelist packaging you can use the `<whitelist-package>` element on the _glassfish-web.xml_ (WAR artifacts) or the _glassfish-application.xml_ (EAR artifacts). This element can be included multiple times to whitelist multiple packages. Here is an example of whitelisting both the **Google Guava** and **Jackson** packages for a web application:
+For **WAR** applications, you can include `<class-loader delegate="false"/>` element in the `glassfish-web.xml` deployment descriptor. Here's an example: 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,12 +44,47 @@ To configure whitelist packaging you can use the `<whitelist-package>` element o
 <glassfish-web-app error-url="">
   ...
   <class-loader delegate="false"/>
+  ...
+</glassfish-web-app>
+```
+
+With this, all libraries included on the `WEB-INF/lib/` directory will take precedence.
+
+**NOTE**: This feature is also available on _GlassFish Server 4.x Open Source Edition_.
+
+### On EAR Applications
+
+For **EAR** applications, you can include the `<classloading-delegate>false</classloading-delegate>` element in the `glassfish-application.xml` deployment descriptor. Here is an example: 
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-application PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Java EE Application 6.0//EN" "http://glassfish.org/dtds/glassfish-application_6_0-1.dtd">
+<glassfish-application>
+    ...
+    <classloading-delegate>false</classloading-delegate>
+    ...
+</glassfish-application>
+```
+
+With this, all libraries included on the EAR's `lib/` directory will take precedence.
+
+# Extreme Classloading Isolation
+
+Starting from release _4.1.1.171_, it's possible to configure an extreme isolation level on the classloading delegation for deployed applications. With this extreme isolation behavior, a deployed application can force the server to load only classes that belong to **whitelisted packages** defined on its deployment descriptors. 
+
+To configure whitelist packaging you can use the `<whitelist-package>` element on the _glassfish-web.xml_ (WAR artifacts) or the _glassfish-application.xml_ (EAR artifacts). This element can be included multiple times to whitelist multiple packages. Here is an example of whitelisting both the **Google Guava** and **Jackson** packages for a WAR application:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
+<glassfish-web-app error-url="">
+  ...
   <whitelist-package>com.google.guava</whitelist-package>
   <whitelist-package>com.fasterxml.jackson</whitelist-package>
 </glassfish-web-app>
 ```
 
-The whitelist syntax is simple: Define the name of the package that is going to be whitelisted. For example writing `com.google` would whiltelist all Google libraries included with the server, while `com.google.guava` would only whitelist the Google Guava library.
+The whitelist syntax is simple: Define the name of the package which contains the classes in question. For example writing `com.google` would whiltelist all Google libraries included on the server, while writing `com.google.guava` would only whitelist the Google Guava library instead.
 
-To enable this extreme isolation behavior, at least one `whitelist-package` must be defined in the appropriate descriptor. 
+To enable this extreme isolation behavior, at least one `whitelist-package` must be defined in the appropriate descriptor.
 
