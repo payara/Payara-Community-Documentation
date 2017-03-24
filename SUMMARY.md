@@ -69,7 +69,7 @@
     * [Disabling Phone Home](documentation/extended-documentation/phone-home/disabling-phone-home.md)
   * [System Properties](documentation/extended-documentation/system-properties.md)
   * [Production Ready Domain](documentation/extended-documentation/production-ready-domain.md)
-  * [Classloading](documentation/extended-documentation/classloading.md)
+  * [Enhanced Classloading](documentation/extended-documentation/classloading.md)
   * [Default Thread Pool Size](documentation/extended-documentation/default-thread-pool-size.md)
   * [Public API](documentation/extended-documentation/app-deployment/public-api.md)
 * [User Guides](documentation/user-guides/user-guides.md)
@@ -130,3 +130,4 @@
   * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
   * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
   * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
+
