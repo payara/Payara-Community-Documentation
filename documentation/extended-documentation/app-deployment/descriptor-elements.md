@@ -4,7 +4,7 @@ This page is a reference for extra elements added to either the `glassfish-appli
 
 ### `classloading-delegate`
 
-With this option its possible to enable/disable classloading delegation. This allows deployed application to use libraries included on them, overriding the version included on the server. 
+With this option its possible to enable/disable classloading delegation. This allows deployed application to use libraries included on them, overriding the versions included on the server. 
 
 For more information about how class delegation can be configured on Payara Server, see the [Enhanced Classloading](/documentation/extended-documentation/classloading.md) section.
 
