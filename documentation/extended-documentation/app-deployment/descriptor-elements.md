@@ -4,8 +4,15 @@ This page is a reference for extra elements added to either the `glassfish-appli
 
 ### `classloading-delegate`
 
-With this option, the libraries included in the EAR assembly will override libraries included in Payara Server distribution. 
-For more information about how Payara Server loads the required classes and libraries, see the [Classloading](../classloading.md) section.
+With this option its possible to enable/disable classloading delegation. This allows deployed application to use libraries included on them, overriding the version included on the server. 
+
+For more information about how class delegation can be configured on Payara Server, see the [Enhanced Classloading](/documentation/extended-documentation/classloading.md) section.
+
+### `whitelist-package`
+
+Used to whitelist packages on **extreme classloading isolation**. Whitelisted packages are taken into account by the server when scanning libraries included on the server.
+
+For more information about extreme classloading isolation works on Payara Server, see the [Enhanced Classloading](/documentation/extended-documentation/classloading.md) section.
 
 ### `enable-implicit-cdi`
 
