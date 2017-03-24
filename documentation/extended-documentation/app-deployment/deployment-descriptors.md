@@ -10,6 +10,8 @@ Payara Server supports additional configuration settings by using the Glassfish 
      - enable-implicit-cdi
      - default-role-mapping (_property_)
      - whitelist-package
+     - scanning-exclude
+     - scanning-include
 
 ## glassfish-web.xml
 
@@ -17,6 +19,8 @@ Payara Server supports additional configuration settings by using the Glassfish 
     - container-initialized-enabled
     - default-role-mapping (_property_)
     - whitelist-package
+    - scanning-exclude
+    - scanning-include
 
 ## glassfish-ejb-jar.xml
 
