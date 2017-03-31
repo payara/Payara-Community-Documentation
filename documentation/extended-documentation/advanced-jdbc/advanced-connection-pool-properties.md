@@ -28,13 +28,14 @@ In Java EE 7 a Datasource definition can be added to a deployment descriptor of 
 
 ## Setting properties via annotations.
 In Java EE 7 a Datasource definition can be added to an application via annotations . To set advanced properties just add a property tag shown in the example below.
+
 ```java
 @DataSourceDefinition(
     name = "java:app/MyApp/MyDS",
     className = "org.h2.jdbcx.JdbcDataSource",
     url = "jdbc:h2:mem:test",
     properties = {"fish.payara.is-connection-validation-required=true"})
-    ```
+```
     
 ## Full List of Properties
 Each of the properties below has a corresponding field in the administration console.

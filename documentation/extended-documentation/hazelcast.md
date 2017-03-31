@@ -27,7 +27,7 @@
   * [7.3 list-hazelcast-members](#73-list-hazelcast-members)
   * [7.4 restart-hazelcast](#74-restart-hazelcast)
   * [7.5 list-hazelcast-cluster-members](#75-list-hazelcast-cluster-members)
-
+****
 # 1. Overview
 This page covers how to use the Hazelcast functionality in Payara 4.1.1.162.  
 Hazelcast is an In-Memory Data Grid, providing Web and EJB session persistence, and implementing JSR107 (JCache) in Payara Server.
@@ -86,6 +86,7 @@ From here, the following configuration options are available to you (excluding t
 | Multicast Port              | The multicast port for communications in the Hazelcast cluster.                                                                     |
 | Multicast Group             | The multicast group for communications in the Hazelcast cluster.                                                                     |
 | JNDI Name                   | The JNDI name to bind the Hazelcast instance to.                                                                                     |
+| Host Aware Partitioning     | Whether or not to enable [host-aware partitioning](http://docs.hazelcast.org/docs/latest/manual/html-single/index.html#grouping-types) for the cluster. Host aware partitioning **must be** enabled on all members of the cluster (including Payara Micro instances) for this feature to work correctly. |
 
 Enter your required values, and click _Save_. Restarting the domain or instance/cluster is not necessary for any changes made to take effect.
 
@@ -94,7 +95,7 @@ As noted in the [Enabling Hazelcast using Asadmin](#32-enabling-hazelcast-using-
 
 The following example demonstrates setting all of the options on a cluster called _cluster1_:
   
-`asadmin set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 -j payara/Hazelcast`  
+`asadmin set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 --hostAwareParitioning=true -j payara/Hazelcast`  
 
 ## 4.3 Configuring Hazelcast in the _domain.xml_ file
 * Open up the _domain.xml_ file in your text editor of choice, it can be found under _${Product\_Root}/glassfish/domains/${Domain}/config/_  
@@ -107,13 +108,14 @@ The following example demonstrates setting all of the options on a cluster calle
 | multicast-group              | Multicast Group             | The multicast group for communications in the Hazelcast cluster.                                                                     |
 | multicast-port               | Multicast Port              | The multicast port for group communications in the Hazelcast cluster.                                                                |
 | jndi-name                    | JNDI Name                   | The JNDI name to bind the Hazelcast instance to.                                                                                     |
+| host-aware-partitioning      | Host Aware Partitioning     | Enables/disables Host Aware partitioning for the cluster.                                                                             |
 
 See here for an example configuration demonstrating each property:
 
 ```XML
 <config name="server-config">
     ...  
-    <hazelcast-runtime-configuration enabled="true" hazelcast-configuration-file="hazelcast-configuration.xml" start-port="5666" multicast-group"224.2.2.4" jndi-name="payara/Hazelcast1 multicast-port="54328"></hazelcast-runtime-configuration>
+    <hazelcast-runtime-configuration enabled="true" hazelcast-configuration-file="hazelcast-configuration.xml" start-port="5666" multicast-group"224.2.2.4" jndi-name="payara/Hazelcast1 multicast-port="54328" host-aware-partitioning="true"></hazelcast-runtime-configuration>
     ...  
 </config>
 ```
@@ -232,6 +234,8 @@ Enables/Disables and configures the embedded Hazelcast member. This command requ
 | --multicastgroup | -g | The multicast group for communications in the Hazelcast instance. | 224.2.2.3 | No |
 | --multicastport |  | The multicast port for communications in the Hazelcast instance. | 54327 | No |
 | --jndiname | -j | The JNDI name to bind the Hazelcast instance to. | payara/Hazelcast | No |
+| --hostAwareParitioning| | Enables or disables host aware partitioning in the cluster | false | No |
+
 
 Example:  
 `asadmin set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 -j payara/Hazelcast`
@@ -287,6 +291,3 @@ Example to list only Payara Micro instances in the cluster:
 ```
 asadmin list-hazelcast-cluster-members --type=micro
 ```
-
-
-
