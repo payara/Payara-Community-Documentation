@@ -102,6 +102,9 @@
   * [Maven Support](documentation/payara-micro/maven/maven.md)
   * [HTTP\(S\) Auto-Binding](documentation/payara-micro/port-autobinding.md)
   * [Running asadmin Commands](documentation/payara-micro/asadmin.md)
+    * [Send asadmin commands](documentation/payara-micro/asadmin/send-asadmin-commands.md)
+    * [Using the Payara Micro API](documentation/payara-micro/asadmin/using-the-payara-micro-api.md)
+    * [Pre and Post Boot Scripts](documentation/payara-micro/asadmin/pre-and-post-boot-scripts.md)
   * [Running Callable Objects](documentation/payara-micro/callable-objects.md)
   * [Request Tracing](documentation/payara-micro/services/request-tracing.md)
   * [Logging to a file](documentation/payara-micro/logging-to-file.md)
@@ -130,4 +133,3 @@
   * [Payara Server 4.1.152 Release Notes](release-notes/release-notes-152.md)
   * [Payara Server 4.1.151 Release Notes](release-notes/release-notes-151.md)
   * [Payara Server 4.1.144 Release Notes](release-notes/release-notes-144.md)
-
