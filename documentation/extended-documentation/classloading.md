@@ -86,5 +86,5 @@ To configure whitelist packaging you can use the `<whitelist-package>` element o
 
 The whitelist syntax is simple: Define the name of the package which contains the classes in question. For example writing `com.google` would whiltelist all Google libraries included on the server, while writing `com.google.guava` would only whitelist the Google Guava library instead.
 
-To enable this extreme isolation behavior, at least one `whitelist-package` must be defined in the appropriate descriptor.
+To enable this extreme isolation behavior, at least one `whitelist-package` element must be defined in the appropriate descriptor.
 
