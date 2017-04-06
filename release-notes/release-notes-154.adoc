@@ -91,6 +91,7 @@ Upstream Fixes
 ^^^^^^^^^^^^^^
 
 This section details the fixes brought in from the GlassFish upstream.
+
 * https://java.net/jira/browse/GLASSFISH-21009[GLASSFISH-21009 - The behavior of --timeout-seconds is not in line with the document]
 * https://java.net/jira/browse/GLASSFISH-21172[GLASSFISH-21172 - javax.transaction.RollbackException from @Transactional bean has no cause set]
 * https://java.net/jira/browse/GLASSFISH-21381[GLASSFISH-21381 - war with web service not deploying correctly]
