@@ -63,7 +63,7 @@
   * [JMX Monitoring Service](documentation/extended-documentation/jmx-monitoring-service/jmx-monitoring-service.md)
     * [Configuration](documentation/extended-documentation/jmx-monitoring-service/configuration.md)
     * [Asadmin Commands](documentation/extended-documentation/jmx-monitoring-service/asadmin-commands.md)
-  * [Phone Home](documentation/extended-documentation/phone-home/overview.md)
+  * [Phone Home](documentation/extended-documentation/phone-home/phonehome-overview.md)
     * [Gathered Data](documentation/extended-documentation/phone-home/phone-home-information.md)
     * [Asadmin Commands](documentation/extended-documentation/phone-home/phone-home-asadmin.md)
     * [Disabling Phone Home](documentation/extended-documentation/phone-home/disabling-phone-home.md)
