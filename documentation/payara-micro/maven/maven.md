@@ -15,89 +15,119 @@ In your project's POM, include the following dependency:
 </dependency>
 ```
 
-`${payara.version}` is a maven property, which specifies the version of the maven artifact, e.g. {{ book.currentVersion }}.
+`${payara.version}` is a Maven property, which specifies the version of the Maven artifact, e.g. {{ book.currentVersion }}.
+
+Starting from release _4.1.1.171_, you need to add a dependency to the [Public API](/documentation/extended-documentation/app-deployment/public-api.md) when developing applications that use proprietary features (`@Traced` or `@NamedCache` for example)  
 
 ## Run Payara Micro using Maven
 
-It is possible to run Payara Micro using the `java` goal of the Maven Exec plugin. The main class to execute is `fish.payara.micro.PayaraMicro`. For example, in order to build and execute the maven WAR artifact in Payara Micro, you can issue the `mvn package` command with the following Exec plugin configuration:
+It is possible to run Payara Micro using the `exec` goal of the Maven Exec plugin. Additionally, you can use the Maven Dependency Plugin to either refer to the JAR file of the `payara-micro` artifact in local maven repository, or to copy it to the project directory.
 
-```
+For example, in order to build and execute the maven WAR artifact in Payara Micro, you can issue the `mvn package exec:exec` command with the following Exec and Dependency plugin configuration:
+
+```xml
 <plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>exec-maven-plugin</artifactId>
-  <dependencies>
-      <dependency>
-          <groupId>fish.payara.extras</groupId>
-          <artifactId>payara-micro</artifactId>
-          <version>${payara.version}</version>
-      </dependency>
-  </dependencies>
-  <executions>
-      <execution>
-          <id>payara-run</id>
-          <phase>package</phase>
-          <goals>
-              <goal>java</goal>
-          </goals>
-          <configuration>
-              <mainClass>fish.payara.micro.PayaraMicro</mainClass>
-              <arguments>
-                  <argument>--deploy</argument>
-                  <argument>${basedir}/target/${project.build.finalName}.war</argument>
-              </arguments>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <includePluginDependencies>true</includePluginDependencies>
-              <executableDependency>
-                  <groupId>fish.payara.extras</groupId>
-                  <artifactId>payara-micro</artifactId>
-              </executableDependency>
-          </configuration>
-      </execution>
-  </executions>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>2.6</version>
+    <executions>
+        <execution>
+            <id>copy-payara-micro</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}</outputDirectory>
+                <stripVersion>true</stripVersion>
+                <silent>true</silent>
+                <artifactItems>
+                    <artifactItem>
+                        <groupId>fish.payara.extras</groupId>
+                        <artifactId>payara-micro</artifactId>
+                        <type>jar</type>
+                    </artifactItem>
+                </artifactItems>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.6.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>exec</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <executable>java</executable>
+        <arguments>
+            <argument>-jar</argument>
+            <argument>${project.build.directory}/payara-micro.jar</argument>
+            <argument>--deploy</argument>
+            <argument>${project.build.directory}/${project.build.finalName}.war</argument>
+        </arguments>
+    </configuration>
 </plugin>
 ```
+Since: 4.1.1.171
 
 ## Build a Payara Micro uber JAR using Maven
 
-The `java` goal of the Maven Exec plugin can also be used to build an executable uber JAR. The configuration is the same as to execute the WAR artifact, but we need to add the `--outputUberJar` argument to build an uber JAR instead of running the application. An uber JAR can be built using `mvn package` command with the following Exec plugin configuration:
+The `exec` goal of the Maven Exec plugin can also be used to build an executable uber JAR. The configuration is the same as to execute the WAR artifact, but we need to add the `--outputUberJar` argument to build an uber JAR instead of running the application. An uber JAR can be built using `mvn package` command with the following Exec plugin configuration:
 
-```
+```xml
 <plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>exec-maven-plugin</artifactId>
-  <dependencies>
-      <dependency>
-          <groupId>fish.payara.extras</groupId>
-          <artifactId>payara-micro</artifactId>
-          <version>${payara.version}</version>
-      </dependency>
-  </dependencies>
-  <executions>
-      <execution>
-          <id>payara-run</id>
-          <phase>package</phase>
-          <goals>
-              <goal>java</goal>
-          </goals>
-          <configuration>
-              <mainClass>fish.payara.micro.PayaraMicro</mainClass>
-              <arguments>
-                  <argument>--deploy</argument>
-                  <argument>${basedir}/target/${project.build.finalName}.war</argument>
-                  <argument>--outputUberJar</argument>
-                  <argument>${basedir}/target/${project.build.finalName}.jar</argument>
-              </arguments>
-              <includeProjectDependencies>false</includeProjectDependencies>
-              <includePluginDependencies>true</includePluginDependencies>
-              <executableDependency>
-                  <groupId>fish.payara.extras</groupId>
-                  <artifactId>payara-micro</artifactId>
-              </executableDependency>
-          </configuration>
-      </execution>
-  </executions>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>2.6</version>
+    <executions>
+        <execution>
+            <id>copy-payara-micro</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}</outputDirectory>
+                <stripVersion>true</stripVersion>
+                <silent>true</silent>
+                <artifactItems>
+                    <artifactItem>
+                        <groupId>fish.payara.extras</groupId>
+                        <artifactId>payara-micro</artifactId>
+                        <type>jar</type>
+                    </artifactItem>
+                </artifactItems>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.6.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>exec</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <executable>java</executable>
+        <arguments>
+            <argument>-jar</argument>
+            <argument>${project.build.directory}/payara-micro.jar</argument>
+            <argument>--deploy</argument>
+            <argument>${project.build.directory}/${project.build.finalName}.war</argument>
+            <argument>--outputUberJar</argument>
+            <argument>${project.build.directory}/${project.build.finalName}.jar</argument>        </arguments>
+    </configuration>
 </plugin>
 ```
-
-
-

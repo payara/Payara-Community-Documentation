@@ -1,9 +1,18 @@
 # Elements of the Deployment Descriptor Files
+
 This page is a reference for extra elements added to either the `glassfish-application.xml` or the `glassfish-web.xml` files in Payara Server.
 
 ### `classloading-delegate`
-With this option, the libraries included in the EAR assembly will override libraries included in Payara Server distribution. 
-For more information about how Payara Server loads the required classes and libraries, see the [Classloading](../classloading.md) section.
+
+With this option its possible to enable/disable classloading delegation. This allows deployed application to use libraries included on them, overriding the versions included on the server.
+
+For more information about how class delegation can be configured on Payara Server, see the [Enhanced Classloading](/documentation/extended-documentation/classloading.md) section.
+
+### `whitelist-package`
+
+Used to whitelist packages on **extreme classloading isolation**. Whitelisted packages are taken into account by the server when scanning libraries included on the server.
+
+For more information about how extreme classloading isolation works on Payara Server, see the [Enhanced Classloading](/documentation/extended-documentation/classloading.md) section.
 
 ### `enable-implicit-cdi`
 
@@ -20,11 +29,12 @@ If implicit CDI scanning causes problems for an EAR assembly, the value `false` 
 ```
 
 **Note**:  
-When implicit CDI is controlled by using either the `enable-implicit-cdi` property in the `glassfish-application.xml` or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR, the admin console checkbox ***is ignored***.
+When implicit CDI is controlled by using either the `enable-implicit-cdi` property in the `glassfish-application.xml` or the attribute `bean-discovery-mode="none"` from the `beans.xml` file in a WAR, the admin console checkbox _**is ignored**_.
 
 The default behaviour of the admin console is for the "Implicit CDI" checkbox to be enabled, but this will **not** override the application configuration.
 
 ### `scanning-exclude` and `scanning-include`
+
 Modern WAR and EAR files very often include a number of 3rd party JARs. In situations where some JARs require CDI scanning and others may break if scanned, these can now be explicitly included or excluded from scanning.
 
 Both the `glassfish-application.xml` and the `glassfish-web.xml` files support the following directives:
@@ -68,3 +78,4 @@ Except it's effect will only limit itself to the application instead of all appl
 The default value of this property is `false`. This property can be set in the `glassfish-web.xml`, `glassfish-ejb-jar.xml` and `glassfish-application.xml` deployment descriptors.
 
 In an EAR assembly, only the property set in the `glassfish-application.xml` will take effect and any set in the `glassfish-web.xml` and `glassfish-ejb-jar.xml` will be ignored. Setting this configuration property in any of these files will always take precedence over any setting configured on the server.
+

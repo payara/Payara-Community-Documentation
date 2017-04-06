@@ -71,7 +71,7 @@ true     T43CHENUC  B441EFQB1  Jas8P3jCZ4wK8Y2m88dCxGkn
 
 ### On the _domain.xml_ configuration file
 
-To configure the Notification Service in the _domain.xml_ configuration file, locate the notification-service-configuration element in the tree and insert slack-notifier-configuration with the respective attributes like this:
+To configure the Notification Service in the _domain.xml_ configuration file, locate the `notification-service-configuration` element in the tree and insert the `slack-notifier-configuration` with the respective attributes like this:
 
 ```
 <notification-service-configuration enabled="true">

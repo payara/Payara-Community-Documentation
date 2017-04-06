@@ -1,6 +1,7 @@
 # Deploying Applications Using an asadmin Command
 
 ## Deploying on a Local Instance
+
 As an alternative to using the `deploy` methods above, you can use the `run(Collection<InstanceDescriptor> members, String command, String... args )` method to run the `deploy` asadmin command. To deploy to a single instance, you must create a _members_ Collection only containing a single instance.
 
 As an example of deploying an application to only the local instance with the run command:
@@ -43,6 +44,7 @@ public class EmbeddedPayara
 ```
 
 ## Deploying an Application to Multiple Bootstrapped Instances
+
 You can use the `run` method to run the `deploy` asadmin command on multiple clustered instances.
 There are two _run_ methods available for running asadmin commands: one which runs an asadmin command on a subset of instances in a cluster, and another than runs an asadmin command on all instances in a cluster. 
 More detail on these can be found in the [Running Asadmin Commands on Bootstrapped Instances](../asadmin.md) section.
