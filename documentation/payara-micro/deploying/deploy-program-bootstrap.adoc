@@ -1,13 +1,18 @@
-# Deploying an Application Programmatically during Bootstrap
+[[deploying-an-application-programmatically-during-bootstrap]]
+Deploying an Application Programmatically during Bootstrap
+----------------------------------------------------------
 
-There are two methods you can use to deploy an application during the bootstrapping process: 
+There are two methods you can use to deploy an application during the
+bootstrapping process:
 
-   * `addDeployment(String pathToWar)`
-   * `addDeploymentFile(File file)`
+* `addDeployment(String pathToWar)`
+* `addDeploymentFile(File file)`
 
-The first, `addDeployment(String pathToWar)`, accepts a String that points to the path of the file to be deployed. For example:
+The first, `addDeployment(String pathToWar)`, accepts a String that
+points to the path of the file to be deployed. For example:
 
-```Java
+code,Java--------------------------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
@@ -18,12 +23,14 @@ public class EmbeddedPayara
         PayaraMicro.getInstance().addDeployment("/home/user/example.war").bootStrap();
     }
 }
-```
+--------------------------------------------------------------------------------------
 
-The second method, `addDeploymentFile(File file)`, functions in the same way as the `addDeployment(String pathToWar)` method, 
-but takes a File object as its parameter instead:
+The second method, `addDeploymentFile(File file)`, functions in the same
+way as the `addDeployment(String pathToWar)` method, but takes a File
+object as its parameter instead:
 
-```Java
+code,Java----------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 import java.io.File;
@@ -36,12 +43,15 @@ public class EmbeddedPayara
         PayaraMicro.getInstance().addDeploymentFile(file).bootStrap();
     }
 }
-```
+----------------------------------------------------------------------
 
-Unlike when controlling Payara Micro from the command line, you can split the instance initialisation and configuration across 
-multiple lines methods. For example, to deploy an application on one line, and start the instance on another:
+Unlike when controlling Payara Micro from the command line, you can
+split the instance initialisation and configuration across multiple
+lines methods. For example, to deploy an application on one line, and
+start the instance on another:
 
-```Java
+code,Java---------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
@@ -54,15 +64,20 @@ public class EmbeddedPayara
         micro.bootStrap();
     }
 }
-```
+---------------------------------------------------------------------
 
-## Deploying Multiple Applications Programmatically during Bootstrap
-Similar to when deploying multiple applications from the command line, you must call the `addDeployment` 
-or `addDeploymentFile` method for each application you wish to deploy.
+[[deploying-multiple-applications-programmatically-during-bootstrap]]
+Deploying Multiple Applications Programmatically during Bootstrap
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Similar to when deploying multiple applications from the command line,
+you must call the `addDeployment` or `addDeploymentFile` method for each
+application you wish to deploy.
 
 For example, to deploy three applications:
 
-```Java
+code,Java---------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
@@ -79,16 +94,19 @@ public class EmbeddedPayara
         micro.bootStrap();
     }
 }
-```
+---------------------------------------------------------------------
 
-Alternatively, you can use the programmatic equivalent of the `--deploymentDir` command line option (described in the section 
-[Deploying From the Command Line](deploy-cmd-line.md#deploying-multiple-applications)):
+Alternatively, you can use the programmatic equivalent of the
+`--deploymentDir` command line option (described in the section
+link:deploy-cmd-line.md#deploying-multiple-applications[Deploying From
+the Command Line]):
 
-   * `setDeploymentDir(File deploymentRoot)` method
+* `setDeploymentDir(File deploymentRoot)` method
 
 For example:
 
-```Java
+code,Java---------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 import java.io.File;
@@ -103,5 +121,4 @@ public class EmbeddedPayara
         micro.bootStrap();
     }
 }
-```
-
+---------------------------------------------------------------------

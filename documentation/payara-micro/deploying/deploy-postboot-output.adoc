@@ -1,8 +1,13 @@
-# Payara Micro Post Boot Output
+[[payara-micro-post-boot-output]]
+Payara Micro Post Boot Output
+-----------------------------
 
-## Deployed Apps
+[[deployed-apps]]
+Deployed Apps
+~~~~~~~~~~~~~
 
-After Payara Micro has booted, the log output will list data about the Payara Micro instance and its deployed apps.
+After Payara Micro has booted, the log output will list data about the
+Payara Micro instance and its deployed apps.
 
 This data includes:
 
@@ -17,7 +22,8 @@ This data includes:
 
 As an example of this output:
 
-```Shell
+code,Shell----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+code,Shell
 [DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[
 Instance Configuration
 Host: Example-Host
@@ -40,4 +46,4 @@ http://example:port/exampleappendpoint2
 https://example:port/exampleappendpoint2
 
 ]]
-```
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

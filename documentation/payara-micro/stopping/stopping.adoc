@@ -1,7 +1,12 @@
-# Stopping an Instance
+[[stopping-an-instance]]
+Stopping an Instance
+--------------------
+
 This section describes how to shut down a Payara Micro instance.
 
-## Stopping an Instance from the Command Line
+[[stopping-an-instance-from-the-command-line]]
+Stopping an Instance from the Command Line
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Payara Micro instances can be stopped by either:
 
@@ -10,12 +15,20 @@ Payara Micro instances can be stopped by either:
 
 Since: 4.1.1.171
 
-## Stopping an Instance Programmatically
-To shut down a Payara Micro instance programmatically, you will need to use the `shutdown()` method of the `PayaraMicro` or `PayaraMicroRuntime` class.
+[[stopping-an-instance-programmatically]]
+Stopping an Instance Programmatically
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `shutdown()` method of the `PayaraMicro` class must be called on the instance of Payara Micro that you want to shut down, so will realistically only be used on a `PayaraMicro` instance variable:
+To shut down a Payara Micro instance programmatically, you will need to
+use the `shutdown()` method of the `PayaraMicro` or `PayaraMicroRuntime`
+class.
 
-```Java
+The `shutdown()` method of the `PayaraMicro` class must be called on the
+instance of Payara Micro that you want to shut down, so will
+realistically only be used on a `PayaraMicro` instance variable:
+
+code,Java--------------------------------------------------------------------
+code,Java
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
@@ -29,11 +42,13 @@ public class EmbeddedPayara
         micro.shutdown();
     }
 }
-```
+--------------------------------------------------------------------
 
-The `shutdown()` method of the `PayaraMicroRuntime` class is tied to an instance variable, so is used in much the same way:
+The `shutdown()` method of the `PayaraMicroRuntime` class is tied to an
+instance variable, so is used in much the same way:
 
-```Java
+code,Java--------------------------------------------------------------------
+code,Java
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicroRuntime;
@@ -47,4 +62,4 @@ public class EmbeddedPayara
         instance.shutdown();
     }
 }
-```
+--------------------------------------------------------------------

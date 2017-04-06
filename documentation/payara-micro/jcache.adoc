@@ -1,3 +1,8 @@
-# JCache in Payara Micro
+[[jcache-in-payara-micro]]
+JCache in Payara Micro
+----------------------
 
-Both Payara Micro and Payara MicroProfile provide JCache functionality. All the documentation for using [JCache in Payara Server](../extended-documentation/jcache.md) applies for both Payara Micro and MicroProfile.
+Both Payara Micro and Payara MicroProfile provide JCache functionality.
+All the documentation for using
+link:../extended-documentation/jcache.md[JCache in Payara Server]
+applies for both Payara Micro and MicroProfile.

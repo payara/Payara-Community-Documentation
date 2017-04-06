@@ -1,54 +1,91 @@
-# Healthcheck Service
-#### Command Reference
+[[healthcheck-service]]
+Healthcheck Service
+-------------------
 
+[[command-reference]]
+Command Reference
++++++++++++++++++
 
-## `healthcheck-configure`
-__Usage:__ `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
+[[healthcheck-configure]]
+`healthcheck-configure`
+~~~~~~~~~~~~~~~~~~~~~~~
 
-__Aim:__  Enables or disables the health check service. The command updates the `domain.xml` with the provided configuration but does not apply changes directly to the working service by default. It can also store a given number of historical health checks.
+*Usage:*
+`asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
 
-#### Command Options:
+*Aim:* Enables or disables the health check service. The command updates
+the `domain.xml` with the provided configuration but does not apply
+changes directly to the working service by default. It can also store a
+given number of historical health checks.
 
-| Option | Type | Description | Default | Mandatory |
-| --- | --- | --- | --- | --- |
-| `--target` | String | The instance or cluster that will enable or disable its service | server | no |
-| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no |
-| `--enabled` | Boolean | Whether to enable or disable the service | N/A | yes |
-| `--historicaltraceenabled` | Boolean | Enables historic checks if present | false | no |
-| `--historicaltracestoresize` | Integer | Sets the maximum number of health checks to store | 20 | no |
+[[command-options]]
+Command Options:
+++++++++++++++++
 
-#### Example:
-To enable the Healthcheck service such that it will only activate from the next time the server is restarted, the following command would be used:
-```
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--target` |String |The instance or cluster that will enable or disable
+its service |server |no
+
+|`--dynamic` |Boolean |Whether to apply the changes directly to the
+server without a reboot |false |no
+
+|`--enabled` |Boolean |Whether to enable or disable the service |N/A
+|yes
+
+|`--historicaltraceenabled` |Boolean |Enables historic checks if present
+|false |no
+
+|`--historicaltracestoresize` |Integer |Sets the maximum number of
+health checks to store |20 |no
+|=======================================================================
+
+[[example]]
+Example:
+++++++++
+
+To enable the Healthcheck service such that it will only activate from
+the next time the server is restarted, the following command would be
+used:
+
+---------------------------------
 asadmin> healthcheck-configure \
     --enabled=true \
     --dynamic=false \
     --historicaltraceenabled \
     --historicaltracestoresize=20
-```
+---------------------------------
 
-## `healthcheck-list-services`
-__Usage:__ `asadmin> healthcheck-list-services`
+[[healthcheck-list-services]]
+`healthcheck-list-services`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-__Aim:__ Lists the names of all metric services that can be configured for monitoring.
+*Usage:* `asadmin> healthcheck-list-services`
 
-#### Command Options
+*Aim:* Lists the names of all metric services that can be configured for
+monitoring.
+
+[[command-options-1]]
+Command Options
++++++++++++++++
+
 There are no options for this command.
 
-#### Example
+[[example-1]]
+Example
++++++++
 
 Running the command will show output similar to the example below:
 
-> ```
-> Available Health Check Services:
->
-> healthcheck-cpool
-> healthcheck-cpu
-> healthcheck-gc
-> healthcheck-heap
-> healthcheck-threads
-> healthcheck-machinemem
-```
+____________________________________________________________________________________________________________
+``` Available Health Check Services:
+
+healthcheck-cpool healthcheck-cpu healthcheck-gc healthcheck-heap
+healthcheck-threads healthcheck-machinemem
+____________________________________________________________________________________________________________
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## `healthcheck-configure-service`
 __Usage:__ `asadmin> healthcheck-configure-service --serviceName=<service.name> --name=<name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
@@ -71,10 +108,12 @@ If this command gets executed before running the [`healthcheck-configure`](#heal
 
 #### Example
 A very basic command to simply enable the GC checker and activate it without needing a restart would be as follows:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-```
-asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-gc --name=MYAPP-GC --dynamic=true
-```
+asadmin> healthcheck-configure-service --enabled=true
+--serviceName=healthcheck-gc --name=MYAPP-GC --dynamic=true
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ## `healthcheck-configure-service-threshold`
@@ -111,15 +150,16 @@ There is no _asadmin_ command to configure the _**Garbage Collection**_ metric, 
 Monitoring the health of JDBC connection pools is a common need. In that scenario, it is very unlikely that on-the-fly configuration changes would be made, so a very high `CRITICAL` threshold can be set. Likewise, a nonzero `GOOD` threshold is needed because an empty or unused connection pool may not be healthy either. (The actual `GOOD` threshold would need to be arrived at following testing).
 
 The following command would apply these settings to the connection pool checker:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-```
-asadmin> healthcheck-configure-service-threshold \
-    --serviceName=healthcheck-cpool \
-    --dynamic=true \
-    --thresholdCritical=95 \
-    --thresholdWarning=70 \
-    --thresholdGood=30
-```
+asadmin> healthcheck-configure-service-threshold +
+ --serviceName=healthcheck-cpool +
+ --dynamic=true +
+ --thresholdCritical=95 +
+ --thresholdWarning=70 +
+ --thresholdGood=30
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## `healthcheck-hoggingthreads-configure`
 
@@ -146,22 +186,23 @@ You can also use this command to enable this metric checking and also configure 
 Monitoring which threads hog the CPU is extremely important since this can lead to performance degradation, deadlocks and extreme bottlenecks issues that web applications can incur. In some cases the defaults are all that is needed, but imagine that in a critical system you want to set the threshold percentage to **90%**, and you want to make sure that the healthcheck service guarantees the state of such threads with a retry count of 5. Additionally, you want to set the frequency of this check for every _20 seconds_.
 
 The following command would apply these settings to the connection pool checker:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-```
-asadmin> healthcheck-hoggingthreads-configure \
-    --dynamic=true \
-    --threshold-percentage=90 \
-    --retry-count=5 \
-    --time=20 \
-    --unit=SECONDS
-```
+asadmin> healthcheck-hoggingthreads-configure +
+ --dynamic=true +
+ --threshold-percentage=90 +
+ --retry-count=5 +
+ --time=20 +
+ --unit=SECONDS
+
+-------------------------------------------------------------------------------------------------------------------------
 
 
 
 ## `get-healthcheck-configuration`
 
-__Usage:__ `asadmin> get-healthcheck-configuration`		
-￼  		￼  
+__Usage:__ `asadmin> get-healthcheck-configuration`     
+￼       ￼  
 __Aim:__ Lists the current configuration for the health check service and for the configured metrics in a tabular format.
 
 #### Command Options
@@ -169,21 +210,18 @@ There are no options for this command.
 
 #### Example
 A sample output is as follows:
+-------------------------------------------------------------------------------------------------------------------------
 
-```
 Health Check Service Configuration is enabled?: true
 
-Below are the list of configuration details of each checker listed by its name.
+Below are the list of configuration details of each checker listed by
+its name.
 
-Name    Enabled    Time    Unit
-GC      false      10      SECONDS
+Name Enabled Time Unit GC false 10 SECONDS
 
-Name    Enabled    Time    Unit     Threshold Percentage    Retry Count
-HT      true       10      SECONDS  95                      3
+Name Enabled Time Unit Threshold Percentage Retry Count HT true 10
+SECONDS 95 3
 
-Name    Enabled    Time    Unit     Critical Threshold      Warning Threshold      Good Threshold
-CONP    true       5       MINUTES  70                      40                     20
-CPU     false      10      SECONDS  40                      20                     2
-HP      false      8       SECONDS  -                       -                      -
-MM      false      7       SECONDS  -                       -                      -
-```
+Name Enabled Time Unit Critical Threshold Warning Threshold Good
+Threshold CONP true 5 MINUTES 70 40 20 CPU false 10 SECONDS 40 20 2 HP
+false 8 SECONDS - - - MM false 7 SECONDS - - - ```

@@ -1,1 +1,3 @@
-# Payara Micro Appendices
+[[payara-micro-appendices]]
+Payara Micro Appendices
+-----------------------
