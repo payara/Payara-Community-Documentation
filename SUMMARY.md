@@ -56,6 +56,7 @@
       * [JMS Notifier](documentation/extended-documentation/notification-service/notifiers/jms-notifier.md)
       * [Email Notifier](documentation/extended-documentation/notification-service/notifiers/email-notifier.md)
       * [Log Notifier](documentation/extended-documentation/notification-service/notifiers/log-notifier.md)
+      * [SNMP Notifier](documentation/extended-documentation/notification-service/notifiers/snmp-notifier.md)
   * [Request Tracing Service](documentation/extended-documentation/request-tracing-service/request-tracing-service.md)
     * [Asadmin Commands](documentation/extended-documentation/request-tracing-service/asadmin-commands.md)
     * [Configuration](documentation/extended-documentation/request-tracing-service/configuration.md)
