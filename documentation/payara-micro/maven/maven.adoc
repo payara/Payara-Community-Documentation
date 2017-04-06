@@ -25,7 +25,7 @@ code,MAVEN_POM----------------------------------------- code,MAVEN_POM
 the Maven artifact, e.g. \{\{ book.currentVersion }}.
 
 Starting from release _4.1.1.171_, you need to add a dependency to the
-link:/documentation/extended-documentation/app-deployment/public-api.md[Public
+link:/documentation/extended-documentation/app-deployment/public-api.adoc[Public
 API] when developing applications that use proprietary features
 (`@Traced` or `@NamedCache` for example)
 

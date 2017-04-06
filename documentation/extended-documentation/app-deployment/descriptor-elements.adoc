@@ -16,7 +16,7 @@ overriding the versions included on the server.
 
 For more information about how class delegation can be configured on
 Payara Server, see the
-link:/documentation/extended-documentation/classloading.md[Enhanced
+link:/documentation/extended-documentation/classloading.adoc[Enhanced
 Classloading] section.
 
 [[whitelist-package]]
@@ -29,7 +29,7 @@ libraries included on the server.
 
 For more information about how extreme classloading isolation works on
 Payara Server, see the
-link:/documentation/extended-documentation/classloading.md[Enhanced
+link:/documentation/extended-documentation/classloading.adoc[Enhanced
 Classloading] section.
 
 [[enable-implicit-cdi]]
@@ -139,7 +139,7 @@ asadmin set configs.config.server-config.security-service.activate-default-princ
 Except it's effect will only limit itself to the application instead of
 all applications deployed on the server. This setting is configured by
 default to `true` on the
-link:../production-ready-domain.md[production-ready-domain]
+link:../production-ready-domain.adoc[production-ready-domain]
 
 The default value of this property is `false`. This property can be set
 in the `glassfish-web.xml`, `glassfish-ejb-jar.xml` and

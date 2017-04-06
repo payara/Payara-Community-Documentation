@@ -3,7 +3,7 @@ Request Tracing in Payara Micro
 -------------------------------
 
 The
-link:/documentation/extended-documentation/request-tracing-service/request-tracing-service.md[request
+link:/documentation/extended-documentation/request-tracing-service/request-tracing-service.adoc[request
 tracing service] was made available in Payara Micro from the 4.1.1.164
 release. The service itself is exactly the same and will trace all the
 same events.

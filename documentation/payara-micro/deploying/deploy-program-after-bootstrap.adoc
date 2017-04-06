@@ -14,7 +14,7 @@ bootstrapped instance:
 ^^^^^^^^^^^^^^^^^^
 
 The first method works in the same way as the `addDeploymentFile` method
-described in the section link:deploy-program-bootstrap.md[Deploying
+described in the section link:deploy-program-bootstrap.adoc[Deploying
 Programmatically during Bootstrap].
 
 code,Java---------------------------------------------------------------------

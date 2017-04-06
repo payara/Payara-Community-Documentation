@@ -122,7 +122,7 @@ asadmin set-asadmin-recorder-configuration --enabled true --outputLocation /home
 --------------------------------
 
 Documentation on running asadmin scripts can be found in the
-link:../core-documentation/core-documentation.md[Core Documentation], in
+link:../core-documentation/core-documentation.adoc[Core Documentation], in
 the GlassFish Server Administration Guide, under the _Run a Set of
 asadmin Subcommands From a File_ section.
 

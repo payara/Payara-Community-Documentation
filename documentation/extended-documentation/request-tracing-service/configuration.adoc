@@ -37,7 +37,7 @@ given above, it’s set to _30 SECONDS_.
 
 There is an additional configuration option which can be seen in the
 admin console, or specified as an argument to the
-link:asadmin-command.md[asadmin command] called `dynamic`. Setting this
+link:asadmin-command.adoc[asadmin command] called `dynamic`. Setting this
 to true will activate the change _without a server restart._
 
 image:/images/request-tracing-configuration-admin-console.png[Request

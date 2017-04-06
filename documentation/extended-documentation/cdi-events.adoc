@@ -134,7 +134,7 @@ by default. In the case of a separate standalone instance, use the
 instance's name in the configuration. If you are using Payara Micro, the
 instance's name is configured using the --name option, or is generated
 by if not configured (see the section
-link:../payara-micro/configuring/instance-names.md[Payara Micro Instance
+link:../payara-micro/configuring/instance-names.adoc[Payara Micro Instance
 Names]).
 
 [[loopback]]

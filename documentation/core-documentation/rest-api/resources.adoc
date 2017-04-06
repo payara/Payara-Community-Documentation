@@ -41,16 +41,16 @@ Responses
 
 |HTTP Code|Description|Schema| |---|---|---| |*200*|The operation has
 executed successfully and contextual information about the result is
-returned.|link:/documentation/core-documentation/rest-api/definitions.md#operationresult[OperationResult]|
+returned.|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]|
 |*400*|The operation has failed. One of the possible reasons are:
 The command or method`s request parameters aren`t set correctly.
 The X-Requested-By header was not set correctly.
 An integrity error has ocurred with the target resource, for example a
 resource already exists with the same JNDI name. (An operation result
 object is returned for examination)
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]|
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]|
 |*401*|Users credentials are not valid to execute this
-operation|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]|
+operation|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]|
 |*404*|Either the parent resource (when adding new resources) or the
 target resource (when updating a resource) does not exists.|No Content|
 
@@ -68,10 +68,10 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple_auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple_auth[simple_auth]*
 
 |*apiKey*
-|*link:/documentation/core-documentation/rest-api/security.md#token_cookie[token_cookie]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
  #### Get information for a resource
@@ -107,10 +107,10 @@ Responses
 |HTTP Code |Description |Schema
 |*200* |An object representing the contextual information for the
 resource
-|link:/documentation/core-documentation/rest-api/definitions.md#operationresult[OperationResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*404* |The specified resource does not exist |No Content
 |=======================================================================
@@ -129,10 +129,10 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple-auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple-auth[simple_auth]*
 
 |*apiKey*
-|*link:/documentation/core-documentation/rest-api/security.md#token_cookie[token_cookie]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
  #### Delete a resource
@@ -169,14 +169,14 @@ Responses
 |HTTP Code |Description |Schema
 |*200* |The operation has executed successfully and contextual
 information about the result is returned.
-|link:/documentation/core-documentation/rest-api/definitions.md#operationresult[OperationResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]
 
 |*400* |The operation has failed. The `X-Requested-By` header was not
 set correctly.
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*404* |The target resource does not exists. |No Content
 |=======================================================================
@@ -195,10 +195,10 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple-auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple-auth[simple_auth]*
 
 |*apiKey*
-|*link:/documentation/core-documentation/rest-api/security.md#token_cookie[token_cookie]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
  ### Logging Used for domain logging purposes
@@ -238,7 +238,7 @@ Responses
 the changes made to this log after this call was executed. |No Content
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
 [[produces-3]]
@@ -266,11 +266,11 @@ Responses
 |=======================================================================
 |HTTP Code |Description |Schema
 |*200* |An array of the log records retrieved. |<
-link:/documentation/core-documentation/rest-api/definitions.md#logrecord[LogRecord]
+link:/documentation/core-documentation/rest-api/definitions.adoc#logrecord[LogRecord]
 > array
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
 [[produces-4]]
@@ -319,15 +319,15 @@ Responses
 resource, with the monitoring statistics if a child resource. If the
 resource is parent resource, then the child resources that can be
 monitored will be returned.
-|link:/documentation/core-documentation/rest-api/definitions.md#monitoringresult[MonitoringResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#monitoringresult[MonitoringResult]
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*404* |Either the resource does not exist or the category (parent
 resource) of the resource has not been configured for being monitored
 yet.
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
 [[produces-5]]
@@ -344,10 +344,10 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple-auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple-auth[simple_auth]*
 
 |*apiKey*
-|*link:/documentation/core-documentation/rest-api/security.md#token_cookie[token_cookie]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
  ### Sessions Used for session management
@@ -382,14 +382,14 @@ Responses
 |=======================================================================
 |HTTP Code |Description |Schema
 |*200* |Returns the session token successfully
-|link:/documentation/core-documentation/rest-api/definitions.md#tokenresult[TokenResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#tokenresult[TokenResult]
 
 |*400* |The operation has failed. The `X-Requested-By` header was not
 set correctly.
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
 [[produces-6]]
@@ -406,7 +406,7 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple-auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple-auth[simple_auth]*
 |=======================================================================
 
  #### Delete session token
@@ -440,14 +440,14 @@ Responses
 |=======================================================================
 |HTTP Code |Description |Schema
 |*200* |The session token was deleted successfully.
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*400* |The operation has failed. Either the `X-Requested-By` header was
 not set correctly or the supplied token does not exist.
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 
 |*401* |Users credentials are not valid to execute this operation
-|link:/documentation/core-documentation/rest-api/definitions.md#generalresult[GeneralResult]
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
 [[produces-7]]
@@ -464,5 +464,5 @@ Security
 |=======================================================================
 |Type |Name
 |*basic*
-|*link:/documentation/core-documentation/rest-api/security.md#simple-auth[simple_auth]*
+|*link:/documentation/core-documentation/rest-api/security.adoc#simple-auth[simple_auth]*
 |=======================================================================

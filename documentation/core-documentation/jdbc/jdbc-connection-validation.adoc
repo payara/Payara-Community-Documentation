@@ -13,5 +13,5 @@ response.
 
 For details on the new capabilities of Payara Server connection pools,
 see the
-link:/documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.md[Advanced
+link:/documentation/extended-documentation/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.adoc[Advanced
 JDBC Configuration and Diagnostics page] in the extended documentation.

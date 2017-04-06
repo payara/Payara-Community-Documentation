@@ -7,7 +7,7 @@ Deploying an Application
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 As noted in section
-link:../starting-instance.md#starting-an-instance-from-the-command-line[Starting
+link:../starting-instance.adoc#starting-an-instance-from-the-command-line[Starting
 an Instance], all Payara Micro actions are run for the Payara Micro JAR,
 all in one command; it is not possible to start an instance with one
 command, and deploy an application to it with another.

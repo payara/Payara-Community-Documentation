@@ -196,7 +196,7 @@ A large portion of our work is prompted by the actions of the community.
 If you have an issue which you have found with Payara, or a feature
 which you would like to be implemented we welcome the raising of GitHub
 issues. The template for GitHub issues can be viewed
-link:here[https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.md]
+link:here[https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.adoc]
 as well as when a new issue is created.
 
 [[reporting-bugs]]

@@ -3,7 +3,7 @@ Email Notifier
 --------------
 
 Payara Server is now able to direct notifications from the
-link:/documentation/extended-documentation/notification-service/notification-service.md[Notification
+link:/documentation/extended-documentation/notification-service/notification-service.adoc[Notification
 service] to a single given email address.
 
 [[requirements]]
@@ -27,7 +27,7 @@ Email Notifier Configuration
 
 You will need a JavaMail session to send the notifications; instructions
 on setting up a JavaMail session can be found
-link:/documentation/core-documentation/javamail.md[in the core
+link:/documentation/core-documentation/javamail.adoc[in the core
 documentation].
 
 The email notifier is configured in the Email tab of the Notification

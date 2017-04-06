@@ -8,7 +8,7 @@ specific *domains* and discuss work topics or subjects in separate
 *channels* that can either be public or private.
 
 Payara Server includes a special notifier to send notifications from the
-link:/documentation/extended-documentation/notification-service/notification-service.md[Notification
+link:/documentation/extended-documentation/notification-service/notification-service.adoc[Notification
 service] to an organization's domain channel using Slack API
 integrations.
 

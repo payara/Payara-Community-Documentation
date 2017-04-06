@@ -51,5 +51,5 @@ highly available, this completely avoids any danger when needing to
 See Also
 ++++++++
 
-* link:backup-domain.md[Payara Server Domain Backup]
-* link:upgrade-payara.md[Upgrade Payara Server]
+* link:backup-domain.adoc[Payara Server Domain Backup]
+* link:upgrade-payara.adoc[Upgrade Payara Server]

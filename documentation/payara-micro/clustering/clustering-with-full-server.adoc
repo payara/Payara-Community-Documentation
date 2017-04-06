@@ -11,5 +11,5 @@ name, and cluster password).
 When Payara Server DAS is connected to the same Hazelcast cluster, the
 Admin console can display the details about Payara Micro instances in
 the cluster. See
-link:/documentation/extended-documentation/hazelcast/cluster-members.md[Management
+link:/documentation/extended-documentation/hazelcast/cluster-members.adoc[Management
 of Hazelcast Cluster Members] section for details.

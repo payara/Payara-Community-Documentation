@@ -62,7 +62,7 @@ multiple clustered instances. There are two _run_ methods available for
 running asadmin commands: one which runs an asadmin command on a subset
 of instances in a cluster, and another than runs an asadmin command on
 all instances in a cluster. More detail on these can be found in the
-link:../asadmin.md[Running Asadmin Commands on Bootstrapped Instances]
+link:../asadmin.adoc[Running Asadmin Commands on Bootstrapped Instances]
 section.
 
 As an example of deploying an application to all instances in a cluster:

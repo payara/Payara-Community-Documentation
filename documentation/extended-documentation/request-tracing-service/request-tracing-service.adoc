@@ -41,5 +41,5 @@ observed)
 
 '''''
 
-* link:asadmin-commands.md[Asadmin Commands]
-* link:configuration.md[Configuration]
+* link:asadmin-commands.adoc[Asadmin Commands]
+* link:configuration.adoc[Configuration]

@@ -53,7 +53,7 @@ This will recreate the instance from scratch. Be aware, though, that
 this will *not* recreate things stored in the instance directory which
 are outside of the configuration like JMS filestores. If there is any
 JMS persistence which does not use a database, these must be handled
-manually. See link:restore-domain.md[Restore a Payara Domain] for more
+manually. See link:restore-domain.adoc[Restore a Payara Domain] for more
 detail.
 
 [[method-2-move-the-domain-directory-and-node-directories]]
@@ -146,5 +146,5 @@ You can start nodes in the same way:
 See Also
 ++++++++
 
-* link:backup-domain.md[Payara Server Domain Backup]
-* link:restore-domain.md[Restore a Payara Server Domain]
+* link:backup-domain.adoc[Payara Server Domain Backup]
+* link:restore-domain.adoc[Restore a Payara Server Domain]

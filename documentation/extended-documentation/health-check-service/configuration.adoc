@@ -90,7 +90,7 @@ Threshold configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Just like with the
-link:asadmin-commands.md#healthcheck-configure-service-threshold[`healthcheck-configure-service-threshold`
+link:asadmin-commands.adoc#healthcheck-configure-service-threshold[`healthcheck-configure-service-threshold`
 asadmin command], there are threshold configurations for the following
 checkers:
 

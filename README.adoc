@@ -6,17 +6,17 @@ features, and has grown a strong community following. The documentation
 here will be updated with all the significant changes made with each new
 release.
 
-link:getting-started/getting-started.md[Payara Server Documentation] -
+link:getting-started/getting-started.adoc[Payara Server Documentation] -
 The documentation of Payara Server edition. Consists of basic
 information,
-link:documentation/core-documentation/core-documentation.md[features
+link:documentation/core-documentation/core-documentation.adoc[features
 shared with GlassFish 4], and
-link:documentation/extended-documentation/extended-documentation.md[additional
+link:documentation/extended-documentation/extended-documentation.adoc[additional
 features].
 
-link:documentation/user-guides/user-guides.md[User Guides] - Useful
+link:documentation/user-guides/user-guides.adoc[User Guides] - Useful
 guides and tutorials.
 
-link:documentation/payara-micro/payara-micro.md[Payara Micro
+link:documentation/payara-micro/payara-micro.adoc[Payara Micro
 Documentation] +
  - The documentation of Payara Micro edition.

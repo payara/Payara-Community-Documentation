@@ -22,7 +22,7 @@ query exceeds a defined threshold. This enables your operations team to
 rapidly diagnose performance problems and identify poorly performing
 SQL.
 
-See link:slow-sql-logger.md[Slow-SQL-Logger] for detailed information.
+See link:slow-sql-logger.adoc[Slow-SQL-Logger] for detailed information.
 
 [[full-jdbc-tracing]]
 Full JDBC Tracing
@@ -35,7 +35,7 @@ frameworks like JPA and see what the performance characteristics look
 like. As the tracing is done at the connection pool level all direct SQL
 or other data access technologies are captured.
 
-See link:log-jdbc-calls.md[Log-JDBC-Calls] for detailed information.
+See link:log-jdbc-calls.adoc[Log-JDBC-Calls] for detailed information.
 
 [[sql-trace-listeners]]
 SQL Trace Listeners
@@ -46,7 +46,7 @@ the Payara Server Slow SQL Logging and JDBC tracing capabilities to
 create custom diagnostic and tracing functionality via SQL Trace
 Listeners.
 
-See link:sql-trace-listeners.md[SQL Trace Listeners] for detailed
+See link:sql-trace-listeners.adoc[SQL Trace Listeners] for detailed
 Information.
 
 [[advanced-connection-pool-configuration-properties]]
@@ -58,7 +58,7 @@ for Payara Server global datasources can now be configured on
 application scoped datasources deployed via deployment descriptors or
 annotations.
 
-See link:advanced-connection-pool-properties.md[Advanced Connection Pool
+See link:advanced-connection-pool-properties.adoc[Advanced Connection Pool
 Properties] for detailed information.
 
 [[jdbc-connection-validation-changes]]
@@ -66,7 +66,7 @@ JDBC Connection Validation Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See the
-link:/documentation/core-documentation/jdbc/jdbc-connection-validation.md[JDBC
+link:/documentation/core-documentation/jdbc/jdbc-connection-validation.adoc[JDBC
 Connection Validation page] in the core documentation for information on
 changes between GlassFish Server and Payara Server's JDBC Connection
 Validation.

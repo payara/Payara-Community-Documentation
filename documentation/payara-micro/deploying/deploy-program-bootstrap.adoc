@@ -98,7 +98,7 @@ public class EmbeddedPayara
 
 Alternatively, you can use the programmatic equivalent of the
 `--deploymentDir` command line option (described in the section
-link:deploy-cmd-line.md#deploying-multiple-applications[Deploying From
+link:deploy-cmd-line.adoc#deploying-multiple-applications[Deploying From
 the Command Line]):
 
 * `setDeploymentDir(File deploymentRoot)` method

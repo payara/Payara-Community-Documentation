@@ -12,7 +12,7 @@ on the instance configuration.
 The log notifier only handles the output of notifications from the
 notification service sent to the log and is not responsible for any
 other log output - more details on Payara Server logging can be found on
-link:documentation/core-documentation/logging/logging.md[the logging
+link:documentation/core-documentation/logging/logging.adoc[the logging
 page]. ## Configuration
 
 By default, the log notifier will receive notifications from the
@@ -26,8 +26,8 @@ Payara Configuration
 The log notifier is, by default, disabled on new domains.
 
 The
-link:/documentation/extended-documentation/notification-service/notification-service.md[notification
-service]](/documentation/extended-documentation/notification-service/notification-service.md)
+link:/documentation/extended-documentation/notification-service/notification-service.adoc[notification
+service]](/documentation/extended-documentation/notification-service/notification-service.adoc)
 will automatically enable the log notifier when activated - the log
 notifier will not work without the notification service.
 
@@ -40,7 +40,7 @@ asadmin notification-log-configure --enabled=true --dynamic=true
 
 More details on specific commands for the notification service can be
 found on the [notification
-service](/documentation/extended-documentation/notification-service/notification-service.md](/documentation/extended-documentation/notification-service/notification-service.md)
+service](/documentation/extended-documentation/notification-service/notification-service.adoc](/documentation/extended-documentation/notification-service/notification-service.md)
 page.
 
 [[log-configuration]]

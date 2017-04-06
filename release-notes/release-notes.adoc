@@ -10,20 +10,20 @@ All Release Notes
 
 *2016*
 
-* 2016 Q4 - link:release-notes-164.md[Payara Server 4.1.1.164]
-* 2016 Q3 - link:release-notes-163.md[Payara Server 4.1.1.163]
-* 2016 Q2 - link:release-notes-162.md[Payara Server 4.1.1.162]
-* 2016 Q1 - link:release-notes-161.1.md[Payara Server 4.1.1.161.1]
-* 2016 Q1 - link:release-notes-161.md[Payara Server 4.1.1.161]
+* 2016 Q4 - link:release-notes-164.adoc[Payara Server 4.1.1.164]
+* 2016 Q3 - link:release-notes-163.adoc[Payara Server 4.1.1.163]
+* 2016 Q2 - link:release-notes-162.adoc[Payara Server 4.1.1.162]
+* 2016 Q1 - link:release-notes-161.1.adoc[Payara Server 4.1.1.161.1]
+* 2016 Q1 - link:release-notes-161.adoc[Payara Server 4.1.1.161]
 
 *2015*
 
-* 2015 Q4 - link:release-notes-154.md[Payara Server 4.1.1.154]
-* 2015 Q3 - link:release-notes-153.md[Payara Server 4.1.153]
-* 2015 Q2 - link:release-notes-152.1.md[Payara Server 4.1.152.1]
-* 2015 Q2 - link:release-notes-152.md[Payara Server 4.1.152]
-* 2015 Q1 - link:release-notes-151.md[Payara Server 4.1.151]
+* 2015 Q4 - link:release-notes-154.adoc[Payara Server 4.1.1.154]
+* 2015 Q3 - link:release-notes-153.adoc[Payara Server 4.1.153]
+* 2015 Q2 - link:release-notes-152.1.adoc[Payara Server 4.1.152.1]
+* 2015 Q2 - link:release-notes-152.adoc[Payara Server 4.1.152]
+* 2015 Q1 - link:release-notes-151.adoc[Payara Server 4.1.151]
 
 *2014*
 
-* 2014 Q4 - link:release-notes-144.md[Payara Server 4.1.144]
+* 2014 Q4 - link:release-notes-144.adoc[Payara Server 4.1.144]

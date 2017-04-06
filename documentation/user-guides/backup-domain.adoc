@@ -37,5 +37,5 @@ Payara Server.
 See Also
 ++++++++
 
-* link:restore-domain.md[Restore a Payara Server Domain]
-* link:upgrade-payara.md[Upgrade Payara Server]
+* link:restore-domain.adoc[Restore a Payara Server Domain]
+* link:upgrade-payara.adoc[Upgrade Payara Server]

@@ -130,7 +130,7 @@ requirements to create a bug fix or enhancement request is a GitHub
 account, and a reproducible bug or idea for an enhancement; you do not
 need to sign the _CLA_ to create an enhancement or bug fix request. We
 also provide an
-https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.md[Issue
+https://github.com/payara/Payara/blob/master/.github/ISSUE_TEMPLATE.adoc[Issue
 Template] that can help you describe bug reports or enhancement requests
 in an easier manner.
 
