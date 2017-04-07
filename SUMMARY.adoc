@@ -8,6 +8,7 @@ General Info
 
 * link:README.adoc[Introduction]
 * link:general-info/general-info.adoc[General Info]
+* link:general-info/contributing-to-payara.adoc[Contributing to Payara]
 * link:getting-started/getting-started.adoc[Getting Started]
 * link:build-instructions/build-instructions.adoc[Build Instructions]
 * link:security/security.adoc[Security]

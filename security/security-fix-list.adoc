@@ -2,131 +2,28 @@
 Security Fixes Summary
 ----------------------
 
-The following is a list of tracked _*C*ommon *V*ulnerabilities and
-*E*xposures_ that have been reported and analyzed, which can or have
-impacted Payara Server across releases:
+The following is a list of tracked _**C**ommon **V**ulnerabilities and **E**xposures_ that have been reported and analyzed, which can or have impacted Payara Server across releases:
 
 [cols="<,<,<,<,<,<",options="header",]
 |=======================================================================
 |ID |Status |Summary |Release |Pull Requests |Observations
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6726[CVE-2007-6726]
-|FIXED |XSS Vulnerabilities in *Dojo* libraries used for admin console
-|4.1.1.163
-|https://github.com/payara/Payara_PatchedProjects/pull/35[#35],
-https://github.com/payara/Payara_PatchedProjects/pull/978[#978],
-https://github.com/payara/Payara_PatchedProjects/pull/979[#979]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2098[CVE-2012-2098]
-|FIXED |Apache Commons Compress *bzip2* vulnerability allows DDoS
-attacks |4.1.1.163
-|https://github.com/payara/Payara_PatchedProjects/pull/799[#799],
-https://github.com/payara/Payara_PatchedProjects/pull/931[#931],
-https://github.com/payara/Payara_PatchedProjects/pull/1005[#1005],
-https://github.com/payara/Payara_PatchedProjects/pull/1006[#1006]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2035[CVE-2013-2035]
-|FIXED |Race condition in outdated *jLine* code allows arbitrary code
-execution |4.1.1.171
-|https://github.com/payara/Payara_PatchedProjects/pull/931[#931],
-https://github.com/payara/Payara_PatchedProjects/pull/1005[#1005],
-https://github.com/payara/Payara_PatchedProjects/pull/1006[#1006],
-https://github.com/payara/Payara_PatchedProjects/pull/839[#839],
-https://github.com/payara/Payara_PatchedProjects/pull/841[#841],
-https://github.com/payara/Payara_PatchedProjects/pull/840[#840]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050[CVE-2014-0050]
-|FIXED |Apache Commons FileUpload allows DDoS attacks via crafted
-`Content-Type` headers |4.1.1.154.1
-|https://github.com/payara/Payara_PatchedProjects/pull/560[#560]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0254[CVE-2015-0254]
-|N/A |Vulnerabilities on Apache JSTL allows arbitrary code injection
-|[multiblock cell omitted] |[multiblock cell omitted] |Payara Server
-uses the `FEATURE_SECURE_PROCESSING` feature of JAXP so is not affected
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3237[CVE-2015-3237]
-|N/A |Vulnerabilities in smb_request_state function in *cURL*
-|[multiblock cell omitted] |[multiblock cell omitted] |Payara Server
-doesn't ship with either *cURL* or *licurl* so it's not affected
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5346[CVE-2015-5346]
-|N/A |Apache Tomcat Vulnerability in session recycling for *SSL
-*requests |[multiblock cell omitted] |[multiblock cell omitted] |Payara
-Server implementation of the Request class doesn't contain the
-problematic variable being recycled
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5351[CVE-2015-5351]
-|N/A |Apache Tomcat Manager Applications Session and *CSRF *token
-vulnerabilities |[multiblock cell omitted] |[multiblock cell omitted]
-|Unrelated to Payara Server since this affects specific Tomcat
-applications
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0706[CVE-2016-0706]
-|N/A |Apache Tomcat Vulnerability on `StatusManagerServlet` component
-allows reads of HTTP requests and discover session IDs
-|[multiblock cell omitted] |[multiblock cell omitted] |Payara Server
-doesn't use the `StatusManagerServlet` component so it's not affected
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0714[CVE-2016-0714]
-|N/A |Session persistence in Apache Tomcat allows arbitrary code
-injection |[multiblock cell omitted] |[multiblock cell omitted] |Payara
-Server doesn't use the affected objects in the same way that Tomcat does
-so the flaw is not present
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0763[CVE-2016-0763]
-|FIXED |Vulnerability in `ResourceLinkFactory.setGlobalContext` method
-on Apache Tomcat |4.1.1.164.1
-|https://github.com/payara/Payara_PatchedProjects/pull/1210[#1210]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3092[CVE-2016-3092]
-|FIXED |Apache Commons FileUpload allows DDoS attacks via `Multipart`
-class |4.1.1.163
-|https://github.com/payara/Payara_PatchedProjects/pull/953[#953]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427[CVE-2016-3427]
-|FIXED |Unspecified vulnerability in various versions of the Oracle JDK
-and JRockit |4.1.1.164.1
-|https://github.com/payara/Payara_PatchedProjects/pull/1209[#1209]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3607[CVE-2016-3607]
-|FIXED |Unspecified vulnerability on Oracle GlassFish 3.0+ affects
-confidentiality |4.1.1.163
-|https://github.com/payara/Payara_PatchedProjects/pull/1029[#1029],
-https://github.com/payara/Payara_PatchedProjects/pull/1031[#1031],
-https://github.com/payara/Payara_PatchedProjects/pull/1011[#1011]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3608[CVE-2016-3608]
-|N/A |Unspecified vulnerability on Oracle GlassFish 3.0.1 affects
-confidentiality |[multiblock cell omitted] |[multiblock cell omitted]
-|Affects an older version of GlassFish but not Payara Server
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5388[CVE-2016-5388]
-|FIXED |Apache Tomcat does not protect applications from untrusted data
-when using the CGI Servlet |4.1.1.163.1
-|https://github.com/payara/Payara_PatchedProjects/pull/1051[#1051]
-|[multiblock cell omitted]
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5477[CVE-2016-5477]
-|N/A |Unspecified vulnerability on Oracle GlassFish 3.0.1 affects
-confidentiality |[multiblock cell omitted] |[multiblock cell omitted]
-|Affects an older version of GlassFish but not Payara Server
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5519[CVE-2016-5519]
-|PENDING |Unspecified vulnerability on JSF implementation for Oracle
-Glassfish 3.0+ |[multiblock cell omitted] |[multiblock cell omitted]
-|Pending for assesment
-
-|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816[CVE-2016-6816]
-|N/A |Apache Tomcat HTTP request parsing vulnerability allow injection
-of data into reponse |[multiblock cell omitted]
-|[multiblock cell omitted] |Payara Server doesn't have included the
-Coyote components affected
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6726[CVE-2007-6726] |FIXED |XSS Vulnerabilities in *Dojo* libraries used for admin console |4.1.1.163 |https://github.com/payara/Payara_PatchedProjects/pull/35[#35], https://github.com/payara/Payara_PatchedProjects/pull/978[#978], https://github.com/payara/Payara_PatchedProjects/pull/979[#979] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-2098[CVE-2012-2098] |FIXED |Apache Commons Compress *bzip2* vulnerability allows DDoS attacks |4.1.1.163 |https://github.com/payara/Payara_PatchedProjects/pull/799[#799], https://github.com/payara/Payara_PatchedProjects/pull/931[#931], https://github.com/payara/Payara_PatchedProjects/pull/1005[#1005], https://github.com/payara/Payara_PatchedProjects/pull/1006[#1006] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2035[CVE-2013-2035] |FIXED |Race condition in outdated *jLine* code allows arbitrary code execution |4.1.1.171 |https://github.com/payara/Payara_PatchedProjects/pull/931[#931], https://github.com/payara/Payara_PatchedProjects/pull/1005[#1005], https://github.com/payara/Payara_PatchedProjects/pull/1006[#1006], https://github.com/payara/Payara_PatchedProjects/pull/839[#839], https://github.com/payara/Payara_PatchedProjects/pull/841[#841], https://github.com/payara/Payara_PatchedProjects/pull/840[#840] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0050[CVE-2014-0050] |FIXED |Apache Commons FileUpload allows DDoS attacks via crafted `Content-Type` headers |4.1.1.154.1 |https://github.com/payara/Payara_PatchedProjects/pull/560[#560] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-0254[CVE-2015-0254] |N/A |Vulnerabilities on Apache JSTL allows arbitrary code injection | | |Payara Server uses the `FEATURE_SECURE_PROCESSING` feature of JAXP so is not affected
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-3237[CVE-2015-3237] |N/A |Vulnerabilities in smb_request_state function in *cURL* | | |Payara Server doesn't ship with either *cURL* or *licurl* so it's not affected
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5346[CVE-2015-5346] |N/A |Apache Tomcat Vulnerability in session recycling for *SSL *requests | | |Payara Server implementation of the Request class doesn't contain the problematic variable being recycled
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5351[CVE-2015-5351] |N/A |Apache Tomcat Manager Applications Session and *CSRF *token vulnerabilities | | |Unrelated to Payara Server since this affects specific Tomcat applications
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0706[CVE-2016-0706] |N/A |Apache Tomcat Vulnerability on `StatusManagerServlet` component allows reads of HTTP requests and discover session IDs | | |Payara Server doesn't use the `StatusManagerServlet` component so it's not affected
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0714[CVE-2016-0714] |N/A |Session persistence in Apache Tomcat allows arbitrary code injection | | |Payara Server doesn't use the affected objects in the same way that Tomcat does so the flaw is not present
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-0763[CVE-2016-0763] |FIXED |Vulnerability in `ResourceLinkFactory.setGlobalContext` method on Apache Tomcat |4.1.1.164.1 |https://github.com/payara/Payara_PatchedProjects/pull/1210[#1210] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3092[CVE-2016-3092] |FIXED |Apache Commons FileUpload allows DDoS attacks via `Multipart` class |4.1.1.163 |https://github.com/payara/Payara_PatchedProjects/pull/953[#953] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3427[CVE-2016-3427] |FIXED |Unspecified vulnerability in various versions of the Oracle JDK and JRockit |4.1.1.164.1 |https://github.com/payara/Payara_PatchedProjects/pull/1209[#1209] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3607[CVE-2016-3607] |FIXED |Unspecified vulnerability on Oracle GlassFish 3.0+ affects confidentiality |4.1.1.163 |https://github.com/payara/Payara_PatchedProjects/pull/1029[#1029], https://github.com/payara/Payara_PatchedProjects/pull/1031[#1031], https://github.com/payara/Payara_PatchedProjects/pull/1011[#1011] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3608[CVE-2016-3608] |N/A |Unspecified vulnerability on Oracle GlassFish 3.0.1 affects confidentiality | | |Affects an older version of GlassFish but not Payara Server
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5388[CVE-2016-5388] |FIXED |Apache Tomcat does not protect applications from untrusted data when using the CGI Servlet |4.1.1.163.1 |https://github.com/payara/Payara_PatchedProjects/pull/1051[#1051] |
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5477[CVE-2016-5477] |N/A |Unspecified vulnerability on Oracle GlassFish 3.0.1 affects confidentiality | | |Affects an older version of GlassFish but not Payara Server
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5519[CVE-2016-5519] |PENDING |Unspecified vulnerability on JSF implementation for Oracle Glassfish 3.0+ | | |Pending for assesment
+|http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816[CVE-2016-6816] |N/A |Apache Tomcat HTTP request parsing vulnerability allow injection of data into reponse | | |Payara Server doesn't have included the Coyote components affected
 |=======================================================================
