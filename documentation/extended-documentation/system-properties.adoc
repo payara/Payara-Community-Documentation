@@ -1,0 +1,39 @@
+[[contents]]
+Contents
+--------
+
+* link:#1-overview[1. Overview]
+* link:#2-documentation-conventions[2. Documentation Conventions]
+* link:#3-system-properties[3. System Properties]
+
+[[overview]]
+1. Overview
+-----------
+
+This page details the new system properties added to Payara Server.
+
+[[documentation-conventions]]
+2. Documentation Conventions
+----------------------------
+
+_latexmath:[${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.   _$]\{Domain}_
+- This refers to the name of your Payara domain. +
+_latexmath:[${Target}_ - This refers to the name of an instance or cluster.   _$]\{Cluster-Config}_
+- This refers to the name of a cluster configuration.
+
+[[system-properties]]
+3. System Properties
+--------------------
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Value Type |Description |Accepted Values |Default
+|fish.payara.clientHttpsProtocol |String |Sets the TLS version to be
+used by the asadmin client. This is separate from the TLS version set
+for HTTPS communication on a listener. |TLSv1, TLSv1.1, TLSv1.2 |TLSv1.2
+
+|fish.payara.classloading.delegate |Boolean |When set to false,
+libraries from applications, and
+_latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
+directory |true, false |true
+|=======================================================================
