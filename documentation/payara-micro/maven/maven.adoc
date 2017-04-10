@@ -13,37 +13,29 @@ methods to your application to use Payara Micro programmatically.
 
 In your project's POM, include the following dependency:
 
-code,MAVEN_POM----------------------------------------- code,MAVEN_POM
+[source,XML]
+----
 <dependency>
     <groupId>fish.payara.extras</groupId>
     <artifactId>payara-micro</artifactId>
     <version>${payara.version}</version>
 </dependency>
------------------------------------------
+----
 
-`${payara.version}` is a Maven property, which specifies the version of
-the Maven artifact, e.g. \{\{ book.currentVersion }}.
+`${payara.version}` is a Maven property, which specifies the version of the Maven artifact, e.g. \{\{ book.currentVersion }}.
 
-Starting from release _4.1.1.171_, you need to add a dependency to the
-link:/documentation/extended-documentation/app-deployment/public-api.adoc[Public
-API] when developing applications that use proprietary features
-(`@Traced` or `@NamedCache` for example)
+Starting from release _4.1.1.171_, you need to add a dependency to the link:/documentation/extended-documentation/app-deployment/public-api.adoc[Public API] when developing applications that use proprietary features (`@Traced` or `@NamedCache` for example)
 
 [[run-payara-micro-using-maven]]
 Run Payara Micro using Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-It is possible to run Payara Micro using the `exec` goal of the Maven
-Exec plugin. Additionally, you can use the Maven Dependency Plugin to
-either refer to the JAR file of the `payara-micro` artifact in local
-maven repository, or to copy it to the project directory.
+It is possible to run Payara Micro using the `exec` goal of the Maven Exec plugin. Additionally, you can use the Maven Dependency Plugin to either refer to the JAR file of the `payara-micro` artifact in local maven repository, or to copy it to the project directory.
 
-For example, in order to build and execute the maven WAR artifact in
-Payara Micro, you can issue the `mvn package exec:exec` command with the
-following Exec and Dependency plugin configuration:
+For example, in order to build and execute the maven WAR artifact in Payara Micro, you can issue the `mvn package exec:exec` command with the following Exec and Dependency plugin configuration:
 
-code,xml------------------------------------------------------------------------------------------
-code,xml
+[source,XML]
+----
 <plugin>
     <artifactId>maven-dependency-plugin</artifactId>
     <version>2.6</version>
@@ -91,7 +83,7 @@ code,xml
         </arguments>
     </configuration>
 </plugin>
-------------------------------------------------------------------------------------------
+----
 
 Since: 4.1.1.171
 
@@ -99,15 +91,10 @@ Since: 4.1.1.171
 Build a Payara Micro uber JAR using Maven
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The `exec` goal of the Maven Exec plugin can also be used to build an
-executable uber JAR. The configuration is the same as to execute the WAR
-artifact, but we need to add the `--outputUberJar` argument to build an
-uber JAR instead of running the application. An uber JAR can be built
-using `mvn package` command with the following Exec plugin
-configuration:
+The `exec` goal of the Maven Exec plugin can also be used to build an executable uber JAR. The configuration is the same as to execute the WAR artifact, but we need to add the `--outputUberJar` argument to build an uber JAR instead of running the application. An uber JAR can be built using `mvn package` command with the following Exec plugin configuration:
 
-code,xml--------------------------------------------------------------------------------------------------------------
-code,xml
+[source,XML]
+----
 <plugin>
     <artifactId>maven-dependency-plugin</artifactId>
     <version>2.6</version>
@@ -157,4 +144,4 @@ code,xml
             <argument>${project.build.directory}/${project.build.finalName}.jar</argument>        </arguments>
     </configuration>
 </plugin>
---------------------------------------------------------------------------------------------------------------
+----
