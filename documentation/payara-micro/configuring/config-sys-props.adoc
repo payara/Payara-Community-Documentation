@@ -2,10 +2,7 @@
 Configuring Payara Micro via System Properties
 ----------------------------------------------
 
-Payara Micro can also be configured via System properties. These can
-either be set on the command line or passed into Payara Micro using the
-`--systemProperties` command line option which will load the properties
-from the specified file.
+Payara Micro can also be configured via System properties. These can either be set on the command line or passed into Payara Micro using the `--systemProperties` command line option which will load the properties from the specified file.
 
 Payara micro supports the following system properties.
 
