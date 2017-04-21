@@ -2,11 +2,11 @@
 Logging
 -------
 
-Payara Server captures information about events that occur and records
-this information using its logging mechanism into log files.
+Payara Server captures information about events that occur and records this
+information using its logging mechanism into log files.
 
-In a Payara Server domain, the information is logged into the following
-files by default:
+In a Payara Server domain, the information is logged into the following files
+by default:
 
 [cols=",",options="header",]
 |==========================================================
@@ -28,4 +28,4 @@ Logging can be configured by `asadmin` commands (`set-log-attributes`,
 can also be configured in Web Admin Console, in `Configurations`, under
 the section `Logger Settings` - as on the following picture:
 
-image:images/logging_setup.png[Logger Settings]
+image:/images/logging/logging_setup.png[Logger Settings]
