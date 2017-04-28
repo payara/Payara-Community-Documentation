@@ -22,7 +22,7 @@ This page provides instructions on how to build the Payara Server's source code.
 To build and run Payara Server, your environment must be set up with the following:
 
 * Oracle JDK 7 Update 65 or later, or Oracle JDK 8 Update 20 or later.
-* Maven 3.0.3 or above
+* Maven 3.3.9 or above
 * Git
 * A `JAVA_HOME` environment variable pointing to the JDK install location (e.g. /home/user/jdk11.8.0_45/)
 * A `PATH` environment variable that has a pointer to the Java binaries (JAVA_HOME/bin)
@@ -33,7 +33,7 @@ You can also optionally add the Maven _bin_ folder to the `PATH` environment var
 3. Configuring Maven
 ~~~~~~~~~~~~~~~~~~~~
 
-If using JDK 7, you will need to increase the heap size and _PermGen_ size to prevent the build process from running out of memory.
+If you are using JDK 7, you will need to increase the heap size and _PermGen_ size to prevent the build process from running out of memory.
 
 Create a `MAVEN_OPTS` environment variable and set it as:
 
@@ -41,7 +41,7 @@ Create a `MAVEN_OPTS` environment variable and set it as:
 -Xmx1024m -XX:MaxPermSize=512m
 ----
 
-If using JDK 8, _PermGen_ has been replaced by _Metaspace_, which can increase its maximum size on its own, so you only need to increase the heap size:
+If you are using JDK 8, _PermGen_ has been replaced by _Metaspace_, which can increase its maximum size on its own, so you only need to increase the heap size:
 
 ----
 -Xmx1024m
