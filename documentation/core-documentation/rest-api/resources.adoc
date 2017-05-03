@@ -72,7 +72,7 @@ target resource (when updating a resource) does not exists.| No Content
 [[security]]
 ===== Security
 
-[cols=",",options="header",]
+[cols="1,1",options="header",]
 |=======================================================================
 |Type |Name
 |*basic*
