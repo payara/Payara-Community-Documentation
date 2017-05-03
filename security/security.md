@@ -11,13 +11,13 @@ This section describes how to deal with known or unknown security issues and com
 
 ## 2. Download Security Fixes
 
-Reported security vulnerabilities by the community or Payara Services Limited's costumers are patched and released either in specific patch releases \(for paid support customers exclusively\) or quarterly releases. In some cases, we might release special hotfixes to the community to patch serious vulnerabilities that cannot wait for a quarterly release to be fixed. 
+Reported security vulnerabilities by the community or Payara Services Limited's costumers are patched and released either in specific patch releases \(for paid support customers exclusively\) or quarterly releases. In some cases, we might release special hotfixes to the community to patch serious vulnerabilities that cannot wait for a quarterly release to be fixed.
 
 To get the specific fix for a reported vulnerability, please download the specific release that fixed that vulnerability.
 
 ## 3. Locating Security Vulnerabilities
 
-In order to locate the release a security update has been included for a specific vulnerability, search in the [security fixes summary](/release-notes/security-fix-list.md) page for the specific vulnerability using its [CVE identifier](https://cve.mitre.org/cve/identifiers/).
+In order to locate the release a security update has been included for a specific vulnerability, search in the [security fixes summary](/security/security-fix-list.md) page for the specific vulnerability using its [CVE identifier](https://cve.mitre.org/cve/identifiers/).
 
 For each of these security vulnerabilities, a reference to the _**Pull Requests**_ merged to fix them is given for auditing purposes. If a security vulnerability has been reported, but is not related or it doesn't affect Payara Server or Payara Micro in any way, a proper justification will be detailed in the observations of such vulnerability. This is done to track reported vulnerabilities and keep users informed about them.
 
