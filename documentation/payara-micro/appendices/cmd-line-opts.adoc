@@ -10,176 +10,184 @@ All of the options listed below are case-insensitive from version `4.1.1.171`; p
 |Description
 |Default Value
 
-|`--nocluster`
-|Disables clustering for this instance.
-|_false_
-
-|`--deploymentdir`
-
-`--deploydir`
-|Sets a directory which will be scanned for WAR files for auto-deployment.
-|If not set, has no value and is not used.
-
-|`--deploy <file-path>`
-|Specifies a WAR file to deploy
-|If not set, has no value and is not used.
-
-|`--port`
-|Sets the HTTP port that the instance will bind to.
-|8080
-
-|`--sslport`
-|Sets the HTTPs port that the instance will bind to.
-|If not set, has no value and HTTPS is disabled.
-
-|`--name`
-|Sets the instance name.
-|Generated Universally Unique Identifier.
-
-|`--instancegroup`
-
-`--group`
-|Sets the instance group
-|
-
-|`--mcaddress`
-|Sets the cluster multicast group for the instance.
-|224.2.2.4
-
-|`--mcport`
-|Sets the cluster multicast port.
-|2904
-
-|`--clustername`
-|Sets the cluster group name
-|
-
-|`--clusterpassword`
-|Sets the cluster group password
-|
-
-|`--hostaware`
-|Enable Host Aware Partitioning. When enabled cluster backups will not be stored on members with the same IP Address
-|
-
-|`--startport`
-|Sets the cluster start port number.
-|5900
-
-|`--rootdir`
-|Sets the root configuration directory and saves the configuration across restarts.
-|If not set, has no value and defaults to the temp directory.
-
-|`--domainconfig`
-|Overrides the server configuration with an alternative domain.xml file.
-|If not set, the domain.xml contained in the Payara Micro JAR is used.
-
-|`--minhttpthreads`
-|Sets the minimum number of threads in the HTTP thread pool.
-|10
-
-|`--maxhttpthreads`
-|Sets the maximum number of threads in the HTTP thread pool.
-|10
-
-|`--hzconfigfile`
-|Sets the Hazelcast configuration file to use for overriding the in-built Hazelcast cluster configuration.
-|if not set, the in-built Hazelcast configuration file is used.
-
-|`--autobindhttp`
-|Enables auto-binding for the HTTP port
-|_false_
-
-|`--autobindssl`
-|Enables auto-binding for the HTTPS port
-|_false_
-
-|`--autobindrange`
-|Sets the range for HTTP and HTTPS port auto-binding.
-|5
-
-|`--lite`
-|sets the micro container to lite mode which means it clusters with other Payara Micro instances but does not store clustered data
-|
-
-|`--enablehealthcheck <boolean>`
-|enables/disables Health Check Service
-|disabled
-
-|`--logo`
-|Reveals the #BadAssFish or a custom logo on boot
-|
-
-|`--deployfromgav <list-of-artefacts>`
-|specifies a comma separated `groupId,artifactId,versionNumber` of an artefact to deploy from a repository
-|
-
-|`--additionalrepository <repo-url>`
-|specifies an additional repository to search for deployable artefacts in
-|
-
-|`--outputuberjar`
-|packages up an uber jar at the specified path based on the command line arguments and exit
-|
-
-|`--systemproperties`
-|Reads system properties from a file
-|
-
-|`--disablephonehome`
-|Disables _Phone Home_ for this instance
-|If not set, _Phone Home_ is active
-
-|`--version`
-|Displays the version information
-|
-
-|`--logtofile <file-path>`
-|outputs all the Log entries to a user defined file
-|
-
-|`--logproperties <file-path>`
-|Allows user to set their own logging properties file
-|
-
 |`--accesslog <directory-path>`
-|Sets user defined directory path for the access log
+|Sets user defined directory path for the access log.
 |
 
 |`--accesslogformat`
-|Sets user defined log format for the access log
+|Sets user defined log format for the access log.
 |
+
+|`--additionalrepository <repo-url>`
+|Specifies an additional repository to search for deployable artefacts in.
+|
+
+|`--autobindhttp`
+|Enables auto-binding for the HTTP port.
+|_false_
+
+|`--autobindrange <number-of-ports>`
+|Sets the range for HTTP and HTTPS port auto-binding.
+|5
+
+|`--autobindssl`
+|Enables auto-binding for the HTTPS port.
+|_false_
+
+|`--clustername <cluster-name>`
+|Sets the cluster group name.
+|
+
+|`--clusterpassword <cluster-password>`
+|Sets the cluster group password.
+|
+
+|`--deploy <file-path>`
+|Specifies a WAR file to deploy.
+|If not set, has no value and is not used.
+
+|`--deploydir <directory-path>`
+|Sets a directory which will be scanned for EAR, WAR, and RAR files for auto-deployment.
+|If not set, has no value and is not used.
+
+|`--deployfromgav <list-of-artefacts>`
+|Specifies a comma separated `groupId, artifactId, versionNumber` of an artefact to deploy from a repository.
+|
+
+|`--deploymentdir <directory-path>`
+|See `--deploydir`.
+|
+
+|`--disablephonehome`
+|Disables the _Phone Home_ service for this instance.
+|If not set, the _Phone Home_ service is active.
+
+|`--domainconfig <file-path>`
+|Overrides the server configuration with an alternative domain.xml file.
+|If not set, the domain.xml contained in the Payara Micro JAR is used.
+
+|`--enablehealthcheck <boolean>`
+|enables/disables Health Check Service.
+|_false_
 
 |`--enablerequesttracing`
-|Enables the Request Tracing Service and optionally sets the threshold unit and/or value
+|Enables the Request Tracing Service and optionally sets the threshold unit and/or value.
 |
 
-|`--requesttracingthresholdunit`
-|Sets the time unit for the requestTracingThresholdValue option
+|`--group <group-name>`
+|Sets the instance's group.
 |
-
-|`--requesttracingthresholdvalue`
-|Sets the threshold time before a request trace is recorded
-|
-
-|`--prebootcommandfile`
-|Provides a file of asadmin commands to run *before* booting the server
-|
-
-|`--postbootcommandfile`
-|Provides a file of asadmin commands to run *after* booting the server
-|
-
-|`--nested`
-|Do not unpack the Nested Jars when booting the server. This is generally slower than unpacking the runtime
-|
-
-|`--unpackdir`
-|Unpack the Nested Jar runtime jars to the specified directory.
-|The default behaviour is to unpack to `java.io.tmpdir`
 
 |`--help`
 |Displays the configuration options and then exits.
 |If not set, this option is not used.
+
+|`--hostaware`
+|Enable Host Aware Partitioning. When enabled cluster backups will not be stored on members with the same IP Address.
+|_false_
+
+|`--hzconfigfile <file-path>`
+|Sets the Hazelcast configuration file to use for overriding the built-in Hazelcast cluster configuration.
+|If not set, the built-in Hazelcast configuration file is used.
+
+|`--instancegroup <group-name>`
+|See `--group`
+|
+
+|`--lite`
+|Sets the micro container to lite mode, which means it clusters with other Payara Micro instances but does not store clustered data.
+|_false_
+
+|`--logo`
+|Reveals either the #BadAssFish or a custom logo on boot.
+|
+
+|`--logproperties <file-path>`
+|Allows user to set their own logging properties file.
+|
+
+|`--logtofile <file-path>`
+|Outputs all the Log entries to a user defined file.
+|
+
+|`--maxhttpthreads <max-thread-count>`
+|Sets the maximum number of threads in the HTTP thread pool.
+|10
+
+|`--mcaddress <multicast-address>`
+|Sets the cluster groups.
+|
+
+|`--mcport <multicast-port>`
+|Sets the cluster multicast port.
+|2904
+
+|`--minhttpthreads <min-thread-count>`
+|Sets the minimum number of threads in the HTTP thread pool.
+|10
+
+|`--name <instance-name>`
+|Sets the instance name.
+|Generated Universally Unique Identifier _(Adjective-Fish)_.
+
+|`--nested`
+|Do not unpack the Nested Jars when booting the server. This is generally slower than unpacking the runtime.
+|_false_
+
+|`--nocluster`
+|Disables clustering for this instance.
+|_false_
+
+|`--outputuberjar <file-path>`
+|Packages up an uber JAR at the specified path based on the provided command line arguments and exit.
+|
+
+|`--port <http-port-number>`
+|Sets the HTTP port that the instance will bind to.
+|8080
+
+|`--postbootcommandfile <file-path>`
+|Provides a file of asadmin commands to run *after booting the server*.
+|
+
+|`--postdeploycommandfile <file-path>`
+|Provides a file of asadmin commands to run *after all deployments have completed*.
+|
+
+|`--prebootcommandfile <file-path>`
+|Provides a file of asadmin commands to run *before booting the server*.
+|
+
+|`--requesttracingthresholdunit <threshold-unit-notation>`
+|Sets the time unit for the requestTracingThresholdValue option, i.e. `SECONDS`, `ms`, `days` etc.
+|
+
+|`--requesttracingthresholdvalue <threshold-unit-value>`
+|Sets the threshold time before a request is traced.
+|
+
+|`--rootdir <directory-path>`
+|Sets the root configuration directory and saves the configuration across restarts.
+|Defaults to `java.io.tmpdir`.
+
+|`--sslport <ssl-port-number>`
+|Sets the HTTPs port that the instance will bind to.
+|If not set, has no value and HTTPS is disabled.
+
+|`--startport <cluster-start-port-number>`
+|Sets the cluster start port number.
+|5900
+
+|`--systemproperties <file-path>`
+|Reads system properties from a file.
+|
+
+|`--unpackdir <directory-path>`
+|Unpack the Nested Jar runtime jars to the specified directory.
+|Unpack to `java.io.tmpdir`.
+
+|`--version`
+|Displays the version information
+|
 
 |=======================================================================
