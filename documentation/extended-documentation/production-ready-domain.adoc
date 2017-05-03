@@ -14,8 +14,7 @@ development team. To better highlight these changes and new features,
 the `payaradomain` was created.
 
 [[usage]]
-Usage
-^^^^^
+== Usage
 
 `payaradomain` is located in the default directory for domains
 `${PAYARA_HOME}/glassfish/domains/`, alongside `domain1`. This means it
@@ -24,7 +23,7 @@ can be used as-is by simply naming the domain after running the
 location:
 
 -----------------------------------
-asadmin> start-domain payaradomain 
+asadmin> start-domain payaradomain
 -----------------------------------
 
 Alternatively, many Payara Server users completely delete existing
@@ -35,61 +34,58 @@ directory. You will need to specify the full path to the location of the
 template jar as follows:
 
 -------------------------------------------------------------------------------------------------------------------
-asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/payara-domain.jar myNewPayaraDomain 
+asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/payara-domain.jar myNewPayaraDomain
 -------------------------------------------------------------------------------------------------------------------
 
 [[differences-to-domain1]]
-Differences to `domain1`
-^^^^^^^^^^^^^^^^^^^^^^^^
+== Differences to `domain1`
 
 The configuration of `payaradomain` has been made with production in
 mind, so there are a number of differences when compared to `domain1`
 which are listed below. Not all of these will be wanted for development
 environments, but all are good practice for production domains.
 
-[[differences-in-server-configuration]]
-Differences in Server Configuration
+=== Differences in Server Configuration
 
-1.  Autodeployment has been disabled +
-Payara Server comes with a deployment scanner. This is a security risk
-for production, so is disabled by default. in the domain.xml
-2.  Dynamic application reloading disabled +
-For the same reason as above, this is disabled by default in the
+1.  Autodeployment has been disabled.
+* Payara Server comes with a deployment scanner. This is a security risk
+for production, so it is disabled by default in the domain.xml.
+2.  Dynamic application reloading is disabled.
+* For the same reason as above, this is disabled by default in the
 domain.xml
-3.  Dynamic reloading of JSP pages in `default-web.xml` disabled +
-The `<init-param>` setting `reload-interval` in the default-web.xml has
+3.  Dynamic reloading of JSP pages in `default-web.xml` is disabled.
+* The `<init-param>` setting `reload-interval` in the default-web.xml has
 been set to a value of `-1` so that it is disabled.
 4.  The EJB container `max-pool-size` has been set to `128`
 5.  The `max-thread-pool-size` setting for `thread-pool-1` has been
-increased to `250`
+increased to `250`.
 6.  File caching has been enabled for both default HTTP listeners
+(`http-listener-1` and `http-listener-2`).
 7.  Isolated classloading has been enabled by default at the server
-level +
-The property `fish.payara.classloading.delegate` has been set to `false`
+level.
+* The property `fish.payara.classloading.delegate` has been set to `false`.
 8.  A default transaction timeout of 300 seconds has been added for xa
-and non-xa transactions
-9.  Default group-to-role mapping is enabled
+and non-xa transactions.
+9.  Default group-to-role mapping is enabled.
 10. The maximum size for the thread pool `http-thread-pool` has been
 increased from `5` to `50`.
 
-[[differences-in-jvm-options]]
-Differences in JVM Options
+=== Differences in JVM Options
 
 With the aim of `payaradomain` being to target production, `payaradomain` has
-JVM options specifically configured for usage on JDK 8. Since JDK 7 has 
-reached its end-of-life, it is therefore a security risk to run a JVM lower 
-than version 8 in production. However, `payaradomain` can be configured to 
+JVM options specifically configured for usage on JDK 8. Since JDK 7 has
+reached its end-of-life, it is therefore a security risk to run a JVM lower
+than version 8 in production. However, `payaradomain` can be configured to
 run on JDK 7 if necessary by editing the JVM options.
 
-The following JVM options only appear in `payaradomain`:
+The following JVM options only appear in `payaradomain`: ::
 
 * `-XX:+UseG1GC`
-* `-XX:+UseStringDeduplication
+* `-XX:+UseStringDeduplication`
 * `-Xmx2g`
 * `-Xms2g`
 
-The following JVM options appear in `domain1` but do not appear in 
-`payaradomain`:
+The following JVM options only appear in `domain1`: ::
 
 * `-XX:MaxPermSize=192m`
 * `-Djavax.management.builder.initial=com.sun.enterprise.v3.admin.AppServerMBeanServerBuilder`
@@ -107,7 +103,7 @@ The following JVM options appear in `domain1` but do not appear in
 * `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
-The following JVM options appear in both `domain` and `payaradomain`:
+The following JVM options appear in both `domain` and `payaradomain`: ::
 
 * `-Djava.awt.headless=true`
 * `-Djdk.corba.allowOutputStreamSubclass=true`
