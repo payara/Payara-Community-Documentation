@@ -98,7 +98,7 @@ commands.
 [[parameters-1]]
 ===== Parameters
 
-[cols="1,1,5,1,",options="header",]
+[cols="1,1,5,1",options="header",]
 |=======================================================================
 |Type |Name |Description |Schema
 |*Path* |*resource* _required_ |The qualified name of the resource on
@@ -110,7 +110,7 @@ then the correct value is _nodes/node/localhost-domain1_ |string
 [[responses-1]]
 ===== Responses
 
-[cols="1,5,1,",options="header",]
+[cols="1,5,1",options="header",]
 |=======================================================================
 |HTTP Code |Description |Schema
 |*200* |An object representing the contextual information for the
