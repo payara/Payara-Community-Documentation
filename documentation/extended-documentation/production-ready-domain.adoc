@@ -104,7 +104,7 @@ The following JVM options appear in `domain1` but do not appear in
 * `-Dfelix.fileinstall.log.level=2`
 * `-Dfelix.fileinstall.bundles.new.start=true`
 * `-Dfelix.fileinstall.bundles.startTransient=true`
-* `-Dfelixfileinstall.disableConfigSave=false`
+* `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
 The following JVM options appear in both `domain` and `payaradomain`:
