@@ -14,8 +14,8 @@ to retrieve a session tokem, authenticate using the `simple_auth`
 security scheme to the `/management/sessions/` endpoint. Pass this token
 to the respective endpoint setting the `gfresttoken` cookie value.
 
-[NOTE]
-Currently the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.adoc#securityRequirementObject[OpenAPI
+[caption="NOTICE"]
+NOTE: Currently the https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.adoc#securityRequirementObject[OpenAPI
 v2.0] specification does not support cookies to send the API key.
 
 _Type_ : apiKey +
