@@ -23,11 +23,8 @@ commands in the `asadmin` CLI:
 
 [source,shell]
 ....
-create-jacc-provider
---policyConfigurationFactoryProvider=com.example.CustomPolicyConfigurationFactory
---policyProvider=com.example.CustomPolicy --target=server-config
-custom-provider set
-configs.config.server-config.security-service.jacc=custom-provider
+create-jacc-provider --policyConfigurationFactoryProvider=com.example.CustomPolicyConfigurationFactory --policyProvider=com.example.CustomPolicy --target=server-config custom-provider
+set configs.config.server-config.security-service.jacc=custom-provider
 ....
 
 [source,shell]
