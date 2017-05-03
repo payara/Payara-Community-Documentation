@@ -1,11 +1,15 @@
- ## Security
+== Security
 
- ### simple_auth Basic authentication using *Username* and *Password*
+=== simple_auth
+
+Basic authentication using *Username* and *Password*
 credentials sent using the `Authorization` header.
 
 _Type_ : basic
 
- ### token_cookie API Key authentication using a session token. In order
+=== token_cookie
+
+API Key authentication using a session token. In order
 to retrieve a session tokem, authenticate using the `simple_auth`
 security scheme to the `/management/sessions/` endpoint. Pass this token
 to the respective endpoint setting the `gfresttoken` cookie value.
