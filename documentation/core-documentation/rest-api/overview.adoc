@@ -2,7 +2,9 @@
 Payara Server Administration and Monitoring API
 -----------------------------------------------
 
- ## Overview This API allows users to interact with the Payara Server's
+ ## Overview
+ 
+This API allows users to interact with the Payara Server's
 DAS through a REST interface. It allows execution of administration
 commands in a similar way as the `asadmin` utility, such as:
 
