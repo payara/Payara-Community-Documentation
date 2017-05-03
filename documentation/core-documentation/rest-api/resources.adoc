@@ -1,15 +1,15 @@
- ## Resources
+== Resources
 
- ### Configuration Used for domain configuration operations
+=== Configuration Used for domain configuration operations
 
- #### Add or Update a resource
+==== Add or Update a resource
 
 ----------------------------------
 POST /management/domain/{resource}
 ----------------------------------
 
 [[description]]
-Description
+===== Description
 
 Use this operation to add new resources to the configuration tree or to
 update the configuration of an existing resource. If the resource is a
@@ -17,9 +17,9 @@ parent resource, then the operation would add a new child resource.
 Otherwise, the operation would update the resource's configuration.
 
 [[parameters]]
-Parameters
+===== Parameters
 
-[cols=",,,",options="header",]
+[cols="1,2,5,1",options="header",]
 |=======================================================================
 |Type |Name |Description |Schema
 |*Header* |*X-Requested-By* _required_ |This header must ALWAYS be set
