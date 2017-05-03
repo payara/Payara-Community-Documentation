@@ -25,7 +25,7 @@ To get the specific fix for a reported vulnerability, please download the specif
 3. Locating Security Vulnerabilities
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In order to locate the release a security update has been included for a specific vulnerability, search in the link:/release-notes/security-fix-list.adoc[security fixes summary] page for the specific vulnerability using its https://cve.mitre.org/cve/identifiers/[CVE identifier].
+In order to locate the release a security update has been included for a specific vulnerability, search in the link:/security/security-fix-list.adoc[security fixes summary] page for the specific vulnerability using its https://cve.mitre.org/cve/identifiers/[CVE identifier].
 
 For each of these security vulnerabilities, a reference to the _*Pull Requests*_ merged to fix them is given for auditing purposes. If a security vulnerability has been reported, but is not related or it doesn't affect Payara Server or Payara Micro in any way, a proper justification will be detailed in the observations of such vulnerability. This is done to track reported vulnerabilities and keep users informed about them.
 
