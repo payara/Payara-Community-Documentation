@@ -39,25 +39,33 @@ each one. |string
 [[responses]]
 ===== Responses
 
-|====================================================
-|HTTP Code|Description|Schema| |---|---|---| 
+[cols="1,5,1",options="header",]
+|=======================================================================
+|HTTP Code|Description|Schema
+
 |*200*|The operation has
 executed successfully and contextual information about the result is
-returned.|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]|
+returned.|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]
+
 |*400*|The operation has failed. One of the possible reasons are:
 The command or method`s request parameters aren`t set correctly.
 The X-Requested-By header was not set correctly.
 An integrity error has ocurred with the target resource, for example a
 resource already exists with the same JNDI name. (An operation result
 object is returned for examination)
-|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]|
+|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
+
 |*401*|Users credentials are not valid to execute this
-operation|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]|
+operation|link:/documentation/core-documentation/rest-api/definitions.adoc#generalresult[GeneralResult]
+
 |*404*|Either the parent resource (when adding new resources) or the
-target resource (when updating a resource) does not exists.|No Content|
+target resource (when updating a resource) does not exists.| No Content
+|======================================================================
+
+
 
 [[produces]]
-Produces
+===== Produces
 
 * `application/json`
 * `application/xml`
