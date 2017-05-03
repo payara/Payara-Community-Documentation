@@ -37,9 +37,11 @@ each one. |string
 |=======================================================================
 
 [[responses]]
-Responses
+===== Responses
 
-|HTTP Code|Description|Schema| |---|---|---| |*200*|The operation has
+|====================================================
+|HTTP Code|Description|Schema| |---|---|---| 
+|*200*|The operation has
 executed successfully and contextual information about the result is
 returned.|link:/documentation/core-documentation/rest-api/definitions.adoc#operationresult[OperationResult]|
 |*400*|The operation has failed. One of the possible reasons are:
