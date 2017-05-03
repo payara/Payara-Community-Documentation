@@ -1,5 +1,6 @@
 == Definitions
 
+[[command]]
 === Command 
 
 Holds information for command objects that can be used to execute non CRUD operations.
@@ -69,6 +70,7 @@ profile and version, e.g Payara 4.1 |string
 numerical format |integer(int32)
 |=======================================================================
 
+[[method]]
 === Method 
 
 Holds information for a method object that is used for executing CRUD operations of resources.
@@ -131,6 +133,7 @@ encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string
 |=======================================================================
 
+[[monitoringresult-extraproperties]]
 ==== extraProperties
 
 [cols=",,",options="header",]
@@ -174,6 +177,7 @@ encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string
 |=======================================================================
 
+[[operationresult-extraproperties]]
 ==== extraProperties
 
 [cols=",,",options="header",]
@@ -202,6 +206,7 @@ that the target resource supports. This property is only available for
 the results of query operations. |< link:#method[Method] > array
 |=======================================================================
 
+[[statistic]]
 === Statistic 
 
 Represents compilation data for the metric of a resource's statistics.
@@ -265,6 +270,7 @@ encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string
 |=======================================================================
 
+[[tokenresult-extraproperties]]
 ==== extraProperties
 
 [cols=",,",options="header",]
