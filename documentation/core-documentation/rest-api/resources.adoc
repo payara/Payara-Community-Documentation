@@ -60,7 +60,7 @@ operation|link:/documentation/core-documentation/rest-api/definitions.adoc#gener
 
 |*404*|Either the parent resource (when adding new resources) or the
 target resource (when updating a resource) does not exists.| No Content
-|======================================================================
+|=======================================================================
 
 [[produces]]
 ===== Produces
