@@ -66,5 +66,5 @@ and so forth.
 
 Lastly, you can also direct inquiries about reported CVE issues
 detected in similar Java platforms or application servers (like Apache
-Tomcat, JBoss WildFly, etc.) and let us research whether or not Payara 
+Tomcat, JBoss WildFly, etc.) and let us research whether or not Payara
 Server is affected by such issues.

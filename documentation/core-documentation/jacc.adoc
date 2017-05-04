@@ -22,7 +22,9 @@ This will result in the following configuration element added to the _domain.xml
 [source, xml]
 ----
 <security-service jacc="custom-provider">
-    <jacc-provider policy-provider="com.example.CustomPolicy" name="custom-provider" policy-configuration-factory-provider="com.example.CustomPolicyConfigurationFactory"></jacc-provider>
+    <jacc-provider policy-provider="com.example.CustomPolicy" name="custom-provider"
+      policy-configuration-factory-provider="com.example.CustomPolicyConfigurationFactory">
+    </jacc-provider>
     <!-- More providers can be defined -->
 </security-service>
 ----
