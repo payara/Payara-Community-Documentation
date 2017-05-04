@@ -1,5 +1,4 @@
 [[payara-server-configuration-files]]
-Payara Server configuration files
----------------------------------
+= Payara Server configuration files
 
-Documentation about Payara server configuration files.
+Documentation about Payara Server specific configuration properties.
