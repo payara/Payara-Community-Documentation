@@ -11,7 +11,7 @@ To build and run Payara Server, your environment must be set up with the
 following:
 
 * Oracle _JDK 7 Update 65_ or later, or Oracle _JDK 8 Update 20_ or later.
-* Maven 3.0.3 or above
+* Maven 3.3.9 or above
 * Git
 * A `JAVA_HOME` environment variable pointing to the JDK install location
 (e.g. _/home/user/jdk11.8.0_45/_)
