@@ -19,27 +19,31 @@ it will be part of Payara's global classpath on boot.
 
 The next thing to do is to tell Payara you want to use that specific
 JACC provider. For that purpose, you have to execute the following
-commands in the `asadmin` CLI: create-jacc-provider
---policyConfigurationFactoryProvider=com.example.CustomPolicyConfigurationFactory
---policyProvider=com.example.CustomPolicy --target=server-config
-custom-provider set
-configs.config.server-config.security-service.jacc=custom-provider
+commands in the `asadmin` CLI: 
 
-code,Shell---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,Shell
+[source,shell]
+....
 create-jacc-provider --policyConfigurationFactoryProvider=com.example.CustomPolicyConfigurationFactory --policyProvider=com.example.CustomPolicy --target=server-config custom-provider
 set configs.config.server-config.security-service.jacc=custom-provider
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+....
+
+[source,shell]
+....
+create-jacc-provider --policyConfigurationFactoryProvider=com.example.CustomPolicyConfigurationFactory --policyProvider=com.example.CustomPolicy --target=server-config custom-provider
+set configs.config.server-config.security-service.jacc=custom-provider
+....
 
 These will result in the following domain.xml snippet to be added:
 
-code,xml------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,xml
+[source,xml]
+....
 <security-service jacc="custom-provider">
-    <jacc-provider policy-provider="com.example.CustomPolicy" name="custom-provider" policy-configuration-factory-provider="com.example.CustomPolicyConfigurationFactory"></jacc-provider>
+    <jacc-provider policy-provider="com.example.CustomPolicy" name="custom-provider" 
+      policy-configuration-factory-provider="com.example.CustomPolicyConfigurationFactory">
+    </jacc-provider>
     <!-- More providers can be defined -->
 </security-service>
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+....
 
 As you can derive from the XML excerpt, more JACC providers can be
 defined (by default, `simple` and `default` are already defined), but

@@ -54,7 +54,7 @@ key/value pairs.
 The command below demonstrates this, using the same configuration as
 pictured above:
 
-code,Shell------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,Shell
+[source,shell]
+....
 asadmin create-javamail-resource --mailhost mail.example.com --mailuser example --fromaddress example@example.com --storeprotocol=imap --storeprotocolclass=com.sun.mail.imap.IMAPStore --transprotocol=smtp --transprotocolclass=com.sun.mail.smtp.SMTPTransport --property mail-smtp-starttls-enable=true:mail-smtp-auth=true:mail-smtp-password=password --target=exampleNodeName mail/EmailNotifications
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+....
