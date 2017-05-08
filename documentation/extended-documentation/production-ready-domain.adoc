@@ -78,14 +78,14 @@ reached its end-of-life, it is therefore a security risk to run a JVM lower
 than version 8 in production. However, `payaradomain` can be configured to
 run on JDK 7 if necessary by editing the JVM options.
 
-The following JVM options only appear in `payaradomain`: ::
+The following JVM options only appear in `payaradomain`:
 
 * `-XX:+UseG1GC`
 * `-XX:+UseStringDeduplication`
 * `-Xmx2g`
 * `-Xms2g`
 
-The following JVM options only appear in `domain1`: ::
+The following JVM options only appear in `domain1`:
 
 * `-XX:MaxPermSize=192m`
 * `-Djavax.management.builder.initial=com.sun.enterprise.v3.admin.AppServerMBeanServerBuilder`
@@ -103,7 +103,7 @@ The following JVM options only appear in `domain1`: ::
 * `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
-The following JVM options appear in both `domain` and `payaradomain`: ::
+The following JVM options appear in both `domain` and `payaradomain`:
 
 * `-Djava.awt.headless=true`
 * `-Djdk.corba.allowOutputStreamSubclass=true`
