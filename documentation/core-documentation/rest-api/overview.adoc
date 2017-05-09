@@ -1,8 +1,8 @@
 [[payara-server-administration-and-monitoring-api]]
-Payara Server Administration and Monitoring API
------------------------------------------------
+= Payara Server Administration and Monitoring API
 
- ## Overview This API allows users to interact with the Payara Server's
+== Overview
+This API allows users to interact with the Payara Server's
 DAS through a REST interface. It allows execution of administration
 commands in a similar way as the `asadmin` utility, such as:
 
@@ -12,7 +12,7 @@ commands in a similar way as the `asadmin` utility, such as:
 
 To change the configuration of the domain, it is really necessary to
 understand how the configuration resources are organized in a tree
-model. To interact with a resouce, it is recommended to first call the
+model. To interact with a resource, it is recommended to first call the
 `GET` method of the `/management/domain/{resource}` endpoint to
 understand what operations are supported and other details (parameters,
 subcommands, etc.)
@@ -27,24 +27,21 @@ most domain configurations).
 
 In order to successfully consume the endpoints in this API, it must be
 taken into consideration if the domain's access is already secured. If
-so, then one of the _2_ decribed security schemes must be used.
+so, then one of the _2_ described security schemes must be used.
 
 [[version-information]]
-Version information
-^^^^^^^^^^^^^^^^^^^
+== Version information
 
 _Version_ : 1.0.0
 
 [[uri-scheme]]
-URI scheme
-^^^^^^^^^^
+== URI scheme
 
 _Host_ : localhost +
 _Schemes_ : HTTP, HTTPS
 
 [[tags]]
-Tags
-^^^^
+== Tags
 
 * configuration : Used for domain configuration operations
 * logging : Used for domain logging purposes

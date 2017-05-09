@@ -16,6 +16,7 @@ the `payaradomain` was created.
 [[usage]]
 == Usage
 
+
 `payaradomain` is located in the default directory for domains
 `${PAYARA_HOME}/glassfish/domains/`, alongside `domain1`. This means it
 can be used as-is by simply naming the domain after running the

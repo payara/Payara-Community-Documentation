@@ -1,8 +1,9 @@
 [[security-fixes-summary]]
-Security Fixes Summary
-----------------------
+= Security Fixes Summary
 
-The following is a list of tracked _**C**ommon **V**ulnerabilities and **E**xposures_ that have been reported and analyzed, which can or have impacted Payara Server across releases:
+The following is a list of tracked _**C**ommon **V**ulnerabilities
+and **E**xposures_ that have been reported and analyzed, which
+can or have impacted Payara Server across releases:
 
 [cols="<,<,<,<,<,<",options="header",]
 |=======================================================================
