@@ -1,47 +1,40 @@
 [[elements-of-the-deployment-descriptor-files]]
-Elements of the Deployment Descriptor Files
--------------------------------------------
+= Elements of the Deployment Descriptor Files
 
-This page is a reference for extra elements added to either the
-`glassfish-application.xml` or the `glassfish-web.xml` files in Payara
-Server.
+This page is a reference for extra elements added to the GlassFish proprietary
+deployment descriptors
 
 [[classloading-delegate]]
-`classloading-delegate`
-^^^^^^^^^^^^^^^^^^^^^^^
+== `classloading-delegate`
 
-With this option its possible to enable/disable classloading delegation.
+With this option its possible to enable/disable *class loading delegation*.
 This allows deployed application to use libraries included on them,
 overriding the versions included on the server.
 
 For more information about how class delegation can be configured on
 Payara Server, see the
-link:/documentation/extended-documentation/classloading.adoc[Enhanced
-Classloading] section.
+link:/documentation/extended-documentation/classloading.adoc[Enhanced Class loading] section.
 
 [[whitelist-package]]
-`whitelist-package`
-^^^^^^^^^^^^^^^^^^^
+== `whitelist-package`
 
-Used to whitelist packages on *extreme classloading isolation*.
+Used to whitelist packages on *extreme class loading isolation*.
 Whitelisted packages are taken into account by the server when scanning
-libraries included on the server.
+libraries.
 
-For more information about how extreme classloading isolation works on
+For more information about how extreme class loading isolation works on
 Payara Server, see the
-link:/documentation/extended-documentation/classloading.adoc[Enhanced
-Classloading] section.
+link:/documentation/extended-documentation/classloading.adoc[Enhanced Classloading] section.
 
 [[enable-implicit-cdi]]
-`enable-implicit-cdi`
-^^^^^^^^^^^^^^^^^^^^^
+== `enable-implicit-cdi`
 
-In a WAR file, it is possible to set the property `bean-discovery-mode`
+In a *WAR* file, it is possible to set the property `bean-discovery-mode`
 equal to `none` to turn off implicit scanning of the archive for bean
-defining annotations, as defined by CDI 1.1. This has been made
-available as part of the CDI 1.1 specification; the default value of
-this setting is defined as `annotated` in the specification, so the
-archive is scanned for any bean-defining annotations.
+defining annotations, as defined by the _CDI 1.1_ specification. The
+default value of this setting is defined as `annotated` in the specification,
+so the archive is scanned for any bean-defining annotations, which can cause
+unwanted side effects.
 
 In the `glassfish-application.xml` deployment descriptor for an EAR
 file, the property `enable-implicit-cdi` can be set to `false` to
@@ -52,101 +45,97 @@ If implicit CDI scanning causes problems for an EAR assembly, the value
 `false` will disable implicit CDI scanning for all CDI modules inside
 the EAR assembly:
 
-code,xml-------------------------------------------------- code,xml
+[source, xml]
+----
 <glassfish-application>
   <enable-implicit-cdi>false</enable-implicit-cdi>
 </glassfish-application>
---------------------------------------------------
+----
 
-*Note*: +
-When implicit CDI is controlled by using either the
-`enable-implicit-cdi` property in the `glassfish-application.xml` or the
-attribute `bean-discovery-mode="none"` from the `beans.xml` file in a
-WAR, the admin console checkbox _*is ignored*_.
-
-The default behaviour of the admin console is for the "Implicit CDI"
+The default behavior of the admin console is for the *Implicit CDI*
 checkbox to be enabled, but this will *not* override the application
 configuration.
 
+IMPORTANT: When implicit CDI is configured by using either the
+`enable-implicit-cdi` property in the `glassfish-application.xml` or the
+attribute `bean-discovery-mode="none"` from the `beans.xml` file in a
+WAR, the admin console checkbox _*is always ignored*_.
+
 [[scanning-exclude-and-scanning-include]]
-`scanning-exclude` and `scanning-include`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+== `scanning-exclude` and `scanning-include`
 
 Modern WAR and EAR files very often include a number of 3rd party JARs.
 In situations where some JARs require CDI scanning and others may break
-if scanned, these can now be explicitly included or excluded from
-scanning.
+if scanned, these can now be explicitly included or excluded from such
+component scanning.
 
 Both the `glassfish-application.xml` and the `glassfish-web.xml` files
 support the following directives:
 
-code,xml------------------------------------------------------------
-code,xml
+[source, xml]
+----
 <scanning-exclude>*</scanning-exclude>
 <scanning-include>ejba*</scanning-include>
 <scanning-include>conflicting-web-library</scanning-include>
-------------------------------------------------------------
+----
 
 In the above example, all JARs will be excluded by default, then all
-JARs beginning with `ejba` will be scanned, along with the JAR named
+JARs beginning with `ejba` will be scanned along with the JAR named
 `conflicting-web-library`.
 
 [[container-initializer-enabled]]
-`container-initializer-enabled`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `container-initializer-enabled`
 
 This property configures whether to enable or disable the calling of
 `ServletContainerInitializer` component classes defined in JAR files
-bundled inside the WAR assembly.
+bundled inside a WAR assembly.
 
 For performance considerations, you can explicitly disable the servlet
 container initializer by setting the `container-initializer-enabled`
-element to `false`. This can help deployment in web applications that
-cause conflicts with a custom bootstrapping process or depend on
-external libraries.
+element to `false`. This can help solve the deployment of web applications
+that can suffer from conflicts with a custom bootstrapping process.
 
 The default value for this configuration element is `true`.
 
 [[default-role-mapping]]
-`default-role-mapping`
-~~~~~~~~~~~~~~~~~~~~~~
+== `default-role-mapping`
 
 With this property, you can set whether to enable the default group to
 role mappings for your application's security settings. This element is
 set up as a `property` element with a `Boolean` value attribute like
 this:
 
-code,xml-----------------------------------------------------------------
-code,xml
+[source, xml]
+----
 <property name="default-role-mapping" value="true">
   <description>Enable default group to role mapping</description>
 </property>
------------------------------------------------------------------
+----
 
 Enabling the default group to role mappings will cause all named groups
-in the application's linked security realm to be mapped to a role of the
+in the application's linked security _realm_ to be mapped to a role of the
 same name. This will save you the time of having to redefine the same
 roles and map them to the realm groups each time they are modified.
 
-This will have the same effect as executing the following asadmin
+This will have the same effect as executing the following `asadmin`
 command:
 
-code,sh---------------------------------------------------------------------------------------------------------
-code,sh
+[source, shell]
+----
 asadmin set configs.config.server-config.security-service.activate-default-principal-to-role-mapping=true
----------------------------------------------------------------------------------------------------------
+----
 
 Except it's effect will only limit itself to the application instead of
 all applications deployed on the server. This setting is configured by
 default to `true` on the
-link:../production-ready-domain.adoc[production-ready-domain]
+link:/documentation/extended-documentation/production-ready-domain.adoc[production-ready-domain]
 
 The default value of this property is `false`. This property can be set
 in the `glassfish-web.xml`, `glassfish-ejb-jar.xml` and
 `glassfish-application.xml` deployment descriptors.
 
 In an EAR assembly, only the property set in the
-`glassfish-application.xml` will take effect and any set in the
-`glassfish-web.xml` and `glassfish-ejb-jar.xml` will be ignored. Setting
-this configuration property in any of these files will always take
+`glassfish-application.xml` will take effect and if set in the
+`glassfish-web.xml` and `glassfish-ejb-jar.xml`, it will be ignored.
+Setting this configuration property in any of these files will always take
 precedence over any setting configured on the server.

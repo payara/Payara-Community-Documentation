@@ -1,29 +1,8 @@
-[[contents]]
-Contents
---------
-
-* link:#1-overview[1. Overview]
-* link:#2-documentation-conventions[2. Documentation Conventions]
-* link:#3-system-properties[3. System Properties]
-
-[[overview]]
-1. Overview
------------
-
-This page details the new system properties added to Payara Server.
-
-[[documentation-conventions]]
-2. Documentation Conventions
-----------------------------
-
-_latexmath:[${Product-Root}_ - This is the root of the Payara server directory, referring to where you have Payara installed.   _$]\{Domain}_
-- This refers to the name of your Payara domain. +
-_latexmath:[${Target}_ - This refers to the name of an instance or cluster.   _$]\{Cluster-Config}_
-- This refers to the name of a cluster configuration.
-
 [[system-properties]]
-3. System Properties
---------------------
+= System Properties
+
+The following properties are used by Payara Server to configure
+special behavior settings:
 
 [cols=",,,,",options="header",]
 |=======================================================================

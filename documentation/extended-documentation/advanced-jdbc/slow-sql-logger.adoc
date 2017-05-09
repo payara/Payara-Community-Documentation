@@ -1,108 +1,103 @@
 [[slow-sql-logger]]
-Slow SQL Logger
----------------
+= Slow SQL Logger
 
-_Payara Server and Micro 161 (4.1.1.162) onwards_
+_Since Payara Server 4.1.1.161 and Payara Server Micro 4.1.1.161_
 
 Many performance problems in Enterprise Applications can be traced to
-slow database access. Payara Server 161 (4.1.1.162) includes
-capabilities to detect and log slow SQL queries executed via a
-Connection pool. The Slow SQL logger monitors all queries executed on
-the connection pool and if they exceed a configurable execution time in
-seconds a warning message is logged into the server log. The warning
-message (see below) logs the SQL query and the stack trace to the code
-executing the query. This enables rapid diagnosis pinpointing the exact
+slow database access. Payara Server includes capabilities to detect
+and log slow SQL queries executed via a JDBC Connection pool. The Slow
+SQL logger monitors all queries executed on the connection pool and if t
+hey exceed a configurable execution time in seconds a warning message is
+logged into the server log.
+
+The warning message (see below) logs the SQL query and the stack trace to the code
+executing the query. This enables rapid diagnosis by pinpointing the exact
 lines of code to investigate.
 
 [[configuring-the-slow-sql-logger]]
-Configuring the Slow SQL Logger
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Configuring the Slow SQL Logger
 
 There are a number of ways to configure the slow SQL threshold time on a
-connection pool.
+JDBC connection pool.
 
 [[administration-console]]
-Administration Console
-^^^^^^^^^^^^^^^^^^^^^^
+=== Using the Administration Console
 
-To configure slow SQL logging on a connection pool via the
-administration console, navigate to the Connection Pool's Advanced
-Properties tab. Then specify the Slow Query Log Threshold time in
-seconds or use a decimal value to signify milliseconds. The value (-1)
-disables slow SQL logging feature. image:/images/slowsqllogging.png[Slow
-SQL Logging settings in the administration console]
+To configure slow SQL logging on a JDBC connection pool via the
+administration console, navigate to the Connection Pool's *Advanced Properties* tab.
+Then specify the *Slow Query Log Threshold* time in
+seconds or use a decimal value to signify milliseconds. The value **-1**
+disables the feature:
+
+image:/images/advanced-jdbc/slowsqllogging.png[Slow SQL Logging settings in the administration console]
 
 [[asadmin]]
-asadmin
-^^^^^^^
+=== Using Asadmin commands
 
-The Slow Query log Threshold Time for a connection pool can also be
-configured via asadmin using the set command to set the
-slow-query-threshold-in-seconds property of your connection pool. For
-example the command below sets the threshold on the __TimerPool to 50
-seconds.
+The *Slow Query Log Threshold* time for a JDBC connection pool can also be
+configured with an `asadmin` command, by using the `set` command to set the
+`slow-query-threshold-in-seconds` property, like in the following example:
 
-code,shell------------------------------------------------------------------------------------------------
-code,shell
+[source, shell]
+----
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.slow-query-threshold-in-seconds=50
-------------------------------------------------------------------------------------------------
+----
 
 You can also set the threshold time to milliseconds simply by passing a
 decimal value. Below is a example of setting the threshold on the
-__TimerPool to 200 millseconds.
+`__TimerPool` JDBC connection pool to *200* milliseconds:
 
-code,shell-------------------------------------------------------------------------------------------------
-code,shell
+[source, shell]
+----
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.slow-query-threshold-in-seconds=0.2
--------------------------------------------------------------------------------------------------
+----
 
 [[deployment]]
-Deployment
-^^^^^^^^^^
+== Application Deployment
 
-In Java EE 7 a JDBC datasource can be deployed by adding annotations to
-a JavaEE component. The Slow Query Threshold time can be configured via
-these annotations. Using annotations is the best way to configure the
-Slow SQL Query logger on Payara Micro.
+In Java EE 7 applications, a JDBC data source can be deployed by adding the
+`@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`
+EJB bean for example). The *Slow Query Log Threshold* time can be configured
+using this annotation, like in the following example:
 
-code,java-------------------------------------------------------------------
-code,java
+[source, java]
+----
 @DataSourceDefinition(
     name = "java:app/MyApp/MyDS",
     className = "org.h2.jdbcx.JdbcDataSource",
     url = "jdbc:h2:mem:test",
     properties = {"fish.payara.slow-query-threshold-in-seconds=5"})
--------------------------------------------------------------------
+----
 
-or the Datasource definition can be added to a deployment descriptor of
-an application for example in the web.xml
+The Data source definition can also be added to a deployment descriptor of
+an application, for example in the _web.xml_ standard deployment descriptor:
 
-code,xml------------------------------------------------------------------------------------
-code,xml
-    <data-source>
-     <name>java:global/ExampleDataSource</name>
-     <class-name>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</class-name>
-     <server-name>localhost</server-name>
-     <port-number>3306</port-number>
-     <database-name>mysql</database-name>
-     <user>test</user>
-     <password>test</password>
-     <!-- Example of how to use a Payara specific custom connection pool setting -->
-     <property>
-         <name>fish.payara.slow-query-threshold-in-seconds</name>
-         <value>5</value>
-     </property>
-   </data-source>
-------------------------------------------------------------------------------------
+[source, xml]
+----
+<data-source>
+    <name>java:global/ExampleDataSource</name>
+    <class-name>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</class-name>
+    <server-name>localhost</server-name>
+    <port-number>3306</port-number>
+    <database-name>mysql</database-name>
+    <user>test</user>
+    <password>test</password>
+    <!-- Example of how to use a Payara specific custom connection pool setting -->
+    <property>
+       <name>fish.payara.slow-query-threshold-in-seconds</name>
+       <value>5</value>
+    </property>
+</data-source>
+----
 
 [[example-trace]]
-Example trace
-^^^^^^^^^^^^^
+== Example Trace
 
-Below is an example WARNING for a slow query from the Server Log.
+Below is an example `WARNING` trace for a slow query recollected from the
+server's log:
 
-code,shell----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,shell
+[source, log]
+----
 [#|2016-02-01T22:39:29.289+0000|WARNING|Payara 4.1|javax.enterprise.resource.sqltrace.com.sun.gjc.util|_ThreadID=61;_ThreadName=http-listener-1(2);_TimeMillis=1454366369289;_LevelValue=900;|
   SQL Query Exceeded Threshold Time: 5000(ms): Time Taken: 10000(ms)
 Query was SELECT ID, AGE, BIO, BIRTHDATE, BIRTHDAY, DATEFORMAT, DATEOFBIRTH, DATEOFHIRE, EMAIL, HIREDATE, HIREDAY, MEMBERAGE, NAME, TODAYSDATE FROM MEMBERENTITY WHERE (NAME = ?);
@@ -136,13 +131,12 @@ java.lang.Exception: Stack Trace shows code path to SQL
     at org.eclipse.persistence.internal.jpa.QueryImpl.executeReadQuery(QueryImpl.java:258)
     at org.eclipse.persistence.internal.jpa.QueryImpl.getResultList(QueryImpl.java:473)
     at fish.payara.team.info.controllers.MemberSessionBean.getTeamMemberByName(MemberSessionBean.java:35)
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----
 
 [[payara-micro-support]]
-Payara Micro Support
-~~~~~~~~~~~~~~~~~~~~
+== Payara Micro Support
 
-Payara Micro also supports Slow SQL logging which brings powerful
-operational diagnostics to your micro-services platform. To enable Slow
-SQL logging your datasource must be deployed using the annotations
-described above.
+Payara Micro also supports slow logging of SQL queries which brings powerful operational
+diagnostics to your micro-services platform. To enable it on applications deployed on
+Payara Micro, use the annotation or deployment descriptor methods described in
+the previous section.

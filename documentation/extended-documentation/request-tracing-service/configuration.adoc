@@ -1,60 +1,42 @@
-[[request-tracing]]
-Request Tracing
----------------
-
-[[configuration]]
-Configuration
-+++++++++++++
+[[request-tracing-configuration]]
+= Request Tracing Configuration
 
 The request tracing service configuration is stored in the `domain.xml`
 file. As with any aspect of Payara Server configuration, we do not
 recommend modifying the `domain.xml` due to the likelihood of typos
 causing problems.
 
-------------------------------------------------
+[source, xml]
+----
 <request-tracing-service-configuration
     threshold-value="30"
     threshold-unit="SECONDS"
     enabled="true">
     <log-notifier enabled="true"></log-notifier>
 </request-tracing-service-configuration>
-------------------------------------------------
+----
 
 As shown above, there are three main attributes which can be configured,
-in addition to a notifier:
+in addition to a `log-notifier` sub-tag:
 
-* `threshold-value`
-* This defines the number of units beyond which a request will be
+`threshold-value`:: This defines the number of units beyond which a request will be
 traced.
-* `threshold-unit`
-* This defines the time duration per unit. The accepted options are any
+`threshold-unit`:: This defines the time duration per unit. The accepted options are any
 valid
 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[java.util.concurrent.TimeUnit]
 values. By default the threshold value is *3 MINUTES*. In the snippet
 given above, it’s set to _30 SECONDS_.
-* `enabled`
-* Whether or not the service is turned on
+`enabled`:: Whether or not the service is turned on
 
 There is an additional configuration option which can be seen in the
 admin console, or specified as an argument to the
 link:asadmin-command.adoc[asadmin command] called `dynamic`. Setting this
-to true will activate the change _without a server restart._
+to true will activate the change _without having to do a server restart._
 
-image:/images/request-tracing-configuration-admin-console.png[Request
-Tracing Configuration in the Admin Console]
+image:/images/request-tracing/configuration-admin-console.png[Request Tracing Configuration in the Admin Console]
 
-Not included in the admin console for \{\{ book.currentVersion }} is an
+WARNING: Not included in the admin console for release _4.1.1.164_ is an
 option to set the notifier type. This is intentional for this
 tech-preview release, since the general notifier service is released
 with only one available notifier. When further notifiers are added, the
 option to specify the type of notifier will be added.
-
-'''''
-
-[[see-also]]
-See Also
-++++++++
-
-*
-link:/documentation/extended-documentation/notification-service[Notification
-Service]

@@ -1,37 +1,30 @@
 [[payara-server-deployment-descriptor-files]]
-Payara Server Deployment Descriptor Files
------------------------------------------
+= Payara Server Deployment Descriptor Files
 
 Payara Server supports additional configuration settings by using the
-Glassfish Server deployment descriptor files. These additional supported
-elements are listed here.
+Glassfish Server proprietary deployment descriptor files. These configuration
+elements are the following:
 
 [[glassfish-application.xml]]
-glassfish-application.xml
-~~~~~~~~~~~~~~~~~~~~~~~~~
+== _glassfish-application.xml_
 
-* glassfish-application
-** classloading-delegate
-** enable-implicit-cdi
-** default-role-mapping (_property_)
-** whitelist-package
-** scanning-exclude
-** scanning-include
+* `classloading-delegate`
+* `enable-implicit-cdi`
+* `default-role-mapping` (_property_)
+* `whitelist-package`
+* `scanning-exclude`
+* `scanning-include`
 
 [[glassfish-web.xml]]
-glassfish-web.xml
-~~~~~~~~~~~~~~~~~
+== _glassfish-web.xml_
 
-* glassfish-web-app
-** container-initialized-enabled
-** default-role-mapping (_property_)
-** whitelist-package
-** scanning-exclude
-** scanning-include
+* `container-initialized-enabled`
+* `default-role-mapping` (_property_)
+* `whitelist-package`
+* `scanning-exclude`
+* `scanning-include`
 
 [[glassfish-ejb-jar.xml]]
-glassfish-ejb-jar.xml
-~~~~~~~~~~~~~~~~~~~~~
+== _glassfish-ejb-jar.xml_
 
-* glassfish-ejb-jar
-* default-role-mapping (_property_)
+* `default-role-mapping` (_property_)

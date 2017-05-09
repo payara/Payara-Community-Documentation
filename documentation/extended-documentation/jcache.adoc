@@ -1,6 +1,5 @@
 [[jcache-in-payara-server]]
-JCache in Payara Server
------------------------
+= JCache in Payara Server
 
 This section covers how to use the JCache functionality in Payara
 Server.

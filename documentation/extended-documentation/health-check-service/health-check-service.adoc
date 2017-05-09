@@ -1,9 +1,10 @@
 [[health-check-service]]
-Health Check Service
---------------------
+= Health Check Service
 
-Since version 4.1.1.161, Payara Server includes the Health Check
-Service. When enabled, Payara Server periodically checks:
+_Since Payara Server 4.1.1.161_
+
+Payara Server includes a Health Check Service that is disabled by default.
+When enabled it periodically checks the following performance metrics:
 
 * Host CPU Usage
 * Host Memory Usage
@@ -14,11 +15,13 @@ Service. When enabled, Payara Server periodically checks:
 
 If there is a problem with any of these metrics and they exceed a
 configurable threshold then a `GOOD`, `WARNING` or `CRITICAL` event
-message is logged to the server log file. This allows operations teams
-to rapidly detect problems or work out what happened after these
-problems have occurred. Such events will be presented in a similar
-manner to this: ￼ ￼ +
-`[2016-05-24T03:52:28.690+0000] [Payara 4.1] [INFO] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=72 _ThreadName=healthcheck-service-3 [timeMillis: 1464061948690] [levelValue: 800] [[ CPUC:Health Check Result:[[status=WARNING, message='CPU%: 75.6, Time CPU used: 267 milliseconds'']']]] ￼ ￼[2016-05-24T21:11:36.579+0000] [Payara 4.1] [SEVERE] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=71 _ThreadName=healthcheck-service-3] [timeMillis: 1464124296579] [levelValue: 1000] [[ HOGT:Health Check Result:[[status=CRITICAL, message='Thread with <id-name>: 145-testing-thread-1 is a hogging thread for the last 59 seconds 999 milliseconds'']']]] ￼`
+message is logged to the server log file.
 
-* link:asadmin-commands.adoc[Asadmin Commands]
-* link:configuration.adoc[Configuration]
+This allows operations teams to rapidly detect problems or work out what happened after these
+problems have occurred. Such events will be presented like in the following
+sample:
+
+[source, log]
+----
+[2016-05-24T03:52:28.690+0000] [Payara 4.1] [INFO] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=72 _ThreadName=healthcheck-service-3 [timeMillis: 1464061948690] [levelValue: 800] [[ CPUC:Health Check Result:[[status=WARNING, message='CPU%: 75.6, Time CPU used: 267 milliseconds'']']]] ￼ ￼[2016-05-24T21:11:36.579+0000] [Payara 4.1] [SEVERE] [fish.payara.nucleus.healthcheck.HealthCheckService] [tid: _ThreadID=71 _ThreadName=healthcheck-service-3] [timeMillis: 1464124296579] [levelValue: 1000] [[ HOGT:Health Check Result:[[status=CRITICAL, message='Thread with <id-name>: 145-testing-thread-1 is a hogging thread for the last 59 seconds 999 milliseconds'']']]] ￼
+----
