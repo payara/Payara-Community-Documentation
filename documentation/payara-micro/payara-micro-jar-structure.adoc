@@ -1,0 +1,61 @@
+= Payara Micro JAR Structure
+
+From Payara 4.1.1.171, Payara Micro has a new JAR structure.
+
+== Payara Micro JAR Structure
+
+=== Payara Micro JAR folder structure:
+----
+payara-micro.jar
+├── fish
+│   └── payara/micro/
+├── META-INF
+│   ├── MANIFEST.MF
+│   └── maven/fish.payara.micro/payara-micro-boot/pom.xml
+└── MICRO-INF
+    ├── classes
+    ├── deploy
+    ├── domain
+    ├── lib
+    ├── payara-boot.properties
+    ├── post-boot-commands.txt
+    ├── pre-boot-commands.txt
+    └── runtime
+----
+=== Payara Micro JAR folder structure described:
+[cols=",",options="header"]
+|====
+|File|Description
+|fish/payara|Payara Micro's class files.
+|META-INF|Contains the Manifest and pom files.
+|MICRO-INF/classes|Contains classes which are added to the classpath before those in /runtime.
+|MICRO-INF/deploy|Contains WAR, EAR, and EJB-JAR files for deployment.
+|MICRO-INF/domain|Contains domain.xml, default-web.xml, keystores, login.conf, logging.properties, and other files that are written to the temp file directory.
+|MICRO-INF/lib|Contains additional third party dependency jars which will be automatically added to the classpath.
+|MICRO-INF/runtime|Contains the core runtime jars.
+|MICRO-INF/payara-boot.properties|The System properties file containing Payara Micro runtime flags. This will override runtime flags and can be overridden by command-line arguments.
+|MICRO-INF/<command-files>.txt|.txt files containing asadmin commands to execute post boot can also be stored within MICRO-INF. This includes `pre-boot-commands`, `post-boot-commands`, and `post-deploy-commands`.
+|====
+
+== Nested JAR
+
+Payara Micro now has two options for unpacking classes:
+
+=== Unpacking to File System (`--unpack`)
+
+By default, Payara Micro will unpack the nested JARs into a temporary directory
+within the directory specified by either the system property `java.io.tmpdir` or
+the command line argument `--unpackdir`, and then load them as classes. This way
+of booting Payara Micro results in a comparable boot time to previous Payara
+Micro releases. This requires no explicit command-line arguments.
+
+=== Unpacking to Memory (`--nested`)
+
+The `--nested` will load the classes directly from the nested JARs to the memory
+ without unpacking the JARs into a folder, but may slow boot.
+
+To start Payara Micro as a nested JAR, use the `--nested` option as shown:
+
+----
+java -jar payara-micro.jar --nested
+----
