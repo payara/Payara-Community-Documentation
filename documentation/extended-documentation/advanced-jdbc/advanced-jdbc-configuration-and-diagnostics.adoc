@@ -1,21 +1,19 @@
 [[advanced-jdbc-configuration-and-diagnostics.]]
-Advanced JDBC Configuration and Diagnostics.
---------------------------------------------
+= Advanced JDBC Configuration and Diagnostics
 
-_Payara Server and Micro 161 (4.1.1.161) onwards_
+_Since Payara Server 4.1.1.161 and Payara Server Micro 4.1.1.161_
 
-Payara Server 161 (4.1.1.161) and Payara Micro 161 introduce new
-capabilites for advanced JDBC connection pool configuration and
+Payara Server and Payara Micro 161 comes integrated with new
+capabilities for advanced JDBC connection pool configuration and
 diagnostics.
 
 Many performance problems in Enterprise Applications can be traced to
 slow database access or database connectivity problems. To help prevent
-and diagnose database access problems we have introduced a number of
-powerful new features.
+and diagnose database access problems new powerful features have been
+introduced.
 
 [[slow-sql-logging]]
-Slow SQL Logging
-~~~~~~~~~~~~~~~~
+== Slow SQL Logging
 
 Connection pools can be configured to log a warning whenever a database
 query exceeds a defined threshold. This enables your operations team to
@@ -25,55 +23,42 @@ SQL.
 See link:slow-sql-logger.adoc[Slow-SQL-Logger] for detailed information.
 
 [[full-jdbc-tracing]]
-Full JDBC Tracing
-~~~~~~~~~~~~~~~~~
+== Full JDBC Tracing
 
 Connection pools can be configured to log all JDBC calls made to the
-connection pool including the SQL and execution times of the call. This
-is especially useful in development to understand the SQL generated via
-frameworks like JPA and see what the performance characteristics look
-like. As the tracing is done at the connection pool level all direct SQL
-or other data access technologies are captured.
+connection pool including the SQL statements and its execution time
+of the call. This is especially useful in development to understand
+the SQL generated via frameworks like JPA and see what the performance
+characteristics look like. As the tracing is done at the connection
+pool level all direct SQL or other data access technologies are captured.
 
 See link:log-jdbc-calls.adoc[Log-JDBC-Calls] for detailed information.
 
 [[sql-trace-listeners]]
-SQL Trace Listeners
-~~~~~~~~~~~~~~~~~~~
+== SQL Trace Listeners
 
-It is also possible to use the Payara Server apis used to implement both
+It is also possible to use the Payara Server APIs used to implement both
 the Payara Server Slow SQL Logging and JDBC tracing capabilities to
-create custom diagnostic and tracing functionality via SQL Trace
-Listeners.
+create custom diagnostic and tracing functionality via *SQL Trace
+Listeners*.
 
 See link:sql-trace-listeners.adoc[SQL Trace Listeners] for detailed
 Information.
 
 [[advanced-connection-pool-configuration-properties]]
-Advanced Connection pool Configuration Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Advanced Connection pool Configuration Properties
 
 All connection pool properties available on the administration console
-for Payara Server global datasources can now be configured on
-application scoped datasources deployed via deployment descriptors or
+for Payara Server global data sources can now be configured on
+application scoped data sources deployed via deployment descriptors or
 annotations.
 
 See link:advanced-connection-pool-properties.adoc[Advanced Connection Pool
 Properties] for detailed information.
 
 [[jdbc-connection-validation-changes]]
-JDBC Connection Validation Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== JDBC Connection Validation Changes
 
-See the
-link:/documentation/core-documentation/jdbc/jdbc-connection-validation.adoc[JDBC
-Connection Validation page] in the core documentation for information on
-changes between GlassFish Server and Payara Server's JDBC Connection
-Validation.
-
-[[payara-micro-support]]
-Payara Micro Support
-~~~~~~~~~~~~~~~~~~~~
-
-All these powerful capabilities available on Payara Server can also be
-used in Payara Micro to create robust enterprise ready microservices.
+See the link:/documentation/core-documentation/jdbc/jdbc-connection-validation.adoc[JDBC Connection Validation page]
+in the core documentation for information on changes between GlassFish Server
+and Payara Server's *JDBC Connection Validation*.

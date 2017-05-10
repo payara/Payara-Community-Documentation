@@ -1,26 +1,27 @@
 [[sql-trace-listeners]]
-SQL Trace Listeners
--------------------
+= SQL Trace Listeners
 
-Since version 4.1.1.161, Payara Server provides support for custom SQL
-Trace Listeners. A SQL Trace Listener is registered against a datasource
-and is called after each method call on the Payara Server connection
-pool. SQL Trace Listeners enable a developer to track all calls to the
-database and can be used to develop custom Auditing, Error handling or
-monitoring. SQL Trace Listeners can be enabled globally on a datasource
-if you class is on the server classpath or can be enabled on an
-application specific datasource deployed within a WAR or EAR deployment,
-in which case the class only needs to be on the classpath of your
-application i.e. contained within your WAR or EAR.
+_Since Payara Server 4.1.1.161 and Payara Server Micro 4.1.1.161_
+
+Payara Server provides support for custom SQL Trace Listeners.
+A *SQL Trace Listener* is registered against a data source
+and is called after each method call made on the JDBC connection
+pool.
+
+SQL Trace Listeners allows developers to track all calls to the
+database and can be used to develop custom auditing, error handling or
+monitoring components. SQL Trace Listeners can be enabled globally on a
+data source if the class that implements it is on the server's _classpath_,
+or can be enabled on application specific data sources by including them in
+the application's WAR or EAR.
 
 [[sql-trace-listener-interface]]
-SQL Trace listener Interface
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== SQL Trace listener Interface
 
-The SQL Trace Listener is implemented as shown below;
+The SQL Trace Listener interface is shown below:
 
-code,java----------------------------------------------------------------
-code,java
+[source, java]
+----
 public interface SQLTraceListener {
     /**
      * Notify listeners with SQL trace information.
@@ -30,20 +31,21 @@ public interface SQLTraceListener {
     public void sqlTrace(SQLTraceRecord record);
 
 }
-----------------------------------------------------------------
+----
 
-To write a listener you just need to implement the interface and
-override the sqlTrace method. The SQLTraceRecord contains information
-about the call to the JDBC driver. Each of the properties below has a
-getter on the SQLTraceRecord class;
+To write a custom trace listener you need to implement the interface and
+override the `sqlTrace` method. The `SQLTraceRecord` object contains
+information about the execute call to the JDBC connection pool. The following
+is the list of properties that can be queried using their respective *getter*
+methods:
 
-code,java---------------------------------------------------------------------------------
-code,java
-   /**
+[source ,java]
+----
+    /**
      * Thread ID from which SQL statement originated.
      */
     private long threadID;
-    
+
     /**
      * Thread Name from which SQL statement originated.
      */
@@ -53,132 +55,132 @@ code,java
      * Pool Name in which the SQL statement is executed.
      */
     private String poolName;
-    
+
     /**
      * Type of SQL query. Could be PreparedStatement, CallableStatement or
      * other object types.
      */
     private String className;
-    
+
     /**
      * Method that executed the query.
      */
     private String methodName;
-    
+
     /**
      * Time of execution of query.
      */
     private long timeStamp;
-    
+
     /**
      * Parameters of the method that executed the SQL query. Includes information
      * like SQL query, arguments and so on.
-     */    
+     */
     private Object[] params;
----------------------------------------------------------------------------------
+----
 
 [[example-sql-trace-listener]]
-Example SQL Trace Listener
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+== SQL Trace Listener Sample
 
-The Log JDBC Calls functionality of Payara Server is implemented as a
-SQL Trace Listener. The code of the sqltrace method is;
+The following code fragment illustrates a sample SQL trace listener that
+just logs the executed call to the server's log file:
 
-code,java------------------------------------------------------------------------------------------
-code,java
+[source, java]
+----
 public class SQLTraceLogger implements SQLTraceListener {
-    
+
     private static Logger _logger = initLogger();
 
     private static Logger initLogger() {
         _logger = LogDomains.getLogger(SQLTraceLogger.class, LogDomains.SQL_TRACE_LOGGER);
         return _logger;
     }
-    
+
     public SQLTraceLogger() {
-        
+
     }
-    
+
     public void sqlTrace(SQLTraceRecord record) {
         _logger.log(Level.FINE, record.toString());
     }
 
 }
-------------------------------------------------------------------------------------------
+----
 
 [[configuring-sql-trace-listeners]]
-Configuring SQL Trace Listeners
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== Configuring SQL Trace Listeners
 
 [[administration-console]]
-Administration Console
-^^^^^^^^^^^^^^^^^^^^^^
+=== Using the Administration Console
 
-SQL Trace Listners can be enabled on a connection pool through the
-Payara Server administration console. Navigate to the advanced tab of
-your connection pool. Using the left hand tree view select JDBC->JDBC
-Connection pools->Your Connection pool. then select the Advanced Tab in
-the main window of the administration console. Then add the fully
-qualified class name of your SQL Trace Listener implementation class in
-the SQL Trace Listeners text field.
-image:images/slowsqllogging.png[Enabling SQL Tracing in the
-administration console] NOTE the implementation class must be on the
-classpath of Payara Server to be configured from the administration
-console. ### asadmin command line interface The Adding a SQL Trace
-Listener to a connection pool is also possible via asadmin using the set
-command to set the fish.payara.lsql-trace-listeners property of your
-connection pool to the fully qualified classname of your listener
-implementation. For example the command below adds a custom listener to
-the __TimerPool.
+SQL Trace Listeners can be enabled on a JDBC connection pool through the
+administration web console. Navigate to the *Advanced Tab* of
+your connection pool by selecting the JDBC -> JDBC
+Connection Pools -> *<Your Connection pool>*.
 
-code,shell-----------------------------------------------------------------------------------------------------------------------------------------------------
-code,shell
+Proceed to add the fully qualified class name of your SQL Trace Listener
+implementation class in the *SQL Trace Listeners* field:
+
+image:/images/advanced-jdbc/slowsqllogging.png[Enabling SQL Tracing in the administration console]
+
+IMPORTANT: The implementation class must be on the server's _classpath_ for
+it to work correctly
+
+=== Using asadmin commands
+
+SQL Trace Listeners can be enabled on a JDBC connection pool using with an
+`asadmin` commands by using the `set` command to set the
+`fish.payara.lsql-trace-listeners` to the fully qualified class name of
+your listener implementation, like on the following example:
+
+[source, shell]
+----
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.sql-trace-listeners=fish.payara.examples.payaramicro.datasource.example.CustomSQLTracer
------------------------------------------------------------------------------------------------------------------------------------------------------
+----
 
 [[deployment]]
-Deployment
-^^^^^^^^^^
+== Application Deployment
 
-In Java EE 7 a JDBC datasource can be deployed by adding annotations to
-a JavaEE component. SQL Trace Listener classes can be configured via
-these annotations. .
+In Java EE 7 applications, a JDBC data source can be deployed by adding the
+`@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`
+EJB bean for example). SQL Trace Listener classes can be configured using this
+annotation, like in the following example:
 
-code,java-------------------------------------------------------------------------------------------------------------------------
-code,java
+[source, java]
+----
 @DataSourceDefinition(
     name = "java:app/MyApp/MyDS",
     className = "org.h2.jdbcx.JdbcDataSource",
     url = "jdbc:h2:mem:test",
     properties = {"fish.payara.sql-trace-listeners=fish.payara.examples.payaramicro.datasource.example.CustomSQLTracer"})
--------------------------------------------------------------------------------------------------------------------------
+----
 
-or the Datasource definition can be added to a deployment descriptor of
-an application for example in the web.xml
+The Data source definition can also be added to a deployment descriptor of
+an application, for example in the _web.xml_ standard deployment descriptor:
 
-code,xml-------------------------------------------------------------------------------------------
-code,xml
-    <data-source>
-     <name>java:global/ExampleDataSource</name>
-     <class-name>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</class-name>
-     <server-name>localhost</server-name>
-     <port-number>3306</port-number>
-     <database-name>mysql</database-name>
-     <user>test</user>
-     <password>test</password>
-     <!-- Example of how to use a Payara specific custom connection pool setting -->
-     <property>
-         <name>fish.payara.sql-trace-listeners</name>
-         <value>fish.payara.examples.payaramicro.datasource.example.CustomSQLTracer</value>
-     </property>
-   </data-source>
--------------------------------------------------------------------------------------------
+[source, xml]
+----
+<data-source>
+    <name>java:global/ExampleDataSource</name>
+    <class-name>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</class-name>
+    <server-name>localhost</server-name>
+    <port-number>3306</port-number>
+    <database-name>mysql</database-name>
+    <user>test</user>
+    <password>test</password>
+    <!-- Example of how to use a Payara specific custom connection pool setting -->
+    <property>
+       <name>fish.payara.sql-trace-listeners</name>
+       <value>fish.payara.examples.payaramicro.datasource.example.CustomSQLTracer</value>
+    </property>
+</data-source>
+----
 
 [[payara-micro-support]]
-Payara Micro Support
-~~~~~~~~~~~~~~~~~~~~
+== Payara Micro Support
 
-Payara Micro also supports SQL Trace Listners which brings powerful
+Payara Micro also supports SQL Trace Listeners which brings powerful
 operational diagnostics to your micro-services platform. To add a SQL
-Trace Listener to your datasource, deploy the datasource using the
-annotations or deployment descriptor described above.
+Trace Listener to your data source used by applications deployed on Payara Micro,
+use the annotation or deployment descriptor methods described in the
+previous section.

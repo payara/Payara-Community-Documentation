@@ -1,10 +1,8 @@
 [[summary]]
-Summary
--------
+= Summary
 
 [[general-info]]
-General Info
-~~~~~~~~~~~~
+== General Info
 
 * link:README.adoc[Introduction]
 * link:general-info/general-info.adoc[General Info]
@@ -14,12 +12,10 @@ General Info
 * link:security/security.adoc[Security]
 ** link:security/security-fix-list.adoc[Security Fixes Summary]
 * link:release-notes/release-notes.adoc[Release Notes]
-** link:release-notes/release-notes-171.adoc[Payara Server 4.1.1.171
-Release Notes]
+** link:release-notes/release-notes-171.adoc[Payara Server 4.1.1.171 Release Notes]
 
 [[technical-documentation]]
-Technical Documentation
-~~~~~~~~~~~~~~~~~~~~~~~
+== Technical Documentation
 
 * link:documentation/core-documentation/core-documentation.adoc[Core Documentation]
 ** link:documentation/core-documentation/configuration/configuration.adoc[Server Configuration]
@@ -130,8 +126,7 @@ Technical Documentation
 **** link:documentation/payara-micro/appendices/javadoc.adoc[Javadoc]
 
 [[appendices]]
-Appendices
-~~~~~~~~~~
+== Appendices
 
 * link:release-notes/release-notes-history.adoc[History of Release Notes]
 ** link:release-notes/release-notes-171.adoc[Payara Server 4.1.1.171 Release Notes]

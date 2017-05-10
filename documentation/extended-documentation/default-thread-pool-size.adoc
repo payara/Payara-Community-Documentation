@@ -1,9 +1,10 @@
 [[default-thread-pool-size]]
-Default Thread Pool Size
-------------------------
+= Default Thread Pool Size
 
-Starting from Payara Server _4.1.1.164_, the thread pool `thread-pool-1`
-has a minimum size of *2* instead of *1*.
+_Since Payara Server 4.1.1.164_
+
+The thread pool `thread-pool-1` starts with a minimum size of *2*
+instead of *1* (like in previous versions)
 
 This includes the benefit of allowing users to execute tasks
 concurrently using the `ManagedExecutorService` and

@@ -1,25 +1,24 @@
 [[notifiers]]
-Notifiers
----------
+= Notifiers
 
 The notification service comes with an integrated set of notifiers that
 can be used to send notification events to a distinct variety of
 channels apart from the standard server log mechanism:
 
-* *Email*: Taking advantage of preconfigured Java Mail sessions in the
+*Email*:: Taking advantage of preconfigured Java Mail sessions in the
 server, you can route notifications to an email account
-* *JMS*: Taking advantage of preconfigured JMS connection resources, you
+*JMS*:: Taking advantage of preconfigured JMS connection resources, you
 can route notifications to a Java Message Queue so it can be consumed by
 other applications or services
-* *Event Bus*: If Hazelcast is enabled, it's possible to send
+*Event Bus*:: If Hazelcast is enabled, it's possible to send
 notification events using Hazelcast's event bus.
-* *Hipchat*: You can configure the notification service to send events
+*Hipchat*:: You can configure the notification service to send events
 to an specific Hipchat chat room.
-* *Slack*: Same as with the Hipchat notifier, you can sends
+*Slack*:: Same as with the Hipchat notifier, you can sends
 notifications directly to an specific Slack channel.
-* *SNMP*: Allows monitoring servers to scout for notification events
+*SNMP*:: Allows monitoring servers to scout for notification events
 using SNMP traps.
-* *XMPP*: Allows sending notification events to XMPP servers .
+*XMPP*:: Allows sending notification events to XMPP servers.
 
 Appropriate instructions on how to configure and use all of these
 notification mechanisms are included in this section.

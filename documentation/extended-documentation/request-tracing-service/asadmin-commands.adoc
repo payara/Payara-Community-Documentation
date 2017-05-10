@@ -1,100 +1,82 @@
-[[request-tracing]]
-Request Tracing
----------------
-
-[[command-reference]]
-Command Reference
------------------
+[[request-tracing-command-reference]]
+= Request Tracing
 
 [[set-requesttracing-configuration]]
-`set-requesttracing-configuration`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `set-requesttracing-configuration`
 
-*Usage:* `asadmin> set-requesttracing-configuration`
+*Usage*::
+`asadmin> set-requesttracing-configuration`
 
-*Aim:* This command can be used to set all configuration of the Request
-Tracing Service at once. It effectively wraps `requesttracing-configure`
-and `requesttracing-configure-notifier` in one command.
+*Aim*::
+This command can be used to set all configuration of the request
+tracing service at once. It effectively wraps the `requesttracing-configure`
+and `requesttracing-configure-notifier` commands in one.
 
 [[command-options]]
-Command Options:
-++++++++++++++++
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--enabled=true` |Boolean |Enables or disables the service |false |Yes
-
 |`--thresholdValue=10` |Integer |Sets the number of time units which
 trigger the tracing of a request |30 |No
-
 |`--thresholdUnit="SECONDS"` |TimeUnit |Sets the time unit to use for
 the threshold |`SECONDS` |No
-
 |`--dynamic=true` |Boolean |When set to true, applies the changes
 without a restart. Otherwise a restart is required. |false |No
-
 |`--notifierEnabled` |Boolean |Enables or disables notifications |false
 |Yes
-
 |`--notifierDynamic=true` |Boolean |When set to true, applies the
 changes without a restart. Otherwise a restart is required. |false |No
-
 |`--historicaltraceenabled` |Boolean |When present, enables the storage
 of the slowest historical request traces. |false |No
-
 |`--historicaltracestoresize` |Integer |Sets how many request traces
 will be stored. |20 |No
 |=======================================================================
 
 [[example]]
-Example:
-++++++++
+=== Example
 
------------------------------------------
+[source, shell]
+----
 asadmin> set-requesttracing-configuration
-    --enabled=true \
-    --thresholdValue=10 \
-    --thresholdUnit="SECONDS" \
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
     --dynamic=true
-    --notifierEnabled=true \
-    --notifierDynamic=true \
-    --historicaltraceenabled \
+    --notifierEnabled=true
+    --notifierDynamic=true
+    --historicaltraceenabled
     --historicaltracestoresize=20
------------------------------------------
+----
 
 [[requesttracing-configure]]
-`requesttracing-configure`
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `requesttracing-configure`
 
-*Usage:*
+*Usage*::
 `asadmin> requesttracing-configure --enabled=true --thresholdValue=10 --thresholdUnit="SECONDS" --dynamic=true --historicaltraceenabled --historicaltracestoresize=20`
 
-*Aim:* Enables or disables the service and provides ways to configure
+*Aim*::
+Enables or disables the service and provides ways to configure
 threshold time by specifying a value and a unit, and can store a given
 number of the slowest historical request traces.
 
 [[command-options-1]]
-Command Options:
-++++++++++++++++
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--enabled=true` |Boolean |Enables or disables the service |false |Yes
-
 |`--thresholdValue=10` |Integer |Sets the number of time units which
 trigger the tracing of a request |30 |No
-
 |`--thresholdUnit="SECONDS"` |TimeUnit |Sets the time unit to use for
 the threshold |`SECONDS` |No
-
 |`--dynamic=true` |Boolean |When set to true, applies the changes
 without a restart. Otherwise a restart is required. |false |No
-
 |`--historicaltraceenabled` |Boolean |When present, enables the storage
 of the slowest historical request traces. |false |No
-
 |`--historicaltracestoresize` |Integer |Sets how many request traces
 will be stored. |20 |No
 |=======================================================================
@@ -104,109 +86,102 @@ running server, otherwise the change would only be applied after a
 server restart.
 
 [[example-1]]
-Example:
-++++++++
+=== Example
 
------------------------------------
-asadmin> requesttracing-configure \
-    --enabled=true \
-    --thresholdValue=10 \
-    --thresholdUnit="SECONDS" \
-    --dynamic=true \
-    --historicaltraceenabled \
+[source, shell]
+----
+asadmin> requesttracing-configure
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
+    --dynamic=true
+    --historicaltraceenabled
     --historicaltracestoresize=20
------------------------------------
+----
 
 [[requesttracing-configure-notifier]]
-`requesttracing-configure-notifier`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `requesttracing-configure-notifier`
 
-*Usage:*
+*Usage*::
 `asadmin> requesttracing-configure-notifier --notifierName="service-log" --notifierEnabled=true --dynamic=true`
 
-*Aim:* Controls which notifier to use and enables or disables
-notifications.
+*Aim*::
+Controls which notifier to use and enables or disables notifications.
 
 [[command-options-2]]
-Command Options:
-++++++++++++++++
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--notifierName` |String |The name of the notifier to use
 |`service-log` |Yes
-
 |`--notifierEnabled` |Boolean |Enables or disables notifications |false
 |Yes
-
 |`--dynamic=true` |Boolean |When set to true, applies the changes
 without a restart. Otherwise a restart is required. |false |No
 |=======================================================================
 
 [[example-2]]
-Example:
-++++++++
+=== Example
 
-In order to configure the notifier for request tracing, the asadmin
+In order to configure the notifier for request tracing, the `asadmin`
 command to list available notifiers should be run first:
 
--------------------------------
+[source, shell]
+----
 asadmin> notifier-list-services
--------------------------------
+----
 
-which will give output similar to the following:
+Which will give an output similar to the following:
 
-_____________________________________________________
------------------------------------------------------
+----
 Available Notifier Services:
         service-log
 
 Command notifier-list-services executed successfully.
------------------------------------------------------
-_____________________________________________________
+----
 
-By providing a notifier service with its name, it’s possible to assign
-it to the Request Tracing service. The command named
-`requesttracing-configure-notifier` adds a logger notifier to request
-tracing by enabling it as seen follows.
+By providing a notifier service with its name, it’s possible to configure the
+request tracing service to use it. The command named
+`requesttracing-configure-notifier` adds the logger notifier to the request
+tracing service by enabling it as seen follows:
 
-------------------------------------------
+[source, shell]
+----
 asadmin> requesttracing-configure-notifier
     --notifierName="service-log" \
     --notifierEnabled=true \
     --dynamic=true
-------------------------------------------
+----
 
 [[get-requesttracing-configuration]]
-`get-requesttracing-configuration`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `get-requesttracing-configuration`
 
-*Usage:* `asadmin> get-requesttracing-configuration`
+*Usage*::
+`asadmin> get-requesttracing-configuration`
 
-*Aim:* This command can be used to list the details of the Request
-Tracing Service.
+*Aim*::
+This command can be used to list the details of the Request Tracing Service.
 
 [[command-options-3]]
-Command Options:
-++++++++++++++++
+=== Command Options
 
-There are no options for this command.
+There are no available options for this command.
 
 [[example-3]]
-Example:
-++++++++
+=== Example:
 
------------------------------------------
+[source, shell]
+----
 asadmin> get-requesttracing-configuration
------------------------------------------
+----
 
-will give output similar to the following:
+Will give an output similar to the following:
 
-_________________________________________________________________________
--------------------------------------------------------------------------
-Enabled  ThresholdUnit  ThresholdValue  Notifier Name  Notifier Enabled  
-true     SECONDS        10              service-log    true              
+----
+Enabled  ThresholdUnit  ThresholdValue  Notifier Name  Notifier Enabled
+true     SECONDS        10              service-log    true
+
 Command get-requesttracing-configuration executed successfully.
--------------------------------------------------------------------------
-_________________________________________________________________________
+----

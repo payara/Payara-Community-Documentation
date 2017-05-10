@@ -1,69 +1,66 @@
 [[using-the-asadmin-commands]]
-Using the asadmin commands
---------------------------
-
-_Payara Server and Micro 163 (4.1.1.163) onwards_
+= Using the asadmin commands
 
 The JMX Monitoring Service provides two asadmin commands:
-`set-monitoring-configuration` and `get-monitoring-configuration`. This
-page documents the options available to the commands and how they should
-be used.
+`set-monitoring-configuration` and `get-monitoring-configuration`.
+This page documents the options available to these commands and how they
+should be used.
 
 [[set-monitoring-configuration]]
-`set-monitoring-configuration`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+== `set-monitoring-configuration`
 
-Usage:
+*Usage*::
 `asadmin> set-monitoring-configuration --dynamic true|false --enabled true|false --amx true|false --logfrequency <long.value> --logfrequencyunit MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS --addproperty 'name=AttributeName value=MBeanObjectName description=Option_Description' --delproperty AttributeName`
 
-Aim: Sets the monitoring service configuration and can dynamically
+*Aim*::
+Sets the monitoring service configuration and can dynamically
 reload the configuration.
+
+[[command-options-1]]
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--target` |String |The instance or cluster to get the monitoring
 service configuration of |server |no
-
 |`--dynamic` |Boolean |Whether or not to dynamically reload the
 configuration. This requires a non-empty configuration to have existed
 at server startup and can be achieved by setting any option or property
 to have a value |false |no
-
 |`--enabled` |Boolean |The enabled state of the service |N/A |yes
-
 |`--amx` |Boolean |Whether or not to boot AMX on startup |N/A |no
-
 |`--logfrequency` |Long |The numerical value for the rate at which
 messages are logged |N/A |no
-
 |`--logfrequencyunit` |TimeUnit |The unit for of rate at which messages
 are logged |N/A |no
-
 |`--addproperty` |String |MBean attribute to monitor. Takes a string of
 the format
 `'name=AttributeName value=MBeanObjectName description="Description"'`,
-where name and value are required and the string must be enclosed in ' '
+where name and value are required and the string must be enclosed in single
+quotes (')
 |N/A |no
-
 |`--delproperty` |String |MBean attribute to stop monitoring. Takes a
 `name` value of and removes the property corresponding to it. |N/A |no
 |=======================================================================
 
 [[get-monitoring-configuration]]
-`get-monitoring-configuration`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=== `get-monitoring-configuration`
 
-Usage: `asadmin> get-monitoring-configuration --pretty false|true`
+*Usage*::
+`asadmin> get-monitoring-configuration --pretty false|true`
 
-Aim: Retrieves the monitoring service configuration and outputs it.
+*Aim*::
+Retrieves the monitoring service configuration and outputs it.
+
+[[command-options-1]]
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--target` |String |The instance or cluster to get the monitoring
 service configuration of |server |no
-
 |`--pretty` |Boolean |Displays Boolean configuration options as a tick
 or cross |N/A |no
 |=======================================================================

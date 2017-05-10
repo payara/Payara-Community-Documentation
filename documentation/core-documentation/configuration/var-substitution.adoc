@@ -9,10 +9,11 @@ the environment later when Payara Server is started.
 [[references-to-system-properties]]
 == References to System Properties
 
-Since _GlassFish Open Source Edition 4.0_, variable references to system
-properties start with `${`, followed by the name of the variable, and
-end with `}`. An example of a variable reference that refers to
-a `java.home` system property is:
+_Since GlassFish Open Source Edition 4.0_
+
+Variable references to system properties start with `${`, followed by the name
+of the variable, and end with `}`. An example of a variable reference that
+refers to a `java.home` system property is:
 
 ------------
 ${java.home}
@@ -34,12 +35,11 @@ property using other system properties or environment variables.
 [[references-to-environment-variables]]
 == References to environment variables
 
-Since _Payara Server 4.1.1.171_ references to environment variables are also
-supported.
+_Since Payara Server 4.1.1.171_
 
-They are used like system property references, but contain an extra
-`ENV` qualifier and equals sign before the variable name. An example of
-a reference to an environment variable `HOME` then looks like:
+Environment variable references are used like system property references,
+but contain an extra `ENV` qualifier and equals sign before the variable name.
+An example of a reference to an environment variable `HOME` then looks like:
 
 -----------
 ${ENV=HOME}

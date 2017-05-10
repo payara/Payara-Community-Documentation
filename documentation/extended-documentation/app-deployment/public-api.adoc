@@ -1,45 +1,44 @@
 [[public-api]]
-Public API
-----------
+= Public API
 
-Starting from release _4.1.1.171_, a new artifact has been created to
-gather all interfaces that compose the Public API for both Payara Server
-and Payara Micro.
+_Since Payara Server 4.1.1.171_
+
+This page contains information on using the Public API integrated within
+Payara Server and Payara Micro.
 
 [[use-cases]]
-Use Cases
----------
+== Use Cases
 
 This Public API should be used in the following scenarios:
 
-1.  Java EE Developers and end users that develop web and enterprise
+. Java EE Developers and end users that develop web and enterprise
 applications that require Payara specific features outside the
-specifications (and JCache).
-2.  Contributors that want to develop extensions to Payara Server or
+specifications (and *JCache*).
+. Contributors that want to develop extensions to Payara Server or
 Payara Micro.
 
-Previous to release _4.1.1.171_, if developers wanted to access these
-interfaces they had to declare a dependency on the `payara-micro` or
-`payara-embedded-all` artifacts. Since those dependencies are heavier
-and would include a lot of irrelevant classes and interfaces, the new
-API was created to simplify this scenario.
+NOTE: Previous to the release into which this API was introduced, if developers
+wanted to access these interfaces they had to declare a dependency on
+the `payara-micro` or `payara-embedded-all` artifacts. Since those
+dependencies are heavier in size and include a lot of irrelevant code, the
+Public API was implemented to simplify this scenario.
 
 [[maven-coordinates]]
-Maven Coordinates
------------------
+== Maven Coordinates
 
 The public API is released as a Maven artifact in *Maven Central*. To
 use it in a Maven project, set the following dependency in your
 project's POM:
 
-----------------------------------------
+[source, xml]
+----
 <dependency>
     <groupId>fish.payara.api</groupId>
     <artifactId>payara-api</artifactId>
     <version>${payara.version}</version>
     <scope>provided</scope>
 </dependency>
-----------------------------------------
+----
 
 Where the `${payara.version}` of the artifact corresponds with the
-version of Payara Server (starting from _4.1.1.171_).
+version of Payara Server (starting from the version this API was introduce).

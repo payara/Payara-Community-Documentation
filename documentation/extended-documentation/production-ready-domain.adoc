@@ -1,10 +1,11 @@
 [[production-ready-domain]]
-Production Ready Domain
------------------------
+= Production Ready Domain
+
+_Since Payara Server 4.1.153_
 
 Payara Server comes with a default domain, `domain1`, which has been
 inherited from GlassFish. This domain (and its accompanying template)
-has not been modified in any way. The default domain is not, however,
+has not been modified in any way for Payara Server. The default domain is not, however,
 designed to be run in production but to be a usable example for
 development and testing purposes.
 
@@ -16,16 +17,16 @@ the `payaradomain` was created.
 [[usage]]
 == Usage
 
-
 `payaradomain` is located in the default directory for domains
 `${PAYARA_HOME}/glassfish/domains/`, alongside `domain1`. This means it
 can be used as-is by simply naming the domain after running the
 `start-domain` subcommand and without specifying the domain directory
 location:
 
------------------------------------
+[source, shell]
+----
 asadmin> start-domain payaradomain
------------------------------------
+----
 
 Alternatively, many Payara Server users completely delete existing
 domains and recreate their own domains with custom settings.
@@ -34,9 +35,10 @@ as a template in the `${PAYARA_HOME}/glassfish/common/templates/gf`
 directory. You will need to specify the full path to the location of the
 template jar as follows:
 
--------------------------------------------------------------------------------------------------------------------
+[source, shell]
+----
 asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/payara-domain.jar myNewPayaraDomain
--------------------------------------------------------------------------------------------------------------------
+----
 
 [[differences-to-domain1]]
 == Differences to `domain1`
