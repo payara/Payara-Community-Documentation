@@ -7,7 +7,7 @@ While not all environments are tested, if it is on a supported JVM we will
 provide support for customers and address issues reported by the community.
 Similarly, other platforms can always be requested for support.
 
-== Supported JVMs
+== Supported Java Virtual Machines
 
 Payara Server currently supports the following JVMs:
 
@@ -16,7 +16,7 @@ Payara Server currently supports the following JVMs:
 * OpenJDK
 * IBM J9
 
-== Supported OSes
+== Supported Operating Systems
 * Windows
 ** Windows 7
 ** Windows 8.1
