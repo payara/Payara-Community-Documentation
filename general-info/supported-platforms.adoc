@@ -9,7 +9,7 @@ Similarly, other platforms can always be requested for support.
 
 == Supported Java Virtual Machines
 
-Payara Server currently supports the following JVMs:
+Payara Server currently supports the following Java Virtual Machines:
 
 * Oracle JDK
 * Azul Zulu
