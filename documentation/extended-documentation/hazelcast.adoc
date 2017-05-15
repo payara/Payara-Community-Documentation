@@ -82,8 +82,8 @@ Configuration" page:
 image::/images/hazelcast/hazelcast-admin-console-select-hazelcast.png[Payara Server 4.1.2.172 Hazelcast Selection]
 
 * On the Hazelcast Configuration page, add the path to your Hazelcast
-Configuration file and click "Save". This path is relative to your install
-directory.
+Configuration file and click "Save". This path is relative to your domain
+config directory.
 
 image::/images/hazelcast/hazelcast-admin-console-set-configuration-file.png[Payara Server 4.1.2.172 Hazelcast Set Configuration File]
 
