@@ -28,7 +28,7 @@ There are corresponding asadmin commands to get and set the configuration
 
 *Aim:* Gets the current environment warning configuration
 
-Example::
+*Example:*::
 [source]
 ----
 Enabled  Message                         Background Colour  Text Colour  
@@ -61,13 +61,13 @@ Command get-environment-warning-configuration executed successfully.
 
 |backgroundcolour
 |Hex colour code
-|Background colour for the top warning banner. It must be hex value, like #ffffff.
+|Background colour for the top warning banner. It must be a hex value, like `#ffffff`.
 |-
 |Yes
 
 |textcolour
 |Hex colour code
-|Text colour for the top warning banner. It must be hex value, like #ffffff.
+|Text colour for the top warning banner. It must be a hex value, like `#ffffff`.
 |-
 |Yes
 
