@@ -4,6 +4,7 @@
 This page is a reference for extra elements added to the GlassFish proprietary
 deployment descriptors
 
+
 [[classloading-delegate]]
 == `classloading-delegate`
 
@@ -18,7 +19,7 @@ link:/documentation/extended-documentation/classloading.adoc[Enhanced Class load
 [[whitelist-package]]
 == `whitelist-package`
 
-Used to whitelist packages on *extreme class loading isolation*.
+Used to whitelist packages on link:/documentation/extended-documentation/classloading.adoc#extreme-classloading-isolation[*extreme class loading isolation*].
 Whitelisted packages are taken into account by the server when scanning
 libraries.
 
@@ -125,7 +126,7 @@ command:
 asadmin set configs.config.server-config.security-service.activate-default-principal-to-role-mapping=true
 ----
 
-Except it's effect will only limit itself to the application instead of
+Except its effect will only limit itself to the application instead of
 all applications deployed on the server. This setting is configured by
 default to `true` on the
 link:/documentation/extended-documentation/production-ready-domain.adoc[production-ready-domain]
@@ -139,3 +140,30 @@ In an EAR assembly, only the property set in the
 `glassfish-web.xml` and `glassfish-ejb-jar.xml`, it will be ignored.
 Setting this configuration property in any of these files will always take
 precedence over any setting configured on the server.
+
+[[max-wait-time-in-millis]]
+== `max-wait-time-in-millis`
+
+From version 4.1.2.172, Payara Server has reimplemented a property of the
+`glassfish-ejb-jar.xml` descriptor that was available in GlassFish in versions
+prior to 4.0.
+
+The `bean-pool` element allows users to specify controls on a per-EJB basis for
+pooled stateless EJBs. Payara Server has reintroduced `max-wait-time-in-millis`
+to govern what happens when the number of requests for an EJB exceeds the number
+of beans available in the pool.
+
+A value of `-1` disables the property and means that, when the pool is at
+maximum usage and another request is made, a new EJB instance is created
+immediately, with no upper bound.
+
+A value of `0` means the server will wait indefinitely for an existing EJB
+instance to be freed.
+
+A value between `1` and `MAX_INTEGER` means that the server will wait for the
+given amount of milliseconds for an EJB to be freed. Only after this 
+`max-wait-time-in-millis` is exceeded will the server create a new instance of
+the requested EJB.
+
+For more detail, see the link:/documentation/extended-documentation/ejb.adoc[
+Enhanced EJB configuration] section.

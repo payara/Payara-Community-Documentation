@@ -1,4 +1,4 @@
-= EJB Configuration in Payara Server
+= Enhanced EJB Configuration
 
 In prior releases, it was not possible to control the maximum number of *_concurrent_* Stateless EJB instances in Payara Server. It was, however, possible to control the number of *_pooled_* Stateless EJB instances, as well as *_concurrent_* MDB instances. These features were available in Oracle GlassFish Server 3.1 and earlier but not in the GlassFish Open Source editions (3.1.2.x and 4.x).
 
