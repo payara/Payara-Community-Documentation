@@ -9,8 +9,8 @@ The key difference is that previously it was not possible to limit the number of
 
 These limits are controlled on a per-EJB basis, using `bean-pool` elements in the `glassfish-ejb-jar.xml` deployment descriptor file:
 
-[cols="4,11a",options="header"]
-.`glassfish-ejb-jar.xml` 
+[cols="4,10a",options="header"]
+.`bean-pool` elements in `glassfish-ejb-jar.xml` 
 |===
 |Element
 |Behaviour
