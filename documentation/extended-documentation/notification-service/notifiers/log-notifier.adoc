@@ -8,6 +8,11 @@ The default output for the log notifier is the configured instance log
 file, which is either the _server.log_ file or _cluster.log_ file, depending
 on the instance configuration.
 
+From version 4.1.2.172, it is also possible to configure the log notifier to
+output to a separate log file to avoid notification logs cluttering up the
+server log, or to reduce the size of log files to parse by log file monitoring
+software.
+
 The log notifier only handles the output of notifications from the
 notification service sent to the log and is not responsible for any
 other log output - more details on Payara Server logging can be found on
@@ -22,13 +27,37 @@ service and output them to the configured logs when activated.
 [[payara-configuration]]
 === Payara Configuration
 
-The log notifier is, by default, disabled on new domains.
+The notification service is disabled on new domains, by default, but can be
+enabled through the admin console or with asadmin commands. The log notifier is
+configured on the same page:
 
-To explicitly enable the log notifier, run the following command:
+image:/images/notification-service/log/log-notifier.png[4.1.2.172 log-notifier]
+
+To configure the log notifier, use the `notification-log-configure` command:
 
 [source, shell]
 ----
-asadmin notification-log-configure --enabled=true --dynamic=true
+NAME
+     notification-log-configure
+
+SYNOPSIS
+     Usage: notification-log-configure 
+             --useseparatelogfile=true|false
+             [--dynamic=false]
+             [--target=server]
+             --enabled=true|false 
+
+OPTIONS
+     --useseparatelogfile
+     --dynamic
+     --target
+     --enabled
+----
+
+For example:
+[source, shell]
+----
+asadmin> notification-log-configure --enabled=true --dynamic=true
 ----
 
 More details on specific commands for the notification service can be
@@ -41,7 +70,7 @@ To get the current configuration of the log notifier, run the following command:
 
 [source, shell]
 ----
-asadmin get-log-notifier-configuration
+asadmin> get-log-notifier-configuration
 ----
 
 It will return the details of the current log notifier configuration, like in
