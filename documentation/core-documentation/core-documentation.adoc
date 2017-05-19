@@ -8,5 +8,5 @@ the core features that are specific to Payara Server.
 [[references]]
 == References
 
-* https://glassfish.java.net/documentation.html[GlassFish Server 4 Open
+* https://javaee.github.io/glassfish/documentation[GlassFish Server 4 Open
 Source Edition documentation]
