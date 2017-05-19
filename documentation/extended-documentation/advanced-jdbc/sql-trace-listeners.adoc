@@ -1,8 +1,6 @@
 [[sql-trace-listeners]]
 = SQL Trace Listeners
 
-_Since Payara Server 4.1.1.161 and Payara Server Micro 4.1.1.161_
-
 Payara Server provides support for custom SQL Trace Listeners.
 A *SQL Trace Listener* is registered against a data source
 and is called after each method call made on the JDBC connection

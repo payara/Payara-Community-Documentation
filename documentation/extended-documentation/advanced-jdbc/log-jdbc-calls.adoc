@@ -1,8 +1,6 @@
 [[jdbc-call-logging-sql-tracing]]
 = JDBC Call Logging (SQL Tracing)
 
-_Since Payara Server 4.1.1.161 and Payara Server Micro 4.1.1.161_
-
 Payara Server can trace all SQL calls made through a JDBC connection pool,
 with the time taken to execute the call also recorded. SQL Tracing is ideal
 for debugging those hard to pin down performance issues during the development
