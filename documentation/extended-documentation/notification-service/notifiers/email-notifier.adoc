@@ -37,12 +37,12 @@ Determines whether the notifier should be activated.
 `Dynamic`::
 Sets whether the notifier will be enabled without a restart, `true`
 enables it immediately, while `false` requires a restart.
-`jndiName`:: 3
+`JavaMail JNDI Name`::
 Sets the name of the Java Naming and Directory Interface (JNDI) of the
-configured `JavaMail` session.
-`to`::
+configured `JavaMail` session. The parameter name is `--jndiName` in the asadmin command.
+`Target Address`::
 Sets the email address which will receive the email notifications. Currently
-only one address can be specified.
+only one address can be specified. The parameter name is `--to` in the asadmin command.
 
 image:/images/notification-service/email/admin-console-configuration.png[Email Notifier on Admin Console]
 
@@ -53,7 +53,7 @@ The same configuration can be set using an `asadmin` command, as shown below:
 asadmin notification-email-configure --jndiName=mail/exampleEmailNotifier --to=notifications@example.com --enabled=true --dynamic=true
 ----
 
-To check the currently applied configuratio, you can run the following `asadmin`
+To check the currently applied configuration, you can run the following `asadmin`
 command:
 
 [source, shell]
