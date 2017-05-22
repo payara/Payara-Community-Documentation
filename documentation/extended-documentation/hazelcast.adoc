@@ -323,11 +323,9 @@ dependencies section of your pom:
 [code,Maven_POM]
 ----
 <dependency>
-    <groupId>fish.payara.appserver</groupId>
-    <artifactId>payara-jsr107</artifactId>
-    <version>4.1</version>
-    <type>jar</type>
-    <scope>provided</scope>
+  <groupId>fish.payara.api</groupId>
+  <artifactId>payara-api</artifactId>
+  <version>{{ book.currentVersion }}</version>
 </dependency>
 ----
 
