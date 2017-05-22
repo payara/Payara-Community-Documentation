@@ -41,6 +41,7 @@
 *** link:documentation/extended-documentation/advanced-jdbc/slow-sql-logger.adoc[Slow SQL Logger]
 *** link:documentation/extended-documentation/advanced-jdbc/sql-trace-listeners.adoc[SQL Trace Listeners]
 *** link:documentation/extended-documentation/advanced-jdbc/advanced-connection-pool-properties.adoc[Advanced Connection Pool Configuration]
+** link:documentation/extended-documentation/ejb.adoc[EJB]
 ** link:documentation/extended-documentation/jbatch/jbatch.adoc[JBatch]
 *** link:documentation/extended-documentation/jbatch/schema-name.adoc[Setting the Schema Name]
 *** link:documentation/extended-documentation/jbatch/table-prefix-and-suffix.adoc[Setting the Table Prefix and/or Suffix]
