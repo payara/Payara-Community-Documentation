@@ -27,7 +27,7 @@ Payara Server currently supports the following Java Virtual Machines:
 * Linux
 ** Ubuntu
 ** Debian
-** CentOS
+** CentOS/RHEL
 ** OpenSUSE
 ** SUSE
 * Other
