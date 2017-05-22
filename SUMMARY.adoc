@@ -91,7 +91,7 @@
 ** link:documentation/user-guides/bypassing-jms-connections-through-a-firewall.adoc[Bypassing JMS Connections through a Firewall]
 * link:documentation/payara-micro/payara-micro.adoc[Payara Micro Documentation]
 ** link:documentation/payara-micro/starting-instance.adoc[Starting an Instance]
-** link:documentation/payara-micro/stopping/stopping.adoc[Stopping an Instance]
+** link:documentation/payara-micro/stopping-instance.adoc[Stopping an Instance]
 ** link:documentation/payara-micro/deploying/deploying.adoc[Deploying Applications]
 *** link:documentation/payara-micro/deploying/deploy-cmd-line.adoc[From the Command Line]
 *** link:documentation/payara-micro/deploying/deploy-program.adoc[Programmatically]

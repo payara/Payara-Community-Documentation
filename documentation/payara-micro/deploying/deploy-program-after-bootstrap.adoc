@@ -1,6 +1,5 @@
 [[deploying-an-application-programmatically-to-a-bootstrapped-instance]]
-Deploying an Application Programmatically to a Bootstrapped Instance
---------------------------------------------------------------------
+= Deploying an Application Programmatically to a Bootstrapped Instance
 
 There are three methods available for deploying an application to a bootstrapped instance:
 
@@ -9,22 +8,21 @@ There are three methods available for deploying an application to a bootstrapped
 * `deploy(String name, String contextRoot, InputStream is)`
 
 [[deployfile-war]]
-`deploy(File war)`
-^^^^^^^^^^^^^^^^^^
+== `deploy(File war)`
 
-The first method works in the same way as the `addDeploymentFile` method described in the section link:deploy-program-bootstrap.adoc[Deploying Programmatically during Bootstrap].
+The first method works in the same way as the `addDeploymentFile` method described
+in the section
+link:deploy-program-bootstrap.adoc[Deploying Programmatically during Bootstrap].
 
-[source,Java]
+[source, java]
 ----
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.PayaraMicroRuntime;
 import java.io.File;
 
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
+public class EmbeddedPayara{
+    public static void main(String[] args) throws BootstrapException{
         File war = new File("/home/user/deployments/");
         PayaraMicroRuntime instance = PayaraMicro.bootstrap();
         instance.deploy(war);
@@ -33,12 +31,11 @@ public class EmbeddedPayara
 ----
 
 [[deploystring-name-inputstream-is]]
-`deploy(String name, InputStream is)`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+== `deploy(String name, InputStream is)`
 
-This method allows you to deploy WARs from an InputStream:
+This method allows you to deploy WAR files using an `InputStream`:
 
-[source,Java]
+[source, java]
 ----
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
@@ -49,19 +46,13 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
+public class EmbeddedPayara {
+    public static void main(String[] args) throws BootstrapException{
         PayaraMicroRuntime instance = PayaraMicro.bootstrap();
-        
-        try (InputStream is = new FileInputStream("/home/user/test.war"))
-        {        
+
+        try (InputStream is = new FileInputStream("/home/user/test.war")){
             instance.deploy("test", is);
-        }
-        
-        catch (IOException ex)
-        {
+        } catch (IOException ex){
             Logger.getLogger(EmbeddedPayara.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -69,12 +60,13 @@ public class EmbeddedPayara
 ----
 
 [[deploystring-name-string-contextroot-inputstream-is]]
-`deploy(String name, String contextRoot, InputStream is)`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+== `deploy(String name, String contextRoot, InputStream is)`
 
-This method works in the same way as the previous method, but allows you to specify the context root of the application. The following example would deploy the _test_ application to a context root of _/app_:
+This method works in the same way as the previous method, but allows you to specify
+the context root of the application. The following example would deploy the
+ _test_ application to a context root of _/app_:
 
-[source,Java]
+[source, java]
 ----
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
@@ -85,19 +77,13 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class EmbeddedPayara 
-{
-    public static void main(String[] args) throws BootstrapException 
-    {
+public class EmbeddedPayara{
+    public static void main(String[] args) throws BootstrapException{
         PayaraMicroRuntime instance = PayaraMicro.bootstrap();
-        
-        try (InputStream is = new FileInputStream("/home/user/test.war"))
-        {        
+
+        try (InputStream is = new FileInputStream("/home/user/test.war")){
             instance.deploy("test", "app", is);
-        }
-        
-        catch (IOException ex)
-        {
+        } catch (IOException ex){
             Logger.getLogger(EmbeddedPayara.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
