@@ -29,11 +29,12 @@ service and output them to the configured logs when activated.
 
 The notification service is disabled on new domains, by default, but can be
 enabled through the admin console or with asadmin commands. The log notifier is
-configured on the same page:
+configured on the same page as the notification service:
 
 image:/images/notification-service/log/log-notifier.png[4.1.2.172 log-notifier]
 
-To configure the log notifier, use the `notification-log-configure` command:
+To configure the log notifier through the asadmin tool, use the
+`notification-log-configure` subcommand:
 
 [source, shell]
 ----
@@ -71,13 +72,4 @@ To get the current configuration of the log notifier, run the following command:
 [source, shell]
 ----
 asadmin> get-log-notifier-configuration
-----
-
-It will return the details of the current log notifier configuration, like in
-the following example:
-
-[source, shell]
-----
-Enabled
-true
 ----
