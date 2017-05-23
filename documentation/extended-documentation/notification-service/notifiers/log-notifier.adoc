@@ -27,11 +27,14 @@ service and output them to the configured logs when activated.
 [[payara-configuration]]
 === Payara Configuration
 
-The notification service is disabled on new domains, by default, but can be
-enabled through the admin console or with asadmin commands. The log notifier is
-configured on the same page as the notification service:
+Because the log notifier is the default notifier for the notification service
+it can be configured on the same page as the notification service, as shown in
+the image below:
 
 image:/images/notification-service/log/log-notifier.png[4.1.2.172 log-notifier]
+
+For any new domain, the notification service will be disabled by default. It
+can be enabled through the admin console as shown above, or via asadmin commands.
 
 To configure the log notifier through the asadmin tool, use the
 `notification-log-configure` subcommand:
