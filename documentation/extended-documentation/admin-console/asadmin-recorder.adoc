@@ -1,5 +1,5 @@
 [[asadmin-recorder]]
-= ASADMIN Recorder
+= Asadmin Recorder
 
 _Since Payara Server 4.1.1.162_
 
