@@ -1,3 +1,4 @@
 [[payara-micro-appendices]]
-Payara Micro Appendices
------------------------
+= Payara Micro Appendices
+
+Complementary information about Payara Micro

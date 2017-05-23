@@ -1,0 +1,7 @@
+= Hazelcast
+
+This section covers how to use the Hazelcast functionality in Payara Server
+{{ book.currentVersion }}.
+
+Hazelcast is an In-Memory Data Grid, providing Web and EJB session
+persistence, and implementing JSR107 (JCache) in Payara Server.

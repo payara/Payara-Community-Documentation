@@ -1,6 +1,5 @@
 [[javadoc]]
-Javadoc
--------
+= Javadoc
 
 The Javadoc for the most recent version of the Payara Micro API can be
 found here:

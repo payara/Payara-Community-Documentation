@@ -1,14 +1,13 @@
 [[configuration-methods]]
-Configuration Methods
----------------------
+= Configuration Methods
 
-This section details the PayaraMicro.class configuration methods that
+This section details the `PayaraMicro` class' configuration methods that
 are used during the bootstrap process.
 
 [cols=",,,,,",options="header",]
 |=======================================================================
-|Configuration Operand |Description |Get Method |Set Method |Default Value |Command Line Equivalent
-
+|Configuration Operand |Description |Get Method |Set Method |Default Value
+|Command Line Equivalent
 |Alternate Domain XML
 |Gets or sets the domain.xml used to override the default server configuration.
 |`File getAlternateDomainXML()`

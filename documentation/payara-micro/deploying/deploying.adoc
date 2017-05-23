@@ -1,5 +1,4 @@
 [[deploying-applications]]
-Deploying Applications
-----------------------
+= Deploying Applications
 
-This section details how to deploy applications.
+This section details how to deploy applications with Payara Micro

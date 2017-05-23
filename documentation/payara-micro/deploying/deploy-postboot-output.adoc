@@ -1,10 +1,10 @@
 [[payara-micro-post-boot-output]]
-Payara Micro Post Boot Output
------------------------------
+= Payara Micro Post Boot Output
+
+Information about the output made by Payara Micro after its booting has completed.
 
 [[deployed-apps]]
-Deployed Apps
-~~~~~~~~~~~~~
+== Deployed Apps
 
 After Payara Micro has booted, the log output will list data about the
 Payara Micro instance and its deployed apps.
@@ -20,10 +20,10 @@ This data includes:
 * The deployed applications
 * The URLs of the deployed applications
 
-As an example of this output:
+Here is an example of this output:
 
-code,Shell----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-code,Shell
+[source, shell]
+----
 [DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[
 Instance Configuration
 Host: Example-Host
@@ -34,7 +34,6 @@ Instance Group: MicroShoal
 Hazelcast Member UUID 000a0aa0-000a-0a00-000a-a00000a00aa0
 Deployed: ExampleApp01 ( exampleapp01 war /exampleappendpoint1 )
 Deployed: ExampleApp02 ( exampleapp02 war /exampleappendpoint2 )
-
 ]]
 
 [DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[
@@ -44,6 +43,5 @@ http://example:port/exampleappendpoint1
 https://example:port/exampleappendpoint1
 http://example:port/exampleappendpoint2
 https://example:port/exampleappendpoint2
-
 ]]
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----

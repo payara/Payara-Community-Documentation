@@ -115,10 +115,11 @@ take precedence.
 
 _Since Payara Server 4.1.1.171_
 
-It's possible to configure an extreme isolation level on the class loading delegation for deployed
-applications. With this extreme isolation behavior, a deployed
-application can force the server to load only classes that belong to
-*whitelisted packages* defined on its deployment descriptors.
+It's possible to configure an extreme isolation level on the class loading
+delegation for deployed applications. With this extreme isolation behavior,
+a deployed application can force the server to load only classes from libraries
+included on Payara Server that belong to *whitelisted packages* defined on its
+deployment descriptors. 
 
 To configure whitelist packaging you can use the `<whitelist-package>`
 element on the _glassfish-web.xml_ (WAR artifacts) or the
@@ -144,6 +145,25 @@ whitelist all Google libraries included on the server, while writing
 `com.google.guava` would only whitelist the Google Guava library
 instead.
 
-To enable this extreme isolation behavior, at least one
+IMPORTANT: To enable this extreme isolation behavior, at least one
 `whitelist-package` element must be defined in the appropriate
 descriptor.
+
+=== Default Whitelisted Classes
+
+Certain classes are whitelisted automatically, meaning they will always be
+loaded from Payara Server's libraries, even if this feature is turned on.
+
+This is because these packages are required by Payara Server and therefore
+cannot be loaded from a deployed application:
+
+* java
+* javax
+* com.sun
+* org.glassfish
+* org.apache.jasper
+* fish.payara
+* com.ibm.jbatch
+* org.hibernate.validator
+* org.jboss.weld
+* com.ctc.wstx
