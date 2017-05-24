@@ -1,0 +1,47 @@
+[[payara-asadmin-command-reference]]
+= Payara Server Asadmin Commands
+
+This is a non-exhaustive list of asadmin commands which are exlusive to Payara Server.
+
+
+[[stop-domains]]
+== `stop-all-domains`
+
+*Usage*::
+`asadmin> stop-all-domains`
+
+*Aim*::
+This command can be used to stop all domains detected. This command extends the
+`stop-domain` subcommand and therefore shares the same options.
+
+=== Command Options
+
+[cols="1,1,4,1,1",options="header",]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--force`
+|Boolean
+|Specifies whether each domain is forcibly stopped immediately.
+|true
+|No
+
+|`--kill`
+|Boolean
+|Specifies whether each domain is forcibly stopped immediately.
+|false
+|No
+
+|===
+
+=== Example
+
+[source]
+----
+asadmin> stop-all-domains
+    --force=false
+----
