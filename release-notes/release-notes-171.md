@@ -33,7 +33,7 @@
 * [[PAYARA-704] - Slack Notifier](https://github.com/payara/Payara/pull/1251)
 * [[PAYARA-705] - Payara Micro (CDI Event Bus) Notifier](https://github.com/payara/Payara/pull/1251)
 * [[PAYARA-822] - Add simple API for registering a SAM](https://github.com/payara/Payara/pull/1194)
-* [PAYARA-1039] – Public API JAR
+* [[PAYARA-1039] – Public API JAR](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22fish.payara.api%22%20AND%20a%3A%22payara-api%22)
 * [[PAYARA-1053] - Add a way to run asadmin commands against Payara Micro](https://github.com/payara/Payara/pull/1298)
 * [[PAYARA-1065] - Add controls for EJB pool size per EJB](https://github.com/payara/Payara/pull/1163)
 * [[PAYARA-1122] – Historical Request Traces](https://github.com/payara/Payara/pull/1277)
