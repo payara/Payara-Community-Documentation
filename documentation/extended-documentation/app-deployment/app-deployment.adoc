@@ -1,11 +1,46 @@
 [[application-deployment]]
 = Application Deployment
 
-You can deploy the applications to Payara Server in the same way as to
+Applications can be deployed to Payara Server in the same way as 
 _GlassFish Server 4.1 Open Source Edition_. Payara Server does not modify
-this process; **BUT** adds some improvements, so it is safe to refer to
-the GlassFish Server Application Deployment guide in
-https://glassfish.java.net/documentation.html[GlassFish Server 4 Open
-Source Edition documentation].
+this process but does add some new features to deployment descriptor files
+which are documented in the following pages.
 
-This section describes these additional improvements.
+== Deploying On Server Start
+GlassFish has had the ability to deploy applications on server start for a long
+time now, using the _autodeploy_ directory. While acceptable in development
+environments, the scanner used to deploy files in this directory is a security
+risk for production and is therefore disabled in the `payaradomain` bundled with
+Payara Server.
+
+To reintroduce the capability of deploying an application on server startup
+without the risk of enabling the deployment scanner, a feature from Payara Micro
+was introduced: the ability to run asadmin commands at startup, either pre or
+post boot.
+
+To enable this feature, we have extended the `start-domain` feature to accept
+two extra options: `--prebootcommandfile` and `--postbootcommandfile` which can
+be used as follows:
+
+*Pre-boot Commands*::
+*Usage*: `asadmin> start-domain --prebootcommandfile=/path/to/file`
++
+*Aim*: passing a list of commands as a file to the server to run pre-boot.
+Due to the time during boot when the commands in this file are executed, this
+only supports `set` commands.
+
+*Post-boot Commands*::
+*Usage*: `asadmin> start-domain --postbootcommandfile=/path/to/file`
++
+*Aim*: passing a list of commands as a file to the server to run post-boot.
+This is where commands such as service configuration commands should be run.
+
+[NOTE]
+====
+There are some important caveats to note:
+
+* Both files should be saved in a text format, with each command on it's own line.
+* Lines starting with a '#' are treated as comments
+* The files *_must_* exist, and be accessible from Payara Server.
+* Both pre-boot and post-boot files can be passed at the same time.
+====
