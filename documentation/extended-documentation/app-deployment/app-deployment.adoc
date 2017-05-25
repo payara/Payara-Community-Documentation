@@ -40,7 +40,9 @@ This is where commands such as service configuration commands should be run.
 There are some important caveats to note:
 
 * Both files should be saved in a text format, with each command on it's own line.
-* Lines starting with a '#' are treated as comments
+* Lines where the first non-whitespace character is # are treated as comments
+* Any blank lines will be ignored
+* Any invalid or failing commands will be logged to the server.log and the file will continue to be processed
 * The files *_must_* exist, and be accessible from Payara Server.
 * Both pre-boot and post-boot files can be passed at the same time.
 ====
