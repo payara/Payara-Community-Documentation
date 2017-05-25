@@ -11,7 +11,7 @@ This is a non-exhaustive list of asadmin commands which are exlusive to Payara S
 `asadmin> stop-all-domains`
 
 *Aim*::
-This command can be used to stop all domains detected. This command extends the
+This command can be used to stop all detected domains. This command extends the
 `stop-domain` subcommand and therefore shares the same options.
 
 === Command Options
@@ -32,7 +32,7 @@ This command can be used to stop all domains detected. This command extends the
 
 |`--kill`
 |Boolean
-|Specifies whether each domain is forcibly stopped immediately.
+|Specifies whether the domain is killed by using functionality of the operating system to terminate the domain process
 |false
 |No
 
@@ -42,6 +42,5 @@ This command can be used to stop all domains detected. This command extends the
 
 [source]
 ----
-asadmin> stop-all-domains
-    --force=false
+asadmin> stop-all-domains --force=false
 ----
