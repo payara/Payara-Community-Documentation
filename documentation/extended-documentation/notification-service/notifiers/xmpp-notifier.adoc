@@ -170,10 +170,6 @@ image:/images/notification-service/xmpp/admin-console-configuration.png[XMPP Not
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) and input the required information.
 
-CAUTION: On release _4.1.1.171_, the room's ID is incorrectly labeled as _Room
-Name_, so be sure to always input the room's ID. This will be fixed on
-future releases.
-
 Hit the *Save* button to preserve the changes.
 
 [[from-the-command-line]]
@@ -185,7 +181,7 @@ configuration options like this:
 
 [source, shell]
 ----
-asadmin > notification-xmpp-configure --enabled=true --dynamic=true --hostname="172.28.128.3" --port=5222 --username="payara_notifier" --password="******" --securityDisabled=false --roomname=server
+asadmin > notification-xmpp-configure --enabled=true --dynamic=true --hostname="172.28.128.3" --port=5222 --username="payara_notifier" --password="******" --securityDisabled=false --roomid=server
 ----
 
 You can use the `--enabled` and `--dynamic` options to enable or disable
@@ -198,7 +194,7 @@ using the `get-xmpp-notifier-configuration` asadmin command like this:
 ----
 asadmin > get-xmpp-notifier-configuration
 
-Enabled  Host          Port  Service Name            Username         Password  Security Disabled  Room Name
+Enabled  Host          Port  Service Name            Username         Password  Security Disabled  Room ID
 true     172.28.128.3  5222  conference.payara.fish  payara_notifier  payara    true               server
 ----
 
@@ -213,7 +209,7 @@ like this:
 [source, xml]
 ----
 <notification-service-configuration enabled="true">
-    <xmpp-notifier-configuration room-name="server" service-name="conference.payara.fish" password="******" security-disabled="true" host="172.28.128.3" username="payara_notifier"></xmpp-notifier-configuration>
+    <xmpp-notifier-configuration room-id="server" service-name="conference.payara.fish" password="******" security-disabled="true" host="172.28.128.3" username="payara_notifier"></xmpp-notifier-configuration>
 </notification-service-configuration>
 ----
 
