@@ -37,6 +37,7 @@
 ** link:documentation/extended-documentation/admin-console/admin-console.adoc[Admin Console Enhancements]
 *** link:documentation/extended-documentation/admin-console/asadmin-recorder.adoc[Asadmin Recorder]
 *** link:documentation/extended-documentation/admin-console/environment-warning.adoc[Environment Warning]
+** link:documentation/extended-documentation/asadmin-commands/asadmin-commands.adoc[Asadmin Commands]
 ** link:documentation/extended-documentation/app-deployment/app-deployment.adoc[Application Deployment]
 *** link:documentation/extended-documentation/app-deployment/deployment-descriptors.adoc[Deployment Descriptor Files]
 *** link:documentation/extended-documentation/app-deployment/descriptor-elements.adoc[Elements of the Decriptor Files]
