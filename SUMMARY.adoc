@@ -130,6 +130,7 @@
 ** link:documentation/payara-micro/services/request-tracing.adoc[Request Tracing]
 ** link:documentation/payara-micro/logging-to-file.adoc[Logging to a file]
 ** link:documentation/payara-micro/jcache.adoc[JCache in Payara Micro]
+** link:documentation/payara-micro/jca.adoc[JCA Support in Payara Micro]
 ** link:documentation/payara-micro/cdi-events.adoc[Remote CDI Events]
 ** link:documentation/payara-micro/persistent-ejb-timers.adoc[Persistent EJB timers]
 ** link:documentation/payara-micro/appendices/appendices.adoc[Payara Micro Appendices]

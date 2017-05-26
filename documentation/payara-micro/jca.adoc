@@ -12,7 +12,7 @@ used for both inbound and outbound messaging to a JMS broker using a standard
 Message Driven Bean (MDB) and can therefore take advantage of pooling behaviour
 available to all types of EJB.
 
-=== Installing A JCA Adapter
+=== Installing a JCA Adapter
 
 A JCA Resource Archive (RAR) is installed by deploying it to Payara Micro in 
 the same way as an application archive (e.g. a WAR) is deployed. The following
