@@ -33,3 +33,10 @@ java -jar payara-micro.jar --autobindhttp --deploy activemq-rar-5.14.5.rar --dep
 NOTE: When deploying multiple files to Payara Micro, the order of `--deploy`
 options is respected so, in the above example, the ActiveMQ RAR wil be deployed
 before the `myapp.war` application.
+
+---
+[[see-also]]
+==== See Also
+
+* link:/documentation/user-guides/mdb-in-payara-micro.adoc[User Guide:
+Using Payara Micro as a JMS Client]
