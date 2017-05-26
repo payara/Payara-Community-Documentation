@@ -19,7 +19,7 @@ the same way as an application archive (e.g. a WAR) is deployed. The following
 shows an example using an ActiveMQ (JMS 1.1) RAR:
 
 ----
-java -jar payara-micro.jar --autobindhttp --deploy activemq-rar-5.14.5.rar
+java -jar payara-micro.jar --deploy activemq-rar-5.14.5.rar
 ----
 
 The connector is subsequently available to all other applications deployed to
@@ -27,7 +27,7 @@ Payara Micro. An application using a connector and the connector itself can be
 deployed simultaneously:
 
 ----
-java -jar payara-micro.jar --autobindhttp --deploy activemq-rar-5.14.5.rar --deploy myapp.war
+java -jar payara-micro.jar --deploy activemq-rar-5.14.5.rar --deploy myapp.war
 ----
 
 NOTE: When deploying multiple files to Payara Micro, the order of `--deploy`
