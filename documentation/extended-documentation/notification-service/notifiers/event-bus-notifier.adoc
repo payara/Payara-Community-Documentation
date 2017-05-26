@@ -1,9 +1,9 @@
 = Event Bus Notifier
 
 The Event Bus Notifier provides a way to send notifications from the 
-[Notification service](../notification-service.md) into the internal Payara event bus based on Hazelcast distributed topics.
+link:../notification-service.adoc[Notification service] into the internal Payara event bus based on Hazelcast distributed topics.
 
-NOTE: Notifications sent to the internal Payara event bus using this notifier are intended to be received by internal Payara Server components not by deployed applications. Currently, no built-in internal components consume event bus notifications yet and no API is exposed to consume them by the deployed applications.
+NOTE: The Event Bus Notifier is released in technical preview. Notifications sent to the internal Payara event bus using this notifier are intended to be received by internal Payara Server components and not by deployed applications. Currently, no built-in internal components consume event bus notifications yet and no API is exposed to consume them by the deployed applications.
 
 [[requirements]]
 == Requirements
