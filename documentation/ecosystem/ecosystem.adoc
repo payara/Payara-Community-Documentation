@@ -13,3 +13,5 @@ message brokers, including:
 * link:cloud-connectors/apache-kafka.adoc[Apache Kafka]
 * link:cloud-connectors/azure-sb.adoc[Azure Service Bus]
 * link:cloud-connectors/mqtt.adoc[MQTT]
+link:maven-plugin.adoc[Maven Plugin]::
+A plugin for Apache Maven is available for Payara Micro.
