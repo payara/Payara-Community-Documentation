@@ -1,7 +1,7 @@
 [[payara-server-domain-backup]]
 = Payara Server Domain Backup
 
-_Oracle GlassFish 3.1.x_ had a built-in automatic backup facility using the `asadmin`
+Oracle GlassFish 3.1.x had a built-in automatic backup facility using the `asadmin`
 command `create-backup-config`. This allowed you to specify a schedule for when
 to backup, where to place the backed up file, and how many backups to keep.
 
@@ -28,3 +28,10 @@ the backup takes place.
 The job of running this backup command on a given schedule and managing the
 resulting backed up files needs to be done by a script external to Payara
 Server.
+
+---
+[[see-also]]       
+==== See Also
+
+* link:restore-domain.adoc[Restore a Payara Server Domain]     
+* link:upgrade-payara.adoc[Upgrade Payara Server]
