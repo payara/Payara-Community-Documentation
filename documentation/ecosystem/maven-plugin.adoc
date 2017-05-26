@@ -1,0 +1,240 @@
+= Payara Micro Maven Plugin
+
+Payara Micro has a Maven plugin which can start and stop Payara Micro and create
+an Uber JAR bundle of the application and Payara Micro.
+
+The plugin requires JDK 7 or higher and the latest version is currently
+`1.0.0-SNAPSHOT`
+
+=== Configurable Goals
+
+==== `bundle`
+*Aim*: This goal bundles the attached project's artifact into an Uber JAR with
+the specified configurations. By default this goal is attached to the install
+phase.
+*Usage*: `mvn payara-micro:bundle`
+
+Example:
+
+[source,XML]
+----
+    <plugin>
+        <groupId>fish.payara.maven.plugins</groupId>
+        <artifactId>payara-micro-maven-plugin</artifactId>
+        <version>${payaramicro.maven.plugin.version}</version>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>bundle</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <startClass>my.custom.start.class.Main</startClass>
+            <deployArtifacts>
+                <artifactItem>
+                    <groupId>org.mycompany</groupId>
+                    <artifactId>my-project</artifactId>
+                    <version>1.0</version>
+                    <type>ear</type>
+                </artifactItem>
+            </deployArtifacts>            
+            <customJars>
+                <artifactItem>
+                    <groupId>org.primefaces</groupId>
+                    <artifactId>primefaces</artifactId>
+                    <version>6.0</version>
+                </artifactItem>
+            </customJars>
+        </configuration>
+    </plugin>
+----
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+|Element
+|Default
+|Notes
+
+|`autoDeployArtifact`
+|true
+|If the extension of the produced artifact is `WAR`, it will be copied
+automatically to the `MICRO-INF/deploy` directory when this property is set to
+true.
+
+|`startClass`
+|(optional):
+|Replaces the `Start-Class` definition that resides in the `MANIFEST.MF` file
+with the provided class.
+
+|`appendSystemProperties`
+|true
+|Appends all system properties defined into the `payara-boot.properties` file.
+
+|`payaraVersion`
+|4.1.1.171
+|By default bundle mojo fetches payara-micro with version 4.1.1.171.
+
+|`deployArtifacts`
+|_None_
+|Can contain a list of artifactItems, which defines the dependencies with their
+GAVs to be copied under MICRO-INF/deploy folder.
+
+|`customJars`
+|_None_
+|Can contain a list of artifactItems, which defines the dependencies with their
+GAVs to be copied under MICRO-INF/lib folder.
+
+|=== 
+
+==== `start`
+*Aim*: This goal starts Payara Micro with the specified configuration. By
+default this goal is attached to the payara-micro phase.
+
+*Usage*: `mvn payara-micro:start`
+
+Example:
+
+[source,XML]
+----
+<plugin>
+    <groupId>fish.payara.maven.plugins</groupId>
+    <artifactId>payara-micro-maven-plugin</artifactId>
+    <version>${payaramicro.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>start</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <useUberJar>true</useUberJar>
+        <daemon>true</daemon>
+        <javaPath>/path/to/Java/Home</javaPath>
+        <payaraMicroAbsolutePath>/path/to/payara-micro.jar</payaraMicroAbsolutePath>
+        <artifactItem>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-micro</artifactId>
+            <version>4.1.1.171</version>
+        </artifactItem>
+        <deployWar>true</deployWar>
+        <copySystemProperties>true</copySystemProperties>
+        <commandLineOptions>
+            <option>
+                <key>--domainconfig</key>
+                <value>/path/to/domain.xml</value>
+            </option>
+            <option>
+                <key>--autoBindHttp</key>
+                <value>true</value>
+            </option>
+        </commandLineOptions>
+    </configuration>
+</plugin>
+----
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+|Element
+|Default
+|Notes
+
+|`useUberJar`
+|false
+|Use created uber-jar that resides in target folder. The name of the JAR
+artifact will be resolved automatically by evaluating its final name, artifact
+ID and version. This configuration element has the higher precedence compared to
+`payaraMicroAbsolutePath` and `artifactItem`.
+
+|`deamon`
+|false
+|Starts payara-micro in separate JVM process and continues with the maven build.
+
+|`javaPath`
+|`java`
+|Absolute path to the java executable.
+
+|`payaraMicroAbsolutePath`
+|_none_
+|Absolute path to payara-micro executable.
+
+|`artifactItem`
+|_none_
+|Defines payara-micro artifact with its coordinates. Specified artifact should
+be available in local maven repository.
+
+|`deployWar`
+|false
+|If the attached project is of type WAR, it will automatically be deployed to
+payara-micro if deployWar is set to true.
+
+|`copySystemProperties`
+|false
+|Allows passing all system properties available within the maven build to the
+payara-micro execution.
+
+|commandLineOptions
+|_none_
+|Defines a lists of command line options that will be passed onto payara-micro.
+
+|===
+
+
+==== `stop`
+*Aim*: This goal stops Payara Micro with the specified configuration. By default
+this goal tries to find the currently executing Payara Micro instance by
+checking the running uberjar. If an `artifactItem` is defined, it will take
+precedence for identifying currently running instances. If `processId` is
+defined, this takes the highest precedence and the given `processId` will
+immediately kill the executing Payara Micro instance. This goal is attached to
+the `payara-micro` phase.
+
+*Usage*: `mvn payara-micro:stop`
+
+Example:
+
+[source,XML]
+----
+<plugin>
+    <groupId>fish.payara.maven.plugins</groupId>
+    <artifactId>payara-micro-maven-plugin</artifactId>
+    <version>${payaramicro.maven.plugin.version}</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>stop</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <processId>32333</processId>
+        <artifactItem>
+            <groupId>fish.payara.extras</groupId>
+            <artifactId>payara-micro</artifactId>
+            <version>4.1.1.171</version>
+        </artifactItem>
+    </configuration>        
+</plugin>
+----
+
+
+.Configuration tags
+[cols="2,1,7",options="header"]
+|===
+|Element
+|Default
+|Notes
+
+|processId
+|_none_
+|Process id of the running payara-micro.
+
+|artifactItem
+|_none_
+|Defines payara-micro artifact with its coordinates. This information is used to
+identify the process id of the running payara-micro.
+
+|===
