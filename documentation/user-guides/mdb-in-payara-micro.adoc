@@ -1,6 +1,6 @@
 = Using Payara Micro as a JMS Client
 
-_Since: 4.1.172_
+_Since Payara 4.1.172_
 
 Payara Micro can use JCA connectors and MDBs to connect to external systems. For
 instance, as client for an Apache ActiveMQ server. ActiveMQ is an open source
