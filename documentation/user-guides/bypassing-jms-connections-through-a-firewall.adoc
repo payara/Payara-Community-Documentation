@@ -1,8 +1,6 @@
 [[bypassing-jms-connections-through-a-firewall]]
 = Bypassing JMS Connections through a Firewall
 
-_Since GlassFish 4.1 Open Source Edition_
-
 A common scenario when using the JMS service with Payara Server is to have the
 Message broker and a remote client separated by a firewall. To solve this
 impediment, there are 2 options to establish a successful connection between them:
