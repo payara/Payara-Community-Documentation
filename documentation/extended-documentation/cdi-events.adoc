@@ -10,6 +10,12 @@ instances provided that they are connected to the same cluster.
 
 NOTE: This feature is not yet available in Payara Server Web Profile.
 
+[[requirements]]
+== Requirements
+
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the link:hazelcast/hazelcast.adoc[Hazelcast] section for more details.
+
+
 [[initializing-the-event-bus]]
 == Initializing the event bus
 
