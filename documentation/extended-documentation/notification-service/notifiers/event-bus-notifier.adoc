@@ -1,5 +1,7 @@
 = Event Bus Notifier
 
+_Since Payara Server 4.1.1.171_
+
 The Event Bus Notifier provides a way to send notifications from the 
 link:../notification-service.adoc[Notification service] into the internal Payara event bus based on Hazelcast distributed topics.
 
@@ -18,7 +20,7 @@ Hazelcast must be enabled for the Event Bus to be available.
 
 This notifier provides only one configuration option - **Topic Name** - which is mandatory.
 
-In the Admin Console, simply set Topic Name to an arbitrary name. This Hazelcast topic will be receiving the notifications.
+In the Admin Console, simply set Topic Name to an arbitrary name. This Hazelcast topic will receive the notifications.
 
 image:/images/notification-service/event-bus/event-bus-notif-config.png[Admin console config]
 
