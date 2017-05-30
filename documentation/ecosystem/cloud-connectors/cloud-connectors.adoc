@@ -16,7 +16,7 @@ In {{ book.currentVersion }}, the available connectors are:
 Cloud connectors are currently not available in binary form, but have to be
 built from source as follows:
 
-Clone the git repository:
+Clone the link:https://github.com/payara/Cloud-Connectors[Cloud-Connectors] git repository:
 
 ----
 git clone git@github.com:payara/Cloud-Connectors.git
@@ -30,6 +30,7 @@ mvn clean install
 ----
 
 The connectors can be found in the following locations as JCA rars:
+
 * Kafka -  ./Kafka/KafkaRARPackaging/target/KafkaRAR-0.1.0-SNAPSHOT.rar
 * Amazon SQS - ./AmazonSQS/AmazonSQSRAR/target/AmazonSQSRAR-0.1.0-SNAPSHOT.rar
 * MQTT - ./MQTT/MQTTRAR/target/MQTTRAR-0.1.0-SNAPSHOT.rar
@@ -55,7 +56,8 @@ java -jar payara-micro.jar --autobindhttp --deploy KafkaRAR-0.1.0-SNAPSHOT.rar -
 
 === Securing credentials
 
-Much of the configuration shown below is done via annotations. This configuration
+In the documentation pages for the currently available cloud connectors,
+much of the configuration shown is done via annotations. This configuration
 contains credentials as well, which as a rule of thumb should not directly be
 placed in code. On Payara all properties can be replaced via System properties
 using the syntax ${system.property.name} or environment variables using the
