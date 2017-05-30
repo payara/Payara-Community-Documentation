@@ -89,8 +89,7 @@ GAVs to be copied under MICRO-INF/lib folder.
 |=== 
 
 ==== `start`
-*Aim*: This goal starts Payara Micro with the specified configuration. By
-default this goal is attached to the payara-micro phase.
+*Aim*: This goal starts Payara Micro with the specified configuration.
 
 *Usage*: `mvn payara-micro:start`
 
@@ -178,7 +177,7 @@ payara-micro execution.
 
 |commandLineOptions
 |_none_
-|Defines a lists of command line options that will be passed onto payara-micro.
+|Defines a list of command line options that will be passed onto payara-micro.
 
 |===
 
@@ -189,8 +188,7 @@ this goal tries to find the currently executing Payara Micro instance by
 checking the running uberjar. If an `artifactItem` is defined, it will take
 precedence for identifying currently running instances. If `processId` is
 defined, this takes the highest precedence and the given `processId` will
-immediately kill the executing Payara Micro instance. This goal is attached to
-the `payara-micro` phase.
+immediately kill the executing Payara Micro instance.
 
 *Usage*: `mvn payara-micro:stop`
 
