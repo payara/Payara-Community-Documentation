@@ -1,0 +1,39 @@
+[[request-tracing-service]]
+= Request Tracing Service
+
+_Since Payara Server 4.1.1.164_
+
+The Request Tracing Service provides tracing facilities for multiple protocols
+and process communications done by the components of deployed applications.
+
+The service helps users to detect application slowness and performance degradation
+by logging requests that exceed a given threshold. The trace data from
+long-running requests gives insight to solve bottlenecks and other performance
+issues.
+
+NOTE: The service is available in both Payara Server and Payara Micro, though the
+service configuration is different in Payara Micro.
+
+The following types of requests are traced if the service is enabled:
+
+* REST (JAX-RS endpoints)
+* Servlets (HTTP requests)
+* SOAP Web Services
+* WebSockets
+* EJB timers execution
+* Inbound JMS messages received by an MDB
+* JBatch jobs creation
+* Tasks executed by injected Managed Executors.
+
+Once a request is being traced, the service collects events during its processing,
+so that it may later provide a report of what was happening and how long it
+took if the configured threshold is exceeded. The following events are
+observed and reported:
+
+* Start and end of the request
+* Entering or exiting an EJB method execution
+* Entering or exiting a CDI bean method (only configured methods are
+traced)
+* SQL statement invocations via JDBC calls
+* Starting or finishing JTA transactions
+* JASPIC authentication calls
