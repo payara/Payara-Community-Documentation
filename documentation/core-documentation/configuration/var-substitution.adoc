@@ -1,0 +1,63 @@
+[[variables-in-the-configuration]]
+= Variables in the configuration
+
+Variable references in the configuration are useful for reusing the same
+configuration in several scenarios, e.g. for several instances in the
+same cluster, or to provide an environment-specific configuration from
+the environment later when Payara Server is started.
+
+[[references-to-system-properties]]
+== References to System Properties
+
+_Since GlassFish Open Source Edition 4.0_
+
+Variable references to system properties start with `${`, followed by the name
+of the variable, and end with `}`. An example of a variable reference that
+refers to a `java.home` system property is:
+
+------------
+${java.home}
+------------
+
+Values of system properties can be specified by:
+
+* the JVM (standard JVM properties like `java.home`)
+* Payara Server (a set of predefined variables, such as
+`com.sun.aas.instanceRoot`)
+* the `create-system-properties` asadmin command (or in the Admin
+console `System properties` section)
+* a JVM option prefixed with `-D`
+
+When custom properties are specified, their value can also contain other
+variable references. It is therefore possible to define a system
+property using other system properties or environment variables.
+
+[[references-to-environment-variables]]
+== References to environment variables
+
+_Since Payara Server 4.1.1.171_
+
+Environment variable references are used like system property references,
+but contain an extra `ENV` qualifier and equals sign before the variable name.
+An example of a reference to an environment variable `HOME` then looks like:
+
+-----------
+${ENV=HOME}
+-----------
+
+Environment variables need to be specified in the environment before a
+Payara instance is started.
+
+[[how-to-use-variable-references]]
+=== How to use variable references
+
+Variable references can be used inside text values in the following
+configuration files:
+
+* _domain.xml_ (inside attribute values or inside text nodes that contain
+a configuration value)
+* _logging.properties_ (inside property values)
+
+Multiple variable references can be used within the same configuration
+value, concatenating any number of variable references and plain text
+chunks.

@@ -1,0 +1,30 @@
+[[altered-asadmin-commands]]
+= Altered Asadmin Commands
+
+Here's a list of the administration commands that have been altered in Payara
+Server to include the enhancements made on *JBatch*.
+
+[[set-batch-runtime-configuration]]
+== `set-batch-runtime-configuration`
+
+Sets the batch runtime configuration settings. This command requires the
+admin server to be running.
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Shortcut |Description |Default |Mandatory
+|--target |[multiblock cell omitted] |The instance or cluster to set the
+JBatch configuration of. |server |No
+|--datasourcelookupname |-d |Sets the name of the datasource to lookup
+and use. |[multiblock cell omitted] |Yes, or specify
+_executorServiceLookupName_
+|--executorservicelookupname |-x |Sets the name of the executor service
+to lookup and use. |[multiblock cell omitted] |Yes, or specify
+_datasourceLookupName_
+|--schemaName |-n |Sets the name of the database schema that holds the
+batch tables. |APP |No
+|--tablePrefix |[multiblock cell omitted] |Sets the prefix to apply to
+the batch table name. |[multiblock cell omitted] |No
+|--tableSuffix |[multiblock cell omitted] |Sets the suffix to apply to
+the batch table name. |[multiblock cell omitted] |No
+|=======================================================================
