@@ -1,6 +1,6 @@
 = Amazon SQS Cloud Connector
 
-Amazon SQS (Simple Queue Service) is a hosted a highly scalable distributed
+Amazon SQS (Simple Queue Service) is a hosted and highly scalable distributed
 message queue.
 
 In order to connect to Amazon SQS, the `AmazonSQSRAR-0.1.0-SNAPSHOT.rar` has to
