@@ -11,7 +11,7 @@
             "options": [
                 {
                     "value": "https://payara.gitbooks.io/payara-server/content/",
-                    "text": "LATEST (171)"
+                    "text": "LATEST (172)"
                 }
             ]
         }
@@ -19,6 +19,6 @@
 
 
     "variables": {
-        "currentVersion": "4.1.1.171"
+        "currentVersion": "4.1.2.172"
     }
 } 
