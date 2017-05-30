@@ -1,7 +1,7 @@
 [[maven-support]]
 = Maven Support
 
-This section describes *Maven* support for Payara Micro.
+This section describes Apache Maven support for Payara Micro.
 
 [[artifacts-in-maven-central]]
 == Artifacts in Maven Central
@@ -39,6 +39,13 @@ when developing applications that use proprietary features (`@Traced` or
 [[run-payara-micro-using-maven]]
 == Run Payara Micro using Maven
 
+==== Using the Maven Plugin
+There is a maven plugin built specifically for use with Payara Micro. It has
+goals to `bundle` the application into an Uber JAR, `start` and `stop` Payara
+Micro. This plugin is link:/documentation/ecosystem/maven-plugin.adoc[fully
+documented in the Ecosystem section.]
+
+==== Using the Maven Exec plugin
 It is possible to run Payara Micro using the `exec` goal of the _Maven Exec plugin_.
 Additionally, you can use the _Maven Dependency plugin_ to either refer to the
 JAR file of the `payara-micro` artifact in local maven repository, or to copy it
@@ -100,7 +107,7 @@ Dependency plugin configuration:
 ----
 
 [[build-a-payara-micro-uber-jar-using-maven]]
-== Build a Payara Micro Uber JAR using Maven
+==== Build a Payara Micro Uber JAR using the Maven Exec Plugin
 
 The `exec` goal of the Maven Exec plugin can also be used to build an executable
 Uber JAR. The configuration is the same as to execute the WAR artifact, but we
@@ -157,7 +164,8 @@ plugin configuration:
             <argument>--deploy</argument>
             <argument>${project.build.directory}/${project.build.finalName}.war</argument>
             <argument>--outputUberJar</argument>
-            <argument>${project.build.directory}/${project.build.finalName}.jar</argument>        </arguments>
+            <argument>${project.build.directory}/${project.build.finalName}.jar</argument>
+        </arguments>
     </configuration>
 </plugin>
 ----
