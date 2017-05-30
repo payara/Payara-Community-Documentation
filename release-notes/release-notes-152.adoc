@@ -1,22 +1,23 @@
 [[release-highlights]]
-Release Highlights
-------------------
+= Release Highlights
 
-The `payara-embedded-nucleus` distribution has been replaced by the Payara Micro distribution. This is a light-weight distribution that has Hazelcast integrated to allow for automatic web session clustering and JCache distribution.
+The `payara-embedded-nucleus` distribution has been replaced by the Payara Micro
+distribution. This is a light-weight distribution that has Hazelcast integrated to
+allow for automatic web session clustering and JCache distribution.
 
-We have also added a separate `payaradomain` template, which has a few optimisations:
+We have also added a separate `payaradomain` template, which has a few optimizations:
 
 * Increased PermGen Size of `512m` (previously `192m`)
-* Increased Xmx value of `1024m` (previously `512m`)
+* Increased `Xmx` value of `1024m` (previously `512m`)
 * Removed Felix OSGI parameters
 * Increased HTTP thread pool size of `50` (previously `5`)
-* Changed the JVM option `–client` to `–server` (this has been done for both domain templates)
-* Added the JVM option to reject client initiated TLS renegotiation 
+* Changed the JVM option `–client` to `–server` (this has been done for both domain
+  templates)
+* Added the JVM option to reject client initiated TLS renegotiation
 
 
 [[updated-modules]]
-Updated Modules
----------------
+== Updated Modules
 
 This section details the modules that have been updated since the last release (`4.1.151`).
 
@@ -36,10 +37,9 @@ This section details the modules that have been updated since the last release (
 * MQ `5.1.1-b02`
 * Tyrus `1.10`
 * Shoal `1.7.0-M1` (Payara Patched)
- 
+
 [[enhancements]]
-Enhancements
-------------
+==  Enhancements
 
 This section details the GitHub issues marked as enhancements that have been implemented for this release.
 
@@ -58,23 +58,26 @@ This section details the GitHub issues marked as enhancements that have been imp
 * 259 - Ensure key system properties are set by Payara Micro
 
 [[fixed-issues]]
-Fixed Issues
-------------
+== Fixed Issues
 
 This section details the GitHub issues marked as bugs that have been fixed for this release.
 
 * 138 – Verify Symbolic link checking in Payara
-* 139 – Fix exception handling code in com.sun.enterprise.util.io.FileUtils.java
+* 139 – Fix exception handling code in `com.sun.enterprise.util.io.FileUtils.java`
 * 191 – Payara Embedded Web Profile does not contain Hazelcast
 * 192 – Prevent null pointer exception when GMS is not enabled
 * 197 – Slow startup/hang when application uses Eclipselink and genericra
 * 207 – Fix checking to verify table existence in specified schema in DB2 persistence manager
 * 209 - CDI Injection in Entity Listener results in null reference
-* 218 - EJB webservice with wssecurity policy gets NoClassDefFoundError: org/apache/commons/logging/LogFactory
-* 216 – com.sun.gjc.spi.jdbc40.ProfiledConnectionWrapper40 changes Exception thrown by wrapped jdbc Connection (fix inside)
+* 218 - EJB webservice with wssecurity policy gets NoClassDefFoundError:
+`org/apache/commons/logging/LogFactory`
+* 216 – com.sun.gjc.spi.jdbc40.ProfiledConnectionWrapper40 changes Exception thrown
+by wrapped JDBC Connection (fix inside)
 * 228 – Investigate GLASSFISH-20670 JSF Performance
-* 239 - java.lang.ClassNotFoundException: javax.xml.parsers.ParserConfigurationException not found by org.eclipse.persistence.moxy
+* 239 - `java.lang.ClassNotFoundException`: `javax.xml.parsers.ParserConfigurationException`
+not found by `org.eclipse.persistence.moxy`
 * 244 – Transaction is aborted after 2 minutes
-* 251 - Performance regression in corba serialization in migration glassfish 4.0 -> `payara-4.1.151`
+* 251 - Performance regression in CORBA serialization in migration glassfish 4.0 -> `payara-4.1.151`
 * 262 - Incorporate fix for GLASSFISH-21343
-* 269 – Nightly build 2015-04-28 does not allow creating jdbc connection pool resources through web interface
+* 269 – Nightly build 2015-04-28 does not allow creating JDBC connection pool resources
+through web interface
