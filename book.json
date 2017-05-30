@@ -7,7 +7,7 @@
             "gitbookConfigURL": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/config/book.json",
             "options": [
                 {
-                    "value": "https://payara.gitbooks.io/payara-server/content/v/164/",
+                    "value": "https://docs.payara.fish/v/164/",
                     "text": "164"
                 }
             ]
