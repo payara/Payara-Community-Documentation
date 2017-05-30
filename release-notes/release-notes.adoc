@@ -8,6 +8,7 @@ Detailed information about features and fixes in every release.
 
 *2017*
 
+* 2017 Q2 - link:release-notes-172.adoc[Payara Server 4.1.2.172]
 * 2017 Q1 - link:release-notes-171.adoc[Payara Server 4.1.1.171]
 
 *2016*
