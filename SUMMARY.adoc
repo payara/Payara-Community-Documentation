@@ -21,6 +21,8 @@
 * link:documentation/core-documentation/core-documentation.adoc[Core Documentation]
 ** link:documentation/core-documentation/configuration/configuration.adoc[Server Configuration]
 *** link:documentation/core-documentation/configuration/var-substitution.adoc[Variables in the configuration]
+**** link:documentation/core-documentation/configuration/var-substitution/types-of-variables.adoc[Variable types]
+**** link:documentation/core-documentation/configuration/var-substitution/usage-of-variables.adoc[How to use variables]
 ** link:documentation/core-documentation/jacc.adoc[JACC]
 ** link:documentation/core-documentation/logging/logging.adoc[Logging]
 *** link:documentation/core-documentation/logging/payara/payara-specific.adoc[Payara Logging Improvements]
