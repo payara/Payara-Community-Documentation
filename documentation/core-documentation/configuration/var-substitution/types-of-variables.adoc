@@ -42,7 +42,7 @@ ${ENV=HOME}
 Environment variables need to be specified in the environment before a
 Payara instance is started.
 
-[[password-aliases]
+[[password-aliases]]
 == References to password aliases
 
 References to password aliases are used to refer to a password which is stored securely in the domain's keystore. They are treated in a special way and cannot be mixed with other variable references and with other characters in the same configuration value. They are only supposed to be used as a value anywhere a password is expected in the configuration.
