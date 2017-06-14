@@ -19,7 +19,8 @@ notifications directly to an specific Slack channel.
 *SNMP*:: Allows monitoring servers to scout for notification events
 using SNMP traps.
 *XMPP*:: Allows sending notification events to XMPP servers.
-*NewRelic*:: Allows sending notification events to a NewRelic service account.
+*NewRelic*:: Allows sending notification events to a *NewRelic* service account.
+*Datadog*:: Allows sending notification events to the *Datadog* monitoring service
 
 Appropriate instructions on how to configure and use all of these
 notification mechanisms are included in this section.
