@@ -29,14 +29,17 @@ for free.
 
 . Configure application performance monitoring (APM) for a Payara Server instance
 by installing a New Relic Java agent
-. Configure NewRelic Insights API key that will be used to configure the notifier.
+. Configure a NewRelic Insights API key that will be used to setup the
+notifier.
 
 [[configure-apm]]
-=== Configure Aplication Performance Monitoring for Payara Server
+=== Configure Application Performance Monitoring for Payara Server
 
-. First, proceed to setup the NewRelic Java agent in Payara Server. Login with
-your account credentials, and if you haven't setup a monitoring agent yet, the
-following screenshot will be shown:
+The first task is to set up the New Relic Java agent in Payara Server. To do that,
+follow these steps:
+
+. Login to New Relic with your account credentials, and if you haven't setup a
+monitoring agent yet, the following screen will be shown:
 +
 image:/images/notification-service/newrelic/agent-setup-1.png[NewRelic agent setup welcome screen]
 
@@ -91,7 +94,7 @@ NOTE: We also recommend setting the name of the application under the `app_name`
 property to correctly identify this server's domain on the APM dashboard
 
 +
-IMPORTANT: The License Key value must be inserted using single quotes ('')
+IMPORTANT: The License Key value must be inserted using single quotes (')
 
 . Now, proceed to install the agent by running the following command at the root
 of the domain folder:
@@ -143,6 +146,13 @@ and add the configuration of the Java agent as a JVM start argument:
 NOTE: The agent setup page has a different set of instructions for Windows and Linux
 environments, but they are so similar on the result so the specific instructions
 mentioned here are more than enough.
++
+
+TIP: If you are considering installing the NewRelic Java agent on a Payara Server
+standalone instance or a cluster of multiple instances, you need to manually
+add the JVM (the installer won't work) option with the `javaagent` configuration
+to the instance/cluster referenced configuration. Also, make sure that the directory
+where the _newrelic.jar_ resides also contains the _newrelic.yml_ configuration file
 
 . Now, that the agent has been installed proceed to start the Payara Server domain.
 You will observe the following similar messages at the start of the domain's log
@@ -195,11 +205,11 @@ editing the _domain.xml_ configuration file directly.
 [[using-the-administration-web-console]]
 === Using the Administration Web Console
 
-To configure the Notification Service in the Administration Console, go
-to _Configuration -> [instance-configuration (like server-config)] ->
-Notification Service_ and click on the *NewRelic* tab:
+To configure the Notification Service in the Administration Console, go to
+_Configuration -> [instance-configuration (like server-config)] -> Notification Service_
+and click on the *NewRelic* tab:
 
-image:/images/notification-service/newrelic/admin-console-configuration.png[Slack Configuration on Admin Console]
+image:/images/notification-service/newrelic/admin-console-configuration.png[NewRelic Configuration on Admin Console]
 
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) and input the NewRelic Account ID and the newly inserted
@@ -232,7 +242,7 @@ true     b5815wdxj6lF_tmMBljQa5y1603JTiLh  1658989
 ----
 
 [[on-the-domain.xml-configuration-file]]
-=== On the _domain.xml_ configuration file
+=== In the _domain.xml_ configuration file
 
 To configure the Notification Service in the _domain.xml_ configuration
 file, locate the `notification-service-configuration` element in the
