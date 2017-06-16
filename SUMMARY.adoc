@@ -139,6 +139,8 @@
 ** link:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
 ** link:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]
 ** link:documentation/user-guides/upgrade-payara.adoc[Upgrade Payara Server]
+** link:documentation/user-guides/monitoring/monitoring.adoc[Monitoring Payara Server]
+*** link:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc[Enable JMX Monitoring]
 ** link:documentation/user-guides/connection-pools/connection-pools.adoc[Configure a connection pool]
 *** link:documentation/user-guides/connection-pools/sizing.adoc[Connection pool sizing]
 *** link:documentation/user-guides/connection-pools/validation.adoc[Connection validation]
