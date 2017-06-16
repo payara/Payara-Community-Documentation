@@ -107,7 +107,7 @@ are easy to identify; all MBeans which show monitoring data are suffixed with
 "-mon". A good example is `web-request-mon`, which will show metrics on requests
 for each module in the available Virtual Servers: 
 
-image:/images/guides/monitoring/visual-vm1.png[Web request metrics in VisualVM]
+image:/images/guides/monitoring/visual-vm3.png[Web request metrics in VisualVM]
 
 In the screenshot, the Admin Console module is selected and the `requestcount`
 attribute is selected. Each attribute in **bold** is a _composite attribute_,
