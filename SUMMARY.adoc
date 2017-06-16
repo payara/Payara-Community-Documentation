@@ -73,6 +73,7 @@
 *** link:documentation/extended-documentation/notification-service/notifiers.adoc[Notifiers]
 **** link:documentation/extended-documentation/notification-service/notifiers/hipchat-notifier.adoc[Hipchat Notifier]
 **** link:documentation/extended-documentation/notification-service/notifiers/slack-notifier.adoc[Slack Notifier]
+**** link:documentation/extended-documentation/notification-service/notifiers/newrelic-notifier.adoc[NewRelic Notifier]
 **** link:documentation/extended-documentation/notification-service/notifiers/xmpp-notifier.adoc[XMPP Notifier]
 **** link:documentation/extended-documentation/notification-service/notifiers/datadog-notifier.adoc[Datadog Notifier]
 **** link:documentation/extended-documentation/notification-service/notifiers/jms-notifier.adoc[JMS Notifier]
