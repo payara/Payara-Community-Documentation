@@ -20,7 +20,7 @@ notification is sent to the Notification Service. Notifications can be then sent
 This allows operations teams to rapidly detect problems or work out what happened after these
 problems have occurred. 
 
-If the link:../notification-service/notifiers/log-notifier.adoc[Log] Notifier is enabled, such events will be presented in the server's log file like in the following sample:
+If the link:../notification-service/notifiers/log-notifier.adoc[Log Notifier] is enabled, such events will be presented in the server's log file like in the following sample:
 
 [source, log]
 ----
