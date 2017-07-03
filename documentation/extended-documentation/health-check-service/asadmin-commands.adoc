@@ -1,5 +1,5 @@
 [[healthcheck-service]]
-= Healthcheck Service Asadmin Command Reference
+= Health Check Service Asadmin Command Reference
 
 [[healthcheck-configure]]
 == `healthcheck-configure`
@@ -8,15 +8,14 @@
 `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
 
 *Aim*::
-Enables or disables the health check service. The command updates
+Enables or disables the Health Check Service. The command updates
 the `domain.xml` with the provided configuration but does not apply
-changes directly to the working service by default. It can also store a
-given number of historical health checks.
+changes directly to the working service by default. It can also store a given number of historical health checks.
 
 [[command-options]]
 === Command Options
 
-[cols=",,,,",options="header",]
+[cols="2,1,1,1,1",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--target` |String |The instance or cluster that will enable or disable
@@ -46,6 +45,8 @@ asadmin > healthcheck-configure
     --historicaltraceenabled
     --historicaltracestoresize=20
 ----
+
+NOTE: In order to get notifications from the Health Check Service, it's necessary to enable the Health Check Service together with at least one of its services and at least one of the link:../notification-service/notifiers.adoc[notifiers] in the Notification Service.
 
 [[healthcheck-list-services]]
 == `healthcheck-list-services`
