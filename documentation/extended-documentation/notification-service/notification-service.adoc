@@ -6,7 +6,7 @@ _Since Payara Server version 4.1.1.163_
 Payara Server comes with a general Notification
 service in order to log events which come from other services, such as
 the
-link:/documentation/extended-documentation/health-check-service/health-check-service.adoc[Health Check service] or the
+link:/documentation/extended-documentation/health-check-service/health-check-service.adoc[HealthCheck service] or the
 link:/documentation/extended-documentation/request-tracing-service/request-tracing-service.adoc[Request Tracing service]
 
 The Notification service provides the ability to disseminate

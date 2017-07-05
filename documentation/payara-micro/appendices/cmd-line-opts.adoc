@@ -41,7 +41,7 @@ service is active.
 |Overrides the server configuration with an alternative _domain.xml_ file.
 |If not set, the domain.xml contained in the Payara Micro JAR is used.
 |`--enablehealthcheck <boolean>`
-|enables/disables the Health Check Service.|_false_
+|enables/disables the HealthCheck Service.|_false_
 |`--enablerequesttracing`
 |Enables the Request Tracing Service and optionally sets the threshold unit
 and/or value.|

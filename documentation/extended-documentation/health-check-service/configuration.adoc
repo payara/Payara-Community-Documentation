@@ -1,8 +1,8 @@
 [[health-check-service]]
-= Health Check Service Configuration
+= HealthCheck Service Configuration
 
 
-The Health Check service configuration is stored in the `domain.xml`. An
+The HealthCheck service configuration is stored in the `domain.xml`. An
 example can be seen below:
 
 [source, xml]

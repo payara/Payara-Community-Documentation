@@ -6,7 +6,7 @@ _Since Payara Server 4.1.1.171_
 The _Java Message Service (JMS)_ API is a messaging API which can be used
 to enable asynchronous communication between clients. The Payara JMS
 notifier makes use of a JMS queue to send notification events from
-services such as the Request Tracing and Health Check services. These can
+services such as the Request Tracing and HealthCheck services. These can
 then be consumed by a custom MDB or other JMS compatible client.
 
 [[requirements]]
