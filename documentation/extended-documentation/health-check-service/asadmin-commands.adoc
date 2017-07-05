@@ -1,5 +1,5 @@
 [[healthcheck-service]]
-= Health Check Service Asadmin Command Reference
+= HealthCheck Service Asadmin Command Reference
 
 [[healthcheck-configure]]
 == `healthcheck-configure`
@@ -8,7 +8,7 @@
 `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
 
 *Aim*::
-Enables or disables the Health Check Service. The command updates
+Enables or disables the HealthCheck Service. The command updates
 the `domain.xml` with the provided configuration but does not apply
 changes directly to the working service by default. It can also store a given number of historical health checks.
 
@@ -46,7 +46,7 @@ asadmin > healthcheck-configure
     --historicaltracestoresize=20
 ----
 
-NOTE: In order to get notifications from the Health Check Service, it's necessary to enable the Health Check Service together with at least one of its services and at least one of the link:../notification-service/notifiers.adoc[notifiers] in the Notification Service.
+NOTE: In order to get notifications from the HealthCheck Service, it's necessary to enable the HealthCheck Service together with at least one of its services and at least one of the link:../notification-service/notifiers.adoc[notifiers] in the Notification Service.
 
 [[healthcheck-list-services]]
 == `healthcheck-list-services`
@@ -69,7 +69,7 @@ There are no options available.
 Running the command will show output similar to the example below:
 
 ****
-Available Health Check Services:
+Available HealthCheck Services:
 
 healthcheck-cpool healthcheck-cpu healthcheck-gc healthcheck-heap
 healthcheck-threads healthcheck-machinemem
@@ -268,7 +268,7 @@ There are no options available.
 A sample output is as follows:
 
 ****
-Health Check Service Configuration is enabled?: true
+HealthCheck Service Configuration is enabled?: true
 
 Below are the list of configuration details of each checker listed by
 its name.
