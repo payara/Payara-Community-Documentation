@@ -15,12 +15,16 @@ When enabled it periodically checks the following performance metrics:
 
 If there is a problem with any of these metrics and they exceed a
 configurable threshold then a `GOOD`, `WARNING` or `CRITICAL` event
-notification is sent to the Notification Service. Notifications can be then sent to one or more Notifiers, e.g. a log file.
+notification is sent to the Notification Service. Notifications can be then sent
+to one or more notifiers, e.g. a log file.
 
 This allows operations teams to rapidly detect problems or work out what happened after these
-problems have occurred. 
+problems have occurred.
 
-If the link:../notification-service/notifiers/log-notifier.adoc[Log Notifier] is enabled, such events will be presented in the server's log file like in the following sample:
+If the
+link:/documentation/extended-documentation/notification-service/notifiers/log-notifier.adoc[Log Notifier]
+is enabled, such events will be presented in the server's log file like in the
+following sample:
 
 [source, log]
 ----
