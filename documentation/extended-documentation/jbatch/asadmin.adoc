@@ -1,30 +1,117 @@
-[[altered-asadmin-commands]]
-= Altered Asadmin Commands
+[[improved-asadmin-commands]]
+= Improved Asadmin Commands
 
-Here's a list of the administration commands that have been altered in Payara
-Server to include the enhancements made on *JBatch*.
+The following is a list of the administration commands that have been introduced
+or changed from GlassFish in Payara Server to improve the *JBatch API*.
 
 [[set-batch-runtime-configuration]]
 == `set-batch-runtime-configuration`
 
-Sets the batch runtime configuration settings. This command requires the
-admin server to be running.
+*Usage*::
+`asadmin> set-batch-runtime-configuration --datasourcelookupname="jdbc/default"
+  --executorservicelookupname="concurrent/__defaultManagedExecutorService"
+  --schemaName="APP" --tablePrefix="BJP" --tableSuffix="BJS"`
+
+*Aim*::
+Configures the batch runtime storage and execution settings.
+
+[[command-options]]
+=== Command Options
 
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Shortcut |Description |Default |Mandatory
-|--target |[multiblock cell omitted] |The instance or cluster to set the
-JBatch configuration of. |server |No
-|--datasourcelookupname |-d |Sets the name of the datasource to lookup
-and use. |[multiblock cell omitted] |Yes, or specify
-_executorServiceLookupName_
-|--executorservicelookupname |-x |Sets the name of the executor service
-to lookup and use. |[multiblock cell omitted] |Yes, or specify
-_datasourceLookupName_
-|--schemaName |-n |Sets the name of the database schema that holds the
-batch tables. |APP |No
-|--tablePrefix |[multiblock cell omitted] |Sets the prefix to apply to
-the batch table name. |[multiblock cell omitted] |No
-|--tableSuffix |[multiblock cell omitted] |Sets the suffix to apply to
-the batch table name. |[multiblock cell omitted] |No
+|`--target` |N/A |The instance or cluster to configure |server |No
+|`--datasourcelookupname` |-d |The JNDI name of the JDBC data source used to store
+job information | N/A | Yes (unless `executorservicelookupname` is specified)
+|`--executorservicelookupname` |-x | The JNDI name of the Managed Executor Service
+that provides threads for  the jobs' execution. | N/A
+| Yes (unless `datasourceLookupName` is used)
+|`--schemaName` | -n |The database schema that holds the batch tables. |APP | No
+|`--tablePrefix` | N/A |The prefix to apply to the batch table name. | N/A | No
+|`--tableSuffix` | N/A |Sets the suffix to apply to the batch table name. | N/A |No
 |=======================================================================
+
+[[example]]
+=== Example
+
+The following command will set the data source, and the prefix and suffix for the
+DAS:
+
+[source, shell]
+----
+asadmin > set-batch-runtime-configuration --target="server"
+            --datasourcelookupname="jdbc/BatchJobsDS"
+            --tablePrefix="BATCHJ_" --tableSuffix="_JB"
+
+----
+
+== `purge-jbatch-repository`
+
+_Since Payara Server 4.1.2.173_
+
+*Usage*::
+`asadmin> purge-jbatch-repository <apptag>`
+
+*Aim*::
+Purges the current JBatch repository of all jobs scheduled for the referenced
+application's tag. The application's tag is structured like this:
++
+----
+<Configuration Identifier>:<Application Name>__/<Application Name>
+----
++
+Where *Configuration Identifier* is the identifier of the configuration associated
+to the instance or cluster where the application is deployed and *Application Name*
+is the name of the deployed application.
+
+[[command-options-1]]
+=== Command Options
+
+There are no options available.
+
+[[example-1]]
+=== Example
+
+To remove all current jobs for an application named _jbatch-test_ deployed on the
+DAS (`server-config`) then run the following command:
+
+[source, shell]
+----
+asadmin > jbatch-repository "server-config:jbatch-test__/jbatch-test"
+----
+
+NOTE: The command will remove all current jobs created by the referenced application
+whether these jobs are running or not.
+
+TIP: If you are having trouble finding the application's tag for your application,
+you can get it programmatically on a Java EE application by using the following
+code:
+
+[source, java]
+----
+import com.ibm.jbatch.container.servicesmanager.ServicesManager;
+import com.ibm.jbatch.container.servicesmanager.ServicesManagerImpl;
+import com.ibm.jbatch.container.services.IPersistenceManagerService;
+...
+
+JobOperator jobOperator = getJobOperator();
+Long executionId = jobOperator.start("job-name", new Properties());
+
+ServicesManager manager = ServicesManagerImpl.getInstance();
+IPersistenceManagerService ps = manager.getPersistenceManagerService();
+String applicationTag = ps.getJobCurrentTag(jobid);
+----
+
+You need to add a dependency to IBM's *JBatch runtime* to your project to access
+the classes mentioned:
+
+[source, xml]
+----
+<dependency>
+    <groupId>com.ibm.jbatch</groupId>
+    <artifactId>com.ibm.jbatch-runtime-all</artifactId>
+    <version>1.0</version>
+    <scope>provided</scope>
+</dependency>
+----
