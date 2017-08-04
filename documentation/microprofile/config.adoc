@@ -35,8 +35,8 @@ then apply to all instances within a domain
 |`config`
 |120
 |Retrieves and stores config values at the level of the named configuration in
-the domain.xml property values will apply to all instances that use the
-configuration
+the domain.xml; `server-config`, for example. Configuration property values will
+apply to all instances that use the configuration
 
 |`server`
 |130
@@ -76,8 +76,8 @@ of `1`, the same as the default converters.
 
 == Asadmin Commands
 
-IMPORTANT: A `--source` value of `jndi` is not supported for this command in 
-4.1.2.173. The `ConfigSource` does exist and is usable though.
+IMPORTANT: A `--source` value of `jndi` is not supported for these asadmin commands in 
+4.1.2.173. The JNDI `ConfigSource` does exist and is usable from the Config API, though.
 
 ==== `set-config-ordinal`
 
