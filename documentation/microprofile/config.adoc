@@ -98,13 +98,13 @@ ordinal number is preferred.
 |Default
 |Mandatory
 
-|`--ordinal`
+|`ordinal`
 |The value of the ordinal to set. This must be a number greater than 1. A lower
 number ordinal means lower order of precedence.
 |-
 |yes
 
-|`--source`
+|`source`
 |The value of the source to change. Must be one of: `domain`, `config`, `server`,
 `application`, `module`, `cluster`
 |-
@@ -141,7 +141,7 @@ Returns the ordinal value for the given ConfigSource type.
 |Default
 |Mandatory
 
-|`--source`
+|`source`
 |The ConfigSource to get the ordinal for. Must be one of: `domain`, `config`,
 `server`, `application`, `module`, `cluster`
 |-
