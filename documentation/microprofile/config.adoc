@@ -76,6 +76,9 @@ of `1`, the same as the default converters.
 
 == Asadmin Commands
 
+IMPORTANT: A `--source` value of `jndi` is not supported for this command in 
+4.1.2.173. The `ConfigSource` does exist and is usable though.
+
 ==== `set-config-ordinal`
 
 *Usage*::
@@ -85,9 +88,6 @@ server|application|module|cluster`
 Provides a way to set the ordinal for a given config source. Where multiple 
 configuration properties exist, the property from a source with a  higher
 ordinal number is preferred.
-
-IMPORTANT: A `--source` value of `jndi` is not supported for this command in 
-4.1.2.173. The `ConfigSource` does exist and is usable though.
 
 ===== Command Options
 
@@ -120,6 +120,7 @@ number ordinal means lower order of precedence.
 
 ===== Example
 
+[source,Shell]
 ----
 asadmin> set-config-ordinal --ordinal=600 --source=application
 ----
@@ -151,6 +152,7 @@ Returns the ordinal value for the given ConfigSource type.
 
 ===== Example
 
+[source,Shell]
 ----
 asadmin> get-config-ordinal --source=cluster
 ----
@@ -218,6 +220,7 @@ the application where the module is deployed.
 
 ===== Example
 
+[source,Shell]
 ----
 asadmin> set-config-property
     --propertyName=JMSBrokerURL
@@ -287,6 +290,7 @@ the application where the module is deployed.
 
 ===== Example
 
+[source,Shell]
 ----
 asadmin> get-config-property
     --propertyName=JMSBrokerURL
