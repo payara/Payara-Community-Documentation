@@ -86,12 +86,12 @@ Provides a way to set the ordinal for a given config source. Where multiple
 configuration properties exist, the property from a source with a  higher
 ordinal number is preferred.
 
-IMPORTANT:A `--source` value of `jndi` is not supported for this command in 
+IMPORTANT: A `--source` value of `jndi` is not supported for this command in 
 4.1.2.173. The `ConfigSource` does exist and is usable though.
 
 ===== Command Options
 
-[cols="1,1,10,1,1", options="header"]
+[cols="1,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -133,7 +133,7 @@ Returns the ordinal value for the given ConfigSource type.
 
 ===== Command Options
 
-[cols="1,1,10,1,1", options="header"]
+[cols="1,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -171,7 +171,7 @@ property is to be stored.
 
 ===== Command Options
 
-[cols="1,1,10,1,1", options="header"]
+[cols="1,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -245,7 +245,7 @@ property is to be stored.
 
 ===== Command Options
 
-[cols="1,1,10,1,1", options="header"]
+[cols="1,10,1,1", options="header"]
 |===
 |Option
 |Description
