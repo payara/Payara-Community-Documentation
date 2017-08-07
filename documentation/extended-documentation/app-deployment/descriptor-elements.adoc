@@ -177,8 +177,8 @@ When declaring a secured Web Service based on an EJB using the _glassfish-ejb-ja
 deployment descriptor, it's necessary to define the login configuration (authentication
 method, security realm name, etc.) for each EJB Web Service that is secured inside
 the assembly. For example, if an application contains 2 EJB web services called
-*EJBWS1* and *EJBWS*, and they need to be secured using BASIC authentication against
-the _file_ security realm, the following configuration would do it:
+*EJBWS1* and *EJBWS2*, and they need to be secured using `BASIC` authentication against
+the _file_ security realm, the following configuration would be needed:
 
 [source, xml]
 ----
@@ -188,22 +188,22 @@ the _file_ security realm, the following configuration would do it:
   <ejb>
     <ejb-name>EJBWS1</ejb-name>
     <webservice-endpoint>
-       <port-component-name>EJBWS1Post</port-component-name>
+       <port-component-name>EJBWS1Port</port-component-name>
 	     <endpoint-address-uri>EJBWS1/EJBWebService</endpoint-address-uri>
 	     <login-config>
-          <auth-method>BASIC</auth-method>
-          <realm>file</realm>
+            <auth-method>BASIC</auth-method>
+            <realm>file</realm>
 	     </login-config>
     </webservice-endpoint>
   </ejb>
   <ejb>
     <ejb-name>EJBWS2</ejb-name>
     <webservice-endpoint>
-       <port-component-name>EJBWS2Post</port-component-name>
+       <port-component-name>EJBWS2Port</port-component-name>
 	     <endpoint-address-uri>EJBWS2/EJBWebService</endpoint-address-uri>
 	     <login-config>
-          <auth-method>BASIC</auth-method>
-          <realm>file</realm>
+            <auth-method>BASIC</auth-method>
+            <realm>file</realm>
 	     </login-config>
     </webservice-endpoint>
   </ejb>
@@ -212,13 +212,14 @@ the _file_ security realm, the following configuration would do it:
 
 Notice that the `login-config` element is repeated exactly like it is in the 2 EJB
 definitions. Not only that, but if these Web services are defined using annotations
-for each EJB component, then the Web service definition information would be repeated
-too (Port Component Name, Endpoint Address, etc.), which would be too cumbersome
-for cases when there are lots of EJB Web services.
+for each EJB component, then the *JAX-WS* information (Port Component Name, Endpoint
+Address, etc.) would be duplicated too, which is too cumbersome for cases when
+there are lots of EJB Web service definitions.
 
 For this scenario, the `webservice-default-login-config` has been introduced to
 simplify this configuration. When this element is declared, the login configuration
-inside it will apply to all of the EJB defined Web Services inside the assembly.
+inside it will apply to all of the EJB defined Web Services by default.
+
 The previous example can be simplified like this:
 
 [source, xml]
@@ -226,12 +227,16 @@ The previous example can be simplified like this:
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
 <glassfish-ejb-jar>
-  <default-login-config>
-	    <auth-method>BASIC</auth-method>
-	    <realm>file</realm>
-  </default-login-config>
+  <webservice-default-login-config>
+      <auth-method>BASIC</auth-method>
+      <realm>file</realm>
+  </webservice-default-login-config>
 </glassfish-ejb-jar>
 ----
 
-NOTE: All sub-elements of the `login-config` can be used on the `default-login-config`
-without issues.
+NOTE: All sub-elements tags of the `login-config` can be used as it is inside this
+element.
+
+IMPORTANT: If an EJB Web service definition needs a different login configuration
+from the default, just redefine it as shown in the example and it will override
+the default configuration.
