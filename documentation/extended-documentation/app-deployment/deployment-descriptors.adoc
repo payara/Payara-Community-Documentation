@@ -27,4 +27,5 @@ elements are the following:
 [[glassfish-ejb-jar.xml]]
 == _glassfish-ejb-jar.xml_
 
+* `webservice-default-login-config`
 * `default-role-mapping` (_property_)
