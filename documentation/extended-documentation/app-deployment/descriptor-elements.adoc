@@ -188,23 +188,23 @@ the _file_ security realm, the following configuration would be needed:
   <ejb>
     <ejb-name>EJBWS1</ejb-name>
     <webservice-endpoint>
-       <port-component-name>EJBWS1Port</port-component-name>
-	     <endpoint-address-uri>EJBWS1/EJBWebService</endpoint-address-uri>
-	     <login-config>
-            <auth-method>BASIC</auth-method>
-            <realm>file</realm>
-	     </login-config>
+      <port-component-name>EJBWS1Port</port-component-name>
+      <endpoint-address-uri>EJBWS1/EJBWebService</endpoint-address-uri>
+      <login-config>
+          <auth-method>BASIC</auth-method>
+          <realm>file</realm>
+      </login-config>
     </webservice-endpoint>
   </ejb>
   <ejb>
     <ejb-name>EJBWS2</ejb-name>
     <webservice-endpoint>
-       <port-component-name>EJBWS2Port</port-component-name>
-	     <endpoint-address-uri>EJBWS2/EJBWebService</endpoint-address-uri>
-	     <login-config>
-            <auth-method>BASIC</auth-method>
-            <realm>file</realm>
-	     </login-config>
+      <port-component-name>EJBWS2Port</port-component-name>
+      <endpoint-address-uri>EJBWS2/EJBWebService</endpoint-address-uri>
+      <login-config>
+          <auth-method>BASIC</auth-method>
+          <realm>file</realm>
+      </login-config>
     </webservice-endpoint>
   </ejb>
 </glassfish-ejb-jar>
