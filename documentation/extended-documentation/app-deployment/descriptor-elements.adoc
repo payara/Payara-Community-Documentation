@@ -234,8 +234,7 @@ The previous example can be simplified like this:
 </glassfish-ejb-jar>
 ----
 
-NOTE: All sub-elements tags of the `login-config` can be used as it is inside this
-element.
+NOTE: All sub-elements tags of the `login-config` can be used inside this element.
 
 IMPORTANT: If an EJB Web service definition needs a different login configuration
 from the default, just redefine it as shown in the example and it will override
