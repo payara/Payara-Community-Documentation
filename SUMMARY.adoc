@@ -83,6 +83,7 @@
 **** link:documentation/extended-documentation/notification-service/notifiers/event-bus-notifier.adoc[Event Bus Notifier]
 ** link:documentation/extended-documentation/payara-fang/payara-fang.adoc[Payara Fang]
 *** link:documentation/extended-documentation/payara-fang/configure-payara-fang.adoc[Configuring Payara Fang]
+*** link:documentation/extended-documentation/payara-fang/use-payara-fang.adoc[Using Payara Fang]
 ** link:documentation/extended-documentation/request-tracing-service/request-tracing-service.adoc[Request Tracing Service]
 *** link:documentation/extended-documentation/request-tracing-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/extended-documentation/request-tracing-service/configuration.adoc[Configuration]
