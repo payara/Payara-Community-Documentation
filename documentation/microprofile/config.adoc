@@ -35,8 +35,8 @@ then apply to all instances within a domain
 |`config`
 |120
 |Retrieves and stores config values at the level of the named configuration in
-the domain.xml; `server-config`, for example. Configuration property values will
-apply to all instances that use the configuration
+the domain.xml; `server-config`, for example. MicroProfile Configuration property
+values will apply to all instances that use the Payara configuration specified.
 
 |`server`
 |130
@@ -45,7 +45,7 @@ Property values will only apply on the named server instance
 
 |`application`
 |140
-|retrieves and stores config values at the level of the application. Property
+|Retrieves and stores config values at the level of the application. Property
 values will only be available for the specified application on all server
 instances it is deployed
 
@@ -62,7 +62,7 @@ These will be available for all server instances that are members of the cluster
 
 |`jndi`
 |115
-|Retrieve and stores config values within the jndi tree. The property name being
+|Retrieves and stores config values within the jndi tree. The property name being
 the dotted name path in the JNDI tree and the value being stored in the JNDI tree.
 These are modifiable by current admin console functionality.
 
