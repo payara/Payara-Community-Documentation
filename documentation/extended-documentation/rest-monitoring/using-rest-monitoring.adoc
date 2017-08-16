@@ -1,16 +1,16 @@
-= Using Payara Fang
+= Using REST monitoring
 
-Payara Fang uses a similar API to Jolokia, but with a subset of the features.
-The REST API is hosted on `${base-url}/${Fang-Context-Root}/rest`, so with default settings
-it is hosted at `localhost:4848/fang/rest`.
+REST monitoring uses a similar API to Jolokia, but with a subset of the
+features. The REST API is hosted on `${base-url}/${Fang-Context-Root}/rest`,
+so with default settings it is hosted at `localhost:4848/fang/rest`.
 
 
 == Operations
 
 ====
-Payara Fang supports a subset of operations defined in the Jolokia API. It will
-expand to include more, but in technical preview currently only supports the
-`read` operation.
+REST monitoring supports a subset of operations defined in the Jolokia API. It
+will expand to include more, but in technical preview currently only supports
+the `read` operation.
 ====
 
 === Read

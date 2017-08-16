@@ -1,12 +1,12 @@
-= Configuring Payara Fang
+= Configuring REST monitoring
 
-Payara Fang is configurable through asadmin commands. This feature is in
+REST monitoring is configurable through asadmin commands. This feature is in
 technical preview, so some things may not work quite as intended.
 
-== Setting Payara Fang Configuration
+== Setting REST monitoring Configuration
 The `set-payara-fang-configuration` asadmin command is used to configure
-Payara Fang. This command requires the server to be running. Each configuration
-property can be configured individually or all together.
+REST monitoring. This command requires the server to be running. Each
+configuration property can be configured individually or all together.
 
 
 === Enabled
@@ -15,7 +15,7 @@ property can be configured individually or all together.
 ----
 asadmin> set-payara-fang-configuration --enabled=true
 ----
-By default, Payara Fang is disabled.
+By default, REST monitoring is disabled.
 
 
 === Target
@@ -24,9 +24,9 @@ By default, Payara Fang is disabled.
 ----
 asadmin> set-payara-fang-configuration --enabled=true --target=${Target}
 ----
-If no target is specified, the command will enable Payara Fang on the
+If no target is specified, the command will enable REST monitoring on the
 domain configuration _(server-config)_. The `--target` option enables
-Payara Fang on another instance or cluster.
+REST monitoring on another instance or cluster.
 
 
 === Context Root
@@ -35,9 +35,9 @@ Payara Fang on another instance or cluster.
 ----
 asadmin> set-payara-fang-configuration --contextroot=${ContextRoot}
 ----
-The `contextroot` property defines which URLs the Payara Fang application uses.
-The context root of the Payara Fang application defaults to `/fang`, but can
-be specified with the `--contextroot` option.
+The `contextroot` property defines which URLs the REST monitoring application
+uses. The context root of the REST monitoring application defaults to `/fang`,
+but can be specified with the `--contextroot` option.
 
 
 === Name
@@ -46,8 +46,8 @@ be specified with the `--contextroot` option.
 ----
 asadmin> set-payara-fang-configuration --name=${Name}
 ----
-The `name` property defines the name of the deployed Payara Fang. This option
-defaults to "Fang".
+The `name` property defines the name of the deployed REST monitoring
+application. This option defaults to "Fang".
 
 
 === Security Enabled
@@ -55,16 +55,16 @@ defaults to "Fang".
 ----
 asadmin> set-payara-fang-configuration --securityenabled=true
 ----
-The `securityenabled` property defines whether the Payara Fang application is
-available over HTTPS. Since Payara Fang is hosted on the `admin-listener`,
-this requires secure admin to be enabled.
+The `securityenabled` property defines whether the REST monitoring application
+is available over HTTPS. Since the REST monitoring application is hosted on the
+`admin-listener`, this requires secure admin to be enabled.
 
 Enabling secure admin can be done by first configuring the admin password with
 the `change-admin-password` command, then using the `enable-secure-admin`
 command. Enabling secure admin requires a server restart.
 
 When `securityenabled` is set to true, a username and password is required to
-use Payara Fang. By default the username and password is `fang`. The user is
+use REST monitoring. By default the username and password is `fang`. The user is
 defined in the `file` realm. The password can be changed with the
 following command:
 [source, shell]
@@ -72,14 +72,15 @@ following command:
 asadmin> update-file-user --groups=fang --target=server-config --authrealmname=file fang
 ----
 This updates the `fang` user, which is part of the `fang` group. Any users which
-are able to login to Payara Fang must be defined in the `file` realm and be part
-of the `fang` group. You can create a new user with:
+are able to login to the REST monitoring must be defined in the `file` realm and
+be part of the `fang` group. You can create a new user with:
 [source, shell]
 ----
 asadmin> create-file-user --groups=fang --target=server-config --authrealmname=file whatever
 ----
 
 
-== Getting Payara Fang Configuration
+== Getting REST monitoring Configuration
 The `get-payara-fang-configuration` asadmin command is used to get the
-configuration of Payara Fang. This command requires the server to be running.
+configuration of the REST monitoring. This command requires the server to be
+running.
