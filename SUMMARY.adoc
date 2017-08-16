@@ -134,6 +134,8 @@
 **** link:documentation/payara-micro/appendices/config-methods.adoc[Configuration Methods]
 **** link:documentation/payara-micro/appendices/operation-methods.adoc[Operation Methods]
 **** link:documentation/payara-micro/appendices/javadoc.adoc[Javadoc]
+* link:documentation/microprofile/README.adoc[MicroProfile]
+** link:documentation/microprofile/config.adoc[Config API]
 * link:documentation/user-guides/user-guides.adoc[User Guides]
 ** link:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
 ** link:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]

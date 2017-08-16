@@ -1,0 +1,302 @@
+= Eclipse MicroProfile Config API
+
+== Background
+The Config API was created to allow for the modification of application
+configuration from outside the application without needing the application to be
+repackaged.
+
+A full overview for the reasoning behind the API can be found in
+https://github.com/eclipse/microprofile-config/blob/master/README.adoc[the
+README for the source code repository.]
+
+https://github.com/eclipse/microprofile-config/releases/tag/1.0[
+The complete specification] is maintained in the same repository
+
+
+== Config Sources
+A `ConfigSource` is a definition of a source of configuration values that can be
+used by an application. In addition to
+https://github.com/eclipse/microprofile-config/blob/master/spec/src/main/asciidoc/configsources.asciidoc[
+the default ConfigSources outlined by the specification], the following are also
+supported ConfigSources:
+
+
+[cols="1,1,10", options="header"]
+|===
+|Source
+|Ordinal
+|Description
+
+|`domain`
+|110
+|Retrieves and stores config values in the domain.xml as key values. These will
+then apply to all instances within a domain
+
+|`config`
+|120
+|Retrieves and stores config values at the level of the named configuration in
+the domain.xml; `server-config`, for example. MicroProfile Configuration property
+values will apply to all instances that use the Payara configuration specified.
+
+|`server`
+|130
+|Retrieves and stores config values at the level of the server in the domain.xml.
+Property values will only apply on the named server instance
+
+|`application`
+|140
+|Retrieves and stores config values at the level of the application. Property
+values will only be available for the specified application on all server
+instances it is deployed
+
+|`module`
+|150
+|Retrieves and stores config values at the level of an individual module within
+an appllication. Property values will only be available for the specified module
+on all server instances it is deployed
+
+|`cluster`
+|160
+|Retrieves and stores config values in the *Hazelcast* cluster as name value pairs.
+These will be available for all server instances that are members of the cluster.
+
+|`jndi`
+|115
+|Retrieves and stores config values within the jndi tree. The property name being
+the dotted name path in the JNDI tree and the value being stored in the JNDI tree.
+These are modifiable by current admin console functionality.
+
+|===
+
+== Converters
+In addition to the standard converters specified by the API, Payara's implementation
+includes out-of-the-box converters for URL and InetAddress. These have `@Priority`
+of `1`, the same as the default converters.
+
+
+== Asadmin Commands
+
+IMPORTANT: A `--source` value of `jndi` is not supported for these asadmin commands in 
+4.1.2.173. The JNDI `ConfigSource` does exist and is usable from the Config API, though.
+
+==== `set-config-ordinal`
+
+*Usage*::
+`asadmin> set-config-ordinal --ordinal=<integer.value> --source=domain|config|
+server|application|module|cluster`
+*Aim*::
+Provides a way to set the ordinal for a given config source. Where multiple 
+configuration properties exist, the property from a source with a  higher
+ordinal number is preferred.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`ordinal`
+|The value of the ordinal to set. This must be a number greater than 1. A lower
+number ordinal means lower order of precedence.
+|-
+|yes
+
+|`source`
+|The value of the source to change. Must be one of: `domain`, `config`, `server`,
+`application`, `module`, `cluster`
+|-
+|yes
+
+|`target`
+|The target Payara config to apply the change to
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-config-ordinal --ordinal=600 --source=application
+----
+
+==== `get-config-ordinal`
+
+*Usage*::
+`asadmin> get-config-ordinal --source=domain|config|server|application|module|cluster`
+*Aim*::
+Returns the ordinal value for the given ConfigSource type.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`source`
+|The ConfigSource to get the ordinal for. Must be one of: `domain`, `config`,
+`server`, `application`, `module`, `cluster`
+|-
+|yes
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-config-ordinal --source=cluster
+----
+
+
+==== `set-config-property`
+
+*Usage*::
+`asadmin> set-config-property --propertyName=<property.name> --propertyValue=
+<property.val> --source=domain|config|server|application|module|cluster
+--sourceName=<source.name> --moduleName=<module.name> --target=<target[default:server]>`
+*Aim*::
+Sets the given property name and value in one of the built-in config sources. The
+source is specified with `--source` and, where there is ambiguity, the `--sourceName`
+and `--moduleName` options can be used. For example, where the source is `server`,
+the `--sourceName` can be used to specify the name of the server where the config
+property is to be stored.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`propertyName`
+|The name of the configuration property to set
+|-
+|yes
+
+|`propertyValue`
+|The value of the configuration property to set
+|-
+|yes
+
+|`source`
+|The ConfigSource where the property is to be stored
+|-
+|yes
+
+|`sourceName`
+|The name of the ConfigSource when there may be ambiguity, for example a
+ConfigSource of type `application` must specify the name of the application. This
+property is required for sources of type: `config`, `server`, `application` or
+`module`
+|-
+|no
+
+|`moduleName`
+|The name of the module when the ConfigSource is of type `module`. When this is
+specified, the `sourceName` parameter must be provided and must have the name of
+the application where the module is deployed.
+|-
+|no
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-config-property
+    --propertyName=JMSBrokerURL
+    --propertyValue=my.jms.hostname
+    --source=module
+    --sourceName=myApplication
+    --moduleName=myModule
+    --target=myAppCluster
+----
+
+
+==== `get-config-property`
+
+*Usage*::
+`asadmin> get-config-property --propertyName=<property.name> --source=domain|
+config|server|application|module|cluster --sourceName=<source.name>
+--moduleName=<module.name> --target=<target[default:server]>`
+*Aim*::
+Gets the value for the given property name in one of the built-in config sources. The
+source is specified with `--source` and, where there is ambiguity, the `--sourceName`
+and `--moduleName` options can be used. For example, where the source is `server`,
+the `--sourceName` can be used to specify the name of the server where the config
+property is to be stored.
+
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`propertyName`
+|The name of the configuration property to get
+|-
+|yes
+
+|`source`
+|The ConfigSource where the property is stored
+|-
+|yes
+
+|`sourceName`
+|The name of the ConfigSource when there may be ambiguity, for example a
+ConfigSource of type `application` must specify the name of the application. This
+property is required for sources of type: `config`, `server`, `application` or
+`module`
+|-
+|no
+
+|`moduleName`
+|The name of the module when the ConfigSource is of type `module`. When this is
+specified, the `sourceName` parameter must be provided and must have the name of
+the application where the module is deployed.
+|-
+|no
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-config-property
+    --propertyName=JMSBrokerURL
+    --source=module
+    --sourceName=myApplication
+    --moduleName=myModule
+    --target=myAppCluster
+----
+
