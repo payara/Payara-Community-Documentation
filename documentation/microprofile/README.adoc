@@ -6,11 +6,13 @@ The MicroProfile project was launched in June 2016 as a collaborative effort
 between Java application server vendors and the enterprise Java community to 
 enable fast innovation.
 
-MicroProfile is a specification provided as a Bill Of Materials (BOM) which can
+ provided as a Bill Of Materials (BOM) which can
 be used by developers as a generic dependency which many vendors can implement.
 
-The aim of the specification is to provide a set of APIs which are focused on 
-microservices
+MicroProfile is a specification which provides a set of APIs focused on 
+microservices. The complete MicroProfile API is provided as a Bill Of Materials
+(BOM) which can be used by developers as a generic dependency provided by a
+vendor of their choice.
 
 Payara has been part of the MicroProfile project from its inception and,
 therefore, supports all specifications of MicroProfile.
@@ -22,22 +24,6 @@ therefore, supports all specifications of MicroProfile.
 |Version
 |Specifications
 |Maven
-
-| 1.0
-| 
-* JAX-RS 2.0
-* CDI 1.1
-* JSON-P 1.0
-
-| [source, xml]
-----
-<dependency>
-    <groupId>io.microprofile</groupId>
-    <artifactId>microprofile</artifactId>
-    <version>1.0.0</version>
-    <scope>provided</scope>
-</dependency>
-----
 
 | 1.1
 |
@@ -57,15 +43,31 @@ therefore, supports all specifications of MicroProfile.
 </dependency>
 ----
 
+| 1.0
+| 
+* JAX-RS 2.0
+* CDI 1.1
+* JSON-P 1.0
+
+| [source, xml]
+----
+<dependency>
+    <groupId>io.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>1.0.0</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+----
+
 |===
 
 == Payara Support for MicroProfile
 
+Version 1.1::
+Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
+supported by both Payara Server and Payara Micro from release *4.1.2.173*
 Version 1.0::
 Since version 1.0 of MicroProfile only included existing specifications already
 supported by Payara Server and Payara Micro, an application targeting version
 1.0 of MicroProfile can be run on any release of Payara Server or Payara Micro.
-Version 1.1::
-Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
-supported by both Payara Server and Payara Micro from release *4.1.2.173*
-
