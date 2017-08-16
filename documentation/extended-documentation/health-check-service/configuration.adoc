@@ -154,65 +154,8 @@ image:/images/healthcheck/garbage-collection-checker-configuration.png[Garbage C
 As you can see in the image, this checker doesn't have any special configuration
 attributes.
 
-[[editing-domain-xml-file]]
-== Editing the _domain.xml_ configuration file
-
-To configure the HealthCheck Service in the _domain.xml_ configuration file,
-locate the `health-check-service-configuration` element in the tree and modify
-the attributes described in the previous section:
-
-[source, xml]
-----
-<health-check-service-configuration enabled="true">
-      <cpu-usage-checker unit="SECONDS" time="30" enabled="true">
-          <property name="threshold-critical" value="80"></property>
-          <property name="threshold-warning" value="50"></property>
-          <property name="threshold-good" value="0"></property>
-      </cpu-usage-checker>
-      <heap-memory-usage-checker time="1" enabled="true">
-          <property name="threshold-critical" value="80"></property>
-          <property name="threshold-warning" value="50"></property>
-          <property name="threshold-good" value="0"></property>
-      </heap-memory-usage-checker>
-      <hogging-threads-checker threshold-percentage="85" retry-count="5" enabled="false">
-      </hogging-threads-checker>
-      <log-notifier enabled="true"></log-notifier>
-      <datadog-notifier enabled="true"></datadog-notifier>
-      <xmpp-notifier></xmpp-notifier>
-      <email-notifier></email-notifier>
-      <slack-notifier enabled="true"></slack-notifier>
-      <eventbus-notifier></eventbus-notifier>
-      <hipchat-notifier></hipchat-notifier>
-      <new-relic-notifier enabled="true"></new-relic-notifier>
-      <snmp-notifier></snmp-notifier>
-      <jms-notifier></jms-notifier>
-</health-check-service-configuration>
-----
-
-The element contains the information for both the configuration on each checker and
-the notifiers as well. Each checker configuration sub-tag contains the attributes
-for its settings as well (`enabled`, `time`, `unit` and so forth). However, the
-settings for the link:#threshold-range-configuration[threshold-ranges] need to be
-configured using `<property>` sub-tags.
-
-To activate a notifier for the service, simply change the `enabled` attribute of the
-notifier sub-tag (e.g. for the Hipchat Notifier, use the `hipchat-notifier` sub-tag
-and so forth).
-
-NOTE: If a checker or notifier sub-tag element are not present in the configuration,
-then that checker or notifier will be treated as inactive when the server starts.
-
-WARNING: Modifying the domain.xml configuration is not a supported configuration
-method, so be careful when considering this option.
-
 [[from-the-command-line]]
 === From the Command Line
 
-You can configure the Request Tracing Service by using the administrations commands
+You can configure the HealthCheck Service by using the asadmin commands
 documented on the link:asadmin-commands.adoc[corresponding section]
-
-The main configuration tag is the `<health-check-service-configuration>`
-which can be found directly under the parent `config` tag,
-`<config name="server-config">` for example. It has only one attribute
-named `enabled`, which can be set to either `true` or `false` to turn
-the entire Healthcheck service **on** or **off**.
