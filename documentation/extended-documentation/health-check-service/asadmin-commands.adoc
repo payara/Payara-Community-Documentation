@@ -466,7 +466,7 @@ Configures the Stuck Thread checker. The Stuck Threads checker is comparable to 
 |===
 
 [[example-5]]
-==== Examples
+==== Example
 The following example configures the stuckthreads checker to check every 30
 seconds for any threads which have been stuck for more than 5 minutes and
 applies the configuration change without needing a restart:
@@ -503,7 +503,7 @@ the _[NOTIFIER_NAME]_ placeholder.
 |Default
 |Mandatory
 
-|`--enable` 
+|`--enable`
 |Boolean
 |Enables or disables the notifier
 |false
