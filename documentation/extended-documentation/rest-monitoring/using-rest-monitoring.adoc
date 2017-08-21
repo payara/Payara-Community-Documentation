@@ -1,7 +1,7 @@
 = Using REST monitoring
 
 REST monitoring uses a similar API to Jolokia, but with a subset of the
-features. The REST API is hosted on `${base-url}/${Fang-Context-Root}/rest`,
+features. The REST API is hosted on `${base-url}/${REST-monitoring-Context-Root}/rest`,
 so with default settings it is hosted at `localhost:4848/fang/rest`.
 
 
