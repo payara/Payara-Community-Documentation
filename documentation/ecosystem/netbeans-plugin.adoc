@@ -82,7 +82,7 @@ you can change details like the port number.
 [[deploying]]
 == Deploying Applications to Payara Server
 
-An application can be deployed and undeployed easily from the interface.
+An application can be deployed and undeployed easily from within NetBeans.
 First, the application run settings need to be configured to use Payara Server.
 Go to *Properties* on a project and then the *Run* section of this window. This
 menu lists the configuration for deploying the application.
