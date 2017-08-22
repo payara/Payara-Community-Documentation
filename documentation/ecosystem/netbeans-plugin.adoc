@@ -5,64 +5,95 @@ recognised server in NetBeans. This means you can deploy and manage applications
 from the NetBeans interface. The plugin is installable from the NetBeans
 interface.
 
+
 [[installing]]
 == Installing Payara NetBeans Plugin
 
 1. Go to `Tools -> Plugins`.
-2. Under the `Available Plugins` tab, search for `Payara` in the search box.
+2. Under the *Available Plugins* tab, search for `Payara` in the search box.
 3. Check all 4 plugins:
   * Payara EE Common
   * Payara Common
   * Payara Java EE
   * Payara Tooling
-4. Click `Install`.
+4. Click *Install*.
 5. Follow the installer wizard.
+
 
 [[adding]]
 == Adding Payara Server to NetBeans
 
-1. Go to `Tools - Servers`.
-2. Click `Add Server`.
-3. Select `Payara Server` and choose a name for the server.
+1. Go to *Tools - Servers*.
+2. Click *Add Server*.
+3. Select *Payara Server* and choose a name for the server.
 4. Select the location of the `payara41` directory of your Payara Server
-installation. If the DAS is on another machine then check the `Remote Domain`
-box, otherwise select `Local Domain`. Read and accept the license agreement.
-5. Enter the following details for the domain you'll be using.
+installation. If the DAS is on another machine then check the *Remote Domain*
+box, otherwise select *Local Domain*. Read and accept the license agreement.
+5. Enter the following details for the domain:
   * Domain -> This is the name of the domain you want to use. By default this
-  is `domain1`.
+  is `*domain1*`.
   * Host -> This is the hostname that the server will be listening on. By
-  default this is `localhost`.
-  * DAS Port -> This is the port that the `admin-listener` listens on. By
-  default this is `4848`.
+  default this is `*localhost*`.
+  * DAS Port -> This is the port that the `*admin-listener*` listens on. By
+  default this is `*4848*`.
   * HTTP Port -> This is the port that the application will be hosted on. By
-  default this is `8080`.
+  default this is `*8080*`.
   * Target -> This is the name of the node that the application will be getting
   deployed to. This can be left blank if it is a local installation.
   * Username -> This is the admin username for Payara Server. By default this
-  is `admin`.
+  is `*admin*`.
   * Password -> This is the admin password for Payara Server. By default this
   is blank.
 
-You've now added Payara Server to NetBeans. You'll see a window where final
+That's how to add Payara Server to NetBeans. You'll see a window where the final
 configuration settings can be changed.
 
 image::/images/netbeans-plugin/netbeans-plugin-configure-server.png[Server Configuration Window]
 
 The previous options are all repeated here, with a few new options. You can
-click the `help` button in the bottom right to see what they all do in detail.
+click the *help* button in the bottom right to see what they all do in detail.
 Disabling the registered Derby server will speed up server start time.
+
 
 [[managing]]
 == Managing Payara Server from NetBeans
 
 All of the management of Payara Server from NetBeans is done through the
-`Services` tab which can be found next to the `Projects` and `Files` tabs.
+*Services* tab which can be found next to the *Projects* and *Files* tabs.
 
 image::/images/netbeans-plugin/netbeans-services.png[NetBeans Services]
 
-If you added Payara Server first, you can find your server under `Servers` with
-the custom name. When you right click on the server you can do the following
+Once Payara Server is added to NetBeans it can be found under *Servers* with
+the configured name. Right clicking on the server let's you do the following
 things:
 
 * Start or stop the server.
-* 
+* Start debugging the server.
+* Open admin console.
+* Open server log.
+
+Exploding the server dropdown will list *Applications*, *Resources* and
+*Web Services*. From here you can view as well as manage some of these things
+from the NetBeans interface. For example, under
+`Resources -> JDBC -> Connection Pools -> DerbyPool (right click) -> Properties`
+you can change details like the port number.
+
+
+[[deploying]]
+== Deploying Applications to Payara Server
+
+An application can be deployed and undeployed easily from the interface.
+First, the application run settings need to be configured to use Payara Server.
+Go to *Properties* on a project and then the *Run* section of this window. This
+menu lists the configuration for deploying the application.
+
+image::/images/netbeans-plugin/netbeans-project-run-configuration.png[Project Run Configuration]
+
+Select the Payara Server you have configured. You can also select a context path
+for the application to be deployed to, as well as NetBeans behaviour when
+deploying.
+
+Deploying to Payara Server now only requires running the application like any
+other NetBeans project. Once it's deployed, the *Services* view will then
+display the application under *Payara Server*, where you can *undeploy*,
+*enable*, *disable* and view the application in the browser.
