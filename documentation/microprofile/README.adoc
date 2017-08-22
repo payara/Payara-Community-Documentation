@@ -6,9 +6,6 @@ The MicroProfile project was launched in June 2016 as a collaborative effort
 between Java application server vendors and the enterprise Java community to 
 enable fast innovation.
 
- provided as a Bill Of Materials (BOM) which can
-be used by developers as a generic dependency which many vendors can implement.
-
 MicroProfile is a specification which provides a set of APIs focused on 
 microservices. The complete MicroProfile API is provided as a Bill Of Materials
 (BOM) which can be used by developers as a generic dependency provided by a
