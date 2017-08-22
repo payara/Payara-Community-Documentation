@@ -92,6 +92,7 @@
 *** link:documentation/extended-documentation/phone-home/phone-home-asadmin.adoc[Asadmin Commands]
 *** link:documentation/extended-documentation/phone-home/disabling-phone-home.adoc[Disabling Phone Home]
 ** link:documentation/extended-documentation/system-properties.adoc[System Properties]
+** link:documentation/extended-documentation/support-integration.adoc[Support Integration]
 ** link:documentation/extended-documentation/production-ready-domain.adoc[Production Ready Domain]
 ** link:documentation/extended-documentation/classloading.adoc[Enhanced Classloading]
 ** link:documentation/extended-documentation/default-thread-pool-size.adoc[Default Thread Pool Size]
