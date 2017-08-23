@@ -4,7 +4,7 @@
 _Since Payara Server 4.1.1.161_
 
 Payara Server includes a HealthCheck Service that is disabled by default.
-When enabled it periodically checks the following performance metrics:
+When enabled it can periodically check the following performance metrics:
 
 * Host CPU Usage
 * Host Memory Usage

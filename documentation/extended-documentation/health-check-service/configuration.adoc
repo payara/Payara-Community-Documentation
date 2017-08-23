@@ -8,7 +8,7 @@ the _domain.xml_ configuration file directly.
 [[using-the-web-console]]
 == Using the Web Administration Console
 
-To configure the Request Tracing Service in the Administration Console, go to
+To configure the HealthCheck Service in the Administration Console, go to
 _Configuration -> [instance-configuration (like server-config)] -> Healthcheck_:
 
 image:/images/healthcheck/admin-console-configuration.png[HealthCheck Configuration in the Admin Console]
@@ -67,6 +67,7 @@ along with initial and committed heap sizes.
 *Machine Memory Usage*:: Calculates the machine memory usage and prints
 out the percentage along with the total and used physical memory size.
 *Hogging Threads*:: Identifies the threads that are hogging the CPU.
+*Stuck Threads*:: Identifies the threads that are stuck for a specified period of time.
 *Garbage Collector*:: Calculates and prints out how many times GC is executed with
 its elapsed time.
 
@@ -94,6 +95,7 @@ notification events. The default names for all checkers are the following:
 |*Heap Memory Usage* |`HEAP`
 |*Machine Memory Usage* |`MEMM`
 |*Hogging Threads* |`HOGT`
+|*Stuck Threads* |`STUCK`
 |*Garbage Collector* |`GBGC`
 |====
 _Time_:: The time interval value (as an `Integer`) specified in given unit
@@ -107,7 +109,7 @@ values. The default value is **MINUTES**.
 === Threshold Range Configuration
 
 The following attributes are available to the *CPU Usage*, *Connection Pool*,
-*Heap Memory Usage* and *Machine Memory Usage* checkers:
+*Heap Memory Usage*, *Machine Memory Usage* and *Garbage Collector* checkers:
 
 _Threshold Good_:: The upper numeric boundary (valid `Integer`) of the metric used
 by the checker for the notification event to be classified as *GOOD*. It has **0**
@@ -132,7 +134,7 @@ Health Check notification with severity level: WARNING - CPUC:Health Check Resul
 [[special-checkers-configuration]]
 === Special Checkers Configuration
 
-The *Hogging Threads* and the *Garbage Collector* checkers are special on their configuration.
+The *Hogging Threads* and the *Stuck Threads* checkers are special on their configuration.
 They do not have a threshold range configuration, instead opting for different attributes.
 
 Here's a configuration sample of the *Hogging Threads* checker:
@@ -147,72 +149,19 @@ CPU time to checker execution interval. Its default value is **95**.
 _Retry Count_:: Represents the count value that should be reached by the hogged
 thread in order for the service to send notifications. Its default value is **3**
 
-And here's a configuration sample for the **Garbage Collector** checker:
+And here's a configuration sample for the *Stuck Threads* checker:
 
-image:/images/healthcheck/garbage-collection-checker-configuration.png[Garbage Collector Checker Configuration in the Admin Console]
+image:/images/healthcheck/stuck-threads-checker-configuration.png[Stuck Threads Checker Configuration in the Admin Console]
 
-As you can see in the image, this checker doesn't have any special configuration
-attributes.
+The following are the attributes used to configure this checker:
 
-[[editing-domain-xml-file]]
-== Editing the _domain.xml_ configuration file
-
-To configure the HealthCheck Service in the _domain.xml_ configuration file,
-locate the `health-check-service-configuration` element in the tree and modify
-the attributes described in the previous section:
-
-[source, xml]
-----
-<health-check-service-configuration enabled="true">
-      <cpu-usage-checker unit="SECONDS" time="30" enabled="true">
-          <property name="threshold-critical" value="80"></property>
-          <property name="threshold-warning" value="50"></property>
-          <property name="threshold-good" value="0"></property>
-      </cpu-usage-checker>
-      <heap-memory-usage-checker time="1" enabled="true">
-          <property name="threshold-critical" value="80"></property>
-          <property name="threshold-warning" value="50"></property>
-          <property name="threshold-good" value="0"></property>
-      </heap-memory-usage-checker>
-      <hogging-threads-checker threshold-percentage="85" retry-count="5" enabled="false">
-      </hogging-threads-checker>
-      <log-notifier enabled="true"></log-notifier>
-      <datadog-notifier enabled="true"></datadog-notifier>
-      <xmpp-notifier></xmpp-notifier>
-      <email-notifier></email-notifier>
-      <slack-notifier enabled="true"></slack-notifier>
-      <eventbus-notifier></eventbus-notifier>
-      <hipchat-notifier></hipchat-notifier>
-      <new-relic-notifier enabled="true"></new-relic-notifier>
-      <snmp-notifier></snmp-notifier>
-      <jms-notifier></jms-notifier>
-</health-check-service-configuration>
-----
-
-The element contains the information for both the configuration on each checker and
-the notifiers as well. Each checker configuration sub-tag contains the attributes
-for its settings as well (`enabled`, `time`, `unit` and so forth). However, the
-settings for the link:#threshold-range-configuration[threshold-ranges] need to be
-configured using `<property>` sub-tags.
-
-To activate a notifier for the service, simply change the `enabled` attribute of the
-notifier sub-tag (e.g. for the Hipchat Notifier, use the `hipchat-notifier` sub-tag
-and so forth).
-
-NOTE: If a checker or notifier sub-tag element are not present in the configuration,
-then that checker or notifier will be treated as inactive when the server starts.
-
-WARNING: Modifying the domain.xml configuration is not a supported configuration
-method, so be careful when considering this option.
+_Threshold Time_:: Defines the time value for which a thread can be non-responsive
+before it is considered stuck. It's default value is **5**.
+_Threshold Unit_:: Defines the time unit for the value of the **Threshold Time**
+field. It's default value is **Minutes**.
 
 [[from-the-command-line]]
 === From the Command Line
 
-You can configure the Request Tracing Service by using the administrations commands
+You can configure the HealthCheck Service by using the asadmin commands
 documented on the link:asadmin-commands.adoc[corresponding section]
-
-The main configuration tag is the `<health-check-service-configuration>`
-which can be found directly under the parent `config` tag,
-`<config name="server-config">` for example. It has only one attribute
-named `enabled`, which can be set to either `true` or `false` to turn
-the entire Healthcheck service **on** or **off**.
