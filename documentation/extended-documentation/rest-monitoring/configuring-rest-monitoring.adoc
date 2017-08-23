@@ -76,7 +76,7 @@ are able to login to the REST monitoring must be defined in the `file` realm and
 be part of the `fang` group. You can create a new user with:
 [source, shell]
 ----
-asadmin> create-file-user --groups=fang --target=server-config --authrealmname=file whatever
+asadmin> create-file-user --groups=fang --target=server-config --authrealmname=file ${username}
 ----
 
 
