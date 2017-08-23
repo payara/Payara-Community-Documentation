@@ -1,44 +1,124 @@
 [[payara-asadmin-command-reference]]
 = Payara Server Asadmin Commands
 
-This is a non-exhaustive list of asadmin commands which are exlusive to Payara Server.
+This is a non-exhaustive list of asadmin commands which are exclusive to
+Payara Server.
 
+[[start-domains]]
+== `start-domains`
+
+_Since Payara Server 4.1.2.173_
+
+*Usage*::
+`asadmin> start-domains <list of domains>`
+
+*Aim*::
+This command can be used to start the specified list of domains in the operand.
+This list must be specified as a comma separated string of values.
+
+NOTE: The domains will be started assuming default values for all options you would
+specify when running the `start-domain` command against one domain (default domain directory,
+debug mode off, verbose mode off, etc.)
+
+[[command-options]]
+=== Command Options
+
+No command options available.
+
+[[example]]
+=== Example
+
+To start the `domain1` and `payaradomain` domains, run the following command:
+
+[source]
+----
+asadmin> start-domains domain1, payaradomain
+----
 
 [[stop-domains]]
+== `stop-domains`
+
+_Since Payara Server 4.1.2.173_
+
+*Usage*::
+`asadmin> stop-domains <list of domains>`
+
+*Aim*::
+This command can be used to stop the specified list of domains in the operand.
+This list must be specified as a comma separated string of values.
+
+NOTE: The domains will be stopped assuming default values for all options you would
+specify when running the `stop-domain` command against one domain (forced stopping
+ and process killing)
+
+[[command-options-1]]
+=== Command Options
+
+No command options available.
+
+[[example-1]]
+=== Example
+
+To stop the `domain1` and `payaradomain` domains, run the following command:
+
+[source]
+----
+asadmin> stop-domains domain1, payaradomain
+----
+
+[[restart-domains]]
+== `restart-domains`
+
+_Since Payara Server 4.1.2.173_
+
+*Usage*::
+`asadmin> restart-domains <list of domains>`
+
+*Aim*::
+This command can be used to restart the specified list of domains in the operand.
+This list must be specified as a comma separated string of values.
+
+[[command-options-2]]
+=== Command Options
+
+No command options available.
+
+[[example-2]]
+=== Example
+
+To restart the `domain1` and `payaradomain` , run the following command:
+
+
+[source]
+----
+asadmin> restart-domains domain1, payaradomain
+----
+
+[[stop-all-domains]]
 == `stop-all-domains`
 
 *Usage*::
 `asadmin> stop-all-domains`
 
 *Aim*::
-This command can be used to stop all detected domains. This command extends the
-`stop-domain` subcommand and therefore shares the same options.
+This command can be used to stop all running domains on the server installation.
 
+[[command-options-3]]
 === Command Options
 
 [cols="1,1,4,1,1",options="header",]
-|===
-|Option
-|Type
-|Description
-|Default
-|Mandatory
+|====
+|Option |Type |Description |Default |Mandatory
+|`--force` |Boolean |Specifies whether each domain is forcibly stopped
+immediately. |true |No
+|`--kill` |Boolean |Specifies whether the domain is killed by using functionality
+of the operating system to terminate the domain process |false |No
+|====
 
-|`--force`
-|Boolean
-|Specifies whether each domain is forcibly stopped immediately.
-|true
-|No
-
-|`--kill`
-|Boolean
-|Specifies whether the domain is killed by using functionality of the operating system to terminate the domain process
-|false
-|No
-
-|===
-
+[[example-3]]
 === Example
+
+To forcibly stop all running domains, run the following command:
 
 [source]
 ----
