@@ -1,10 +1,10 @@
 [[health-check-service]]
-= Health Check Service
+= HealthCheck Service
 
 _Since Payara Server 4.1.1.161_
 
-Payara Server includes a Health Check Service that is disabled by default.
-When enabled it periodically checks the following performance metrics:
+Payara Server includes a HealthCheck Service that is disabled by default.
+When enabled it can periodically check the following performance metrics:
 
 * Host CPU Usage
 * Host Memory Usage
@@ -15,11 +15,16 @@ When enabled it periodically checks the following performance metrics:
 
 If there is a problem with any of these metrics and they exceed a
 configurable threshold then a `GOOD`, `WARNING` or `CRITICAL` event
-message is logged to the server log file.
+notification is sent to the Notification Service. Notifications can be then sent
+to one or more notifiers, e.g. a log file.
 
 This allows operations teams to rapidly detect problems or work out what happened after these
-problems have occurred. Such events will be presented like in the following
-sample:
+problems have occurred.
+
+If the
+link:/documentation/extended-documentation/notification-service/notifiers/log-notifier.adoc[Log Notifier]
+is enabled, such events will be presented in the server's log file like in the
+following sample:
 
 [source, log]
 ----

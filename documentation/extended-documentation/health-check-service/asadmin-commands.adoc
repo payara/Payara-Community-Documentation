@@ -1,5 +1,8 @@
 [[healthcheck-service]]
-= Healthcheck Service Asadmin Command Reference
+= HealthCheck Service Asadmin Command Reference
+
+The following is a detailed list of the administration commands that can be used
+to correctly configure the HealthCheck Service.
 
 [[healthcheck-configure]]
 == `healthcheck-configure`
@@ -8,42 +11,76 @@
 `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
 
 *Aim*::
-Enables or disables the health check service. The command updates
-the `domain.xml` with the provided configuration but does not apply
-changes directly to the working service by default. It can also store a
-given number of historical health checks.
+Enables and disables the HealthCheck service. Also allows configuration of the store of historical health checks.
 
 [[command-options]]
-=== Command Options
+==== Command Options
 
-[cols=",,,,",options="header",]
-|=======================================================================
-|Option |Type |Description |Default |Mandatory
-|`--target` |String |The instance or cluster that will enable or disable
-its service |server |no
-|`--dynamic` |Boolean |Whether to apply the changes directly to the
-server without a reboot |false |no
-|`--enabled` |Boolean |Whether to enable or disable the service |N/A
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The instance or cluster that will enable or disable its service
+|server
+|no
+
+|`--dynamic`
+|Boolean
+|Whether to apply the changes directly to the server without a restart
+|false
+|no
+
+|`--enabled`
+|Boolean
+|Whether to enable or disable the service
+|N/A
 |yes
-|`--historicaltraceenabled` |Boolean |Enables historic checks if present
+
+|`--notifierenabled`
+|Boolean
+|Whether or not to enable the default notifier
+|false
+|no
+
+|`--historicaltraceenabled`
+|Boolean
+|Enables historic checks if present
 |false |no
-|`--historicaltracestoresize` |Integer |Sets the maximum number of
-health checks to store |20 |no
-|=======================================================================
+
+|`--historicaltracestoresize`
+|Integer
+|Sets the maximum number of health checks to store
+|20
+|no
+
+|===
+
+IMPORTANT: Starting from release _4.1.1.171_, the `--notifierenabled` argument is
+used to enable or disable the **Log Notifier**, which is considered the _default_
+notifier. Use the
+link:#healthcheck-notifier-configure[`healthcheck-[NOTIFIER_NAME\]-configure`]
+command to enable or disable other available notifiers.
 
 [[example]]
-=== Example
+==== Example
 
-To enable the Healthcheck service such that it will only activate from
-the next time the server is restarted, the following command would be
-used:
+The following example will enabled the Healthcheck service such that it will
+only activate from the next time the server is restarted. It enables the log
+notifier and sets the historical trace store to retain 20 health checks.
 
 [source, shell]
 ----
 asadmin > healthcheck-configure
     --enabled=true
     --dynamic=false
-    --historicaltraceenabled
+    --notifierenabled=true
+    --historicaltraceenabled=true
     --historicaltracestoresize=20
 ----
 
@@ -54,52 +91,83 @@ asadmin > healthcheck-configure
 `asadmin> healthcheck-list-services`
 
 *Aim*::
-Lists the names of all metric services that can be configured for
-monitoring.
+Lists the names of all available metric checker services.
 
 [[command-options-1]]
-=== Command Options
+==== Command Options
 
 There are no options available.
 
 [[example-1]]
-=== Example
+==== Example
 
 Running the command will show output similar to the example below:
 
-****
+----
 Available Health Check Services:
+        healthcheck-cpool
+        healthcheck-cpu
+        healthcheck-gc
+        healthcheck-heap
+        healthcheck-threads
+        healthcheck-machinemem
 
-healthcheck-cpool healthcheck-cpu healthcheck-gc healthcheck-heap
-healthcheck-threads healthcheck-machinemem
-****
+Command healthcheck-list-services executed successfully.
+----
 
 [[healthcheck-configure-service]]
 == `healthcheck-configure-service`
 
 *Usage*::
-`asadmin> healthcheck-configure-service --serviceName=<service.name> --name=<name> --enabled=true|false --dynamic=true|false --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
+`asadmin> healthcheck-configure-service --serviceName=<service.name>
+--checkerName=<name> --enabled=true|false --dynamic=true|false
+--time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
 
 *Aim*::
-Enables or disables the monitoring of an specific metric. If enabling
-the service for an specific metric, the command also configures the
-frequency of monitoring for that metric. Command updates the _domain.xml_
-with provided configurations but does not apply changes directly to the
-working service by default. _dynamic_ attribute should be set to _true_
-in order to apply the changes directly.
+Enables or disables the monitoring of an specific checker. The command
+also configures the frequency of monitoring for that metric.
 
 [[command-options-2]]
-=== Command Options
+==== Command Options
 
-[cols=",,,a,",options="header",]
-|=======================================================================
-| Option | Type | Description | Default | Mandatory
-| `--target` | String | The instance or cluster that will enable or disable its metric configuration | server | no
-| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no
-| `--enabled` | Boolean | Whether to enable or disable the metric monitoring | - | yes
-| `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes
-| `--name` | String | A user determined name for easy identification. This name is used in the service output, so any useful name can be chosen, though it should be unique among the services you have configured.
-| One of:
+[cols="3,1,5,3a,1",options="header",]
+|===
+| Option
+| Type
+| Description
+| Default
+| Mandatory
+
+| `--target`
+| String
+| The instance or cluster that will enable or disable its metric configuration
+| server
+| no
+
+| `--dynamic`
+| Boolean
+| Whether to apply the changes directly to the server/instance without a restart
+| false
+| no
+
+| `--enabled`
+| Boolean
+| Whether to enable or disable the metric monitoring
+| N/A
+| yes
+
+| `--serviceName`
+| String
+| The metric service name. Must correspond to one of the values listed before
+| -
+| yes
+
+| `--checkerName`
+| String
+| A user determined name for easy identification of the checker. This should be
+unique among the services you have configured, to avoid confusion on the
+notification messages.
+| Depends on the service checker. One of:
 
   * `CONP`
   * `CPUC`
@@ -107,70 +175,115 @@ in order to apply the changes directly.
   * `HEAP`
   * `HOGT`
   * `MEMM`
+
 | no
-| `--time` | Integer | The amount of time units that the service will use to periodically monitor the metric | 5 | no
-| `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`] value | `MINUTES` | no
-|=======================================================================
+
+| `--time`
+| Integer
+| The amount of time units that the service will use to periodically monitor the metric
+| 5
+| no
+
+| `--unit`
+| TimeUnit
+| The time unit to set the frequency of the metric monitoring. Must correspond to a valid
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`]
+value
+| `MINUTES`
+| no
+
+|===
 
 NOTE: If this command gets executed before running the `healthcheck-configure`
-command, it will succeed and the configuration will be saved, but the
-health check service will not be enabled.
+command, it will succeed and the configuration will be saved, but the HealthCheck
+service will not be enabled.
 
 [[example-2]]
-=== Example
-A very basic command to simply enable the GC checker and activate it without
+==== Example
+A very basic example command to simply enable the GC checker and activate it without
 needing a restart would be as follows:
 
 [source, shell]
 ----
-asadmin> healthcheck-configure-service --enabled=true --serviceName=healthcheck-gc --name=MYAPP-GC --dynamic=true
+asadmin> healthcheck-configure-service --enabled=true
+      --serviceName=healthcheck-gc
+      --name=MYAPP-GC
+      --dynamic=true
 ----
 
 [[healthcheck-configure-service-threshold]]
 == `healthcheck-configure-service-threshold`
 
 *Usage*::
-`asadmin> healthcheck-configure-service-threshold --serviceName=<service.name> --dynamic=true|false --thresholdCritical=90 --thresholdWarning=50 --thresholdGood=0`
+`asadmin> healthcheck-configure-service-threshold --serviceName=<service.name>
+--dynamic=true|false --thresholdCritical=90 --thresholdWarning=50 --thresholdGood=0`
 
 *Aim*::
-Configures `CRITICAL`, `WARNING` and `GOOD` threshold values for a service
-specified with its name. Command updates the _domain.xml_ with provided
-configurations but does not apply changes directly to the working service
-by default. The `dynamic` attribute should be set to `true` in order to
-apply the changes directly.
-
-This command only configures thresholds for the following metrics:
-
+Configures `CRITICAL`, `WARNING` and `GOOD` threshold range values for a
+service checker. The `dynamic` attribute should be set to `true` in order to apply
+the changes directly.
++
+This command only configures thresholds for the following checkers:
++
 * CPU Usage
-* JVM Heap Space
-* Host Memory
-* JDBC Connection Pools
+* Connection Pool
+* Heap Memory Usage
+* Machine Memory Usage
 
 [[command-options-3]]
-=== Command Options
+==== Command Options
 
-[cols=",,,a,",options="header",]
-|=======================================================================
-| Option | Type | Description | Default | Mandatory
-| `--target` | String | The instance or cluster that will be configured | server | no
-| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no
-| `--serviceName` | String | The metric service name. Must correspond to one of the values listed before | - | yes
-| `--thresholdCritical` | Integer | The threshold value that this metric must surpass to log a **`CRITICAL`** event. A value between _WARNING VALUE_ and _100_ must be used | 90 | no
-| `--thresholdWarning` | Integer | The threshold value that this metric must surpass to log a **`WARNING`** event. A value between _GOOD VALUE_ and _CRITICAL VALUE_ must be used | 50 | no
-| `--thresholdGood` | Integer | The threshold value that this metric must surpass to log a **`GOOD`** event. A value between _0_ and _WARNING VALUE_ must be used | 0 | no
-|=======================================================================
+[cols="3,1,5,3a,1",options="header"]
+|===
+| Option
+| Type
+| Description
+| Default
+| Mandatory
+
+| `--target`
+| String
+| The instance or cluster that will be configured
+| server
+| no
+
+| `--dynamic`
+| Boolean
+| Whether to apply the changes directly to the server/instance without a restart
+| false
+| no
+
+| `--serviceName`
+| String
+| The metric service name. Must correspond to one of the values listed before
+| -
+| yes
+
+| `--thresholdCritical`
+| Integer
+| The threshold value that this metric must surpass to generate a **`CRITICAL`** event. A value between _WARNING VALUE_ and _100_ must be used
+| 90
+| no
+
+| `--thresholdWarning`
+| Integer
+| The threshold value that this metric must surpass to generate a **`WARNING`** event. A value between _GOOD VALUE_ and _CRITICAL VALUE_ must be used
+| 50
+| no
+
+| `--thresholdGood`
+| Integer
+| The threshold value that this metric must surpass to generate a **`GOOD`** event. A value between _0_ and _WARNING VALUE_ must be used
+| 0
+| no
+
+|===
 
 NOTE: In order to execute this command for an specific metric, the
 `healthcheck-configure-service` command needs to be executed first.
 
-IMPORTANT: There is no _asadmin_ command to configure the _**Garbage Collection**_
-metric, since the service calculates and prints out how many times
-garbage collections were executed within the time elapsed since the last
-check. The service will determine the severity of the messages based on
-how much the CPU time is being taken by the GC when measuring.
-
 [[example-3]]
-=== Example
+==== Example
 
 Monitoring the health of JDBC connection pools is a common need. In that
 scenario, it is very unlikely that on-the-fly configuration changes
@@ -198,42 +311,79 @@ asadmin> healthcheck-configure-service-threshold
 `asadmin> healthcheck-hoggingthreads-configure --dynamic=true|false --threshold-percentage=50 --retry-count=3`
 
 *Aim*::
-Configures the health check service to scan for threads hogging the CPU.
-The service will determine which threads fulfill this conditions by
-calculating a percentage of usage with the ratio of elapsed time to the
-checker service execution interval. If this percentage exceeds the
-`threshold-percentage`, the thread will be marked as a hogging thread.
-
-You can also use this command to enable this metric checking and also
-configure the frequency of monitoring combining the functions of
-the `healthcheck-configure` and `healthcheck-configure-service` commands.
+Configures the *Hogging Threads* checker service settings. The checker
+will determine which running threads are hogging the CPU by calculating a percentage
+of usage with the ratio of elapsed time to the checker service execution interval and
+verifying if this percentage exceeds the `threshold-percentage`.
++
+You can also use this command to  enable the checker and configure the monitoring
+frequency as you would do with the `healthcheck-configure-service` command.
 
 [[command-options-4]]
-=== Command Options
+==== Command Options
 
-[cols=",,,a,",options="header",]
-|=======================================================================
-| Option | Type | Description | Default | Mandatory
-| `--target` | String | The instance or cluster that will be configured | server | no
-| `--enabled` | Boolean | Whether to enable or disable the service | true | no
-| `--dynamic` | Boolean | Whether to apply the changes directly to the server without a reboot | false | no
-| `--threshold-percentage` | Integer | The threshold value that this metric will be compared to mark threads as hogging-threads | 95 | no
-| `--retry-count` | Integer | The number of retries that the checker service will execute in order to identify a hogging thread | 3 | no
-| `--time` | Integer | The periodic amount of time units the checker service will use to monitor hogging threads | 1 | no
-| `--unit` | TimeUnit | The time unit to set the frequency of the metric monitoring. Must correspond to a valid https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`] value | `SECONDS` | no
-|=======================================================================
+[cols="3,1,5,3a,1",options="header"]
+|===
+| Option
+| Type
+| Description
+| Default
+| Mandatory
+
+| `--target`
+| String
+| The instance or cluster that will be configured
+| server
+| no
+
+| `--enabled`
+| Boolean
+| Whether to enable or disable the checker
+| true
+| no
+
+| `--dynamic`
+| Boolean
+| Whether to apply the changes directly to the server/instance without a restart
+| false
+| no
+
+| `--threshold-percentage`
+| Integer
+| The threshold value that this metric will be compared to mark threads as hogging the CPU
+| 95
+| no
+
+| `--retry-count`
+| Integer
+| The number of retries that the checker service will execute in order to identify a hogging thread
+| 3
+| no
+
+| `--time`
+| Integer
+| The periodic amount of time units the checker service will use to monitor hogging threads
+| 1
+| no
+
+| `--unit`
+| TimeUnit
+| The time unit to set the frequency of the metric monitoring. Must correspond to a valid link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`] value
+| `SECONDS`
+| no
+
+|===
 
 [[example-4]]
-=== Example
+==== Example
 
-Monitoring which threads hog the CPU is extremely important since this
-can lead to performance degradation, deadlocks and extreme bottlenecks
-issues that web applications can incur. In some cases the defaults are
-all that is needed, but imagine that in a critical system you want to
-set the threshold percentage to **90%**, and you want to make sure that
-the health check service guarantees the state of such threads with a
-retry count of 5. Additionally, you want to set the frequency of this
-check for every _20 seconds_.
+Monitoring which threads hog the CPU is extremely important since this can lead
+to performance degradation, deadlocks and extreme bottlenecks issues that web
+applications can incur. In some cases the defaults are all that is needed, but imagine
+that in a critical system you want to set the threshold percentage to **90%**,
+and you want to make sure that the health check service guarantees the state of such
+threads with a retry count of *5*. Additionally, you want to set the frequency of
+this check for every _20 seconds_.
 
 The following command would apply these settings to the connection pool
 checker:
@@ -248,36 +398,196 @@ asadmin> healthcheck-hoggingthreads-configure
  --unit=SECONDS
 ----
 
+
+[[healthcheck-stuckthreads-configure]]
+== `healthcheck-stuckthreads-configure`
+
+*Usage*::
+`asadmin> healthcheck-stuckthreads-configure --enabled true|false --dynamic true|false
+--time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
+--threshold=<integer.value> --thresholdUnit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
+
+*Aim*::
+Configures the Stuck Thread checker. The Stuck Threads checker is comparable to the request tracing service, in that it is triggered by exceeding a configured threshold. but in this case it reports on all threads that, when the healthcheck runs, have taken longer than the threshold time.
+
+[[command-options-5]]
+==== Command Options
+
+[cols="3,1,5,3a,1",options="header"]
+|===
+| Option
+| Type
+| Description
+| Default
+| Mandatory
+
+|`--enabled`
+|Boolean
+|Enables or disables the checker
+|-
+|yes
+
+|`--dynamic`
+|Boolean
+|Whether or not to apply the changes dynamically (without a restart)
+|false
+|no
+
+|`--time`
+|Integer
+|The time between checks, must be 1 or greater
+|-
+|no
+
+|`--unit`
+|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|The unit for the time between healthchecks
+|-
+|no
+
+|`--threshold`
+|Integer
+|The threshold above which a thread is considered stuck. Must be 1 or greater.
+|-
+|no
+
+|`--thresholdUnit`
+|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|The unit for the threshold for when a thread should be considered stuck
+|-
+|no
+
+|`--target`
+|String
+|The target to enable the checker on
+|`server` (the DAS)
+|no
+
+|===
+
+[[example-5]]
+==== Example
+The following example configures the stuckthreads checker to check every 30
+seconds for any threads which have been stuck for more than 5 minutes and
+applies the configuration change without needing a restart:
+
+[source, Shell]
+----
+asadmin> healthcheck-stuckthreads-configure
+    --enabled=true
+    --dynamic=true
+    --time=30
+    --unit=SECONDS
+    --threshold=5
+    --thresholdUnit=MINUTES
+----
+
+[[healthcheck-notifier-configure]]
+== `healthcheck-[NOTIFIER_NAME]-notifier-configure`
+
+*Usage*::
+`asadmin> healthcheck-[NOTIFIER_NAME]-notifier-configure --enabled=true --dynamic=true`
+
+*Aim*::
+This command can be used to enable or disable the notifier represented by
+the _[NOTIFIER_NAME]_ placeholder.
+
+[[command-options-6]]
+==== Command Options
+
+[cols=",,,,",options="header",]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enable`
+|Boolean
+|Enables or disables the notifier
+|false
+|Yes
+
+|`--dynamic`
+|Boolean
+|Whether to apply the changes directly to the server/instance without a restart
+|false
+|No
+
+|===
+
+TIP: You can find the list of available notifiers using the
+link:/documentation/extended-documentation/notification-service/asadmin-commands.adoc#notifier-list-services[`notifier-list-services`] command.
+
+[[example-6]]
+==== Examples
+
+. To enable the log notifier for the HealthCheck Service without having to
+restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> healthcheck-log-notifier-configure
+    --enabled=true
+    --dynamic=true
+----
+
+. To disable the
+link:/documentation/extended-documentation/notification-service/notifiers/hipchat-notifier.adoc[Hipchat notifier]
+without having to restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> healthcheck-hipchat-notifier-configure
+    --enabled=false
+    --dynamic=true
+----
+
 [[get-healthcheck-configuration]]
 == `get-healthcheck-configuration`
 
 *Usage*::
 `asadmin> get-healthcheck-configuration`
-￼       ￼
-*Aim*::
-Lists the current configuration for the health check service and for the
-configured metrics in a tabular format.
 
-[[command-options-5]]
-=== Command Options
+*Aim*::
+Lists the current configuration for the health check service, configured checkers
+and enabled notifiers.
+
+[[command-options-7]]
+==== Command Options
 There are no options available.
 
-[[example-5]]
-=== Example
+[[example-7]]
+==== Example
 A sample output is as follows:
 
-****
+----
 Health Check Service Configuration is enabled?: true
+Historical Tracing Enabled?: false
+Name      Notifier Enabled
+XMPP      false
+DATADOG   true
+EMAIL     false
+SLACK     true
+EVENTBUS  false
+HIPCHAT   false
+NEWRELIC  true
+SNMP      false
+LOG       true
+JMS       false
 
-Below are the list of configuration details of each checker listed by
-its name.
+Below are the list of configuration details of each checker listed by its name.
 
-Name Enabled Time Unit GC false 10 SECONDS
+Name  Enabled  Time  Unit
+GBGC  true     2     MINUTES
 
-Name Enabled Time Unit Threshold Percentage Retry Count HT true 10
-SECONDS 95 3
+Name  Enabled  Time  Unit     Threshold Percentage  Retry Count
+HOGT  true     5     MINUTES  78                    5
 
-Name Enabled Time Unit Critical Threshold Warning Threshold Good
-Threshold CONP true 5 MINUTES 70 40 20 CPU false 10 SECONDS 40 20 2 HP
-false 8 SECONDS - - - MM false 7 SECONDS - - -
-****
+Name  Enabled  Time  Unit     Critical Threshold  Warning Threshold  Good Threshold
+CPUC  true     30    SECONDS  80                  50                 0
+HEAP  true     1     MINUTES  80                  50                 0
+
+Command get-healthcheck-configuration executed successfully.
+----
