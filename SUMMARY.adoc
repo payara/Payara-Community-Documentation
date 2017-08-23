@@ -13,7 +13,7 @@
 * link:security/security.adoc[Security]
 ** link:security/security-fix-list.adoc[Security Fixes Summary]
 * link:release-notes/release-notes.adoc[Release Notes]
-** link:release-notes/release-notes-172.adoc[Payara Server 4.1.2.172 Release Notes]
+** link:release-notes/release-notes-173.adoc[Payara Server 4.1.2.173 Release Notes]
 
 [[technical-documentation]]
 == Technical Documentation
@@ -176,6 +176,7 @@
 == Appendices
 
 * link:release-notes/release-notes-history.adoc[History of Release Notes]
+** link:release-notes/release-notes-173.adoc[Payara Server 4.1.2.173 Release Notes]
 ** link:release-notes/release-notes-172.adoc[Payara Server 4.1.2.172 Release Notes]
 ** link:release-notes/release-notes-171.adoc[Payara Server 4.1.1.171 Release Notes]
 ** link:release-notes/release-notes-164.adoc[Payara Server 4.1.1.164 Release Notes]
