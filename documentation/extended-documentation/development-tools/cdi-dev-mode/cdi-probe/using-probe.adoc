@@ -19,10 +19,10 @@ image::/images/probe/cdi-probe.png[]
 
 == Access from application page
 
-If your application serves web pages, you can also access CDI Probe web application from the toolbar that is added by the CDI Development Mode at the bottom of every web page. This is an example how the toolbar looks like in a sample Cargo Tracker application:
+If your application serves web pages, you can also access the CDI Probe web application from the toolbar that is added by the CDI Development Mode at the bottom of every web page. Below is an example what the toolbar looks like in a sample Cargo Tracker application:
 
 image::/images/probe/cdi-probe-in-web-app.png[]
 
-If the application used some CDI beans during processing of the HTTP request, the toolbar will also contain link to see all bean invocations as a tree of events, which may look like this:
+If the application used some CDI beans during processing of the HTTP request, the toolbar will also contain a link to see all bean invocations as a tree of events, which may look like this:
 
 image::/images/probe/cdi-probe-bean-invocations.png[]
