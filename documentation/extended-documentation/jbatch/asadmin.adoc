@@ -78,7 +78,7 @@ DAS (`server-config`) then run the following command:
 
 [source, shell]
 ----
-asadmin > jbatch-repository "server-config:jbatch-test__/jbatch-test"
+asadmin > purge-jbatch-repository "server-config:jbatch-test__/jbatch-test"
 ----
 
 NOTE: The command will remove all current jobs created by the referenced application
