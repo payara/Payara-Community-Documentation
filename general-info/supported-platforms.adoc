@@ -1,0 +1,32 @@
+= Supported Platforms
+
+Though it is always possible for new versions to be supported, this page
+details the JVMs currently supported with Payara Server.
+
+While not all environments are tested, if it is on a supported JVM we will
+provide support for customers and address issues reported by the community.
+Similarly, other platforms can always be requested for support.
+
+== Supported Java Virtual Machines
+
+Payara Server currently supports the following Java Virtual Machines:
+
+* Oracle JDK 7/8
+* Azul Zulu 7/8
+* OpenJDK 7/8
+* IBM J9 7/8
+
+== Supported Operating Systems
+* Windows
+** Windows 7+
+** Windows Server 2008+
+* Linux
+** Ubuntu 14.04 (Trusty Tahr) LTS+
+** Debian 7 (Wheezy)+
+** CentOS 6+
+** RHEL 5+
+** OpenSUSE 42.2+
+** SUSE 11.4 & 12.2+
+* Other
+** AIX 7.3 TL3+
+** MacOS(OSX) 10.10.5 (Yosemite)+

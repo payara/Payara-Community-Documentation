@@ -1,0 +1,262 @@
+[[request-tracing-command-reference]]
+= Administration Commands
+
+The following is a detailed list of the administration commands that can be used
+to correctly configure the Request Tracing Service.
+
+[[set-requesttracing-configuration]]
+== `set-requesttracing-configuration`
+
+*Usage*::
+`asadmin> set-requesttracing-configuration`
+
+*Aim*::
+This command can be used to set all configuration of the request
+tracing service at once. It effectively wraps the `requesttracing-configure`
+and `requesttracing-configure-notifier` commands in one.
+
+[[command-options]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enabled` |Boolean |Enables or disables the service |false |Yes
+|`--thresholdValue` |Integer |Sets the number of time units which
+trigger the tracing of a request |30 |No
+|`--thresholdUnit` |TimeUnit |Sets the time unit to use for
+the threshold |`SECONDS` |No
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a restart. Otherwise a restart is required. |false |No
+|`--notifierEnabled` |Boolean |Enables or disables notifications |false
+|Yes
+|`--notifierDynamic` |Boolean |When set to true, applies the
+changes without a restart. Otherwise a restart is required. |false |No
+|`--historicaltraceenabled` |Boolean |When present, enables the storage
+of the slowest historical request traces. |false |No
+|`--historicaltracestoresize` |Integer |Sets how many request traces
+will be stored. |20 |No
+|=======================================================================
+
+WARNING: Starting from release _4.1.1.171_, the `--notifierEnabled` and `--notifierDynamic`
+arguments are used to enable or disable the **Log Notifier**, which is considered
+the _default_ notifier. Use the `requesttracing-configure-notifier` command to
+enable or disable other available notifiers.
+
+[[example]]
+=== Example
+
+[source, shell]
+----
+asadmin> set-requesttracing-configuration
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
+    --dynamic=true
+    --notifierEnabled=true
+    --notifierDynamic=true
+    --historicaltraceenabled
+    --historicaltracestoresize=20
+----
+
+[[requesttracing-configure]]
+== `requesttracing-configure`
+
+*Usage*::
+`asadmin> requesttracing-configure --enabled=true --thresholdValue=10 --thresholdUnit="SECONDS" --dynamic=true --historicaltraceenabled --historicaltracestoresize=20`
+
+*Aim*::
+Enables or disables the service and provides ways to configure
+threshold time by specifying a value and a unit, and can store a given
+number of the slowest historical request traces.
+
+[[command-options-1]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enabled` |Boolean |Enables or disables the service |false |Yes
+|`--thresholdValue` |Integer |Sets the number of time units which
+trigger the tracing of a request |30 |No
+|`--thresholdUnit` |TimeUnit |Sets the time unit to use for
+the threshold |`SECONDS` |No
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a server/instance restart. Otherwise a restart is required. |false |No
+|`--historicaltraceenabled` |Boolean |When present, enables the storage
+of the slowest historical request traces. |false |No
+|`--historicaltracestoresize` |Integer |Sets how many request traces
+will be stored. | 20 |No
+|=======================================================================
+
+[[example-1]]
+=== Example
+
+[source, shell]
+----
+asadmin> requesttracing-configure
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
+    --dynamic=true
+    --historicaltraceenabled
+    --historicaltracestoresize=20
+----
+
+[[requesttracing-configure-notifier]]
+== `requesttracing-configure-notifier`
+
+*Usage*::
+`asadmin> requesttracing-configure-notifier --notifierName="service-log" --notifierEnabled=true --dynamic=true`
+
+*Aim*::
+Enables or disables a notifier from which to relay tracing events.
+
+[[command-options-2]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--notifierName` |String |The name of the notifier to configure
+|`service-log` |Yes
+|`--notifierEnabled` |Boolean |Enables or disables the notifier |false
+|Yes
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a server/instance restart. |false
+|No
+|=======================================================================
+
+[[example-2]]
+=== Example
+
+In order to configure the notifier for request tracing, the `asadmin` command to
+list available notifiers should be run first:
+
+[source, shell]
+----
+asadmin> notifier-list-services
+----
+
+Which will give an output similar to the following:
+
+----
+Available Notifier Services:
+        service-xmpp
+        service-datadog
+        service-email
+        service-slack
+        service-eventbus
+        service-hipchat
+        service-newrelic
+        service-snmp
+        service-log
+        service-jms
+
+Command notifier-list-services executed successfully.
+----
+
+With the following command, then we can enable the **log-notifier** for the request
+tracing service:
+
+[source, shell]
+----
+asadmin> requesttracing-configure-notifier
+    --notifierName="service-log" \
+    --notifierEnabled=true \
+    --dynamic=true
+----
+
+[[requesttracing-notifier-configure]]
+== `requesttracing-[NOTIFIER_NAME]-notifier-configure`
+
+*Usage*::
+`asadmin> requesttracing-[NOTIFIER_NAME]-notifier-configure --enabled=true --dynamic=true`
+
+*Aim*::
+This command can be used to enable or disable the notifier represented by the
+_[NOTIFIER_NAME]_ placeholder.
+
+[[command-options-3]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enable` |Boolean |Enables or disables the notifier |false|Yes
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a server/instance restart. |false |No
+|=======================================================================
+
+NOTE: These series of commands (one for each available notifier), work as aliases
+to the `requesttracing-configure-notifier` command.
+
+[[example-4]]
+=== Examples
+
+. To enable the log notifier for the Request Tracing Service without having to
+restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> requesttracing-log-notifier-configure
+    --enabled=true
+    --dynamic=true
+----
+
+. To disable the
+link:/documentation/extended-documentation/notification-service/notifiers/slack-notifier.adoc[Slack notifier]
+without having to restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> requesttracing-slack-notifier-configure
+    --enabled=false
+    --dynamic=true
+----
+
+[[get-requesttracing-configuration]]
+== `get-requesttracing-configuration`
+
+*Usage*::
+`asadmin> get-requesttracing-configuration`
+
+*Aim*::
+This command can be used to list the configuration settings of the Request Tracing
+Service.
+
+[[command-options-4]]
+=== Command Options
+
+There are no available options for this command.
+
+[[example-4]]
+=== Example
+
+[source, shell]
+----
+asadmin> get-requesttracing-configuration
+----
+
+Will give an output similar to the following:
+
+----
+Request Tracing Service enabled?: true
+Historical Tracing Enabled?: true
+Historical Tracing Store Size: 25
+Below are the configuration details of each notifier listed by its name.
+
+Notifier Name     Notifier Enabled
+service-xmpp      false
+service-datadog   true
+service-email     false
+service-slack     true
+service-eventbus  false
+service-hipchat   false
+service-newrelic  true
+service-snmp      false
+service-log       false
+service-jms       false
+
+Command get-requesttracing-configuration executed successfully.
+----
