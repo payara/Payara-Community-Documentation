@@ -76,12 +76,12 @@ support the following directives:
 [source, xml]
 ----
 <scanning-exclude>*</scanning-exclude>
-<scanning-include>ejba*</scanning-include>
+<scanning-include>ejb*</scanning-include>
 <scanning-include>conflicting-web-library</scanning-include>
 ----
 
 In the above example, all JARs will be excluded by default, then all
-JARs beginning with `ejba` will be scanned along with the JAR named
+JARs beginning with `ejb` will be scanned along with the JAR named
 `conflicting-web-library`.
 
 [[container-initializer-enabled]]
@@ -144,9 +144,10 @@ precedence over any setting configured on the server.
 [[max-wait-time-in-millis]]
 == `max-wait-time-in-millis`
 
-From version 4.1.2.172, Payara Server has reimplemented a property of the
-`glassfish-ejb-jar.xml` descriptor that was available in GlassFish in versions
-prior to 4.0.
+_Since Payara Server 4.1.2.172_
+
+Payara Server has re-implemented a property of the `glassfish-ejb-jar.xml`
+descriptor that was available in GlassFish in versions prior to 4.0.
 
 The `bean-pool` element allows users to specify controls on a per-EJB basis for
 pooled stateless EJBs. Payara Server has reintroduced `max-wait-time-in-millis`
@@ -161,9 +162,80 @@ A value of `0` means the server will wait indefinitely for an existing EJB
 instance to be freed.
 
 A value between `1` and `MAX_INTEGER` means that the server will wait for the
-given amount of milliseconds for an EJB to be freed. Only after this 
+given amount of milliseconds for an EJB to be freed. Only after this
 `max-wait-time-in-millis` is exceeded will the server create a new instance of
 the requested EJB.
 
-For more detail, see the link:/documentation/extended-documentation/ejb.adoc[
-Enhanced EJB configuration] section.
+For more detail, see the link:/documentation/extended-documentation/ejb.adoc[Enhanced EJB configuration] section.
+
+[[webservice-default-login-config]]
+== `webservice-default-login-config`
+
+_Since Payara Server 4.1.2.173_
+
+When declaring a secured Web Service based on an EJB using the _glassfish-ejb-jar.xml_
+deployment descriptor, it's necessary to define the login configuration (authentication
+method, security realm name, etc.) for each EJB Web Service that is secured inside
+the assembly. For example, if an application contains 2 EJB web services called
+*EJBWS1* and *EJBWS2*, and they need to be secured using `BASIC` authentication against
+the _file_ security realm, the following configuration would be needed:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <ejb>
+    <ejb-name>EJBWS1</ejb-name>
+    <webservice-endpoint>
+      <port-component-name>EJBWS1Port</port-component-name>
+      <endpoint-address-uri>EJBWS1/EJBWebService</endpoint-address-uri>
+      <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm>file</realm>
+      </login-config>
+    </webservice-endpoint>
+  </ejb>
+  <ejb>
+    <ejb-name>EJBWS2</ejb-name>
+    <webservice-endpoint>
+      <port-component-name>EJBWS2Port</port-component-name>
+      <endpoint-address-uri>EJBWS2/EJBWebService</endpoint-address-uri>
+      <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm>file</realm>
+      </login-config>
+    </webservice-endpoint>
+  </ejb>
+</glassfish-ejb-jar>
+----
+
+Notice that the `login-config` element is repeated exactly like it is in the 2 EJB
+definitions. Not only that, but if these Web services are defined using annotations
+for each EJB component, then the *JAX-WS* information (Port Component Name, Endpoint
+Address, etc.) would be duplicated too, which is too cumbersome for cases when
+there are lots of EJB Web service definitions.
+
+For this scenario, the `webservice-default-login-config` has been introduced to
+simplify this configuration. When this element is declared, the login configuration
+inside it will apply to all of the EJB defined Web Services by default.
+
+The previous example can be simplified like this:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <webservice-default-login-config>
+      <auth-method>BASIC</auth-method>
+      <realm>file</realm>
+  </webservice-default-login-config>
+</glassfish-ejb-jar>
+----
+
+NOTE: All sub-elements tags of the `login-config` can be used inside this element.
+
+IMPORTANT: If an EJB Web service definition needs a different login configuration
+from the default, just redefine it as shown in the example and it will override
+the default configuration.
