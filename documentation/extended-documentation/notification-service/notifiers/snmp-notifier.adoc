@@ -3,7 +3,7 @@
 
 The **S**imple **N**etwork **M**anagement **P**rotocol is a standard Internet
 Protocol that was designed to collect and organize information about all
-managed devices and services that belong to the same network. *SNMP *is
+managed devices and services that belong to the same network. *SNMP* is
 supported by a huge variety of devices, including network devices like
 routers, modems and switches, servers and in the latter years extended
 to cover IoT devices and specialized equipment connected to the cloud.
