@@ -19,7 +19,7 @@
 == Technical Documentation
 
 * link:documentation/core-documentation/core-documentation.adoc[Core Documentation]
-** link:documentation/core-documentation/configuration/configuration.adoc[Server Configuration]
+** link:documentation/core-documentation/configuration/README.adoc[Server Configuration]
 *** link:documentation/core-documentation/configuration/var-substitution/README.adoc[Variables in the configuration]
 **** link:documentation/core-documentation/configuration/var-substitution/types-of-variables.adoc[Variable types]
 **** link:documentation/core-documentation/configuration/var-substitution/usage-of-variables.adoc[Using variables]
