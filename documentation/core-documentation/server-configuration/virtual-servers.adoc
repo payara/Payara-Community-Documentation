@@ -1,0 +1,107 @@
+# Virtual Servers
+
+A virtual server is an object that allows one physical server instance to appear
+as many. In some ways it is analogous to a network card on a PC: if you have
+multiple network cards, the network will consider them two separate hosts
+despite them being part of one. Virtual Servers do the same thing to your
+servers, which means for example you could have multiple domain names
+(not administrative domains) associated with the same server.
+
+When deploying an application, you have the option to deploy to a specific
+Virtual Server, which will have multiple network listeners associated with it.
+
+[[configuration]]
+## Configuration
+
+Existing virtual servers can be configured from the admin console or with `set`
+asadmin commands. The virtual servers configuration can be found in the admin
+console under *Configurations* -> *your-config* -> *Virtual Servers*.
+
+image::/images/virtual-servers/left-bar-location.png[Configuration Page Location]
+
+The following fields can be configured:
+
+#### ID
+The unique ID for the virtual server. The only field which cannot be altered
+from the admin console. Also cannot begin with a number.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.id=value`
+
+
+#### Hosts
+A comma separated list of values allowed in the host request header to select
+this virtual server. Each virtual server with the same connection group must
+have a unique host for that group.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.hosts=value,value2`
+
+
+#### State
+The enabled state of the virtual server. There are 3 options for this property:
+
+ - *On* -> This means that the virtual server is active and will be ready to
+ serve requests.
+ - *Off* -> This means that the virtual server is inactive, and will return a
+ 404 error for all requests made through it. This will look from the outside
+ as if no applications are deployed to this server.
+ - *Disabled* -> This means that the virtual server is inactive, and will return
+ a 403 error for all requests made through it. This will look from the outside
+ as if the server is intentionally down for maintenence.
+
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.state=on/off/disabled`
+
+
+#### SSO
+Allows multiple web applications deployed to the same virtual server to share
+the user authentication state.  This would mean that signing into one
+application would implicitly sign you into all of the others.
+There are 3 options for this property:
+
+ - *True* (enabled) -> This enables SSO for applications on the same virtual
+ server.
+ - *False* (disabled) -> This disables SSO for applications on the same virtual
+ server.
+ - *Inherit* (controlled by HTTP service) -> This will inherit the value from
+ value specified in the *HTTP Service*.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.sso-enabled=true/false/inherit`
+
+
+#### SSO Cookie Http Only
+Determines whether to add a `HttpOnly` flag to the `JSESSIONIDSSO` cookie.
+In practice, this will disallow JavaScript access to the cookie in the browser.
+This prevents malicious XSS attacks hijacking a Java session. It is enabled by
+default.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.sso-cookie-http-only=true/false`
+
+
+#### Network Listeners
+Comma separated list of network listeners which applications deployed to this
+virtual server are available on.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.network-listeners=listener-1,listener-2`
+
+
+#### Default Web Module
+This defines which application deployed to this virtual server will be requested
+if no modules are resolved in the request. For example if `app1` and `app2`
+have context roots of `/app1` and `/app2` respectively, `app1` will be returned
+when the user requests `/`.
+
+**Asadmin Command:**
+
+`set configs.config.server-config.http-service.virtual-server.${virtual-server-name}.default-web-module=app1`
