@@ -260,3 +260,30 @@ service-jms       false
 
 Command get-requesttracing-configuration executed successfully.
 ----
+
+
+
+[[list-historic-requesttraces]]
+== `list-historic-requesttraces`
+
+*Usage*::
+`asadmin> list-historic-requesttraces`
+
+*Aim*::
+This command can be used to list the historic request trace messages from the
+Request Tracing Service.
+
+[[command-options-4]]
+=== Command Options
+
+There are no available options for this command.
+
+[[example-4]]
+=== Example
+
+[source, shell]
+----
+asadmin> get-requesttracing-configuration
+----
+
+Will give an output similar to the following:
