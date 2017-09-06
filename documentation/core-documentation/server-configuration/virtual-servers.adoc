@@ -170,7 +170,7 @@ Defines the directory used for access logs.
 Defines additional properties for the configuration of a virtual server.
 
 
-[cols=",,",options="header",]
+[cols="20,70,10",options="header",]
 |===
 | Key                         | Description | Default Value
 | *sso-max-inactive-seconds*  | The number of seconds of no activity after which a user's SSO record becomes elegible for purging.
@@ -213,5 +213,5 @@ E.g. `send-error_1="code=404 path=/dir/of/file/error.html reason=UNAUTHORIZED"`.
 E.g. `redirect_1="from=/fake url-prefix=http://another"`.
   | none
 | *listener_n*                | Specifies the fully qualified class name of a custom Catalina listener, where n is a positive integer that allows the specification of more than one. The listener class must implement the *org.apache.catalina.ContainerListener* or *org.apache.catalina.LifecycleListener* interface. | none
-| *errorReportValve*          | Specifies the fully qualified class name of a custom valve that produces default error pages for applications on this virtual server. Specify an empty string to disable the default error page mechanism for this virtual server. | *org.apache.catalina.valves.ErrorReportValve*
+| *errorReportValve*          | Specifies the fully qualified class name of a custom valve that produces default error pages for applications on this virtual server. Specify an empty string to disable the default error page mechanism for this virtual server. | *org.apache.catalina. valves.ErrorReportValve*
 |===
