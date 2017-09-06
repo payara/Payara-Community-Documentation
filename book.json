@@ -1,6 +1,7 @@
 {
     "plugins": [
         "expandable-chapters",
+        "asciidoc-admonition-icons",
         "versions"
         ],
 
