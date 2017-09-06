@@ -2,7 +2,7 @@
 
 A virtual server is an object that allows one physical server instance to appear
 as many. In some ways it is analogous to a network card on a PC: if you have
-multiple network cards, the network will consider them two separate hosts
+multiple network cards, the network will consider them as two separate hosts
 despite them being part of one. Virtual Servers do the same thing to your
 servers, which means for example you could have multiple domain names
 (not administrative domains) associated with the same server.
@@ -199,7 +199,7 @@ Defines additional properties for the configuration of a virtual server.
 Note: Setting this property to `true` on Windows systems exposes JSP source code.
 ====
   | false
-| *accessLogWriteInterval*    | The number of seconds between the log being written to disk. The access log is written when the buffer is full of when the interval expires. If the value is 0, the buffer is always written even if it's not full. | 300
+| *accessLogWriteInterval*    | The number of seconds between each time the log is written to disk. The access log is written when the buffer is full or when the interval expires. If the value is 0, the buffer is always written even if it's not full. | 300
 | *accessLogBufferSize*       | The size, in bytes, of the buffer where access log calls are stored. | 32768
 | *allowRemoteAddress*        | Comma separated list of regular expression patterns to which the remote client's IP address is compared. The IP must match one of the patterns to be accepted. | none
 | *denyRemoteAddress*         | Comma separated list of regular expression patterns to which the remote client's IP address is compared. The IP must not match any of the patterns to be accepted. | none
