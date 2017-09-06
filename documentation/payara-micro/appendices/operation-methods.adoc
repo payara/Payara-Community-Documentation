@@ -12,6 +12,7 @@ The list of methods in the API:
 * link:#cdi-methods[CDI Methods]
 * link:#run-methods[Run Methods]
 * link:#get-methods[Get Methods]
+* link:#library-methods[Library Methods]
 
 [[deployment-methods]]
 == Deployment Methods
@@ -146,4 +147,18 @@ in a cluster.
 |Returns the instance name.
 |`InstanceDescriptor getLocalDescriptor()`
 |Returns the instance descriptor of the instance the method is run on.
+|=======================================================================
+
+[[library-methods]]
+== Library Methods
+
+These methods are used for configuring additional libraries to the instance's
+classpath.
+
+[cols=",",options="header",]
+|=======================================================================
+|Method |Description
+|`void addLibrary(File)`
+|Adds a new library source (a JAR file or a directory with multiple JAR files)
+to be considered for the instance's classpath
 |=======================================================================

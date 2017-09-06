@@ -14,6 +14,9 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |Sets user defined log format for the access log.|
 |`--additionalrepository <repo-url>`
 |Specifies an additional repository to search for deployable artefacts in.|
+|`--addjars <jar-path>`
+|Specifies one or multiple path sources for additional JAR files to include in
+the instance's classpath|
 |`--autobindhttp`
 |Enables auto-binding for the HTTP port.|_false_
 |`--autobindrange <number-of-ports>`

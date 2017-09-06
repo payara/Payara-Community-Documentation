@@ -145,6 +145,7 @@
 ** link:documentation/payara-micro/callable-objects.adoc[Running Callable Objects]
 ** link:documentation/payara-micro/services/request-tracing.adoc[Request Tracing]
 ** link:documentation/payara-micro/logging-to-file.adoc[Logging to a file]
+** link:documentation/payara-micro/adding-jars.adoc[Adding JAR files]
 ** link:documentation/payara-micro/jcache.adoc[JCache in Payara Micro]
 ** link:documentation/payara-micro/jca.adoc[JCA Support in Payara Micro]
 ** link:documentation/payara-micro/cdi-events.adoc[Remote CDI Events]
