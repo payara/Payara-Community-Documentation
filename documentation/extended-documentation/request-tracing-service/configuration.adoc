@@ -29,7 +29,10 @@ will be traced.
 historical request trace events.
 **Historic Trace Store Size**:: Determines the number of historical trace events that
 can be stored in memory when historical storing is enabled. The default value is
-**20** records
+**20** records.
+**Historic Trace Store Timeout**:: Determines how long before Request Tracing
+messages are removed. This field is specified in the format "%d %h %m %s" where
+% is an integer. Any of the units can also be omitted.
 
 Aside from this configuration settings, you can also define which notifiers will be
 used to relay the request tracing events by moving them to the **Active Notifiers**
@@ -62,7 +65,8 @@ tree and modify the attributes described in the previous section:
     threshold-value="30"
     threshold-unit="SECONDS"
     historical-trace-store-size="25"
-    historical-trace-enabled="true">
+    historical-trace-enabled="true"
+    historical-trace-store-timeout="1d 2h 3m 30s">
     <log-notifier></log-notifier>
     <datadog-notifier enabled="true"></datadog-notifier>
     <new-relic-notifier enabled="true"></new-relic-notifier>
@@ -70,6 +74,7 @@ tree and modify the attributes described in the previous section:
     <email-notifier></email-notifier>
     <slack-notifier enabled="true"></slack-notifier>
     <eventbus-notifier></eventbus-notifier>
+    <cdi-eventbus-notifier></cdi-eventbus-notifier>
     <hipchat-notifier></hipchat-notifier>
     <snmp-notifier></snmp-notifier>
     <jms-notifier></jms-notifier>
