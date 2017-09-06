@@ -114,6 +114,7 @@ total 304K
 1.0K -rw-r--r-- 1 fabio 197609   24 Apr  3 20:26 test.properties
 ----
 
-NOTE: Additional JAR files that are placed in the `$\{PAYARA_INSTALL_DIR}/lib`
-directory will be ignored when being packaged to the Uber JAR. This is due to
-the way the Payara Micro nested structure introduced on release _4.1.1.171_ works.
+IMPORTANT: Additional JAR files that are placed in the `$\{PAYARA_INSTALL_DIR}/lib`
+directory will be ignored when being packaged to the Uber JAR. To package additional
+JAR files into an Uber JAR, check the
+link:/documentation/payara-micro/adding-jars.adoc[Adding Third Party JARs section]

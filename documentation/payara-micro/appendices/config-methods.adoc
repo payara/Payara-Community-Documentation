@@ -1,7 +1,7 @@
 [[configuration-methods]]
 = Configuration Methods
 
-This section details the `PayaraMicro` class' configuration methods that
+This section details the `PayaraMicro` class configuration methods that
 are used during the bootstrap process.
 
 [cols=",,,,,",options="header",]
