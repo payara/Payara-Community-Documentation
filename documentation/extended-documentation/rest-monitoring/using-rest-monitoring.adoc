@@ -2,30 +2,35 @@
 
 REST monitoring uses a similar API to Jolokia, but with a subset of the
 features. The REST API is hosted on `${base-url}/${REST-monitoring-Context-Root}/rest`,
-so with default settings it is hosted at `localhost:4848/fang/rest`.
+by default `localhost:4848/rest-monitoring/rest`.
 
 
 == Operations
 
 ====
 REST monitoring supports a subset of operations defined in the Jolokia API. It
-will expand to include more, but in technical preview currently only supports
+will expand to include more, but the technical preview currently only supports
 the `read` operation.
 ====
 
-=== Read
+=== `Read`
 
-The `read` operation reads the details of the MBean requested. It accepts the
-following format:
+The `read` operation reads the details of the requested MBean.
+
+The `read` operation accepts GET requests on URLs in the following format:
 
 [source, bash]
 ----
-${base-url}>/read/${mbean-name}/${attribute-name}
+${base-url}/read/${mbean-name}/${attribute-name}
 ----
-So for example, if you want the MBean `java.lang:type=Memory`, you might make a
-GET request to: `http://localhost:4848/fang/rest/read/java.lang:type=Memory`.
-A sample output is shown below:
-[source]
+
+For example, if you want to read the MBean `java.lang:type=Memory` on the
+default configuration, you would make a GET request to:
+`http://localhost:4848/rest-monitoring/rest/read/java.lang:type=Memory`.
+
+A sample output of this request is shown below:
+
+[source, json]
 ----
 {
   "request": {
@@ -53,22 +58,32 @@ A sample output is shown below:
   "status": 200
 }
 ----
+
 A couple of quick notes:
 
 * The attribute name can be empty
 * A list of attribute names can be found in the request of an empty attribute
-name under `value`, So for the JSON returned from
-`http://localhost:4848/fang/rest/read/java.lang:type=Memory`, `HeapMemoryUsage`
+name under `value`. So in the example MBean above, `HeapMemoryUsage`
 and `NonHeapMemoryUsage` are both attribute names.
 
 
-=== Search
+=== `Search`
 
-=== List
+_Not supported in the current technical preview included with Payara Server
+{{ book.currentVersion }}_.
 
-=== Write
+=== `List`
 
-=== Version
+_Not supported in the current technical preview included with Payara Server
+{{ book.currentVersion }}_.
 
-The `version` operation isn't supported explicitly, but a GET request on the
-default operation produces similar results.
+=== `Write`
+
+_Not supported in the current technical preview included with Payara Server
+{{ book.currentVersion }}_.
+
+=== `Version`
+
+The `version` operation is not fully supported in Payara Server
+{{ book.currentVersion }}, but a GET request on the default operation produces
+similar results.

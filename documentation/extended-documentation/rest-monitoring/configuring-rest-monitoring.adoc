@@ -4,7 +4,7 @@ REST monitoring is configurable through asadmin commands. This feature is in
 technical preview, so some things may not work quite as intended.
 
 == Setting REST monitoring Configuration
-The `set-payara-fang-configuration` asadmin command is used to configure
+The `set-rest-monitoring-configuration` asadmin command is used to configure
 REST monitoring. This command requires the server to be running. Each
 configuration property can be configured individually or all together.
 
@@ -13,7 +13,7 @@ configuration property can be configured individually or all together.
 
 [source, shell]
 ----
-asadmin> set-payara-fang-configuration --enabled=true
+asadmin> set-rest-monitoring-configuration --enabled=true
 ----
 By default, REST monitoring is disabled.
 
@@ -22,7 +22,7 @@ By default, REST monitoring is disabled.
 
 [source, shell]
 ----
-asadmin> set-payara-fang-configuration --enabled=true --target=${Target}
+asadmin> set-rest-monitoring-configuration --enabled=true --target=${Target}
 ----
 If no target is specified, the command will enable REST monitoring on the
 domain configuration _(server-config)_. The `--target` option enables
@@ -33,27 +33,28 @@ REST monitoring on another instance or cluster.
 
 [source, shell]
 ----
-asadmin> set-payara-fang-configuration --contextroot=${ContextRoot}
+asadmin> set-rest-monitoring-configuration --contextroot=${ContextRoot}
 ----
-The `contextroot` property defines which URLs the REST monitoring application
-uses. The context root of the REST monitoring application defaults to `/fang`,
-but can be specified with the `--contextroot` option.
+The `contextroot` property defines which URL the REST monitoring application
+uses. The context root of the REST monitoring application defaults to
+`/rest-monitoring`, but can be changed using the `--contextroot` option.
 
 
 === Name
 
 [source, shell]
 ----
-asadmin> set-payara-fang-configuration --name=${Name}
+asadmin> set-rest-monitoring-configuration --name=${Name}
 ----
 The `name` property defines the name of the deployed REST monitoring
-application. This option defaults to "Fang".
+application. This option defaults to "__restmonitoring".
 
 
 === Security Enabled
+
 [source, shell]
 ----
-asadmin> set-payara-fang-configuration --securityenabled=true
+asadmin> set-rest-monitoring-configuration --securityenabled=true
 ----
 The `securityenabled` property defines whether the REST monitoring application
 is available over HTTPS. Since the REST monitoring application is hosted on the
@@ -64,23 +65,44 @@ the `change-admin-password` command, then using the `enable-secure-admin`
 command. Enabling secure admin requires a server restart.
 
 When `securityenabled` is set to true, a username and password is required to
-use REST monitoring. By default the username and password is `fang`. The user is
-defined in the `file` realm. The password can be changed with the
-following command:
+use REST monitoring. By default the username is set to `payara` and the password
+is set to `rest`. The user `payara` is defined in the `file` realm.
+
+The password can be changed with the following command:
 [source, shell]
 ----
-asadmin> update-file-user --groups=fang --target=server-config --authrealmname=file fang
+asadmin> update-file-user --groups=rest --target=server-config --authrealmname=file payara
 ----
-This updates the `fang` user, which is part of the `fang` group. Any users which
-are able to login to the REST monitoring must be defined in the `file` realm and
-be part of the `fang` group. You can create a new user with:
+This updates the `payara` user, which is part of the `rest` group. Any users who
+are able to log in to the REST monitoring must also be defined in the `file`
+realm and be part of the `rest` group.
+
+New users can be created by using the following command:
 [source, shell]
 ----
-asadmin> create-file-user --groups=fang --target=server-config --authrealmname=file ${username}
+asadmin> create-file-user --groups=rest --target=server-config --authrealmname=file ${username}
 ----
 
 
 == Getting REST monitoring Configuration
-The `get-payara-fang-configuration` asadmin command is used to get the
+
+[source, shell]
+----
+asadmin> get-rest-monitoring-configuration
+----
+
+The `get-rest-monitoring-configuration` asadmin command is used to get the
 configuration of the REST monitoring. This command requires the server to be
 running.
+
+If no target is specified, the command will get the REST monitoring
+configuration from the domain configuration _(server-config)_. The `--target`
+option retrieves the REST monitoring from another instance or cluster.
+
+*Example*::
+----
+asadmin> get-rest-monitoring-configuration --target server-config
+
+Enabled    Rest Monitoring Application Name    Context Root       Security Enabled
+true       __restmonitoring                    /rest-monitoring   false
+----
