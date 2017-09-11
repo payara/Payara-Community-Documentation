@@ -1,0 +1,132 @@
+[[mbeans]]
+= MBeans in Payara Server
+
+Below is a non-exhaustive list of MBeans which are useful to monitor. Other MBeans not listed show static information or are JDK-specific
+
+== JVM MBeans
+
+==== Class Loading
+
+In JMX Monitoring logging set the value to java.lang:type=ClassLoading to monitor this MBean
+|===
+| Attribute | Description | Comment
+
+| loadedclass-count
+| Number of classes currently loaded in the Java virtual machine
+|
+
+| totalloadedclass-count
+| Total number of classes that have been loaded since the Java virtual machine has started execution
+|
+
+| unloadedclass-count
+| Total number of classes unloaded since the Java virtual machine has started execution
+| Classes are only unloaded from Payara when the application they are in is undeployed
+|===
+
+==== Compilation
+
+In JMX Monitoring logging set the value to java.lang:type=Compilation to monitor this MBean
+|===
+| Attribute | Description | Comment
+
+| totalcompilationtime-current
+| Approximate accumlated elapsed time (in milliseconds) spent in compilation
+|
+|===
+
+=== Garbage Collectors
+
+In JMX Monitoring logging set the value to java.lang:type=GarbageCollector,name=collectors-name to monitor this MBean
+The  garbage collector's name will be one of the following depending on your JDK and JDK options:
+* Copy
+* G1 Young Generation
+* G1 Mixed Generation
+* MarkSweepCompact
+* ParNew
+* PS MarkSweep
+* PS Scavenge
+
+|===
+| Attribute | Description | Comment
+
+| collectioncount-count
+| Total number of collections that have occurred
+| The number of times this garbage collector has been called since Payara was started
+
+| collectiontime-count
+| Approximate accumulated collection elapsed time in milliseconds
+| How much time has been spent on garbage collection since Payara was started
+|===
+
+
+==== Memory
+
+In JMX Monitoring logging set the value to java.lang:type=Memory to monitor this MBean
+|===
+| Attribute | Description | Comment
+
+| ObjectsPendingFinalization
+| Approximate number of objects for which finalization is pending
+|
+
+| UsedHeapSize
+| Amount of used memory in bytes
+|
+
+| UsedNonHeapSize
+| Amount of used memory in bytes
+|
+|===
+
+==== Runtime
+
+In JMX Monitoring logging set the value to java.lang:type=Runtime to monitor this MBean
+
+|===
+| Attribute | Description | Comment
+
+| uptime-count
+| Uptime of the Java virtual machine in milliseconds
+|
+|===
+
+==== Thread System
+
+In JMX Monitoring logging set the value to java.lang:type=Threading to monitor this MBean
+
+|===
+| Attribute | Description | Comment
+
+| currentthreadcputime
+| Returns the total CPU time for the current thread in nanoseconds
+|
+
+| currentthreadusertime
+| Returns the CPU time that the current thread has executed in user mode in nanoseconds
+|
+
+| daemonthreadcount
+| Returns the current number of live daemon threads
+|
+
+| deadlockedthreads
+| Finds cycles of threads that are in deadlock waiting to acquire object monitors
+| Is either a list of deadlocked threads or the sentence "None of the threads are monitor deadlocked."
+
+| monitordeadlockedthreads
+| Finds cycles of threads that are in deadlock waiting to acquire object monitors
+| Is either a list of deadlocked threads or the sentence "None of the threads are monitor deadlocked."
+
+| peakthreadcount
+| Returns the peak live thread count since the Java virtual machine started or peak was reset
+| 
+
+| threadcount
+| Returns the current number of live threads including both daemon and non-daemon threads
+|
+
+| totalstartedthreadcount
+| Returns the total number of threads created and also started since the Java virtual machine started
+|
+|===
