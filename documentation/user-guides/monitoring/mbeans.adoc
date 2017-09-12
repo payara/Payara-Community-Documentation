@@ -1,7 +1,7 @@
 [[mbeans]]
 = MBeans in Payara Server
 
-Below is a non-exhaustive list of MBeans which are useful to monitor. Other MBeans not listed show static information or are JDK-specific
+Below is a non-exhaustive list of MBeans which are useful to monitor in Payara Server. Other MBeans not listed show static information or are JDK-specific. 
 
 == JVM MBeans
 
@@ -779,3 +779,7 @@ In JMX Logging set value to amx:pp=/mon/server-mon[server],type=web-request-mon,
 | Longest response time for a request; not a cumulative value, but the largest response time from among the response times
 |
 |===
+
+== OpenMQ MBeans
+
+Payara Server includes OpenMQ as a JMS broker, which includes its own MBeans. Documentation on them can be found at http://docs.oracle.com/cd/E19906-01/820-5207/gcakw/index.html
