@@ -133,7 +133,7 @@ objects on bootstrapped instances.
 
 These methods are used for getting information on running Payara Micro instances.
 For information on the `Get` methods of an non-bootstrapped instance, see the
-link:/documentation/payara-micro/appendices/configuration-methods[Configuration Methods section].
+link:/documentation/payara-micro/appendices/config-methods.adoc[Configuration Methods section].
 
 [cols=",",options="header",]
 |=======================================================================

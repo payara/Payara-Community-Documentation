@@ -15,7 +15,7 @@ to the respective endpoint setting the `gfresttoken` cookie value.
 [[NOTE]]
 ====
 Currently the
-https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.adoc#securityRequirementObject[OpenAPI
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#securityRequirementObject[OpenAPI
 v2.0] specification does not support cookies to send the API key.
 ====
 

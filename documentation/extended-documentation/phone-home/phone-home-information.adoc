@@ -69,5 +69,5 @@ mentioned attributes.
 == Source Code
 
 If needed, the source code for the phone home script is available to
-https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.javahttps://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[view
+https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[view
 on github].
