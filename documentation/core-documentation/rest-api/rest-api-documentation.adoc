@@ -8,5 +8,5 @@ https://github.com/OAI/OpenAPI-Specification[OpenAPI specification]
 (formerly known as Swagger v2.0).
 
 The documentation presented here has been automatically generated using
-the http://swagger2markup.github.io[Swagger2Markup] (ASCIIDoc support included)
+the https://github.com/Swagger2Markup/swagger2markup[Swagger2Markup] (ASCIIDoc support included)
 extension.
