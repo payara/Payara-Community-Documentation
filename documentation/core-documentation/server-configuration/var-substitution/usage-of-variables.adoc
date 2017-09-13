@@ -28,6 +28,7 @@ Variable references can be used inside text values also in the following places 
 * In the annotations:
 ** `@EJB`, `@WebService`, `@Stateless`, `@Stateful`, `@Singleton`, `@ActivationConfigProperty`, `@DataSource`, `@WebServlet`
 *   In JNDI lookups inside an application
+* In pre and post boot command files. _[Since Payara Server 4.1.2.174]_
 
 
 [[examples]]
@@ -66,4 +67,12 @@ An example of multiple variable references combined in a single value withing th
 [source,xml]
 ----
 <domain log-root="${com.sun.aas.instanceRoot}/${ENV=STAGE_NAME}/logs">
+----
+
+An example of variable references within a pre or post boot command file:
+
+[source,bash]
+----
+set configs.config.server-config.http-service.virtual-server.server.default-web-module=${ENV=deployed-app-name}
+set configs.config.server-config.network-config.protocols.protocol.http-listener-1.security-enabled=${ENV=security-enabled}
 ----
