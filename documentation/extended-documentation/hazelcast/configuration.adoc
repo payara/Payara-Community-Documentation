@@ -12,8 +12,8 @@ specified in the Admin Console or _domain.xml_ (Note - the
 link:https://github.com/hazelcast/hazelcast/blob/master/hazelcast/src/main/resources/hazelcast-default.xml[Hazelcast defaults]
 are not necessarily the same as the Payara Hazelcast defaults).
 
-Since 4.1.1.171 Payara Server uses its own serialiser instead of the default Hazelcast one. Setting a global serialiser will not override it.
-This was created to avoid a bug causing ClassNotFoundExceptions.
+Since 4.1.2.172 Payara Server uses its link:https://github.com/payara/Payara/blob/master/nucleus/payara-modules/hazelcast-bootstrap/src/main/java/fish/payara/nucleus/hazelcast/PayaraHazelcastSerializer.java[own serialiser] instead of the default Hazelcast one. Setting a global serialiser will not override it.
+This was created to avoid a link:https://github.com/payara/Payara/issues/759[bug] causing ClassNotFoundExceptions.
 
 
 == Setting a Hazelcast Configuration File with the Admin Console
