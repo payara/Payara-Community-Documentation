@@ -21,7 +21,7 @@ You can get more details by using the `--long` argument too:
 
 [source, shell]
 ----
-asadmin restore-domain --filename domain1_2017_09_12_v00001.zip domain1
+asadmin restore-domain --filename domain1_2017_09_12_v00001.zip --long domain1
 
 Restored the domain (domain1) to /opt/payara/glassfish/domains/domain1
 Description               : domain1 backup created on 2017_09_12 by user payara
@@ -41,7 +41,7 @@ IMPORTANT: Since instances are stored separately from a domain (and they may be 
 remote hosts), *the command will have no effect on restoring instance data*.
 
 WARNING: If a domain is restored on an already existing domain folder, all the
-files will be overwritten when the command is run. 
+files will be overwritten when the command is run.
 
 [[restoring-an-instance]]
 == Restoring an Instance
