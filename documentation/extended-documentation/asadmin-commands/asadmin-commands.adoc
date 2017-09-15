@@ -4,6 +4,64 @@
 This is a non-exhaustive list of asadmin commands which are exclusive to
 Payara Server.
 
+[[start-domain]]
+== `start-domain`
+
+*Usage*::
+`asadmin start-domain <options> <domain>
+
+*Aim*::
+This command start the specified domain
+
+|===
+|Options | Type | Description | Default | Mandatory
+
+| verbose
+| boolean
+| starts the domain in verbose mode 
+| false
+| No
+
+| upgrade
+| boolean
+|
+| false
+| No
+
+| watchdog
+| boolean
+|
+| false
+| No
+
+| dry-run
+| boolean
+|
+| false
+| No
+
+| drop-interrupted-commands
+| boolean
+|
+| false
+| No
+
+| prebootcommandfile
+| string
+| path to file containing commands to run before booting the server. Only a limited amount of commands will work at this point
+since 4.1.2.172
+| 
+| No
+
+| postbootcommandfile
+| String
+| path to file containg commands to run after the server is booted
+since 4.1.2.172
+|
+| No
+
+|===
+
 [[start-domains]]
 == `start-domains`
 
