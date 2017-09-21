@@ -8,7 +8,7 @@ Payara Server.
 == `start-domain`
 
 *Usage*::
-`asadmin start-domain <options> <domain>
+`asadmin> start-domain <options> <domain>`
 
 *Aim*::
 This command start the specified domain

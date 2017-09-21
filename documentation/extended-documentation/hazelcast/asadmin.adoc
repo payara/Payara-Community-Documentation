@@ -314,3 +314,39 @@ asadmin> restart-hazelcast --target instance-name
 instance-name:
 Hazelcast Restarted
 ----
+
+== `list-cache-keys`
+
+*Aim*::
+Lists all keys in a cache. If no cache is specified, keys from all caches will be returned.
+
+*Usage*::
+`asadmin> list-cache-keys`
+
+|===
+|Option|Type|Description|Default|Mandatory
+
+| name
+| String
+|
+| 
+| No
+|===
+
+== `list-caches`
+
+*Aim*::
+Lists the Hazelcast Distributed Objects in the cluster
+
+*Usage*::
+`asadmin list-caches
+
+== `clear-cache`
+
+*Aim*::
+Clears a Hazelcast  or Jcache IMap
+
+*Usage*::
+`asadmin> clear-cache <cacheName>`
+
+
