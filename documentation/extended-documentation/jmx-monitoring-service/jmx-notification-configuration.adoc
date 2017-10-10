@@ -20,7 +20,7 @@ The JMX page allows you to specify the time between notifications, how
 notifications will be delivered, and the MBeans which will be included within
 the message.
 
-== Enabling JMX Monitoring
+== Enabling JMX Monitoring via the Admin Console
 
 By default, both JMX and AMX start disabled.
 
@@ -31,7 +31,16 @@ image:/images/jmx-monitoring-service/jmx-monitoring-page-jmx-amx-enabled.png[4.1
 
 Finally, to save your changes, click `Save`.
 
-== Configuring JMX Monitoring Time
+== Enabling JMX Monitoring via asadmin
+
+To enable JMX Monitoring for the JVM via asadmin, use the command:
+
+[source, shell]
+----
+set-monitoring-configuration --enabled=true --amx true
+----
+
+== Configuring JMX Monitoring Time via the Admin Console
 
 To configure the frequency of logged data, enter both the intended frequency
 of logs and the unit of time.
@@ -40,7 +49,16 @@ For example, to log every 10 milliseconds:
 
 image:/images/jmx-monitoring-service/jmx-log-frequency.png[4.1.2.173 JMX Log Frequency]
 
-== Selecting notifiers
+== Configuring JMX Monitoring Time via asadmin
+
+To configure the data logging frequency via asadmin, use the command:
+
+[source, shell]
+----
+set-monitoring-configuration --logfrequency <frequency> --logfrequencyunit NANOSECONDS|MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
+----
+
+== Adding Notifiers via the Admin Console
 
 Before you receive notifications from your chosen notifier, please ensure
 that you have configured the
@@ -51,7 +69,30 @@ to select multiple notifiers, and then click `Add >`.
 
 image:/images/jmx-monitoring-service/jmx-add-notifiers.png[4.1.2.173 Add JMX Notifiers]
 
-== Adding properties
+== Adding Notifiers via asadmin
+
+For each notifier you wish to enable use the command:
+
+[source, shell]
+----
+monitoring-<notifier>-notifier-configure --enabled true
+----
+
+Available Notifiers:
+
+* cdieventbus
+* datadog
+* email
+* eventbus
+* hipchat
+* jms
+* log
+* newrelic
+* slack
+* snmp
+* xmpp
+
+== Adding Properties via the admin console
 
 By default, JMX will output an empty message as there are no MBeans configured.
 
@@ -88,3 +129,17 @@ Via the logs:
 Via hipchat:
 
 image:/images/jmx-monitoring-service/jmx-notifier-hipchat.png[4.1.2.173 JMX Hipchat Notification]
+
+== Adding Properties via asadmin
+
+To add a property via asadmin, use the command:
+
+[source, shell]
+----
+set-monitoring-configuration --addproperty <property>
+----
+
+So to replicate the above properties, use the command:
+
+----
+set-monitoring-configuration --addproperty name activeworkcount value amx:pp=/mon/server-mon[server],type=connector-service-mon,name=jms-service/work-management description "Count all connections"
