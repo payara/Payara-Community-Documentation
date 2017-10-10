@@ -20,29 +20,72 @@ reload the configuration.
 === Command Options
 
 [cols=",,,,",options="header",]
-|=======================================================================
-|Option |Type |Description |Default |Mandatory
-|`--target` |String |The instance or cluster to get the monitoring
-service configuration of |server |no
-|`--dynamic` |Boolean |Whether or not to dynamically reload the
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The instance or cluster to get the monitoring
+service configuration of
+|`server-config`
+|no
+
+|`--dynamic`
+|Boolean
+|Whether or not to dynamically reload the
 configuration. This requires a non-empty configuration to have existed
 at server startup and can be achieved by setting any option or property
-to have a value |false |no
-|`--enabled` |Boolean |The enabled state of the service |N/A |yes
-|`--amx` |Boolean |Whether or not to boot AMX on startup |N/A |no
-|`--logfrequency` |Long |The numerical value for the rate at which
-messages are logged |N/A |no
-|`--logfrequencyunit` |TimeUnit |The unit for of rate at which messages
-are logged |N/A |no
-|`--addproperty` |String |MBean attribute to monitor. Takes a string of
+to have a value
+|`false`
+|no
+
+|`--enabled`
+|Boolean
+|The enabled state of the service
+|`N/A`
+|yes
+
+|`--amx`
+|Boolean
+|Whether or not to boot AMX on startup
+|`N/A`
+|no
+
+|`--logfrequency`
+|Long
+|The numerical value for the rate at which
+messages are logged
+|`N/A`
+|no
+
+|`--logfrequencyunit`
+|TimeUnit
+|The unit for of rate at which messages
+are logged
+|`N/A`
+|no
+
+|`--addproperty`
+|String
+|MBean attribute to monitor. Takes a string of
 the format
 `'name=AttributeName value=MBeanObjectName description="Description"'`,
 where name and value are required and the string must be enclosed in single
 quotes (')
-|N/A |no
-|`--delproperty` |String |MBean attribute to stop monitoring. Takes a
-`name` value of and removes the property corresponding to it. |N/A |no
-|=======================================================================
+|`N/A`
+|no
+
+|`--delproperty`
+|String
+|MBean attribute to stop monitoring. Takes a
+`name` value of and removes the property corresponding to it.
+|`N/A`
+|no
+|====
 
 [[get-monitoring-configuration]]
 === `get-monitoring-configuration`
@@ -57,10 +100,420 @@ Retrieves the monitoring service configuration and outputs it.
 === Command Options
 
 [cols=",,,,",options="header",]
-|=======================================================================
-|Option |Type |Description |Default |Mandatory
-|`--target` |String |The instance or cluster to get the monitoring
-service configuration of |server |no
-|`--pretty` |Boolean |Displays Boolean configuration options as a tick
-or cross |N/A |no
-|=======================================================================
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The instance or cluster to get the monitoring
+service configuration of
+|`server`
+|no
+
+|`--pretty`
+|Boolean
+|Displays Boolean configuration options as a tick
+or cross
+|`N/A`
+|no
+|====
+
+=== `monitoring-cdieventbus-notifier-configure`
+
+*Usage*:: `monitoring-cdieventbus-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the CDI Event Bus Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-datadog-notifier-configure`
+
+*Usage*:: `monitoring-datadog-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the Datadog Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-email-notifier-configure`
+
+*Usage*:: `monitoring-email-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the eMail Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-eventbus-notifier-configure`
+
+*Usage*:: `monitoring-eventbus-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the Event Bus Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-hipchat-notifier-configure`
+
+*Usage*:: `monitoring-hipchat-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the Hipchat Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-jms-notifier-configure`
+
+*Usage*:: `monitoring-jms-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the JMS Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-log-notifier-configure`
+
+*Usage*:: `monitoring-log-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the Log Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-newrelic-notifier-configure`
+
+*Usage*:: `monitoring-newrelic-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the New Relic Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-slack-notifier-configure`
+
+*Usage*:: `monitoring-slack-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the Slack Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-snmp-notifier-configure`
+
+*Usage*:: `monitoring-snmp-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the SNMP Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
+
+=== `monitoring-xmpp-notifier-configure`
+
+*Usage*:: `monitoring-xmpp-notifier-configure --enabled true|false`
+
+*Aim*:: Configures the XMPP Notifier for use with the JMX monitoring
+service.
+
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether or not this notifier should be enabled for JMX monitoring.
+|`N/A`
+|yes
+
+|`--dynamic`
+|Boolean
+|When true, this update will not require a server restart before taking effect.
+|`false`
+|no
+
+|`--target`
+|String
+|The instance or cluster whose monitoring service configuration will be updated.
+|`server`
+|no
+|====
