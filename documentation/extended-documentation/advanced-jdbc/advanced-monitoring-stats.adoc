@@ -1,0 +1,67 @@
+[[advanced-monitoring-statistics]]
+= Advanced Monitoring Statistics for JDBC Connection Pools
+
+Payara Server comes with a set of additional monitoring statistics that can be
+used to fine tune SQL statements or queries that use connections provided by their
+respective JDBC connection pools.
+
+[[frequsedsqlqueries]]
+== `FreqUsedSqlQueries`
+
+_Since Payara Server 4.1.2.173_
+
+This statistic lists the *10* top frequently used SQL statements or queries that were
+run through the monitored JDBC connection pool. This statistic is represented as a
+string list of each SQL statement and the number of times the query has been executed:
+
+----
+<SQL QUERY #1> executions: <NUMBER OF EXECUTIONS OF SQL QUERY #1>
+...
+<SQL QUERY #N> executions: <NUMBER OF EXECUTIONS OF SQL QUERY #N>
+----
+
+[[example]]
+=== Example
+
+Here is an example of the statistic output for the top 3 most used queries:
+
+----
+SELECT  RE1_ID, RE1NM,  RE1_MOE_ID  FROM    RE1 WHERE   (RE1_MOE_ID =   ?)  executions: 10
+SELECT  RE2_ID, RE2NM   FROM    RE2 WHERE   (RE2_ID =   ?)  executions: 10
+SELECT  t2.PAE_ID,  t2.PAENM,   t0.COE_ID,  t1.SMOE_ID, t1.MOEATR1, t0.MOEDESC, t1.MOEVAL1, t0.COENM,   t0.MOE_PAE_ID,  t1.MOE_RE2_ID   FROM    MOE t0, PAE t2, SMOE    t1  WHERE   (t2.PAENM   LIKE    ?   AND ((t0.MOE_PAE_ID =   t2.PAE_ID)  AND (t1.SMOE_ID =   t0.COE_ID)))    executions: 1
+----
+
+NOTE: When querying this statistic through any of the monitoring interfaces the server
+has (REST API, JMX, etc.), each pair or SQL statement and execution counter will
+be separated by the `%%%EOL%%%` (end-of-line) separator. This also applies to the
+`SlowSqlQueries` statistic.
+
+[[slowsqlqueries]]
+== `SlowSqlQueries`
+
+_Since Payara Server 4.1.2.173_
+
+This statistic lists the *10* top slowest SQL statements or queries that were run
+through the monitored JDBC connection pool. This statistic is represented as a
+string list of each SQL statement and its worst execution time in milliseconds:
+
+----
+<SQL QUERY #1> - Slowest Execution Time: <WORST TIME OF SQL QUERY #1>ms
+...
+<SQL QUERY #N> - Slowest Execution Time: <WORST TIME OF SQL QUERY #N>ms
+----
+
+[[example]]
+=== Example
+
+Here is an example of the statistic output for the top 3 slowest queries:
+
+----
+SELECT  t2.PAE_ID,  t2.PAENM,   t0.COE_ID,  t1.SMOE_ID, t1.MOEATR1, t0.MOEDESC, t1.MOEVAL1, t0.COENM,   t0.MOE_PAE_ID,  t1.MOE_RE2_ID   FROM    MOE t0, PAE t2, SMOE    t1  WHERE   (t2.PAENM   LIKE    ?   AND ((t0.MOE_PAE_ID =   t2.PAE_ID)  AND (t1.SMOE_ID =   t0.COE_ID)))    -   Slowest Execution   Time:   11ms
+SELECT  RE1_ID, RE1NM,  RE1_MOE_ID  FROM    RE1 WHERE   (RE1_MOE_ID =   ?)  -   Slowest Execution   Time:   0ms
+SELECT  RE2_ID, RE2NM   FROM    RE2 WHERE   (RE2_ID =   ?)  -   Slowest Execution   Time:   0ms
+----
+
+IMPORTANT: This statistic will always be available regardless of whether the
+link:/documentation/extended-documentation/advanced-jdbc/slow-sql-logger.adoc[Slow SQL Logger]
+has been enabled or not for the connection pool.
