@@ -13,8 +13,8 @@ should be used.
 `asadmin> set-monitoring-configuration --dynamic true|false --enabled true|false --amx true|false --logfrequency <long.value> --logfrequencyunit MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS --addproperty 'name=AttributeName value=MBeanObjectName description=Option_Description' --delproperty AttributeName`
 
 *Aim*::
-Sets the monitoring service configuration and can dynamically
-reload the configuration.
+Sets the monitoring service configuration and can dynamically reload the
+configuration.
 
 [[command-options-1]]
 === Command Options
@@ -29,8 +29,7 @@ reload the configuration.
 
 |`--target`
 |String
-|The instance or cluster to get the monitoring
-service configuration of
+|The name of the configuration to set the monitoring service configuration on.
 |`server-config`
 |no
 
@@ -45,37 +44,34 @@ to have a value
 
 |`--enabled`
 |Boolean
-|The enabled state of the service
+|The enabled state of the service.
 |`N/A`
 |yes
 
 |`--amx`
 |Boolean
-|Whether or not to boot AMX on startup
+|Whether or not to boot AMX on startup.
 |`N/A`
 |no
 
 |`--logfrequency`
 |Long
-|The numerical value for the rate at which
-messages are logged
+|The numerical value for the rate at which messages are logged.
 |`N/A`
 |no
 
 |`--logfrequencyunit`
 |TimeUnit
-|The unit for of rate at which messages
-are logged
+|The unit for of rate at which messages are logged.
 |`N/A`
 |no
 
 |`--addproperty`
 |String
-|MBean attribute to monitor. Takes a string of
-the format
+|MBean attribute to monitor. Takes a string of the format
 `'name=AttributeName value=MBeanObjectName description="Description"'`,
 where name and value are required and the string must be enclosed in single
-quotes (')
+quotes (').
 |`N/A`
 |no
 
@@ -109,8 +105,7 @@ Retrieves the monitoring service configuration and outputs it.
 
 |`--target`
 |String
-|The instance or cluster to get the monitoring
-service configuration of
+|The name of the configuration to get the monitoring service configuration from.
 |`server`
 |no
 
@@ -210,6 +205,7 @@ service.
 |Description
 |Default
 |Mandatory
+|The name of the configuration to configure the notifier on.
 
 |`--enabled`
 |Boolean

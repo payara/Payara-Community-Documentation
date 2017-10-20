@@ -1,7 +1,7 @@
 = JMX Notification Configuration
 
 JMX Monitoring can be configured to send notifications using the
-link:/documentation/extended-documentation/notification-service/notificationservice.adoc[notification service].
+link:/documentation/extended-documentation/notification-service/notification-service.adoc[notification service].
 This allows you to forward data from exposed MBeans to your configured
 notifiers.
 
@@ -78,19 +78,7 @@ For each notifier you wish to enable use the command:
 monitoring-<notifier>-notifier-configure --enabled true
 ----
 
-Available Notifiers:
-
-* cdieventbus
-* datadog
-* email
-* eventbus
-* hipchat
-* jms
-* log
-* newrelic
-* slack
-* snmp
-* xmpp
+Available Notifiers can be viewed on the link:/documentation/extended-documentation/notification-service/notifiers.adoc[notifiers page].
 
 == Adding Properties via the admin console
 
@@ -129,6 +117,8 @@ Via the logs:
 Via hipchat:
 
 image:/images/jmx-monitoring-service/jmx-notifier-hipchat.png[4.1.2.173 JMX Hipchat Notification]
+
+
 
 == Adding Properties via asadmin
 
