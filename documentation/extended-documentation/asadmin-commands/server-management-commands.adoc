@@ -2,7 +2,7 @@
 = Payara Server Management Asadmin Commands
 
 This is a non-exhaustive list of asadmin commands which are exclusive to
-Payara Server.
+Payara Server for managing domains.
 
 [[start-domain]]
 == `start-domain`

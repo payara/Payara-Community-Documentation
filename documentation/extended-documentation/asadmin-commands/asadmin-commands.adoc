@@ -8,6 +8,7 @@ link:documentation/extended-documentation/hazelcast/asadmin.adoc[Hazelcast Comma
 link:documentation/extended-documentation/health-check-service/asadmin-commands.adoc[Healthcheck Commands]
 link:documentation/extended-documentation/jbatch/asadmin.adoc[JBatch Commands]
 link:documentation/extended-documentation/jmx-monitoring-service/asadmin-commands.adoc[JMX Monitoring Commands]
+link:documentation/extended-documentation/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]
 link:documentation/microprofile/config.adoc[Microprofile Config Commands]
 link:documentation/extended-documentation/notification-service/asadmin-commands.adoc[Notification Service Commands]
 link:documentation/extended-documentation/phone-home/phone-home-asadmin.adoc[Phone Home Commands]
