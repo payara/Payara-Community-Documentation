@@ -97,8 +97,28 @@ the following values:
 * _description_: displayed in the `get-monitoring-configuration` asadmin
 command, _optional_
 
+MBean attribute names and domain names can be discovered using JConsole,
+JVisualVM, Java Mission Control or other programs. To browse available MBean
+attributes, after enabling JMX and AMX in the admin console, connect to your
+Payara Server instance from your chosen program:
+
+image:/images/jmx-monitoring-service/jconsole-adding-payara.png[1.8.0_144-b01 JConsole]
+
+From here, to find an MBean, select the MBeans tab to view all MBeans on the
+server. If you have enabled "HIGH" monitoring for all components along with JMX
+monitoring you should be able to see the following files:
+
+image:/images/jmx-monitoring-service/jconsole-full-folder-view.png[4.1.2.173 All JMX folders]
+
+From here you can search MBeans for attributes which you wish to monitor. Once
+you have located an MBean attributes you can add it to the DAS using the given
+object name (or, if not present, the type, name, and location of the MBean in
+the following format):
+
+image:/images/jmx-monitoring-service/jconsole-view-mbean-attributes.png[1.8.0_144-b01 JConsole]
+
 For example, to monitor the `activeworkcount` of the MBean on the DAS with a
-domain of `amx:pp=/mon/server-mon[server],type=connector-service-mon,name=jms-service/work-management`,
+domain (Object Name) of `amx:pp=/mon/server-mon[server],type=connector-service-mon,name=jms-service/work-management`,
 you would enter:
 
 image:/images/jmx-monitoring-service/jmx-add-MBean.png[4.1.2.173 Add MBean]
@@ -118,8 +138,6 @@ Via hipchat:
 
 image:/images/jmx-monitoring-service/jmx-notifier-hipchat.png[4.1.2.173 JMX Hipchat Notification]
 
-
-
 == Adding Properties via asadmin
 
 To add a property via asadmin, use the command:
@@ -133,3 +151,4 @@ So to replicate the above properties, use the command:
 
 ----
 set-monitoring-configuration --addproperty name activeworkcount value amx:pp=/mon/server-mon[server],type=connector-service-mon,name=jms-service/work-management description "Count all connections"
+----
