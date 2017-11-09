@@ -42,7 +42,7 @@ messages are removed. This field is specified in the format "%d %h %m %s" where
 
 WARNING: Starting from release _4.1.1.171_, the `--notifierEnabled` and `--notifierDynamic`
 arguments are used to enable or disable the **Log Notifier**, which is considered
-the _default_ notifier. Use the `requesttracing-configure-notifier` command to
+the _default_ notifier. Use the `requesttracing-<notifiername>-notifier-configure` commands to
 enable or disable other available notifiers.
 
 [[example]]
@@ -130,9 +130,6 @@ _[NOTIFIER_NAME]_ placeholder.
 |`--dynamic` |Boolean |When set to true, applies the changes
 without a server/instance restart. |false |No
 |=======================================================================
-
-NOTE: These series of commands (one for each available notifier), work as aliases
-to the `requesttracing-configure-notifier` command.
 
 [[example-4]]
 === Examples
