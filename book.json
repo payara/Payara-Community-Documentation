@@ -12,7 +12,7 @@
             "options": [
                 {
                     "value": "https://docs.payara.fish/",
-                    "text": "LATEST (173)"
+                    "text": "LATEST (174)"
                 }
             ]
         }
@@ -20,6 +20,6 @@
 
 
     "variables": {
-        "currentVersion": "4.1.2.173"
+        "currentVersion": "4.1.2.174"
     }
-} 
+}
