@@ -303,7 +303,7 @@ for CVE-2017-12615 in Tomcat Code Base]
 * PAYARA-2152 - Confirm Payara is unaffected by CVE-2017-12616
 
 [[upstream-bugs]]
-== Upstream Bugs
+== Upstream Bug Fixes
 
 * https://github.com/payara/Payara/pull/1848[PAYARA-1920 - Multibyte
 character added into domain.xml in ML version]
@@ -332,4 +332,4 @@ to 4.12]
 = Known Issues
 
 Known issues can be seen on our GitHub issues page here:
-https://github.com/payara/Payara/issues(https://github.com/payara/Payara/issues).
+https://github.com/payara/Payara/issues.
