@@ -5,6 +5,8 @@ The following is a list of the administration commands used to configure Hazelca
 
 == `set-hazelcast-configuration`
 
+_Since Payara Server 4.1.151_
+
 *Usage*::
 `asadmin> set-hazelcast-configuration --enabled=true`
 
@@ -92,6 +94,8 @@ asadmin> set-hazelcast-configuration --enabled=true --hostawarepartitioning=true
 ----
 
 == `create-hazelcast-instance`
+
+_Since Payara Server 4.1.2.172_
 
 *Usage*::
 `asadmin> create-hazelcast-instance new-instance`
@@ -206,11 +210,15 @@ asadmin> create-hazelcast-instance --webpersistence=false --lite instance2
 
 == `get-hazelcast-configuration`
 
+_
+
 *Aim*::
 Return the current Hazelcast configuration.
 
 *Usage*::
 `asadmin> get-hazelcast-configuration`
+
+_Since Payara Server 4.1.151_
 
 === Command Options
 
@@ -233,6 +241,8 @@ hazelcast-config.xml  true     5900        224.2.2.3       54327          payara
 ----
 
 == `list-hazelcast-cluster-members`
+
+_Since 4.1.1.164_
 
 *Aim*::
 List the current members of the DAS' Hazelcast cluster in a formatted table, with
@@ -262,6 +272,8 @@ server         server-config   DAS            127.0.1.1  8080        8181       
 
 == `list-hazelcast-members`
 
+_Since 4.1.151_
+
 *Aim*::
 List the hazelcast members as a targetable array.
 
@@ -289,6 +301,8 @@ asadmin> list-hazelcast-members
 
 == `restart-hazelcast`
 
+_Since 4.1.151_
+
 *Aim*::
 Restarts Hazelcast for the target.
 
@@ -314,3 +328,45 @@ asadmin> restart-hazelcast --target instance-name
 instance-name:
 Hazelcast Restarted
 ----
+
+== `list-cache-keys`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Lists all keys in a cache. If no cache is specified, keys from all caches will be returned.
+
+*Usage*::
+`asadmin> list-cache-keys`
+
+|===
+|Option|Type|Description|Default|Mandatory
+
+| name
+| String
+|
+| 
+| No
+|===
+
+== `list-caches`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Lists the Hazelcast Distributed Objects in the cluster
+
+*Usage*::
+`asadmin list-caches
+
+== `clear-cache`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Clears a Hazelcast  or Jcache IMap
+
+*Usage*::
+`asadmin> clear-cache <cacheName>`
+
+
