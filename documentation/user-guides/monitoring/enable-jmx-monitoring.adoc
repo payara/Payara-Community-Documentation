@@ -99,6 +99,7 @@ set configs.config.server-config.monitoring-service.module-monitoring-levels.orb
 set configs.config.server-config.monitoring-service.module-monitoring-levels.deployment=HIGH
 ----
 
+[#enable-jmx-view]#
 === Viewing JMX Monitoring Data with VisualVM
 No further action needs to be taken to get the data from Payara Server into 
 VisualVM. If the MBeans Browser was already open before enabling monitoring,
