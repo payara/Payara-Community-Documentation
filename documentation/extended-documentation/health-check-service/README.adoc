@@ -21,7 +21,7 @@ to one or more notifiers, e.g. a log file.
 This allows operations teams to rapidly detect problems or work out what happened after these
 problems have occurred.
 
-Note that the Host Memory Usage currently only works on Linux and *BSD.
+NOTE: The Host Memory Usage currently only works on Linux and BSD derivatives.
 
 If the
 link:/documentation/extended-documentation/notification-service/notifiers/log-notifier.adoc[Log Notifier]
