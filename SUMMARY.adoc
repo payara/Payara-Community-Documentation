@@ -36,6 +36,7 @@
 *** link:documentation/core-documentation/password-aliases/password-alias-admin-console-commands.adoc[Password Aliases from the Admin Console]
 ** link:documentation/core-documentation/asadmin-commands/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/core-documentation/asadmin-commands/server-management-commands.adoc[Server Management Commands]
+*** link:documentation/core-documentation/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]
 ** link:documentation/core-documentation/rest-api/rest-api-documentation.adoc[REST API Documentation]
 *** link:documentation/core-documentation/rest-api/overview.adoc[Overview]
 *** link:documentation/core-documentation/rest-api/security.adoc[Security]
