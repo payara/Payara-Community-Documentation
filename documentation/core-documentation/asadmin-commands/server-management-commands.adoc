@@ -22,7 +22,7 @@ This command start the specified domain
 | false
 | No
 
-| upgradein
+| upgrade
 | boolean
 |
 | false

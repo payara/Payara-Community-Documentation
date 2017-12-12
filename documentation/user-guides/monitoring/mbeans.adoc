@@ -753,7 +753,7 @@ In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=virtualserverin
 | Is either active or unknown
 
 | state
-| The state of the virtual serve
+| The state of the virtual server
 |
 |===
 
