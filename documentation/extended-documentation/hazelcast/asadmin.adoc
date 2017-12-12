@@ -345,7 +345,7 @@ Lists all keys in a cache. If no cache is specified, keys from all caches will b
 | name
 | String
 |
-| 
+|
 | No
 |===
 
@@ -357,7 +357,7 @@ _Since Payara Server 4.1.1.154_
 Lists the Hazelcast Distributed Objects in the cluster
 
 *Usage*::
-`asadmin list-caches
+`asadmin list-caches`
 
 == `clear-cache`
 
@@ -368,5 +368,3 @@ Clears a Hazelcast  or Jcache IMap
 
 *Usage*::
 `asadmin> clear-cache <cacheName>`
-
-

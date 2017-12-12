@@ -25,7 +25,7 @@ To complete the command, however, *the domain must be stopped first*.
 This will mean that any application deployed to the DAS is unavailable while
 the backup takes place.
 
-The resulting ZIP file will be saved in a destination with the this structure:
+The resulting ZIP file will be saved in a destination with this structure:
 
 ----
 <backupDir>/<domain-name>/<domain-name>_<yyyy_mm_dd>_v<backup_number>

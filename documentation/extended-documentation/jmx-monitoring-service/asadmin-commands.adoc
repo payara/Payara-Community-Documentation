@@ -205,7 +205,6 @@ service.
 |Description
 |Default
 |Mandatory
-|The name of the configuration to configure the notifier on.
 
 |`--enabled`
 |Boolean
