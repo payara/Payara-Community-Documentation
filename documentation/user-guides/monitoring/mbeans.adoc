@@ -38,7 +38,7 @@ In JMX Monitoring logging set the value to `java.lang:type=Compilation` to monit
 === Garbage Collectors
 
 In JMX Monitoring logging set the value to `java.lang:type=GarbageCollector,name=collectors-name` to monitor this MBean
-The  garbage collector's name will be one of the following depending on your JDK and JDK options:
+The garbage collector's name will be one of the following depending on your JDK and JDK options:
 
 * Copy
 * G1 Young Generation
@@ -135,7 +135,7 @@ In JMX Monitoring logging set the value to `java.lang:type=Threading` to monitor
 
 == Payara MBeans
 
-These MBeans are part of Payara and provide additional information about current usage. They are all in the form of `amx:pp=amx:pp=/mon/server-mon[instance-name],type=type-of-mbean,name=MBeanName` where `instance-name` is replaced by the name of the instance i.e. `amx:pp=/mon/server-mon[server],type=web-request-mon,name=web/request`. See link:enable-jmx-monitoring.adoc#enable-jmx-view[Viewing JMX Monitoring Data] for how to view all avaliable MBeans.
+These MBeans are part of Payara and provide additional information about current usage. They are all in the form of `amx:pp=amx:pp=/mon/server-mon[instance-name],type=type-of-mbean,name=MBeanName` where `instance-name` is replaced by the name of the instance i.e. `amx:pp=/mon/server-mon[server],type=web-request-mon,name=web/request`. See link:enable-jmx-monitoring.adoc#enable-jmx-view[Viewing JMX Monitoring Data] for how to view all available MBeans.
 
 IMPORTANT: Payara MBeans are only available when AMX is booted. This is done automatically once a JMX client connects. For all other cases, AMX must be either configured to boot at server startup or booted via a JMX operation `bootAMX` on the `amx-support:type=boot-amx` MBean.
 
@@ -683,7 +683,7 @@ In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=stateless-bean-
 
 Thread Pool Statistics
 
-In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=thread-pool-mon,name=network/NetworkListenerName/thread-pool` where `NetworkListenerName` is the name of the network listener to monitor. Alternativly set value to `amx:pp=/mon/server-mon[server],type=thread-pool-mon,name=network//global-thread-pool-stats` for totals across all thread pools.
+In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=thread-pool-mon,name=network/NetworkListenerName/thread-pool` where `NetworkListenerName` is the name of the network listener to monitor. Alternatively set value to `amx:pp=/mon/server-mon[server],type=thread-pool-mon,name=network//global-thread-pool-stats` for totals across all thread pools.
 
 |===
 | Attribute | Description | Comment
@@ -760,7 +760,7 @@ In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=virtualserverin
 
 ==== Web Request
 
-In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=web-request-mon,name=ApplicationNAme/VirtualServer` where `ApplicationName` is the name of your application and `VirtualServer` is the name of the virtual server it is running on. There is also the special value of web/request for all requests to every virtual servier and application.
+In JMX Logging set value to `amx:pp=/mon/server-mon[server],type=web-request-mon,name=ApplicationName/VirtualServer` where `ApplicationName` is the name of your application and `VirtualServer` is the name of the virtual server it is running on. There is also the special value of web/request for all requests to every virtual servier and application.
 
 |===
 | Attribute | Description | Comment
