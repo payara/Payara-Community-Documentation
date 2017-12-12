@@ -5,6 +5,7 @@ link:/documentation/extended-documentation/notification-service/notification-ser
 This allows you to forward data from exposed MBeans to your configured
 notifiers.
 
+[[configuration]]
 == Configuration
 
 The JMX Monitoring configuration page can be found under *Configurations* ->
@@ -20,6 +21,7 @@ The JMX page allows you to specify the time between notifications, how
 notifications will be delivered, and the MBeans which will be included within
 the message.
 
+[[enabling-via-admin-console]]
 == Enabling JMX Monitoring via the Admin Console
 
 By default, both JMX and AMX start disabled.
@@ -31,6 +33,7 @@ image:/images/jmx-monitoring-service/jmx-monitoring-page-jmx-amx-enabled.png[4.1
 
 Finally, to save your changes, click `Save`.
 
+[[enabling-via-asadmin]]
 == Enabling JMX Monitoring via asadmin
 
 To enable JMX Monitoring for the JVM via asadmin, use the command:
@@ -40,6 +43,7 @@ To enable JMX Monitoring for the JVM via asadmin, use the command:
 set-monitoring-configuration --enabled=true --amx true
 ----
 
+[[configuring-time-via-admin-console]]
 == Configuring JMX Monitoring Time via the Admin Console
 
 To configure the frequency of logged data, enter both the intended frequency
@@ -49,6 +53,7 @@ For example, to log every 10 milliseconds:
 
 image:/images/jmx-monitoring-service/jmx-log-frequency.png[4.1.2.173 JMX Log Frequency]
 
+[[configuring-time-via-asadmin]]
 == Configuring JMX Monitoring Time via asadmin
 
 To configure the data logging frequency via asadmin, use the command:
@@ -58,6 +63,7 @@ To configure the data logging frequency via asadmin, use the command:
 set-monitoring-configuration --logfrequency <frequency> --logfrequencyunit NANOSECONDS|MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
 ----
 
+[[adding-notifiers-via-admin-console]]
 == Adding Notifiers via the Admin Console
 
 Before you receive notifications from your chosen notifier, please ensure
@@ -69,6 +75,7 @@ to select multiple notifiers, and then click `Add >`.
 
 image:/images/jmx-monitoring-service/jmx-add-notifiers.png[4.1.2.173 Add JMX Notifiers]
 
+[[adding-notifiers-via-asadmin]]
 == Adding Notifiers via asadmin
 
 For each notifier you wish to enable use the command:
@@ -80,6 +87,7 @@ monitoring-<notifier>-notifier-configure --enabled true
 
 Available Notifiers can be viewed on the link:/documentation/extended-documentation/notification-service/notifiers.adoc[notifiers page].
 
+[[adding-properties-via-admin-console]]
 == Adding Properties via the admin console
 
 By default, JMX will output an empty message as there are no MBeans configured.
@@ -138,6 +146,7 @@ Via hipchat:
 
 image:/images/jmx-monitoring-service/jmx-notifier-hipchat.png[4.1.2.173 JMX Hipchat Notification]
 
+[[adding-properties-via-asadmin]]
 == Adding Properties via asadmin
 
 To add a property via asadmin, use the command:
