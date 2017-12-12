@@ -210,15 +210,13 @@ asadmin> create-hazelcast-instance --webpersistence=false --lite instance2
 
 == `get-hazelcast-configuration`
 
-_
+_Since Payara Server 4.1.151_
 
 *Aim*::
 Return the current Hazelcast configuration.
 
 *Usage*::
 `asadmin> get-hazelcast-configuration`
-
-_Since Payara Server 4.1.151_
 
 === Command Options
 
@@ -242,7 +240,7 @@ hazelcast-config.xml  true     5900        224.2.2.3       54327          payara
 
 == `list-hazelcast-cluster-members`
 
-_Since 4.1.1.164_
+_Since Payara Server 4.1.1.164_
 
 *Aim*::
 List the current members of the DAS' Hazelcast cluster in a formatted table, with
@@ -272,7 +270,7 @@ server         server-config   DAS            127.0.1.1  8080        8181       
 
 == `list-hazelcast-members`
 
-_Since 4.1.151_
+_Since Payara Server 4.1.151_
 
 *Aim*::
 List the hazelcast members as a targetable array.
@@ -301,7 +299,7 @@ asadmin> list-hazelcast-members
 
 == `restart-hazelcast`
 
-_Since 4.1.151_
+_Since Payara Server 4.1.151_
 
 *Aim*::
 Restarts Hazelcast for the target.

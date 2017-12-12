@@ -18,11 +18,11 @@ This command start the specified domain
 
 | verbose
 | boolean
-| starts the domain in verbose mode 
+| starts the domain in verbose mode
 | false
 | No
 
-| upgrade
+| upgradein
 | boolean
 |
 | false
@@ -48,15 +48,13 @@ This command start the specified domain
 
 | prebootcommandfile
 | string
-| path to file containing commands to run before booting the server. Only a limited amount of commands will work at this point
-since 4.1.2.172
-| 
+| path to file containing commands to run before booting the server. Only a limited amount of commands will work at this point. _Since Payara Server 4.1.2.172_
+|
 | No
 
 | postbootcommandfile
 | String
-| path to file containg commands to run after the server is booted
-since 4.1.2.172
+| path to file containg commands to run after the server is booted. _Since Payara Server 4.1.2.172_
 |
 | No
 
