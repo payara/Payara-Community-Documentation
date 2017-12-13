@@ -12,7 +12,7 @@ to correctly configure the Request Tracing Service.
 
 *Aim*::
 This command can be used to set all configuration of the request
-tracing service at once. It effectively is an alias for `requesttracing-configure`
+tracing service at once. It effectively is an alias for `requesttracing-configure`.
 
 [[command-options]]
 === Command Options

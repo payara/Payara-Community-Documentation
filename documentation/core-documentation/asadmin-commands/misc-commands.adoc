@@ -6,19 +6,20 @@ This is a non-exhaustive list of asadmin commands for Payara Server.
 [[add-library-command]]
 == `add-library`
 
+_Since Payara Server 4.1.2.173_
+
 *Usage*::
-`asadmin> add-library <options> file
+`asadmin> add-library <options> file`
 
 *Aim*::
-This commands adds a jar library to Payara and loads it
+This command adds a jar library to Payara Server and loads it
 
 |===
 |Options | Type | Description | Default | Mandatory
 
 | type
-| common \ ext \ app
-| Since 173 Specifies the type of library and the payara folder to where it will installed. If it not of type app then it will added to the common classloader, othwise to take effect the server must be restarted.
-In previous releases the server must be restarted to load the library for all types.
+| String
+| Specifies the type of library. The supported values are `common`, `ext`, `app`. If it's of type `app` the server must be restarted to take effect.
 | common
 | No
 |===
@@ -84,18 +85,22 @@ Creates a listener for IIOP network traffic
 Gets the text of the domain.xml file. This command will only run against a local instance.
 
 
-[[list-rest-endpoints-command
+[[list-rest-endpoints-command]]
 == `list-rest-endpoints`
+
+_Since Payara Server 4.1.2.172_
 
 *Aim*::
 Lists all the rest endpoints of an application
 
-*Usage*::grepjava
+*Usage*::
 `asadmin > list-rest-endpoints applicationName`
 
 
-[restart-cluster-command]]
+[[restart-cluster-command]]
 == `restart-cluster`
+
+_Since Payara Server 4.1.1.163_
 
 *Aim*::
 Restarts all instances in a cluster. Must be run from the DAS.
