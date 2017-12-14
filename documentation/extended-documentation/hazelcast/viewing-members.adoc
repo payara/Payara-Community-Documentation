@@ -1,35 +1,40 @@
+[[viewing-hazelcast-members]]
 = Viewing Hazelcast clusters
 
 This section details how to visualize the members of a Hazelcast clusters on
 Payara Server.
 
+[[viewing-cluster-members-admin-console]]
 == Viewing Cluster Members from the Admin Console
 
 To view cluster members from the admin console:
 
+[[viewing-from-instance]]
 === Viewing from an instance
 
 . Select an instance within the cluster you wish to view from the page tree:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-instance.png[Payara 4.1.2.172 Page Tree]
+image::/images/hazelcast/hazelcast-admin-console-select-instance.png[Page Tree]
 
-. Open the "Hazelcast" tab and select the "Cluster Members" sub-tab to view
+. Open the *Hazelcast* tab and select the *Cluster Members* sub-tab to view
 the cluster members page:
 +
-image::/images/hazelcast/hazelcast-admin-console-view-cluster-members.png[Payara 4.1.2.172 Cluster Members]
+image::/images/hazelcast/hazelcast-admin-console-view-cluster-members.png[Cluster Members]
 
+[[viewing-from-das]]
 === Viewing from the DAS
 
 . If Hazelcast is enabled on the DAS (`server-config`), select "_Domain_"
 from the page tree:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-das.png[Payara 4.1.2.172 Page Tree]
+image::/images/hazelcast/hazelcast-admin-console-select-das.png[Page Tree]
 
 . Open the "Hazelcast" tab and select the "Cluster Members" sub-tab to view
 the cluster members page:
 +
-image::/images/hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Payara 4.1.2.172 Domain Cluster Members]
+image::/images/hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Domain Cluster Members]
 
+[[viewing-cluster-members-asadmin]]
 == Viewing Cluster Members via asadmin
 
 To view the current cluster members from the command line, run one of the following
