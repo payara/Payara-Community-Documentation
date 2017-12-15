@@ -3,7 +3,10 @@
 
 The following is a list of the administration commands used to configure Hazelcast.
 
+[[set-hazelcast-configuration]]
 == `set-hazelcast-configuration`
+
+_Since Payara Server 4.1.151_
 
 *Usage*::
 `asadmin> set-hazelcast-configuration --enabled=true`
@@ -13,6 +16,7 @@ Enables Hazelcast, which is disabled by default, as well as allowing
 configuration. This command requires the admin server to be running on port
 4848, unless specified otherwise.
 
+[[command-options]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -84,6 +88,7 @@ feature to work correctly.|_false_|No
 `-?` ||Displays the help menu.|_false_|No
 |====
 
+[[example]]
 === Example
 
 [source, shell]
@@ -91,7 +96,10 @@ feature to work correctly.|_false_|No
 asadmin> set-hazelcast-configuration --enabled=true --hostawarepartitioning=true --clustername=Cluster-1 --clusterpassword=Cluster1 --lite
 ----
 
+[[create-hazelcast-instance]]
 == `create-hazelcast-instance`
+
+_Since Payara Server 4.1.2.172_
 
 *Usage*::
 `asadmin> create-hazelcast-instance new-instance`
@@ -99,6 +107,7 @@ asadmin> set-hazelcast-configuration --enabled=true --hostawarepartitioning=true
 *Aim*::
 Creates a new Payara Server instance with Hazelcast and the persistence types.
 
+[[command-options-1]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -197,6 +206,7 @@ persistence.|_True_|No
 
 |====
 
+[[example-1]]
 === Example
 
 [source, shell]
@@ -204,7 +214,10 @@ persistence.|_True_|No
 asadmin> create-hazelcast-instance --webpersistence=false --lite instance2
 ----
 
+[[get-hazelcast-configuration]]
 == `get-hazelcast-configuration`
+
+_Since Payara Server 4.1.151_
 
 *Aim*::
 Return the current Hazelcast configuration.
@@ -212,6 +225,7 @@ Return the current Hazelcast configuration.
 *Usage*::
 `asadmin> get-hazelcast-configuration`
 
+[[command-options-2]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -223,6 +237,7 @@ Return the current Hazelcast configuration.
 `-?`||Displays the help menu|_fal
 |====
 
+[[example-2]]
 === Example
 
 [source, shell]
@@ -232,7 +247,10 @@ Configuration File    Enabled  Start Port  MulticastGroup  MulticastPort  JNDINa
 hazelcast-config.xml  true     5900        224.2.2.3       54327          payara/Hazelcast    false        clustername   password          XXXX-XXXX-XXXX-XXXX  false
 ----
 
+[[list-hazelcast-cluster-members]]
 == `list-hazelcast-cluster-members`
+
+_Since Payara Server 4.1.1.164_
 
 *Aim*::
 List the current members of the DAS' Hazelcast cluster in a formatted table, with
@@ -241,6 +259,7 @@ extra properties.
 *Usage*::
 `asadmin> list-hazelcast-cluster-members`
 
+[[command-options-3]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -251,6 +270,7 @@ extra properties.
 `-?`||Displays the help menu|_false_
 |====
 
+[[example-3]]
 === Example
 
 [source, shell]
@@ -260,7 +280,10 @@ Instance Name  Instance Group  Instance Type  Host Name  HTTP Ports  HTTPS Ports
 server         server-config   DAS            127.0.1.1  8080        8181         4848        5901            false        __admingui
 ----
 
+[[list-hazelcast-members]]
 == `list-hazelcast-members`
+
+_Since Payara Server 4.1.151_
 
 *Aim*::
 List the hazelcast members as a targetable array.
@@ -268,6 +291,7 @@ List the hazelcast members as a targetable array.
 *Usage*::
 `asadmin> list-hazelcast-members`
 
+[[command-options-4]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -279,6 +303,7 @@ cluster.|`server`|No
 `-?`||Displays the help menu|_false_
 |====
 
+[[example-4]]
 === Example
 
 [source, shell]
@@ -287,7 +312,10 @@ asadmin> list-hazelcast-members
 \{ server-/127.0.1.1:5901-this \}
 ----
 
+[[restart-hazelcast]]
 == `restart-hazelcast`
+
+_Since Payara Server 4.1.151_
 
 *Aim*::
 Restarts Hazelcast for the target.
@@ -295,6 +323,7 @@ Restarts Hazelcast for the target.
 *Usage*::
 `asadmin> restart-hazelcast --target <instance-name>`
 
+[[command-options-5]]
 === Command Options
 
 [cols=(,,,,),options="header"]
@@ -306,6 +335,7 @@ cluster.|`server`|No
 `-?`||Displays the help menu|_false_
 |====
 
+[[example-5]]
 === Example
 
 [source, shell]
@@ -314,3 +344,50 @@ asadmin> restart-hazelcast --target instance-name
 instance-name:
 Hazelcast Restarted
 ----
+
+[[list-cache-keys]]
+== `list-cache-keys`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Lists all keys in a cache. If no cache is specified, keys from all caches will
+be returned.
+
+*Usage*::
+`asadmin> list-cache-keys`
+
+[[command-options-6]]
+=== Command Options
+
+[cols=(,,,,),options="header"]
+|====
+|Option|Type|Description|Default|Mandatory
+| name
+| String
+| Name of the cache to query
+|
+| No
+|====
+
+[[list-caches]]
+== `list-caches`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Lists the Hazelcast distributed caches in the cluster
+
+*Usage*::
+`asadmin list-caches`
+
+[[clear-cache]]
+== `clear-cache`
+
+_Since Payara Server 4.1.1.154_
+
+*Aim*::
+Clears a Hazelcast or JCache IMap
+
+*Usage*::
+`asadmin> clear-cache <cacheName>`

@@ -10,11 +10,11 @@ there are a few extra steps to complete first.
 Since we need to show the MBeans available, we will use VisualVM for this
 guide. This is available in the Oracle JDK as `jvisualvm`, or as a separate
 link:http://visualvm.github.io/download.html[download from visualvm.github.io].
-To view MBeans, the link:http://visualvm.github.io/plugins.html[_MBeans Browser_
-plugin] will need to be installed.
+To view MBeans, the link:http://visualvm.github.io/plugins.html[_MBeans Browser_ plugin]
+will need to be installed.
 
 With Payara Server started, VisualVM will detect the running Payara Server as an
-instance of GlassFish (provided both Payara Server and VisualVM are started as 
+instance of GlassFish (provided both Payara Server and VisualVM are started as
 the same user):
 
 image:/images/guides/monitoring/visual-vm1.png[Payara Server in VisualVM]
@@ -23,10 +23,10 @@ NOTE: This automatic detection of Payara Server uses `jstatd` to connect to the
 target JVM. MBeans are still accessible here, but this is not using JMX. A later
 guide will cover the details of connecting via a JMX port.
 
-
-=== Boot AMX
+[[boot-amx]]
+== Boot AMX
 JMX MBeans in Payara Server are exposed under `amx` to differentiate them from
-other JVM MBeans, such as those under `java.lang` which expose things like 
+other JVM MBeans, such as those under `java.lang` which expose things like
 garbage collection information.
 
 To view the MBeans from Payara Server as well as the JVM, we must execute a JMX
@@ -46,40 +46,41 @@ Expanding this directory will show a very large list of subfolders with
 useful-looking names. A closer look at these will show that the information
 in each of the MBeans is only _configuration_ information, not _metrics_. This
 is because we haven't enabled Payara Server's monitoring system, so no metrics
-are being gathered. This is our next step. 
+are being gathered. This is our next step.
 
-=== Enable Monitoring in Payara Server
-To make sure that we get all the monitoring data that Payara Server provides, 
+[[enable-monitoring-payara-server]]
+== Enable Monitoring in Payara Server
+To make sure that we get all the monitoring data that Payara Server provides,
 we will turn each module's monitoring level to `HIGH`, giving us the highest
 possible amount of data.
 
-==== Via the Admin Console
+[[via-the-admin-console]]
+=== Via the Admin Console
 Open the Admin Console and select "Monitoring Data" in the left-hand "Tree"
 pane. This is where monitoring data can be viewed in the admin console, though
 this will be raw data. Since we have not yet enabled monitoring, click the
 "Configure Monitoring" link for the relevant server instance. In the image below
 we only have the DAS ("`server`") to choose:
 
-image:/images/guides/monitoring/admin-console-monitoring1.png[Click the link for
-the relevant instance]
+image:/images/guides/monitoring/admin-console-monitoring1.png[Click the link for the relevant instance]
 
-That link will take you directly to the correct page for the `server-config` - 
+That link will take you directly to the correct page for the `server-config` -
 the place where we enable monitoring for the DAS as shown:
 
-image:/images/guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels
-of monitoring]
+image:/images/guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels of monitoring]
 
 Use the icon to select all available modules, change the value for the "Level"
 dropdown to `HIGH` and click "Change Level". This has not yet saved the changes,
 so we must make sure to click the "Save" button in the top left corner to make
 sure that the change is applied.
 
-==== Via the Asadmin `Set` Command
+[[via-the-asadmin-set-command]]
+=== Via the Asadmin `Set` Command
 To achieve the same goal using the `asadmin` tool, we must use the `set` command
 and the appropriate _dotted name_ for each of the modules. Below is a list of
 all the commands needed to set every module shown above to `HIGH` individually.
 
-[source]
+[source, shell]
 ----
 set configs.config.server-config.monitoring-service.module-monitoring-levels.jvm=HIGH
 set configs.config.server-config.monitoring-service.module-monitoring-levels.connector-service=HIGH
@@ -99,13 +100,14 @@ set configs.config.server-config.monitoring-service.module-monitoring-levels.orb
 set configs.config.server-config.monitoring-service.module-monitoring-levels.deployment=HIGH
 ----
 
+[[viewing-jmx-monitoring-data-visualvm]]
 === Viewing JMX Monitoring Data with VisualVM
-No further action needs to be taken to get the data from Payara Server into 
+No further action needs to be taken to get the data from Payara Server into
 VisualVM. If the MBeans Browser was already open before enabling monitoring,
-the new MBeans will have appeared already. They may be hard to spot, but they 
+the new MBeans will have appeared already. They may be hard to spot, but they
 are easy to identify; all MBeans which show monitoring data are suffixed with
-"-mon". A good example is `web-request-mon`, which will show metrics on requests
-for each module in the available Virtual Servers: 
+_"-mon"_. A good example is `web-request-mon`, which will show metrics on requests
+for each module in the available Virtual Servers:
 
 image:/images/guides/monitoring/visual-vm3.png[Web request metrics in VisualVM]
 

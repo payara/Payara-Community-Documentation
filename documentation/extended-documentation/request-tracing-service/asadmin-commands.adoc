@@ -12,8 +12,7 @@ to correctly configure the Request Tracing Service.
 
 *Aim*::
 This command can be used to set all configuration of the request
-tracing service at once. It effectively wraps the `requesttracing-configure`
-and `requesttracing-configure-notifier` commands in one.
+tracing service at once. It effectively is an alias for `requesttracing-configure`.
 
 [[command-options]]
 === Command Options
@@ -43,7 +42,7 @@ messages are removed. This field is specified in the format "%d %h %m %s" where
 
 WARNING: Starting from release _4.1.1.171_, the `--notifierEnabled` and `--notifierDynamic`
 arguments are used to enable or disable the **Log Notifier**, which is considered
-the _default_ notifier. Use the `requesttracing-configure-notifier` command to
+the _default_ notifier. Use the `requesttracing-<notifiername>-notifier-configure` commands to
 enable or disable other available notifiers.
 
 [[example]]
@@ -111,70 +110,6 @@ asadmin> requesttracing-configure
     --historicaltracestoretimeout=1d 2h 3m 30s
 ----
 
-[[requesttracing-configure-notifier]]
-== `requesttracing-configure-notifier`
-
-*Usage*::
-`asadmin> requesttracing-configure-notifier --notifierName="service-log" --notifierEnabled=true --dynamic=true`
-
-*Aim*::
-Enables or disables a notifier from which to relay tracing events.
-
-[[command-options-2]]
-=== Command Options
-
-[cols=",,,,",options="header",]
-|=======================================================================
-|Option |Type |Description |Default |Mandatory
-|`--dynamic` |Boolean |When set to true, applies the changes
-without a server/instance restart. |false|No
-|`--notifierName` |String |The name of the notifier to configure
-|`service-log` |Yes
-|`--notifierEnabled` |Boolean |Enables or disables the notifier |false
-|Yes
-|=======================================================================
-
-[[example-2]]
-=== Example
-
-In order to configure the notifier for request tracing, the `asadmin` command to
-list available notifiers should be run first:
-
-[source, shell]
-----
-asadmin> notifier-list-services
-----
-
-Which will give an output similar to the following:
-
-----
-Available Notifier Services:
-	service-jms
-	service-hipchat
-	service-snmp
-	service-cdieventbus
-	service-eventbus
-	service-email
-	service-datadog
-	service-newrelic
-	service-slack
-	service-xmpp
-	service-log
-
-Command notifier-list-services executed successfully.
-----
-
-With the following command, then we can enable the **log-notifier** for the request
-tracing service:
-
-[source, shell]
-----
-asadmin> requesttracing-configure-notifier
-    --notifierName="service-log" \
-    --notifierEnabled=true \
-    --dynamic=true
-----
-
 [[requesttracing-notifier-configure]]
 == `requesttracing-[NOTIFIER_NAME]-notifier-configure`
 
@@ -195,9 +130,6 @@ _[NOTIFIER_NAME]_ placeholder.
 |`--dynamic` |Boolean |When set to true, applies the changes
 without a server/instance restart. |false |No
 |=======================================================================
-
-NOTE: These series of commands (one for each available notifier), work as aliases
-to the `requesttracing-configure-notifier` command.
 
 [[example-4]]
 === Examples

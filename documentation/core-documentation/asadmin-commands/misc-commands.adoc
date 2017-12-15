@@ -1,0 +1,109 @@
+[[miscellaneous-commands-reference]]
+= Miscellaneous Commands
+
+This is a non-exhaustive list of asadmin commands for Payara Server.
+
+[[add-library-command]]
+== `add-library`
+
+_Since Payara Server 4.1.2.173_
+
+*Usage*::
+`asadmin> add-library <options> file`
+
+*Aim*::
+This command adds a jar library to Payara Server and loads it
+
+|===
+|Options | Type | Description | Default | Mandatory
+
+| type
+| String
+| Specifies the type of library. The supported values are `common`, `ext`, `app`. If it's of type `app` the server must be restarted to take effect.
+| common
+| No
+|===
+
+[[create-iiop-listener-command]]
+== `create-iiop-listener`
+
+*Usage*::
+`asadmin > create-iiop-listener <options> listener_id`
+
+*Aim*::
+Creates a listener for IIOP network traffic
+
+=== Command Options
+
+|===
+|Option | Type | Description | Default | Mandatory
+
+| listeneraddress
+| address
+|
+|
+| Yes
+
+| iiopport
+| Integer
+|
+| 1072
+| No
+
+| enabled
+| Boolean
+|
+| true
+| No
+
+| securityenabled
+| Boolean
+|
+| false
+| No
+
+| lazyInit
+| Boolean
+|
+| false
+| No
+
+| property
+| List
+| Colon seperated list of properties
+|
+| No
+|===
+
+[[get-domain-xml-command]]
+== `get-domain-xml`
+
+*Usage*::
+`asadmin > get-domain-xml`
+
+*Aim*::
+Gets the text of the domain.xml file. This command will only run against a local instance.
+
+
+[[list-rest-endpoints-command]]
+== `list-rest-endpoints`
+
+_Since Payara Server 4.1.2.172_
+
+*Aim*::
+Lists all the rest endpoints of an application
+
+*Usage*::
+`asadmin > list-rest-endpoints applicationName`
+
+
+[[restart-cluster-command]]
+== `restart-cluster`
+
+_Since Payara Server 4.1.1.163_
+
+*Aim*::
+Restarts all instances in a cluster. Must be run from the DAS.
+
+*Usage*::
+`asadmin > restart-cluster clusterName`

@@ -69,18 +69,18 @@ To set up Hazelcast for persistence:
 
 . Select the instance's configuration from the page tree:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-instance-config.png[Payara 4.1.2.172 Page Tree]
+image::/images/hazelcast/hazelcast-admin-console-select-instance-config.png[Page Tree]
 
 . Select _"Availability Service"_ to view the _"Availability Service"_ page:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-availability-service.png[Payara 4.1.2.172 Availability Service]
+image::/images/hazelcast/hazelcast-admin-console-select-availability-service.png[Availability Service]
 
 ==== Setting Web Persistence
 
 . Open the "Web Container Availability" tab, and select "Hazelcast" from the
 Persistence Type drop-down menu:
 +
-image::/images/hazelcast/hazelcast-admin-console-availability-enable-web-persistence.png[Payara 4.1.2.172 Web Persistence]
+image::/images/hazelcast/hazelcast-admin-console-availability-enable-web-persistence.png[Web Persistence]
 
 . Save the changes.
 
@@ -89,7 +89,7 @@ image::/images/hazelcast/hazelcast-admin-console-availability-enable-web-persist
 . Open the "EJB Container Availability" tab and select "Hazelcast" from the
 Persistence Type drop-down menu:
 +
-image::/images/hazelcast/hazelcast-admin-console-availability-enable-ejb-persistence.png[Payara 4.1.2.172 EJB Persistence]
+image::/images/hazelcast/hazelcast-admin-console-availability-enable-ejb-persistence.png[EJB Persistence]
 
 . Save the changes.
 
