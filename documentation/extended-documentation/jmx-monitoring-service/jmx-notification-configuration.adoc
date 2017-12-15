@@ -1,3 +1,4 @@
+[[jmx-notification-configuration]]
 = JMX Notification Configuration
 
 JMX Monitoring can be configured to send notifications using the
@@ -136,6 +137,7 @@ entered all values correctly, you should see a message via your chosen notifier
  with the MBeans contents:
 
 Via the logs:
+
 [source, shell]
 ----
 [2017-09-28T11:40:29.794+0100] [Payara 4.1] [INFO] [] [fish.payara.nucleus.notification.log.LogNotifierService] [tid: _ThreadID=283 _ThreadName=payara-monitoring-service(12)] [timeMillis: 1506595229794] [levelValue: 800] [[
@@ -158,6 +160,7 @@ asadmin> set-monitoring-configuration --addproperty <property>
 
 So to replicate the above properties, use the command:
 
+[source, shell]
 ----
 asadmin> set-monitoring-configuration --addproperty name activeworkcount value amx:pp=/mon/server-mon[server],type=connector-service-mon,name=jms-service/work-management description "Count all connections"
 ----
