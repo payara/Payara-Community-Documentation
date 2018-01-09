@@ -101,7 +101,7 @@
 ** link:documentation/extended-documentation/jmx-monitoring-service/jmx-monitoring-service.adoc[JMX Monitoring Service]
 *** link:documentation/extended-documentation/jmx-monitoring-service/configuration.adoc[Configuration]
 *** link:documentation/extended-documentation/jmx-monitoring-service/asadmin-commands.adoc[Asadmin Commands]
-*** link:documentation/extended-documentation/jmx-monitoring-service/jmx-notification-configuration.adoc [JMX Notification Configuration]
+*** link:documentation/extended-documentation/jmx-monitoring-service/jmx-notification-configuration.adoc[JMX Notification Configuration]
 ** link:documentation/extended-documentation/phone-home/phonehome-overview.adoc[Phone Home]
 *** link:documentation/extended-documentation/phone-home/phone-home-information.adoc[Gathered Data]
 *** link:documentation/extended-documentation/phone-home/phone-home-asadmin.adoc[Asadmin Commands]
