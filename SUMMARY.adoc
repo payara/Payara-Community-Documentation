@@ -169,7 +169,7 @@
 ** link:documentation/user-guides/upgrade-payara.adoc[Upgrade Payara Server]
 ** link:documentation/user-guides/monitoring/monitoring.adoc[Monitoring Payara Server]
 *** link:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc[Enable JMX Monitoring]
-*** link:documentation/user-guides/mbeans.adoc[MBeans]
+*** link:documentation/user-guides/monitoring/mbeans.adoc[MBeans]
 ** link:documentation/user-guides/connection-pools/connection-pools.adoc[Configure a connection pool]
 *** link:documentation/user-guides/connection-pools/sizing.adoc[Connection pool sizing]
 *** link:documentation/user-guides/connection-pools/validation.adoc[Connection validation]
