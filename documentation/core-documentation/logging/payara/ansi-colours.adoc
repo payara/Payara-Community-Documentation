@@ -1,7 +1,7 @@
 [[ansi-coloured-logs]]
 = ANSI Coloured Logging
 
-_Since version 4.2.174_
+_Since version 4.1.2.174_
 
 Payara Server now supports using ANSI colours when running in verbose mode.
 
