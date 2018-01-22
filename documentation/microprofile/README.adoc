@@ -22,6 +22,31 @@ therefore, supports all specifications of MicroProfile.
 |Specifications
 |Maven
 
+| 1.2
+|
+* JAX-RS 2.0
+* CDI 1.2
+* JSON-P 1.0
+* Micropofile Config 1.1
+* MicroProfile Fault Tolerance 1.0
+* MicroProfile Health 1.0
+* Micro Profile Json Web Token 1.0
+* MicroProfile Metrics 1.0
+* Java Servlets 3.1
+* http://microprofile.io/project/eclipse/microprofile-config[Config 1.0]
+
+| [source, xml]
+----
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile-bom</artifactId>
+    <version>1.2.0</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+----
+
+
 | 1.1
 |
 * JAX-RS 2.0
@@ -61,6 +86,9 @@ therefore, supports all specifications of MicroProfile.
 
 == Payara Support for MicroProfile
 
+Version 1.2::
+Version 1.2 of Micropfile includes fault tolerance and metrics and is 
+supported by both Payara Server and Payara Micro from release *4.1.2.181* and *5.0.181*
 Version 1.1::
 Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
 supported by both Payara Server and Payara Micro from release *4.1.2.173*
