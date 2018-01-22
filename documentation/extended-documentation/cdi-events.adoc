@@ -1,14 +1,12 @@
 [[firing-and-listening-for-remote-cdi-events]]
 = Firing and Listening for remote CDI Events
 
-_Since Payara Server (Full Edition) 4.1.1.171 & Payara Micro 4.1.153_
+_Since Payara Server 4.1.1.171 (Full Edition), 4.1.2.172 (Web Edition) & Payara Micro 4.1.153_
 
 Payara Server is able to listen to and fire CDI events across the
 Hazelcast cluster. The CDI events can be fired and listened to by
 applications on Payara Server instances as well as Payara Micro
 instances provided that they are connected to the same cluster.
-
-NOTE: This feature is not yet available in Payara Server Web Profile.
 
 [[requirements]]
 == Requirements
