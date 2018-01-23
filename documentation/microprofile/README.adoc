@@ -87,7 +87,7 @@ therefore, supports all specifications of MicroProfile.
 == Payara Support for MicroProfile
 
 Version 1.2::
-Version 1.2 of Micropfile includes fault tolerance and metrics and is 
+Version 1.2 of Microprofile includes fault tolerance and metrics and is 
 supported by both Payara Server and Payara Micro from release *4.1.2.181* and *5.0.181*
 Version 1.1::
 Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
