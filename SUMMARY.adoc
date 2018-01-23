@@ -28,6 +28,7 @@
 ** link:documentation/core-documentation/jdbc/jdbc-connection-validation.adoc[JDBC]
 ** link:documentation/core-documentation/logging/logging.adoc[Logging]
 *** link:documentation/core-documentation/logging/payara/payara-specific.adoc[Payara Logging Improvements]
+**** link:documentation/core-documentation/logging/payara/ansi-colours.adoc[ANSI Coloured Logging]
 **** link:documentation/core-documentation/logging/payara/log-compression.adoc[Compression of log files]
 **** link:documentation/core-documentation/logging/payara/multiline.adoc[Multiline Mode]
 **** link:documentation/core-documentation/logging/payara/json-formatter.adoc[JSON Log Formatter]
