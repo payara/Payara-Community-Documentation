@@ -27,13 +27,13 @@ therefore, supports all specifications of MicroProfile.
 * JAX-RS 2.0
 * CDI 1.2
 * JSON-P 1.0
-* Micropofile Config 1.1
-* MicroProfile Fault Tolerance 1.0
-* MicroProfile Health 1.0
-* Micro Profile Json Web Token 1.0
-* MicroProfile Metrics 1.0
 * Java Servlets 3.1
-* http://microprofile.io/project/eclipse/microprofile-config[Config 1.0]
+* http://microprofile.io/project/eclipse/microprofile-fault-tolerance[Fault Tolerance 1.0]
+* http://microprofile.io/project/eclipse/microprofile-health[Health 1.0]
+* http://microprofile.io/project/eclipse/microprofile-jwt-auth[Json Web Token 1.0]
+* http://microprofile.io/project/eclipse/microprofile-metrics[Metrics 1.0]
+* http://microprofile.io/project/eclipse/microprofile-config[Config 1.1]
+
 
 | [source, xml]
 ----
