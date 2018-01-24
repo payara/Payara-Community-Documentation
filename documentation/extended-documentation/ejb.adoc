@@ -142,3 +142,51 @@ tries to be overridden using the `-name` option.
 
 IMPORTANT: In the case you need to overwrite the name of the module when deploying
 the module, use the `--forceName` command option.
+
+[[persistent-ejb-timers-with-hazelcast]]
+== Persistent EJB Timers with Hazelcast
+
+_Since Payara Server 4.1.1.164_
+
+It is now possible to persist an EJB Timer to the Hazelcast cluster rather than
+to a database in Payara Server in the same way as [Payara Micro]. This means that the cluster itself will store
+the timer details, preserving it even if the original instance leaves the
+cluster.
+
+CAUTION: This feature has not yet been added to the Admin Console or the
+asadamin commands. To persist an EJB Timer to the Hazelcast cluster, you will
+need to edit the domain.xml. You will need to restart the server after editing,
+and ensure that you do not modify any other sections. Create a backup copy
+beforehand.
+
+Within your config (`<config name="${your config}">`), change the section:
+
+[source, xml]
+----
+<configs>
+  <config name="${your-config}">
+    ...
+    <ejb-container>
+      <ejb-timer-service></ejb-timer-service>
+    </ejb-container>
+    ...
+  </config>
+</configs>
+----
+
+to the following:
+
+[source, xml]
+----
+<configs>
+  <config name="${your-config}">
+    ...
+    <ejb-container steady-pool-size="0" max-pool-size="32" session-store="${com.sun.aas.instanceRoot}/session-store" pool-resize-quantity="8">
+      <ejb-timer-service ejb-timer-service="Hazelcast"></ejb-timer-service>
+    </ejb-container>
+    ...
+  </config>
+</configs>
+----
+
+Save your changes and restart your domain to apply them.
