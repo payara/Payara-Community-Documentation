@@ -28,11 +28,11 @@ therefore, supports all specifications of MicroProfile.
 * CDI 1.2
 * JSON-P 1.0
 * Java Servlets 3.1
-* http://microprofile.io/project/eclipse/microprofile-fault-tolerance[Fault Tolerance 1.0]
-* http://microprofile.io/project/eclipse/microprofile-health[Health 1.0]
-* http://microprofile.io/project/eclipse/microprofile-jwt-auth[Json Web Token 1.0]
-* http://microprofile.io/project/eclipse/microprofile-metrics[Metrics 1.0]
-* http://microprofile.io/project/eclipse/microprofile-config[Config 1.1]
+* https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/1.0[Fault Tolerance 1.0]
+* https://github.com/eclipse/microprofile-health/releases/tag/1.0[Health 1.0]
+* https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.0[Json Web Token 1.0]
+* https://github.com/eclipse/microprofile-metrics/releases/tag/1.0[Metrics 1.0]
+* https://github.com/eclipse/microprofile-config/releases/tag/1.1[Config 1.1]
 
 
 | [source, xml]
@@ -40,7 +40,7 @@ therefore, supports all specifications of MicroProfile.
 <dependency>
     <groupId>org.eclipse.microprofile</groupId>
     <artifactId>microprofile-bom</artifactId>
-    <version>1.2.0</version>
+    <version>1.2</version>
     <type>pom</type>
     <scope>provided</scope>
 </dependency>
@@ -87,7 +87,7 @@ therefore, supports all specifications of MicroProfile.
 == Payara Support for MicroProfile
 
 Version 1.2::
-Version 1.2 of Microprofile includes fault tolerance and metrics and is 
+Version 1.2 of Microprofile includes 4 new APIs and an update to the existing config API and is 
 supported by both Payara Server and Payara Micro from release *4.1.2.181* and *5.0.181*
 Version 1.1::
 Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
