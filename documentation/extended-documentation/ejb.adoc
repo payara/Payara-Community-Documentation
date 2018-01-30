@@ -142,3 +142,51 @@ tries to be overridden using the `-name` option.
 
 IMPORTANT: In the case you need to overwrite the name of the module when deploying
 the module, use the `--forceName` command option.
+
+[[persistent-ejb-timers-with-hazelcast]]
+== Persistent EJB Timers with Hazelcast
+
+_Since Payara Server 4.1.1.164_
+
+It is possible to persist an EJB Timer to the Hazelcast cluster rather than
+to a database. The same feature is available in link::/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
+
+Persisting an EJB Timer to the Hazelcast cluster means that the cluster itself
+will store the timer details, preserving it even if the original instance
+leaves the cluster.
+
+CAUTION: This feature is tech-preview and is subject to change. Use with
+caution.
+
+To persist an EJB Timer to the Hazelcast cluster, you will need to set the
+`ejb-timer-service` from asadmin. To get the current state, run the following
+command:
+
+[source, bash]
+----
+asadmin> get configs.config.${your-config}.ejb-container.ejb-timer-service
+----
+
+This will return the current state from the domain.xml, which by default should
+be something similar to the following:
+
+[source, bash]
+----
+asadmin> get configs.config.server-config.ejb-container.ejb-timer-service
+configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Distributed
+configs.config.server-config.ejb-container.ejb-timer-service.max-redeliveries=1
+configs.config.server-config.ejb-container.ejb-timer-service.minimum-delivery-interval-in-millis=1000
+configs.config.server-config.ejb-container.ejb-timer-service.redelivery-interval-internal-in-millis=5000
+Command get executed successfully.
+----
+
+To persist to the Hazelcast cluster you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service`
+to `Hazelcast`. To do this, run the following `set` command:
+
+[source, bash]
+----
+asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Hazelcast
+----
+
+`set` commands are not dynamic. You will need to restart your domain to apply
+the changes.
