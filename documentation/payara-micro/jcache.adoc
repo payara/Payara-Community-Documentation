@@ -2,5 +2,5 @@
 = JCache in Payara Micro
 
 Both Payara Micro and Payara MicroProfile provide JCache functionality.
-All the documentation for using link:/documentation/extended-documentation/jcache/jcache.adoc[JCache in Payara Server]
+All the documentation for using link:/documentation/payara-server/jcache/jcache.adoc[JCache in Payara Server]
 applies for both Payara Micro and MicroProfile.
