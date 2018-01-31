@@ -18,7 +18,7 @@
 [[technical-documentation]]
 == Technical Documentation
 
-* link:documentation/payara-server/core-documentation.adoc[Core Documentation]
+* link:documentation/payara-server/payara-server.adoc[Payara Server Documentation]
 ** link:documentation/payara-server/server-configuration/README.adoc[Server Configuration]
 *** link:documentation/payara-server/server-configuration/var-substitution/README.adoc[Variables in the configuration]
 **** link:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Variable types]
@@ -44,7 +44,6 @@
 *** link:documentation/payara-server/rest-api/resources.adoc[Resources]
 *** link:documentation/payara-server/rest-api/definitions.adoc[Definitions]
 ** link:documentation/payara-server/javamail.adoc[JavaMail]
-* link:documentation/payara-server/extended-documentation.adoc[Extended Documentation]
 ** link:documentation/payara-server/admin-console/admin-console.adoc[Admin Console Enhancements]
 *** link:documentation/payara-server/admin-console/asadmin-recorder.adoc[Asadmin Recorder]
 *** link:documentation/payara-server/admin-console/environment-warning.adoc[Environment Warning]
