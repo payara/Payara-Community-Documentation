@@ -5,15 +5,15 @@
 == General Info
 
 * link:README.adoc[Introduction]
-* link:general-info/general-info.adoc[General Info]
-* link:general-info/contributing-to-payara.adoc[Contributing to Payara]
-* link:general-info/supported-platforms.adoc[Supported Platforms]
+** link:general-info/general-info.adoc[Overview]
+** link:release-notes/release-notes.adoc[Release Notes]
+*** link:release-notes/release-notes-174.adoc[Payara Server 4.1.2.174 Release Notes]
+** link:security/security.adoc[Security]
+*** link:security/security-fix-list.adoc[Security Fixes Summary]
+** link:general-info/supported-platforms.adoc[Supported Platforms]
 * link:getting-started/getting-started.adoc[Getting Started]
-* link:build-instructions/build-instructions.adoc[Build Instructions]
-* link:security/security.adoc[Security]
-** link:security/security-fix-list.adoc[Security Fixes Summary]
-* link:release-notes/release-notes.adoc[Release Notes]
-** link:release-notes/release-notes-174.adoc[Payara Server 4.1.2.174 Release Notes]
+** link:build-instructions/build-instructions.adoc[Build Instructions]
+** link:general-info/contributing-to-payara.adoc[Contributing to Payara]
 
 [[technical-documentation]]
 == Technical Documentation
@@ -163,7 +163,19 @@
 **** link:documentation/payara-micro/appendices/javadoc.adoc[Javadoc]
 * link:documentation/microprofile/README.adoc[MicroProfile]
 ** link:documentation/microprofile/config.adoc[Config API]
-* link:documentation/user-guides/user-guides.adoc[User Guides]
+* link:documentation/ecosystem/ecosystem.adoc[Ecosystem]
+** link:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]
+** link:documentation/ecosystem/netbeans-plugin.adoc[Payara NetBeans Plugin]
+** link:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc[Cloud Connectors]
+*** link:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
+*** link:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
+*** link:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
+*** link:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
+
+[[user-guides]]
+== User guides
+
+* link:documentation/user-guides/user-guides.adoc[User Guides Overview]
 ** link:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
 ** link:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]
 ** link:documentation/user-guides/upgrade-payara.adoc[Upgrade Payara Server]
@@ -175,14 +187,7 @@
 *** link:documentation/user-guides/connection-pools/validation.adoc[Connection validation]
 *** link:documentation/user-guides/connection-pools/leak-detection.adoc[Statement and Connection Leak Detection]
 ** link:documentation/user-guides/bypassing-jms-connections-through-a-firewall.adoc[Bypassing JMS Connections through a Firewall]
-* link:documentation/ecosystem/ecosystem.adoc[Ecosystem]
-** link:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]
-** link:documentation/ecosystem/netbeans-plugin.adoc[Payara NetBeans Plugin]
-** link:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc[Cloud Connectors]
-*** link:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
-*** link:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
-*** link:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
-*** link:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
+
 
 
 [[appendices]]
