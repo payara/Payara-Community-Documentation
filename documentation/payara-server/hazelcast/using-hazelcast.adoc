@@ -37,7 +37,7 @@ dependencies section:
 ----
 
 The Hazelcast JAR (for non-Maven projects), can either be downloaded
-from the link::http://hazelcast.org/download/[Hazelcast website], or you can
+from the http://hazelcast.org/download/[Hazelcast website], or you can
 make use of the JAR packaged with Payara. The JAR packaged with Payara
 can be found at _<Payara Installation Directory>/glassfish/modules/hazelcast.jar_.
 
