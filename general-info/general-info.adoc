@@ -1,13 +1,12 @@
 [[overview]]
-= Overview
+= Documentation Overview
 
 This page provides some general information about the Payara Project.
 
 [[release-strategy]]
 == Release Strategy
 
-Payara has a release every quarter. Each release incorporates fixes and
-enhancements from the Payara team, GlassFish upstream, and the community.
+Payara project has a public release every quarter. Each release incorporates fixes and enhancements from the Payara team, GlassFish upstream, and the community.
 
 [[naming-strategy]]
 == Naming Strategy

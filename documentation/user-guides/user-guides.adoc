@@ -1,5 +1,5 @@
 [[user-guides]]
-= User Guides
+= User Guides Overview
 
 These pages are intended to answer common questions and provide more practical
 documentation on how to work with Payara Server and Payara Micro.

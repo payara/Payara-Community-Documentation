@@ -9,5 +9,5 @@ Hazelcast cluster configuration as configured in your Payara Server (e.g. multic
 
 When Payara Server DAS is connected to the same Hazelcast cluster, the Admin
 console can display the details about Payara Micro instances in the cluster.
-See link:/documentation/extended-documentation/hazelcast/cluster-members.adoc[Management of Hazelcast Cluster Members]
+See link:/documentation/payara-server/hazelcast/viewing-members.adoc[Viewing Cluster Members]
 section for details.
