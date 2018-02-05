@@ -18,7 +18,7 @@
 [[technical-documentation]]
 == Technical Documentation
 
-* link:documentation/payara-server/payara-server.adoc[Payara Server Documentation]
+* link:documentation/payara-server/README.adoc[Payara Server Documentation]
 ** link:documentation/payara-server/server-configuration/README.adoc[Server Configuration]
 *** link:documentation/payara-server/server-configuration/var-substitution/README.adoc[Variables in the configuration]
 **** link:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Variable types]
