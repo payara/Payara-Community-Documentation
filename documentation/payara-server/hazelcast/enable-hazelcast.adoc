@@ -30,7 +30,7 @@ image::/images/hazelcast/hazelcast-admin-console-enable-hazelcast.png[Payara Ser
 The `set-hazelcast-configuration` asadmin command requires you to
 specify whether or not Hazelcast is enabled each time you run it. This
 command is also used to configure Hazelcast, which is covered
-link:/documentation/payara-server/hazelcast/configuring-hazelcast-using-asadmin[in the configuration section].
+link:/documentation/payara-server/hazelcast/configuration.adoc#configuring-hazelcast-using-asadmin[in the configuration section].
 The command requires the Admin Server to be running, and will expect it to be listening
 on port **4848** unless specified differently with the asadmin utility `--port` option.
 

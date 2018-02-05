@@ -1,7 +1,7 @@
 [[viewing-hazelcast-members]]
-= Viewing Hazelcast clusters
+= Viewing Cluster Members
 
-This section details how to visualize the members of a Hazelcast clusters on
+This section details how to visualize the members of a Hazelcast cluster on
 Payara Server.
 
 [[viewing-cluster-members-admin-console]]
