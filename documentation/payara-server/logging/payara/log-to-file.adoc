@@ -12,7 +12,7 @@ is running in cloud environment where disk space is scarce.
 [[using-web-admin-console]]
 == Using the Admin Console
 
-To configure 'Log to File' option using Admin Console:
+To configure `Log to File` option using Admin Console:
 
 image:/images/logging/log_to_file.png[Log to File enabled]
 
