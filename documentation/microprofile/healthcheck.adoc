@@ -1,0 +1,30 @@
+= Eclipse MicroProfile Healthchecks API
+
+== Background
+The Health Check API was created to allow easier probing of the state of 
+computing nodes with a cloud infrastructure environment.
+
+A full overview for the reasoning behind the API can be found in
+https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the
+README for the source code repository.]
+
+https://github.com/eclipse/microprofile-health/releases/tag/1.0[
+The complete specification] is maintained in the same repository
+
+
+== REST Endpoint
+The MicroProfile Healthchecks API defines that a REST endpoint be available from 
+the root context at '/health', and that upon invocation all registered health 
+checks are performed and the results aggregated.
+
+The '/health' endpoint is available under each HTTP(S) listener for a Payara Server
+or Payara Micro instance, which by default is:
+
+* Payara Server:
+    - http://localhost:4848/health
+    - http://localhost:8080/health
+    - https://localhost:8181/health
+* Payara Micro:
+   - http://localhost:8080/health
+   
+*This endpoint is not available until an application has been deployed.*
