@@ -1,0 +1,62 @@
+[[payara-notification-logging]]
+= Payara Notification Logging service
+-------
+
+Payara Notification Logging Service captures information about events which come 
+from other services, such as the JMX Monitoring Service, the HealthCheck service 
+or the Request Tracing service and stores it into a log file.
+
+All the generated logs are stored in _server.log_ by default. _Since Payara 
+Server 4.1.1.163_ it is possible to configure the Log Notifier to output to a 
+separate log file.  more details on Payara Server More information on Log 
+Notifier can be found on the 
+link:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
+
+If Log Notifier is configured to use a separate log file. The default log file 
+can found at:
+
+[cols=",",options="header",]
+|==========================================================
+|Log File Name and Location
+|`domain-dir/logs/notification.log`
+|==========================================================
+
+Payara Notification Logging Service uses its own collection of logging 
+properties that is stored in a configuration file. By default logging properties 
+file can be found at:
+
+[cols=",",options="header",]
+|==========================================================
+|Logging Properties File Name and Location
+|`domain-dir/config/logging.log`
+|==========================================================
+
+[[configuring-the-payara-notification-logging-service]]
+== Configuring the Payara Notification Logging Service
+
+This section will go through following topics:
+*link:payara-notification-logging.adoc#enabling-or-disabling-logging-to-a-file[Enabling or Disabling Logging to a File]
+
+[[enabling-or-disabling-logging-to-a-file]]
+===Enabling or Disabling Logging to a File
+
+[[configuring-log-file-rotation]]
+===Configuring Log File Rotation
+
+[[rotation-on-date-change]]
+====Rotation on Date Change
+
+[[rotation-on-file-size]]
+====Rotation on File Size
+
+[[rotation-on-time-limit]]
+====Rotation on Time Limit
+
+[[to-set-maximum-number-of-history-files]]
+===To Set Maximum Number of History Files
+
+[[to-change-the-name-and-location-of-the-log-file]]
+===To change the Name and Location of the Log File
+
+[[to-set-compress-on-rotation]]
+===To Set Compress on Rotation
