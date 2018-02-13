@@ -2,6 +2,8 @@
 
 _Since *4.1.2.181*; *5.181*&nbsp;_
 
+Provided version of the API: {{ book.mp-metrics-spec-url }}[MicroProfile Metrics {{ book.mp-metrics-version }}]
+
 == Background
 The Metrics API was designed to provide monitoring support for applications as well as the underlying runtime. This is considered separate to ***health checks*** which are concerned with a binary status of "healthy" or "unhealthy". In design, the Metrics API has borrowed heavily from DropWizard Metrics, so many of the concepts in the API will be familiar.
 
