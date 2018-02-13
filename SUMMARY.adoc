@@ -164,6 +164,8 @@
 * link:documentation/microprofile/README.adoc[MicroProfile]
 ** link:documentation/microprofile/config.adoc[Config API]
 ** link:documentation/microprofile/metrics.adoc[Metrics API]
+** link:documentation/microprofile/healthcheck.adoc[Health Check API]
+** link:documentation/microprofile/faulttolerance.adoc[Fault Tolerance API]
 * link:documentation/ecosystem/ecosystem.adoc[Ecosystem]
 ** link:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]
 ** link:documentation/ecosystem/netbeans-plugin.adoc[Payara NetBeans Plugin]
