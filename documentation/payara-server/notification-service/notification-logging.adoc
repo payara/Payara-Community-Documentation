@@ -1,7 +1,11 @@
-[[payara-notification-logging]]
-= Payara Notification Logging service
+[[notification-logging]]
+= Notification Logging Service
 
 _Since version 4.1.2.181_
+
+WARNING: This feature is released in *_technical preview_*. It's fully usable 
+and supported but it's subject to change in future versions. Read more in 
+link:general-info/technical-preview.adoc[Features in Technical Preview].
 
 Payara Notification Logging Service captures information about events which come 
 from other services, such as the JMX Monitoring Service, the HealthCheck service 
@@ -12,8 +16,8 @@ Server 4.1.1.163_ it is possible to configure the Log Notifier to output to a
 separate log file. More information on Log Notifier can be found on the 
 link:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
 
-If Log Notifier is configured to use a separate log file. The default log file 
-can found at:
+If Log Notifier is configured to use a separate log file, the default log file 
+can be found at:
 
 [cols=1,options="header"]
 |==========================================================
@@ -51,11 +55,10 @@ for it to apply.
 [[enabling-or-disabling-logging-to-a-file]]
 === Enabling or Disabling Logging to a File
 
-Similar to `Log to Console` option available in both GlassFish 4.0 Open Source 
-Edition and Payara Server. `Log to File` option will provide a way to enable 
-and disable logging to a file in Payara Server. When disabled this should help 
-to minimize disk usage. This option will be more accommodating if Payara server 
-is running in cloud environment where disk space is scarce. 
+`Log to File` option will provide a way to enable and disable logging to a file 
+of Payara Server Notifications. When disabled this should help to minimize disk 
+usage. This option will be more accommodating if Payara server is running in 
+cloud environment where disk space is scarce. 
 
 [[using-web-admin-console]]
 ==== Using the Admin Console
@@ -80,8 +83,8 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 By default log rotation is set to rotate when the log file reaches 2 
 Megabytes(MB). Nonetheless, there are number of ways log rotation can be 
 configured. Size of file at which the log rotates can be changed, it can be set 
-to rotate at date change, rotate when time limit is reached and final based on 
-maximum number of history files. Further details on these options will be 
+to rotate at date change, rotate when time limit is reached and, finally based on 
+maximum number of history files. Further details about these options will be 
 explained in the following section:
 
 * link:payara-notification-logging.adoc#rotation-on-date-change[Rotation on Date Change]
@@ -164,7 +167,7 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 [[to-set-maximum-number-of-history-files]]
 === To Set Maximum Number of History Files
 
-`Maxuim History Files` option provides a way to set the limit on the number of 
+`Maximum History Files` option provides a way to set the limit on the number of 
 log files that can be created by Payara Server. Once the number of files 
 reaches the set limit, oldest rotated log file is deleted. If the value for 
 this option is set 0, all the rotated log files are preserved. 
@@ -172,9 +175,9 @@ this option is set 0, all the rotated log files are preserved.
 [[using-web-admin-console]]
 ==== Using the Admin Console
 
-To configure `Maxuim History File` option using Admin Console:
+To configure `Maximum History File` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_set_maximum_number_of_history_files.png[Maxuim History File]
+image:/images/notification-service/logging/payara_notification_set_maximum_number_of_history_files.png[Maximum History File]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command

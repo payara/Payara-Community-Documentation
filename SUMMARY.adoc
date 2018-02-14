@@ -80,7 +80,7 @@
 **** link:documentation/payara-server/health-check-service/config/special-config.adoc[Special Checkers]
 ** link:documentation/payara-server/notification-service/notification-service.adoc[Notification Service]
 *** link:documentation/payara-server/notification-service/asadmin-commands.adoc[Asadmin Commands]
-*** link:documentation/payara-server/notification-service/payara-notification-logging.adoc[Payara Notification Logging service]
+*** link:documentation/payara-server/notification-service/notification-logging.adoc[Notification Logging]
 *** link:documentation/payara-server/notification-service/notifiers.adoc[Notifiers]
 **** link:documentation/payara-server/notification-service/notifiers/hipchat-notifier.adoc[Hipchat Notifier]
 **** link:documentation/payara-server/notification-service/notifiers/slack-notifier.adoc[Slack Notifier]
