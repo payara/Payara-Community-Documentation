@@ -29,6 +29,7 @@
 ** link:documentation/payara-server/logging/logging.adoc[Logging]
 *** link:documentation/payara-server/logging/ansi-colours.adoc[ANSI Coloured Logging]
 *** link:documentation/payara-server/logging/log-compression.adoc[Compression of log files]
+*** link:documentation/payara-server/logging/log-to-file.adoc[Log To File]
 *** link:documentation/payara-server/logging/multiline.adoc[Multiline Mode]
 *** link:documentation/payara-server/logging/json-formatter.adoc[JSON Log Formatter]
 ** link:documentation/payara-server/password-aliases/password-aliases-overview.adoc[Password Aliases Overview]
