@@ -7,10 +7,9 @@ Payara Notification Logging Service captures information about events which come
 from other services, such as the JMX Monitoring Service, the HealthCheck service 
 or the Request Tracing service and stores it into a log file.
 
-All the generated logs are stored in _server.log_ by default. _Since Payara 
+All the generated logs are stored in _server.log_ by default. But, _since Payara 
 Server 4.1.1.163_ it is possible to configure the Log Notifier to output to a 
-separate log file.  more details on Payara Server More information on Log 
-Notifier can be found on the 
+separate log file. More information on Log Notifier can be found on the 
 link:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
 
 If Log Notifier is configured to use a separate log file. The default log file 
@@ -29,7 +28,7 @@ file can be found at:
 [cols=1,options="header"]
 |==========================================================
 |Logging Properties File Name and Location
-|`domain-dir/config/logging.log`
+|`domain-dir/config/logging.properties`
 |==========================================================
 
 [[configuring-the-payara-notification-logging-service]]
@@ -148,9 +147,9 @@ rotation time limit interval.
 [[using-web-admin-console]]
 ==== Using the Admin Console
 
-To configure File Roatation Time Limit` option using Admin Console:
+To configure `File Roatation Time Limit` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_rotation_on_time_limit.pngFile Roatation Time Limit]
+image:/images/notification-service/logging/payara_notification_rotation_on_time_limit.png[File Roatation Time Limit]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -231,5 +230,5 @@ rotation:
 
 [source, shell]
 ----
-asadmin> set-log-attributes fish.payara.enterprise.server.logging.compressOnRotation.file=true
+asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotificationFileHandler.compressOnRotation=true
 ----
