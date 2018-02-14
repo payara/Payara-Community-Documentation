@@ -17,7 +17,7 @@ an instance is as follows:
 
 [source, shell]
 ----
-java -jar payara-micro.jar _--option1_ _--option2_ ...
+java -jar payara-micro.jar --option1 --option2 ...
 ----
 
 [[deploying-an-application-package]]
