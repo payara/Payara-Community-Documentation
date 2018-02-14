@@ -143,7 +143,7 @@
 *** link:documentation/payara-micro/clustering/clustering-with-full-server.adoc[Clustering with Payara Server]
 *** link:documentation/payara-micro/clustering/lite-nodes.adoc[Lite Cluster Members]
 ** link:documentation/payara-micro/maven/maven.adoc[Maven Support]
-** link:documentation/payara-micro/port-autobinding.adoc[HTTP\\(S\\) Auto-Binding]
+** link:documentation/payara-micro/port-autobinding.adoc[HTTP(S) Auto-Binding]
 ** link:documentation/payara-micro/asadmin.adoc[Running asadmin Commands]
 *** link:documentation/payara-micro/asadmin/send-asadmin-commands.adoc[Send asadmin commands]
 *** link:documentation/payara-micro/asadmin/using-the-payara-micro-api.adoc[Using the Payara Micro API]
