@@ -11,4 +11,6 @@ Features released in technical preview usually become standard full features in 
 
 Features in technical preview have the following warning in their documentation:
 
-WARNING: This feature is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in link:general-info/technical-preview.adoc[Features in Technical Preview].
+{% set previewVersion = book.currentVersion %}
+
+{% include "/fragments/tech-preview.adoc" %}
