@@ -11,6 +11,7 @@
 ** link:security/security.adoc[Security]
 *** link:security/security-fix-list.adoc[Security Fixes Summary]
 ** link:general-info/supported-platforms.adoc[Supported Platforms]
+** link:general-info/technical-preview.adoc[Technical Preview]
 * link:getting-started/getting-started.adoc[Getting Started]
 ** link:build-instructions/build-instructions.adoc[Build Instructions]
 ** link:general-info/contributing-to-payara.adoc[Contributing to Payara]

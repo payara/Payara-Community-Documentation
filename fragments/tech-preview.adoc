@@ -1,0 +1,19 @@
+//// 
+
+A fragment to include into a feature which is in tech preview.
+Variable "previewVersion" specifies the Payara version in which the feature is in preview
+
+Include with (see general-info/technical-preview.adoc for an example usage):
+
+set previewVersion = "4.1.2.XXX"
+include "/fragments/tech-preview.adoc"
+
+If set previewVersion = book.currentVersion, the fragment will be visible for all versions.
+
+//// 
+
+{% if book.currentVersion == previewVersion %}
+
+WARNING: This feature is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in link:/general-info/technical-preview.adoc[Features in Technical Preview].
+
+{% endif %}
