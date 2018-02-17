@@ -6,11 +6,12 @@
 
 * link:README.adoc[Introduction]
 ** link:general-info/general-info.adoc[Overview]
-** link:release-notes/release-notes.adoc[Release Notes]
-*** link:release-notes/release-notes-174.adoc[Payara Server 4.1.2.174 Release Notes]
+** link:release-notes/README.adoc[Release Notes]
+*** link:release-notes/release-notes-181.adoc[Payara Server 4.1.2.181 Release Notes]
 ** link:security/security.adoc[Security]
 *** link:security/security-fix-list.adoc[Security Fixes Summary]
 ** link:general-info/supported-platforms.adoc[Supported Platforms]
+** link:general-info/technical-preview.adoc[Technical Preview]
 * link:getting-started/getting-started.adoc[Getting Started]
 ** link:build-instructions/build-instructions.adoc[Build Instructions]
 ** link:general-info/contributing-to-payara.adoc[Contributing to Payara]
@@ -80,6 +81,7 @@
 **** link:documentation/payara-server/health-check-service/config/special-config.adoc[Special Checkers]
 ** link:documentation/payara-server/notification-service/notification-service.adoc[Notification Service]
 *** link:documentation/payara-server/notification-service/asadmin-commands.adoc[Asadmin Commands]
+*** link:documentation/payara-server/notification-service/notification-logging.adoc[Notification Logging]
 *** link:documentation/payara-server/notification-service/notifiers.adoc[Notifiers]
 **** link:documentation/payara-server/notification-service/notifiers/hipchat-notifier.adoc[Hipchat Notifier]
 **** link:documentation/payara-server/notification-service/notifiers/slack-notifier.adoc[Slack Notifier]
@@ -130,6 +132,7 @@
 **** link:documentation/payara-micro/deploying/deploy-program-after-bootstrap.adoc[To a Bootstrapped Instance]
 **** link:documentation/payara-micro/deploying/deploy-program-asadmin.adoc[Using an asadmin Command]
 **** link:documentation/payara-micro/deploying/deploy-program-maven.adoc[From a Maven Repository]
+*** link:documentation/payara-micro/deploying/deploy-postboot-output.adoc[Post Boot Output]
 ** link:documentation/payara-micro/configuring/configuring.adoc[Configuring an Instance]
 *** link:documentation/payara-micro/configuring/config-cmd-line.adoc[From the Command Line]
 *** link:documentation/payara-micro/configuring/config-program.adoc[Programmatically]
@@ -157,6 +160,7 @@
 ** link:documentation/payara-micro/persistent-ejb-timers.adoc[Persistent EJB timers]
 ** link:documentation/payara-micro/appendices/appendices.adoc[Payara Micro Appendices]
 *** link:documentation/payara-micro/appendices/cmd-line-opts.adoc[Command Line Options]
+*** link:documentation/payara-micro/appendices/payara-micro-jar-structure.adoc[JAR Structure]
 *** link:documentation/payara-micro/appendices/micro-api.adoc[Payara Micro API]
 **** link:documentation/payara-micro/appendices/config-methods.adoc[Configuration Methods]
 **** link:documentation/payara-micro/appendices/operation-methods.adoc[Operation Methods]
@@ -188,6 +192,7 @@
 *** link:documentation/user-guides/connection-pools/validation.adoc[Connection validation]
 *** link:documentation/user-guides/connection-pools/leak-detection.adoc[Statement and Connection Leak Detection]
 ** link:documentation/user-guides/bypassing-jms-connections-through-a-firewall.adoc[Bypassing JMS Connections through a Firewall]
+** link:documentation/user-guides/mdb-in-payara-micro.adoc[Using Payara Micro as a JMS Client]
 
 
 
@@ -195,6 +200,7 @@
 == Appendices
 
 * link:release-notes/release-notes-history.adoc[History of Release Notes]
+** link:release-notes/release-notes-181.adoc[Payara Server 4.1.2.181 Release Notes]
 ** link:release-notes/release-notes-174.adoc[Payara Server 4.1.2.174 Release Notes]
 ** link:release-notes/release-notes-173.adoc[Payara Server 4.1.2.173 Release Notes]
 ** link:release-notes/release-notes-172.adoc[Payara Server 4.1.2.172 Release Notes]
