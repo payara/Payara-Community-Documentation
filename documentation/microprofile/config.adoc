@@ -130,6 +130,7 @@ you can use in your application to find information about the Payara runtime env
 |`payara.instance.https.enabled`
 |Whether the https listener is enabled
 
+|===
 
 == Asadmin Commands
 
