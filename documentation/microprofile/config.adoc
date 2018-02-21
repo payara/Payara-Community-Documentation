@@ -27,6 +27,13 @@ supported ConfigSources:
 |Ordinal
 |Description
 
+|`secrets directory`
+|90
+|Reads configuration properties from files in a specified directory. Each file name 
+is the confguration property name and the contents of the file are the config property
+value. This config source can be used to read https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod[Kubernetes secrets files].
+See below on how to specify the directory to be used for secrets files using asadmin.
+
 |`domain`
 |110
 |Retrieves and stores config values in the domain.xml as key values. These will
@@ -67,6 +74,8 @@ the dotted name path in the JNDI tree and the value being stored in the JNDI tre
 These are modifiable by current admin console functionality.
 
 |===
+
+
 
 == Converters
 In addition to the standard converters specified by the API, Payara's implementation
@@ -297,6 +306,78 @@ asadmin> get-config-property
     --source=module
     --sourceName=myApplication
     --moduleName=myModule
+    --target=myAppCluster
+----
+
+==== `set-config-secrets-dir`
+
+*Usage*::
+`asadmin> set-config-secrets-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
+*Aim*::
+Sets the directory to be used for the secrets directory config source.
+
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`directory`
+|Full path to the directory containing secrets files
+|-
+|yes
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-config-secrets-dir
+    --directory=/hoe/payara/.secrets
+    --target=myAppCluster
+----
+
+==== `get-config-secrets-dir`
+
+*Usage*::
+`asadmin> get-config-secrets-dir --target=<target[default:server]>`
+*Aim*::
+Gets the value of the directory to be used for the secrets directory config source.
+
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-config-secrets-dir
     --target=myAppCluster
 ----
 
