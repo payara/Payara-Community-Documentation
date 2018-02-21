@@ -29,7 +29,11 @@ supported ConfigSources:
 
 |`secrets directory`
 |90
-|Reads configuration properties from files in a specified directory. Each file name 
+|
+{% set previewVersion = "4.1.2.181" %}
+{% include "/fragments/tech-preview.adoc" %}
+
+Reads configuration properties from files in a specified directory. Each file name 
 is the confguration property name and the contents of the file are the config property
 value. This config source can be used to read https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod[Kubernetes secrets files].
 See below on how to specify the directory to be used for secrets files using asadmin.
