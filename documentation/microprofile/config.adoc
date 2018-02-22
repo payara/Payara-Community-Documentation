@@ -243,7 +243,7 @@ Deletes the given property name in one of the built-in config sources so that th
 source is specified with `--source` and, where there is ambiguity, the `--sourceName`
 and `--moduleName` options can be used. For example, where the source is `server`,
 the `--sourceName` can be used to specify the name of the server where the config
-property is to be stored. moduleName should only be used when the `--source=module`.
+property is to be stored. `moduleName` should only be used when the `--source=module`.
 
 
 ===== Command Options
