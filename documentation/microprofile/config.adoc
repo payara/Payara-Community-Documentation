@@ -27,7 +27,7 @@ supported ConfigSources:
 |Ordinal
 |Description
 
-|`secrets directory`
+|`directory`
 |90
 |Reads configuration properties from files in a specified directory. Each file name 
 is the confguration property name and the contents of the file are the config property
@@ -314,7 +314,7 @@ asadmin> get-config-property
 *Usage*::
 `asadmin> set-config-secrets-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
 *Aim*::
-Sets the directory to be used for the secrets directory config source.
+Sets the directory to be used for the directory config source.
 
 
 ===== Command Options
@@ -327,7 +327,7 @@ Sets the directory to be used for the secrets directory config source.
 |Mandatory
 
 |`directory`
-|Full path to the directory containing secrets files
+|Full path to the directory containing configuration files
 |-
 |yes
 
@@ -344,7 +344,7 @@ Sets the directory to be used for the secrets directory config source.
 [source,Shell]
 ----
 asadmin> set-config-secrets-dir
-    --directory=/hoe/payara/.secrets
+    --directory=/home/payara/.secrets
     --target=myAppCluster
 ----
 
@@ -353,7 +353,7 @@ asadmin> set-config-secrets-dir
 *Usage*::
 `asadmin> get-config-secrets-dir --target=<target[default:server]>`
 *Aim*::
-Gets the value of the directory to be used for the secrets directory config source.
+Gets the value of the directory to be used for the directory config source.
 
 
 ===== Command Options
