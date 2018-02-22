@@ -74,7 +74,7 @@ includes out-of-the-box converters for URL and InetAddress. These have `@Priorit
 of `1`, the same as the default converters.
 
 == Payara Specific Configuration Properties
-In addition to the standard configuration properties. PayaraServer and Micro provide a number of out-of-the-box config properties
+In addition to the standard configuration properties, Payara Server and Micro provide a number of out-of-the-box config properties
 you can use in your application to find information about the Payara runtime environment.
 
 [cols="1,10", options="header"]
@@ -85,7 +85,7 @@ you can use in your application to find information about the Payara runtime env
 |`payara.instance.type`
 |The type of the runtime from `DAS`, `INSTANCE`, `EMBEDDED`, `MICRO`
 
-|`payara,instance.name`
+|`payara.instance.name`
 |The name of the instance e.g. `server`
 
 |`payara.instance.root`
