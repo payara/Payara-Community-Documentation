@@ -1,5 +1,9 @@
 = Eclipse MicroProfile Config API
 
+_Since *4.1.2.173*&nbsp;_
+
+Provided version of the API: {{ book.mpConfigSpecUrl }}[MicroProfile Config {{ book.mpConfigVersion }}]
+
 == Background
 The Config API was created to allow for the modification of application
 configuration from outside the application without needing the application to be
