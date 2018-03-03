@@ -1,4 +1,8 @@
-= Eclipse MicroProfile Healthchecks API
+= Eclipse MicroProfile Health Check API
+
+_Since *4.1.2.181*; *5.181*&nbsp;_
+
+Provided version of the API: {{ book.mpHealthSpecUrl }}[MicroProfile Health Check {{ book.mpHealthVersion }}]
 
 == Background
 The Health Check API was created to allow easier probing of the state of 
