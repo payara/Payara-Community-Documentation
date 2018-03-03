@@ -18,8 +18,8 @@ No line breaks are allowed.
 * Each _asadmin_ command must be formatted on the syntax `subcommand [options] [operands]`,
 as if you were running the commands in a multimode session from the command line.
 * Empty lines and comment lines (starting with the `#` character) are ignored.
-* Each asadmin command may contain references to environment variables or system properties as described in link:/documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
- (__Since Payara Micro 4.1.2.174)
+* Each asadmin command may contain variable references (e.g. to environment variables or system properties) as described in link:/documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
+ (__Since Payara Micro 4.1.2.174__)
 
 Here's a sample of a post boot script used to configure an instance for production uses:
 
