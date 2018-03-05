@@ -21,11 +21,11 @@
 
 * link:documentation/payara-server/README.adoc[Payara Server Documentation]
 ** link:documentation/payara-server/server-configuration/README.adoc[Server Configuration]
-** link:documentation/payara-server/deployment-groups/README.adoc[Deployment Groups]
 *** link:documentation/payara-server/server-configuration/var-substitution/README.adoc[Variables in the configuration]
 **** link:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Variable types]
 **** link:documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
 *** link:documentation/payara-server/server-configuration/virtual-servers.adoc[Virtual Servers]
+** link:documentation/payara-server/deployment-groups/README.adoc[Deployment Groups]
 ** link:documentation/payara-server/jacc.adoc[JACC]
 ** link:documentation/payara-server/jdbc/jdbc-connection-validation.adoc[JDBC]
 ** link:documentation/payara-server/logging/logging.adoc[Logging]
