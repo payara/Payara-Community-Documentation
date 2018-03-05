@@ -175,7 +175,7 @@
 ** link:documentation/ecosystem/netbeans-plugin.adoc[Payara NetBeans Plugin]
 ** link:documentation/ecosystem/arquillian-containers/README.adoc[Arquillian Containers]
 *** link:documentation/ecosystem/arquillian-containers/payara-micro.adoc[Payara Micro]
-** link:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc[Cloud Connectors]
+** link:documentation/ecosystem/cloud-connectors/README.adoc[Cloud Connectors]
 *** link:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
 *** link:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
 *** link:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]

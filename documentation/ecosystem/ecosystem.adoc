@@ -12,7 +12,7 @@ A plugin for Apache Maven is available for Payara Micro.
 link:netbeans-plugin.adoc[Payara NetBeans Plugin]::
 A plugin for using Payara is available for NetBeans.
 
-link:cloud-connectors/cloud-connectors.adoc[Cloud Connectors]::
+link:cloud-connectors/README.adoc[Cloud Connectors]::
 Cloud Connectors are a collection of JCA adapters which can interact with popular
 message brokers, including:
 * link:cloud-connectors/amazon-sqs.adoc[Amazon SQS]
