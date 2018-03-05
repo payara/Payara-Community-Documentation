@@ -20,7 +20,7 @@ message brokers, including:
 * link:cloud-connectors/azure-sb.adoc[Azure Service Bus]
 * link:cloud-connectors/mqtt.adoc[MQTT]
 
-link:arquillian-containers/arquillian-containers.adoc[Arquillian Containers]::
+link:arquillian-containers/README.adoc[Arquillian Containers]::
 Arquillian containers help perform integration tests for application servers. There are various containers available for Payara:
 * link:arquillian-containers/payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
