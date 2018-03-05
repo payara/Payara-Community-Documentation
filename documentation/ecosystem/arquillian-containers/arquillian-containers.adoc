@@ -1,13 +1,19 @@
 = Arquillian Containers
 
+{% if book.currentVersion == "5.Beta2" %}
+
+WARNING: This feature is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in link:/general-info/technical-preview.adoc[Features in Technical Preview].
+
+{% endif %}
+
 The Payara Arquillian containers provide various Arquillian containers for integration testing with Payara.
 
-In {{ book.currentVersion }}, there are containers available for the following distributions:
+In version {{ book.currentVersion }}, there are containers available for the following distributions:
 
 * link:payara-micro.adoc[Payara Micro]
-* Payara Embedded (undocumented)
-* Payara Remote (undocumented)
-* Payara Managed (undocumented)
+* Payara Embedded (not yet documented)
+* Payara Remote (not yet documented)
+* Payara Managed (not yet documented)
 
 === Obtaining the Containers
 

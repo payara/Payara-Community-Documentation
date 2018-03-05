@@ -59,7 +59,7 @@ container will wait for Payara Micro to start.
 
 | `randomHttpPort`
 | Randomises the initial HTTP port of Payara Micro.
-This saves time by preventing Payara Micro rebinding its port.
+This saves time by avoiding collisions with the default port.
 | `payara.randomHttpPort`
 | `MICRO_RANDOM_HTTP_PORT`
 | `true`
