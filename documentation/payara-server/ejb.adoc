@@ -195,8 +195,8 @@ configs.config.server-config.ejb-container.ejb-timer-service.redelivery-interval
 Command get executed successfully.
 ----
 
-To persist to the Hazelcast cluster you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service`
-to `Hazelcast`. To do this, run the following `set` command:
+To persist to the DataGrid you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service`
+to `DataGrid`. To do this, run the following `set` command:
 
 [source, bash]
 ----
@@ -205,3 +205,12 @@ asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-ti
 
 `set` commands are not dynamic. You will need to restart your domain to apply
 the changes.
+
+=== Timer Migration
+EJB Timers stored in the Domain Data Grid support timer migration between Instances
+in the same Deployment Group. You can migrate timers using the Administration console from the
+Deployment Group page. Timers can also be migrated between instances using asadmin.
+----
+asadmin> migrate-timers --target server1 server2
+----
+where server1 is the active instance to migrate timers to and server2 is the failed instance.
