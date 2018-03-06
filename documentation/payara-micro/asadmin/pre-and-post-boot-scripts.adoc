@@ -19,7 +19,7 @@ No line breaks are allowed.
 as if you were running the commands in a multimode session from the command line.
 * Empty lines and comment lines (starting with the `#` character) are ignored.
 * Each asadmin command may contain variable references (e.g. to environment variables or system properties) as described in link:/documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
- (__Since Payara Micro 4.1.2.174__)
+ (_Since Payara Micro 4.1.2.174_)
 
 Here's a sample of a post boot script used to configure an instance for production uses:
 
@@ -47,11 +47,11 @@ set configs.config.server-config.network-config.protocols.protocol.http-listener
 [[configuring-boot-scripts]]
 == Configuring Boot Scripts
 
-When running a Payara Micro from the command line, use appropriate command file options to specify the script file locations and the moment in the boot lifecycle when they should be executed:
+When running Payara Micro from the command line, use appropriate command file options to specify the script file locations and the moment in the boot lifecycle when they should be executed:
 
 - `--prebootcommandfile` - provides a file of asadmin commands to run before booting the server (only some commands work at this point)
 - `--postbootcommandfile` - provides a file of asadmin commands to run after booting the server
-- `--postdeploycommandfile` - provides a file of asadmin commands to run after all deployments have completed
+- `--postdeploycommandfile` - provides a file of asadmin commands to run after all deployments have completed (_Since Payara Micro 4.1.2.172_)
 
 For example:
 
