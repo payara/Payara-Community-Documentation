@@ -144,21 +144,36 @@ IMPORTANT: In the case you need to overwrite the name of the module when deployi
 the module, use the `--forceName` command option.
 
 [[persistent-ejb-timers-with-hazelcast]]
-== Persistent EJB Timers with Hazelcast
+== Persistent EJB Timers with the Domain Data Grid
 
-_Since Payara Server 4.1.1.164_
+_Since Payara Server 5.181_
 
-It is possible to persist an EJB Timer to the Hazelcast cluster rather than
-to a database. The same feature is available in link::/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
+It is possible to persist an EJB Timer to the Domain Data Grid rather than
+to a database. The same feature is standard in link::/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
 
-Persisting an EJB Timer to the Hazelcast cluster means that the cluster itself
+Persisting an EJB Timer to the Domain Data Grid means that the Data Grid itself
 will store the timer details, preserving it even if the original instance
 leaves the cluster.
+
+NOTE: All stored timers are lost if the whole domain is stopped.
 
 CAUTION: This feature is tech-preview and is subject to change. Use with
 caution.
 
-To persist an EJB Timer to the Hazelcast cluster, you will need to set the
+The Persistence service for EJB Timers can be set in the administration console
+by navigating to the EJB Timer Service tab in the EJB Container node of a configuration.
+To use the Data Grid to store EJB Timers set the Persistence Service to Data grained
+
+image:/images/ejb/set-ejb-timer-persistence.png[Set EJB Persistence to Data Grid]
+
+EJB Timers will be coordinated across a single deployment group and if an instance of
+the deployment group is stopped another instance in the same deployment group will
+take ownership of the timer and ensure it is fired.
+
+CAUTION: Clustered Timer Firing Mode is NOT user in this version of Payara Server and
+is always "One Per Deployment Group"
+
+It is also possible to set the
 `ejb-timer-service` from asadmin. To get the current state, run the following
 command:
 
@@ -173,7 +188,7 @@ be something similar to the following:
 [source, bash]
 ----
 asadmin> get configs.config.server-config.ejb-container.ejb-timer-service
-configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Distributed
+configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Database
 configs.config.server-config.ejb-container.ejb-timer-service.max-redeliveries=1
 configs.config.server-config.ejb-container.ejb-timer-service.minimum-delivery-interval-in-millis=1000
 configs.config.server-config.ejb-container.ejb-timer-service.redelivery-interval-internal-in-millis=5000
@@ -185,7 +200,7 @@ to `Hazelcast`. To do this, run the following `set` command:
 
 [source, bash]
 ----
-asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Hazelcast
+asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=DataGrid
 ----
 
 `set` commands are not dynamic. You will need to restart your domain to apply
