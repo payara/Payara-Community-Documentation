@@ -1,0 +1,44 @@
+[[h2-database]]
+= H2 Database
+
+H2 similar to Derby is a Java based Database. H2 will be included in Payara 5 
+by default. Derby will be still included with Payara, but H2 will replace it as 
+the default Database. 
+
+== Why replace Derby
+In terms of performance Derby is one of the slowest embedded database than 
+compare to H2, PostgresSQL, HSQLDB. Another reason for replacing it is H2 also 
+has small disk footprint, size of the jar file is around 1.5 MB.
+
+=== To Start the Database
+
+To start the database run the command below:
+
+[source, shell]
+----
+asadmin> start-database
+----
+
+Above command will start H2 on the default port, which is 1527. To explicitly 
+start Derby run the command below:
+
+[source, shell]
+----
+asadmin> start-database --dbtype derby
+----
+
+=== To Stop the Database
+
+To stop the database run the command below:
+
+[source, shell]
+----
+asadmin> stop-database
+----
+
+Above command will stop H2 by default. To explicitly stop Derby run the command below:
+
+[source, shell]
+----
+asadmin> stop-database --dbtype derby
+----

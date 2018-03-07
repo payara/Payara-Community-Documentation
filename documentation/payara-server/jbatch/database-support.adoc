@@ -1,11 +1,12 @@
 [[database-support]]
 = Database Support
 
-Using MySQL, PostgreSQL, Oracle, or DB2 with JBatch
+Using H2, MySQL, PostgreSQL, Oracle, or DB2 with JBatch
 
 You can configure *JBatch* any of the following RDBMS engines in the same way that
 you would configure it to use *Derby*:
 
+* H2
 * MySQL
 * PostgreSQL
 * Oracle
@@ -21,7 +22,7 @@ On the administration console:
 on _New..._
 .. Give it a name in the _Pool Name_ field, select the resource type from
 the _Resource Type_ drop-down, and choose the _Database Driver Vendor_
-as either *DB2*, *MySQL*, *Oracle*, or *PostgreSQL* from the _Database Driver Vendor_
+as either *H2*, *DB2*, *MySQL*, *Oracle*, or *PostgreSQL* from the _Database Driver Vendor_
  menu.
 .. Set any further configuration options on the next page.
 .. Click _Finish_
