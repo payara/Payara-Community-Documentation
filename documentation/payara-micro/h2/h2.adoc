@@ -2,7 +2,8 @@
 = H2 Database
 
 In Payara Micro 5, Derby will be removed as default database and replaced with 
-H2. Similar to Derby, H2 is a Java based Database. 
+H2. Similar to Derby, H2 is a Java based Database. More info can be found 
+http://www.h2database.com/html/main.html[here]
 
 == Why remove Derby 
 In terms of performance, Derby is one of the slowest  embedded databases as  
