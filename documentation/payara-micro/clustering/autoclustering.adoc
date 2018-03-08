@@ -41,7 +41,7 @@ on the new multicast address and port.
 TIP: You can also use `--clusterName` and `--clusterPassword` to segregate clusters.
 
 [[preventing-cluster-cross-talk]]
-== Preventing Cluster Cross Talk
+=== Preventing Multicast Cluster Cross Talk
 
 By default Payara Micro clusters automatically discover other cluster members
 via multicast. This can lead to the situation whereby different development environments
@@ -122,7 +122,7 @@ range of IP Addresses is known but dynamic for example `172.17.0.2-8:6900`.
 During discovery Payara Micro will test each IP:Port combination until it finds another
 Payara Micro instance. As long as one instance exists then it will join the existing cluster.
 If no Payra Micro instances are contactable the instance will create a new cluster with itself
-as the single member. 
+as the single member.
 
 NOTE: Hazelcast is very particular about the IP address used to join a cluster.
 The IP Address should be exactly as reported by the details
