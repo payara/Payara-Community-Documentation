@@ -18,7 +18,7 @@ To start the database run the command below:
 asadmin> start-database
 ----
 
-Above command will start H2 on the default port, which is 1527. To explicitly 
+Above command will start H2 on the default port, which is 9092. To explicitly 
 start Derby run the command below:
 
 [source, shell]
