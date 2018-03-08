@@ -11,7 +11,7 @@ and dynamically, cluster together. When two instances are pointed at the same
 multicast address and port, they will automatically cluster together.
 
 You can see evidence of the automatic clustering by simply starting two instances
-(with different HTTP port configurations), and you should see the following in the
+(with different HTTP port configurations or use `--autobindhttp`), and you should see the following in the
 log output:
 
 [source, log]
@@ -60,8 +60,87 @@ if all the instances have the same cluster name and cluster password.
 [[other-forms-of-discovery]]
 == Other forms of discovery
 
-Besides the multicast discovery, Hazelcast supports other forms of discovery, e.g.
-by specifying a range of IP addresses (via the *TCP joiner*). These forms of
-discovery are not configurable directly from Payara Micro, but can be configured
-using a standard Hazelcast configuration file provided with the `--hzConfigFile`
-command line argument.
+_Since Payara Micro 5.181_
+
+With the introduction of the link:documentation/payara-server/hazelcast/concept.adoc[Domain Data Grid]
+Payara Micro now includes a number of alternative discovery modes configurable on the command line
+using the `--clustermode` command line option. The default cluster mode is multicast as described above.
+
+=== Domain Discovery Mode
+Domain Discovery Mode enables a Payara Micro instance join a Domain Data Grid managed
+by a Payara Server DAS containing Payara Server Instances. To join a Domain Data Grid
+start Payara Micro with the domain cluster mode:
+[source, shell]
+----
+java -jar payara-micro.jar --clustermode domain:192.168.0.64:4900
+----
+
+The format of the domain cluster mode is `domain:ip:port` where `ip` is the ip address
+that the Hazelcast instance is bound to in the DAS.
+
+NOTE: Hazelcast is very particular about the IP address used to join a cluster.
+The IP Address should be exactly as reported by the details
+
+When the DAS starts it will log a message like;
+[source, log]
+----
+Data Grid Status
+Payara Data Grid State: DG Version: 35 DG Size: 2
+Instances: {
+Address: /192.168.0.104:4900 UUID: 7c1bd6ca-1574-4e38-9189-effcd4ccafd2 Lite: false This: true Name: server Group: server-config
+Address: /192.168.0.104:5900 UUID: 0f6887b2-9932-4085-a6f8-e40751269023 Lite: false This: false
+}
+----
+This show the IP address and ports that can be used as input into the domain cluster mode.
+
+NOTE: If you accidentally choose 4848 the DAS admin port as the cluster port you will
+get a warning like
+[source,log]
+----
+[2018-03-08T13:51:46.446+0000] [] [WARNING] [] [fish.payara.nucleus.hazelcast.DomainDiscoveryService] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1520517106446] [levelValue: 900] You have specified 4848 as the datagrid domain port however this is the default DAS admin port, the default domain datagrid port is 4900
+----
+
+=== TCPIP Discovery Mode
+The TCPIP Discovery Mode can be used to cluster Payara Micro instances when Multicast
+is not available on the network. This is especially useful in Cloud environments or
+in containerized deployments like Docker and Kubernetes. For the TCPIP discovery mode
+you specify a comma separated list of `ip:port` adddresses where you believe other Payara Micros will be listening.
+
+For example the following command will cluster two Payara Micros together when multicast is not available.
+[source, shell]
+----
+java -jar /opt/PayaraDev/Payara/appserver/extras/payara-micro/payara-micro-distribution/tart/payara-micro.jar --autobindhttp --clustermode tcpip:192.168.0.104:6900,192.168.0.104:6901
+
+java -jar /opt/PayaraDev/Payara/appserver/extras/payara-micro/payara-micro-distribution/tart/payara-micro.jar --autobindhttp --clustermode tcpip:192.168.0.104:6900,192.168.0.104:6901
+----
+
+A range of IP addresses can be specified in the list of members for example: `192.168.1.0-7:6900`.
+This is especially useful if you have a cloud VPC and you have a nummber of Payara Micro instances
+running across a number of Cloud VMs. Using a range is also useful in Docker environments where the
+range of IP Addresses is known but dynamic for example `172.17.0.2-8:6900`.
+
+During discovery Payara Micro will test each IP:Port combination until it finds another
+Payara Micro instance. As long as one instance exists then it will join the existing cluster.
+If no Payra Micro instances are contactable the instance will create a new cluster with itself
+as the single member. 
+
+NOTE: Hazelcast is very particular about the IP address used to join a cluster.
+The IP Address should be exactly as reported by the details
+
+NOTE: TCPIP cluster mode can also be used to join a Payara Server Domain Data Grid
+by specifying the ip:port of the DAS Hazelcast instance.
+
+=== Interfaces
+
+If Hazelcast chooses the incorrect IP Address to bind to (for example a docker interface)
+the `--interfaces` command line option can be used to force Hazelcast to use the specified
+network interface for Hazelcast:
+[source, shell]
+----
+java -jar /opt/PayaraDev/Payara/appserver/extras/payara-micro/payara-micro-distribution/tart/payara-micro.jar --autobindhttp --clustermode tcpip:192.168.0.104:6900,192.168.0.104:6901 --interfaces 192.168.0.104
+----
+
+=== Advanced Discovery Modes
+Further Discovery Modes can be configured directly in a hazelcast configuration file
+passed to Payara Micro using the `--hzconfigfile` command line option. Review the
+Hazelcast documentation to configure Hazelcast using this file.
