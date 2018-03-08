@@ -67,10 +67,11 @@ The feature of Payara Micro to deploy applications from a Maven Repository using
 
 *Usage*: `asadmin> deploy-remote-archive --additionalRepositories repo1,repo2,...,repoN groupId,artefactId,versionNumber`
 
-*Examples*: 
-`asadmin> deploy-remote-archive --additionalRepositories https://google.co.uk,https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`
-`asadmin> deploy-remote-archive --additionalRepositories https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`
-`asadmin> deploy-remote-archive --target instance1 fish.payara.testing,clusterjsp,1.1`
+*Examples*:  
+
+* `asadmin> deploy-remote-archive --additionalRepositories https://google.co.uk,https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`  
+* `asadmin> deploy-remote-archive --additionalRepositories https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`  
+* `asadmin> deploy-remote-archive --target instance1 fish.payara.testing,clusterjsp,1.1`
 
 If you don't specify a name or context root for the artefact when deploying using GAV coordinates, it will just be the artefact name (in the example above, it would be clusterjsp).
 
