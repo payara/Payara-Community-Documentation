@@ -1,6 +1,6 @@
 = Arquillian Containers
 
-{% if book.currentVersion == "5.Beta2" %}
+{% if book.currentVersion == "5.181" %}
 
 WARNING: This feature is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in link:/general-info/technical-preview.adoc[Features in Technical Preview].
 
