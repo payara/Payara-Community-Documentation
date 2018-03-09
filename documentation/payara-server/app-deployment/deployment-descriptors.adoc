@@ -1,7 +1,7 @@
 [[payara-server-deployment-descriptor-files]]
 = Payara Server Deployment Descriptor Files
 
-Payara Server supports additional configuration settings by using the
+Payara Server supports additional and changed configuration settings by using the
 Glassfish Server proprietary deployment descriptor files. These configuration
 elements are the following:
 
@@ -23,6 +23,7 @@ elements are the following:
 * `whitelist-package`
 * `scanning-exclude`
 * `scanning-include`
+* `jsp-config`
 
 [[glassfish-ejb-jar.xml]]
 == _glassfish-ejb-jar.xml_
