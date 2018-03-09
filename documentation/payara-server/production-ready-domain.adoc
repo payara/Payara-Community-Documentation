@@ -1,23 +1,23 @@
 [[production-ready-domain]]
 = Production Ready Domain
 
-_Since Payara Server 4.1.153_
+_Since Payara Server 5.181_
 
 Payara Server comes with a default domain, `domain1`, which has been
 inherited from GlassFish. This domain (and its accompanying template)
-has not been modified in any way for Payara Server. The default domain is not, however,
-designed to be run in production but to be a usable example for
-development and testing purposes.
+has not been drastically modified since its inheritance, and so 
+remains a good starting point for development and testing work. 
+The default domain is not, however, designed to be run in production.
 
 Since the creation of `domain1` in GlassFish, there have been changes in
 how the server is used, along with the changes implemented by the Payara
 development team. To better highlight these changes and new features,
-the `payaradomain` was created.
+the `production` was created.
 
 [[usage]]
 == Usage
 
-`payaradomain` is located in the default directory for domains
+`production` is located in the default directory for domains
 `${PAYARA_HOME}/glassfish/domains/`, alongside `domain1`. This means it
 can be used as-is by simply naming the domain after running the
 `start-domain` subcommand and without specifying the domain directory
@@ -25,25 +25,25 @@ location:
 
 [source, shell]
 ----
-asadmin> start-domain payaradomain
+asadmin> start-domain production
 ----
 
 Alternatively, many Payara Server users completely delete existing
 domains and recreate their own domains with custom settings.
-`payaradomain` can be used here too, since the domain is also provided
+`production` can be used here too, since the domain is also provided
 as a template in the `${PAYARA_HOME}/glassfish/common/templates/gf`
 directory. You will need to specify the full path to the location of the
 template jar as follows:
 
 [source, shell]
 ----
-asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/payara-domain.jar myNewPayaraDomain
+asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/production-domain.jar myNewPayaraDomain
 ----
 
 [[differences-to-domain1]]
 == Differences to `domain1`
 
-The configuration of `payaradomain` has been made with production in
+The configuration of `production` has been made with production in
 mind, so there are a number of differences when compared to `domain1`
 which are listed below. Not all of these will be wanted for development
 environments, but all are good practice for production domains.
@@ -75,13 +75,7 @@ increased from `5` to `50`.
 
 === Differences in JVM Options
 
-With the aim of `payaradomain` being to target production, `payaradomain` has
-JVM options specifically configured for usage on JDK 8. Since JDK 7 has
-reached its end-of-life, it is therefore a security risk to run a JVM lower
-than version 8 in production. However, `payaradomain` can be configured to
-run on JDK 7 if necessary by editing the JVM options.
-
-The following JVM options only appear in `payaradomain`:
+The following JVM options only appear in `production`:
 
 * `-XX:+UseG1GC`
 * `-XX:+UseStringDeduplication`
@@ -90,7 +84,6 @@ The following JVM options only appear in `payaradomain`:
 
 The following JVM options only appear in `domain1`:
 
-* `-XX:MaxPermSize=192m`
 * `-Djavax.management.builder.initial=com.sun.enterprise.v3.admin.AppServerMBeanServerBuilder`
 * `-Xmx512m`
 * `-Dorg.glassfish.additionalOSGiBundlesToStart=org.apache.felix.shell,org.apache.felix.gogo.runtime,org.apache.felix.gogo.shell,org.apache.felix.gogo.command,org.apache.felix.shell.remote,org.apache.felix.fileinstall`
@@ -106,7 +99,7 @@ The following JVM options only appear in `domain1`:
 * `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
-The following JVM options appear in both `domain` and `payaradomain`:
+The following JVM options appear in both `domain` and `production`:
 
 * `-Djava.awt.headless=true`
 * `-Djdk.corba.allowOutputStreamSubclass=true`
