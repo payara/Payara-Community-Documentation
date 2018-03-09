@@ -1,6 +1,6 @@
 = Clustered Singleton
 
-_Since version 5.181_
+_Since versions 4.181 and 5.181_
 
 The Payara API provides an `@Clustered` annotation that makes
 `@ApplicationScoped` or `@Singleton` beans cluster-wide. This
