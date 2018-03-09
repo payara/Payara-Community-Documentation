@@ -72,7 +72,6 @@
 *** link:documentation/payara-server/hazelcast/viewing-members.adoc[Viewing Cluster Members]
 *** link:documentation/payara-server/hazelcast/using-hazelcast.adoc[Using Hazelcast in Applications]
 *** link:documentation/payara-server/hazelcast/asadmin.adoc[Hazelcast Administration Commands]
-** link:documentation/payara-server/cdi-events.adoc[Remote CDI Events]
 ** link:documentation/payara-server/health-check-service/README.adoc[HealthCheck Service]
 *** link:documentation/payara-server/health-check-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/health-check-service/config/README.adoc[Configuration]
