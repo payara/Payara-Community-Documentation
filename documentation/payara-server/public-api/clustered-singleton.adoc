@@ -1,7 +1,76 @@
 = Clustered Singleton
 
-_Since version 5.181 (Full Edition)_
+_Since version 5.181_
 
 The Payara API provides an `@Clustered` annotation that makes
 `@ApplicationScoped` or `@Singleton` beans cluster-wide. This
 allows a single bean to be shared across an entire cluster.
+
+[[requirements]]
+== Requirements
+
+Firstly, Hazelcast must be enabled on the target server.
+Secondly, The annotated class must be annotated with either
+`@ApplicationScoped` or `@Singleton`. The annotated class must
+also be Serializable.
+
+[[usage]]
+== Usage
+
+A singleton bean is made cluster-wide by annotating the class
+with the `@fish.payara.cluster.Clustered` qualifier as well as
+it's scope annotation.
+
+Alternatively, you can use the `glassfish-web.xml` to configure an EJB
+to be cluster-wide.
+
+[[usage-example]]
+=== Example
+
+[source, xml]
+----
+<glassfish-ejb-jar>
+    <enterprise-beans>
+        <ejb>
+            <ejb-name>ClusteredSingleton</ejb-name>
+            <clustered-bean>true</clustered-bean>
+            <clustered-key-name>ClusteredSingleton</clustered-key-name>
+        </ejb>
+    </enterprise-beans>
+</glassfish-ejb-jar>
+----
+
+[[configuration]]
+== Configuration
+
+The `@Clustered` annotation has several configuration options. They are detailed below.
+
+.Configuration Options
+|===
+| Option | Description | Default
+
+| keyName
+| The key in the distributed map to bind the clustered object to.
+| The name of the bean.
+
+| lock
+| The type of distributed locking to be performed.
+For EJB beans, only `INHERIT` and `LOCK_NONE` are valid.
+For CDI beans, valid values are `LOCK` and `INHERIT`, which
+is equivalent to using `NONE`.
+| `INHERIT`
+
+| callPostConstructOnAttach
+| Whether to call `@PostConstruct` each time the bean is created
+on a different node. Will result in multiple calls.
+| `true`
+
+| callPreDestroyOnDetach
+| Whether to call `@PreDestroy` when the singleton is destroyed on an
+instance while still being available on another. Will result in
+multiple calls.
+| `true`
+
+
+
+|===
