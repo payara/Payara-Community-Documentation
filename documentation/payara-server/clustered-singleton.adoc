@@ -1,0 +1,7 @@
+= Clustered Singleton
+
+_Since version 5.181 (Full Edition)_
+
+The Payara API provides an `@Clustered` annotation that makes
+`@ApplicationScoped` or `@Singleton` beans cluster-wide. This
+allows a single bean to be shared across an entire cluster.
