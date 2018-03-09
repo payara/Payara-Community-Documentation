@@ -113,7 +113,7 @@
 ** link:documentation/payara-server/production-ready-domain.adoc[Production Ready Domain]
 ** link:documentation/payara-server/classloading.adoc[Enhanced Classloading]
 ** link:documentation/payara-server/default-thread-pool-size.adoc[Default Thread Pool Size]
-** link:documentation/payara-server/app-deployment/public-api.adoc[Public API]
+** link:documentation/payara-server/public-api/README.adoc[Public API]
 ** link:documentation/payara-server/development-tools/README.adoc[Development Tools]
 *** link:documentation/payara-server/development-tools/cdi-dev-mode/README.adoc[CDI Development Mode]
 **** link:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-web-desc.adoc[Enable using web.xml]
