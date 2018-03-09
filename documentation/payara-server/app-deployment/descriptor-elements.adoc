@@ -243,6 +243,8 @@ the default configuration.
 [[jsp-config]]
 == `jsp-config`
 
+_Since Payara Server 5.181_
+
 The default value of the _compiler_ property for this element has changed from _1.5_ to _1.8_, denoting a change from JDK5 to JDK8.
 
 You can change this to another value by editing the `jsp-config` element in the `glassfish-web.xml` file.
