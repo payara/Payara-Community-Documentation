@@ -75,7 +75,7 @@ multiple calls.
 [[locking]]
 == Distributed Locking
 
-Clustered singleton beans require a locking type, to specify how the
+Clustered singleton beans allow a locking type, to specify how the
 distributed object is locked when being accessed by multiple instances.
 The lock options are members of the class
 `fish.payara.cluster.DistributedLockType`, which are as follows:
@@ -94,3 +94,13 @@ resources, but prevent synchronisation errors with the singleton data.
 
 If a member holding a lock goes offline, the lock will become
 available again.
+
+[[transactions]]
+== Transactions
+
+Transactions in a clustered singleton work the same way that they would work
+in EJB or CDI depending on which scope annotation you're using. Transactions
+are not distributed through the whole cluster. When a transaction is created
+in a thread in one JVM, it must be handled and closed in the same thread;
+it cannot be passed onto a different server instance. Once the transaction
+is closed, the changes will be replicated to the rest of the cluster.
