@@ -528,3 +528,13 @@ with a `+` at the start of each. E.g. `+TLS_RSA_WITH_AES_256_CBC_SHA,+SSL_RSA_WI
 *Asadmin Command:*
 
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.ssl3-tls-ciphers=value`
+
+---
+[[configuration-ssl-handshake-timeout]]
+==== Handshake Timeout
+
+The timeout, in millis, for a handshake. After this timeout the handshake will be aborted.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.handshake-timeout-millis=value`
