@@ -1,4 +1,4 @@
-# Network Listeners
+= Network Listeners
 
 A network listener is a listen socket that has an IP address, port number, protocol,
 as well as various other configuration options. A listener can listen on a specific
@@ -9,4 +9,103 @@ for user deployed applications: an insecure listener on port 8080 (`http-listene
 and a secure listener on port 8181 (`http-listener-2`).
 
 [[configuration]]
-## Configuration
+== Configuration
+
+Existing network listeners can be configured from the admin console or with asadmin
+commands. The network listener configurations can be found in the admin console under
+*Configurations* -> *your-config* -> *Network Config* -> *Network Listeners*.
+
+image::/images/network-listeners/left-bar-location.png[Configuration Page Location]
+
+The following fields can be configured for network listeners:
+
+---
+[[configuration-name]]
+==== Name
+
+The unique name of the network listener. This cannot be edited from the admin console.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.name=value`
+
+---
+[[configuration-protocol]]
+==== Protocol
+
+The protocol used by the network listener. This cannot be edited from the admin console.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.protocol=${protocol-name}`
+
+---
+[[configuration-status]]
+==== Status
+
+The status of the network listener. This determines whether the listener will be actively listening for requests.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.status=[true/false]`
+
+---
+[[configuration-jk-listener]]
+==== JK Enabled
+
+Whether `mod_jk` support should be enabled for this listener. Should only be enabled if `mod_jk` is being
+explicitly configured on an Apache Web Server in conjunction with Payara Server.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.jk-enabled=[true/false]`
+
+---
+[[configuration-jk-config-file]]
+==== JK Configuration File
+
+The location of the `mod_jk` configuration file. Defaults to `${com.sun.aas.instanceRoot}/config/glassfish-jk.properties`.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.jk-configuration-file=/location/to/file`
+
+---
+[[configuration-port]]
+==== Port
+
+The port used by the network listener. The selected port will be used to listen for requests.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.port=value`
+
+---
+[[configuration-address]]
+==== Address
+
+The address used by the network listener. `0.0.0.0` corresponds to all addresses.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.address=value`
+
+---
+[[configuration-transport]]
+==== Transport
+
+The transport used by the network listener. This cannot be edited from the admin console. Defaults to `tcp`.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.transport=${transport-name}`
+
+---
+[[configuration-thread-pool]]
+==== Thread Pool
+
+The thread pool used by the network listener. This determines the pool of threads used to service requests.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.thread-pool=${thread-pool-name}`
