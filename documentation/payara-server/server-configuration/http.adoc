@@ -1,4 +1,4 @@
-# HTTP
+= HTTP
 
 HTTP in Payara Server is composed of several configuration layers:
 
@@ -9,4 +9,4 @@ HTTP in Payara Server is composed of several configuration layers:
 * A virtual server. The default virtual server is `server`.
 
 [[configuration]]
-## Configuration
+== Configuration

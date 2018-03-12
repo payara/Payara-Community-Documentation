@@ -11,6 +11,11 @@ and a secure listener on port 8181 (`http-listener-2`).
 [[configuration]]
 == Configuration
 
+*Note:* When configuring network listeners from the admin console, there are some visible
+configuration options that transparently configure the protocol being used. If a
+configuration property isn't shown here but is visible in the admin console, see the page
+on link:protocols.adoc[protocols].
+
 Existing network listeners can be configured from the admin console or with asadmin
 commands. The network listener configurations can be found in the admin console under
 *Configurations* -> *your-config* -> *Network Config* -> *Network Listeners*.

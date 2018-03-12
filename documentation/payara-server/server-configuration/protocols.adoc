@@ -1,0 +1,10 @@
+= Protocols
+
+A protocol is used by a network listener to determine the nature of the communication
+expected by the listener. For example, a protocol determines the timeout of a request,
+as well as whether HTTPS should be used. The reason the protocol is separate to the
+listener is so that the same protocol configuration can be used to listen on multiple
+ports.
+
+[[configuration]]
+== Configuration
