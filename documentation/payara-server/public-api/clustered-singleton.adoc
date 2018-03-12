@@ -70,7 +70,27 @@ on a different node. Will result in multiple calls.
 instance while still being available on another. Will result in
 multiple calls.
 | `true`
-
-
-
 |===
+
+[[locking]]
+== Distributed Locking
+
+Clustered singleton beans require a locking type, to specify how the
+distributed object is locked when being accessed by multiple instances.
+The lock options are members of the class
+`fish.payara.cluster.DistributedLockType`, which are as follows:
+
+* `LOCK` - Distributed locking will be performed.
+* `LOCK_NONE` - No distributed locking will be performed.
+* `INHERIT` - The locking behaviour will be inherited from
+the inherited class.
+
+By default, `@Singleton` EJBs will use a distributed lock, and
+`@ApplicationScoped` CDI beans won't.
+
+When a distributed object is locked, it will only be written
+by one thread across the entire cluster at any one time. Locks use system
+resources, but prevent synchronisation errors with the singleton data.
+
+If a member holding a lock goes offline, the lock will become
+available again.
