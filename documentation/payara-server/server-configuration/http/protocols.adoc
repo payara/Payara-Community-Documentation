@@ -19,6 +19,7 @@ The following fields can be configured for protocols:
 
 ---
 === Standard Options
+---
 
 [[configuration-security]]
 ==== Security
@@ -31,6 +32,7 @@ Whether security is enabled for the protocol. When disabled, all the SSL options
 
 ---
 === HTTP Options
+---
 
 [[configuration-http-server-name]]
 ==== Server Name
@@ -417,6 +419,7 @@ HTTP header name used for identifying the originating user of a HTTP request.
 
 ---
 === SSL Options
+---
 
 [[configuration-ssl-ssl3]]
 ==== SSLv3 Enabled
