@@ -526,7 +526,8 @@ This is only valid if the trust algorithm is `PKIX`.
 ==== Enabled Ciphers
 
 A list of the server enabled ciphers. This string is stores as a comma separated list of the enabled ciphers
-with a `+` at the start of each. E.g. `+TLS_RSA_WITH_AES_256_CBC_SHA,+SSL_RSA_WITH_3DES_EDE_CBC_SHA`.
+with a `+` or a `-` at the start of each, depending on whether the cipher is enabled or disabled.
+E.g. `+TLS_RSA_WITH_AES_256_CBC_SHA,+SSL_RSA_WITH_3DES_EDE_CBC_SHA`.
 
 *Asadmin Command:*
 
@@ -541,3 +542,67 @@ The timeout, in millis, for a handshake. After this timeout the handshake will b
 *Asadmin Command:*
 
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.handshake-timeout-millis=value`
+
+---
+[[configuration-ssl-tls-rollback]]
+==== TLS Rollback
+
+Whether TLS rollback is enabled or not.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.tls-rollback-enabled=[true/false]`
+
+---
+[[asadmin]]
+== Asadmin Commands
+
+The following asadmin commands are available for administering HTTP protocols instead of using the admin console.
+The parameters are all explained in the configuration options above.
+
+=== create-protocol
+
+The `create-protocol` command creates a basic protocol to be configured with `create-http` and `create-ssl`.
+
+==== Format
+----
+asadmin> create-protocol [--help]
+           [--securityenabled={false|true}]
+           [--target target]
+           protocol-name
+----
+
+=== create-http
+
+The `create-http` command creates a set of HTTP parameters for a created protocol.
+
+==== Format
+----
+asadmin> create-http [--help]
+           --default-virtual-server virtual-server
+           [--request-timeout-seconds timeout]
+           [--timeout-seconds timeout]
+           [--max-connection max-keepalive]
+           [--dns-lookup-enabled={false|true}]
+           [--servername server-name]
+           [--target target]
+           protocol-name
+----
+
+=== create-ssl
+
+The `create-ssl` command creates a set of SSL parameters for a created protocol.
+
+==== Format
+----
+asadmin> create-ssl [--help]
+        --certname certname
+        --type protocol
+        [--ssl3enabled={false|true}]
+        [--ssl3tlsciphers ssl3tlsciphers]
+        [--tlsenabled={false|true}]
+        [--tlsrollbackenabled={false|true}]
+        [--clientauthenabled={false|true}]
+        [--target target]
+        listener-id
+----
