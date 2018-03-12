@@ -1,4 +1,4 @@
-= HTTP
+= HTTP Service
 
 HTTP in Payara Server is composed of several configuration layers:
 
