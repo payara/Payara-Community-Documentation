@@ -19,7 +19,7 @@ Build and install:
 
 ----
 cd Payara/
-mvn clean install -DskipTests
+mvn clean install -DskipTests -f appserver/extras/arquillian-containers/pom.xml
 ----
 
 The Arquillian container can then be found in your local Maven repository,
