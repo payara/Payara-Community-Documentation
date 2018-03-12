@@ -562,7 +562,7 @@ The parameters are all explained in the configuration options above.
 
 === create-protocol
 
-The `create-protocol` command creates a basic protocol to be configured with `create-http` and `create-ssl`.
+The `create-protocol` command creates a bare protocol to be configured with `create-http` and `create-ssl`.
 
 ==== Format
 ----

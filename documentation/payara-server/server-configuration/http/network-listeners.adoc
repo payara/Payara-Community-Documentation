@@ -114,3 +114,30 @@ The thread pool used by the network listener. This determines the pool of thread
 *Asadmin Command:*
 
 `set configs.config.server-config.network-config.network-listeners.network-listener.${network-listener-name}.thread-pool=${thread-pool-name}`
+
+---
+[[asadmin]]
+== Asadmin Commands
+
+The following asadmin commands are available for administering network listeners instead of using the admin console.
+The parameters are all explained in the configuration options above.
+
+=== create-network-listener
+
+The `create-network-listener` command creates a network listener. It requires an already created transport and protocol.
+For more information on creating protocols, see link:protocols.adoc[protocols]. The parameters are all explained
+in the configuration options above.
+
+==== Format
+----
+asadmin> create-network-listener [--help]
+           [--address address]
+           --listenerport listener-port
+           [--threadpool thread-pool]
+           --protocol protocol
+           [--transport transport]
+           [--enabled={true|false}]
+           [--jkenabled={false|true}]
+           [--target target]
+           listener-name
+----
