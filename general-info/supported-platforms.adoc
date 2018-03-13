@@ -11,10 +11,10 @@ Similarly, other platforms can always be requested for support.
 
 Payara Server currently supports the following Java Virtual Machines:
 
-* Oracle JDK 7/8
-* Azul Zulu 7/8
-* OpenJDK 7/8
-* IBM J9 7/8
+* Oracle 8u162 and Upwards
+* Azul Zulu 8u162 and Upwards
+* OpenJDK 8u162 and Upwards
+* IBM J9 8u162 and Upwards
 
 == Supported Operating Systems
 * Windows
