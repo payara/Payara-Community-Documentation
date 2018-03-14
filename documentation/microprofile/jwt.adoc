@@ -6,7 +6,7 @@ Provided version of the API: {{ book.mpJwtSpecUrl }}[MicroProfile Authentication
 
 == Background
 
-The JWT Authentication API was designed to provide application callers with the ability to authenticate themselves using a JWT token. A JWT token is essentially a string of JSON with fields for specifying the caller/user name and the groups the caller is in. To prevent tampering, the JSON token is cryptographically signed. Note that it's only signed, not fully encrypted. This means that the caller/user name and the groups are in plain text, but because of the signature still can't be changed.
+The JWT Authentication API was designed to provide application callers with the ability to authenticate themselves using a JWT token. A JWT token is essentially a string of JSON with fields for specifying the caller/user name and the groups the caller is in. To prevent tampering, the JSON token is cryptographically signed. Note that it's only signed, not fully encrypted. This means that the caller/user name and the groups are in plain text, but because of the signature can't be changed.
 
 For a full overview of the API, review https://github.com/eclipse/microprofile-jwt-auth/releases[the documentation for the appropriate release.] 
 
@@ -14,7 +14,7 @@ A key goal of the specification was to not just provide authentication, but to p
 
 https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.0[MicroProfile JWT Authentication 1.0] was released in MicroProfile 1.2
 
-IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define any means for preemptive authentication, that is authenticating when the target resource (such as a JAX-RS end-point) is not protected / constrained by a security role. This practically means that if a JWT token is sent alongside a request to a public / unchecked resource, MicroProfile JWT implementations will ignore it. This limitation will be addressed in a later version of the JWT specification.
+IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define any means for preemptive authentication, that is, authenticating when the target resource (such as a JAX-RS end-point) is not protected / constrained by a security role. Practically this means that if a JWT token is sent alongside a request to a public / unchecked resource, MicroProfile JWT implementations will ignore it. This limitation will be addressed in a later version of the JWT specification.
 
 == Java EE Security and JWT
 
@@ -108,11 +108,11 @@ The code here assumes the location of the raw JSON file on the classpath being p
 
 == Accepting tokens
 
-In order to validate the signature of a provided token is valid, an application that uses JWT Authentication has to provide the public key to the MicroProfile JWT Authentication implementation. In Payara this is done by placing the public key such as generated above as `publicKey.pem` on the root of application's classpath. E.g. when using a Maven project as `src/main/resources/publicKey.pem`
+In order to validate the signature of a provided token is valid, an application that uses JWT Authentication has to provide the public key to the MicroProfile JWT Authentication implementation. In Payara this is done by placing the public key such as generated above as `publicKey.pem` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`
 
 IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define how this public key is exactly configured, so applications using MicroProfile JWT Authentication are not fully portable.
 
-Next to providing the public key, an application that uses JWT Authentication has to provide the issuer (corresponding to the `iss` field in the JSON token) it's willing to accept. In Payara this is done by placing a properties file named `payara-mp-jwt.properties` on the root of the application's classpath. E.g. when using a Maven project as `src/main/resources/publicKey.pem`. This properties file should contain the key `accepted.issuer` with as value the same value that of the `iss` field in the vended token, e.g. `fish.payara.example` as per the example JSON token shown above.
+Next to providing the public key, an application that uses JWT Authentication has to provide the issuer (corresponding to the `iss` field in the JSON token) it's willing to accept. In Payara this is done by placing a properties file named `payara-mp-jwt.properties` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`. This properties file should contain the key `accepted.issuer` with as value the same value that of the `iss` field in the vended token, e.g. `fish.payara.example` as per the example JSON token shown above.
 
 IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define how this accepted issuer is exactly configured, so applications using MicroProfile JWT Authentication are not fully portable.
 
