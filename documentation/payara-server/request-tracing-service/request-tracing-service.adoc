@@ -1,14 +1,14 @@
 [[request-tracing-service]]
 = Request Tracing Service
 
-_Since Payara Server 4.1.1.164_
+_Since Payara Server 5.181_
 
 The Request Tracing Service provides tracing facilities for multiple protocols
 and process communications done by the components of deployed applications.
 
 The service helps users to detect application slowness and performance degradation
 by logging requests that exceed a given threshold. The trace data from
-long-running requests gives insight to solve bottlenecks and other performance
+long-running requests gives insight to solving bottlenecks and other performance
 issues.
 
 NOTE: The service is available in both Payara Server and Payara Micro, though the
