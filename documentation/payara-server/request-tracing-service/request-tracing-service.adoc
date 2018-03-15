@@ -1,8 +1,6 @@
 [[request-tracing-service]]
 = Request Tracing Service
 
-_Since Payara Server 5.181_
-
 The Request Tracing Service provides tracing facilities for multiple protocols
 and process communications done by the components of deployed applications.
 
@@ -25,15 +23,6 @@ The following types of requests are traced if the service is enabled:
 * JBatch jobs creation
 * Tasks executed by injected Managed Executors.
 
-Once a request is being traced, the service collects events during its processing,
-so that it may later provide a report of what was happening and how long it
-took if the configured threshold is exceeded. The following events are
-observed and reported:
+In Payara Server and Micro 5.181, the Request Tracing Service was given an overhaul - traces are now in an OpenTracing-style format using Spans, instead of the original event stream format. Practically, this means that instead of having an ordered sequence of time stamped events constituting a trace (with separate entered and exited events), you now have a set of related traces (now called spans) with individual durations and attributes.
 
-* Start and end of the request
-* Entering or exiting an EJB method execution
-* Entering or exiting a CDI bean method (only configured methods are
-traced)
-* SQL statement invocations via JDBC calls
-* Starting or finishing JTA transactions
-* JASPIC authentication calls
+The OpenTracing specification, found https://github.com/opentracing/specification/blob/master/specification.md[here], gives a more details description of what Spans are and the general trace format.
