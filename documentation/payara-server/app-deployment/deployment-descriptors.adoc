@@ -20,9 +20,11 @@ elements are the following:
 
 * `container-initialized-enabled`
 * `default-role-mapping` (_property_)
-* `whitelist-package`
+* `jaxrs-roles-allowed-enabled`
 * `scanning-exclude`
 * `scanning-include`
+* `whitelist-package`
+
 
 [[glassfish-ejb-jar.xml]]
 == _glassfish-ejb-jar.xml_

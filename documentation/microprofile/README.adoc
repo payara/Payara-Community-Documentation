@@ -31,14 +31,14 @@ therefore, supports all specifications of MicroProfile.
 * {{ book.mpMetricsSpecUrl }}[Metrics {{ book.mpMetricsVersion }}]
 * {{ book.mpHealthSpecUrl }}[Health Check{{ book.mpHealthVersion }}]
 * {{ book.mpFaultToleranceSpecUrl }}[Fault Tolerance {{ book.mpFaultToleranceVersion }}]
-* {{ book.mpJwtSpecUrl }}[JWT Access Control {{ book.mpJwtVersion }}]
+* {{ book.mpJwtSpecUrl }}[JWT Authentication {{ book.mpJwtVersion }}]
 
 
 | [source, xml]
 ----
 <dependency>
     <groupId>org.eclipse.microprofile</groupId>
-    <artifactId>microprofile-bom</artifactId>
+    <artifactId>microprofile</artifactId>
     <version>1.2</version>
     <type>pom</type>
     <scope>provided</scope>
