@@ -141,6 +141,23 @@ In an EAR assembly, only the property set in the
 Setting this configuration property in any of these files will always take
 precedence over any setting configured on the server.
 
+[[jaxrs-roles-allowed-enabled]]
+== `jaxrs-roles-allowed-enabled`
+
+_Since Payara Server 4.1.2.181; 5.181_
+
+Payara Server and Micro since versions *4.1.2.181* and *5.181* support `@RolesAllowed` out of the box to secure JAX-RS resources.
+
+In some cases this may clash with existing code that interprets the same annotation using custom code.
+
+The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switched off by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` of a war archive to `false`. E.g. 
+
+[source, xml]
+----
+<jaxrs-roles-allowed-enabled>false</jaxrs-roles-allowed-enabled>
+----
+
+
 [[max-wait-time-in-millis]]
 == `max-wait-time-in-millis`
 

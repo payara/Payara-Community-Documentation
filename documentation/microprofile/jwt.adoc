@@ -165,17 +165,7 @@ With `base` being the context where the application is deployed, e.g. `http://ex
 
 == Switching off @RolesAllowed support in JAX-RS
 
-Payara Server and Micro since versions *4.1.2.181* and *5.181* support `@RolesAllowed` out of the box as explained above.
-
-In same cases this may clash with existing code that interprets the same annotation using custom code.
-
-In Payara Server and Micro *5.181* Payara's interpretation of `@RolesAllowed` for JAX-RS resources can be switched of by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` of a war archive to `false`. E.g. 
-
-[source, xml]
-----
-<jaxrs-roles-allowed-enabled>false</jaxrs-roles-allowed-enabled>
-----
-
+The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switched off by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` to `false`. For more information see the documentation for the link:/documentation/payara-server/app-deployment/descriptor-elements.adoc#jaxrs-roles-allowed-enabled[jaxrs-roles-allowed-enabled] element.
 
 
 == Full examples
