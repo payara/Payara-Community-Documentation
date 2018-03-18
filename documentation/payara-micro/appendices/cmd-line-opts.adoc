@@ -109,6 +109,8 @@ line arguments and exit.|
 |`--sslport <ssl-port-number>`
 |Sets the HTTPs port that the instance will bind to.| If not set, has no value
 and HTTPS is disabled.
+|`--sslcert <certificate-name>`
+|Sets the SSL certificate name to be used from the keystore for SSL| `s1as`
 |`--startport <cluster-start-port-number>`
 |Sets the cluster start port number.|5900
 |`--systemproperties <file-path>`
