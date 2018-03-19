@@ -99,7 +99,7 @@ The following JVM options only appear in `domain1`:
 * `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
-The following JVM options appear in both `domain` and `production`:
+The following JVM options appear in both `domain1` and `production`:
 
 * `-Djava.awt.headless=true`
 * `-Djdk.corba.allowOutputStreamSubclass=true`
