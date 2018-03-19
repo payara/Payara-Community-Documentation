@@ -28,7 +28,7 @@ attributes:
 **Threshold Value**:: This defines the number of units beyond which a request will be traced.
 **Threshold Unit**:: This defines the time duration per unit. The accepted options are any valid
 https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[java.util.concurrent.TimeUnit] values. The default value is _SECONDS_.
-**Sample Rate First**:: When enabled, the sample rate will be checked as a trace begins, meaning that traces that would have broken the thresholds are potentially discarded. When disabled, the sample rate is checked after a trace has completed, meaning that you're only sampling traces that have have breached your threshold values. Having this disabled will potentially give more accurate trace data, at the expense of performance.
+**Sample Rate First**:: When enabled, the sample rate will be checked as a trace begins, meaning that traces that would have broken the thresholds are potentially discarded. When disabled, the sample rate is checked after a trace has completed, meaning that you're only sampling traces that have breached your threshold values. Having this disabled will potentially give more accurate trace data, at the expense of performance.
 **Reservoir Sampling**:: When disabled, the trace stores will contain the longest request traces. When enabled, the chance of any sampled request being in the trace stores becomes constant.
 **Trace Store Size**:: The maximum number of traces to be stored in the rolling trace store.
 **Trace Store Timeout**:: The timeout value for when traces will be removed from the rolling trace store. This is ignored when reservoir sampling is enabled.
