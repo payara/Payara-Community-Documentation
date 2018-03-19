@@ -1,7 +1,7 @@
 [[elements-of-the-deployment-descriptor-files]]
 = Elements of the Deployment Descriptor Files
 
-This page is a reference for extra elements added to the GlassFish proprietary
+This page is a reference for extra and changed elements added to the GlassFish proprietary
 deployment descriptors
 
 
@@ -256,3 +256,12 @@ NOTE: All sub-elements tags of the `login-config` can be used inside this elemen
 IMPORTANT: If an EJB Web service definition needs a different login configuration
 from the default, just redefine it as shown in the example and it will override
 the default configuration.
+
+[[jsp-config]]
+== `jsp-config`
+
+_Since Payara Server 5.181_
+
+The default value of the _compiler_ property for this element has changed from _1.5_ to _1.8_, denoting a change from JDK5 to JDK8.
+
+You can change this to another value by editing the `jsp-config` element in the `glassfish-web.xml` file.
