@@ -1,38 +1,20 @@
 [[viewing-hazelcast-members]]
-= Viewing Cluster Members
+= Viewing Data Grid Members
 
-This section details how to visualize the members of a Hazelcast cluster on
+This section details how to visualize the members of the Domain Data Grid on
 Payara Server.
 
 [[viewing-cluster-members-admin-console]]
-== Viewing Cluster Members from the Admin Console
+== Viewing Data Grid Members from the Admin Console
 
-To view cluster members from the admin console:
-
-[[viewing-from-instance]]
-=== Viewing from an instance
-
-. Select an instance within the cluster you wish to view from the page tree:
-+
-image::/images/hazelcast/hazelcast-admin-console-select-instance.png[Page Tree]
-
-. Open the *Hazelcast* tab and select the *Cluster Members* sub-tab to view
-the cluster members page:
-+
-image::/images/hazelcast/hazelcast-admin-console-view-cluster-members.png[Cluster Members]
+To view data grid members from the admin console:
 
 [[viewing-from-das]]
 === Viewing from the DAS
 
-. If Hazelcast is enabled on the DAS (`server-config`), select "_Domain_"
-from the page tree:
-+
-image::/images/hazelcast/hazelcast-admin-console-select-das.png[Page Tree]
+Selected the Data Grid tree node under the Domain and Select the "Data Grid Instances" tab.
 
-. Open the "Hazelcast" tab and select the "Cluster Members" sub-tab to view
-the cluster members page:
-+
-image::/images/hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Domain Cluster Members]
+image:/images/hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Domain Cluster Members]
 
 [[viewing-cluster-members-asadmin]]
 == Viewing Cluster Members via asadmin
