@@ -12,7 +12,7 @@ The default domain is not, however, designed to be run in production.
 Since the creation of `domain1` in GlassFish, there have been changes in
 how the server is used, along with the changes implemented by the Payara
 development team. To better highlight these changes and new features,
-the `production` was created.
+the `production` domain was created.
 
 [[usage]]
 == Usage
