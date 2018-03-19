@@ -9,7 +9,7 @@ allows a single bean to be shared across an entire cluster.
 [[requirements]]
 == Requirements
 
-Firstly, Hazelcast must be enabled on the target server, which is the dafault setting.
+Firstly, Hazelcast must be enabled on the target server, which is the default setting.
 
 Secondly, the class annotated with `@Clustered` must also be annotated with either `@ApplicationScoped` (for CDI beans) or `@Singleton` (for EJBs). The annotated class must also be Serializable.
 
