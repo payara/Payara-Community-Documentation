@@ -167,6 +167,7 @@
 ** link:documentation/payara-micro/jca.adoc[JCA Support in Payara Micro]
 ** link:documentation/payara-micro/cdi-events.adoc[Remote CDI Events]
 ** link:documentation/payara-micro/persistent-ejb-timers.adoc[Persistent EJB timers]
+** link:documentation/payara-micro/h2/h2.adoc[H2 Database]
 ** link:documentation/payara-micro/appendices/appendices.adoc[Payara Micro Appendices]
 *** link:documentation/payara-micro/appendices/cmd-line-opts.adoc[Command Line Options]
 *** link:documentation/payara-micro/appendices/payara-micro-jar-structure.adoc[JAR Structure]
