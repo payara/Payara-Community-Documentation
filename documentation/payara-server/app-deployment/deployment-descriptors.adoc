@@ -31,3 +31,11 @@ elements are the following:
 
 * `webservice-default-login-config`
 * `default-role-mapping` (_property_)
+* `enterprise-beans`
+** `ejb`
+*** `ejb-name`
+*** `clustered-bean`
+*** `clustered-key-name`
+*** `clustered-lock-type`
+*** `clustered-attach-postconstruct`
+*** `clustered-detach-predestroy`

@@ -81,7 +81,8 @@ that the Hazelcast instance is bound to in the DAS.
 NOTE: Hazelcast is very particular about the IP address used to join a cluster.
 The IP Address should be exactly as reported by the details
 
-When the DAS starts it will log a message like;
+When the DAS starts it will log a message like:
+
 [source, log]
 ----
 Data Grid Status
@@ -91,10 +92,11 @@ Address: /192.168.0.104:4900 UUID: 7c1bd6ca-1574-4e38-9189-effcd4ccafd2 Lite: fa
 Address: /192.168.0.104:5900 UUID: 0f6887b2-9932-4085-a6f8-e40751269023 Lite: false This: false
 }
 ----
-This show the IP address and ports that can be used as input into the domain cluster mode.
 
-NOTE: If you accidentally choose 4848 the DAS admin port as the cluster port you will
-get a warning like
+This shows the IP address and ports that can be used as input into the domain cluster mode.
+
+NOTE: If you accidentally choose the DAS admin port (by default 4848) as the cluster port you will get a warning like
+
 [source,log]
 ----
 [2018-03-08T13:51:46.446+0000] [] [WARNING] [] [fish.payara.nucleus.hazelcast.DomainDiscoveryService] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1520517106446] [levelValue: 900] You have specified 4848 as the datagrid domain port however this is the default DAS admin port, the default domain datagrid port is 4900

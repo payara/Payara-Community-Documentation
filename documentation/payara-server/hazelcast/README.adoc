@@ -10,7 +10,7 @@ The Domain Data Grid provides an in-memory data structure that is distributed am
 Payara Server instances within a Payara Domain. The Data Grid is highly available
 and highly scalable and enables in-memory data storage and sharing between all Payara Server instances
 in a domain. The Domain Data Grid is used as the backing store for web session data,
-Stateful Session Bean state, link:documentation/payara-server/jcache/jcache.adoc[JCache] caches, Clustered Singletons, and Single Sign On state as well as internal
+Stateful Session Bean state, link:/documentation/payara-server/jcache/jcache.adoc[JCache] caches, Clustered Singletons, and Single Sign On state as well as internal
 Payara domain data like performance metrics and traces. In addition Persistent EJB Timers can
 also be configured to be stored in the grid. The Domain Data Grid also enables light-weight
 messaging between server instances and is the foundation of the CDI Clustered Event Bus.
@@ -61,7 +61,7 @@ instance starts it must discover other Data Grid nodes so that it can join the g
 Once an instance has connected to a Payara Instance that is already a member of the grid then
 it can become a member of the grid.
 
-Payara provides a number of configurable link:documentation/payara-server/domain-datagrid/discovery.adoc[Discovery] Modes
+Payara provides a number of configurable link:discovery.adoc[Discovery] Modes
 
 === Hazelcast
 

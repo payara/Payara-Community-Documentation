@@ -73,7 +73,7 @@
 *** link:documentation/payara-server/jcache/jcache-accessing.adoc[Cache provider and manager]
 *** link:documentation/payara-server/jcache/jcache-creating.adoc[Creating a Cache Instance]
 *** link:documentation/payara-server/jcache/jcache-annotations.adoc[Using JCache Annotations]
-** link:documentation/payara-server/hazelcast/concept.adoc[Domain Data Grid]
+** link:documentation/payara-server/hazelcast/README.adoc[Domain Data Grid]
 *** link:documentation/payara-server/hazelcast/discovery.adoc[Discovery Modes]
 *** link:documentation/payara-server/hazelcast/enable-hazelcast.adoc[Enabling Data Grid]
 *** link:documentation/payara-server/hazelcast/configuration.adoc[Configuring Hazelcast]
