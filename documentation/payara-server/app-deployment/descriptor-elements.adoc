@@ -16,6 +16,48 @@ For more information about how class delegation can be configured on
 Payara Server, see the
 link:/documentation/payara-server/classloading.adoc[Enhanced Class loading] section.
 
+[[clustered-attach-postconstruct]]
+== `clustered-attach-postconstruct`
+
+Whether to call `@PostConstruct` each time the bean is created
+on a different node. Will result in multiple calls.
+
+Valid values are `true` or `false`. The default value is `true`.
+
+[[clustered-bean]]
+== `clustered-bean`
+
+Whether this bean should be a link:/documentation/payara-server/public-api/clustered-singleton.adoc[Clustered Singleton]. Can be applied only to singleton EJBs.
+
+Valid values are `true` or `false`. The default value is `false`.
+
+[[clustered-detach-predestroy]]
+== `clustered-detach-predestroy`
+
+Whether to call `@PreDestroy` when the singleton is destroyed on an
+instance while still being available on another. Will result in
+multiple calls.
+
+Valid values are `true` or `false`. The default value is `true`.
+
+[[clustered-key-name]]
+== `clustered-key-name`
+
+The key used for replication of clustered beans. Applies to singleton EJBs when `clustered-bean` is set to `true`.
+
+This element is optional. If not set, the default value is the value of the `ejb-name` element.
+
+[[clustered-lock-type]]
+== `clustered-lock-type`
+
+The type of distributed locking to be performed. 
+
+For EJB beans, only `INHERIT` and `LOCK_NONE` are valid.
+
+For CDI beans, valid values are `LOCK` and `INHERIT`, which is equivalent to using `LOCK_NONE`.
+
+Default value is `INHERIT`
+
 [[whitelist-package]]
 == `whitelist-package`
 

@@ -2,17 +2,16 @@
 
 _Since versions 4.181 and 5.181_
 
-The Payara API provides an `@Clustered` annotation that makes
-`@ApplicationScoped` or `@Singleton` beans cluster-wide. This
+The Payara API provides a `@Clustered` annotation that makes
+`@ApplicationScoped` CDI beans or `@Singleton` EJB beans cluster-wide. This
 allows a single bean to be shared across an entire cluster.
 
 [[requirements]]
 == Requirements
 
-Firstly, Hazelcast must be enabled on the target server.
-Secondly, The annotated class must be annotated with either
-`@ApplicationScoped` or `@Singleton`. The annotated class must
-also be Serializable.
+Firstly, Hazelcast must be enabled on the target server, which is the dafault setting.
+
+Secondly, the class annotated with `@Clustered` must also be annotated with either `@ApplicationScoped` (for CDI beans) or `@Singleton` (for EJBs). The annotated class must also be Serializable.
 
 [[usage]]
 == Usage
@@ -21,11 +20,38 @@ A singleton bean is made cluster-wide by annotating the class
 with the `@fish.payara.cluster.Clustered` qualifier as well as
 it's scope annotation.
 
-Alternatively, you can use the `glassfish-web.xml` to configure an EJB
+Alternatively, you can use the `glassfish-ejb-jar.xml` to configure a Singleton EJB
 to be cluster-wide.
+
+[[usage-example-xml]]
+=== Example
 
 [[usage-example]]
 === Example
+
+An example for a CDI bean:
+
+[source, java]
+----
+@Clustered
+@javax.enterprise.context.ApplicationScoped
+public class ClusterSingletonBean {
+
+}
+----
+
+An example for a Singleton EJB:
+
+[source, java]
+----
+@Clustered
+@javax.ejb.Singleton
+public class ClusterSingletonBean {
+
+}
+----
+
+An example for a Singleton EJB using `glassfish-ejb.jar` (`clustered-key-name` is optional):
 
 [source, xml]
 ----
@@ -47,25 +73,29 @@ The `@Clustered` annotation has several configuration options. They are detailed
 
 .Configuration Options
 |===
-| Option | Description | Default
+| Option | XML element | Description | Default
 
 | keyName
+| clustered-key-name
 | The key in the distributed map to bind the clustered object to.
 | The name of the bean.
 
 | lock
+| clustered-lock-type
 | The type of distributed locking to be performed.
 For EJB beans, only `INHERIT` and `LOCK_NONE` are valid.
 For CDI beans, valid values are `LOCK` and `INHERIT`, which
-is equivalent to using `NONE`.
+is equivalent to using `LOCK_NONE`.
 | `INHERIT`
 
 | callPostConstructOnAttach
+| clustered-attach-postconstruct
 | Whether to call `@PostConstruct` each time the bean is created
 on a different node. Will result in multiple calls.
 | `true`
 
 | callPreDestroyOnDetach
+| clustered-detach-predestroy
 | Whether to call `@PreDestroy` when the singleton is destroyed on an
 instance while still being available on another. Will result in
 multiple calls.
@@ -92,7 +122,7 @@ When a distributed object is locked, it will only be written
 by one thread across the entire cluster at any one time. Locks use system
 resources, but prevent synchronisation errors with the singleton data.
 
-If a member holding a lock goes offline, the lock will become
+NOTE: If a member holding a lock goes offline, the lock will become
 available again.
 
 [[transactions]]
