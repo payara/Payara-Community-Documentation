@@ -46,3 +46,38 @@ There are some important caveats to note:
 * The files *_must_* exist, and be accessible from Payara Server.
 * Both pre-boot and post-boot files can be passed at the same time.
 ====
+
+
+== Deploying from a URL
+GlassFish and Payara embedded have had the ability to deploy applications from a URL for a while, and this feature has now been brought into Payara Server. To faciliate this new feature, a new asadmin command was created: `deploy-remote-archive`. This command takes all of the same parameters as the standard deploy command, and is used in exactly the same way - the only difference is in the command name, and the fact you specify a URL instead of a file.
+
+*Usage*: `asadmin> deploy-remote-archive _url_`
+
+*Example*: `asadmin> deploy-remote-archive https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer/fish/payara/testing/clusterjsp/1.1/clusterjsp-1.1.war`
+
+[NOTE]
+====
+At this point in time, the command will only accept HTTP and HTTPS URLs.
+====
+
+== Deploying from a Maven Repository.
+The feature of Payara Micro to deploy applications from a Maven Repository using their Group, Artefact, Version (GAV) coordinates has also been brought into Payara Server. This functionality uses the same command as when deploying from a URL: `deploy-remote-archive`. This command takes all of the same parameters as the standard deploy command, but has an extra parameter:
+
+* `additionalRepositories` - This parameter accepts a comma separated list of repository URLs, that will be probed when searching for an artefact. By default, the command will only look in Maven Central.
+
+*Usage*: `asadmin> deploy-remote-archive --additionalRepositories repo1,repo2,...,repoN groupId,artefactId,versionNumber`
+
+*Examples*:  
+
+* `asadmin> deploy-remote-archive --additionalRepositories https://google.co.uk,https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`  
+* `asadmin> deploy-remote-archive --additionalRepositories https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer fish.payara.testing,clusterjsp,1.1`  
+* `asadmin> deploy-remote-archive --target instance1 fish.payara.testing,clusterjsp,1.1`
+
+If you don't specify a name or context root for the artefact when deploying using GAV coordinates, it will just be the artefact name (in the example above, it would be clusterjsp).
+
+[NOTE]
+====
+If an application matching the GAV coordinates exists on multiple repositories, the first found will be deployed. The order that the repositories are searched is the order that you specify them in. For example, given an _additionalRepositories_ of _repo1,repo2_, the order that the repositories would be searched is: Maven Central > repo1 > repo2.
+
+Although the command accepts Maven GAV coordinates, it does not actually make use of Maven, and so artefacts will not be saved into your local maven repository.
+====

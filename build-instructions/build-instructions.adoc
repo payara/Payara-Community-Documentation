@@ -10,7 +10,7 @@ code.
 To build and run Payara Server, your environment must be set up with the
 following:
 
-* Oracle _JDK 7 Update 65_ or later, or Oracle _JDK 8 Update 20_ or later.
+* Oracle _JDK 8 Update 162_ or later.
 * Maven 3.3.9 or above
 * Git
 * A `JAVA_HOME` environment variable pointing to the JDK install location
@@ -28,14 +28,6 @@ If using JDK 7, you will need to increase the heap size and _PermGen_ size
 to prevent the build process from running out of memory.
 
 Create a `MAVEN_OPTS` environment variable and set it as:
-
-----
--Xmx1024m -XX:MaxPermSize=512m
-----
-
-If using JDK 8, _PermGen_ has been replaced by _Metaspace_, which can
-increase its maximum size on its own, so you only need to increase the
-heap size:
 
 ----
 -Xmx1024m
@@ -126,9 +118,7 @@ mvn clean install -PQuickBuild
 |Payara Server (Web Profile) |✓ |✓ |
 |Payara Server Multi Language |✓ |✓ |
 |Payara Server Multi Language (Web Profile) |✓ |✓|
-|Payara Server Minimal |✓ |✓ |✓
 |Payara Micro |✓ |✓ |
-|Payara Microprofile |✓ |✓ |
 |Payara Embedded | |✓|
 |Payara Embedded (Web Profile) | |✓|
 |=======================================================================
