@@ -5,9 +5,9 @@ _Since Payara Server 5.181_
 
 Payara Server comes with a default domain, `domain1`, which has been
 inherited from GlassFish. This domain (and its accompanying template)
-has not been drastically modified since its inheritance, and so 
-remains a good starting point for development and testing work. 
-The default domain is not, however, designed to be run in production.
+has not been significantly modified for Payara Server since its inheritance from GlassFish. 
+The default domain is not however designed to be run in production, but instead to be
+a usable example for development and testing purposes.
 
 Since the creation of `domain1` in GlassFish, there have been changes in
 how the server is used, along with the changes implemented by the Payara
@@ -17,7 +17,7 @@ the `production` domain was created.
 [[usage]]
 == Usage
 
-`production` is located in the default directory for domains
+`production` domain is located in the default directory for domains
 `${PAYARA_HOME}/glassfish/domains/`, alongside `domain1`. This means it
 can be used as-is by simply naming the domain after running the
 `start-domain` subcommand and without specifying the domain directory
@@ -30,7 +30,7 @@ asadmin> start-domain production
 
 Alternatively, many Payara Server users completely delete existing
 domains and recreate their own domains with custom settings.
-`production` can be used here too, since the domain is also provided
+`production` domain can be used here too, since the domain is also provided
 as a template in the `${PAYARA_HOME}/glassfish/common/templates/gf`
 directory. You will need to specify the full path to the location of the
 template jar as follows:
@@ -43,7 +43,7 @@ asadmin> create-domain --template ${PAYARA_HOME}/glassfish/common/templates/gf/p
 [[differences-to-domain1]]
 == Differences to `domain1`
 
-The configuration of `production` has been made with production in
+The configuration of `production` domain has been made with production in
 mind, so there are a number of differences when compared to `domain1`
 which are listed below. Not all of these will be wanted for development
 environments, but all are good practice for production domains.
@@ -75,17 +75,30 @@ increased from `5` to `50`.
 
 === Differences in JVM Options
 
-The following JVM options only appear in `production`:
+With the aim of `production` domain being to target production, the `production` domain has
+JVM options specifically configured for usage on JDK 8. Since JDK 7 has
+reached its end-of-life, it is therefore a security risk to run a JVM lower
+than version 8 in production. However, `production` domain can be configured to
+run on JDK 7 if necessary by editing the JVM options.
 
-* `-XX:+UseG1GC`
-* `-XX:+UseStringDeduplication`
+The following JVM options only appear in `production` domain:
+
 * `-Xmx2g`
 * `-Xms2g`
+* `-XX:+UseG1GC`
+* `-XX:+UseStringDeduplication`
+* `-XX:MaxGCPauseMillis=500`
+* `-XX:MetaspaceSize=256m`
+* `-XX:MaxMetaspaceSize=2g`
+* `-XX:+IgnoreUnrecognizedVMOptions`
 
 The following JVM options only appear in `domain1`:
 
+* `-client`
 * `-Djavax.management.builder.initial=com.sun.enterprise.v3.admin.AppServerMBeanServerBuilder`
 * `-Xmx512m`
+* `-XX:NewRatio=2`
+* `-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as`
 * `-Dorg.glassfish.additionalOSGiBundlesToStart=org.apache.felix.shell,org.apache.felix.gogo.runtime,org.apache.felix.gogo.shell,org.apache.felix.gogo.command,org.apache.felix.shell.remote,org.apache.felix.fileinstall`
 * `-Dosgi.shell.telnet.port=6666`
 * `-Dosgi.shell.telnet.maxconn=1`
@@ -99,8 +112,9 @@ The following JVM options only appear in `domain1`:
 * `-Dfelix.fileinstall.disableConfigSave=false`
 * `-Dcom.ctc.wstx.returnNullForDefaultNamespace=true`
 
-The following JVM options appear in both `domain1` and `production`:
+The following JVM options appear in both `domain` and `production` domain:
 
+* `-Xbootclasspath/p:${com.sun.aas.installRoot}/lib/grizzly-npn-bootstrap.jar`
 * `-Djava.awt.headless=true`
 * `-Djdk.corba.allowOutputStreamSubclass=true`
 * `-Djavax.xml.accessExternalSchema=all`
@@ -108,14 +122,12 @@ The following JVM options appear in both `domain1` and `production`:
 * `-Djava.endorsed.dirs=${com.sun.aas.installRoot}/modules/endorsed${path.separator}${com.sun.aas.installRoot}/lib/endorsed`
 * `-Djava.security.policy=${com.sun.aas.instanceRoot}/config/server.policy`
 * `-Djava.security.auth.login.config=${com.sun.aas.instanceRoot}/config/login.conf`
-* `-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as`
 * `-Djavax.net.ssl.keyStore=${com.sun.aas.instanceRoot}/config/keystore.jks`
 * `-Djavax.net.ssl.trustStore=${com.sun.aas.instanceRoot}/config/cacerts.jks`
 * `-Djava.ext.dirs=${com.sun.aas.javaRoot}/lib/ext${path.separator}${com.sun.aas.javaRoot}/jre/lib/ext${path.separator}${com.sun.aas.instanceRoot}/lib/ext`
 * `-Djdbc.drivers=org.apache.derby.jdbc.ClientDriver`
 * `-DANTLR_USE_DIRECT_CLASS_LOADING=true`
 * `-Dcom.sun.enterprise.config.config_environment_factory_class=com.sun.enterprise.config.serverbeans.AppserverConfigEnvironmentFactory`
-* `-XX:NewRatio=2`
 * `-Djdk.tls.rejectClientInitiatedRenegotiation=true`
 * `-Dorg.jboss.weld.serialization.beanIdentifierIndexOptimization=false`
 * `-Dorg.glassfish.grizzly.DEFAULT_MEMORY_MANAGER=org.glassfish.grizzly.memory.HeapMemoryManager`

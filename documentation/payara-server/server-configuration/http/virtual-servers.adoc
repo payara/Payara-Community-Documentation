@@ -1,4 +1,4 @@
-# Virtual Servers
+= Virtual Servers
 
 A virtual server is an object that allows one physical server instance to appear
 as many. In some ways it is analogous to a network card on a PC: if you have
@@ -11,19 +11,19 @@ When deploying an application, you have the option to deploy to a specific
 Virtual Server, which will have multiple network listeners associated with it.
 
 [[configuration]]
-## Configuration
+== Configuration
 
 Existing virtual servers can be configured from the admin console or with `set`
 asadmin commands. The virtual server configurations can be found in the admin
 console under *Configurations* -> *your-config* -> *Virtual Servers*.
 
-image::/images/virtual-servers/left-bar-location.png[Configuration Page Location]
+image::/images/http/virtual-server-config.png[Configuration Page Location]
 
 The following fields can be configured:
 
 ---
 [[id]]
-#### ID
+==== ID
 The unique ID for the virtual server. The only field which cannot be altered
 from the admin console. The ID cannot begin with a number.
 
@@ -34,7 +34,7 @@ from the admin console. The ID cannot begin with a number.
 
 ---
 [[hosts]]
-#### Hosts
+==== Hosts
 A comma separated list of values allowed in the `host` request header to select
 this virtual server. Each virtual server with the same connection group must
 have a unique host for that group.
@@ -46,7 +46,7 @@ have a unique host for that group.
 
 ---
 [[state]]
-#### State
+==== State
 The enabled state of the virtual server. There are 3 options for this property:
 
  - *On* -> This means that the virtual server is active and will be ready to
@@ -66,7 +66,7 @@ The enabled state of the virtual server. There are 3 options for this property:
 
 ---
 [[sso]]
-#### SSO
+==== SSO
 Allows multiple web applications deployed to the same virtual server to share
 the user authentication state.  This would mean that signing into one
 application would implicitly sign you into all of the others.
@@ -86,7 +86,7 @@ There are 3 options for this property:
 
 ---
 [[sso-cookie-http-only]]
-#### SSO Cookie Http Only
+==== SSO Cookie Http Only
 Determines whether to add the `HttpOnly` flag to the `JSESSIONIDSSO` cookie.
 In practice, this will disallow JavaScript access to the cookie in the browser.
 This prevents malicious XSS attacks hijacking a Java session. It is enabled by
@@ -99,7 +99,7 @@ default.
 
 ---
 [[network-listeners]]
-#### Network Listeners
+==== Network Listeners
 Comma separated list of network listeners which applications deployed to this
 virtual server are available on.
 
@@ -110,7 +110,7 @@ virtual server are available on.
 
 ---
 [default-web-module]
-#### Default Web Module
+==== Default Web Module
 This defines which application deployed to this virtual server will be requested
 if no modules are resolved in the request. For example if `app1` and `app2`
 have context roots of `/app1` and `/app2` respectively, `app1` will be returned
@@ -123,7 +123,7 @@ when the user requests `/`.
 
 ---
 [[log-file]]
-#### Log File
+==== Log File
 This defines a file where log messages coming from this virtual server are
 redirected to. This allows you to separate application logs from server logs.
 
@@ -134,7 +134,7 @@ redirected to. This allows you to separate application logs from server logs.
 
 ---
 [[docroot]]
-#### Docroot
+==== Docroot
 This defines the directory used as the document root for this virtual server.
 A document root is a directory where static files can be placed and served from.
 For example, if you have a web application deployed to `http://localhost:8080/app1`
@@ -149,7 +149,7 @@ then requesting `http://localhost:8080/app1/img.jpg` will fetch the file at
 
 ---
 [[access-logging]]
-#### Access Logging
+==== Access Logging
 Enables access logging for this virtual server. Access logging logs all requests
 made to that virtual server.
 There are 3 options for this property:
@@ -168,7 +168,7 @@ There are 3 options for this property:
 
 ---
 [[access-log-directory]]
-#### Access Log Directory
+==== Access Log Directory
 Defines the directory used for access logs.
 
 **Asadmin Command:**
@@ -178,7 +178,7 @@ Defines the directory used for access logs.
 
 ---
 [[additional-properties]]
-#### Additional properties
+==== Additional properties
 Defines additional properties for the configuration of a virtual server.
 
 

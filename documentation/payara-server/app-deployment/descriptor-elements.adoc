@@ -1,7 +1,7 @@
 [[elements-of-the-deployment-descriptor-files]]
 = Elements of the Deployment Descriptor Files
 
-This page is a reference for extra elements added to the GlassFish proprietary
+This page is a reference for extra and changed elements added to the GlassFish proprietary
 deployment descriptors
 
 
@@ -141,6 +141,23 @@ In an EAR assembly, only the property set in the
 Setting this configuration property in any of these files will always take
 precedence over any setting configured on the server.
 
+[[jaxrs-roles-allowed-enabled]]
+== `jaxrs-roles-allowed-enabled`
+
+_Since Payara Server 4.1.2.181; 5.181_
+
+Payara Server and Micro since versions *4.1.2.181* and *5.181* support `@RolesAllowed` out of the box to secure JAX-RS resources.
+
+In some cases this may clash with existing code that interprets the same annotation using custom code.
+
+The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switched off by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` of a war archive to `false`. E.g. 
+
+[source, xml]
+----
+<jaxrs-roles-allowed-enabled>false</jaxrs-roles-allowed-enabled>
+----
+
+
 [[max-wait-time-in-millis]]
 == `max-wait-time-in-millis`
 
@@ -239,3 +256,12 @@ NOTE: All sub-elements tags of the `login-config` can be used inside this elemen
 IMPORTANT: If an EJB Web service definition needs a different login configuration
 from the default, just redefine it as shown in the example and it will override
 the default configuration.
+
+[[jsp-config]]
+== `jsp-config`
+
+_Since Payara Server 5.181_
+
+The default value of the _compiler_ property for this element has changed from _1.5_ to _1.8_, denoting a change from JDK5 to JDK8.
+
+You can change this to another value by editing the `jsp-config` element in the `glassfish-web.xml` file.
