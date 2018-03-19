@@ -5,9 +5,9 @@ _Since Payara Server 5.181_
 
 Payara Server comes with a default domain, `domain1`, which has been
 inherited from GlassFish. This domain (and its accompanying template)
-has not been modified in any way for Payara Server. The default domain is not
-however designed to be run in production, but instead to be a usable example for
-development and testing purposes.
+has not been significantly modified for Payara Server since its inheritance from GlassFish. 
+The default domain is not however designed to be run in production, but instead to be
+a usable example for development and testing purposes.
 
 Since the creation of `domain1` in GlassFish, there have been changes in
 how the server is used, along with the changes implemented by the Payara

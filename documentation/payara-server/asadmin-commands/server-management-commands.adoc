@@ -84,11 +84,11 @@ No command options available.
 [[example]]
 === Example
 
-To start the `domain1` and `payaradomain` domains, run the following command:
+To start the `domain1` and `production` domains, run the following command:
 
 [source]
 ----
-asadmin> start-domains domain1, payaradomain
+asadmin> start-domains domain1, production
 ----
 
 [[stop-domains]]
@@ -115,11 +115,11 @@ No command options available.
 [[example-1]]
 === Example
 
-To stop the `domain1` and `payaradomain` domains, run the following command:
+To stop the `domain1` and `production` domains, run the following command:
 
 [source]
 ----
-asadmin> stop-domains domain1, payaradomain
+asadmin> stop-domains domain1, production
 ----
 
 [[restart-domains]]
@@ -142,12 +142,12 @@ No command options available.
 [[example-2]]
 === Example
 
-To restart the `domain1` and `payaradomain` , run the following command:
+To restart the `domain1` and `production` , run the following command:
 
 
 [source]
 ----
-asadmin> restart-domains domain1, payaradomain
+asadmin> restart-domains domain1, production
 ----
 
 [[stop-all-domains]]
