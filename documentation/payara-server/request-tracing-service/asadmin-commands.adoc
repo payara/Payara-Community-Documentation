@@ -172,7 +172,7 @@ This command can be used to list a number of previous request trace messages fro
 
 [source, shell]
 ----
-asadmin> list-requesttraces --historic false
+asadmin> list-requesttraces --historictraces false
 ----
 
 Will give an output similar to the following:
