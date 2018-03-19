@@ -20,7 +20,7 @@ this can be done on multiple ways.
 == From the command line
 
 In order to add a third-party jar to a new Payara Micro instance, use the `--addJars`
-argument when starting the instance like this:
+argument or `--addlibs` argument when starting the instance like this:
 
 [source, shell]
 ----

@@ -32,6 +32,13 @@ Payara Micro instance and deploying a WAR file:
 java -jar payara-micro.jar --deploy /home/user/example.war
 ----
 
+NOTE: Since 4.1.2.181 and 5.181 the `--deploy` option is optional if your deployment file
+ends with `.jar`, `.rar` or `.war` therefore the command line below can also be used
+[source, shell]
+----
+java -jar payara-micro.jar /home/user/example.war
+----
+
 [[deploying-an-exploded-war]]
 == Deploying an Exploded War
 
