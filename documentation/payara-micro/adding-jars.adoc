@@ -19,12 +19,11 @@ this can be done on multiple ways.
 [[from-the-command-line]]
 == From the command line
 
-In order to add a third-party jar to a new Payara Micro instance, use the `--addJars`
-argument or `--addlibs` argument when starting the instance like this:
+In order to add a third-party jar to a new Payara Micro instance, use the `--addLibs` argument when starting the instance like this:
 
 [source, shell]
 ----
-java -jar payara-micro.jar --addJars third-party.jar
+java -jar payara-micro.jar --addLibs third-party.jar
 ----
 
 You can specify a directory instead of a simple JAR to add all of the JARs that
@@ -32,7 +31,7 @@ are located in that directory:
 
 [source, shell]
 ----
-java -jar payara-micro.jar --addJars /home/payara-libs/
+java -jar payara-micro.jar --addLibs /home/payara-libs/
 ----
 
 Finally, in order to add third-party libraries from multiple sources, specify
@@ -41,19 +40,19 @@ character (`:`). Here's a simple example to add 3 sources for libraries:
 
 [source, shell]
 ----
-java -jar payara-micro.jar --addJars third-party.jar:/opt/application/jars:~/v/mysql-jdbc-driver.jar
+java -jar payara-micro.jar --addLibs third-party.jar:/opt/application/jars:~/v/mysql-jdbc-driver.jar
 ----
 
 NOTE: You may notice that this syntax is similar to the syntax used to specify
 the classpath using the `-cp` argument when running the JVM.
 
 If you don't like using the previous syntax and prefer a simpler option, you can
-repeat the `--addJars` argument as many times as you want per each JAR source, like
+repeat the `--addLibs` argument as many times as you want per each JAR source, like
 in the following example:
 
 [source, shell]
 ----
-java -jar payara-micro.jar --addJars third-party.jar --addJars /opt/application/jars --addJars ~/v/mysql-jdbc-driver.jar
+java -jar payara-micro.jar --addLibs third-party.jar --addLibs /opt/application/jars --addLibs ~/v/mysql-jdbc-driver.jar
 ----
 
 [[programmatically-using-api]]
@@ -93,7 +92,7 @@ Uber JAR called `my-micro.jar`:
 
 [source, shell]
 ----
-java -jar payara-micro-4.1.2.173.jar --addJars postgresql-9.4.1208.jre7.jar:mysql-connector-java-5.1.44-bin.jar --outputUberJar my-micro.jar
+java -jar payara-micro-4.1.2.173.jar --addLibs postgresql-9.4.1208.jre7.jar:mysql-connector-java-5.1.44-bin.jar --outputUberJar my-micro.jar
 ----
 
 We can inspect this Uber JAR to verify that the third-party JAR files were packaged
