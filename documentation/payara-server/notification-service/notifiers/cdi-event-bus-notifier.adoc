@@ -1,0 +1,52 @@
+= CDI Event Bus Notifier
+
+_Since Payara Server 5.182_
+
+The CDI Event Bus Notifier provides a way to send notifications from the 
+link:../notification-service.adoc[Notification service] into the internal Payara event bus.
+
+[[requirements]]
+== Requirements
+
+[[configuration]]
+== Configuration
+
+[[notifier-configuration]]
+=== CDI Event Bus Notifier Configuration
+
+image:/images/notification-service/cdi-event-bus/cdi-event-bus-notif-config.png[Admin console config]
+
+`Enabled`::
+Enables/Disables the CDI Event Bus notifier.
+`Dynamic`::
+Starts or Stops the Notificatier in Payara if required.
+`Loop Back`::
+Enables/Disables whether message should also fire on the same instance or not
+
+Make sure that the "Enabled" box is ticked so that the notifier will be used. If you would like the changes to take effect without needing a restart, tick the "Dynamic" box as well. If you want to receive the message events on the same instance, tick the "Loop Back" box as well.
+
+It would receive structured JSON format data from different events.
+
+To make these changes via the asadmin tool, use the following command, which mirrors the above screenshot:
+
+[source, shell]
+----
+asadmin> notification-eventbus-configure --topicName=my-topic --dynamic=true --enabled=true
+----
+
+To check the current applied configuration from asadmin, run the command:
+
+[source, shell]
+----
+asadmin> get-eventbus-notifier-configuration
+----
+
+This will return the current configuration, with whether it is currently enabled and the name of the destination topic:
+
+[source, shell]
+----
+$ asadmin get-eventbus-notifier-configuration
+Enabled  Topic Name  
+true     my-topic
+----
+
