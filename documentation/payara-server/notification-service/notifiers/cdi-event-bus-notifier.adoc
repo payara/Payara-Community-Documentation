@@ -25,7 +25,7 @@ Enables/Disables whether message should also fire on the same instance or not
 
 Make sure that the "Enabled" box is ticked so that the notifier will be used. If you would like the changes to take effect without needing a restart, tick the "Dynamic" box as well. If you want to receive the message events on the same instance, tick the "Loop Back" box as well.
 
-It would receive structured JSON format data from different events.
+It would receive structured JSON format data or instance of NotificationData in form of either HealthCheckNotificationData or RequestTracingNotificationData from different events.
 
 To make these changes via the asadmin tool, use the following command, which mirrors the above screenshot:
 
