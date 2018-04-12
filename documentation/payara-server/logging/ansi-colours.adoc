@@ -12,6 +12,6 @@ To enable ANSI colours using the `asadamin` tool:
 asadmin> set-log-attributes com.sun.enterprise.server.logging.UniformLogFormatter.ansiColor=true
 ----
 
-NOTE: This is enabled by default on Linux and Mac from Payara 5.181.
+NOTE: This will be enabled by default from Payara 5.
 
 

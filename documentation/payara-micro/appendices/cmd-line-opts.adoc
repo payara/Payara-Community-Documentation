@@ -15,21 +15,18 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |`--additionalrepository <repo-url>`
 |Specifies an additional repository to search for deployable artefacts in.|
 |`--addjars <jar-path>`
-|__Deprecated__. Use `--addlibs` instead|
-|`--addlibs <file or directory path>`|<file-or-directory-path> add specified jar files into classloader, or packaged into an uberjar. Multiple files can be specified as colon separated values.|
+|Specifies one or multiple path sources for additional JAR files to include in
+the instance's classpath|
 |`--autobindhttp`
 |Enables auto-binding for the HTTP port.|_false_
 |`--autobindrange <number-of-ports>`
 |Sets the range for HTTP and HTTPS port auto-binding.|5
 |`--autobindssl`
 |Enables auto-binding for the HTTPS port.|_false_
-|`--clustermode`
-|Modifies the cluster discovery mode of  Payara Micro when finding members of the cluster. Options are multicast:group:port, tcpip:host:port, domain:dashost:port|multicast
 |`--clustername <cluster-name>`
 |Sets the cluster group name.|
-|`--clusterpassword <cluster-password>`|Sets the cluster group password.|
-|`--copytouberjar <directory-path`
-|<directory-path> copy a directory into the root of an uberjar|
+|`--clusterpassword <cluster-password>`
+|Sets the cluster group password.|
 |`--deploy <file-path>`
 |Specifies a WAR file to deploy.| If not set, has no value and is not used.
 |`--deploydir <directory-path>`
@@ -51,7 +48,6 @@ service is active.
 |`--enablerequesttracing`
 |Enables the Request Tracing Service and optionally sets the threshold unit
 and/or value.|
-|`--enablerequesttracingadaptivesampling <boolean>`|<boolean> Enables the adaptive sampling. Can also be enabled by configuring any one of the adaptive sampling configuration options|
 |`--group <group-name>`
 |Sets the instance's group.|
 |`--help`
@@ -66,7 +62,6 @@ cluster configuration.| If not set, the built-in Hazelcast configuration file
 is used.
 |`--instancegroup <group-name>`
 |See `--group`|
-|`--interfaces`|Specifies the Interfaces that the data grid discovery mode should use to listen. Can be comma separated, e.g. 127.0.0.1,192.168.0.*|
 |`--lite`
 |Sets the micro container to lite mode, which means it clusters with other Payara
 Micro instances but does not store clustered data.| _false_
@@ -79,9 +74,9 @@ Micro instances but does not store clustered data.| _false_
 |`--maxhttpthreads <max-thread-count>`
 |Sets the maximum number of threads in the HTTP thread pool.|10
 |`--mcaddress <multicast-address>`
-|Sets the cluster multicast group if multicast cluster mode is selected. See `--clustermode`.|
+|Sets the cluster groups.|
 |`--mcport <multicast-port>`
-|Sets the cluster multicast port if mulitcast cluster mode is selected.  See `--clustermode`.|2904
+|Sets the cluster multicast port.|2904
 |`--minhttpthreads <min-thread-count>`
 |Sets the minimum number of threads in the HTTP thread pool.|10
 |`--name <instance-name>`
@@ -92,7 +87,6 @@ _(Adjective-Fish)_.
 than unpacking the runtime.| _false_
 |`--nocluster`
 |Disables clustering for this instance.| _false_
-|`--nohostaware`|Disables Host Aware Paritioning. See `--hostaware`|
 |`--outputuberjar <file-path>`
 |Packages up an Uber JAR at the specified path based on the provided command
 line arguments and exit.|
@@ -104,9 +98,6 @@ line arguments and exit.|
 |Provides a file of asadmin commands to run *after all deployments have completed*.|
 |`--prebootcommandfile <file-path>`
 |Provides a file of asadmin commands to run *before booting the server*.|
-|`--requesttracingadaptivesamplingtargetcount`||
-|`--requesttracingadaptivesamplingtimeunit`||
-|`--requesttracingadaptivesamplingtimevalue`||
 |`--requesttracingthresholdunit <threshold-unit-notation>`
 |Sets the time unit for the requestTracingThresholdValue option, i.e. `SECONDS`,
 `ms`, `days` etc.|
@@ -115,12 +106,9 @@ line arguments and exit.|
 |`--rootdir <directory-path>`
 |Sets the root configuration directory and saves the configuration across restarts.
 |Defaults to `java.io.tmpdir`.
-|`--secretsdir`|Directory to read configuration from key-value files using the Microprofile config api.|
 |`--sslport <ssl-port-number>`
 |Sets the HTTPs port that the instance will bind to.| If not set, has no value
 and HTTPS is disabled.
-|`--sslcert <certificate-name>`
-|Sets the SSL certificate name to be used from the keystore for SSL| `s1as`
 |`--startport <cluster-start-port-number>`
 |Sets the cluster start port number.|5900
 |`--systemproperties <file-path>`

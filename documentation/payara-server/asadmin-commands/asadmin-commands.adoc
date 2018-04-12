@@ -15,6 +15,5 @@ Here's a list of Payara Server Asadmin commands that are not supported by GlassF
 - link:/documentation/payara-server/phone-home/phone-home-asadmin.adoc[Phone Home Commands]
 - link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[Request Tracing Commands]
 - link:/documentation/payara-server/rest-monitoring/configuring-rest-monitoring.adoc[REST Monitoring Commands]
-- link:/documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups Commands]
 - link:server-management-commands.adoc[Server Management Commands]
 - link:misc-commands.adoc[Miscellaneous Commands]

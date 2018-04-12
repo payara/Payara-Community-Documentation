@@ -10,7 +10,7 @@ which are documented in the following pages.
 GlassFish has had the ability to deploy applications on server start for a long
 time now, using the _autodeploy_ directory. While acceptable in development
 environments, the scanner used to deploy files in this directory is a security
-risk for production and is therefore disabled in the `production` domain bundled with
+risk for production and is therefore disabled in the `payaradomain` bundled with
 Payara Server.
 
 To reintroduce the capability of deploying an application on server startup
