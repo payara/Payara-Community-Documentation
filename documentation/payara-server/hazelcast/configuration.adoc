@@ -1,9 +1,13 @@
 [[configuring-hazelcast]]
-= Configuring Hazelcast
+= Configuring the Domain Data Grid underlying Hazelcast
 
 Payara Server supports configuring Hazelcast through the Admin Console and
 asadmin commands. The Hazelcast configuration file can also be directly edited,
 but will not be covered in  depth in this section.
+
+Configuration of Hazelcast is set in two sections. The first section applies to the whole
+domain and the second section applies to specific configurations and therefore to
+Payara Server instances that use that configuration.
 
 Using a Hazelcast configuration file will cause the settings set via the Admin
 Console and _asadmin_ commands to be ignored. Any parameters not specified in
@@ -23,10 +27,8 @@ that causes `ClassNotFoundException` errors.
 
 To set the Hazelcast configuration from a Hazelcast Configuration file:
 
-. Select the instance's configuration from the page tree and click the
-*Hazelcast* button to view the _"Hazelcast Configuration"_ page:
-+
-image::/images/hazelcast/hazelcast-select-hazelcast.png[Hazelcast Selection in Payara Server]
+. Select the domain Data Grid configuration from the page tree and click the
+*Configuration* tab to view the _"Hazelcast Configuration"_ page:
 
 . On the _Hazelcast Configuration_ page, add the path to your Hazelcast
 Configuration file and click "Save". This path is relative to your domain
@@ -42,28 +44,42 @@ file:
 
 [source, shell]
 ----
-asadmin> set-hazelcast-configuration --hazelcastconfigurationfile /path/to/file --enabled=true
+asadmin> set-hazelcast-configuration --hazelcastconfigurationfile /path/to/file
 ----
 
 As with the admin console, this path is relative to your domain configuration
 directory.
 
-[[configuring-hazelcast-with-the-admin-console]]
-=== Configuring Hazelcast with the Admin Console
+[[configuring-domain-wide-hazelcast-with-the-admin-console]]
+=== Configuring Domain Wide Hazelcast Settings with the Admin Console
+Some Hazelcast configuration settings apply to the whole domain.
+Navigate to the _Data Grid page for the domain wide settings.
 
-Navigate to the _Hazelcast Configuration_ page of your instances configuration.
-
-image::/images/hazelcast/hazelcast-admin-console-hazelcast-options.png[Hazelcast Options]
+image::/images/hazelcast/hazelcast-admin-console-domain-hazelcast-options.png[Data Grid Domain Wide Options]
 
 The following configuration options are available here:
 
 [cols=",",options="header",]
 |====
 |Property |Description
-|Enabled |Whether or not Hazelcast is enabled.
-
-|Dynamic |Determines if the Hazelcast member embedded in Payara will be
+|Restart Data Grid |Determines if the Hazelcast member embedded in Payara will be
 restarted to apply any changes made
+
+|DAS Bind Address|Explicity specifies the IP Address the DAS should bind the Hazelcast instance to.
+By default Hazelcast will try to choose the correct bind address from the IP addresses available
+on the host. If you find the DAS is binding to an incorrect IP Address the correct address
+can be specified here.
+
+|DAS Public Address|This is the public IP Address that the DAS should use if the DAS is
+behing a NAT firewall and other Payara Server Instances need to connect via the public
+NAT address rather than the internal IP Address
+
+|DAS Start Port | The port the DAS uses to run Hazelcast on. If this port is busy, the port
+specified will be incremented until a valid port is found.
+
+|Network Interfaces | Similar to DAS Bind address by default Hazelcast will choose the correct
+IP Address to bind to. If you find Hazelcast is binding to the incorrect address a comma separated
+list of IP Addresses can be specified here.
 
 |Override Configuration File |Specifies the Hazelcast configuration file
 to use. The path specified is relative to the domain _config_ directory.
@@ -78,38 +94,65 @@ Using this option to point to a valid Hazelcast configuration file will cause
 all other options set to be ignored. Any options unset within the Hazelcast
 configuration file will be set to the Hazelcast defaults.
 
-|Cluster Group Name | Specifies the Hazelcast group name, to be optionally used
+|Data Grid Group Name | Specifies the Hazelcast group name, to be optionally used
  to help divide clusters into logical, segregated groups (i.e. _dev-group_,
    _prod-group_).
 
-|Cluster Group Password |Specifies the password used to access the Hazelcast
+|Data Grid Group Password |Specifies the password used to access the Hazelcast
 group.
 
-|Start Port | The port to run Hazelcast on. If this port is busy, the port
+|Start Port|The port the other Payara Server instances use to run Hazelcast on. If this port is busy, the port
 specified will be incremented until a valid port is found.
-
-|Multicast Port |The multicast port for communications in the Hazelcast
-cluster.
-
-|Multicast Group |The multicast group for communications in the
-Hazelcast cluster.
-
-|JNDI Name |The JNDI name to bind the Hazelcast instance to.
 
 |License Key |Enables
 https://hazelcast.com/products/enterprise/[Hazelcast Enterprise]
 features.
-
-|Lite Cluster Member|If set to true, cluster members with this configuration
-will be Hazelcast "lite" nodes, meaning they will not store any cache data
-locally and rely on other cluster members to store data.
 
 |Host Aware Partitioning |Whether or not to enable
 http://docs.hazelcast.org/docs/latest/manual/html-single/index.html#grouping-types[host-aware partitioning]
  for the cluster.
 Host aware partitioning *must be* enabled
 on all members of the cluster (including Payara Micro instances) for
-this feature to work correctly.
+this feature to work correctly. This is default in Payara Server 5.181 onwards for both
+Payara Server domains and Payara Micro instances.
+
+|Data Grid Discovery Mode | See link:discovery.adoc[Discovery Modes]
+
+|====
+
+[[configuring-config-specifc-hazelcast-with-the-admin-console]]
+=== Configuring Server Config Specfic Hazelcast Settings with the Admin Console
+
+Navigate to the _Data Grid_ page for the specific configuration.
+
+image::/images/hazelcast/hazelcast-admin-console-config-hazelcast-options.png[Data Grid Domain Wide Options]
+
+The following configuration options are available here:
+
+[cols=",",options="header",]
+|====
+|Property |Description
+
+|Enabled | See link:enable-hazelcast.adoc[Disabling Data Grid] for detailed information
+
+|Restart Data Grid |Determines if the Hazelcast member embedded in Payara will be
+restarted to apply any changes made
+
+|Lite Data Grid Instance|If set to true, cluster members with this configuration
+will be Hazelcast "lite" nodes, meaning they will not store any cache data
+locally and rely on other cluster members to store data.
+
+|Instance Group | Instance group name for all Server Instances using the configuration.
+Future functionality may use this name.
+
+|Hazelcast Instance JNDI Name |The JNDI name to bind the Hazelcast instance to.
+|JCache Manager JNDI Name| The JNDI name to bind the JCache Cache Manager to.
+|JCache Caching Provider JNDI Name|The JNDI name to bind the JCache Caching Provider to.
+
+|Executor Pool Size| The threadpool size for the Hazelcast Executor service
+|Executor Queue Capacity | Queue Capacity of the Data Grid Executor Service. Executions are queued until a thread is available
+|Scheduled Executor Pool Size| The threadpool size for the Hazelcast Scheduled Executor service
+|Scheduled Executor Queue Capacity | Queue Capacity of the Data Grid Scheduled Executor Service. Executions are queued until a thread is available
 |====
 
 Enter your required values, and click _Save_. Restarting the domain or
@@ -121,7 +164,8 @@ that _"Dynamic"_ remains set to "_true_"
 
 As noted in the enable Hazelcast section, the `set-hazelcast-configuration`
 asadmin command is used to both enable/disable Hazelcast, and to
-configure it. You can pass the ``--help` option to the command to see
+configure it. The `set-hazelcast-configuration` command is used to set both domain wide
+and config specific settings. You can pass the ``--help` option to the command to see
 usage instructions and available arguments in your terminal, both of which
 are listed below:
 
@@ -134,16 +178,16 @@ will enable Hazelcast on the domain configuration _(server-config)_.
 If no arguments are specified, defaults to _true_.
 
 If other options are specified, asadmin will interactively prompt for
-`--enabled`.| _false_ | Yes
+`--enabled`.| _true_ | No
 
 |`--target`|Config Name|Specifies the instance or cluster to configure.
-|`server-config`|No
+|`domain`|No
 
 |`--dynamic` |Boolean|Enable or disable dynamic stopping and starting of the
 embedded Hazelcast member.|_false_|No
-|`--hazelcast-configuration-file`
+|`-f`
 
-`-f`|File Path |The Hazelcast configuration file to
+`--hazelcastconfigurationfile`|File Path |The Hazelcast configuration file to
 use. This path is relative to the domain config directory,
 `<Payara Installation Directory>/glassfish/domains/<Domain Name>/config/`.
 
@@ -152,16 +196,24 @@ all other options set to be ignored. Any options unset within the Hazelcast
 configuration file will be set to the Hazelcast defaults.|`hazelcast-config.xml`
 | No
 
-|`--startport` |Port Number|The port to run Hazelcast on. If this port is busy,
+|`--startport` |Port Number|The port to run Hazelcast on for Payara Server Instances. If this port is busy,
 the port specified will be incremented until a valid port is found. |5900 |No
 
-|`--multicastgroup`
+|`--daspublicaddress`|IP Address|This is the public IP Address that the DAS should use if the DAS is
+behing a NAT firewall and other Payara Server Instances need to connect via the public
+NAT address rather than the internal IP Address|None|No
 
-`-g` |Multicast Address|The multicast group for
-communications in the Hazelcast instance.|224.2.2.3|No
+|`--dasbindaddress`|IP Address|Explicity specifies the IP Address the DAS should bind the Hazelcast instance to.
+By default Hazelcast will try to choose the correct bind address from the IP addresses available
+on the host. If you find the DAS is binding to an incorrect IP Address the correct address
+can be specified here.|None|No
 
-|`--multicastport` |Port Number |The multicast port for communications in the Hazelcast
-instance.|54327|No
+|`--dasport`|Port Number|The port to run Hazelcast on for the DAS. If this port is busy,
+the port specified will be incremented until a valid port is found. |4900 |No
+
+|`--interfaces`|IP Addresses|Similar to DAS Bind address by default Hazelcast will choose the correct
+IP Address to bind to. If you find Hazelcast is binding to the incorrect address a comma separated
+list of IP Addresses can be specified here.|None|No
 
 |`--clustername` |Group Name|Specifies the Hazelcast group name, to be
 optionally used to help divide clusters into logical, segregated groups (i.e.
@@ -170,25 +222,53 @@ _dev-group_, _prod_group_).||No
 |`--clusterpassword` |Password|Specifies the password used to access the
 Hazelcast group.||No
 
-|`--jndiname`
-
-`-j` |JNDI Name|Specifies the JNDI name to bind the Hazelcast
-instance to.||
-
-|`--licensekey`
-
-`-lk` |Hazelcast License|Enables https://hazelcast.com/products/enterprise/[Hazelcast Enterprise]
-features.||No
-
-|`--lite` |Boolean|Sets the cluster to lite mode, where it will cluster but *not*
-store any cluster data.|_false_|No
-
 |`--hostawarepartitioning` |Boolean|Whether or not to enable
 http://docs.hazelcast.org/docs/latest/manual/html-single/index.html#grouping-types[host-aware partitioning]
  for the cluster.
 Host aware partitioning *must be* enabled
 on all members of the cluster (including Payara Micro instances) for this
 feature to work correctly.|_false_|No
+
+|`--licensekey`
+
+`-lk` |Hazelcast License|Enables https://hazelcast.com/products/enterprise/[Hazelcast Enterprise]
+features.||No
+
+|`--clustermode`|Cluster Mode|Can be one of `domain`, `tcpip` or `multicast`. See link:discovery.adoc[Discovery Modes] for
+a detailed description of each mode | None|No
+
+|`--multicastgroup`
+
+`-g` |Multicast Address|The multicast group for
+communications in the Hazelcast instance if `multicast` is selected as cluster mode.|224.2.2.3|No
+
+|`--multicastport` |Port Number |The multicast port for communications in the Hazelcast
+instance if `multicast` is selected as cluster mode.|54327|No
+
+|`--tcpipmembers`|IP Addresses|Comma separated list of `IP-Address:port` used to discover
+cluster members if `tcpip` is selected as the cluster mode.|None|No
+
+
+|`--lite` |Boolean|Sets the cluster to lite mode, where it will cluster but *not*
+store any cluster data.|_false_|No
+
+|`--jndiname`
+
+`-j` |JNDI Name|Specifies the JNDI name to bind the Hazelcast
+instance to.||
+
+|`--cachemanagerjndiname`|JNDI Name|Specified the JNDI name to bind the JCache Caching provider
+||
+
+|--cachingproviderjndiname|JNDI Name|The JNDI name to bind the JCache Caching Provider to.||
+
+|--executorpoolsize|Integer| The threadpool size for the Hazelcast Executor service||
+|--executorqueuecapacity|Integer| Queue Capacity of the Data Grid Executor Service. Executions are queued until a thread is available  ||
+|--scheduledexecutorpoolsize|Integer| The threadpool size for the Hazelcast Scheduled Executor service||
+|--scheduledexecutorqueuecapacity|Integer| Queue Capacity of the Data Grid Scheduled Executor Service. Executions are queued until a thread is available  ||
+|--membername|String|Member name|instance name|
+|--membergroup|String|Instance group name for all Server Instances using the configuration.
+Future functionality may use this name.|config name|
 
 |`--help`
 
@@ -200,5 +280,5 @@ cluster called _cluster1_:
 
 [source, shell]
 ----
-asadmin> set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 --hostAwareParitioning=true -j payara/Hazelcast
+asadmin> set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 --clustermode multicast --hostAwareParitioning=true -j payara/Hazelcast
 ----

@@ -1,7 +1,7 @@
 [[elements-of-the-deployment-descriptor-files]]
 = Elements of the Deployment Descriptor Files
 
-This page is a reference for extra elements added to the GlassFish proprietary
+This page is a reference for extra and changed elements added to the GlassFish proprietary
 deployment descriptors
 
 
@@ -15,6 +15,48 @@ overriding the versions included on the server.
 For more information about how class delegation can be configured on
 Payara Server, see the
 link:/documentation/payara-server/classloading.adoc[Enhanced Class loading] section.
+
+[[clustered-attach-postconstruct]]
+== `clustered-attach-postconstruct`
+
+Whether to call `@PostConstruct` each time the bean is created
+on a different node. Will result in multiple calls.
+
+Valid values are `true` or `false`. The default value is `true`.
+
+[[clustered-bean]]
+== `clustered-bean`
+
+Whether this bean should be a link:/documentation/payara-server/public-api/clustered-singleton.adoc[Clustered Singleton]. Can be applied only to singleton EJBs.
+
+Valid values are `true` or `false`. The default value is `false`.
+
+[[clustered-detach-predestroy]]
+== `clustered-detach-predestroy`
+
+Whether to call `@PreDestroy` when the singleton is destroyed on an
+instance while still being available on another. Will result in
+multiple calls.
+
+Valid values are `true` or `false`. The default value is `true`.
+
+[[clustered-key-name]]
+== `clustered-key-name`
+
+The key used for replication of clustered beans. Applies to singleton EJBs when `clustered-bean` is set to `true`.
+
+This element is optional. If not set, the default value is the value of the `ejb-name` element.
+
+[[clustered-lock-type]]
+== `clustered-lock-type`
+
+The type of distributed locking to be performed. 
+
+For EJB beans, only `INHERIT` and `LOCK_NONE` are valid.
+
+For CDI beans, valid values are `LOCK` and `INHERIT`, which is equivalent to using `LOCK_NONE`.
+
+Default value is `INHERIT`
 
 [[whitelist-package]]
 == `whitelist-package`
@@ -256,3 +298,12 @@ NOTE: All sub-elements tags of the `login-config` can be used inside this elemen
 IMPORTANT: If an EJB Web service definition needs a different login configuration
 from the default, just redefine it as shown in the example and it will override
 the default configuration.
+
+[[jsp-config]]
+== `jsp-config`
+
+_Since Payara Server 5.181_
+
+The default value of the _compiler_ property for this element has changed from _1.5_ to _1.8_, denoting a change from JDK5 to JDK8.
+
+You can change this to another value by editing the `jsp-config` element in the `glassfish-web.xml` file.

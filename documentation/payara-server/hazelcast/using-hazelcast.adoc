@@ -1,7 +1,7 @@
-[[using-hazelcast-in-your-applications]]
-= Using Hazelcast in your Applications
+[[using-datagrid-in-your-applications]]
+= Using the Data Grid in your Applications
 
-The following sections will detail how to use the Hazelcast embedded in
+The following sections will detail how to use the underlying Data Grid Hazelcast instance in
 Payara within your code.
 
 [[accessing-the-jndi-registered-hazelcast-instance]]
@@ -62,15 +62,11 @@ containers.
 [[setting-hazelcast-as-the-persistence-provider-through-the-admin-console]]
 === Setting Hazelcast as the Persistence provider through the Admin Console
 
-NOTE: Note that you can always select Hazelcast as a persistence provider, even if
-it not yet enabled.
+NOTE: Note on Payara Server 5.181 hazelcast is the default persistence provider.
 
 To set up Hazelcast for persistence:
 
 . Select the instance's configuration from the page tree:
-+
-image::/images/hazelcast/hazelcast-admin-console-select-instance-config.png[Page Tree]
-
 . Select _"Availability Service"_ to view the _"Availability Service"_ page:
 +
 image::/images/hazelcast/hazelcast-admin-console-select-availability-service.png[Availability Service]

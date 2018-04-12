@@ -67,7 +67,7 @@ If you specify a blank schema name, then the schema name will depend on
 the what database vendor is being used:
 
 * On *MySQL*, the _test_ schema will be used
-* On *Derby*, *Oracle*, *DB2* and *PostgreSQL* the schema name will be the username
+* On *H2*, *Derby*, *Oracle*, *DB2* and *PostgreSQL* the schema name will be the username
 of the JDBC  connection pool resource associated with the JDBC resource to which
 JBatch is configured to use.
 
