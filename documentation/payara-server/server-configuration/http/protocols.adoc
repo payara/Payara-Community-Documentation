@@ -236,6 +236,46 @@ The maximum size, in bytes, of the header list.
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.http2-max-header-list-size-in-bytes=value`
 
 ---
+[[steams-high-water]]
+==== Streams High Water Mark
+
+Streams are periodically cleaned when the stream count exceeds this value, as a proportion of the max concurrent streams
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.http2-streams-high-water-mark=value`
+
+---
+[[steams-clean-percent]]
+==== Streams Clean Percentage
+
+The number of streams to process when the high water mark is exceeded. Only closed streams will be removed.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.http2-clean-percentage=value`
+
+---
+[[streams-clean-frequency]]
+==== Streams Clean Frequency Check
+
+The number of streams that must be closed before checking if the number of streams exceeds the high water mark.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.http2-clean-frequency-check=value`
+
+---
+[[http2-push]]
+==== HTTP/2 Push
+
+Enables server push. This is enabled by default.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.http2-push-enabled=[true|false]`
+
+---
 [[configuration-http-compression]]
 ==== Compression
 
