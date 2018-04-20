@@ -24,7 +24,7 @@
         "glassfishVersion": "5",
         "mpConfigVersion": "1.1",
         "mpConfigSpecUrl": "https://github.com/eclipse/microprofile-config/releases/tag/1.1",
-        "mpMetricsVersion": "1.0",
+        "mpMetricsVersion": "1.1",
         "mpMetricsSpecUrl": "https://github.com/eclipse/microprofile-metrics/releases/tag/1.0",
         "mpHealthVersion": "1.0",
         "mpHealthSpecUrl": "https://github.com/eclipse/microprofile-health/releases/tag/1.0",
