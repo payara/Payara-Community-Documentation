@@ -11,15 +11,15 @@ For a full overview of the API, review https://github.com/eclipse/microprofile-m
 
 A key goal of the specification was to provide HTTP endpoints in Prometheus format (as well as JSON). Since the https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-details[Prometheus Text format] is widely used by monitoring products other than Prometheus, this gives a lot of compatibility out-of-the-box.
 
-https://github.com/eclipse/microprofile-metrics/releases/tag/1.1[MicroProfile Metrics 1.1] was released in MicroProfile 1.3
+{{ book.mpMetricsSpecUrl }}[MicroProfile Metrics 1.1] was released in MicroProfile 1.3
 
-IMPORTANT: Version 1.1 of the Metrics specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the Metrics specification.
+IMPORTANT: Version {{ book.mpMetricsVersion }} of the Metrics specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the Metrics specification.
 
 == REST Endpoint
 MicroProfile Metrics specifies that all metrics are published at the endpoint `/metrics`. For both Payara Server and Payara Micro, this means that the endpoint can be found on the HTTP port (default `8080`). By visiting these endpoints in a browser, the Prometheus text format can be viewed directly.
 
 ==== Metric Scopes
-The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/1.1/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
+The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/{{ book.mpMetricsVersion }}/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
 
 **Base**::
 Base metrics are mandatory for all implementations to provide. This is so that there is a predictable baseline of metrics which will be available on any MicroProfile implementation.
