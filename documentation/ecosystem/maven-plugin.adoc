@@ -3,8 +3,8 @@
 Payara Micro has a Maven plugin which can start and stop Payara Micro and create
 an Uber JAR bundle of the application and Payara Micro.
 
-The plugin requires JDK 7 or higher and the latest version is currently
-`1.0.0-SNAPSHOT`
+The plugin requires JDK 8 or higher and the latest version is currently
+`1.0.1`
 
 === Configurable Goals
 
@@ -73,8 +73,8 @@ with the provided class.
 |Appends all system properties defined into the `payara-boot.properties` file.
 
 |`payaraVersion`
-|4.1.1.171
-|By default bundle mojo fetches payara-micro with version 4.1.1.171.
+|4.1.1.181
+|By default bundle mojo fetches payara-micro with version 4.1.1.181.
 
 |`deployArtifacts`
 |_None_
@@ -116,7 +116,7 @@ Example:
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>4.1.1.171</version>
+            <version>4.1.1.181</version>
         </artifactItem>
         <deployWar>true</deployWar>
         <copySystemProperties>true</copySystemProperties>
@@ -148,9 +148,15 @@ artifact will be resolved automatically by evaluating its final name, artifact
 ID and version. This configuration element has the higher precedence compared to
 `payaraMicroAbsolutePath` and `artifactItem`.
 
-|`deamon`
+|`daemon`
 |false
 |Starts payara-micro in separate JVM process and continues with the maven build.
+
+|`immediateExit`
+|false
+|If payara-micro is executed in daemon mode, the executor thread will wait for
+the ready message before shutting down its process. By setting `immediateExit`
+to `true` you can skip this and instantly interrupt the executor thread.
 
 |`javaPath`
 |`java`
@@ -168,14 +174,14 @@ be available in local maven repository.
 |`deployWar`
 |false
 |If the attached project is of type WAR, it will automatically be deployed to
-payara-micro if deployWar is set to true.
+payara-micro if `deployWar` is set to `true`.
 
 |`copySystemProperties`
 |false
 |Allows passing all system properties available within the maven build to the
 payara-micro execution.
 
-|commandLineOptions
+|`commandLineOptions`
 |_none_
 |Defines a list of command line options that will be passed onto payara-micro.
 
@@ -212,7 +218,7 @@ Example:
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>4.1.1.171</version>
+            <version>4.1.1.181</version>
         </artifactItem>
     </configuration>        
 </plugin>
@@ -226,11 +232,11 @@ Example:
 |Default
 |Notes
 
-|processId
+|`processId`
 |_none_
 |Process id of the running payara-micro.
 
-|artifactItem
+|`artifactItem`
 |_none_
 |Defines payara-micro artifact with its coordinates. This information is used to
 identify the process id of the running payara-micro.
