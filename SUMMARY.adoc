@@ -207,7 +207,7 @@
 *** link:documentation/user-guides/connection-pools/leak-detection.adoc[Statement and Connection Leak Detection]
 ** link:documentation/user-guides/bypassing-jms-connections-through-a-firewall.adoc[Bypassing JMS Connections through a Firewall]
 ** link:documentation/user-guides/mdb-in-payara-micro.adoc[Using Payara Micro as a JMS Client]
-
+** link:documentation/user-guides/using-the-maven-cargo-plugin.adoc[Deploying to Payara Server from Maven]
 
 
 [[appendices]]
