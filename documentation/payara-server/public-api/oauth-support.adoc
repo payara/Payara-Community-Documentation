@@ -38,6 +38,11 @@ public class SecurityBean {
 }
 ----
 
+NOTE: Once the user is authenticated they will not have any roles defined, regardless of
+the OAuth scope. Roles should be specified using `@DeclareRoles`. See the following
+link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[example project]
+for a more detailed example.
+
 [[configuration]]
 == Configuration
 
@@ -84,10 +89,15 @@ They are detailed below.
 | Must be in the form `"key=value"`.
 |===
 
-****
-Note: The `clientSecret` can be input directly, or can be aliased to be resolved at
-runtime.
-****
+[[secret-alias]]
+=== Client Secret Aliasing
+
+The client secret can be input directly, or for added security it can be
+aliased using any of the following options:
+
+- link:../password-aliases/README.adoc[Password Aliases]
+- link:../server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
+- link:../../microprofile/config.adoc[Config API]
 
 [[links]]
 == Links

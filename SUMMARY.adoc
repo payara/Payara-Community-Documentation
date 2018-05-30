@@ -39,7 +39,7 @@
 *** link:documentation/payara-server/logging/log-to-file.adoc[Log To File]
 *** link:documentation/payara-server/logging/multiline.adoc[Multiline Mode]
 *** link:documentation/payara-server/logging/json-formatter.adoc[JSON Log Formatter]
-** link:documentation/payara-server/password-aliases/password-aliases-overview.adoc[Password Aliases Overview]
+** link:documentation/payara-server/password-aliases/README.adoc[Password Aliases Overview]
 *** link:documentation/payara-server/password-aliases/password-alias-asadmin-commands.adoc[Password Aliases Asadmin Commands]
 *** link:documentation/payara-server/password-aliases/password-alias-admin-console-commands.adoc[Password Aliases from the Admin Console]
 ** link:documentation/payara-server/asadmin-commands/asadmin-commands.adoc[Asadmin Commands]
