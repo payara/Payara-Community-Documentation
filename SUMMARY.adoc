@@ -26,6 +26,7 @@
 **** link:documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
 *** link:documentation/payara-server/server-configuration/http/README.adoc[HTTP Service]
 **** link:documentation/payara-server/server-configuration/http/network-listeners.adoc[Network Listeners]
+***** link:documentation/payara-server/server-configuration/http/security/sni.adoc[SNI]
 **** link:documentation/payara-server/server-configuration/http/protocols.adoc[Protocols]
 **** link:documentation/payara-server/server-configuration/http/virtual-servers.adoc[Virtual Servers]
 ** link:documentation/payara-server/deployment-groups/README.adoc[Deployment Groups]
