@@ -16,5 +16,5 @@ From here, click on the *SSL* tab, and make sure that the *SNI Support* checkbox
 ticked.
 
 NOTE: For this to take effect, the network listener must have security enabled by 
-providing a default keypair and certificate, and by cecking the *Security* box on 
+providing a default keypair and certificate, and by checking the *Security* box on 
 the *HTTP* tab.
