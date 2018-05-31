@@ -77,6 +77,11 @@ These will be available for all server instances that are members of the cluster
 the dotted name path in the JNDI tree and the value being stored in the JNDI tree.
 These are modifiable by current admin console functionality.
 
+|`password`
+|105
+|Retrieves and stores config values in the password alias store. These will be 
+available to all server instances in a domain.
+
 |===
 
 {% if book.currentVersion == "4.1.2.181" %}
