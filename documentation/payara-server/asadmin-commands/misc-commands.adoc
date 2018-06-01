@@ -141,7 +141,7 @@ This command helps to modify existing network listener
 | 
 | No
 
-| listenerport
+| Port
 | Integer
 | The port on which the network listener is going to be listening. 
 | 
@@ -149,11 +149,11 @@ This command helps to modify existing network listener
 
 | listenerPortRange
 | String
-| Port range which network listener can bind to.  
+| Port range which the network listener can bind to.  
 | 
 | No
 
-| threadpool
+| threadPool
 | String
 | The thread pool which will be associated with the network listener.
 | 
