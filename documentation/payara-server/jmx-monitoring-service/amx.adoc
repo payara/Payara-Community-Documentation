@@ -15,4 +15,4 @@ asadmin>set configs.config.server-config.amx-configuration.enabled=true
 
 To boot AMX using Admin Console:
 
-image:/images/jmx-monitoring-service/jmx-monitoring-page-full.png[Enable AMX]
+image:/images/jmx-monitoring-service/enable_amx.png[Enable AMX]
