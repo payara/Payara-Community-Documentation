@@ -33,7 +33,7 @@ _Since Payara Micro 4.1.1.171_
 
 Starting from this release, you need to add a dependency to
 the link:/documentation/payara-server/app-deployment/public-api.adoc[Public API]
-when developing applications that use proprietary features (`@Traced` or
+when developing applications that use proprietary features (`@Clustered` or
 `@NamedCache` for example)
 
 [[run-payara-micro-using-maven]]

@@ -37,8 +37,10 @@ https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[jav
 **Historic Trace Store Timeout**:: Determines how long before Request Tracing messages are removed. This field is specified in the format "%d %h %m %s" where % is an integer. Any of the units can also be omitted.
 
 Aside from this configuration settings, you can also define which notifiers will be
-used to relay the request tracing events by moving them to the **Active Notifiers**
+used to relay the request tracing events by moving them to the **Selected Notifiers**
 box.
+
+image:/images/request-tracing/select-notifiers.png[Activate Notifiers in the Admin Console]
 
 IMPORTANT: Keep in mind that for request tracing events to be relayed to the
 active notifiers, both the

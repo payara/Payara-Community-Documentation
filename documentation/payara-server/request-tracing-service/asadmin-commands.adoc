@@ -35,9 +35,9 @@ without a restart. Otherwise a restart is required. |false |No
 |`--traceStoreSize` |Integer |Sets how many request traces will be stored |20 |No
 |`--traceStoreTimeout` |Integer |Sets how long before Request Tracing messages are removed. This field is specified in the format "%d %h %m %s" where % is an integer. Any of the units can also be omitted. Ignored when reservoir sampling is enabled. |- |No
 |`--reservoirSamplingEnabled` |Boolean |Whether to use reservoir sampling, or time based sampling. |False |No
-|`--historicaltraceenabled` |Boolean |When present, enables storage of the slowest sampled historical request traces in a separate trace store. |false |No
-|`--historicaltracestoresize` |Integer |Sets how many request traces will be stored for historical purposes. |20 |No
-|`--historicaltracestoretimeout` |String |Sets how long before Request Tracing messages are removed from the historical trace store. This field is specified in the format "%d %h %m %s" where % is an integer. Any of the units can also be omitted. Ignored when reservoir sampling is enabled. |N/A |No
+|`--historictracestoreenabled` |Boolean |When present, enables storage of the slowest sampled historical request traces in a separate trace store. |false |No
+|`--historictracestoresize` |Integer |Sets how many request traces will be stored for historical purposes. |20 |No
+|`--historictracestoretimeout` |String |Sets how long before Request Tracing messages are removed from the historical trace store. This field is specified in the format "%d %h %m %s" where % is an integer. Any of the units can also be omitted. Ignored when reservoir sampling is enabled. |N/A |No
 |=======================================================================
 
 [[example]]
@@ -50,11 +50,9 @@ asadmin> set-requesttracing-configuration
     --thresholdValue=10
     --thresholdUnit="SECONDS"
     --dynamic=true
-    --notifierEnabled=true
-    --notifierDynamic=true
-    --historicaltraceenabled=true
-    --historicaltracestoresize=20
-    --historicaltracestoretimeout=1d 2h 3m 30s
+    --historictracestoreenabled=true
+    --historictracestoresize=20
+    --historictracestoretimeout='1d 2h 3m 30s'
 ----
 
 
@@ -74,7 +72,7 @@ _[NOTIFIER_NAME]_ placeholder.
 [cols=",,,,",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
-|`--enable` |Boolean |Enables or disables the notifier |false|Yes
+|`--enabled` |Boolean |Enables or disables the notifier |false|Yes
 |`--dynamic` |Boolean |When set to true, applies the changes
 without a server/instance restart. |false |No
 |=======================================================================
