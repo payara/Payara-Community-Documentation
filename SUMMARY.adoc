@@ -107,6 +107,7 @@
 *** link:documentation/payara-server/request-tracing-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/request-tracing-service/configuration.adoc[Configuration]
 ** link:documentation/payara-server/jmx-monitoring-service/jmx-monitoring-service.adoc[JMX Monitoring Service]
+*** link:documentation/payara-server/jmx-monitoring-service/amx.adoc[AMX]
 *** link:documentation/payara-server/jmx-monitoring-service/configuration.adoc[Configuration]
 *** link:documentation/payara-server/jmx-monitoring-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/jmx-monitoring-service/jmx-notification-configuration.adoc[JMX Notification Configuration]
