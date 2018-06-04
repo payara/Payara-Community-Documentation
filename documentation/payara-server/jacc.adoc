@@ -5,8 +5,8 @@ JACC stands for *Java Authentication Contract for Containers*. It's defined in
 the https://jcp.org/en/jsr/detail?id=115[JSR 115 specification] and all Java
 EE complaint servers are mandated to provide a JACC Policy by default.
 
-[[how-to-install-a-custom-jacc-provider]]
-== How to install a custom JACC provider
+[[how-to-install-a-custom-jacc-provider-per-server]]
+== How to install a custom JACC provider per Server (Global)
 
 Having coded a JACC provider, the first thing to do it is to make these
 classes available for the server. For that purpose, you need to put the implementation JAR, with all its dependencies, under the `{PAYARA_HOME}/lib` folder.
@@ -37,3 +37,51 @@ As you can see on the XML excerpt, more JACC providers can be defined
 (by default, the `simple` and `default` providers are already defined),
 but only one will be used at runtime, specified by the `jacc` attribute
 on the `security-service` element.
+
+[[how-to-install-a-custom-jacc-provider-per-application]]
+== How to install a custom JACC provider per Application (Local)
+
+With a custom JACC provide per server, all multiple application deployed to a single server can't have their own custom authorization contract.
+So having a custom JACC Provider per application makes more sense and it can be defined using the `fish.payara.jacc.JaccConfigurationFactory` API.
+
+To import the `fish.payara.jacc` package, you will need to add the following Payara API dependency in the project _pom.xml_ file:
+
+[source, xml]
+----
+<dependency>
+  <groupId>fish.payara.api</groupId>
+  <artifactId>payara-api</artifactId>
+  <version>${payara.version}</version>
+</dependency>
+---- 
+
+Where the `${payara.version}` of the artifact corresponds with the version of Payara Server.
+
+In the below example, when an application is deployed, a custom JACC provider is registered programmatically 
+using the `JaccConfigurationFactory`(consisting of a JACC PolicyConfigurationFactory and a Policy impl) 
+in the `contextInitialized` method of `ServletContextListener`.
+
+[source, java]
+----
+@WebListener
+public class JaccInstaller implements ServletContextListener {
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+
+        JaccConfigurationFactory
+                .getJaccConfigurationFactory()
+                .registerContextProvider(
+                        getAppContextId(sce.getServletContext()),
+                        new CustomPolicyConfigurationFactory(),
+                        new CustomPolicy()
+                );
+
+    }
+
+    private String getAppContextId(ServletContext servletContext) {
+        return servletContext.getVirtualServerName() + " " + servletContext.getContextPath();
+    }
+
+}
+----
