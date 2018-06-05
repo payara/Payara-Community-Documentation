@@ -5,25 +5,19 @@ _Since Payara Server 4.1.1.171_
 The CDI Event Bus Notifier provides a way to send notifications from the 
 link:../notification-service.adoc[Notification service] into the internal Payara event bus.
 
-[[requirements]]
-== Requirements
-
-[[configuration]]
-== Configuration
-
 [[notifier-configuration]]
-=== CDI Event Bus Notifier Configuration
+== CDI Event Bus Notifier Configuration
 
 image:/images/notification-service/cdi-event-bus/cdi-event-bus-notif-config.png[Admin console config]
 
 `Enabled`::
 Enables/Disables the CDI Event Bus notifier.
 `Dynamic`::
-Starts or Stops the Notificatier in Payara if required.
+Applies changes to the notifier without server restart.
 `Loop Back`::
 Enables/Disables whether message should also fire on the same instance or not
 
-Make sure that the "Enabled" box is ticked so that the notifier will be used. If you would like the changes to take effect without needing a restart, tick the "Dynamic" box as well. If you want to receive the message events on the same instance, tick the "Loop Back" box as well.
+Make sure that the "Enabled" box is ticked so that the notifier will be used. If you would like the changes to take effect without needing a restart, tick the "Dynamic" box as well. If you want to receive the message events on the same instance, tick the "Loop Back" box as well. Otherwise messages will be received only by remote Payara instances.
 
 It would receive structured JSON format data or instance of NotificationData in form of either HealthCheckNotificationData or RequestTracingNotificationData from different events.
 
