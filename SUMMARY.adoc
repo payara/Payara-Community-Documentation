@@ -122,6 +122,7 @@
 ** link:documentation/payara-server/public-api/README.adoc[Public API]
 *** link:documentation/payara-server/public-api/cdi-events.adoc[Remote CDI Events]
 *** link:documentation/payara-server/public-api/clustered-singleton.adoc[Clustered Singleton]
+*** link:documentation/payara-server/public-api/yubikey.adoc[Yubikey Integration]
 ** link:documentation/payara-server/development-tools/README.adoc[Development Tools]
 *** link:documentation/payara-server/development-tools/cdi-dev-mode/README.adoc[CDI Development Mode]
 **** link:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-web-desc.adoc[Enable using web.xml]
