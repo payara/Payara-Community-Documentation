@@ -1,6 +1,6 @@
 = SNI
 
-Server Name Indication, SNI for short, allows you to use multiple SSL certifactes 
+Server Name Indication, SNI for short, allows you to use multiple SSL certificates 
 with the same IP address. When enabled, the server will look for a certificate in 
 the configured keystore using a nickname that matches the host name requested.  
 
