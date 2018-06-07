@@ -56,4 +56,4 @@ The RestClientBuilder interface extends the Configurable interface from JAX-RS, 
 * WriterInterceptor
 * ResponseExceptionMapper
 
-See the full https://github.com/eclipse/microprofile-rest-client/blob/master/spec/src/main/asciidoc/providers.asciidoc#provider-declaration[MicroProfile documentation] for the registration methods.
+See the full https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/providers.asciidoc[MicroProfile documentation] for the registration methods.
