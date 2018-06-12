@@ -1,0 +1,105 @@
+= OAuth Support
+
+_Since versions 4.182 and 5.182_
+
+The Payara API provides a `@OAuth2AuthorisationMechanism` annotation that creates
+an authorisation mechanism for using with OAuth2. This works in the same way as
+other authorisation mechanisms in the Security API.
+
+[[usage]]
+== Usage
+
+The OAuth2 authentication mechanism is defined through the 
+`@OAuth2AuthorisationMechanism` annotation. Specifying this in a valid place as
+defined by the Security API will create the mechanism. Often this may mean that
+any class is a valid position.
+
+[[usage-example]]
+=== Example
+
+An example that uses a Google OAuth2 endpoint:
+
+[source, java]
+----
+@OAuth2AuthenticationDefinition(
+    authEndpoint="https://accounts.google.com/o/oauth2/v2/auth",
+    tokenEndpoint="https://www.googleapis.com/oauth2/v4/token",
+    clientId="{my-key}.apps.googleusercontent.com",
+    clientSecret="{my-secret}",
+    redirectURI="https://localhost:8181/{my-application}/callback",
+    scope="email",
+    extraParameters = {
+        "testKey=testValue",
+        "testKey2=testValue2"
+    }
+)
+public class SecurityBean {
+
+}
+----
+
+NOTE: Once the user is authenticated they will not have any roles defined, regardless of
+the OAuth scope. Roles should be specified using `@DeclareRoles`. See the following
+link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[example project]
+for a more detailed example.
+
+[[configuration]]
+== Configuration
+
+The `@OAuth2AuthenticationDefinition` annotation has several configuration options.
+They are detailed below.
+
+.Configuration Options
+|===
+| Option | Required | Description | Requirements
+
+| `authEndpoint`
+| true
+| The URL for the OAuth2 provider to provide authentication.
+| The endpoint must be HTTPS.
+
+| `tokenEndpoint`
+| true
+| The URL for the OAuth2 provider to give the authorisation token.
+| The endpoint must be HTTPS.
+
+| `clientId`
+| true
+| The client identifier issued when the application was registered.
+| N/A.
+
+| `clientSecret`
+| true
+| The client secret for the registered application.
+| N/A.
+
+| `scope`
+| false
+| The scopes requested from the OAuth provider.
+| N/A.
+
+| `redirectURI`
+| false
+| The URL to redirect the user to upon successful authentication.
+| Must be equal to one set in the OAuth2 Authentication provider.
+
+| `extraParameters`
+| false
+| An array of extra options to be sent to the OAuth provider.
+| Must be in the form `"key=value"`.
+|===
+
+[[secret-alias]]
+=== Client Secret Aliasing
+
+The client secret can be input directly, or for added security it can be
+aliased using any of the following options:
+
+- link:../password-aliases/README.adoc[Password Aliases]
+- link:../server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
+- link:../../microprofile/config.adoc[Config API]
+
+[[links]]
+== Links
+
+To read more about OAuth2 itself, visit https://oauth.net/2/.
