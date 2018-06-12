@@ -13,8 +13,7 @@ A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-config/blob/master/README.adoc[the
 README for the source code repository.]
 
-https://github.com/eclipse/microprofile-config/releases/tag/1.0[
-The complete specification] is maintained in the same repository
+{{ book.mpConfigSpecUrl }}[The complete specification] is maintained in the same repository
 
 
 == Config Sources
@@ -76,6 +75,11 @@ These will be available for all server instances that are members of the cluster
 |Retrieves and stores config values within the jndi tree. The property name being
 the dotted name path in the JNDI tree and the value being stored in the JNDI tree.
 These are modifiable by current admin console functionality.
+
+|`password`
+|105
+|Retrieves and stores config values in the password alias store. These will be 
+available to all server instances in a domain.
 
 |===
 

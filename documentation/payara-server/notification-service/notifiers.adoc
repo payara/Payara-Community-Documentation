@@ -10,8 +10,8 @@ server, you can route notifications to an email account
 *JMS*:: Taking advantage of preconfigured JMS connection resources, you
 can route notifications to a Java Message Queue so it can be consumed by
 other applications or services
-*Event Bus*:: If Hazelcast is enabled, it's possible to send
-notification events using Hazelcast's event bus.
+*CDI Event Bus*:: For sending notification events using link:/documentation/payara-server/public-api/cdi-events.adoc[Payara's CDI Event Bus]
+ and observing them in instances in the cluster.
 *Hipchat*:: You can configure the notification service to send events
 to an specific Hipchat chat room.
 *Slack*:: Same as with the Hipchat notifier, you can sends
