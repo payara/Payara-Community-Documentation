@@ -10,14 +10,13 @@ a request in microservices environment across service boundaries.
 
 A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the
-README for the source code repository.]
+README of the MicroProfile OpenTracing source code repository].
 
-https://github.com/eclipse/microprofile-opentracing/releases/tag/1.0[
-The complete specification] is maintained in the same repository
+{{ book.mpOpenTracingUrl }}[The complete specification] is maintained in the same repository
 
 [[opentracing-configuration]]
 === OpenTracing Configuration
 
 You can configure the notifiers and open tracing service
-by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[administrations commands]
-and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[administrations console].
+by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands]
+and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
