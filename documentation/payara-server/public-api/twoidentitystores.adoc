@@ -1,13 +1,13 @@
 = Yubikey Support
 
-_Since versions 4.1.2.183 and 5.182_
+_Since version 5.182_
 
 The Payara API provides a way to authenticate with two identity stores using the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. By default a user is validated if they are authenticated  by any identity store, this mechanism will only validate them if both do.
 
 [[usage]]
 == Usage
 
-The mechism is defined through the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. Specifying this in a valid place as defined by the Security API will create the mechanism. Often this may mean that any class is a valid position. The mechanism works in a similar way to the form based authentication mechanisms and requires calls to the `SecurityContext.authenticate()` when processing the form. If there are further calls to `SecurityContext.authenticate()` then an `IllegalStateException` will be thrown.
+The mechanism is defined through the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. This should be accompanied with a configuration of any two identity stores in the application. Specifying this in a valid place as defined by the Security API will create the mechanism. Often this may mean that any class is a valid position. The mechanism works in a similar way to the form-based authentication mechanisms and requires calls to the `SecurityContext.authenticate()` when processing the form. If there are further calls to `SecurityContext.authenticate()` then an `IllegalStateException` will be thrown.
 
 [[usage-example]]
 === Example
@@ -46,7 +46,9 @@ public class LoginServlet extends HttpServlet {
         
         Credential firstCredential = new UsernamePasswordCredential(req.getParameter("username"), req.getParameter("password"));
         Credential secondCredential = new YubikeyCredential(req.getParameter("yubikey"));
+        // First call to securityContext.authenticate()
         securityContext.authenticate(req, resp, new AuthenticationParameters().credential(firstCredential));
+        // Second call to securityContext.authenticate()
         AuthenticationStatus status = securityContext.authenticate(req, resp, new AuthenticationParameters().credential(secondCredential));
         PrintWriter out = resp.getWriter();
         printHeaders(out);
@@ -83,4 +85,4 @@ Configuration Options
 
 | `loginToContinue`
 | true
-| A `@LoginToContinue` annotation defined the login page
+| A `@LoginToContinue` annotation defines the login page
