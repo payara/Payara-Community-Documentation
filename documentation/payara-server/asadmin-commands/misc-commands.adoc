@@ -107,3 +107,73 @@ Restarts all instances in a cluster. Must be run from the DAS.
 
 *Usage*::
 `asadmin > restart-cluster clusterName`
+
+
+[[set-network-listener-configuration-command]]
+== `set-network-listener-configuration`
+
+_Since Payara Server 5.182_
+
+*Usage*::
+`asadmin> set-network-listener-configuration <options> network_listener_name`
+
+*Aim*::
+This command helps to modify existing network listener
+
+|===
+|Options | Type | Description | Default | Mandatory
+
+| enabled
+| Boolean 
+| Enables or disables the network listener.
+| true
+| No
+
+| dynamic
+| Boolean 
+| When set to true, applies the changes without a restart. Otherwise a restart is required.
+| false
+| No
+
+| address
+| String
+| The IP address on which the network listener is going to be listening. 
+| 
+| No
+
+| Port
+| Integer
+| The port on which the network listener is going to be listening. 
+| 
+| Yes
+
+| listenerPortRange
+| String
+| Port range which the network listener can bind to.  
+| 
+| No
+
+| threadPool
+| String
+| The thread pool which will be associated with the network listener.
+| 
+| No
+
+| transport
+| String
+| The transport layer that is going to be used by the network listener
+| 
+| No
+
+| jkenabled
+| Boolean 
+| If enabled, the network listener will become an Apache mod-jk listener  
+| false
+| No
+
+| target
+| String
+| The config whose values will be set.
+| server-config
+| No
+|===
