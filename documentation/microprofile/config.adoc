@@ -13,8 +13,7 @@ A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-config/blob/master/README.adoc[the
 README for the source code repository.]
 
-https://github.com/eclipse/microprofile-config/releases/tag/1.0[
-The complete specification] is maintained in the same repository
+{{ book.mpConfigSpecUrl }}[The complete specification] is maintained in the same repository
 
 
 == Config Sources
