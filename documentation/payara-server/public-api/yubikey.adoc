@@ -1,0 +1,66 @@
+= Yubikey Support
+
+_Since version 5.182_
+
+The Payara API provides a way to authenticate with Yuibikey using the `@YubikeyIdentityStoreDefinition` annotation. This works in the same way as other identity stores in the Security API.
+
+[[usage]]
+== Usage
+
+The Yubikey identity store is defined through the `@YubikeyIdentityStoreDefinition` annotation. Specifying this in a valid place as defined by the Security API will create the identity store. Often this may mean that any class is a valid position. This is used to validate with a cloud based Yubikey authentication server, and currently cannot be used with a private one.
+
+[[usage-example]]
+=== Example
+
+
+[source, java]
+----
+@YubikeyIdentityStoreDefinition(yubikeyAPIKey="qwertyuiop1234567890", yubikeyAPIClientID=98765)
+public class ApplicationConfiguration {
+
+}
+----
+
+
+[[configuration]]
+== Configuration
+
+The `@YubikeyIdentityStoreDefinition` annotation has several configuration options. These refer to the API access credentials from Yubico.
+They are detailed below. One of yubikeyAPIClientID, yubikeyAPIClientIDExpression or a microprofile config setting is mandatory.
+
+.Configuration Options
+|===
+| Option | Required | Description
+
+| `yubikeyAPIClientID`
+| false
+| The client identifier used to identiy the application
+
+| `yubikeyAPIKey`
+| true
+| The API key
+
+| `priority`
+| false
+| The priority of the identity store
+| N/A.
+
+| `priorityExpression`
+| false
+| EL expression which overrides the priority value
+
+| `yubikeyAPIClientIDExpression`
+| false
+| EL expression which overrides the yubikeyAPIClientID value
+|===
+
+These settings can be overriden with a MicroProfile config setting.
+`payara.security.yubikey.apikey` overrides the `yubikeyAPIKey` setting in the annotation.
+`payara.security.yubikey.clientid` overrides the `yubikeyAPIClientID` setting in the annotation.
+`payara.security.yubikey.identitystore.priority` overrdies the `priority` setting in the annotation.
+
+[[links]]
+== Links
+
+To read more about Yubikey itself, visit https://www.yubico.com/.
+
