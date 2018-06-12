@@ -6,6 +6,8 @@ _Since Payara Server 4.1.1.171_
 This page contains information on using the Public API integrated within
 Payara Server and Payara Micro.
 
+TIP: Open http://javadoc.io/doc/fish.payara.api/payara-api[Payara API Javadoc] for complete public Payara API reference. 
+
 [[use-cases]]
 == Use Cases
 
@@ -16,12 +18,6 @@ applications that require Payara specific features outside the
 specifications (and *JCache*).
 . Contributors that want to develop extensions to Payara Server or
 Payara Micro.
-
-NOTE: Previous to the release into which this API was introduced, if developers
-wanted to access these interfaces they had to declare a dependency on
-the `payara-micro` or `payara-embedded-all` artifacts. Since those
-dependencies are heavier in size and include a lot of irrelevant code, the
-Public API was implemented to simplify this scenario.
 
 [[maven-coordinates]]
 == Maven Coordinates
@@ -40,5 +36,5 @@ project's POM:
 </dependency>
 ----
 
-Where the `${payara.version}` of the artifact corresponds with the
-version of Payara Server (starting from the version this API was introduce).
+Where `${payara.version}` of the artifact corresponds with the
+oldest version of Payara Server your application should support.
