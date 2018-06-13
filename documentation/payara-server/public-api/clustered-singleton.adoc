@@ -37,14 +37,14 @@ Since there are no default locks for CDI, @Clustered CDI @ApplicationScoped bean
 It is highly recommended to enable distributed locks for CDI Clustered beans: @Clustered(lock = DistributedLockType.LOCK) so there is no chance of race condition / data corruption for CDI Clustered beans
 
 [[requirementss]]
-== requirements and assumption
+== Requirements and assumption
 
 - Hazelcast is required to be enabled (default on Payara 5)
 - @Clustered only works with @ApplicationScoped or @Singleton annotation, and in no other circumstance
 - All fields in the @Clustered @Singleton class need to be correctly Serializable
 - Works correctly only if accessed via @Injected proxy, not through direct access
 - Works with EJB timers correctly only if all timers are persistent (default)
-- All method calls are local
+- All method calls to @Clustered beans operate on a local instance
 - Data corruption is possible if distributed lock is turned off and there is a race condition between method calls to the same bean on multiple cluster nodes simultaneously. In such a case, last method call wins the singleton state
 - Clustered singletons are stored in Hazelcast map under "Payara/(EJB/CDI)/singleton/<singletonComponentName>/[lock]"
 
