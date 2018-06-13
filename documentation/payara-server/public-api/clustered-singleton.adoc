@@ -1,17 +1,46 @@
 = Clustered Singleton
 
-_Since versions 4.181 and 5.181_
+_Since versions 4.182 and 5.181_
 
 The Payara API provides a `@Clustered` annotation that makes
 `@ApplicationScoped` CDI beans or `@Singleton` EJB beans cluster-wide. This
 allows a single bean to be shared across an entire cluster.
 
-[[requirements]]
+[[how it works]]
+The @Singleton / @ApplicationScoped bean is deployed and is available to all members in the cluster.
+Prior to every method invocation, latest version of the bean is retrieved from a Hazelcast map
+After every method invocation, possibly updated version of the bean is stored in a Hazelcast map
+During this process, a Hazelcast distributed lock for the bean is optionally acquired, so there is only one method call can be executed in a particular cluster at-a-time, so no data corruption / race conditions are possible.
+
+[[Differences from other vendor's implementations]]
+The main difference is that Payara's Clustered Singleton implementation stores the bean in Hazelcast map across the cluster.
+This makes it easier to manage and eliminates the need to administer nodes that the bean is deployed to, and managing primary / backup nodes is not necessary with Payara.
+
+[[examples]]
+Examples can be found here: https://github.com/payara/Payara-Examples/tree/master/Java-EE/clustered-singleton
+
+[[@Clustered and EJB Timers]]
+With persistent timers (default), they execute only on a single node in a cluster, so they work correctly with Clustered Singletons
+
+[[@Clustered and @Startup / @Initialized @ApplicationScoped]]
+Care must be taken in this scenario. By default, @PostConsctuct is called for every instance in the cluster for these beans. This behavior needs to be disabled by using @Clustered(callPostConstructOnAttach = false) and possibly callPreDestoyOnDetach = false as well, so only the @PostConstcut method will be called only once per cluster.
+@Observed @Initialzed methods are called for every instance in the cluster. The only valid method for cluster-wide initialization is @PostConstruct method configured as described above.
+
+[[CDI Considerations and Notes]]
+Since there are no default locks for CDI, @Clustered CDI @ApplicationScoped beans do not have distributed locks on by default.
+It is highly recommended to enable distributed locks for CDI Clustered beans: @Clustered(lock = DistributedLockType.LOCK) so there is no chance of race condition / data corruption for CDI Clustered beans
+
+[[requirements and assumptions]]
 == Requirements
 
-Firstly, Hazelcast must be enabled on the target server, which is the default setting.
-
-Secondly, the class annotated with `@Clustered` must also be annotated with either `@ApplicationScoped` (for CDI beans) or `@Singleton` (for EJBs). The annotated class must also be Serializable.
+- Hazelcast is required to be enabled (default on Payara 5)
+- @Clustered only works with @ApplicationScoped or @Singleton annotation, and in no other circumstance
+- All fields in the @Clustered @Singleton class need to be correctly Serializable
+- Works correctly only if accessed via @Injected proxy, not through direct access
+- Works with EJB timers correctly only if all timers are persistent (default)
+- All method calls are local
+- Data corruption is possible if distributed lock is turned off and there is a race condition between method calls to the same bean on multiple cluster nodes simultaneously. In such a case, last method call wins the singleton state
+- Clustered singletons are stored in Hazelcast map under "Payara/(EJB/CDI)/singleton/<singletonComponentName>/[lock]"
 
 [[usage]]
 == Usage
@@ -23,9 +52,6 @@ it's scope annotation.
 Alternatively, you can use the `glassfish-ejb-jar.xml` to configure a Singleton EJB
 to be cluster-wide.
 
-[[usage-example-xml]]
-=== Example
-
 [[usage-example]]
 === Example
 
@@ -35,7 +61,7 @@ An example for a CDI bean:
 ----
 @Clustered
 @javax.enterprise.context.ApplicationScoped
-public class ClusterSingletonBean {
+public class ClusterSingletonBean implements Serializable {
 
 }
 ----
@@ -46,7 +72,7 @@ An example for a Singleton EJB:
 ----
 @Clustered
 @javax.ejb.Singleton
-public class ClusterSingletonBean {
+public class ClusterSingletonBean implements Serializable {
 
 }
 ----
