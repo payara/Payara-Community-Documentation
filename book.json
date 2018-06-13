@@ -20,7 +20,7 @@
 
 
     "variables": {
-        "currentVersion": "5.181",
+        "currentVersion": "5.182",
         "glassfishVersion": "5",
         "mpConfigVersion": "1.2",
         "mpConfigSpecUrl": "https://github.com/eclipse/microprofile-config/releases/tag/1.2",
