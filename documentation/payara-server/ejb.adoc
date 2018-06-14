@@ -111,9 +111,7 @@ The following is a sample `glassfish-ejb-jar.xml` deployment descriptor that con
 
 _Since Payara Server 4.1.2.174_
 
-When deploying an EJB-JAR module on Payara Server, the portable JNDI names for all scanned
-EJBs will be generated using the name of the module as specified on the _ejb-jar.xml_
-deployment descriptor:
+When deploying an EJB-JAR module on Payara Server, the portable JNDI names for all scanned EJBs will be generated using the name of the module as specified on the _ejb-jar.xml_ deployment descriptor:
 
 [source, xml]
 ----
@@ -126,68 +124,71 @@ deployment descriptor:
 </ejb-jar>
 ----
 
-NOTE: If the name's not specified in the deployment descriptor, the specification states
-that the module name will be the same as the JAR artifact used to deploy it.
+NOTE: If the name's not specified in the deployment descriptor, the specification states that the module name will be the same as the JAR artifact used to deploy it.
 
-However, When deploying a JAR from an IDE (like **NetBeans** or **IntelliJ**), the IDE
-deploys to Payara Server using the asadmin `deploy` command, with the `--name` option
-specified. This will force the module to have the specified name over the name
-defined in _ejb-jar.xml_. This is undesired because the IDE usually infers the
-module name from the name of the project or the JAR file and doesn't take the correct name
-of the module into account.
+However, When deploying a JAR from an IDE (like **NetBeans** or **IntelliJ**), the IDE deploys to Payara Server using the asadmin `deploy` command, with the `--name` option specified. This will force the module to have the specified name over the name
+defined in _ejb-jar.xml_. This is undesired because the IDE usually infers the module name from the name of the project or the JAR file and doesn't take the correct name of the module into account.
 
 In the current release, an improvement has been implemented to solve this scenario:
-The module name defined in the deployment descriptor will **always** be used even if it
-tries to be overridden using the `-name` option.
+The module name defined in the deployment descriptor will **always** be used even if it tries to be overridden using the `-name` option.
 
-IMPORTANT: In the case you need to overwrite the name of the module when deploying
-the module, use the `--forceName` command option.
+IMPORTANT: In the case you need to overwrite the name of the module when deploying the module, use the `--forceName` command option.
+
+[[overwriting--the-application-name]]
+=== Overwriting the Application Name
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+In the case of EAR artifacts, the portable JNDI names for all scanned EJBs will use the application name defined in the _application.xml_ deployment descriptor:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_7.xsd" version="7">
+    <display-name>My Application</display-name>
+    <application-name>APPLICATION_NAME</application-name>
+    ...
+</application>
+----
+
+NOTE: You can use the `--name` and `--force` deployment options to override the application name in a similar manner with what happens with EJB-JAR modules.
 
 [[persistent-ejb-timers-with-hazelcast]]
 == Persistent EJB Timers with the Domain Data Grid
 
 _Since Payara Server 5.181_
 
-It is possible to persist an EJB Timer to the Domain Data Grid rather than
-to a database. The same feature is standard in link::/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
+It is possible to persist an EJB Timer to the Domain Data Grid rather than to a database. The same feature is standard in link:/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
 
-Persisting an EJB Timer to the Domain Data Grid means that the Data Grid itself
-will store the timer details, preserving it even if the original instance
-leaves the cluster.
+Persisting an EJB Timer to the Domain Data Grid means that the Data Grid itself will store the timer details, preserving it even if the original instance leaves the cluster.
 
-NOTE: All stored timers are lost if the whole domain is stopped.
+IMPORTANT: All stored timers are lost if the whole domain is stopped.
 
-CAUTION: This feature is tech-preview and is subject to change. Use with
-caution.
+CAUTION: This feature is tech-preview and is subject to change. Use it with caution.
 
-The Persistence service for EJB Timers can be set in the administration console
-by navigating to the EJB Timer Service tab in the EJB Container node of a configuration.
-To use the Data Grid to store EJB Timers set the Persistence Service to Data grained
+The Persistence service for EJB Timers can be set in the administration console by navigating to the *EJB Timer Service* tab in the EJB Container node of a configuration.
+
+To use the Data Grid to store EJB Timers set the *Persistence Service* to _DataGrid_
 
 image:/images/ejb/set-ejb-timer-persistence.png[Set EJB Persistence to Data Grid]
 
-EJB Timers will be coordinated across a single deployment group and if an instance of
-the deployment group is stopped another instance in the same deployment group will
-take ownership of the timer and ensure it is fired.
+EJB Timers will be coordinated across a single deployment group and if an instance of the deployment group is stopped another instance in the same deployment group will take ownership of the timer and ensure it is fired.
 
-CAUTION: Clustered Timer Firing Mode is NOT user in this version of Payara Server and
-is always "One Per Deployment Group"
+CAUTION: Clustered Timer Firing Mode is NOT user in this version of Payara Server and is always "One Per Deployment Group"
 
-It is also possible to set the
-`ejb-timer-service` from asadmin. To get the current state, run the following
-command:
+It is also possible to set the `ejb-timer-service` using asadmin commands. To get the current state, run the following command:
 
-[source, bash]
+[source, shell]
 ----
 asadmin> get configs.config.${your-config}.ejb-container.ejb-timer-service
 ----
 
-This will return the current state from the domain.xml, which by default should
-be something similar to the following:
+This will return the current state from the domain.xml, which by default should be something similar to the following:
 
 [source, bash]
 ----
 asadmin> get configs.config.server-config.ejb-container.ejb-timer-service
+
 configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Database
 configs.config.server-config.ejb-container.ejb-timer-service.max-redeliveries=1
 configs.config.server-config.ejb-container.ejb-timer-service.minimum-delivery-interval-in-millis=1000
@@ -195,22 +196,23 @@ configs.config.server-config.ejb-container.ejb-timer-service.redelivery-interval
 Command get executed successfully.
 ----
 
-To persist to the DataGrid you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service`
-to `DataGrid`. To do this, run the following `set` command:
+To persist to the DataGrid you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service` to `DataGrid`. To do this, run the following `set` command:
 
 [source, bash]
 ----
 asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=DataGrid
 ----
 
-`set` commands are not dynamic. You will need to restart your domain to apply
-the changes.
+WARNING: `set` commands are not dynamic. You will need to restart your domain to apply the changes.
 
+[[timer-migration]]
 === Timer Migration
-EJB Timers stored in the Domain Data Grid support timer migration between Instances
-in the same Deployment Group. You can migrate timers using the Administration console from the
-Deployment Group page. Timers can also be migrated between instances using asadmin.
+
+EJB Timers stored in the Domain Data Grid support timer migration between Instances in the same Deployment Group. You can migrate timers using the Administration console from the *Deployment Group* page. Timers can also be migrated between instances using asadmin commands like this:
+
+[source, shell]
 ----
 asadmin> migrate-timers --target server1 server2
 ----
-where server1 is the active instance to migrate timers to and server2 is the failed instance.
+
+Where `server1` is the active instance to migrate timers to and `server2` is the failed instance.
