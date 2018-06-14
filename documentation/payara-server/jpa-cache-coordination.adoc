@@ -1,6 +1,8 @@
 [[jpa-cache-coordination]]
-= Using Hazelcast Cache EclipseLink Coordination Protocol
+= Using Hazelcast EclipseLink Cache Coordination Protocol
+
 Configure `persistence.xml` as follows:
+
 - Add `eclipselink.cache.coordination.protocol` property
 - Add `eclipselink.cache.coordination.channel` property
 
