@@ -1,20 +1,25 @@
 [[jpa-cache-coordination]]
-= JPA Cache Coorination with Hazelcast
+= Using Hazelcast Cache EclipseLink Coordination Protocol
+Configure `persistence.xml` as follows:
+- Add `eclipselink.cache.coordination.protocol` property
+- Add `eclipselink.cache.coordination.channel` property
 
-The following properties are used by Payara Server to configure
-special behavior settings:
+The channel property is optional, but is highly recommended if the application has more than one Persistence Unit. Best practice is to name the channel after the persistence unit.
 
-[cols=",,,,",options="header",]
-|=======================================================================
-|Option |Value Type |Description |Accepted Values |Default
-|fish.payara.clientHttpsProtocol |String |Sets the TLS version to be
-used by the asadmin client. This is separate from the TLS version set
-for HTTPS communication on a listener. |TLSv1, TLSv1.1, TLSv1.2 |TLSv1.2
-
-|fish.payara.classloading.delegate |Boolean |When set to false,
-libraries from applications, and
-_latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
-directory |true, false |true
-
-|org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER |String |If the JVM option `org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER` is not present in the server/instance config, we will override the Grizzly default and use the _HeapMemoryManager_ class. To override this behaviour (so to use a different memory manager), you must specify this JVM option in the server/instance config with your desired setting. |`org.glassfish.grizzly.memory.HeapMemoryManager`, `org.glassfish.grizzly.memory.PooledMemoryManager`, `org.glassfish.grizzly.memory.ByteBufferManager` |`org.glassfish.grizzly.memory.HeapMemoryManager`
-|=======================================================================
+Here is a complete example:
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="MyPU" transaction-type="JTA">
+        <properties>
+            <property name="eclipselink.cache.coordination.protocol" value="fish.payara.persistence.eclipselink.cache.coordination.HazelcastPublishingTransportManager"/>
+            <property name="eclipselink.cache.coordination.channel" value="MyPUChannel"/>
+        </properties>
+        <jta-data-source>jdbc/myDataSource</jta-data-source>
+        <shared-cache-mode>DISABLE_SELECTIVE</shared-cache-mode>
+    </persistence-unit>
+</persistence>
+----
