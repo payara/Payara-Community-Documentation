@@ -1,19 +1,13 @@
+[[eclipse-microprofile]]
 = Eclipse MicroProfile
 
-
+[[what-is]]
 == What is Eclipse MicroProfile?
-The MicroProfile project was launched in June 2016 as a collaborative effort
-between Java application server vendors and the enterprise Java community to 
-enable fast innovation.
+The MicroProfile project was launched in June 2016 as a collaborative effort between Java application server vendors and the enterprise Java community to enable fast innovation.
 
-MicroProfile is a specification which provides a set of APIs focused on 
-microservices. The complete MicroProfile API is provided as a Bill Of Materials
-(BOM) which can be used by developers as a generic dependency provided by a
-vendor of their choice.
+MicroProfile is a specification which provides a set of APIs focused on microservices. The complete MicroProfile API is provided as a Bill Of Materials(BOM) which can be used by developers as a generic dependency provided by a vendor of their choice.
 
-Payara has been part of the MicroProfile project from its inception and,
-therefore, supports all specifications of MicroProfile.
-
+Payara has been part of the MicroProfile project from its inception and, therefore, supports all specifications of MicroProfile.
 
 == What does each specification contain?
 [cols=",a,a", options="header"]
@@ -115,12 +109,15 @@ therefore, supports all specifications of MicroProfile.
 Version1.3::
 Version 1.3 of MicroProfile includes 3 new APIs, and updates to the existing Metrics and Config APIs. 
 This is supported by both Payara Server and Payara Micro from release *4.1.2.182* and *5.182*
+
 Version 1.2::
 Version 1.2 of MicroProfile includes 4 new APIs and an update to the existing config API and is 
 supported by both Payara Server and Payara Micro from release *4.1.2.181* and *5.181*
+
 Version 1.1::
 Version 1.1 of the MicroProfile specification includes the Config 1.0 API and is
 supported by both Payara Server and Payara Micro from release *4.1.2.173*
+
 Version 1.0::
 Since version 1.0 of MicroProfile only included existing specifications already
 supported by Payara Server and Payara Micro, an application targeting version
