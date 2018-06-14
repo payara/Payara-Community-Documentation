@@ -3,7 +3,7 @@
 
 Configure `persistence.xml` as follows:
 
-- Add `eclipselink.cache.coordination.protocol` property
+- Set `eclipselink.cache.coordination.protocol` property to `fish.payara.persistence.eclipselink.cache.coordination.HazelcastPublishingTransportManager`
 - Add `eclipselink.cache.coordination.channel` property
 
 The channel property is optional, but is highly recommended if the application has more than one Persistence Unit. Best practice is to name the channel after the persistence unit.
