@@ -29,6 +29,7 @@
 ***** link:documentation/payara-server/server-configuration/http/security/sni.adoc[SNI]
 **** link:documentation/payara-server/server-configuration/http/protocols.adoc[Protocols]
 **** link:documentation/payara-server/server-configuration/http/virtual-servers.adoc[Virtual Servers]
+*** link:documentation/payara-server/server-configuration/jvm-options.adoc[JVM Options]
 ** link:documentation/payara-server/deployment-groups/README.adoc[Deployment Groups]
 *** link:documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups ASAdmin commands]
 ** link:documentation/payara-server/jacc.adoc[JACC]
