@@ -1,9 +1,11 @@
+[[]]
 = Eclipse MicroProfile Metrics API
 
-_Since *4.1.2.181*; *5.181*&nbsp;_
+_Since Payara Server 4.1.2.181 and 5.181_
 
 Provided version of the API: {{ book.mpMetricsSpecUrl }}[MicroProfile Metrics {{ book.mpMetricsVersion }}]
 
+[[background]]
 == Background
 The Metrics API was designed to provide monitoring support for applications as well as the underlying runtime. This is considered separate to ***health checks*** which are concerned with a binary status of "healthy" or "unhealthy". In design, the Metrics API has borrowed heavily from DropWizard Metrics, so many of the concepts in the API will be familiar.
 
@@ -15,10 +17,12 @@ A key goal of the specification was to provide HTTP endpoints in Prometheus form
 
 IMPORTANT: Version {{ book.mpMetricsVersion }} of the Metrics specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the Metrics specification.
 
+[[rest-endpoints]]
 == REST Endpoint
 MicroProfile Metrics specifies that all metrics are published at the endpoint `/metrics`. For both Payara Server and Payara Micro, this means that the endpoint can be found on the HTTP port (default `8080`). By visiting these endpoints in a browser, the Prometheus text format can be viewed directly.
 
-==== Metric Scopes
+[[metric-scopes]]
+=== Metric Scopes
 The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/{{ book.mpMetricsVersion }}/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
 
 **Base**::
@@ -36,8 +40,10 @@ Application metrics are reserved for those metrics which are to be exposed from 
 +
 These metrics can be accessed under `/metrics/application`.
 
+[[custom-vendor-metrics]]
 == Custom Vendor Metrics
-JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `$PAYARA_HOME/glassfish/domains/$DOMAIN_NAME/config/` folder with the following format:
+
+JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
 
 [source, xml]
 ----
@@ -59,4 +65,47 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
 </config>
 ----
 
-NOTE: It is important to note that Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application is deployed which uses the connection pool.
+IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application is deployed which uses the connection pool.
+
+[[templating-metrics-amx-mbeans]]
+=== Templating Metrics for AMX MBeans
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example). 
+
+You can use the `%s` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
+
+IMPORTANT: You will need to use the `%s` placeholder in the `name` element as well to allow each metric to have a different name and avoid collisions.
+
+[[example]]
+==== Example
+
+Here's a simple example of defining a custom metric definition template that will generate metrics for the number of free connections available to all JDBC connections pools:
+
+[source, xml]
+----
+<metadata>
+     <name>jdbc.connection.pool.%sPool.numconnfree</name>
+     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/%sPool/numconnfree#current</mbean>
+     <type>counter</type>
+     <unit>none</unit>
+     <displayName>numconnfreePool</displayName>
+     <description>The total number of free connections in the pool as of the last sampling.</description>
+</metadata>
+----
+
+Which will yield the following results:
+
+[source, text]
+----
+# TYPE vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree counter
+# HELP vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
+vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree 0
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree counter
+# HELP vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
+# TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree counter
+# HELP vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
+vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
+----
