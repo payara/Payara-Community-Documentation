@@ -1,22 +1,20 @@
+[[eclipse-microprofile-opentracing]]
 = Eclipse MicroProfile OpenTracing
 
-_Since *4.1.2.182*; *5.182*&nbsp;_
+_Since Payara Server 4.1.2.182 and 5.182_
 
 Provided version of the API: {{ book.mpOpenTracingUrl }}[MicroProfile Open Tracing {{ book.mpOpenTracingVersion }}]
 
+[[background]]
 == Background
-The Open Tracing API was created to allow easier tracing of the flow of 
-a request in microservices environment across service boundaries.
+The Open Tracing API was created to allow easier tracing of the flow of a request in microservices environment across service boundaries.
 
 A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the
-README of the MicroProfile OpenTracing source code repository].
+https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the README of the MicroProfile OpenTracing source code repository].
 
 {{ book.mpOpenTracingUrl }}[The complete specification] is maintained in the same repository
 
 [[opentracing-configuration]]
 === OpenTracing Configuration
 
-You can configure the notifiers and open tracing service
-by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands]
-and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
+You can configure the notifiers and open tracing service by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands] and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
