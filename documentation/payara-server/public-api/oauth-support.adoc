@@ -1,6 +1,6 @@
 = OAuth Support
 
-_Since versions 4.182 and 5.182_
+_Since Payara Server 4.1.2.182 and 5.182_
 
 The Payara API provides a `@OAuth2AuthorisationMechanism` annotation that creates
 an authorisation mechanism for using with OAuth2. This works in the same way as
@@ -9,15 +9,12 @@ other authorisation mechanisms in the Security API.
 [[usage]]
 == Usage
 
-The OAuth2 authentication mechanism is defined through the 
-`@OAuth2AuthorisationMechanism` annotation. Specifying this in a valid place as
-defined by the Security API will create the mechanism. Often this may mean that
-any class is a valid position.
+The OAuth2 authentication mechanism is defined through the `@OAuth2AuthorisationMechanism` annotation. Specifying this in a valid place as defined by the Java EE Security API will create the mechanism. Often this may mean that any class is a valid position.
 
 [[usage-example]]
 === Example
 
-An example that uses a Google OAuth2 endpoint:
+Here's an example that configures a Google OAuth2 endpoint:
 
 [source, java]
 ----
@@ -38,10 +35,7 @@ public class SecurityBean {
 }
 ----
 
-NOTE: Once the user is authenticated they will not have any roles defined, regardless of
-the OAuth scope. Roles should be specified using `@DeclareRoles`. See the following
-link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[example project]
-for a more detailed example.
+IMPORTANT: Once the user is authenticated they will not have any roles defined, regardless of the OAuth scope. Roles should be specified using `@DeclareRoles`. See link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[this sample project] for a more detailed example.
 
 [[configuration]]
 == Configuration
@@ -92,14 +86,13 @@ They are detailed below.
 [[secret-alias]]
 === Client Secret Aliasing
 
-The client secret can be input directly, or for added security it can be
-aliased using any of the following options:
+The client secret can be input directly, or for added security it can be aliased using any of the following features:
 
 - link:../password-aliases/README.adoc[Password Aliases]
 - link:../server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
 - link:../../microprofile/config.adoc[Config API]
 
-[[links]]
-== Links
+[[extra-resources]]
+== Extra Resources
 
-To read more about OAuth2 itself, visit https://oauth.net/2/.
+To read more about OAuth2 itself, visit https://oauth.net/2/
