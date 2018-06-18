@@ -1,34 +1,70 @@
 = Eclipse MicroProfile Health Check API
 
-_Since *4.1.2.181*; *5.181*&nbsp;_
+_Since Payara Server 4.1.2.181 and 5.181_
 
 Provided version of the API: {{ book.mpHealthSpecUrl }}[MicroProfile Health Check {{ book.mpHealthVersion }}]
 
+[[background]]
 == Background
-The Health Check API was created to allow easier probing of the state of 
-computing nodes with a cloud infrastructure environment.
+
+The Health Check API was created to allow easier probing of the state of  computing nodes with a cloud infrastructure environment.
 
 A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the
-README for the source code repository.]
+https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the README for the source code repository.]
 
-https://github.com/eclipse/microprofile-health/releases/tag/1.0[
-The complete specification] is maintained in the same repository
+https://github.com/eclipse/microprofile-health/releases/tag/1.0[The complete specification] is maintained in the same repository.
 
-
+[[rest-endpoint]]
 == REST Endpoint
-The MicroProfile Healthchecks API defines that a REST endpoint be available from 
-the root context at '/health', and that upon invocation all registered health 
-checks are performed and the results aggregated.
 
-The '/health' endpoint is available under each HTTP(S) listener for a Payara Server
-or Payara Micro instance, which by default is:
+The MicroProfile Healthchecks API defines that a REST endpoint are available from the root context at `/health` by default, and that upon invocation all registered health checks are performed and the results aggregated.
 
-* Payara Server:
-    - http://localhost:4848/health
-    - http://localhost:8080/health
-    - https://localhost:8181/health
-* Payara Micro:
-   - http://localhost:8080/health
+This endpoint can be altered using the `set-microprofile-healthcheck-configuration` asadmin command to prevent collisions with other HTTP endpoints that might need to use the `health` context root.
    
-*This endpoint is not available until an application has been deployed.*
+NOTE: This endpoint will not be available until at least one application has been deployed.
+
+[[configuration]]
+== Configuration
+
+[[asadmin-commands]]
+=== Asadmin Commands
+
+The following administration commands can be used to configure the MicroProfile Healthcheck service:
+
+[[set-microprofile-healthcheck-configuration]]
+==== `set-microprofile-healthcheck-configuration`
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+*Usage*::
+`asadmin set-microprofile-healthcheck-configuration --enabled=<true|false> --endpoint=<context-root> --target=<target[default:server]>`
+*Aim*::
+Enables or disables the MicroProfile healthcheck service and configures the endpoint where all registered health checks are exposed.
+
+[[command-options]]
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|====
+|Option
+|Description
+|Default
+|Mandatory
+
+|`enabled`
+|Enables or disables the service
+|true
+|No
+
+|`endpoint`
+|The context root used to expose the health checks
+|health
+|No
+
+|`target`
+|The target configuration where the command should be run
+|server
+|No
+|====
+
+IMPORTANT: Changes made with this command will only be applied when the server or instance is restarted.
