@@ -3,7 +3,7 @@
 [[create-micro-project]]
 == Creating new Payara Micro Application
 
-* Simply start up Netbeans and then Choose *File -> New Project* from the main menu.
+* Simply start up the NetBeans IDE and then Choose *File -> New Project* from the main menu.
 
 * On the Choose Project panel, select *Maven* from Categories, select *Payara Micro Application* from Projects, and click Next.
 
@@ -13,7 +13,7 @@ image::/images/netbeans-plugin/payara-micro/create-new-project.png[Select Payara
 
 image::/images/netbeans-plugin/payara-micro/create-new-project-set-name.png[Enter Application name]
 
-* Select Payara Micro version. Click Finish.
+* Select Payara Micro version. Click *Finish*.
 
 image::/images/netbeans-plugin/payara-micro/create-new-project-set-version.png[Select Payara Micro version]
 
