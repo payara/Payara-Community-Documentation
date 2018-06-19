@@ -1,0 +1,54 @@
+= Payara NetBeans Plugin
+
+Payara Server now has a NetBeans plugin to allow you to add Payara Server as a
+recognised server in NetBeans. This means you can deploy and manage applications
+from the NetBeans interface. The plugin is installable from the NetBeans
+interface.
+
+In version {{ book.currentVersion }}, the available plugin are :
+
+* link:payara-server.adoc[Payara Server]
+* link:payara-micro.adoc[Payara Micro]
+
+
+[[installing]]
+== Installing Payara NetBeans Plugin
+
+Payara offers three ways to install NetBeans plugins :
+
+=== Manual Installation
+
+1. To download the Payara NetBeans Plugin, Please http://plugins.netbeans.org/plugin/72263/payara-server[click here].
+2. To get the plugins ready for installation, start NetBeans IDE as described in https://netbeans.org/community/releases/81/install.html[Installing and the Starting the NetBeans IDE].
+3. Extract the nbm file(s) from PayaraPlugins.zip file.
+4. Start NetBeans and select the *Tools -> Plugins* menu item.
+5. Switch to the "Downloaded" tab and select the *Add Plugins...* button to browse to the downloaded nbm file.
+6. Once the file has been selected, NetBeans will display module information. Now select the *Install* button at the bottom.
+7. When the NetBeans IDE Installer screen is displayed, click next and accept the license agreements and click Install.
+8. The plug-in has now been installed and can be seen in the "Installed" tab. Now click *Finish* to restart NetBeans IDE.
+
+
+=== Update Center Installation
+
+Installing a plugin from the Update Center is the easiest way :
+
+1. Go to *Tools -> Plugins*.
+2. Under the *Available Plugins* tab, search for `Payara` in the search box.
+3. Check all 5 plugins:
+  * Payara EE Common
+  * Payara Common
+  * Payara Java EE
+  * Payara Tooling
+  * Payara Micro
+4. Click *Install*.
+5. Follow the installer wizard.
+
+===  NetBeans + Payara plugins Bundle
+
+1. To download the Payara Plugin with NetBEans IDE, Please https://github.com/payara/ecosystem-netbeans-plugin/releases[click here] and download the *PayaraPlugins.with.NetBeans.IDE* zip file.
+2. Extract the zip file and start the IDE :
+    * *Microsoft Windows* - 
+        ** Start the IDE at the command line > _netbeans-install-directory\bin\netbeans.exe_ or click on the _netbeans-install-directory\bin\netbeans.exe_
+    * *OS X or Linux* - 
+        ** Type at the command prompt: _/netbeans-install-directory/bin/netbeans_
+
