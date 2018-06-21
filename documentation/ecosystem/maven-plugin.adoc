@@ -120,6 +120,15 @@ Example:
         </artifactItem>
         <deployWar>true</deployWar>
         <copySystemProperties>true</copySystemProperties>
+        <javaCommandLineOptions>
+            <option>
+                <value>-Xdebug</value>
+            </option>
+            <option>
+                <key>-Xrunjdwp:transport</key>
+                <value>dt_socket,server=y,suspend=y,address=5005</value>
+            </option>
+        </javaCommandLineOptions>
         <commandLineOptions>
             <option>
                 <key>--domainconfig</key>
@@ -181,12 +190,18 @@ payara-micro if `deployWar` is set to `true`.
 |Allows passing all system properties available within the maven build to the
 payara-micro execution.
 
+|`javaCommandLineOptions`
+|_none_
+|Defines a list of command line options that will be passed to `java` executable.
+Command line options can either be defined as key-value pairs or just as list of
+values. key-value pairs will be formatted as `key=value`.
+
 |`commandLineOptions`
 |_none_
 |Defines a list of command line options that will be passed onto payara-micro.
 
-|===
 
+|===
 
 ==== `stop`
 *Aim*: This goal stops Payara Micro with the specified configuration. By default
