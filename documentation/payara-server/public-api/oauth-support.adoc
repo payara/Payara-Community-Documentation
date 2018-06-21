@@ -125,7 +125,7 @@ public class SecurityBean {
 [[secret-alias]]
 === Client Secret Aliasing
 
-The client secret can be input directly, or for added security it can be aliased using any of the following options:
+The client secret can be input directly, or for added security it can be aliased using any of the following features:
 
 - link:/documentation/payara-server/password-aliases/README.adoc[Password Aliases]
 - link:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]

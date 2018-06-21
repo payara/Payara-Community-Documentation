@@ -1,16 +1,21 @@
-= Yubikey Support
+[[two-identity-stores]]
+= Two Identity Stores Support
 
-_Since version 5.182_
+_Since Payara Server 5.182_
 
-The Payara API provides a way to authenticate with two identity stores using the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. By default a user is validated if they are authenticated  by any identity store, this mechanism will only validate them if both do.
+The Payara API provides a way to authenticate with two identity stores at the same time using the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. By default a user is validated if they are authenticated by any identity store, this mechanism will only validate them if both stores authenticate it succesfully.
 
 [[usage]]
 == Usage
 
-The mechanism is defined through the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. This should be accompanied with a configuration of any two identity stores in the application. Specifying this in a valid place as defined by the Security API will create the mechanism. Often this may mean that any class is a valid position. The mechanism works in a similar way to the form-based authentication mechanisms and requires calls to the `SecurityContext.authenticate()` when processing the form. If there are further calls to `SecurityContext.authenticate()` then an `IllegalStateException` will be thrown.
+The mechanism is defined through the `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation. This annotation should be accompanied with a configuration of any two identity stores in the application. Specifying this in a valid place as defined by the Java EE Security API will create the mechanism. Often this may mean that any class is a valid position. 
+
+The mechanism works in a similar way to the form-based authentication mechanisms and requires calls to the `SecurityContext.authenticate()` when processing the form. If there are further calls to `SecurityContext.authenticate()` then an `IllegalStateException` will be thrown.
 
 [[usage-example]]
 === Example
+
+The following code sample authenticates a user by using both single username/password credentials and a Yubikey code: 
 
 [source, java]
 ----
@@ -77,12 +82,12 @@ public class LoginServlet extends HttpServlet {
 [[configuration]]
 == Configuration
 
-The `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation is configured with the option as shown below.
+The `@TwoIdentityStoreAuthenticationMechanismDefinition` annotation is configured with the options as shown below.
 
-Configuration Options
 |===
 | Option | Required | Description
 
 | `loginToContinue`
 | true
 | A `@LoginToContinue` annotation defines the login page
+|===

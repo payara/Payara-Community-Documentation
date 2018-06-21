@@ -27,6 +27,8 @@ image:/images/logging/json_example.png[Example log file with JSON format]
 [[add-an-underscore-prefix]]
 == Add an underscore prefix
 
+_Since Payara Server 5.182 and 4.1.2.182_
+
 The following administration command will add the underscore prefix to field names in JSON Formatter:
 
 [source, shell]

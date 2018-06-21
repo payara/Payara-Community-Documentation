@@ -20,7 +20,7 @@
 
 
     "variables": {
-        "currentVersion": "5.181",
+        "currentVersion": "5.182",
         "glassfishVersion": "5",
         "mpConfigVersion": "1.2",
         "mpConfigSpecUrl": "https://github.com/eclipse/microprofile-config/releases/tag/1.2",
@@ -34,6 +34,8 @@
         "mpJwtSpecUrl": "https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.0",
         "mpOpenTracingVersion": "1.0",
         "mpOpenTracingSpecUrl": "https://github.com/eclipse/microprofile-opentracing/releases/tag/1.0",
+        "mpOpenAPIVersion": "1.0",
+        "mpOpenAPISpecUrl": "https://github.com/eclipse/microprofile-open-api/releases/tag/1.0",
         "mpRestClientVersion": "1.1",
         "mpRestClientSepcUrl": "https://github.com/eclipse/microprofile-rest-client/releases/tag/1.1"
     }
