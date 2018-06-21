@@ -17,10 +17,10 @@ JDK versions must follow standard the standard JDK versioning scheme (`1.$MAJOR.
 * `1.8.0`
 * `1.8`
 
-[[]]
+[[configuring-jdk-versions]]
 == Configuring JDK Versions
 
-JDK Versions for JVM Options can be configured in three different ways: Using the admin console, running asadmin commands or directly editing the _domain.xml_ configuration file.
+JDK Versions for JVM Options can be configured in three different ways: Using the admin console or running asadmin commands from a console terminal.
 
 [[using-admin-console]]
 === Using the Admin Console
@@ -64,20 +64,3 @@ You can specify the range for each JVM option when specifying multiple options t
 ----
 asadmin create-jvm-options --target=server-config -Djava.awt.headless\=true:[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions:[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2
 ----
-
-[[editing-domain-xml-file]]
-=== Editing the _domain.xml_ configuration file
-
-To configure the JDK versions in the _domain.xml_ configuration file, locate the `<java-config>` element first and prefix the correspondent JVM options with the respective `[MIN_VERSION | MAX_VERSION]` text for the version range inside the `<jvm-options>` sub-element like this:
-
-[source, xml]
-----
-<java-config classpath-suffix="" debug-options="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=9009" system-classpath="">
-        ...
-        <jvm-options>[|1.8.0.172]-Djdk.corba.allowOutputStreamSubclass=true</jvm-options>
-        <jvm-options>[1.8.0.162|]-Djava.awt.headless=true</jvm-options>
-        <jvm-options>-Xmx512m</jvm-options>
-      </java-config>
-----
-
-WARNING: Modifying the _domain.xml_ configuration is not a supported configuration method, so be careful when considering this option.

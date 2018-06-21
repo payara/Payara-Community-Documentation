@@ -113,13 +113,13 @@ The payload is a JSON array consisting of objects with the following structure:
 
 `type`:: The type of the operation to execute (`read`, `search`, etc.)
 `mbean`:: The MBean name upon which the operation will be executed.
-`attribute`:: The MBean attribute upon which the operation will be execute. If ommited, all attributes of the MBean will be involved in the operation.
+`attribute`:: The MBean attribute upon which the operation will be executed. If ommited, all attributes of the MBean will be involved in the operation.
 
 NOTE: You can send only one operation request instead of an array if needed.
 
 IMPORTANT: Since the feature is on tech preview, currently the only supported operation type is `read`.
 
-Here's a example of executing a bulk read operation:
+Here's an example of executing a bulk read operation:
 
 [source, shell]
 ----
