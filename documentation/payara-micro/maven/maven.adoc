@@ -48,7 +48,6 @@ documented in the Ecosystem section.]
 == Run Payara Micro using the NetBeans IDE
 
 There is a link:https://github.com/payara/ecosystem-netbeans-plugin/tree/master/payara.micro[NetBeans IDE plugin - payara.micro module]
-built specifically for Payara Micro to create and manage the application actions
- (build / run / reload / debug / profile / stop).
+built specifically for Payara Micro to create and manage the application actions (e.g run, reload & debug).
 This plugin is link:/documentation/ecosystem/netbeans-plugin/payara-micro.adoc[fully
 documented in the Ecosystem - Payara Plugin section.]
