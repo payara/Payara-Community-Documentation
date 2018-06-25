@@ -61,7 +61,17 @@ Example:
 |true
 |If the extension of the produced artifact is `WAR`, it will be copied
 automatically to the `MICRO-INF/deploy` directory when this property is set to
-true.
+`true`.
+
+|`autoDeployEmptyContextRoot`
+|true
+|Sets context root of the deployed artifact to `/`  if `autoDeployArtifact` is `true`.
+If set to false, context root is derived from `project.build.finalName`.
+'autoDeployContextRoot' option value overrides the `autoDeployEmptyContextRoot`.
+
+|`autoDeployContextRoot`
+|_none_
+|Sets context root of the deployed artifact if `autoDeployArtifact` is `true`.
 
 |`startClass`
 |(optional):
