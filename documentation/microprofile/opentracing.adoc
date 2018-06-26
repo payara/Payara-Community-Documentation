@@ -1,4 +1,4 @@
-[[opentracing]]
+[[eclipse-microprofile-opentracing]]
 = Eclipse MicroProfile OpenTracing
 
 _Since Payara Server 4.1.2.182 and 5.182_
@@ -18,6 +18,4 @@ https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the 
 [[opentracing-configuration]]
 === OpenTracing Configuration
 
-You can configure the notifiers and open tracing service
-by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands]
-and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
+You can configure the notifiers and open tracing service by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands] and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
