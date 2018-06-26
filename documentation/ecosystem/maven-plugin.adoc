@@ -63,15 +63,16 @@ Example:
 automatically to the `MICRO-INF/deploy` directory when this property is set to
 `true`.
 
+|`autoDeployContextRoot`
+|_none_
+|Sets context root of the deployed artifact if `autoDeployArtifact` is `true`.
+'autoDeployContextRoot' has the higher precedence compared to the `autoDeployEmptyContextRoot`.
+
 |`autoDeployEmptyContextRoot`
 |true
 |Sets context root of the deployed artifact to `/`  if `autoDeployArtifact` is `true`.
 If set to false, context root is derived from `project.build.finalName`.
-'autoDeployContextRoot' option value overrides the `autoDeployEmptyContextRoot`.
-
-|`autoDeployContextRoot`
-|_none_
-|Sets context root of the deployed artifact if `autoDeployArtifact` is `true`.
+If 'autoDeployContextRoot' is specified, `autoDeployEmptyContextRoot` will be ignored.
 
 |`startClass`
 |(optional):
