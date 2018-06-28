@@ -109,3 +109,94 @@ vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
 # HELP vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
 vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
 ----
+
+
+== Asadmin Commands
+
+==== `set-metrics-configuration`
+
+*Usage*::
+`asadmin> set-metrics-configuration
+        [--enabled=true|false]
+        [--securemetrics=true|false]
+        [--dynamic=true|false]
+        [--target <instance-name>]`
+*Aim*::
+Provides a way to set the configuration of the metrics service of the targeted config.
+
+===== Command Options
+
+[cols=",,,,", options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`enabled`
+|Boolean
+|Enables or disables the metrics service.
+|true
+|no
+
+|`securemetrics`
+|Boolean
+|If set to true, `/metrics` endpoint can be accessed only via HTTPS and disables the HTTP method with 403 HTTP response.
+|false
+|no
+
+|`dynamic`
+|Boolean
+|If set to true, applies the changes instantly without a restart. Otherwise a restart is required.
+|true
+|no
+
+|`target`
+|String
+|The target Payara config to apply the change to.
+|server-config
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-metrics-configuration --enabled=true --securemetrics=true --dynamic=true --target instance1
+----
+
+==== `get-metrics-configuration`
+
+*Usage*::
+`asadmin> get-metrics-configuration [--target <instance-name>]`
+*Aim*::
+Returns the current configuration options for the metrics service on the targeted config.
+
+===== Command Options
+
+[cols=",,,,", options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`target`
+|String
+|The config to get the metrics configuration for.
+|server-config
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-metrics-configuration --target cluster1
+----
