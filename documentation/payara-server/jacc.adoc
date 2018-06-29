@@ -41,24 +41,14 @@ on the `security-service` element.
 [[how-to-install-a-custom-jacc-provider-per-application]]
 == How to install a custom JACC provider per Application (Local)
 
-With a custom JACC provide per server, all multiple application deployed to a single server can't have their own custom authorization contract.
-So having a custom JACC Provider per application makes more sense and it can be defined using the `fish.payara.jacc.JaccConfigurationFactory` API.
+_Since Payara Server 4.1.2.182 and 5.182_
 
-To import the `fish.payara.jacc` package, you will need to add the following Payara API dependency in the project _pom.xml_ file:
+With a custom JACC provide per server, applications deployed to a single server can't have their own custom authorization contracts.
+In this case, having a custom JACC Provider per application makes more sense by using the `fish.payara.jacc.JaccConfigurationFactory` API.
 
-[source, xml]
-----
-<dependency>
-  <groupId>fish.payara.api</groupId>
-  <artifactId>payara-api</artifactId>
-  <version>${payara.version}</version>
-</dependency>
----- 
+IMPORTANT: To access this API, you will need to add a dependency to the link:/documentation/payara-server/public-api/README.adoc[Payara Public API] first. 
 
-Where the `${payara.version}` of the artifact corresponds with the version of Payara Server.
-
-In the below example, when an application is deployed, a custom JACC provider is registered programmatically 
-using the `JaccConfigurationFactory`(consisting of a JACC PolicyConfigurationFactory and a Policy impl) 
+In the example below, when an application is deployed, a custom JACC provider is registered programmatically using the `JaccConfigurationFactory`(consisting of a JACC `PolicyConfigurationFactory` and `Policy` implementation objects) 
 in the `contextInitialized` method of `ServletContextListener`.
 
 [source, java]

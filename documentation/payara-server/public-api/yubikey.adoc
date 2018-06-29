@@ -1,17 +1,21 @@
+[[yubikey]]
 = Yubikey Support
 
-_Since version 5.182_
+_Since Payara Server 5.182_
 
-The Payara API provides a way to authenticate with Yuibikey using the `@YubikeyIdentityStoreDefinition` annotation. This works in the same way as other identity stores in the Security API.
+The Payara API provides a way to authenticate with Yubikey using the `@YubikeyIdentityStoreDefinition` annotation. This works in the same way as other identity stores in the Java EE Security API.
 
 [[usage]]
 == Usage
 
-The Yubikey identity store is defined through the `@YubikeyIdentityStoreDefinition` annotation. Specifying this in a valid place as defined by the Security API will create the identity store. Often this may mean that any class is a valid position. This is used to validate with a cloud based Yubikey authentication server, and currently cannot be used with a private one.
+The Yubikey identity store is defined through the `@YubikeyIdentityStoreDefinition` annotation. Specifying this in a valid place as defined by the Security API will create the identity store. Often this may mean that any class is a valid position. 
+
+WARNING: This authentication mechanism currently supports cloud-based Yubikey authentication servers only.
 
 [[usage-example]]
 === Example
 
+The following code sample illustrates how to configure Yubikey support:
 
 [source, java]
 ----
@@ -25,8 +29,9 @@ public class ApplicationConfiguration {
 [[configuration]]
 == Configuration
 
-The `@YubikeyIdentityStoreDefinition` annotation has several configuration options. These refer to the API access credentials from Yubico.
-They are detailed below. One of yubikeyAPIClientID, yubikeyAPIClientIDExpression or a microprofile config setting is mandatory.
+The `@YubikeyIdentityStoreDefinition` annotation has several configuration attributes. These refer to the API access credentials from Yubico.
+
+IMPORTANT: One of `yubikeyAPIClientID`, `yubikeyAPIClientIDExpression` or a MicroProfile Configuration settings is mandatory for the feature to work correctly.
 
 .Configuration Options
 |===
@@ -43,7 +48,6 @@ They are detailed below. One of yubikeyAPIClientID, yubikeyAPIClientIDExpression
 | `priority`
 | false
 | The priority of the identity store
-| N/A.
 
 | `priorityExpression`
 | false
@@ -54,13 +58,14 @@ They are detailed below. One of yubikeyAPIClientID, yubikeyAPIClientIDExpression
 | EL expression which overrides the yubikeyAPIClientID value
 |===
 
-These settings can be overriden with a MicroProfile config setting.
-`payara.security.yubikey.apikey` overrides the `yubikeyAPIKey` setting in the annotation.
-`payara.security.yubikey.clientid` overrides the `yubikeyAPIClientID` setting in the annotation.
-`payara.security.yubikey.identitystore.priority` overrdies the `priority` setting in the annotation.
+These attributes can be overriden with MicroProfile configuration values:
 
-[[links]]
-== Links
+. `payara.security.yubikey.apikey` overrides `yubikeyAPIKey`
+. `payara.security.yubikey.clientid` overrides `yubikeyAPIClientID`
+. `payara.security.yubikey.identitystore.priority` overrides `priority`
+
+[[extra-Resources]]
+== Extra Resources
 
 To read more about Yubikey itself, visit https://www.yubico.com/.
 

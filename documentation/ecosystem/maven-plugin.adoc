@@ -61,7 +61,18 @@ Example:
 |true
 |If the extension of the produced artifact is `WAR`, it will be copied
 automatically to the `MICRO-INF/deploy` directory when this property is set to
-true.
+`true`.
+
+|`autoDeployContextRoot`
+|_none_
+|Sets context root of the deployed artifact if `autoDeployArtifact` is `true`.
+`autoDeployContextRoot` has the higher precedence compared to the `autoDeployEmptyContextRoot`.
+
+|`autoDeployEmptyContextRoot`
+|true
+|Sets context root of the deployed artifact to `/`  if `autoDeployArtifact` is `true`.
+If set to false, context root is derived from `project.build.finalName`.
+If `autoDeployContextRoot` is specified, `autoDeployEmptyContextRoot` will be ignored.
 
 |`startClass`
 |(optional):
@@ -73,8 +84,8 @@ with the provided class.
 |Appends all system properties defined into the `payara-boot.properties` file.
 
 |`payaraVersion`
-|4.1.1.181
-|By default bundle mojo fetches payara-micro with version 4.1.1.181.
+|5.182
+|By default bundle mojo fetches payara-micro with version 5.182.
 
 |`deployArtifacts`
 |_None_
@@ -110,16 +121,26 @@ Example:
     </executions>
     <configuration>
         <useUberJar>true</useUberJar>
-        <daemon>true</daemon>
-        <javaPath>/path/to/Java/Home</javaPath>
         <payaraMicroAbsolutePath>/path/to/payara-micro.jar</payaraMicroAbsolutePath>
+        <payaraVersion>5.182</payaraVersion>
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>4.1.1.181</version>
+            <version>5.182</version>
         </artifactItem>
+        <daemon>true</daemon>
+        <javaPath>/path/to/Java/Home</javaPath>
         <deployWar>true</deployWar>
         <copySystemProperties>true</copySystemProperties>
+        <javaCommandLineOptions>
+            <option>
+                <value>-Xdebug</value>
+            </option>
+            <option>
+                <key>-Xrunjdwp:transport</key>
+                <value>dt_socket,server=y,suspend=y,address=5005</value>
+            </option>
+        </javaCommandLineOptions>
         <commandLineOptions>
             <option>
                 <key>--domainconfig</key>
@@ -146,7 +167,20 @@ Example:
 |Use created uber-jar that resides in target folder. The name of the JAR
 artifact will be resolved automatically by evaluating its final name, artifact
 ID and version. This configuration element has the higher precedence compared to
-`payaraMicroAbsolutePath` and `artifactItem`.
+`payaraMicroAbsolutePath`, `payaraVersion` and `artifactItem`.
+
+|`payaraMicroAbsolutePath`
+|_none_
+|Absolute path to payara-micro executable.
+
+|`payaraVersion`
+|5.182
+|By default start mojo fetches payara-micro with version 5.182.
+
+|`artifactItem`
+|_none_
+|Defines payara-micro artifact with its coordinates. Specified artifact should
+be available in local maven repository.
 
 |`daemon`
 |false
@@ -162,15 +196,6 @@ to `true` you can skip this and instantly interrupt the executor thread.
 |`java`
 |Absolute path to the java executable.
 
-|`payaraMicroAbsolutePath`
-|_none_
-|Absolute path to payara-micro executable.
-
-|`artifactItem`
-|_none_
-|Defines payara-micro artifact with its coordinates. Specified artifact should
-be available in local maven repository.
-
 |`deployWar`
 |false
 |If the attached project is of type WAR, it will automatically be deployed to
@@ -181,12 +206,18 @@ payara-micro if `deployWar` is set to `true`.
 |Allows passing all system properties available within the maven build to the
 payara-micro execution.
 
+|`javaCommandLineOptions`
+|_none_
+|Defines a list of command line options that will be passed to `java` executable.
+Command line options can either be defined as key-value pairs or just as list of
+values. key-value pairs will be formatted as `key=value`.
+
 |`commandLineOptions`
 |_none_
 |Defines a list of command line options that will be passed onto payara-micro.
 
-|===
 
+|===
 
 ==== `stop`
 *Aim*: This goal stops Payara Micro with the specified configuration. By default
@@ -218,7 +249,7 @@ Example:
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>4.1.1.181</version>
+            <version>5.182</version>
         </artifactItem>
     </configuration>        
 </plugin>
