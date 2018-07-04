@@ -86,7 +86,7 @@ quotes (').
 |`--delattribute`
 |String
 |MBean attribute to stop monitoring. Takes a string of the format
-`'attributeName=AttributeName objectName=MBeanObjectName description="Description"'`,
+`'attributeName=AttributeName objectName=MBeanObjectName'`,
 where `attributeName` and `objectName` are required and the string must be enclosed in single
 quotes (').
 |`N/A`

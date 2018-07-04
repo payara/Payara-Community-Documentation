@@ -100,7 +100,7 @@ By default, JMX will output an empty message as there are no MBeans configured.
 To add an MBean to the monitoring service, click `Add Attribute` on the
 `Monitored Attributes` table at the bottom of the page:
 
-image:/images/jmx-monitoring-service/jmx-add-property.png[Add JMX Property]
+image:/images/jmx-monitoring-service/jmx-add-attribute.png[Add JMX Property]
 
 NOTE: In versions prior to Payara Server 4.2.182 or 5.182, the --addproperty 
 argument was used instead. This argument is now deprecated.

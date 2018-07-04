@@ -80,7 +80,7 @@ monitoring service will by default monitor each metric and log it as
 
 If this is not the desired result, it is possible to monitor a single metric for
  a composite **MBean** attribute. To monitor a single metric for the attribute 
-the value of `name` passed to the `--addattribute` option should be modified like so:
+the value of `attributeName` passed to the `--addattribute` option should be modified like so:
 
 ----
 attributeName=HeapMemoryUsage.metric
@@ -195,7 +195,7 @@ will by default monitor each metric and log it as
 
 If this is not the desired result, it is possible to monitor a single
 metric for a composite MBean attribute. To monitor a single metric for
-the attribute the attribute of `name` for the property should be changed to:
+the attribute the attribute of `attributeName` for the property should be changed to:
 
 ----
 attributeName="HeapMemoryUsage.metric"
