@@ -8,4 +8,4 @@ All documentation for _GlassFish Server {{ book.glassfishVersion }}_ is also val
 [[references]]
 == References
 
-* https://javaee.github.io/glassfish/documentation4[GlassFish Server {{ book.glassfishVersion }} Open Source Edition Documentation]
+* https://javaee.github.io/glassfish/documentation[GlassFish Server {{ book.glassfishVersion }} Open Source Edition Documentation]
