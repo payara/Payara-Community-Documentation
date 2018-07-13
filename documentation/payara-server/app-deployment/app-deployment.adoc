@@ -54,7 +54,7 @@ To deploy via the CLI once the server has already started, use the 'deploy' asad
 All of the glassfish deploy options apply.
 
 *Payara Specific Options*::
-*--skipdsfailure*| This option will skip over a datasource failure. This means an application can be deployed with a datasource set up, but the database need not be running at the time. Without this option the deployment would fail if a datasource is defined and the database is not available.
+*--skipdsfailure* This option will skip over a datasource failure. This means an application can be deployed with a datasource set up, but the database need not be running at the time. Without this option the deployment would fail if a datasource is defined and the database is not available.
 
 *Example*: `asadmin> deploy --skipdsfailure /home/mark/clusterjsp-1.1.war`
 
