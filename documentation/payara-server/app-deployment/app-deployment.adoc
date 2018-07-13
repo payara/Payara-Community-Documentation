@@ -6,7 +6,7 @@ _GlassFish Server 4.1 Open Source Edition_. Payara Server does not modify
 this process but does add some new features to deployment descriptor files
 which are documented in the following pages.
 
-== Deploying On Server Start
+== Deploying on Server Start
 GlassFish has had the ability to deploy applications on server start for a long
 time now, using the _autodeploy_ directory. While acceptable in development
 environments, the scanner used to deploy files in this directory is a security
@@ -46,6 +46,17 @@ There are some important caveats to note:
 * The files *_must_* exist, and be accessible from Payara Server.
 * Both pre-boot and post-boot files can be passed at the same time.
 ====
+
+== Deploying to a Server Already Started
+To deploy via the CLI once the server has already started, use the 'deploy' asadmin command.
+
+*Usage*: `asadmin> deploy /path/to/file`
+All of the glassfish deploy options apply.
+
+*Payara Specific Options*::
+*--skipdsfailure* _(Since Payara Server 4.1.2.173)._  This option will skip over a datasource failure. This means an application can be deployed with a datasource set up, but the database need not be running at the time. Without this option the deployment would fail if a datasource is defined and the database is not available.
+
+*Example*: `asadmin> deploy --skipdsfailure /home/mark/clusterjsp-1.1.war`
 
 
 == Deploying from a URL
