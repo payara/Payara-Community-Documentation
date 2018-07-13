@@ -49,6 +49,7 @@ There are some important caveats to note:
 
 == Deploying to a Server Already Started
 To deploy via the CLI once the server has already started, use the 'deploy' asadmin command.
+
 *Usage*: `asadmin> deploy /path/to/file`
 All of the glassfish deploy options apply.
 
