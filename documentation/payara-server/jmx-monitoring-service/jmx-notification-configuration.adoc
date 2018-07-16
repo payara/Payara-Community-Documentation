@@ -35,7 +35,7 @@ To enable AMX (recommended), go to General monitoring page and select `AMX Enabl
 
 image:/images/jmx-monitoring-service/jmx-monitoring-page-amx-enabled.png[JMX Monitoring Page, with JMX enabled]
 
-NOTE: In versions prior to _Payara Server 4.1.2.182 or 5.182_, `AMX Enabled` options was in JMX Monitoring page.
+NOTE: In versions prior to _Payara Server 4.1.2.182 or 5.182_, the `AMX Enabled` option was available on the JMX Monitoring page.
 
 [[enabling-via-asadmin]]
 == Enabling JMX Monitoring via asadmin
@@ -102,8 +102,6 @@ To add an MBean to the monitoring service, click `Add Attribute` on the
 
 image:/images/jmx-monitoring-service/jmx-add-attribute.png[Add JMX Property]
 
-NOTE: In versions prior to Payara Server 4.2.182 or 5.182, the --addproperty 
-argument was used instead. This argument is now deprecated.
 
 You can now add your monitoring attributes to the notification service using
 the following values:
@@ -172,6 +170,3 @@ So to replicate the above attributes, use the command:
 asadmin> set-jmx-monitoring-configuration --addattribute 'attributeName=HeapMemoryUsage 
 objectName=java.lang:type=Memory'
 ----
-
-NOTE: In versions prior to _Payara Server 4.1.2.182 or 5.182_, the `--addproperty` 
-argument was used instead. This argument is now deprecated.

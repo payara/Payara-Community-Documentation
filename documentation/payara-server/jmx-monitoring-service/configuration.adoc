@@ -60,9 +60,6 @@ is not. Providing `attributeName=HeapMemoryUsage` denotes that the name of the
 **MBean** attribute to log is `HeapMemoryUsage`, while `objectName=java.lang:type=Memory` 
 denotes the `ObjectName` of the **MBean** to look for the attribute on is `java.lang:type=Memory`.
 
-NOTE: In versions prior to _Payara Server 4.1.2.182 or 5.182_, the `--addproperty` 
-argument was used instead. This argument is now deprecated.
-
 The second argument, `--enabled`, is the only required option for the `asadmin` 
 command. The only valid values to give this option are `true` or `false`. Passing 
 `false` to the option will disable the logging service on next startup if it is 
@@ -113,8 +110,7 @@ asadmin> set-jmx-monitoring-configuration --logfrequency 60 --enabled false
 [[enabling-the-monitoring-service]]
 === Enabling the monitoring service
 
-After configuring the monitoring service, there are two options to enable it. 
-The service can either be enabled for next startup or the service can be dynamically 
+After configuring the monitoring service, it can either be enabled for next startup or the service can be dynamically 
 enabled on a running instance of Payara (provided a non-empty configuration exists 
 at server startup). To enable the service dynamically on the default running 
 instance of Payara the command to run is:
@@ -127,116 +123,3 @@ asadmin> set-jmx-monitoring-configuration --dynamic true --enabled true
 To enable the service for next startup the `--dynamic` option would need
 to be dropped from the command.
 
-[[editing-the-domain.xml-file]]
-== Editing the `domain.xml` file
-
-To configure the monitoring service by editing the `domain.xml`
-file, it's useful to know about the structure of the `<monitoring-service-configuration>`
-tag first:
-
-[source, xml]
-----
-<monitoring-service-configuration enabled="true" logfrequency="60">
-  <monitored-attributes object-name="MBean1" attribute-name="Attribute1"></monitored-attributes>
-  <monitored-attributes object-name="MBean2" attribute-name="Attribute2"></monitored-attributes>
-</monitoring-service-configuration>
-----
-
-The `<monitoring-service-configuration>` tag houses the configuration
-values in its attributes. Omitted values take the respective default
-value. If the configuration is edited while the server is running the
-service must be restarted for the configuration changes to be considered.
-
-If the service has not yet run on the instance then the configuration
-tag will not have been created. To manually create it, the tag needs to
-be added to the `domain.xml` in the respective `config` section.
-
-[source, xml]
-----
-<configs>
-  <config name="server-config">
-    ...
-    <monitoring-service-configuration>
-    </monitoring-service-configuration>
-    ...
-  </config>
-</configs>
-----
-
-[[adding-the-monitoring-attribute-1]]
-=== Adding the monitoring attribute
-
-**MBean** attributes to monitor are added to the configuration section as 
-`<monitored-attributes>` tags. Each `monitored-attributes` tag can take values for 
-`object-name`, `attribute-name` and `description`. To add an MBean attribute to 
-monitor a `<monitored-attributes>` tag should be added as shown:
-
-[source, xml]
-----
-<monitoring-service-configuration>
-  <monitored-attributes object-name="java.lang:type=Memory" attribute-name="HeapMemoryUsage"></monitored-attributes>
-</monitoring-service-configuration>
-----
-
-Here all of the necessary attributes have been given to the tag, `attribute-name` 
-and `object-name`. The value given to `attribute-name` should be the name of the 
-MBean attribute to monitor, while the value given to `object-name` should be 
-the `ObjectName` of the MBean to look for the MBean attribute on. Here the MBean 
-attribute added is `HeapMemoryUsage` which resides in the MBean with the `ObjectName` 
-of `java.lang:type=Memory`.
-
-[[dealing-with-composite-mbean-attributes-1]]
-=== Dealing with composite MBean attributes
-
-The MBean attribute added, `HeapMemoryUsage`, is a composite attribute.
-It has metrics for `commited`, `init`, `max` and `used`. The monitoring service 
-will by default monitor each metric and log it as
-`{$metric}{$attribute_name}:{$attribute_value}`.
-
-If this is not the desired result, it is possible to monitor a single
-metric for a composite MBean attribute. To monitor a single metric for
-the attribute the attribute of `attributeName` for the property should be changed to:
-
-----
-attributeName="HeapMemoryUsage.metric"
-----
-
-The configuration to log only the used heap memory the configuration would look 
-like this:
-
-[source, xml]
-----
-<monitoring-service-configuration>
-  <monitored-attributes object-name="java.lang:type=Memory" attribute-name="HeapMemoryUsage.used"></monitored-attributes>
-</monitoring-service-configuration>
-----
-
-[[setting-logging-frequency-1]]
-=== Setting logging frequency
-
-There are two configuration attributes related to the frequency at which log 
-messages are written: `logfrequency` and `logfrequencyunit`. The first is a 
-numerical value used for the rate, while the second value is the unit for the rate. 
-The default configuration is set to have a message logged every _15 seconds_.
-
-To have the monitoring service log messages every one minute change the tag as shown:
-
-[source, xml]
-----
-<monitoring-service-configuration logfrequency="60">
-  <monitored-attributes object-name="java.lang:type=Memory" attribute-name="HeapMemoryUsage"></monitored-attributes>
-</monitoring-service-configuration>
-----
-
-[[enabling-the-monitoring-service-1]]
-=== Enabling the monitoring service
-
-Now that the service is configured, it can be enabled simply by adding
-`enabled="true"` to the configuration tag:
-
-[source, xml]
-----
-<monitoring-service-configuration enabled="true" logfrequency="60">
-  <monitored-attributes object-name="java.lang:type=Memory" attribute-name="HeapMemoryUsage"></monitored-attributes>
-</monitoring-service-configuration>
-----
