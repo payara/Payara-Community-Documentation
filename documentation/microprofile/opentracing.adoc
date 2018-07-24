@@ -3,7 +3,7 @@
 
 _Since Payara Server 4.1.2.182 and 5.182_
 
-Provided version of the API: {{ book.mpOpenTracingUrl }}[MicroProfile Open Tracing {{ book.mpOpenTracingVersion }}]
+Provided version of the API: {{ book.mpOpenTracingSpecUrl }}[MicroProfile Open Tracing {{ book.mpOpenTracingVersion }}]
 
 [[background]]
 == Background
@@ -13,7 +13,7 @@ The Open Tracing API was created to allow easier tracing of the flow of a reques
 A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the README of the MicroProfile OpenTracing source code repository].
 
-{{ book.mpOpenTracingUrl }}[The complete specification] is maintained in the same repository
+{{ book.mpOpenTracingSpecUrl }}[The complete specification] is maintained in the same repository
 
 [[opentracing-configuration]]
 === OpenTracing Configuration
