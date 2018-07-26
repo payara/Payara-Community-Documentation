@@ -31,7 +31,7 @@ Base metrics are mandatory for all implementations to provide. This is so that t
 These metrics can be accessed under `/metrics/base`.
 
 **Vendor**::
-Vendor metrics are specific to each implmentation and are intended to offer metrics which are unique to each vendor.
+Vendor metrics are specific to each implementation and are intended to offer metrics which are unique to each vendor.
 +
 These metrics can be accessed under `/metrics/vendor`.
 
