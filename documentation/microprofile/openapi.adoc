@@ -134,6 +134,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 ----
 asadmin> set-openapi-configuration
     [--enabled=true|false]
+    [--target=<target>]
 ----
 *Aim*::
 Enables or disables the OpenAPI service.
@@ -154,6 +155,11 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 |Whether the service should be enabled/disabled.
 |-
 |false
+
+|`target`
+|The target Payara config to apply the change to.
+|server-config
+|false
 |===
 
 [[get-openapi-configuration]]
@@ -162,6 +168,22 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 *Usage*::
 ----
 asadmin> get-openapi-configuration
+    [--target=<target>]
 ----
 *Aim*::
 Gets the status of the OpenAPI service.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`target`
+|The target Payara config to apply the change to.
+|server-config
+|false
+|===
