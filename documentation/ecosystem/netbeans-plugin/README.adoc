@@ -23,7 +23,9 @@ Installing a plugin from the Update Center is the easiest way :
 2. On the Plugins window, switch to the Settings tab.
 3. On the Settings tab, click *Add* button and the *Update Center Customizer* dialog box appears.
 4. In the Name field, enter *Payara Update Center*.
-5. In the URL field, enter *https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_8.2/updates.xml* and Click *OK* button.
+5. In the URL field, enter the following update center url based on your IDE version and Click *OK* button.
+   * *NetBeans IDE 8.2* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_8.2/updates.xml
+   * *Apache NetBeans IDE 9.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_9.0/updates.xml
 6. Under the *Available Plugins* tab, search for `Payara` in the search box.
 7. Check all 5 plugins:
   * Payara EE Common
