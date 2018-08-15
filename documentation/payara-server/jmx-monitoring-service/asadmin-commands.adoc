@@ -1,16 +1,24 @@
 [[using-the-asadmin-commands]]
 = Using the asadmin commands
 
+IMPORTANT: In versions prior to _Payara Server 4.1.2.183 or 5.183_, the 
+`set-monitoring-configuration` and `get-monitoring-configuration` commands were 
+used instead. These commands are now deprecated.
+
 The JMX Monitoring Service provides two asadmin commands:
-`set-monitoring-configuration` and `get-monitoring-configuration`.
+`set-jmx-monitoring-configuration` and `get-jmx-monitoring-configuration`.
 This page documents the options available to these commands and how they
 should be used.
 
-[[set-monitoring-configuration]]
-== `set-monitoring-configuration`
+[[set-jmx-monitoring-configuration]]
+== `set-jmx-monitoring-configuration`
 
 *Usage*::
-`asadmin> set-monitoring-configuration --dynamic true|false --enabled true|false --amx true|false --logfrequency <long.value> --logfrequencyunit MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS --addproperty 'name=AttributeName value=MBeanObjectName description=Option_Description' --delproperty AttributeName`
+`asadmin> set-jmx-monitoring-configuration --dynamic true|false --enabled true|false
+ --amx true|false --logfrequency <long.value> --logfrequencyunit
+ MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS --addattribute 
+ 'attributeName=AttributeName objectName=MBeanObjectName description=Option_Description'
+ --delattribute ''attributeName=AttributeName objectName=MBeanObjectName'`
 
 *Aim*::
 Sets the monitoring service configuration and can dynamically reload the
@@ -66,28 +74,30 @@ to have a value
 |`N/A`
 |no
 
-|`--addproperty`
+|`--addattribute`
 |String
 |MBean attribute to monitor. Takes a string of the format
-`'name=AttributeName value=MBeanObjectName description="Description"'`,
-where name and value are required and the string must be enclosed in single
+`'attributeName=AttributeName objectName=MBeanObjectName description="Description"'`,
+where `attributeName` and `objectName` are required and the string must be enclosed in single
 quotes (').
 |`N/A`
 |no
 
-|`--delproperty`
+|`--delattribute`
 |String
-|MBean attribute to stop monitoring. Takes a
-`name` value of and removes the property corresponding to it.
+|MBean attribute to stop monitoring. Takes a string of the format
+`'attributeName=AttributeName objectName=MBeanObjectName'`,
+where `attributeName` and `objectName` are required and the string must be enclosed in single
+quotes (').
 |`N/A`
 |no
 |====
 
-[[get-monitoring-configuration]]
-=== `get-monitoring-configuration`
+[[get-jmx-monitoring-configuration]]
+=== `get-jmx-monitoring-configuration`
 
 *Usage*::
-`asadmin> get-monitoring-configuration --pretty false|true`
+`asadmin> get-jmx-monitoring-configuration --pretty false|true`
 
 *Aim*::
 Retrieves the monitoring service configuration and outputs it.
