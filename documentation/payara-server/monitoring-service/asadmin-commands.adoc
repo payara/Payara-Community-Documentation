@@ -1,0 +1,223 @@
+[[monitoring-service-asadmin-command-reference]]
+= Monitoring Service Asadmin Command Reference
+
+The following is a detailed list of the administration commands that can be used
+to correctly configure the Monitoring Service.
+
+_Since Payara Server 5.183_
+
+[[set-monitoring-service-configuration]]
+== `set-monitoring-service-configuration`
+
+*Usage*::
+`asadmin> set-monitoring-service-configuration --enabled=true|false --mbeansenabled=true|false --amxenabled=true|false`
+
+*Aim*::
+This command can be used to set all configuration of the Monitoring Service at once.
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--enabled`
+|Boolean
+|Whether to enable or disable the service.
+|N/A
+|no
+
+|`--mbeansenabled`
+|Boolean
+|Whether to enable or disable Mbean monitoring.
+|N/A
+|no
+
+|`--amxenabled`
+|Boolean
+|Whether to enable or disable AMX on boot.
+|N/A
+|no
+
+|`--target`
+|String
+|The name of the configuration to set the monitoring service configuration on.
+|server
+|no
+
+|===
+
+[[example]]
+==== Example
+
+[source, shell]
+----
+asadmin > set-monitoring-service-configuration
+    --enabled=true
+    --mbeansenabled=true
+    --amxenabled=true
+    --target=server
+----
+
+_Since Payara Server 5.183_
+
+[[get-monitoring-service-configuration]]
+== `get-monitoring-service-configuration`
+
+*Usage*::
+`asadmin> get-monitoring-service-configuration`
+
+*Aim*::
+This command can be used to list the configuration settings of the Monitoring Service.
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The name of the configuration to get the monitoring service configuration from.
+|server
+|no
+
+|===
+
+[[example]]
+==== Example
+
+[source, shell]
+----
+asadmin > get-monitoring-service-configuration
+     --target=server
+----
+
+_Since Payara Server 5.183_
+
+[[set-monitoring-level]]
+== `set-monitoring-level`
+
+*Usage*::
+`asadmin> set-monitoring-level`
+
+*Aim*::
+This command can be used set monitoring level of a module.
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--module`
+|String
+|The name of the module.
+|N/A
+|yes
+
+|`--level`
+|String
+|Allows you to change monitoring level for a module to OFF, LOW or HIGH.
+|N/A
+|yes
+
+|`--target`
+|String
+|The name of the configuration to get the monitoring service configuration from.
+|server
+|no
+
+|===
+
+[[example]]
+==== Example
+
+[source, shell]
+----
+asadmin > set-monitoring-level
+     --module=jvm
+     --level=HIGH
+     --target=server
+----
+
+You can also set monitoring level for multiple modules using example below:
+
+[source, shell]
+----
+asadmin > set-monitoring-level
+     --module=jvm,http-service
+     --level=HIGH,LOW
+     --target=server
+----
+
+_Since Payara Server 5.183_
+
+[[get-monitoring-level]]
+== `get-monitoring-level`
+
+*Usage*::
+`asadmin> get-monitoring-level`
+
+*Aim*::
+This command can be used get monitoring level of a module.
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--module`
+|String
+|The name of the module.
+|N/A
+|no
+
+|`--target`
+|String
+|The name of the configuration to get the monitoring service configuration from.
+|server
+|no
+
+|===
+
+[[example]]
+==== Example
+
+[source, shell]
+----
+asadmin > get-monitoring-level
+     --module=jvm
+     --target=server
+----
+
+You can also get monitoring level for all available modules using example below:
+
+[source, shell]
+----
+asadmin > set-monitoring-level
+     --target=server
+----
+
+DON'T FROGET TO ADD THE EXAMPLE OUTPUT OF THE COMMAND
