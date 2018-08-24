@@ -216,8 +216,36 @@ You can also get monitoring level for all available modules using example below:
 
 [source, shell]
 ----
-asadmin > set-monitoring-level
+asadmin > get-monitoring-level
      --target=server
 ----
 
 DON'T FROGET TO ADD THE EXAMPLE OUTPUT OF THE COMMAND
+
+Will give an output similar to the following:
+
+[source, shell]
+----
+Module                       Monitoring Level
+cloud                        OFF
+cloud-elasticity             OFF
+cloud-orchestrator           OFF
+cloud-tenant-manager         OFF
+cloud-virt-assembly-service  OFF
+connector-connection-pool    OFF
+connector-service            OFF
+deployment                   OFF
+ejb-container                OFF
+http-service                 LOW
+jdbc-connection-pool         OFF
+jersey                       OFF
+jms-service                  OFF
+jpa                          OFF
+jvm                          HIGH
+orb                          OFF
+security                     OFF
+thread-pool                  OFF
+transaction-service          OFF
+web-container                OFF
+web-services-container       OFF
+----
