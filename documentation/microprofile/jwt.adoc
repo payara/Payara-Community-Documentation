@@ -108,13 +108,36 @@ The code here assumes the location of the raw JSON file on the classpath being p
 
 == Accepting tokens
 
-In order to validate the signature of a provided token is valid, an application that uses JWT Authentication has to provide the public key to the MicroProfile JWT Authentication implementation. In Payara this is done by placing the public key such as generated above as `publicKey.pem` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`
+In order to validate the signature of a provided token is valid, an application 
+that uses JWT Authentication has to provide the public key to the MicroProfile JWT Authentication implementation either using the standard MicroProfile Config options or using the vendor-specific option.
 
-IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define how this public key is exactly configured, so applications using MicroProfile JWT Authentication are not fully portable.
+==== mp.jwt.verify.publickey
+The `mp.jwt.verify.publickey` microprofile config property allows the Public Key text itself to be supplied as a string.
 
-Next to providing the public key, an application that uses JWT Authentication has to provide the issuer (corresponding to the `iss` field in the JSON token) it's willing to accept. In Payara this is done by placing a properties file named `payara-mp-jwt.properties` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`. This properties file should contain the key `accepted.issuer` with as value the same value that of the `iss` field in the vended token, e.g. `fish.payara.example` as per the example JSON token shown above.
+*For e.g :*
+`mp.jwt.verify.publickey=joer4fghieEM3UmZQcFRvNzM2fhMnJ6QV45ghRCdTQ1SnYwdXBkRVpjc54645jNJc65XltamJaUmtwZ1RSOEIxOWJfcl`
 
-IMPORTANT: Version 1.0 of the MicroProfile JWT Authentication specification does not define how this accepted issuer is exactly configured, so applications using MicroProfile JWT Authentication are not fully portable.
+==== mp.jwt.verify.publickey.location
+The `mp.jwt.verify.publickey.location` microprofile config property allows for an external or internal location of Public Key to be specified. The value may be a relative path or a URL.
+
+*For e.g :*
+`mp.jwt.verify.publickey=/META-INF/publicKey.pem`
+
+==== public key vendor-specific configuration
+In Payara this is done by placing the public key such as generated above as `publicKey.pem` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`
+
+*Note :* Vendor-specific option for supplying the public key will always take precedence. 
+
+Next to providing the public key, an application that uses JWT Authentication has to provide the issuer (corresponding to the `iss` field in the JSON token) it's willing to accept.
+Issuer can be provided to the MicroProfile JWT Authentication implementation either using the standard MicroProfile Config option or using the vendor-specific option.
+
+==== mp.jwt.verify.issuer
+The `mp.jwt.verify.issuer` microprofile config property allows for the expected value of the iss claim to be specified.
+
+==== issuer vendor-specific configuration
+In Payara this is done by placing a properties file named `payara-mp-jwt.properties` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/publicKey.pem`. This properties file should contain the key `accepted.issuer` with as value the same value that of the `iss` field in the vended token, e.g. `fish.payara.example` as per the example JSON token shown above.
+
+*Note :* Vendor-specific option for supplying the issuer will always take precedence. 
 
 == Activating JWT Authentication
 
