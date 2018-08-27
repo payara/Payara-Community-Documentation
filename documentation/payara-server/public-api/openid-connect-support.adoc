@@ -172,8 +172,8 @@ They are detailed below.
 | Must be in the form `"key=value"`.
 |===
 
-Note : If both Microprofile Config property and annotation attribute defined 
-then Microprofile Config properties value always take precedence over @OpenIdAuthenticationDefinition annotation values.
+*Note :* If both annotation attribute and mp config property defined for same option 
+then Microprofile Config property value always take precedence over `@OpenIdAuthenticationDefinition` annotation value.
 
 [[el-support]]
 === Expression Language Support
@@ -202,8 +202,8 @@ The client secret can be input directly, or for added security it can be aliased
 - link:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
 - link:/documentation/microprofile/config.adoc[Config API]
 
-[[advanced-integration]]
-=== Advanced integration
+[[oidc-integrations]]
+=== Google and Azure AD integration
 
 The Payara API also provides the in-built support for Google and Azure AD OpenID Provider using the `@GoogleAuthenticationDefinition` and `@AzureAuthenticationDefinition` annotations.
 
