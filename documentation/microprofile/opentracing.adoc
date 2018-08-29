@@ -13,7 +13,10 @@ The Open Tracing API was created to allow easier tracing of the flow of a reques
 A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the README of the MicroProfile OpenTracing source code repository].
 
-{{ book.mpOpenTracingSpecUrl }}[The complete specification] is maintained in the same repository
+{{ book.mpOpenTracingSpecUrl }}[The complete specification] is maintained in the same repository.
+
+The Payara implementation of `io.opentracing.Tracer` supports TextMap carriers with HTTP_HEADERS and TEXT_MAP formats and ByteBuffer carriers with BINARY format
+since Payara Server 4.1.2.183 and 5.183.
 
 [[opentracing-configuration]]
 === OpenTracing Configuration
