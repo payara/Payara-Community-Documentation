@@ -69,7 +69,7 @@
 *** link:documentation/payara-server/jbatch/schema-name.adoc[Setting the Schema Name]
 *** link:documentation/payara-server/jbatch/table-prefix-and-suffix.adoc[Setting the Table Prefix and/or Suffix]
 *** link:documentation/payara-server/jbatch/database-support.adoc[Database Support]
-*** link:documentation/payara-server/jbatch/asadmin.adoc[Administration Commands]
+*** link:documentation/payara-server/jbatch/asadmin.adoc[Asadmin Commands]
 ** link:documentation/payara-server/jcache/jcache.adoc[JCache]
 *** link:documentation/payara-server/jcache/jcache-accessing.adoc[Cache provider and manager]
 *** link:documentation/payara-server/jcache/jcache-creating.adoc[Creating a Cache Instance]
