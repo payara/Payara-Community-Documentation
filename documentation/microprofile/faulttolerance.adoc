@@ -12,9 +12,6 @@ A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-fault-tolerance/blob/master/README.adoc[the
 README for the source code repository.]
 
-https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/1.1[
-The complete specification] is maintained in the same repository
-
 
 == Additions to the Fault Tolerance Spec
 In addition to the functionality 
