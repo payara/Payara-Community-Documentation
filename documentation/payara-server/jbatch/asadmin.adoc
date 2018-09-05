@@ -116,6 +116,8 @@ the classes mentioned:
 </dependency>
 ----
 
+_Since Payara Server 5.183_
+
 [list-batch-jobs]]
 == `list-batch-job`
 
