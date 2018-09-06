@@ -3,7 +3,7 @@
 
 _Since version 5.183_
 
-Both Payara Server and GlassFish 4.0 Open Source Edition provides different ways 
+Both Payara Server and GlassFish Open Source Edition provides different ways 
 to rotate access log files. On top of that, Payara server allows access log file 
 rotation based on file size. 
 
