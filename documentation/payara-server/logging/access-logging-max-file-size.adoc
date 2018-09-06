@@ -22,7 +22,7 @@ image:/images/logging/max_file_size.png[Max File Size]
 [[using-asadmin-utility]]
 == Using an `asadmin` command
 
-Use the following command to set maximum size for an access log files:
+Use the following command to set maximum size for access log files:
 
 [source, shell]
 ----
