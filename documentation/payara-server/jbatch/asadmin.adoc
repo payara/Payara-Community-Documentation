@@ -119,7 +119,7 @@ the classes mentioned:
 _Since Payara Server 5.183_
 
 [list-batch-jobs]]
-== `list-batch-job`
+== `list-batch-jobs`
 
 *Usage*::
 `asadmin> list-batch-jobs --output jobname,appname,instancecount,instanceid,
@@ -127,7 +127,7 @@ executionid,batchstatus,starttime,endtime,exitstatus --limit <long.value>
 --offset <long.value> --header true|false <JobName>`
 
 *Aim*::
-Lists batch jobs and there job informations. 
+Lists batch jobs and information about them.
 
 
 [[command-options]]
@@ -137,12 +137,12 @@ Lists batch jobs and there job informations.
 |=======================================================================
 |Option |Shortcut |Description |Default |Mandatory
 |`--target` |N/A |The instance or cluster to configure |server |No
-|`--long` |-l |Shows batch jobs detailed information | false |No
-|`--output` |-0 |Shows specific information about batch jobs. You can specific 
+|`--long` |-l |Shows detailed information about batch jobs | false |No
+|`--output` |-0 |Shows specific information about batch jobs. You can specify 
 information to display by using comma-separarted list. Following are the available
-value: jobname, appname, instancecount, instanceid, executionid, batchstatus, 
+values: jobname, appname, instancecount, instanceid, executionid, batchstatus, 
 starttime, endtime, exitstatus| The jobname and instancecount information are 
-displayed default| No
+displayed by default| No
 |`--header` | -h |Option to choose whether column heading should be displayed or not
  |false | No
 |`--limit` | N/A |Set number of rows of batch jobs to display| N/A |No
