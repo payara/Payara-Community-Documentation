@@ -23,11 +23,23 @@ This endpoint can be altered using the `set-microprofile-healthcheck-configurati
    
 NOTE: This endpoint will not be available until at least one application has been deployed.
 
-[[configuration]]
-== Configuration
+[[health-check-configuration]]
+== Health Check Configuration
 
-[[asadmin-commands]]
-=== Asadmin Commands
+Health Check can be configured by using Admin Console or Asadmin commands. 
+
+_Since *5.183*&nbsp;_
+
+[[using-the-admin-console]]
+=== Using the Admin Console
+
+To configure the Health Check in the Admin Console, go to Configuration 
+→ [instance-configuration (like server-config)] → MicroProfile → Health Check:
+
+image:/images/microprofile/fault-tolerance.png[Set Fault Tolerance Configuration]
+
+[[using-asadmin-commands]]
+=== Using Asadmin Commands
 
 The following administration commands can be used to configure the MicroProfile Healthcheck service:
 

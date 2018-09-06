@@ -111,7 +111,23 @@ vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
 ----
 
 
-== Asadmin Commands
+[[metrics-configuration]]
+== Metrics Configuration
+
+Metrics can be configured by using Admin Console or Asadmin commands. 
+
+_Since *5.183*&nbsp;_
+
+[[using-the-admin-console]]
+=== Using the Admin Console
+
+To configure the Metrics in the Admin Console, go to Configuration 
+→ [instance-configuration (like server-config)] → MicroProfile → Metrics:
+
+image:/images/microprofile/metrics.png[Set Metrics Configuration]
+
+[[using-asadmin-commands]]
+=== Using Asadmin Commands
 
 ==== `set-metrics-configuration`
 

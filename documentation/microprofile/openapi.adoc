@@ -124,8 +124,23 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
     }
 ----
 
-[[asadmin]]
-=== Asadmin Commands
+[[openApi-configuration]]
+== OpenAPI Configuration
+
+OpenAPI can be configured by using Admin Console or Asadmin commands. 
+
+_Since *5.183*&nbsp;_
+
+[[using-the-admin-console]]
+=== Using the Admin Console
+
+To configure the OpenAPI in the Admin Console, go to Configuration 
+→ [instance-configuration (like server-config)] → MicroProfile → OpenAPI:
+
+image:/images/microprofile/openapi.png[Set OpenAPI Configuration]
+
+[[using-asadmin-commands]]
+=== Using Asadmin Commands
 
 [[set-openapi-configuration]]
 ==== `set-openapi-configuration`
