@@ -130,6 +130,7 @@
 *** link:documentation/payara-server/public-api/twoidentitystores.adoc[Two Identity Stores]
 *** link:documentation/payara-server/public-api/yubikey.adoc[Yubikey Integration]
 *** link:documentation/payara-server/public-api/oauth-support.adoc[OAuth2 Support]
+*** link:documentation/payara-server/public-api/openid-connect-support.adoc[OpenID Connect Support]
 ** link:documentation/payara-server/development-tools/README.adoc[Development Tools]
 *** link:documentation/payara-server/development-tools/cdi-dev-mode/README.adoc[CDI Development Mode]
 **** link:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-web-desc.adoc[Enable using web.xml]

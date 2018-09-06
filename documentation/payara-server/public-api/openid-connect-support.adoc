@@ -40,7 +40,7 @@ IMPORTANT: Once the user is authenticated they will not have any roles defined, 
 See link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/openid[this sample project] for a more detailed example.
 
 When defining a OpenID Connect flow within an application deployed on Payara Server, 
-It is possible to retrieve the access token, identity token, user claims and the other authentication information within any bean in the scope of the callback/redirectURI resource used to configure the authentication:
+it is possible to retrieve the access token, identity token, user claims and the other authentication information within any bean in the scope of the callback/redirectURI resource used to configure the authentication:
 
 [source, java]
 ----
@@ -211,4 +211,4 @@ The Payara API also provides the in-built support for Google and Azure AD OpenID
 [[extra-resources]]
 == Extra Resources
 
-To read more about OpenID Connect itself, visit hhttp://openid.net/specs/openid-connect-core-1_0.html
+To read more about OpenID Connect itself, visit http://openid.net/specs/openid-connect-core-1_0.html
