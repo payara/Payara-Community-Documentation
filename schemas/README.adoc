@@ -3,3 +3,4 @@
 
 Schemas for the Payara Platform.
 
+** link:{{ book.payaraWebDtd }}[DTD for payara-web.xml]
