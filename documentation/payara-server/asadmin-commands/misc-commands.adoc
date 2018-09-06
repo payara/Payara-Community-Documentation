@@ -87,6 +87,9 @@ _Since 5.183_
 *Aim*::
 Creates an asadmin autocompletion script for bash.
 
+The created file will be on the server and not the client.
+If they are on different hosts, then the file will be needed
+to copied from the server to the client.
 Add the resulting file to your bash path by adding
 `source path/to/outputfile` to your .bashrc
 or copy the file into the `/etc/bash_completion.d` folder.
