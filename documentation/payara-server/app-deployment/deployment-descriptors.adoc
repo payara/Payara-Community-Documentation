@@ -2,8 +2,17 @@
 = Payara Server Deployment Descriptor Files
 
 Payara Server supports additional and changed configuration settings by using the
-Glassfish Server proprietary deployment descriptor files. These configuration
-elements are the following:
+Glassfish Server proprietary deployment descriptor files. 
+
+[[payara-web-info]]
+Additionally from Payara Server and Micro
+5.183 there is a payara-web.xml as an extension of glassfish-web.xml. The top level element
+for the payara-web.xml file must be _payara-web-app_ and the schema can be refererenced by 
+
+[source,xml]
+<!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "https://docs.payara.fish/schemas/payara-web-app_4.dtd">
+
+These configuration elements are the following:
 
 [[glassfish-application.xml]]
 == _glassfish-application.xml_
@@ -16,7 +25,7 @@ elements are the following:
 * `scanning-include`
 
 [[glassfish-web.xml]]
-== _glassfish-web.xml_
+== _glassfish-web.xml_ and _payara-web.xml_
 
 * `container-initialized-enabled`
 * `default-role-mapping` (_property_)
