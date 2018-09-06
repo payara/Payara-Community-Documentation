@@ -75,6 +75,47 @@ Creates a listener for IIOP network traffic
 | No
 |===
 
+
+[[generate-bash-autocomplete-command]]
+== `generate-bash-autocomplete`
+
+_Since 5.183_
+
+*Usage*::
+`asadmin >generate-bash-autocomplete output_file`
+
+*Aim*::
+Creates an asadmin autocompletion script for bash.
+
+The created file will be on the server and not the client.
+If they are on different hosts, then the file will be needed
+to copied from the server to the client.
+Add the resulting file to your bash path by adding
+`source path/to/outputfile` to your .bashrc
+or copy the file into the `/etc/bash_completion.d` folder.
+
+This means that you can run asadmin commands by typing 
+`asadmin` in a terminal and you can use double-tab to autocomplete a command,
+similar to other bash commands.
+
+=== Command Options
+
+|===
+|Option | Type | Description | Default | Mandatory
+
+| force
+| boolean
+| whether to write over a file if one already exists
+| false
+| No
+
+| file
+| File path
+| The path for the resulting file
+| ${payara.home}/glassfish/bin/bash_autocomplete
+| No
+|===
+
 [[get-domain-xml-command]]
 == `get-domain-xml`
 
