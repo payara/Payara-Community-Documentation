@@ -4,10 +4,10 @@
 [[release-highlights]]
 == Release Highlights
 
-* MicroProfile 2.0 support including updates to:
+* Complete MicroProfile 2.0 support including updates to:
 ** OpenTracing
 ** OpenAPI
-** REST Client 
+** Fault Tolerance
 * OpenID Connect connector
 * Admin Console Changes/Improvements:
 ** Ordered config tree
