@@ -14,7 +14,7 @@ or the Request Tracing service and stores it into a log file.
 All the generated logs are stored in _server.log_ by default. But, _since Payara 
 Server 4.1.1.163_ it is possible to configure the Log Notifier to output to a 
 separate log file. More information on Log Notifier can be found on the 
-link:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
+link:/documentation/payara-server/logging/notifiers/log-notifier.adoc[the Log Notifier].
 
 If Log Notifier is configured to use a separate log file, the default log file 
 can be found at:
@@ -45,6 +45,7 @@ This section will go through following topics:
 ** link:payara-notification-logging.adoc#rotation-on-date-change[Rotation on Date Change]
 ** link:payara-notification-logging.adoc#rotation-on-file-size[Rotation on File Size]
 ** link:payara-notification-logging.adoc#rotation-on-time-limit[Rotation on Time Limit]
+* link:payara-notification-logging.adoc#to-change-logging-format[To Change Logging Format]
 * link:payara-notification-logging.adoc#to-set-maximum-number-of-history-files[To Set Maximum Number of History Files]
 * link:payara-notification-logging.adoc#to-change-the-name-and-location-of-the-log-file[To Change the Name and Location of the Log File]
 * link:payara-notification-logging.adoc#to-set-compress-on-rotation[To Set Compress on Rotation]
@@ -65,7 +66,7 @@ cloud environment where disk space is scarce.
 
 To configure `Log to File` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_log_to_file.png[Log to File enabled]
+image:/images/logging/notification-logging/payara_notification_log_to_file.png[Log to File enabled]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -103,7 +104,7 @@ explained in the following section:
 
 To configure `Rotation on Date Change` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_rotation_on_date_change.png[Rotation on Date Change enabled]
+image:/images/logging/notification-logging/payara_notification_rotation_on_date_change.png[Rotation on Date Change enabled]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -129,7 +130,7 @@ option is set to 0 rotation is disabled.
 
 To configure `File Rotation Limit` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_rotation_on_file_size.png[File Rotation Limit]
+image:/images/logging/notification-logging/payara_notification_rotation_on_file_size.png[File Rotation Limit]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -152,7 +153,7 @@ rotation time limit interval.
 
 To configure `File Roatation Time Limit` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_rotation_on_time_limit.png[File Roatation Time Limit]
+image:/images/logging/notification-logging/payara_notification_rotation_on_time_limit.png[File Roatation Time Limit]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -162,6 +163,29 @@ Use the following command to change rotation of log on time limit interval:
 [source, shell]
 ----
 asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotificationFileHandler.rotationTimelimitInMinutes=4
+----
+
+[[to-change-logging-format]]
+=== To Change Logging Format
+_Since version 5.183_
+
+`Log File Logging Format` option will provide a way to change logging format. There are 3 logging formats available: ULF, ODL and JSON.
+
+[[using-web-admin-console]]
+==== Using the Admin Console
+
+To configure `Log File Logging Format` option using Admin Console:
+
+image:/images/logging/notification-logging/payara_notification_change_logging_format.png[Change Logging Format]
+
+[[using-asadmin-utility]]
+==== Using an `asadmin` command
+
+Use the following command to change logging format:
+
+[source, shell]
+----
+asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotificationFileHandler.formatter=fish.payara.enterprise.server.logging.JSONLogFormatter
 ----
 
 [[to-set-maximum-number-of-history-files]]
@@ -177,7 +201,7 @@ this option is set 0, all the rotated log files are preserved.
 
 To configure `Maximum History File` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_set_maximum_number_of_history_files.png[Maximum History File]
+image:/images/logging/notification-logging/payara_notification_set_maximum_number_of_history_files.png[Maximum History File]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -200,7 +224,7 @@ files.
 
 To configure `Log File` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_change_name_and_location_of_log_file.png[Log File]
+image:/images/logging/notification-logging/payara_notification_change_name_and_location_of_log_file.png[Log File]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
@@ -223,7 +247,7 @@ rotation automatically.
 
 To configure `Compress on Rotation` option using Admin Console:
 
-image:/images/notification-service/logging/payara_notification_set_compress_on_rotation.png[Compress on Rotation enabled]
+image:/images/logging/notification-logging/payara_notification_set_compress_on_rotation.png[Compress on Rotation enabled]
 
 [[using-asadmin-utility]]
 ==== Using an `asadmin` command
