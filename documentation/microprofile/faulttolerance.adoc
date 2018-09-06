@@ -69,7 +69,7 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 
 ===== Command Options
 
-[cols="1,1,1,1", options="header"]
+[cols="1,10,1,1", options="header"]
 |===
 |Option
 |Description
