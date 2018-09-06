@@ -1,5 +1,5 @@
-[[request-tracing-configuration]]
-= Request Tracing Configuration
+[[monitoring-service-configuration]]
+= Monitoring Service Configuration
 
 As with any other services available in Payara Server, the Monitoring service
 can be configured by using the web console or administration commands.
@@ -14,7 +14,7 @@ image:/images/monitoring-service/monitoring-service-admin-console.png[Monitoring
 
 Check the *Monitoring Service* box to enable the Monitoring Service.
 
-You can configure the request tracing service settings using the following
+You can configure the monitoring service settings using the following
 attributes:
 
 **Monitoring MBeans**:: When checked, Mbean monitoring will be enabled.
@@ -24,5 +24,5 @@ attributes:
 [[from-the-command-line]]
 === From the Command Line
 
-You can configure the Request Tracing Service by using the administrations commands
+You can configure the monitoring Service by using the administrations commands
 documented on the link:asadmin-commands.adoc[corresponding section]

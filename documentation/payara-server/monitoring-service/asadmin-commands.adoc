@@ -220,8 +220,6 @@ asadmin > get-monitoring-level
      --target=server
 ----
 
-DON'T FROGET TO ADD THE EXAMPLE OUTPUT OF THE COMMAND
-
 Will give an output similar to the following:
 
 [source, shell]
