@@ -12,3 +12,6 @@ NOTE: Most of the Payara Server documentation also applies to Payara Micro unles
 link:documentation/user-guides/user-guides.adoc[User Guides]::
 Useful guides and tutorials.
 
+////
+empty commit
+////
