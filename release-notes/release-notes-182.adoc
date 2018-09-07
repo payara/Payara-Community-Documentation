@@ -4,8 +4,11 @@
 [[release-highlights]]
 == Release Highlights
 
-This release has been based on https://javaee.github.io/glassfish/download[GlassFish Server Open Source 5]
-which was released on September 21, 2017.
+* Complete MicroProfile 1.3 support plus REST Client API 1.1
+* OAUTH intergration
+* SNI SSL support
+* Redesigned public notifier API
+* Environment Variable support for JVM-Options  
 
 [[important-information]]
 === *Important Information*
@@ -21,6 +24,7 @@ Please use the new MicroProfile
 
 * Java EE 8 Applications
 * MicroProfile 1.3 API
+** plus REST Client 1.1
 
 [[new-features]]
 == *New Features*
