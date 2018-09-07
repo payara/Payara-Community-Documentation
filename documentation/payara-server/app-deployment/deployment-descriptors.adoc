@@ -1,18 +1,24 @@
 [[payara-server-deployment-descriptor-files]]
 = Payara Server Deployment Descriptor Files
+:toc:
 
-Payara Server supports additional and changed configuration settings by using the
-Glassfish Server proprietary deployment descriptor files. 
+[[glassfish]]
+== Support of GlassFish deployment descriptors
+Payara Server supports specifying deployment configuration using GlassFish deployment descriptor files. 
 
 [[payara-web-info]]
-Additionally from Payara Server and Micro
-5.183 there is a payara-web.xml as an extension of glassfish-web.xml. The top level element
-for the payara-web.xml file must be _payara-web-app_ and the schema can be refererenced by 
+== Payara deployment descriptors
+
+Additionally from version __5.183__, `payara-web.xml` can be used instead of `glassfish-web.xml`. The top level element for the `payara-web.xml` file must be `_payara-web-app_` and the schema can be refererenced by:
 
 [source,xml]
-<!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "https://docs.payara.fish/schemas/payara-web-app_4.dtd">
+<!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "{{ book.payaraWebDtd }}">
 
-These configuration elements are the following:
+See the link:/schemas/README.adoc[schema reference] for the list of deployment descriptor DTD files.
+
+== Allowed configuration elements
+
+The following elements are supported in Payara Server on top of elements supported by GlassFish:
 
 [[glassfish-application.xml]]
 == _glassfish-application.xml_
