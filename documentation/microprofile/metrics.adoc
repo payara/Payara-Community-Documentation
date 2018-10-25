@@ -154,26 +154,35 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |Boolean
 |Enables or disables the metrics service.
 |true
-|no
+|No
+
+|`endpoint`
+|The context root used to expose the metrics
+|metrics
+|No
 
 |`securemetrics`
 |Boolean
 |If set to true, `/metrics` endpoint can be accessed only via HTTPS and disables the HTTP method with 403 HTTP response.
 |false
-|no
+|No
 
 |`dynamic`
 |Boolean
 |If set to true, applies the changes instantly without a restart. Otherwise a restart is required.
 |true
-|no
+|No
 
 |`target`
 |String
 |The target Payara config to apply the change to.
 |server-config
-|no
+|No
 
+|`virtualservers`
+|If defined, the '/metrics' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a comma separated string of values.
+|-
+|No
 |===
 
 
@@ -205,7 +214,7 @@ Returns the current configuration options for the metrics service on the targete
 |String
 |The config to get the metrics configuration for.
 |server-config
-|no
+|No
 
 |===
 

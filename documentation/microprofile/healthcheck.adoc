@@ -77,6 +77,11 @@ Enables or disables the MicroProfile healthcheck service and configures the endp
 |The target configuration where the command should be run
 |server
 |No
+
+|`virtualservers`
+|If defined, the '/health' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a comma separated string of values.
+|-
+|No
 |====
 
 IMPORTANT: Changes made with this command will only be applied when the server or instance is restarted.
