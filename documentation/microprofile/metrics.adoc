@@ -110,7 +110,7 @@ vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
 vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
 ----
 
-Here's a multi-placeholder example of defining a custom metric definition template that will generate metrics for the number of free connections available to all JDBC connections pools:
+Here's another example of defining a custom metric definition template with multiple placeholder that will generate metrics for the number of free connections available to all JDBC connections pools:
 
 [source, xml]
 ----
