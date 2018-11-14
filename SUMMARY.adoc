@@ -60,7 +60,7 @@
 *** link:documentation/payara-server/admin-console/environment-warning.adoc[Environment Warning]
 ** link:documentation/payara-server/app-deployment/app-deployment.adoc[Application Deployment]
 *** link:documentation/payara-server/app-deployment/deployment-descriptors.adoc[Deployment Descriptor Files]
-*** link:documentation/payara-server/app-deployment/descriptor-elements.adoc[Elements of the Decriptor Files]
+*** link:documentation/payara-server/app-deployment/descriptor-elements.adoc[Elements of the Descriptor Files]
 ** link:documentation/payara-server/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.adoc[Advanced JDBC]
 *** link:documentation/payara-server/advanced-jdbc/log-jdbc-calls.adoc[Log JDBC Calls]
 *** link:documentation/payara-server/advanced-jdbc/slow-sql-logger.adoc[Slow SQL Logger]
