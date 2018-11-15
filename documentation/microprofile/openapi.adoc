@@ -177,7 +177,7 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 |No
 
 |`virtualservers`
-|If defined, the '/openapi' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a comma separated string of values.
+|If defined, the '/openapi' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a string with comma separated IDs (names) of virtual servers.
 |-
 |No
 |===
