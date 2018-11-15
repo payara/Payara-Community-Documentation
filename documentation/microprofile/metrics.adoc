@@ -180,7 +180,7 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |No
 
 |`virtualservers`
-|If defined, the '/metrics' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a comma separated string of values.
+|If defined, the '/metrics' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a string with comma separated IDs (names) of virtual servers.
 |-
 |No
 |===
