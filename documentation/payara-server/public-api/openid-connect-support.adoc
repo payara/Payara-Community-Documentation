@@ -35,8 +35,6 @@ public class SecurityBean {
 }
 ----
 
-IMPORTANT: Once the user is authenticated they will not have any roles defined, regardless of the OpenID Connect scope. Roles should be specified using `@DeclareRoles`. 
-
 See link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/openid[this sample project] for a more detailed example.
 
 When defining a OpenID Connect flow within an application deployed on Payara Server, 
@@ -53,10 +51,18 @@ public class CallbackServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        //Here's the caller name
+        out.println(context.getCallerName());
+        //Here's the caller groups
+        out.println(context.getCallerGroups());
+        //Here's the unique subject identifier within the issuer
+        out.println(context.getSubject());
         //Here's the access token
-        out.println(token.getAccessToken());
+        out.println(context.getAccessToken());
         //Here's the identity token
-        out.println(token.getIdentityToken());
+        out.println(context.getIdentityToken());
+        //Here's the user claims
+        out.println(context.getClaimsJson());
     }
 }
 ----
@@ -98,7 +104,7 @@ They are detailed below.
 | `payara.security.openid.redirectURI`
 | true
 | The URL to redirect the user to upon successful authentication.
-|
+| ${baseURL}/Callback
 | Must be equal to one set in the OpenID Connect provider.
 
 | `scope`
@@ -163,6 +169,20 @@ They are detailed below.
 | Sets the read timeout(in milliseconds) for Remote JWKS retrieval.
 | 500
 | Value must not be negative and if value is zero then infinite timeout.
+
+| `claimsDefinition.callerNameClaim`
+| `payara.security.openid.callerNameClaim`
+| false
+| Defines the name of callerName claim and maps the claim's value to caller name value in IdentityStore#validate.
+| preferred_username
+| N/A.
+
+| `claimsDefinition.callerGroupsClaim`
+| `payara.security.openid.callerGroupsClaim`
+| false
+| Defines the name of callerGroups claim and maps the claim's value to caller groups value in IdentityStore#validate.
+| groups
+| N/A.
 
 | `extraParameters`
 |
