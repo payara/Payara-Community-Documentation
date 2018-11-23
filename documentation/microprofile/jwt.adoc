@@ -146,8 +146,8 @@ This properties file should contain the key `accepted.issuer` with as value the 
 
 === Namespaced claims configuration
 
-Authentication service (like https://auth0.com/docs/scopes/current/custom-claims[auth0], https://connect2id.com/products/server/docs/config/claims-mapping[connect2id]) offers the possibility to add custom claims to JWT tokens
-but it also enforce a namespaced format to avoid possible collisions with standard claims.
+Authentication services (like https://auth0.com/docs/scopes/current/custom-claims[auth0], https://connect2id.com/products/server/docs/config/claims-mapping[connect2id]) offer the possibility to add custom claims to JWT tokens
+but also enforce a namespaced format to avoid possible collisions with standard claims.
 
 In Payara, namespaced claims configuration is done by placing a properties file named `payara-mp-jwt.properties` on the root of the application's classpath. For example, when using a Maven project as `src/main/resources/payara-mp-jwt.properties`. 
 This properties file should contain the boolean property `enable.namespace` and the optional property `custom.namespace`.
