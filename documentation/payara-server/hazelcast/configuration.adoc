@@ -141,6 +141,7 @@ restarted to apply any changes made
 |Lite Data Grid Instance|If set to true, cluster members with this configuration
 will be Hazelcast "lite" nodes, meaning they will not store any cache data
 locally and rely on other cluster members to store data.
+|Public Address for this Data Grid Node|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
 
 |Instance Group | Instance group name for all Server Instances using the configuration.
 Future functionality may use this name.
@@ -210,6 +211,8 @@ can be specified here.|None|No
 
 |`--dasport`|Port Number|The port to run Hazelcast on for the DAS. If this port is busy,
 the port specified will be incremented until a valid port is found. |4900 |No
+
+|`--publicaddress`|IP Address|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT|None|No
 
 |`--interfaces`|IP Addresses|Similar to DAS Bind address by default Hazelcast will choose the correct
 IP Address to bind to. If you find Hazelcast is binding to the incorrect address a comma separated
