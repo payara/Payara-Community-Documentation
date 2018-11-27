@@ -23,16 +23,16 @@ instances in turn. When the DAS starts it tries to connect to each instance in t
 As the `domain.xml` is used to discover other members of the Data Grid no further user
 configuration is usually necessary.
 
-=== tcpip Discovery Mode
-Tcpip discovery mode is an alternative discovery mode. In this mode the user specifies
+=== TCPIP Discovery Mode
+TCPIP discovery mode is an alternative discovery mode. In this mode the user specifies
 a comma separated list of IP addresses and ports that a Payara Server instance should try to
-connect to when it starts to find a member of the data grid.
+ find members of the data grid at upon boot.
 
 TIP: This discovery mode can be used to build a topology based on single instances of the
 DAS joining together to create the Data Grid. This is common in container based
 topologies with no central domain administration server.
 
-=== multicast Discovery Mode
+=== Multicast Discovery Mode
 Multicast discovery mode is an alternative discovery mode. In this mode the user specifies
 the multicast group and multicast port used to fina other members of the Data Grid. When
 a Payara Server instance configured with multicast discovery starts it broadcasts a message
@@ -47,6 +47,11 @@ NOTE: This mode is the default mode for Payara Micro and for Payara Server versi
 CAUTION: Also change the Data Grid group name and password to prevent other instances
 on the same LAN inadvertently joining your data grid.
 
+=== DNS Discovery Mode
+DNS discovery mode is an alternative discovery mode, closely related to the TCPIP discovery mode.
+In this mode the user specifies a comma separated list of DNS names and ports that a Payara Server
+should try to find members of the data grid at upon boot.
+
 == Configuration in the Administration Console
 The domain discovery mode can be configured in the admnistration console under the Data Grid node.
 The discovery mode set applies domain wide.
@@ -57,23 +62,30 @@ image:/images/domain-datagrid/discovery-mode.png[Domain Discovery Mode]
 
 Discovery Mode can be set via Asadmin
 
-=== set tcpip mode
-When setting tcpip mode the list of ipaddress and ports of datagrid members must be specified.
+=== Set TCPIP Mode
+When setting TCPIP mode the list of IP addresses and ports of datagrid members must be specified.
 [source, shell]
 ----
 asadmin> set-hazelcast-configuration --clustermode tcpip --tcpipmembers 192.168.0.104:4900,192.168.0.105:5900
 ----
 
-=== set domain mode
+=== Set Domain Mode
 [source, shell]
 ----
 asadmin> set-hazelcast-configuration --clustermode domain
 ----
 
-=== set multicast mode
+=== Set Multicast Mode
 When setting multicast mode the multicast group and multicast port must be also
 specified. If not specified they will default to 224.2.2.3 and 54327
 [source, shell]
 ----
 asadmin> set-hazelcast-configuration --clustermode multicast --multicastgroup 224.2.2.4 --multicastport 55000
+----
+
+=== Set DNS Mode
+When setting DNS mode the list of DNS names and ports of datagrid members must be specified.
+[source, shell]
+----
+asadmin> set-hazelcast-configuration --clustermode dns --dnsmembers 192.168.0.104:4900,192.168.0.105:5900
 ----
