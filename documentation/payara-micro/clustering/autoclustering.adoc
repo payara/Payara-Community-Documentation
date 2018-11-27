@@ -144,7 +144,7 @@ determine  where to look for instances to cluster with.
 java -jar payara-micro.jar --autobindhttp --clustermode dns:localhost:6900,ubuntu:6900,suse:6900
 ----
 
-NOTE: If there are multiple IP addresses associated with a DNS name, Payara Micro will attempt to cluster
+IMPORTANT: If there are multiple IP addresses associated with a DNS name, Payara Micro will attempt to cluster
 with all of them.
 
 === Interfaces
