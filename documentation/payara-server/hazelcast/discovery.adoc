@@ -34,7 +34,7 @@ topologies with no central domain administration server.
 
 === Multicast Discovery Mode
 Multicast discovery mode is an alternative discovery mode. In this mode the user specifies
-the multicast group and multicast port used to fina other members of the Data Grid. When
+the multicast group and multicast port used to find other members of the Data Grid. When
 a Payara Server instance configured with multicast discovery starts it broadcasts a message
 on the multicast group and port to discover other members of the data grid.
 
