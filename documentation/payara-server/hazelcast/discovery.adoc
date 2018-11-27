@@ -93,5 +93,5 @@ _Since Payara Server 5.184_
 When setting DNS mode the list of DNS names and ports of datagrid members must be specified.
 [source, shell]
 ----
-asadmin> set-hazelcast-configuration --clustermode dns --dnsmembers 192.168.0.104:4900,192.168.0.105:5900
+asadmin> set-hazelcast-configuration --clustermode dns --dnsmembers localhost:4900,www.example.com:5900
 ----
