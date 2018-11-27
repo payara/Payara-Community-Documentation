@@ -2,7 +2,9 @@
 = Sending Asadmin Commands on Micro from a Domain Administration Server
 
 Asadmin commands can be sent from the Domain Administration Server (DAS) to
-micro instances that are running within the same cluster as the DAS server.
+micro instances that are within the same data grid as the DAS server.
+
+Since *5.184*, lifecycle commands such as `restart-domain` can be issued to a Payara Micro instance.
 
 This can be achieved either using the admin console or from the command line.
 
