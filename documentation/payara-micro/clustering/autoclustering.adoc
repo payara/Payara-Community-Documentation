@@ -133,6 +133,9 @@ NOTE: TCPIP cluster mode can also be used to join a Payara Server Domain Data Gr
 by specifying the ip:port of the DAS Hazelcast instance.
 
 === Kubernetes Discovery Mode
+
+_Since Payara Micro 5.184_
+
 The Kubernetes Disocvery mode can be used to cluster Payara Micro instances running in a kubernetes cluster,
 which can be useful due to the variable networking inherent to kubernetes. For this clustering mode,
 you must specify the kubernetes namespace and service name separated by a comma - Payara Micro will then attempt

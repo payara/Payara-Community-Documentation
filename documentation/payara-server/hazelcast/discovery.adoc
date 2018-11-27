@@ -48,6 +48,9 @@ CAUTION: Also change the Data Grid group name and password to prevent other inst
 on the same LAN inadvertently joining your data grid.
 
 === Kubernetes Discovery Mode
+
+_Since Payara Server 5.184_
+
 Kubernetes discovery mode is an alternative discovery mode intended for use when running in a Kubernetes
 environment. In this mode, the user specifies the Kubernetes service name and namespace that Payara Server
 should look to find other data grid members in - Payara Server will then contact the Kubernetes master
@@ -108,6 +111,9 @@ asadmin> set-hazelcast-configuration --clustermode multicast --multicastgroup 22
 ----
 
 === Set Kubernetes Mode
+
+_Since Payara Server 5.184_
+
 When setting Kubernetes mode the service name and namespace must be specified using the
 `--kubernetesservicename` and `--kubernetesnamespace` options respectively. If a namespace is not specified,
 Payara Server will use the "default" namespace.
