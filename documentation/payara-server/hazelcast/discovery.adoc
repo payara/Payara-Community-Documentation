@@ -48,6 +48,9 @@ CAUTION: Also change the Data Grid group name and password to prevent other inst
 on the same LAN inadvertently joining your data grid.
 
 === DNS Discovery Mode
+
+_Since Payara Server 5.184_
+
 DNS discovery mode is an alternative discovery mode, closely related to the TCPIP discovery mode.
 In this mode the user specifies a comma separated list of DNS names and ports that a Payara Server
 should try to find members of the data grid at upon boot.
@@ -84,6 +87,9 @@ asadmin> set-hazelcast-configuration --clustermode multicast --multicastgroup 22
 ----
 
 === Set DNS Mode
+
+_Since Payara Server 5.184_
+
 When setting DNS mode the list of DNS names and ports of datagrid members must be specified.
 [source, shell]
 ----

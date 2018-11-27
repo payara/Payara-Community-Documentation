@@ -133,6 +133,9 @@ NOTE: TCPIP cluster mode can also be used to join a Payara Server Domain Data Gr
 by specifying the ip:port of the DAS Hazelcast instance.
 
 === DNS Discovery Mode
+
+_Since Payara Server 5.184_
+
 The DNS Discovery mode can be used to cluster Payara Micro instances by specifying a DNS name. Similar to the
 TCPIP discovery mode, this discovery mode takes a comma separated list of DNS A/AAAA record names and ports to
 determine  where to look for instances to cluster with.
