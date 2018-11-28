@@ -177,7 +177,7 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 |No
 
 |`virtualservers`
-|If defined, the '/openapi' endpoint assigned to the specified virtual servers, Otherwise endpoint assigned to all virtual servers. The virtual server list must be specified as a string with comma separated IDs (names) of virtual servers.
+|If defined, the '/openapi' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
 |-
 |No
 |===
