@@ -64,7 +64,8 @@ on members with the same IP Address.| _false_
 |Sets the Hazelcast configuration file to use for overriding the built-in Hazelcast
 cluster configuration.| If not set, the built-in Hazelcast configuration file
 is used.
-|`--instancegroup <group-name>`
+|`--hzPublicAddress <host-name or ip>`|
+|`--instancegroup <group-name>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
 |See `--group`|
 |`--interfaces`|Specifies the Interfaces that the data grid discovery mode should use to listen. Can be comma separated, e.g. 127.0.0.1,192.168.0.*|
 |`--lite`
