@@ -15,7 +15,7 @@ README for the source code repository.]
 
 {{ book.mpConfigSpecUrl }}[The complete specification] is maintained in the same repository
 
-
+[[config-sources]]
 == Config Sources
 A `ConfigSource` is a definition of a source of configuration values that can be
 used by an application. In addition to

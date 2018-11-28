@@ -54,3 +54,18 @@ An example of a reference to a password alias called `cluster-password` for an a
 ------
 admin-password="${ALIAS=cluster-password}"
 ------
+
+[[references-to-microprofile-properties]]
+== References to MicroProfile Properties
+
+_Since Payara Server 5.184_
+
+MicroProfile property references can be used exactly like an environment
+variable reference, but using the `MPCONFIG` qualifier.
+An example of a reference to a MicroProfile property called `foo` would look like:
+
+-----------
+${MPCONFIG=foo}
+-----------
+
+MicroProfile properties need to be declared in one of the Payara defined link:/documentation/microprofile/config.adoc#config-sources[config sources].
