@@ -69,13 +69,18 @@ Enables or disables the MicroProfile healthcheck service and configures the endp
 |No
 
 |`endpoint`
-|The context root used to expose the health checks
+|The context root used to expose the health checks endpoint.
 |health
 |No
 
 |`target`
 |The target configuration where the command should be run
 |server
+|No
+
+|`virtualservers`
+|If defined, the '/health' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
+|-
 |No
 |====
 
