@@ -1,8 +1,8 @@
-[[sending-asadmin-commands-on-micro-from-a-domain-administration-server]]
-= Sending Asadmin Commands on Micro from a Domain Administration Server
+[[sending-asadmin-commands-to-payara-micro-from-a-domain-administration-server]]
+= Sending Asadmin Commands to Payara Micro from a Domain Administration Server
 
 Asadmin commands can be sent from the Domain Administration Server (DAS) to
-micro instances that are within the same data grid as the DAS server.
+Payara Micro instances that are running within the same data grid as the DAS.
 
 Since *5.184*, `stop-domain` can also be issued to a Payara Micro instance.
 
