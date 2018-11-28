@@ -20,6 +20,22 @@ an instance is as follows:
 java -jar payara-micro.jar --option1 --option2 ...
 ----
 
+== Define configuration directory
+
+Payara Micro creates a directory where it creates the equivalent of the Payara Server domain directory in order to run properly.
+With the command line parameter `--rootdir` one can specify the location of this directory.
+
+It is important to specify this value in production scenarios because the default value is in the temporary directory of the OS which can be cleaned by some processes.
+If this happens, the application will not behave correctly anymore.
+
+[source, shell]
+----
+java -jar payara-micro.jar --rootdir <directory-path> --option2 ...
+----
+
+If the <directory-path> doesn't exist, it is created on the fly.
+
+
 [[deploying-an-application-package]]
 == Deploying an Application Package
 
