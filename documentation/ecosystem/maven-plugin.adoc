@@ -4,7 +4,7 @@ Payara Micro has a Maven plugin which can start and stop Payara Micro and create
 an Uber JAR bundle of the application and Payara Micro.
 
 The plugin requires JDK 8 or higher and the latest version is currently
-`1.0.1`
+`1.0.2`
 
 === Configurable Goals
 
@@ -129,9 +129,8 @@ Example:
             <version>5.182</version>
         </artifactItem>
         <daemon>true</daemon>
-        <javaPath>/path/to/Java/Home</javaPath>
+        <javaPath>/path/to/Java/Executable</javaPath>
         <deployWar>true</deployWar>
-        <copySystemProperties>true</copySystemProperties>
         <javaCommandLineOptions>
             <option>
                 <value>-Xdebug</value>
@@ -154,6 +153,9 @@ Example:
     </configuration>
 </plugin>
 ----
+
+NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 
 .Configuration tags
 [cols="2,1,7",options="header"]
@@ -194,17 +196,12 @@ to `true` you can skip this and instantly interrupt the executor thread.
 
 |`javaPath`
 |`java`
-|Absolute path to the java executable.
+|Absolute path to the java executable. This has higher priority to the java executable identified via Maven toolchain.
 
 |`deployWar`
 |false
 |If the attached project is of type WAR, it will automatically be deployed to
 payara-micro if `deployWar` is set to `true`.
-
-|`copySystemProperties`
-|false
-|Allows passing all system properties available within the maven build to the
-payara-micro execution.
 
 |`javaCommandLineOptions`
 |_none_
@@ -255,6 +252,8 @@ Example:
 </plugin>
 ----
 
+NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 
 .Configuration tags
 [cols="2,1,7",options="header"]
