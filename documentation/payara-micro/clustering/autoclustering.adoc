@@ -132,6 +132,21 @@ The IP Address should be exactly as reported by the details
 NOTE: TCPIP cluster mode can also be used to join a Payara Server Domain Data Grid
 by specifying the ip:port of the DAS Hazelcast instance.
 
+=== DNS Discovery Mode
+
+_Since Payara Server 5.184_
+
+The DNS Discovery mode can be used to cluster Payara Micro instances by specifying a DNS name. Similar to the
+TCPIP discovery mode, this discovery mode takes a comma separated list of DNS A/AAAA record names and ports to
+determine  where to look for instances to cluster with.
+
+----
+java -jar payara-micro.jar --autobindhttp --clustermode dns:localhost:6900,ubuntu:6900,suse:6900
+----
+
+IMPORTANT: If there are multiple IP addresses associated with a DNS name, Payara Micro will attempt to cluster
+with all of them.
+
 === Kubernetes Discovery Mode
 
 _Since Payara Micro 5.184_
