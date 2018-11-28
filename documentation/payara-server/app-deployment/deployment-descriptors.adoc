@@ -14,6 +14,13 @@ Additionally from version __5.183__, `payara-web.xml` can be used instead of `gl
 [source,xml]
 <!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "{{ book.payaraWebDtd }}">
 
+Since version __5.184__
+
+`payara-resources.xml` can also be used instead of `glassfish-resources.xml`. The schema can be referenced by:
+
+[source,xml]
+<!DOCTYPE resources PUBLIC "-//Payara.fish//DTD Payara Server 4 Resource Definitions//EN" "{{ book.payaraResourcesDtd }}">
+
 See the link:/schemas/README.adoc[schema reference] for the list of deployment descriptor DTD files.
 
 == Allowed configuration elements
@@ -54,3 +61,9 @@ The following elements are supported in Payara Server on top of elements support
 *** `clustered-lock-type`
 *** `clustered-attach-postconstruct`
 *** `clustered-detach-predestroy`
+
+[[payara-resources.xml]]
+== _payara-resources.xml_
+Since version __5.184__
+
+* `snapshot` (_property of transaction isolation, this isolation level is only supported by Microsoft SQL Server_)

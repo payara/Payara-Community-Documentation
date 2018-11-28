@@ -55,6 +55,38 @@ DNS discovery mode is an alternative discovery mode, closely related to the TCPI
 In this mode the user specifies a comma separated list of DNS names and ports that a Payara Server
 should try to find members of the data grid at upon boot.
 
+=== Kubernetes Discovery Mode
+
+_Since Payara Server 5.184_
+
+Kubernetes discovery mode is an alternative discovery mode intended for use when running in a Kubernetes
+environment. In this mode, the user specifies the Kubernetes service name and namespace that Payara Server
+should look to find other data grid members in - Payara Server will then contact the Kubernetes master
+upon boot to obtain the list of IP addresses of any other running instances under the specified namespace
+and service name.
+
+NOTE: This clustering is done using the Hazelcast Kubernetes plugin, and so you will need to grant Hazelcast
+permission to query the kubernetes master. As per the plugin documentation, you will need to apply the
+ permissions outlined below using `kubectl apply`. The original documentation on configuring these
+ permissions can be found https://github.com/hazelcast/hazelcast-kubernetes#grating-permissions-to-use-kubernetes-api[here],
+ as well as extra documentation on how to restrict these permissions further https://github.com/helm/charts/tree/master/stable/hazelcast#configuration[here].
+
+[source, shell]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: default-cluster
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+----
+
 == Configuration in the Administration Console
 The domain discovery mode can be configured in the admnistration console under the Data Grid node.
 The discovery mode set applies domain wide.
@@ -94,4 +126,17 @@ When setting DNS mode the list of DNS names and ports of datagrid members must b
 [source, shell]
 ----
 asadmin> set-hazelcast-configuration --clustermode dns --dnsmembers localhost:4900,www.example.com:5900
+----
+
+=== Set Kubernetes Mode
+
+_Since Payara Server 5.184_
+
+When setting Kubernetes mode the service name and namespace must be specified using the
+`--kubernetesservicename` and `--kubernetesnamespace` options respectively. If a namespace is not specified,
+Payara Server will use the "default" namespace.
+
+[source, shell]
+----
+asadmin> set-hazelcast-configuration --clustermode kubernetes --kubernetesServiceName payara --kubernetesNamespace default
 ----

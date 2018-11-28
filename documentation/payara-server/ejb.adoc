@@ -130,7 +130,7 @@ However, When deploying a JAR from an IDE (like **NetBeans** or **IntelliJ**), t
 defined in _ejb-jar.xml_. This is undesired because the IDE usually infers the module name from the name of the project or the JAR file and doesn't take the correct name of the module into account.
 
 In the current release, an improvement has been implemented to solve this scenario:
-The module name defined in the deployment descriptor will **always** be used even if it tries to be overridden using the `-name` option.
+The module name defined in the deployment descriptor will **always** be used even if it tries to be overridden using the `--name` option.
 
 IMPORTANT: In the case you need to overwrite the name of the module when deploying the module, use the `--forceName` command option.
 
@@ -151,7 +151,7 @@ In the case of EAR artifacts, the portable JNDI names for all scanned EJBs will 
 </application>
 ----
 
-NOTE: You can use the `--name` and `--force` deployment options to override the application name in a similar manner with what happens with EJB-JAR modules.
+NOTE: You can use the `--name` and `--forcename` deployment options to override the application name in a similar manner with what happens with EJB-JAR modules.
 
 [[persistent-ejb-timers-with-hazelcast]]
 == Persistent EJB Timers with the Domain Data Grid

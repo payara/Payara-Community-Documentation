@@ -6,9 +6,10 @@
 1. Go to *Tools - Servers*.
 2. Click *Add Server*.
 3. Select *Payara Server* and choose a name for the server.
-4. Select the location of the `payara41` directory of your Payara Server
-installation. If the DAS is on another machine then check the *Remote Domain*
-box, otherwise select *Local Domain*. Read and accept the license agreement.
+4. Select the location of the `payara` directory of your Payara Server (Payara 4
+or Payara 5) installation. If the DAS is on another machine then check 
+the *Remote Domain* box, otherwise select *Local Domain*. Read and accept the
+license agreement.
 5. Enter the following details for the domain:
   * Domain -> This is the name of the domain you want to use. By default this
   is `*domain1*`.

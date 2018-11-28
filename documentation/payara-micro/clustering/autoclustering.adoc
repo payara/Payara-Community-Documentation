@@ -147,6 +147,45 @@ java -jar payara-micro.jar --autobindhttp --clustermode dns:localhost:6900,ubunt
 IMPORTANT: If there are multiple IP addresses associated with a DNS name, Payara Micro will attempt to cluster
 with all of them.
 
+=== Kubernetes Discovery Mode
+
+_Since Payara Micro 5.184_
+
+The Kubernetes Disocvery mode can be used to cluster Payara Micro instances running in a kubernetes cluster,
+which can be useful due to the variable networking inherent to kubernetes. For this clustering mode,
+you must specify the kubernetes namespace and service name separated by a comma - Payara Micro will then attempt
+to cluster with instances present on pods within the specified namespace and service.
+
+[source, shell]
+----
+java -jar payara-micro.jar --autobindhttp --clustermode kubernetes:default,service1
+----
+
+This clustering is done using the Hazelcast Kubernetes plugin, and so you will need to grant Hazelcast
+permission to query the kubernetes master. As per the plugin documentation, you will need to apply the
+following permissions using `kubectl apply`:
+
+[source, shell]
+----
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: default-cluster
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+----
+
+See the original documentation on configuring these permissions
+https://github.com/hazelcast/hazelcast-kubernetes#grating-permissions-to-use-kubernetes-api[here], as well as
+extra documentation on how to restrict these permissions further
+https://github.com/helm/charts/tree/master/stable/hazelcast#configuration[here].
+
 === Interfaces
 
 If Hazelcast chooses the incorrect IP Address to bind to (for example a docker interface)

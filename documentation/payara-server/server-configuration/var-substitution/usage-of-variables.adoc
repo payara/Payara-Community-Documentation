@@ -77,3 +77,13 @@ An example of variable references within a pre or post boot command file:
 set configs.config.server-config.http-service.virtual-server.server.default-web-module=${ENV=deployed-app-name}
 set configs.config.server-config.network-config.protocols.protocol.http-listener-1.security-enabled=${ENV=security-enabled}
 ----
+
+An example of variable references within a `logging.properties` file
+
+NOTE: Environment variable substitution in the logging properties file is available since Payara Server 5.184
+
+[source,properties]
+----
+handlers=${ENV=CONSOLE-HANDLER}
+handlerServices=${ENV=SYS-LOG-HANDLER}
+----

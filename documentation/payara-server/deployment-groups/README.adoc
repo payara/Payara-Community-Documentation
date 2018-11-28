@@ -1,6 +1,6 @@
 = Deployment Groups
 
-Deployment Groups are a new feature in Payara 5. The Deployment Group is designed to replace the deployment targetging aspect of Clusters
+Deployment Groups are a new feature in Payara 5. The Deployment Group is designed to replace the deployment targeting aspect of Clusters
 that was available in previous versions of Payara.
 
 == Why replace Clusters
@@ -13,7 +13,7 @@ A Cluster in Payara 4 encapsulated a number of concepts;
 
 With the introduction of the Domain Data Grid the concept of data persistence
 was split from the Cluster concept to allow all instances to automatically cluster
-and share data. The introduction of the deployment group splits out the targetting aspect
+and share data. The introduction of the deployment group splits out the targeting aspect
  of clusters.
 
 == What is a Deployment Group
@@ -118,4 +118,4 @@ running the deploy command.
 asadmin> deploy --target test2 test.war
 ----
 
-NOTE: The same targetting also works for resources.
+NOTE: The same targeting also works for resources.

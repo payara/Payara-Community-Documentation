@@ -13,7 +13,7 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |`--accesslogformat`
 |Sets user defined log format for the access log.|
 |`--additionalrepository <repo-url>`
-|Specifies an additional repository to search for deployable artefacts in.|
+|Specifies an additional repository to search for deployable artefacts in. Since 4.1.2.184 and 5.184 it is possible to use basic authentication. For example https://USER:PASSWORD@example.payara.fish/repositories/repo/ . You may also use aliases https://USER:{ALIAS=ALIAS_NAME}@example.payara.fish/repositories/repo/|
 |`--addjars <jar-path>`
 |__Deprecated__. Use `--addlibs` instead|
 |`--addlibs <file or directory path>`|<file-or-directory-path> add specified jar files into classloader, or packaged into an uberjar. Multiple files can be specified as colon separated values.|
@@ -64,7 +64,8 @@ on members with the same IP Address.| _false_
 |Sets the Hazelcast configuration file to use for overriding the built-in Hazelcast
 cluster configuration.| If not set, the built-in Hazelcast configuration file
 is used.
-|`--instancegroup <group-name>`
+|`--hzPublicAddress <host-name or ip>`|
+|`--instancegroup <group-name>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
 |See `--group`|
 |`--interfaces`|Specifies the Interfaces that the data grid discovery mode should use to listen. Can be comma separated, e.g. 127.0.0.1,192.168.0.*|
 |`--lite`

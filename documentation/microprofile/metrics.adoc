@@ -74,9 +74,9 @@ _Since Payara Server 4.1.2.182 and 5.182_
 
 It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example). 
 
-You can use the `%s` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
+You can use the `${key}`, `${attribute}` and `${subattribute}` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
 
-IMPORTANT: You will need to use the `%s` placeholder in the `name` element as well to allow each metric to have a different name and avoid collisions.
+IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholder in the `name` element as well to allow each metric to have a different name and avoid collisions.
 
 [[example]]
 ==== Example
@@ -86,8 +86,8 @@ Here's a simple example of defining a custom metric definition template that wil
 [source, xml]
 ----
 <metadata>
-     <name>jdbc.connection.pool.%sPool.numconnfree</name>
-     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/%sPool/numconnfree#current</mbean>
+     <name>jdbc.connection.pool.${key}Pool.numconnfree</name>
+     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/${key}Pool/numconnfree#current</mbean>
      <type>counter</type>
      <unit>none</unit>
      <displayName>numconnfreePool</displayName>
@@ -108,6 +108,49 @@ vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
 # TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree counter
 # HELP vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
 vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
+----
+
+Here's another example of defining a custom metric definition template with multiple placeholder that will generate metrics for the number of free connections available to all JDBC connections pools:
+
+[source, xml]
+----
+<metadata>
+     <name>jdbc.connection.pool.${key}Pool.${attribute}#${subattribute}</name>
+     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/${key}Pool/${attribute}#${subattribute}</mbean>
+     <type>counter</type>
+     <unit>none</unit>
+</metadata>
+----
+
+Which will yield the following results:
+
+[source, text]
+----
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnsuccessfullymatched#start_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnsuccessfullymatched#start_time 1540463722554
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconncreated#count counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconncreated#count 0
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_connrequestwaittime#last_sample_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_connrequestwaittime#last_sample_time -1
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnused#start_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnused#start_time 1540463106138
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnused#last_sample_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnused#last_sample_time 1540463722554
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconntimedout#start_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconntimedout#start_time 1540463722554
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_connrequestwaittime#start_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_connrequestwaittime#start_time 1540463722554
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree#start_time counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree#start_time 1540463106138
+# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfailedvalidation#count counter
+vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfailedvalidation#count 0
+......
+# TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnsuccessfullymatched#start_time counter
+vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnsuccessfullymatched#start_time 1540463722554
+# TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count counter
+vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count 0
+......
+......
 ----
 
 
@@ -154,26 +197,35 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |Boolean
 |Enables or disables the metrics service.
 |true
-|no
+|No
+
+|`endpoint`
+|The context root used to expose the metrics endpoint.
+|metrics
+|No
 
 |`securemetrics`
 |Boolean
 |If set to true, `/metrics` endpoint can be accessed only via HTTPS and disables the HTTP method with 403 HTTP response.
 |false
-|no
+|No
 
 |`dynamic`
 |Boolean
 |If set to true, applies the changes instantly without a restart. Otherwise a restart is required.
 |true
-|no
+|No
 
 |`target`
 |String
 |The target Payara config to apply the change to.
 |server-config
-|no
+|No
 
+|`virtualservers`
+|If defined, the '/metrics' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
+|-
+|No
 |===
 
 
@@ -205,7 +257,7 @@ Returns the current configuration options for the metrics service on the targete
 |String
 |The config to get the metrics configuration for.
 |server-config
-|no
+|No
 
 |===
 

@@ -168,13 +168,18 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 
 |`enabled`
 |Whether the service should be enabled/disabled.
-|-
-|false
+|true
+|No
 
 |`target`
 |The target Payara config to apply the change to.
 |server-config
-|false
+|No
+
+|`virtualservers`
+|If defined, the '/openapi' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
+|-
+|No
 |===
 
 [[get-openapi-configuration]]
