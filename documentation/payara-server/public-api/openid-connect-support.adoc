@@ -173,14 +173,14 @@ They are detailed below.
 | `claimsDefinition.callerNameClaim`
 | `payara.security.openid.callerNameClaim`
 | false
-| Defines the name of callerName claim and maps the claim's value to caller name value in IdentityStore#validate.
+| Defines the name of callerName claim and maps the claim's value to caller name value in IdentityStore#validate. _Since Payara Server 5.184_
 | preferred_username
 | N/A.
 
 | `claimsDefinition.callerGroupsClaim`
 | `payara.security.openid.callerGroupsClaim`
 | false
-| Defines the name of callerGroups claim and maps the claim's value to caller groups value in IdentityStore#validate.
+| Defines the name of callerGroups claim and maps the claim's value to caller groups value in IdentityStore#validate. _Since Payara Server 5.184_
 | groups
 | N/A.
 
