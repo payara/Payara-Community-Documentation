@@ -12,7 +12,7 @@ In version {{ book.currentVersion }}, there are containers available for the fol
 
 * link:payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
-* Payara Remote (not yet documented)
+* link:payara-remote.adoc[Payara Remote]
 * Payara Managed (not yet documented)
 
 === Obtaining the Containers
