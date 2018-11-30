@@ -134,6 +134,7 @@
 ** link:documentation/payara-server/public-api/README.adoc[Public API]
 *** link:documentation/payara-server/public-api/cdi-events.adoc[Remote CDI Events]
 *** link:documentation/payara-server/public-api/clustered-singleton.adoc[Clustered Singleton]
+*** link:documentation/payara-server/public-api/roles-permitted.adoc[roles-permitted]
 *** link:documentation/payara-server/public-api/twoidentitystores.adoc[Two Identity Stores]
 *** link:documentation/payara-server/public-api/yubikey.adoc[Yubikey Integration]
 *** link:documentation/payara-server/public-api/oauth-support.adoc[OAuth2 Support]
