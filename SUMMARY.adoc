@@ -56,6 +56,7 @@
 *** link:documentation/payara-server/rest-api/resources.adoc[Resources]
 *** link:documentation/payara-server/rest-api/definitions.adoc[Definitions]
 ** link:documentation/payara-server/javamail.adoc[JavaMail]
+** link:documentation/payara-server/jce-provider-support.adoc[JCE Provider Support]
 ** link:documentation/payara-server/admin-console/admin-console.adoc[Admin Console Enhancements]
 *** link:documentation/payara-server/admin-console/asadmin-recorder.adoc[Asadmin Recorder]
 *** link:documentation/payara-server/admin-console/environment-warning.adoc[Environment Warning]
