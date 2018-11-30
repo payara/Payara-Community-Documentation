@@ -1,7 +1,7 @@
 [[mysql-connectorj-8-changes]]
 = MySQL Connector/J 8 Changes
 
-_Since Paayra Server 5.184_
+_Since Payara Server 5.184_
 
 MySQL Connector/J underwent a package name change with the 8.0 release, meaning that to
 make use of the newer connector version you'll need to configure your connection pools
