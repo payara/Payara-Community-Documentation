@@ -10,19 +10,18 @@ enabled for all applications on Payara Micro.
 [[enable-concurrent-cdi-bean-loading]]
 == Enable Concurrent CDI Bean Loading
 
-Concurrent CDI bean loading is configured for all applications by setting a system
-property:
+Concurrent CDI bean loading is configured on a per-config basis using the `set` command:
 
 [source, bash]
 ----
-asadmin create-system-properties org.jboss.weld.bootstrap.concurrentDeployment=true
+asadmin set configs.config.server-config.cdi-service.enable-concurrent-deployment=true
 ----
 
 You can also configure the number of pre-loader threads like so:
 
 [source, bash]
 ----
-asadmin create-system-properties org.jboss.weld.bootstrap.preloaderThreadPoolSize=true
+asadmin set configs.config.server-config.cdi-service.pre-loader-thread-pool-size=4
 ----
 
 NOTE: Concurrent deployment of CDI Beans is enabled by default with two preloader
