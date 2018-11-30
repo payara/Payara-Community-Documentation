@@ -1,5 +1,5 @@
-[[jce-support]]
-= JCE Support
+[[jce-provider-support]]
+= JCE Provider Support
 
 _Since Payara Server 5.184_
 
