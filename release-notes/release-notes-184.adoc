@@ -247,6 +247,8 @@ hazelcast to 3.11
 
 == Notes
 
+=== PasswordLoginModule Changes
+
 In Payara 5.182 login modules often extended from a base login module
 called com.sun.enterprise.security.auth.login.PasswordLoginModule. This
 base class however was redundant and only provided for backwards
@@ -262,6 +264,8 @@ of redundant classes, this class has been removed since Payara 5.183.
 Its direct preferred replacement for a long time has been
 `com.sun.enterprise.security.BasePasswordLoginModule`. This class is now
 the only (and therefore mandatory) replacement.
+
+=== Principal String Representation Changes
 
 String representations of principals that are based on X500Principals
 have changed since Payara 5.184. The sequence of RDNs (Relative
