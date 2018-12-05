@@ -67,6 +67,7 @@
 *** link:documentation/payara-server/advanced-jdbc/slow-sql-logger.adoc[Slow SQL Logger]
 *** link:documentation/payara-server/advanced-jdbc/sql-trace-listeners.adoc[SQL Trace Listeners]
 *** link:documentation/payara-server/advanced-jdbc/advanced-connection-pool-properties.adoc[Advanced Connection Pool Configuration]
+*** link:documentation/payara-server/advanced-jdbc/sql-statement-overview.adoc[SQL Statement Overview]
 ** link:documentation/payara-server/ejb.adoc[EJB]
 ** link:documentation/payara-server/jbatch/jbatch.adoc[JBatch]
 *** link:documentation/payara-server/jbatch/schema-name.adoc[Setting the Schema Name]
