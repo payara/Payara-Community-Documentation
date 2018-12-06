@@ -29,6 +29,8 @@ If you apply the JVM options in the default domain.xml in version 5.184, you'll 
 
 Beware that future versions of JDK (beyond u192) may break the ALPN contract again and subsequent version of Payara Server will need to provide another version of `grizzly-npn-bootstrap` JAR to fix it.
 
+TIP: Users with a support account can follow the https://support.payara.fish/hc/en-gb/articles/360012350494-Upgrade-to-Payara-Server-5-184[Guide to Upgrading to Payara Server 5.184].
+
 === PasswordLoginModule Changes
 
 In Payara 5.182 login modules often extended from a base login module
