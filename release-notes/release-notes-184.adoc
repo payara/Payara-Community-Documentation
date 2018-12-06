@@ -1,3 +1,64 @@
+[release-notes]
+= Payara Server 5.184 Release Notes
+
+[[release-highlights]]
+== Release Highlights
+
+
+[[important-information]]
+=== *Important Information*
+
+* JDK version 8u162 or newer is no longer required
+* When upgrading Payara Server from an older version, make sure to use JVM options appropriate for your JDK version. See the Notes section below for more details
+
+[[supported-apis-and-applications]]
+== Supported APIs and Applications
+
+* Java EE 8 Applications
+* MicroProfile 2.0 (in v5.184) / 1.4 (in v4.1.2.184)
+
+== Notes
+
+=== Upgrading from older versions
+
+When upgrading from a domain used by an older version of Payara Server you may run into issues due to changes in ALPN.
+
+We recommend modifying domain.xml by removing `grizzly-npn-bootstrap.jar` JVM option and adding appropriate JVM option for your JDK version. Or you can just copy all the `grizzly-npn-bootstrap` JVM options from a https://github.com/payara/Payara/pull/3414/files#diff-106a22dc9db673bf7b67c76cf69914aaR256[default domain.xml] in Payara Server 5.184.
+
+If you apply the JVM options in the default domain.xml in version 5.184, you'll avoid problems if you update the JDK in the future. The default configuration takes advantage of JDK version selectors supported in JVM options and will instruct Payara Server to choose the appropriate `grizzly-npn-bootstrap` JAR.
+
+Beware that future versions of JDK (beyond u192) may break the ALPN contract again and subsequent version of Payara Server will need to provide another version of `grizzly-npn-bootstrap` JAR to fix it.
+
+=== PasswordLoginModule Changes
+
+In Payara 5.182 login modules often extended from a base login module
+called com.sun.enterprise.security.auth.login.PasswordLoginModule. This
+base class however was redundant and only provided for backwards
+compatibility as per the following comment on it:
+
+_________________________________________________________________________________________
+This class is provided for backward compatibility and is a candidate
+for deprecation.
+_________________________________________________________________________________________
+
+In order to simplify the security system somewhat by reducing the amount
+of redundant classes, this class has been removed since Payara 5.183.
+Its direct preferred replacement for a long time has been
+`com.sun.enterprise.security.BasePasswordLoginModule`. This class is now
+the only (and therefore mandatory) replacement.
+
+=== Principal String Representation Changes
+
+String representations of principals that are based on X500Principals
+have changed since Payara 5.184. The sequence of RDNs (Relative
+Distinguished Names) used to be rendered with a command (,) and a space
+( ) as separator, but due to an internal class change are now rendered
+with only a command character (’,’ ASCII 44) as separator. For instance
+a distinguished name that used to be represented in string form as
+`"C=UK, ST=lak, L=zak, O=kaz, OU=bar, CN=lfoo"` is now represented as
+`"C=UK,ST=lak,L=zak,O=kaz,OU=bar,CN=lfoo"`
+
+
 == New Features
 
 * https://github.com/payara/Payara/pull/3096[PAYARA-635] - Autocomplete
@@ -178,17 +239,17 @@ user operation fails when replicating commands to instances in
 deployment group
 * https://github.com/payara/Payara/pull/3344[PAYARA-3186] - NPE in
 ConnectorXAResource.getResourceHandle method
-* https://github.com/payara/Payara/pull/3290[PAYARA-3189]] - Fixing
+* https://github.com/payara/Payara/pull/3290[PAYARA-3189] - Fixing
 blocker bugs in Payara micro boot module [community
-* https://github.com/payara/Payara/pull/3302[PAYARA-3190]] - Web Console
+* https://github.com/payara/Payara/pull/3302[PAYARA-3190] - Web Console
 403 LDAPRealm.getGroupNames Exception [community
-* https://github.com/payara/Payara/pull/3297[PAYARA-3192]] - Fixing
+* https://github.com/payara/Payara/pull/3297[PAYARA-3192] - Fixing
 blocker bugs in Deployment related classes module [community
-* https://github.com/payara/Payara/pull/3299[PAYARA-3193]] - Fixing
+* https://github.com/payara/Payara/pull/3299[PAYARA-3193] - Fixing
 Sonar blocker bugs in module nucleus logging [community
 * https://github.com/payara/Payara/pull/3357[PAYARA-3196] - Grizzly NPN
 Fails for JDK 8.192
-* https://github.com/payara/Payara/pull/3313[PAYARA-3197]] - Fixing
+* https://github.com/payara/Payara/pull/3313[PAYARA-3197] - Fixing
 sonar bugs blocker and major in web glue module [community
 * https://github.com/payara/Payara/pull/3373[PAYARA-3199] - NPE in
 MicroProfile Metrics on Payara Micro
@@ -245,33 +306,3 @@ apache httpclient to 4.5.6
 * https://github.com/payara/Payara/pull/3402[PAYARA-3248] - Upgrade
 hazelcast to 3.11
 
-== Notes
-
-=== PasswordLoginModule Changes
-
-In Payara 5.182 login modules often extended from a base login module
-called com.sun.enterprise.security.auth.login.PasswordLoginModule. This
-base class however was redundant and only provided for backwards
-compatibility as per the following comment on it:
-
-_________________________________________________________________________________________
-``This class is provided for backward compatibility and is a candidate
-for deprecation.''
-_________________________________________________________________________________________
-
-In order to simplify the security system somewhat by reducing the amount
-of redundant classes, this class has been removed since Payara 5.183.
-Its direct preferred replacement for a long time has been
-`com.sun.enterprise.security.BasePasswordLoginModule`. This class is now
-the only (and therefore mandatory) replacement.
-
-=== Principal String Representation Changes
-
-String representations of principals that are based on X500Principals
-have changed since Payara 5.184. The sequence of RDNs (Relative
-Distinguished Names) used to be rendered with a command (,) and a space
-( ) as separator, but due to an internal class change are now rendered
-with only a command character (’,’ ASCII 44) as separator. For instance
-a distinguished name that used to be represented in string form as
-`"C=UK, ST=lak, L=zak, O=kaz, OU=bar, CN=lfoo"` is now represented as
-`"C=UK,ST=lak,L=zak,O=kaz,OU=bar,CN=lfoo"`
