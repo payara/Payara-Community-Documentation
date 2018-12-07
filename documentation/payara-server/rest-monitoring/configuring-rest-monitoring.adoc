@@ -1,3 +1,4 @@
+[[rest-monitoring-configuration]]
 = Configuring REST monitoring
 
 REST monitoring is configurable through asadmin commands. This feature is in
