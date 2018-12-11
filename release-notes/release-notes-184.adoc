@@ -1,4 +1,4 @@
-[release-notes]
+[[release-notes]]
 = Payara Server 5.184 Release Notes
 
 [[release-highlights]]
@@ -10,6 +10,7 @@
 
 * JDK version 8u162 or newer is no longer required
 * When upgrading Payara Server from an older version, make sure to use JVM options appropriate for your JDK version. See the Notes section below for more details
+* Some IDE plugins have problems with the default JVM options in Payara Server 5.184. In Netbeans, you should update the link:/documentation/ecosystem/netbeans-plugin/README.adoc[Payara plugin] to version 1.5. For Eclipse IDE there's a workaround. IntelliJ works out of the box. See the link:#known-issues[Known issues] section in case you run into problems
 
 [[supported-apis-and-applications]]
 == Supported APIs and Applications
@@ -308,3 +309,9 @@ apache httpclient to 4.5.6
 * https://github.com/payara/Payara/pull/3402[PAYARA-3248] - Upgrade
 hazelcast to 3.11
 
+[[known-issues]]
+== Known issues
+
+* Fresh Payara Server 5.184 doesn't start in Netbeans with a Payara plugin older than version 1.5 and with the current GlassFish plugin. This is because the Netbeans plugin modifies the standard start procedure but doesn't understand Java version selectors in JVM options, which leads to an error in the plugin. This is fixed in the  Payara NetBeans Plugin version 1.5 which is already available in our link:/documentation/ecosystem/netbeans-plugin/README.adoc[Netbeans repositories]. For older versions or for a GlassFish plugin, you can fix this if you replace multiple JVM options for `grizzly-npn-bootstrap` in the https://github.com/payara/Payara/pull/3414/files#diff-106a22dc9db673bf7b67c76cf69914aaR256[default domain.xml] with a single option that matches your Java version and remove the Java version selector. 
+* Fresh Payara Server 5.184 doesn't start in Eclipse IDE with any current plugin. You should apply the same  workaround as for an older Netbeans plugin: replace multiple JVM options for `grizzly-npn-bootstrap` in the https://github.com/payara/Payara/pull/3414/files#diff-106a22dc9db673bf7b67c76cf69914aaR256[default domain.xml] with a single option that matches your Java version and remove the Java version selector
+* There are no issues in IntelliJ as it starts Payara Server in a standard way
