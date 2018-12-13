@@ -1,4 +1,4 @@
-[[]]
+[[microprofile-metrics]]
 = Eclipse MicroProfile Metrics API
 
 _Since Payara Server 4.1.2.181 and 5.181_
@@ -74,9 +74,17 @@ _Since Payara Server 4.1.2.182 and 5.182_
 
 It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example). 
 
-You can use the `${key}`, `${attribute}` and `${subattribute}` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
+You can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
 
-IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholder in the `name` element as well to allow each metric to have a different name and avoid collisions.
+These placeholders are used as follow:
+
+`key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
+
+`attribute`:: Used as a placeholder for the name of an attribute of an AMX MBean.
+
+`subattribute`:: Used as a placeholder for the name of a subattribute (or second-level attribute), which corresponds to an attribute of a `CompositeData` type of attribute in the corresponding AMX MBean.
+
+IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholders in the `name` element as well to prevent name collisions between different templated metrics.
 
 [[example]]
 ==== Example
@@ -153,6 +161,7 @@ vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count 0
 ......
 ----
 
+IMPORTANT: Prior to versions *5.184* and *4.1.2.184*, instead of the 3 placeholders described previously, the MicroProfile Metrics runtime supported the generic placeholder `%s` instead. This placeholder was used as a wildcard (`*`) expression to template metrics based on the AMX MBeans names. These placeholders where introduced to broaden the scope of available metric definitions.
 
 [[metrics-configuration]]
 == Metrics Configuration
@@ -200,34 +209,37 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |No
 
 |`endpoint`
+|String
 |The context root used to expose the metrics endpoint.
-|metrics
+|`metrics`
 |No
 
 |`securemetrics`
 |Boolean
-|If set to true, `/metrics` endpoint can be accessed only via HTTPS and disables the HTTP method with 403 HTTP response.
+|If set to `true`, the endpoint can be accessed only via HTTPS and will disable all non-secured communications with a `403 - Forbidden` response code.
 |false
 |No
 
 |`dynamic`
 |Boolean
-|If set to true, applies the changes instantly without a restart. Otherwise a restart is required.
+|If set to `true`, applies the changes instantly without a restart. Otherwise a restart is required.
 |true
 |No
 
 |`target`
 |String
-|The target Payara config to apply the change to.
-|server-config
+|The target server/instance configuration.
+|`server-config`
 |No
 
 |`virtualservers`
-|If defined, the '/metrics' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
+|String
+|If defined, the endpoint will be assigned to a list of *virtual servers* specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. 
+
+_Since Payara Server 4.1.2.184 and 5.184_
 |-
 |No
 |===
-
 
 ===== Example
 
@@ -241,7 +253,7 @@ asadmin> set-metrics-configuration --enabled=true --securemetrics=true --dynamic
 *Usage*::
 `asadmin> get-metrics-configuration [--target <instance-name>]`
 *Aim*::
-Returns the current configuration options for the metrics service on the targeted config.
+Returns the current configuration options for the metrics service on the targeted configuration.
 
 ===== Command Options
 
@@ -255,12 +267,10 @@ Returns the current configuration options for the metrics service on the targete
 
 |`target`
 |String
-|The config to get the metrics configuration for.
-|server-config
+|The target server/instance configuration.
+|`server-config`
 |No
-
 |===
-
 
 ===== Example
 
