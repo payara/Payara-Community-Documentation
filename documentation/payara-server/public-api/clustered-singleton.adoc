@@ -16,7 +16,7 @@ one method call can be executed in the cluster at a time.
 
 [[examples]]
 == Examples
-Examples can be found here: https://github.com/payara/Payara-Examples/tree/master/Java-EE/clustered-singleton
+Examples can be found here: https://github.com/payara/Payara-Examples/tree/master/javaee/clustered-singleton
 
 [[timers]]
 == `@Clustered` and EJB Timers
