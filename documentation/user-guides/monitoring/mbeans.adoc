@@ -161,8 +161,9 @@ for how to view all available MBeans.
 
 IMPORTANT: Payara MBeans are only available when AMX is booted. This is done
 automatically once a JMX client connects. For all other cases, AMX must be either
-configured to boot at server startup or booted via a JMX operation `bootAMX`
-on the `amx-support:type=boot-amx` MBean.
+configured to boot at server startup (through domain config) or booted via a JMX operation `bootAMX`
+on the `amx-support:type=boot-amx` MBean using a non-JMX client (e.g. over a local socket). 
+Programmatic activation during application deployment (by means of a Startup EJB singleton for example) will not work.
 
 [[connection-queue]]
 === Connection Queue
