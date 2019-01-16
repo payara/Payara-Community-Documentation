@@ -164,6 +164,6 @@ to a Maven profile in your pom:
 </plugin>
 ----
 
-A complete example can be found in link:https://github.com/payara/Payara-Examples/blob/master/payara-maven/pom.xml[
+A complete example can be found in link:https://github.com/payara/Payara-Examples/blob/master/ecosystem/payara-maven/pom.xml[
 the Payara Examples repository.] The example demonstrates the same remote and 
 local deployment methods in two separate profiles.
