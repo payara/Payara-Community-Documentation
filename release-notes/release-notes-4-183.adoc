@@ -1,5 +1,5 @@
 [[release-notes]]
-= Payara Server 4.183 Release Notes
+= Payara Server 4.1.2.183 Release Notes
 
 NOTE: This version is distributed only to Payara Enterprise customers
 
