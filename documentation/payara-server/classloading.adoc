@@ -110,6 +110,26 @@ For *EAR* applications, you can include the
 With this, all libraries included on the EAR's `lib/` directory will
 take precedence.
 
+[[use-bundled-jsf]]
+== Use other JSF implementation
+
+In order to make the server to use the bundled JSF implementation within the application, you need to set an additional configuration parameter.
+You need to indicate within the _glassfish-web.xml_ file that the server should use the bundled JSF implementation as follows:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-application PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Java EE Application 6.0//EN" "http://glassfish.org/dtds/glassfish-application_6_0-1.dtd">
+<glassfish-application>
+    ...
+    <classloading-delegate>false</classloading-delegate>
+    <property name="useBundledJsf" value="true" />
+    ...
+</glassfish-application>
+----
+
+By specifying both options, disable class loading delegation and useBundledJsf, the bundled JSF implementation within your deployment (WAR or EAR) will be used correctly.
+
 [[extreme-classloading-isolation]]
 == Extreme Classloading Isolation
 
