@@ -4,8 +4,95 @@
 The following is a detailed list of the administration commands that can be used
 to correctly configure the HealthCheck Service.
 
+[[set-healthcheck-configuration]]
+== `set-healthcheck-configuration`
+
+*Usage*::
+----
+set-healthcheck-configuration --enabled=true|false --dynamic=true|false  
+--trace-enabled=true|false --trace-store-size=20 
+--trace-store-timeout=<integer.value>s|m|h|d]
+----
+
+*Aim*::
+Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection. 
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The instance or cluster that will enable or disable its service
+|server
+|no
+
+|`--dynamic`
+|Boolean
+|Whether to apply the changes directly to the server without a restart
+|false
+|no
+
+|`--enabled`
+|Boolean
+|Whether to enable or disable the service
+|N/A
+|yes
+
+|`--notifierenabled`
+|Boolean
+|Whether or not to enable the default notifier
+|false
+|no
+
+|`--trace-enabled`
+|Boolean
+|Enables historic checks if present
+|false |no
+
+|`--trace-store-size`
+|Integer
+|Sets the maximum number of health checks to store
+|20
+|no
+
+|`--trace-store-timeout`
+|String
+|Sets the time period after which a historic health check event entry is removed from visable history. The time expression should consist of a single number followed by a time unit, `s` for seconds, `m` for minutes, `h` for hours or `d` for days. If no time unit is given the number specifies seconds. If the parameter is zero or unspecified there is no timeout for entries.
+|-
+|no
+
+|===
+
+NOTE: Enabling or disabling the health check service in general implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <<healthcheck-configure>> command.
+
+[[example]]
+==== Example
+
+The following example will enabled the Healthcheck service such that it will
+only activate from the next time the server is restarted. It enables the log
+notifier and sets the historical trace store to retain 20 health checks.
+
+[source, shell]
+----
+asadmin> set-healthcheck-configuration
+    --enabled=true
+    --dynamic=false
+    --trace-enabled=true
+    --trace-store-size=20
+----
+
 [[healthcheck-configure]]
 == `healthcheck-configure`
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-configuration>> command.
 
 *Usage*::
 `asadmin> healthcheck-configure --enabled=true|false --dynamic=true|false --historicaltraceenabled --historicaltracestoresize=20`
