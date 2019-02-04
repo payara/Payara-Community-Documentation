@@ -171,8 +171,42 @@ asadmin > healthcheck-configure
     --historicaltracestoresize=20
 ----
 
+[[list-healthcheck-services]]
+== `list-healthcheck-services` 
+
+*Usage*::
+`asadmin> list-healthcheck-services`
+
+*Aim*::
+Lists the names of all available metric checker services.
+
+[[command-options-1]]
+==== Command Options
+
+There are no options available.
+
+[[list-healthcheck-services-example-1]]
+==== Example
+
+Running the command will show output similar to the example below:
+
+----
+Available Health Check Services:
+        healthcheck-cpool
+        healthcheck-cpu
+        healthcheck-gc
+        healthcheck-heap
+        healthcheck-threads
+        healthcheck-machinemem
+
+Command healthcheck-list-services executed successfully.
+----
+
+
 [[healthcheck-list-services]]
-== `healthcheck-list-services`
+== `healthcheck-list-services` 
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<list-healthcheck-services>> command.
 
 *Usage*::
 `asadmin> healthcheck-list-services`

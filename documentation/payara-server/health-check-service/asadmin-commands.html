@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="generator" content="Asciidoctor 1.5.5.dev">
 <title>HealthCheck Service Asadmin Command Reference</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -17,6 +17,7 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -51,7 +52,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -63,6 +64,7 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
+body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -117,16 +119,13 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
-*:not(pre)>code.nobreak{word-wrap:normal}
-*:not(pre)>code.nowrap{white-space:nowrap}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
-em em{font-style:normal}
-strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -417,6 +416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body id="healthcheck-service" class="article">
 <div id="header">
@@ -432,8 +432,146 @@ to correctly configure the HealthCheck Service.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-configure"><code>healthcheck-configure</code></h2>
+<h2 id="set-healthcheck-configuration"><a class="anchor" href="#set-healthcheck-configuration"></a><code>set-healthcheck-configuration</code></h2>
 <div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Usage</strong></dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>set-healthcheck-configuration --enabled=true|false --dynamic=true|false
+--trace-enabled=true|false --trace-store-size=20
+--trace-store-timeout=&lt;integer.value&gt;s|m|h|d]</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Aim</strong></dt>
+<dd>
+<p>Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="command-options"><a class="anchor" href="#command-options"></a>Command Options</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 27.2727%;">
+<col style="width: 9.0909%;">
+<col style="width: 45.4545%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--target</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The instance or cluster that will enable or disable its service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">server</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--dynamic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to apply the changes directly to the server without a restart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to enable or disable the service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--notifierenabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not to enable the default notifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--trace-enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables historic checks if present</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--trace-store-size</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the maximum number of health checks to store</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--trace-store-timeout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sets the time period after which a historic health check event entry is removed from visable history. The time expression should consist of a single number followed by a time unit, <code>s</code> for seconds, <code>m</code> for minutes, <code>h</code> for hours or <code>d</code> for days. If no time unit is given the number specifies seconds. If the parameter is zero or unspecified there is no timeout for entries.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Enabling or disabling the health check service in general implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <a href="#healthcheck-configure"><code>healthcheck-configure</code></a> command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="anchor" href="#example"></a>Example</h4>
+<div class="paragraph">
+<p>The following example will enabled the Healthcheck service such that it will
+only activate from the next time the server is restarted. It enables the log
+notifier and sets the historical trace store to retain 20 health checks.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; set-healthcheck-configuration
+    --enabled=true
+    --dynamic=false
+    --trace-enabled=true
+    --trace-store-size=20</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="healthcheck-configure"><a class="anchor" href="#healthcheck-configure"></a><code>healthcheck-configure</code></h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#set-healthcheck-configuration"><code>set-healthcheck-configuration</code></a> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
@@ -447,7 +585,7 @@ to correctly configure the HealthCheck Service.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options">Command Options</h4>
+<h4 id="command-options"><a class="anchor" href="#command-options"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 27.2727%;">
@@ -514,7 +652,7 @@ to correctly configure the HealthCheck Service.</p>
 <table>
 <tr>
 <td class="icon">
-<div class="title">Important</div>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 Starting from release <em>4.1.1.171</em>, the <code>--notifierenabled</code> argument is
@@ -528,7 +666,7 @@ command to enable or disable other available notifiers.
 </div>
 </div>
 <div class="sect3">
-<h4 id="example">Example</h4>
+<h4 id="example"><a class="anchor" href="#example"></a>Example</h4>
 <div class="paragraph">
 <p>The following example will enabled the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
@@ -536,7 +674,7 @@ notifier and sets the historical trace store to retain 20 health checks.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin &gt; healthcheck-configure
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin &gt; healthcheck-configure
     --enabled=true
     --dynamic=false
     --notifierenabled=true
@@ -548,13 +686,13 @@ notifier and sets the historical trace store to retain 20 health checks.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-list-services"><code>healthcheck-list-services</code></h2>
+<h2 id="list-healthcheck-services"><a class="anchor" href="#list-healthcheck-services"></a><code>list-healthcheck-services</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
 <dd>
-<p><code>asadmin&gt; healthcheck-list-services</code></p>
+<p><code>asadmin&gt; list-healthcheck-services</code></p>
 </dd>
 <dt class="hdlist1"><strong>Aim</strong></dt>
 <dd>
@@ -563,13 +701,13 @@ notifier and sets the historical trace store to retain 20 health checks.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-1">Command Options</h4>
+<h4 id="command-options-1"><a class="anchor" href="#command-options-1"></a>Command Options</h4>
 <div class="paragraph">
 <p>There are no options available.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-1">Example</h4>
+<h4 id="list-healthcheck-services-example-1"><a class="anchor" href="#list-healthcheck-services-example-1"></a>Example</h4>
 <div class="paragraph">
 <p>Running the command will show output similar to the example below:</p>
 </div>
@@ -590,7 +728,61 @@ Command healthcheck-list-services executed successfully.</pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-configure-service"><code>healthcheck-configure-service</code></h2>
+<h2 id="healthcheck-list-services"><a class="anchor" href="#healthcheck-list-services"></a><code>healthcheck-list-services</code></h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#list-healthcheck-services"><code>list-healthcheck-services</code></a> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Usage</strong></dt>
+<dd>
+<p><code>asadmin&gt; healthcheck-list-services</code></p>
+</dd>
+<dt class="hdlist1"><strong>Aim</strong></dt>
+<dd>
+<p>Lists the names of all available metric checker services.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="command-options-1"><a class="anchor" href="#command-options-1"></a>Command Options</h4>
+<div class="paragraph">
+<p>There are no options available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-1"><a class="anchor" href="#example-1"></a>Example</h4>
+<div class="paragraph">
+<p>Running the command will show output similar to the example below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Available Health Check Services:
+        healthcheck-cpool
+        healthcheck-cpu
+        healthcheck-gc
+        healthcheck-heap
+        healthcheck-threads
+        healthcheck-machinemem
+
+Command healthcheck-list-services executed successfully.</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="healthcheck-configure-service"><a class="anchor" href="#healthcheck-configure-service"></a><code>healthcheck-configure-service</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -608,7 +800,7 @@ also configures the frequency of monitoring for that metric.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-2">Command Options</h4>
+<h4 id="command-options-2"><a class="anchor" href="#command-options-2"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 23.0769%;">
@@ -722,7 +914,7 @@ value</p></td>
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 If this command gets executed before running the <code>healthcheck-configure</code>
@@ -734,14 +926,14 @@ service will not be enabled.
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2">Example</h4>
+<h4 id="example-2"><a class="anchor" href="#example-2"></a>Example</h4>
 <div class="paragraph">
 <p>A very basic example command to simply enable the GC checker and activate it without
 needing a restart would be as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-configure-service --enabled=true
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-configure-service --enabled=true
       --serviceName=healthcheck-gc
       --name=MYAPP-GC
       --dynamic=true</code></pre>
@@ -751,7 +943,7 @@ needing a restart would be as follows:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-configure-service-threshold"><code>healthcheck-configure-service-threshold</code></h2>
+<h2 id="healthcheck-configure-service-threshold"><a class="anchor" href="#healthcheck-configure-service-threshold"></a><code>healthcheck-configure-service-threshold</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -788,7 +980,7 @@ the changes directly.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-3">Command Options</h4>
+<h4 id="command-options-3"><a class="anchor" href="#command-options-3"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 23.0769%;">
@@ -867,7 +1059,7 @@ the changes directly.</p>
 <table>
 <tr>
 <td class="icon">
-<div class="title">Note</div>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 In order to execute this command for an specific metric, the
@@ -878,7 +1070,7 @@ In order to execute this command for an specific metric, the
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3">Example</h4>
+<h4 id="example-3"><a class="anchor" href="#example-3"></a>Example</h4>
 <div class="paragraph">
 <p>Monitoring the health of JDBC connection pools is a common need. In that
 scenario, it is very unlikely that on-the-fly configuration changes
@@ -892,7 +1084,7 @@ checker:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-configure-service-threshold
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-configure-service-threshold
  --serviceName=healthcheck-cpool
  --dynamic=true
  --thresholdCritical=95
@@ -904,7 +1096,7 @@ checker:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-hoggingthreads-configure"><code>healthcheck-hoggingthreads-configure</code></h2>
+<h2 id="healthcheck-hoggingthreads-configure"><a class="anchor" href="#healthcheck-hoggingthreads-configure"></a><code>healthcheck-hoggingthreads-configure</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -926,7 +1118,7 @@ frequency as you would do with the <code>healthcheck-configure-service</code> co
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-4">Command Options</h4>
+<h4 id="command-options-4"><a class="anchor" href="#command-options-4"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 23.0769%;">
@@ -1012,7 +1204,7 @@ frequency as you would do with the <code>healthcheck-configure-service</code> co
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-4">Example</h4>
+<h4 id="example-4"><a class="anchor" href="#example-4"></a>Example</h4>
 <div class="paragraph">
 <p>Monitoring which threads hog the CPU is extremely important since this can lead
 to performance degradation, deadlocks and extreme bottlenecks issues that web
@@ -1028,7 +1220,7 @@ checker:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-hoggingthreads-configure
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-hoggingthreads-configure
  --dynamic=true
  --threshold-percentage=90
  --retry-count=5
@@ -1040,7 +1232,7 @@ checker:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-stuckthreads-configure"><code>healthcheck-stuckthreads-configure</code></h2>
+<h2 id="healthcheck-stuckthreads-configure"><a class="anchor" href="#healthcheck-stuckthreads-configure"></a><code>healthcheck-stuckthreads-configure</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -1057,7 +1249,7 @@ checker:</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-5">Command Options</h4>
+<h4 id="command-options-5"><a class="anchor" href="#command-options-5"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 23.0769%;">
@@ -1143,7 +1335,7 @@ checker:</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="example-5">Example</h4>
+<h4 id="example-5"><a class="anchor" href="#example-5"></a>Example</h4>
 <div class="paragraph">
 <p>The following example configures the stuckthreads checker to check every 30
 seconds for any threads which have been stuck for more than 5 minutes and
@@ -1151,7 +1343,7 @@ applies the configuration change without needing a restart:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-Shell" data-lang="Shell">asadmin&gt; healthcheck-stuckthreads-configure
+<pre class="highlightjs highlight"><code class="language-Shell" data-lang="Shell">asadmin&gt; healthcheck-stuckthreads-configure
     --enabled=true
     --dynamic=true
     --time=30
@@ -1164,7 +1356,7 @@ applies the configuration change without needing a restart:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="healthcheck-notifier-configure"><code>healthcheck-[NOTIFIER_NAME]-notifier-configure</code></h2>
+<h2 id="healthcheck-notifier-configure"><a class="anchor" href="#healthcheck-notifier-configure"></a><code>healthcheck-[NOTIFIER_NAME]-notifier-configure</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -1180,7 +1372,7 @@ the <em>[NOTIFIER_NAME]</em> placeholder.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-6">Command Options</h4>
+<h4 id="command-options-6"><a class="anchor" href="#command-options-6"></a>Command Options</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 20%;">
@@ -1219,7 +1411,7 @@ the <em>[NOTIFIER_NAME]</em> placeholder.</p>
 <table>
 <tr>
 <td class="icon">
-<div class="title">Tip</div>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 You can find the list of available notifiers using the
@@ -1230,7 +1422,7 @@ You can find the list of available notifiers using the
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-6">Examples</h4>
+<h4 id="example-6"><a class="anchor" href="#example-6"></a>Examples</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1238,7 +1430,7 @@ You can find the list of available notifiers using the
 restart the server, use the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-log-notifier-configure
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-log-notifier-configure
     --enabled=true
     --dynamic=true</code></pre>
 </div>
@@ -1250,7 +1442,7 @@ restart the server, use the following command:</p>
 without having to restart the server, use the following command:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-hipchat-notifier-configure
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; healthcheck-hipchat-notifier-configure
     --enabled=false
     --dynamic=true</code></pre>
 </div>
@@ -1262,7 +1454,7 @@ without having to restart the server, use the following command:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="get-healthcheck-configuration"><code>get-healthcheck-configuration</code></h2>
+<h2 id="get-healthcheck-configuration"><a class="anchor" href="#get-healthcheck-configuration"></a><code>get-healthcheck-configuration</code></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -1278,13 +1470,13 @@ and enabled notifiers.</p>
 </dl>
 </div>
 <div class="sect3">
-<h4 id="command-options-7">Command Options</h4>
+<h4 id="command-options-7"><a class="anchor" href="#command-options-7"></a>Command Options</h4>
 <div class="paragraph">
 <p>There are no options available.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-7">Example</h4>
+<h4 id="example-7"><a class="anchor" href="#example-7"></a>Example</h4>
 <div class="paragraph">
 <p>A sample output is as follows:</p>
 </div>
@@ -1325,8 +1517,11 @@ Command get-healthcheck-configuration executed successfully.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-04 10:56:08 CET
+Last updated 2019-02-04 15:49:15 CET
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
 </body>
 </html>
