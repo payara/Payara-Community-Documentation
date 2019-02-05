@@ -9,15 +9,18 @@ to correctly configure the HealthCheck Service.
 
 *Usage*::
 ----
-set-healthcheck-configuration --enabled=true|false --dynamic=true|false  
---trace-enabled=true|false --trace-store-size=20 
---trace-store-timeout=<integer.value>s|m|h|d]
+set-healthcheck-configuration 
+ --enabled=true|false 
+ --dynamic=true|false  
+ --historic-trace-enabled=true|false 
+ --historic-trace-store-size=20 
+ --historic-trace-store-timeout=<integer.value>s|m|h|d
 ----
 
 *Aim*::
 Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection. 
 
-[[command-options]]
+[[command-options-8]]
 ==== Command Options
 
 [cols="3,1,5,1,1",options="header"]
@@ -46,26 +49,20 @@ Enables and disables the HealthCheck service. This includes configuration for tr
 |N/A
 |yes
 
-|`--notifierenabled`
-|Boolean
-|Whether or not to enable the default notifier
-|false
-|no
-
-|`--trace-enabled`
+|`--historic-trace-enabled`
 |Boolean
 |Enables historic checks if present
 |false |no
 
-|`--trace-store-size`
+|`--historic-trace-store-size`
 |Integer
 |Sets the maximum number of health checks to store
 |20
 |no
 
-|`--trace-store-timeout`
+|`--historic-trace-store-timeout`
 |String
-|Sets the time period after which a historic health check event entry is removed from visable history. The time expression should consist of a single number followed by a time unit, `s` for seconds, `m` for minutes, `h` for hours or `d` for days. If no time unit is given the number specifies seconds. If the parameter is zero or unspecified there is no timeout for entries.
+|Sets the time period after which a historic health check event entry is removed from visable history. The time expression should consist of a number followed by a time unit; `s` for seconds, `m` for minutes, `h` for hours or `d` for days. If no time unit is given the number specifies seconds. If the parameter is zero or unspecified there is no timeout for entries.
 |-
 |no
 
@@ -85,8 +82,8 @@ notifier and sets the historical trace store to retain 20 health checks.
 asadmin> set-healthcheck-configuration
     --enabled=true
     --dynamic=false
-    --trace-enabled=true
-    --trace-store-size=20
+    --historic-trace-enabled=true
+    --historic-trace-store-size=20
 ----
 
 [[healthcheck-configure]]
@@ -180,7 +177,7 @@ asadmin > healthcheck-configure
 *Aim*::
 Lists the names of all available metric checker services.
 
-[[command-options-1]]
+[[command-options-9]]
 ==== Command Options
 
 There are no options available.
@@ -240,24 +237,28 @@ Command healthcheck-list-services executed successfully.
 == `set-healthcheck-service-configuration`
 
 *Usage*::
+
 ----
 set-healthcheck-service-configuration 
-    --service=<service.name>
-    --enabled=true|false
-    --dynamic=true|false 
-    --time=<integer.value>
-    --time-unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
-    --threshold-critical=80 --threshold-warning=50 --threshold-good=0
-    --hogging-threads-threshold=<integer.value>
-    --hogging-threads-retry-count=<integer.value>
-    --stuck-threads-threshold=<integer.value>
-    --stuck-threads-threshold-unit=DAYS|HOURS|MICROSECONDS|MILLISECONDS|MINUTES|NANOSECONDS|SECONDS
+ --service=<service.name>
+ --enabled=true|false
+ --dynamic=true|false 
+ --time=<integer.value>
+ --time-unit=DAYS|HOURS|MINUTES|SECONDS|MILLISECONDS
+ --threshold-critical=80 
+ --threshold-warning=50 
+ --threshold-good=0
+ --hogging-threads-threshold=<integer.value>
+ --hogging-threads-retry-count=<integer.value>
+ --stuck-threads-threshold=<integer.value>
+ --stuck-threads-threshold-unit=DAYS|HOURS|MINUTES|SECONDS|MILLISECONDS
 ----
 
 *Aim*::
 Enables or disables the monitoring of an specific metric. The command
 also configures the frequency of monitoring for that metric. Furthermore it configures metric specific properties.
 
+[[command-options-10]]
 ==== Command Options
 
 [cols="3,1,5,3a,1",options="header",]
@@ -812,8 +813,97 @@ asadmin> healthcheck-stuckthreads-configure
     --thresholdUnit=MINUTES
 ----
 
+[[set-healthcheck-service-notifier-configuration]]
+== `set-healthcheck-service-notifier-configuration`
+
+*Usage*::
+
+----
+asadmin> set-healthcheck-service-notifier-configuration
+ --notifier=<string.value>
+ --enabled=true|false 
+ --dynamic=true|false 
+ --noisy=true|false
+----
+
+*Aim*::
+This command can be used to enable or disable a specific notifier or to change its noisy setting.
+
+[[command-options-14]]
+==== Command Options
+
+[cols=",,,,",options="header",]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+| `--notifier`
+| String
+a| The notifier to configure. One of (case insensitive):
+
+* `LOG`
+* `HIPCHAT`
+* `SLACK`
+* `JMS`
+* `EMAIL`
+* `XMPP`
+* `SNMP`
+* `EVENTBUS`
+* `NEWRELIC`
+* `DATADOG`
+* `CDIEVENTBUS`
+
+| -
+| yes
+
+|`--enable`
+|Boolean
+|Enables or disables the notifier
+|false
+|Yes
+
+|`--noisy`
+|Boolean
+|Sets the notfier to noisy or not noisy. If not set no change is applied to current setting.
+|-
+|No
+
+|`--dynamic`
+|Boolean
+|Whether to apply the changes directly to the server/instance without a restart
+|false
+|No
+
+| `--target`
+| String
+| The instance or cluster that will be configured
+| server
+| no
+
+|===
+
+[[example-14]]
+==== Examples
+
+To enable the log notifier for the HealthCheck Service without having to
+restart the server, use the following command:
+
+[source, shell]
+----
+asadmin> set-healthcheck-service-notifier-configuration
+ --notifier=log
+ --enabled=true
+ --dynamic=true
+----
+
+
 [[healthcheck-notifier-configure]]
 == `healthcheck-[NOTIFIER_NAME]-notifier-configure`
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-service-notifier-configuration>> command.
 
 *Usage*::
 `asadmin> healthcheck-[NOTIFIER_NAME]-notifier-configure --enabled=true --dynamic=true`
