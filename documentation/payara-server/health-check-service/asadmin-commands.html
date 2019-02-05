@@ -539,7 +539,7 @@ Enabling or disabling the health check service in general implicitly also enable
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="anchor" href="#example"></a>Example</h4>
+<h4 id="example-8"><a class="anchor" href="#example-8"></a>Example</h4>
 <div class="paragraph">
 <p>The following example will enabled the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
@@ -707,7 +707,7 @@ notifier and sets the historical trace store to retain 20 health checks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-healthcheck-services-example-1"><a class="anchor" href="#list-healthcheck-services-example-1"></a>Example</h4>
+<h4 id="example-9"><a class="anchor" href="#example-9"></a>Example</h4>
 <div class="paragraph">
 <p>Running the command will show output similar to the example below:</p>
 </div>
@@ -782,8 +782,316 @@ Command healthcheck-list-services executed successfully.</pre>
 </div>
 </div>
 <div class="sect1">
+<h2 id="set-healthcheck-service-configuration"><a class="anchor" href="#set-healthcheck-service-configuration"></a><code>set-healthcheck-service-configuration</code></h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Usage</strong></dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>set-healthcheck-service-configuration
+    --service=&lt;service.name&gt;
+    --enabled=true|false
+    --dynamic=true|false
+    --time=&lt;integer.value&gt;
+    --time-unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
+    --threshold-critical=80 --threshold-warning=50 --threshold-good=0
+    --hogging-threads-threshold=&lt;integer.value&gt;
+    --hogging-threads-retry-count=&lt;integer.value&gt;
+    --stuck-threads-threshold=&lt;integer.value&gt;
+    --stuck-threads-threshold-unit=DAYS|HOURS|MICROSECONDS|MILLISECONDS|MINUTES|NANOSECONDS|SECONDS</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Aim</strong></dt>
+<dd>
+<p>Enables or disables the monitoring of an specific metric. The command
+also configures the frequency of monitoring for that metric. Furthermore it configures metric specific properties.</p>
+</dd>
+</dl>
+</div>
+<div class="sect3">
+<h4 id="truecommand-options"><a class="anchor" href="#truecommand-options"></a>Command Options</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 23.0769%;">
+<col style="width: 7.6923%;">
+<col style="width: 38.4615%;">
+<col style="width: 23.0769%;">
+<col style="width: 7.6924%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Option</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Mandatory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--target</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The instance or cluster that will enable or disable its metric configuration</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>server</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--dynamic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to apply the changes directly to the server/instance without a restart</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>false</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--enabled</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether to enable or disable the metric monitoring</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>N/A</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--service</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The service metric name. One of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>connection-pool</code> or <code>cp</code></p>
+</li>
+<li>
+<p><code>cpu-usage</code> or  <code>cu</code></p>
+</li>
+<li>
+<p><code>garbage-collector</code> or <code>gc</code></p>
+</li>
+<li>
+<p><code>heap-memory-usage</code> or <code>hmu</code></p>
+</li>
+<li>
+<p><code>hogging-threads</code> or <code>ht</code></p>
+</li>
+<li>
+<p><code>machine-memory-usage</code> or <code>mmu</code></p>
+</li>
+<li>
+<p><code>stuck-thread</code> or <code>st</code></p>
+</li>
+<li>
+<p><code>mp-health</code> or <code>mh</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of time units that the service will use to periodically monitor the metric</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>5</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--time-unit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TimeUnit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time unit to set the frequency of the metric monitoring. Must correspond to a valid
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html"><code>java.util.concurrent.TimeUnit</code></a>
+value</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>MINUTES</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--threshold-critical</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The threshold value that this metric must surpass to generate a <strong><code>CRITICAL</code></strong> event. A value between <em>WARNING VALUE</em> and <em>100</em> must be used. Available for services <code>cp</code>, <code>cu</code>, <code>gc</code>, <code>hmu</code> and <code>mmu</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>90</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--threshold-warning</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The threshold value that this metric must surpass to generate a <strong><code>WARNING</code></strong> event. A value between <em>GOOD VALUE</em> and <em>CRITICAL VALUE</em> must be used. Available for services <code>cp</code>, <code>cu</code>, <code>gc</code>, <code>hmu</code> and <code>mmu</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>50</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--threshold-good</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The threshold value that this metric must surpass to generate a <strong><code>GOOD</code></strong> event. A value between <em>0</em> and <em>WARNING VALUE</em> must be used. Available for services <code>cp</code>, <code>cu</code>, <code>gc</code>, <code>hmu</code> and <code>mmu</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>0</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--hogging-threads-threshold</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The threshold value that this metric will be compared to mark threads as hogging the CPU. Only available for <code>ht</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>95</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--hogging-threads-retry-count</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of retries that the checker service will execute in order to identify a hogging thread. Only available for <code>ht</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>3</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--stuck-threads-threshold</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The threshold above which a thread is considered stuck. Must be 1 or greater. Only available for <code>st</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>--stuck-threads-threshold-unit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html"><code>TimeUnit</code></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unit for the threshold for when a thread should be considered stuck. Only available for <code>st</code> service.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>-</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If this command gets executed before running the <a href="#set-healthcheck-configuration"><code>set-healthcheck-configuration</code></a>
+command, it will succeed and the configuration will be saved, but the HealthCheck
+service will not be enabled.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-10"><a class="anchor" href="#example-10"></a>Examples</h4>
+<div class="paragraph">
+<p>A very basic example command to simply enable the GC checker and activate it without
+needing a restart would be as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; set-healthcheck-service-configuration
+ --enabled=true
+ --service=gc
+ --dynamic=true</code></pre>
+</div>
+</div>
+<div id="example-11" class="paragraph">
+<p>Monitoring the health of JDBC connection pools is a common need. In that
+scenario, it is very unlikely that on-the-fly configuration changes
+would be made, so a very high <code>CRITICAL</code> threshold can be set. Likewise,
+a nonzero <code>GOOD</code> threshold is needed because an empty or unused
+connection pool may not be healthy either.</p>
+</div>
+<div class="paragraph">
+<p>The following command would apply these settings to the connection pool
+checker:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; set-healthcheck-service-configuration
+ --service=cp
+ --dynamic=true
+ --threshold-critical=95
+ --threshold-warning=70
+ --threshold-good=30</code></pre>
+</div>
+</div>
+<div id="example-12" class="paragraph">
+<p>Monitoring which threads hog the CPU is extremely important since this can lead
+to performance degradation, deadlocks and extreme bottlenecks issues that web
+applications can incur. In some cases the defaults are all that is needed, but imagine
+that in a critical system you want to set the threshold percentage to <strong>90%</strong>,
+and you want to make sure that the health check service guarantees the state of such
+threads with a retry count of <strong>5</strong>. Additionally, you want to set the frequency of
+this check for every <em>20 seconds</em>.</p>
+</div>
+<div class="paragraph">
+<p>The following command would apply these settings to the connection pool checker:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell" data-lang="shell">asadmin&gt; set-healthcheck-service-configuration
+ --service=cp
+ --dynamic=true
+ --hogging-threads-threshold=90
+ --hogging-threads-retry-count=5
+ --time=20
+ --time-unit=SECONDS</code></pre>
+</div>
+</div>
+<div id="example-13" class="paragraph">
+<p>The following example configures the stuck threads checker to check every 30
+seconds for any threads which have been stuck for more than 5 minutes and
+applies the configuration change without needing a restart:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Shell" data-lang="Shell">asadmin&gt; set-healthcheck-service-configuration
+ --service=stuck-thread
+ --enabled=true
+ --dynamic=true
+ --time=30
+ --time-unit=SECONDS
+ --stuck-threads-threshold=5
+ --stuck-threads-threshold-unit=MINUTES</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="healthcheck-configure-service"><a class="anchor" href="#healthcheck-configure-service"></a><code>healthcheck-configure-service</code></h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#set-healthcheck-service-configuration"><code>set-healthcheck-service-configuration</code></a> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
@@ -945,6 +1253,18 @@ needing a restart would be as follows:</p>
 <div class="sect1">
 <h2 id="healthcheck-configure-service-threshold"><a class="anchor" href="#healthcheck-configure-service-threshold"></a><code>healthcheck-configure-service-threshold</code></h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#set-healthcheck-service-configuration"><code>set-healthcheck-service-configuration</code></a> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
@@ -1098,6 +1418,18 @@ checker:</p>
 <div class="sect1">
 <h2 id="healthcheck-hoggingthreads-configure"><a class="anchor" href="#healthcheck-hoggingthreads-configure"></a><code>healthcheck-hoggingthreads-configure</code></h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#set-healthcheck-service-configuration"><code>set-healthcheck-service-configuration</code></a> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
@@ -1234,6 +1566,18 @@ checker:</p>
 <div class="sect1">
 <h2 id="healthcheck-stuckthreads-configure"><a class="anchor" href="#healthcheck-stuckthreads-configure"></a><code>healthcheck-stuckthreads-configure</code></h2>
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is deprecated in 5.191 and will be removed in the future as it is replaced with the <a href="#set-healthcheck-service-configuration"><code>set-healthcheck-service-configuration</code></a> command.
+</td>
+</tr>
+</table>
+</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>Usage</strong></dt>
@@ -1517,7 +1861,7 @@ Command get-healthcheck-configuration executed successfully.</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-04 15:49:15 CET
+Last updated 2019-02-05 11:06:50 CET
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">

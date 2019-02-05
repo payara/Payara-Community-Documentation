@@ -73,7 +73,7 @@ Enables and disables the HealthCheck service. This includes configuration for tr
 
 NOTE: Enabling or disabling the health check service in general implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <<healthcheck-configure>> command.
 
-[[example]]
+[[example-8]]
 ==== Example
 
 The following example will enabled the Healthcheck service such that it will
@@ -185,7 +185,7 @@ Lists the names of all available metric checker services.
 
 There are no options available.
 
-[[list-healthcheck-services-example-1]]
+[[example-9]]
 ==== Example
 
 Running the command will show output similar to the example below:
@@ -236,8 +236,211 @@ Available Health Check Services:
 Command healthcheck-list-services executed successfully.
 ----
 
+[[set-healthcheck-service-configuration]]
+== `set-healthcheck-service-configuration`
+
+*Usage*::
+----
+set-healthcheck-service-configuration 
+    --service=<service.name>
+    --enabled=true|false
+    --dynamic=true|false 
+    --time=<integer.value>
+    --time-unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
+    --threshold-critical=80 --threshold-warning=50 --threshold-good=0
+    --hogging-threads-threshold=<integer.value>
+    --hogging-threads-retry-count=<integer.value>
+    --stuck-threads-threshold=<integer.value>
+    --stuck-threads-threshold-unit=DAYS|HOURS|MICROSECONDS|MILLISECONDS|MINUTES|NANOSECONDS|SECONDS
+----
+
+*Aim*::
+Enables or disables the monitoring of an specific metric. The command
+also configures the frequency of monitoring for that metric. Furthermore it configures metric specific properties.
+
+==== Command Options
+
+[cols="3,1,5,3a,1",options="header",]
+|===
+| Option
+| Type
+| Description
+| Default
+| Mandatory
+
+| `--target`
+| String
+| The instance or cluster that will enable or disable its metric configuration
+| server
+| no
+
+| `--dynamic`
+| Boolean
+| Whether to apply the changes directly to the server/instance without a restart
+| false
+| no
+
+| `--enabled`
+| Boolean
+| Whether to enable or disable the metric monitoring
+| N/A
+| yes
+
+| `--service`
+| String
+a| The service metric name. One of:
+
+  * `connection-pool` or `cp`
+  * `cpu-usage` or  `cu`
+  * `garbage-collector` or `gc`
+  * `heap-memory-usage` or `hmu`
+  * `hogging-threads` or `ht`
+  * `machine-memory-usage` or `mmu`
+  * `stuck-thread` or `st`
+  * `mp-health` or `mh`
+
+| -
+| yes
+
+| `--time`
+| Integer
+| The amount of time units that the service will use to periodically monitor the metric
+| 5
+| no
+
+| `--time-unit`
+| TimeUnit
+| The time unit to set the frequency of the metric monitoring. Must correspond to a valid
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`]
+value
+| `MINUTES`
+| no
+
+| `--threshold-critical`
+| Integer
+| The threshold value that this metric must surpass to generate a **`CRITICAL`** event. A value between _WARNING VALUE_ and _100_ must be used. Available for services `cp`, `cu`, `gc`, `hmu` and `mmu`.
+| 90
+| no
+
+| `--threshold-warning`
+| Integer
+| The threshold value that this metric must surpass to generate a **`WARNING`** event. A value between _GOOD VALUE_ and _CRITICAL VALUE_ must be used. Available for services `cp`, `cu`, `gc`, `hmu` and `mmu`.
+| 50
+| no
+
+| `--threshold-good`
+| Integer
+| The threshold value that this metric must surpass to generate a **`GOOD`** event. A value between _0_ and _WARNING VALUE_ must be used. Available for services `cp`, `cu`, `gc`, `hmu` and `mmu`.
+| 0
+| no
+
+| `--hogging-threads-threshold`
+| Integer
+| The threshold value that this metric will be compared to mark threads as hogging the CPU. Only available for `ht` service.
+| 95
+| no
+
+| `--hogging-threads-retry-count`
+| Integer
+| The number of retries that the checker service will execute in order to identify a hogging thread. Only available for `ht` service.
+| 3
+| no
+
+|`--stuck-threads-threshold`
+|Integer
+|The threshold above which a thread is considered stuck. Must be 1 or greater. Only available for `st` service.
+|-
+|no
+
+|`--stuck-threads-threshold-unit`
+|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|The unit for the threshold for when a thread should be considered stuck. Only available for `st` service.
+|-
+|no
+
+|===
+
+NOTE: If this command gets executed before running the <<set-healthcheck-configuration>>
+command, it will succeed and the configuration will be saved, but the HealthCheck
+service will not be enabled.
+
+[[example-10]]
+==== Examples
+A very basic example command to simply enable the GC checker and activate it without
+needing a restart would be as follows:
+
+[source, shell]
+----
+asadmin> set-healthcheck-service-configuration 
+ --enabled=true
+ --service=gc
+ --dynamic=true
+----
+
+[[example-11]]
+Monitoring the health of JDBC connection pools is a common need. In that
+scenario, it is very unlikely that on-the-fly configuration changes
+would be made, so a very high `CRITICAL` threshold can be set. Likewise,
+a nonzero `GOOD` threshold is needed because an empty or unused
+connection pool may not be healthy either.
+
+The following command would apply these settings to the connection pool
+checker:
+
+[source, shell]
+----
+asadmin> set-healthcheck-service-configuration
+ --service=cp
+ --dynamic=true
+ --threshold-critical=95
+ --threshold-warning=70
+ --threshold-good=30
+----
+
+[[example-12]]
+Monitoring which threads hog the CPU is extremely important since this can lead
+to performance degradation, deadlocks and extreme bottlenecks issues that web
+applications can incur. In some cases the defaults are all that is needed, but imagine
+that in a critical system you want to set the threshold percentage to **90%**,
+and you want to make sure that the health check service guarantees the state of such
+threads with a retry count of *5*. Additionally, you want to set the frequency of
+this check for every _20 seconds_.
+
+The following command would apply these settings to the connection pool checker:
+
+[source, shell]
+----
+asadmin> set-healthcheck-service-configuration
+ --service=cp
+ --dynamic=true
+ --hogging-threads-threshold=90
+ --hogging-threads-retry-count=5
+ --time=20
+ --time-unit=SECONDS
+----
+
+[[example-13]]
+The following example configures the stuck threads checker to check every 30
+seconds for any threads which have been stuck for more than 5 minutes and
+applies the configuration change without needing a restart:
+
+[source, Shell]
+----
+asadmin> set-healthcheck-service-configuration
+ --service=stuck-thread
+ --enabled=true
+ --dynamic=true
+ --time=30
+ --time-unit=SECONDS
+ --stuck-threads-threshold=5
+ --stuck-threads-threshold-unit=MINUTES
+----
+
+
 [[healthcheck-configure-service]]
 == `healthcheck-configure-service`
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-service-configuration>> command.
 
 *Usage*::
 `asadmin> healthcheck-configure-service --serviceName=<service.name>
@@ -335,6 +538,8 @@ asadmin> healthcheck-configure-service --enabled=true
 [[healthcheck-configure-service-threshold]]
 == `healthcheck-configure-service-threshold`
 
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-service-configuration>> command.
+
 *Usage*::
 `asadmin> healthcheck-configure-service-threshold --serviceName=<service.name>
 --dynamic=true|false --thresholdCritical=90 --thresholdWarning=50 --thresholdGood=0`
@@ -427,6 +632,8 @@ asadmin> healthcheck-configure-service-threshold
 
 [[healthcheck-hoggingthreads-configure]]
 == `healthcheck-hoggingthreads-configure`
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-service-configuration>> command.
 
 *Usage*::
 `asadmin> healthcheck-hoggingthreads-configure --dynamic=true|false --threshold-percentage=50 --retry-count=3`
@@ -522,6 +729,8 @@ asadmin> healthcheck-hoggingthreads-configure
 
 [[healthcheck-stuckthreads-configure]]
 == `healthcheck-stuckthreads-configure`
+
+NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<set-healthcheck-service-configuration>> command.
 
 *Usage*::
 `asadmin> healthcheck-stuckthreads-configure --enabled true|false --dynamic true|false
