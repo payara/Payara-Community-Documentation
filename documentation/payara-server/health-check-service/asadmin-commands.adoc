@@ -68,12 +68,12 @@ Enables and disables the HealthCheck service. This includes configuration for tr
 
 |===
 
-NOTE: Enabling or disabling the health check service in general implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <<healthcheck-configure>> command.
+NOTE: Enabling or disabling the health check service implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <<healthcheck-configure>> command.
 
 [[example-8]]
 ==== Example
 
-The following example will enabled the Healthcheck service such that it will
+The following example will enable the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
 notifier and sets the historical trace store to retain 20 health checks.
 
@@ -154,7 +154,7 @@ command to enable or disable other available notifiers.
 [[example]]
 ==== Example
 
-The following example will enabled the Healthcheck service such that it will
+The following example will enable the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
 notifier and sets the historical trace store to retain 20 health checks.
 
@@ -867,7 +867,7 @@ a| The notifier to configure. One of (case insensitive):
 
 |`--noisy`
 |Boolean
-|Sets the notfier to noisy or not noisy. If not set no change is applied to current setting.
+|Sets the notifier to noisy (a.k.a verbose) or not noisy. A noisy notifier includes `FINE` log level in its output. If not set no change is applied to current setting.
 |-
 |No
 
