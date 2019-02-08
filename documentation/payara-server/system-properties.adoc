@@ -16,7 +16,7 @@ libraries from applications, and
 _latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
 directory |true, false |true
 
-|fish.payara.shutdowngrace | Integer | After server shutdown was initiated the server waits this period of time to finish ongoing requests before terminating. | 0 - Integer.MAX | 0
+|fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. | 0 - Integer.MAX | 0
 
 |org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER |String |If the JVM option `org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER` is not present in the server/instance config, we will override the Grizzly default and use the _HeapMemoryManager_ class. To override this behaviour (so to use a different memory manager), you must specify this JVM option in the server/instance config with your desired setting. |`org.glassfish.grizzly.memory.HeapMemoryManager`, `org.glassfish.grizzly.memory.PooledMemoryManager`, `org.glassfish.grizzly.memory.ByteBufferManager` |`org.glassfish.grizzly.memory.HeapMemoryManager`
 |=======================================================================
