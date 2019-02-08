@@ -867,7 +867,7 @@ a| The notifier to configure. One of (case insensitive):
 
 |`--noisy`
 |Boolean
-|Sets the notifier to noisy (a.k.a verbose) or not noisy. A noisy notifier includes `FINE` log level in its output. If not set no change is applied to current setting.
+|Sets the notifier to noisy (a.k.a verbose) or not noisy. A noisy notifier includes more detailed logging information in the notifiers output.
 |-
 |No
 
