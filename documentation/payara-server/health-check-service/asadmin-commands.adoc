@@ -51,7 +51,7 @@ Enables and disables the HealthCheck service. This includes configuration for tr
 
 |`--historic-trace-enabled`
 |Boolean
-|Enables historic checks if present
+|Enables storing traces in a rolling store for later inspection
 |false |no
 
 |`--historic-trace-store-size`
