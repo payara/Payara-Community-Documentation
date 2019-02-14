@@ -74,6 +74,8 @@ can be specified here.
 behing a NAT firewall and other Payara Server Instances need to connect via the public
 NAT address rather than the internal IP Address
 
+|Port Auto Increment | By default the cluster uses the next not yet occupied port that is available starting with the start port. When auto-increment is turned off an occupied start port results in a startup failure instead.
+
 |DAS Start Port | The port the DAS uses to run Hazelcast on. If this port is busy, the port
 specified will be incremented until a valid port is found.
 
