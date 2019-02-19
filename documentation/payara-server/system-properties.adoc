@@ -18,5 +18,7 @@ directory |true, false |true
 
 |fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. | 0 - Integer.MAX | 0
 
+|fish.payara.permittedFormBasedAuthHttpMethods|String| A comma separated list of HTTP methods that are permitted to use for FORM based authentication (`j_security_check`). If not set all HTTP methods are permitted. | GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH | null (undefined)
+
 |org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER |String |If the JVM option `org.glassfish.grizzly.DEFAULT_MEMORY_MANAGER` is not present in the server/instance config, we will override the Grizzly default and use the _HeapMemoryManager_ class. To override this behaviour (so to use a different memory manager), you must specify this JVM option in the server/instance config with your desired setting. |`org.glassfish.grizzly.memory.HeapMemoryManager`, `org.glassfish.grizzly.memory.PooledMemoryManager`, `org.glassfish.grizzly.memory.ByteBufferManager` |`org.glassfish.grizzly.memory.HeapMemoryManager`
 |=======================================================================
