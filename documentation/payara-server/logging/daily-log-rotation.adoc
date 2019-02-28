@@ -1,8 +1,7 @@
 [[daily-log-rotation]]
 = Daily Log Rotation
 
-_Since version 5.191 and 4.1.2.191_
-
+_Since version 5.184_
 
 Payara has a easy to use daily rotation setting in the admin console that will rotate server logs every day at midnight, checking 'Rotation on Date Change' will enable this.
 

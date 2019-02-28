@@ -1,0 +1,6 @@
+[[date-stamp-log-property]]
+= Date stamp log property
+
+__Since version 5.184__
+
+The date stamp for access logs can be configured. Instead of every log file being date stamped, only the first access log file can be date stamped. The date stamp is only added starting with the first rotation.
