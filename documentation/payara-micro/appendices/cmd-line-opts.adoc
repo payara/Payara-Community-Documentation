@@ -28,10 +28,11 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |`--clustername <cluster-name>`
 |Sets the cluster group name.|
 |`--clusterpassword <cluster-password>`|Sets the cluster group password.|
+|`--contextroot <context-path>`|Sets the context root of the application originating from the `--deploy` option given first that does not specify a context root itself.|
 |`--copytouberjar <directory-path`
 |<directory-path> copy a directory into the root of an uberjar|
-|`--deploy <file-path>`
-|Specifies a WAR file to deploy.| If not set, has no value and is not used.
+|`--deploy <file-path>[:<context-path]`
+|Specifies a WAR file to deploy and optionally the context path to use for that application.| If not set, has no value and is not used.
 |`--deploydir <directory-path>`
 |Sets a directory which will be scanned for EAR, WAR, and RAR files for auto-deployment.
 |If not set, has no value and is not used.
