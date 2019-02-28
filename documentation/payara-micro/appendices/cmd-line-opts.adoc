@@ -105,9 +105,9 @@ line arguments and exit.|
 |Provides a file of asadmin commands to run *after all deployments have completed*.|
 |`--prebootcommandfile <file-path>`
 |Provides a file of asadmin commands to run *before booting the server*.|
-|`--requesttracingadaptivesamplingtargetcount`||
-|`--requesttracingadaptivesamplingtimeunit`||
-|`--requesttracingadaptivesamplingtimevalue`||
+|`--requesttracingadaptivesamplingtargetcount`|The target number of traces to sample per the configured time window | 6
+|`--requesttracingadaptivesamplingtimeunit`| The time unit for the adaptive sample time; a `java.util.concurrent.TimeUnit` value (also in singular) or one of the short forms: `ns`, `us`/`µs`, `ms`, `s`, `m`/`min`/`mins`, `h` or `d`.  | MINUTES
+|`--requesttracingadaptivesamplingtimevalue`| The period of time to attempt to hit the adaptive sample target count in | 1
 |`--requesttracingthresholdunit <threshold-unit-notation>`
 |Sets the time unit for the requestTracingThresholdValue option, i.e. `SECONDS`,
 `ms`, `days` etc.|
