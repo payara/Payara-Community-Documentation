@@ -1,8 +1,11 @@
 [[daily-log-rotation]]
 = Daily Log Rotation
-
 _Since version 5.191 and 4.1.2.191_
 
+Log file rotation keeps log files manageable and organized, as old log files are automatically deleted when they pass a given threshold, instead of staying on the system and eventually running the system out of disk space. Log file rotation still allows you to access previous logs, but its unlikely that you would need a log file older than a couple weeks.
+
+[[Enabling-daily-rotation]]
+== Enabling daily rotation
 
 Payara has a easy to use daily rotation setting in the admin console that will rotate server logs every day at midnight, checking 'Rotation on Date Change' will enable this.
 
@@ -16,7 +19,7 @@ Payara Server also has a number of rotation conditions which can be changed.
 * Size - Logs are rotated when they exceed a certain limit.
 * Number - Logs are rotated when a maximum number of logs is reached.
 
-Which allows you to change how the logs are rotated to your needs or can be combined with daily log rotation. Enabling daily log rotation and setting a limit on the number of logs to keep will keep a certain number of days of logs before old log files get deleted.
+Which allows you to change how the logs are rotated to your needs and can be combined with daily log rotation. Enabling daily log rotation and setting a limit on the number of logs to keep will keep a certain number of days of logs before the oldest log file gets deleted at midnight.
 
 
 
