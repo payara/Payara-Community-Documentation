@@ -3,4 +3,4 @@
 
 __Since version 5.191__
 
-The date stamp for access logs can be configured. Instead of every log file being date stamped, only the first access log file can be date stamped. The date stamp is only added starting with the first rotation.
+The date stamp for access logs can be configured. When the new property is set to true, only the files that are rotated at the end of the day will be date stamped, whereas when the property is false, the file being written has the date stamp appended.
