@@ -73,6 +73,8 @@
 *** link:documentation/payara-server/advanced-jdbc/advanced-connection-pool-properties.adoc[Advanced Connection Pool Configuration]
 *** link:documentation/payara-server/advanced-jdbc/sql-statement-overview.adoc[SQL Statement Overview]
 ** link:documentation/payara-server/ejb.adoc[EJB]
+** link:documentation/payara-server/jaxws/README.adoc[JAX-WS]
+*** link:documentation/payara-server/jaxws/scanning.adoc[Additional Scanning Locations]
 ** link:documentation/payara-server/jbatch/jbatch.adoc[JBatch]
 *** link:documentation/payara-server/jbatch/schema-name.adoc[Setting the Schema Name]
 *** link:documentation/payara-server/jbatch/table-prefix-and-suffix.adoc[Setting the Table Prefix and/or Suffix]
