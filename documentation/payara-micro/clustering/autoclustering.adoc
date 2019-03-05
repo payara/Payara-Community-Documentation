@@ -152,9 +152,17 @@ with all of them.
 _Since Payara Micro 5.184_
 
 The Kubernetes Disocvery mode can be used to cluster Payara Micro instances running in a kubernetes cluster,
-which can be useful due to the variable networking inherent to kubernetes. For this clustering mode,
-you must specify the kubernetes namespace and service name separated by a comma - Payara Micro will then attempt
-to cluster with instances present on pods within the specified namespace and service.
+which can be useful due to the variable networking inherent to kubernetes. When using this discovery mode, the default
+settings will make Payara Micro attempt to cluster with instances present on pods within the default namespace.
+
+[source, shell]
+----
+java -jar payara-micro.jar --autobindhttp --clustermode kubernetes
+----
+
+Optionally, you can provide a kubernetes namespace and service name separated by a comma - Payara Micro will then
+attempt to cluster with instances present on pods within the specified namespace and service. If using this latter
+option, you must provide both a namespace and service name - the options cannot be used individually.
 
 [source, shell]
 ----
