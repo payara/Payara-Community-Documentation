@@ -113,7 +113,7 @@ take precedence.
 [[use-bundled-jsf]]
 == Use other JSF implementation
 
-In order to make the server to use the bundled JSF implementation within the application, you need to set an additional configuration parameter, class loading delegation alone is not enough.
+In order to make the server use the bundled JSF implementation within the application, you need to set an additional configuration parameter; class loading delegation alone is not enough.
 You need to indicate within the _payara-web.xml_ (or glassfish-web.xml) file that the server should use the bundled JSF implementation as follows:
 
 [source, xml]
