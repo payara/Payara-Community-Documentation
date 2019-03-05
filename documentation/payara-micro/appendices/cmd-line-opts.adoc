@@ -64,9 +64,10 @@ on members with the same IP Address.| _false_
 |Sets the Hazelcast configuration file to use for overriding the built-in Hazelcast
 cluster configuration.| If not set, the built-in Hazelcast configuration file
 is used.
-|`--hzPublicAddress <host-name or ip>`|
-|`--instancegroup <group-name>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
-|See `--group`|
+|`--hzinitialjoinwait <time in seconds>`|Sets the time in seconds for Payara Micro to wait before attempting to join the
+data grid.|1
+|`--hzPublicAddress <host-name or ip>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT|
+|`--instancegroup <group-name>`|See `--group`|
 |`--interfaces`|Specifies the Interfaces that the data grid discovery mode should use to listen. Can be comma separated, e.g. 127.0.0.1,192.168.0.*|
 |`--lite`
 |Sets the micro container to lite mode, which means it clusters with other Payara
