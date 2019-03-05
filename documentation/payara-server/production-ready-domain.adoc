@@ -131,3 +131,5 @@ The following JVM options appear in both `domain` and `production` domain:
 * `-Djdk.tls.rejectClientInitiatedRenegotiation=true`
 * `-Dorg.jboss.weld.serialization.beanIdentifierIndexOptimization=false`
 * `-Dorg.glassfish.grizzly.DEFAULT_MEMORY_MANAGER=org.glassfish.grizzly.memory.HeapMemoryManager`
+
+Use of the `java.endorsed.dirs` and `java.ext.dirs` options is *deprecated* and will be removed in a future release, as will those `endorsed` and `ext` directories.
