@@ -37,6 +37,7 @@ can or have impacted Payara Server across releases:
 |http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5477[CVE-2016-5477] |N/A |Unspecified vulnerability on Oracle GlassFish 3.0.1 affects confidentiality | | |Affects an older version of GlassFish but not Payara Server
 |http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-5519[CVE-2016-5519] |PENDING |Unspecified vulnerability on JSF implementation for Oracle Glassfish 3.0+ | | |Pending for assesment
 |http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-6816[CVE-2016-6816] |N/A |Apache Tomcat HTTP request parsing vulnerability allow injection of data into reponse | | |Payara Server doesn't have included the Coyote components affected
+|https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000028[CVE-2017-1000028] | FIXED | Oracle, GlassFish Server Open Source Edition 4.1 is vulnerable to both authenticated and unauthenticated Directory Traversal vulnerability, that can be exploited by issuing a specially crafted HTTP GET request. | 4.1.1.161 | https://github.com/payara/Payara/pull/632[#632] | Fixed by patching Woodstock
 |=======================================================================
 
 Additionally, here are is a list of non-**CVE** vulnerabilities reported and analyzed

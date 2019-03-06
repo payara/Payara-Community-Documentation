@@ -45,4 +45,5 @@ Payara Micro supports the following system properties:
 |*payaramicro.rootDir*|`--rootDir`
 |*payaramicro.name*|`--name`
 |*payaramicro.instanceGroup*|`--instancegroup`
+|*payaramicro.initialJoinWait*|`--hzinitialjoinwait`
 |==================================================
