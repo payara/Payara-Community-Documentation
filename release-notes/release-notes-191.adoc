@@ -1,4 +1,3 @@
-[[release-highlights]]
 [[supported-apis-and-applications]]
 == Supported APIs and Applications
 
