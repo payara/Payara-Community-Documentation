@@ -134,7 +134,7 @@ java -jar payara-micro.jar --deploy /home/user/example.war --contextroot hello-w
 
 The root context of the `example.war` application is now set to `/hello-world`. 
 
-Alternativly the context root can be included in the argument to the `--deploy` option. It follows the path to the war file seperated by `File.pathSeparator`:
+Alternatively the context root can be included in the argument to the `--deploy` option. It follows the path to the war file separated by `File.pathSeparator`:
 
 * `--deploy <war-file>:<context-path>` (Linux uses `:`)
 * `--deploy <war-file>;<context-path>` (Windows uses `;`)
