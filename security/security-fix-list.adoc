@@ -8,6 +8,14 @@ can or have impacted Payara Server across releases:
 [cols="<,<,<,<,<,<,<",options="header",]
 |=======================================================================
 |ID |CVSS v3.0 Base Score |Status |Summary |Release |Pull Requests |Observations
+|https://nvd.nist.gov/vuln/detail/CVE-2018-14721[CVE-2018-14721] | 10.0 | FIXED | FasterXML jackson-databind 2.x before 2.9.7 might allow remote attackers to conduct server-side request forgery (SSRF) attacks | 5.191, 5.184.1, 5.181.10, 4.1.2.191, 4.1.2.184.1, 4.1.2.181.10 | https://github.com/payara/Payara/pull/3461[#3461], https://github.com/payara/Payara/pull/3513[#3513] | Fixed in *FasterXML Jackson 2.9.7*, component updated
+
+|https://nvd.nist.gov/vuln/detail/CVE-2018-14720[CVE-2018-14720] | 9.8 | FIXED | FasterXML jackson-databind 2.x before 2.9.7 might allow remote attackers to conduct external XML entity (XXE) attacks | 5.191, 5.184.1, 5.181.10, 4.1.2.191, 4.1.2.184.1, 4.1.2.181.10 | https://github.com/payara/Payara/pull/3461[#3461], https://github.com/payara/Payara/pull/3513[#3513] | Fixed in *FasterXML Jackson 2.9.7*, component updated
+
+|https://nvd.nist.gov/vuln/detail/CVE-2018-14719[CVE-2018-14719] | 9.8 | FIXED | FasterXML jackson-databind 2.x before 2.9.7 might allow remote attackers to execute arbitrary code |    5.191, 5.184.1, 5.181.10, 4.1.2.191, 4.1.2.184.1, 4.1.2.181.10 | https://github.com/payara/Payara/pull/3461[#3461], https://github.com/payara/Payara/pull/3513[#3513] | Fixed in *FasterXML Jackson 2.9.7*, component updated
+
+|https://nvd.nist.gov/vuln/detail/CVE-2018-14718[CVE-2018-14718] | 9.8 | FIXED | FasterXML jackson-databind 2.x before 2.9.7 might allow remote attackers to execute arbitrary code |    5.191, 5.184.1, 5.181.10, 4.1.2.191, 4.1.2.184.1, 4.1.2.181.10 | https://github.com/payara/Payara/pull/3461[#3461], https://github.com/payara/Payara/pull/3513[#3513] | Fixed in *FasterXML Jackson 2.9.7*, component updated
+
 |https://nvd.nist.gov/vuln/detail/CVE-2018-14371[CVE-2018-14371] | 7.5 |  FIXED | Eclipse Mojarra before 2.3.7 is affected by Directory Traversal via the loc parameter.  |   5.191, 5.184.1, 5.181.10 | https://github.com/payara/Payara/pull/3687[#3687] | Fixed in *Eclipse Mojarra 2.3.9*, component updated
 |https://nvd.nist.gov/vuln/detail/CVE-2018-7489[CVE-2018-7489] | 9.8 |  FIXED | Default typing issue in Jackson Databind | 4.1.2.181.3, 4.1.2.182, 5.181.3, 5.182| https://github.com/payara/Payara/pull/2628[#2628] | Fixed in *Jackson Databind 2.9.5*, component updated
 |https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12616[CVE-2017-12616] | 7.5 | N/A | Apache Tomcat security constraint bypass and VirtualDirContext vulnerability |  |  | Unrelated to Payara Server
