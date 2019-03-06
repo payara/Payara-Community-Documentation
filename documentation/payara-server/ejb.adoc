@@ -176,7 +176,7 @@ image:/images/ejb/set-ejb-timer-persistence.png[Set EJB Persistence to Data Grid
 
 EJB Timers will be coordinated across a single deployment group and if an instance of the deployment group is stopped another instance in the same deployment group will take ownership of the timer and ensure it is fired.
 
-CAUTION: Clustered Timer Firing Mode is NOT user in this version of Payara Server and is always "One Per Deployment Group"
+CAUTION: Clustered Timer Firing Mode is NOT used in this version of Payara Server and is always "One Per Deployment Group"
 
 It is also possible to set the `ejb-timer-service` using asadmin commands. To get the current state, run the following command:
 
@@ -218,3 +218,201 @@ asadmin> migrate-timers --target server1 server2
 ----
 
 Where `server1` is the active instance to migrate timers to and `server2` is the failed instance.
+
+[[remote-ejb]]
+=== Remote EJB using HTTP and thin client
+
+_Since Payara Server 5.191_
+
+{% set previewVersion = book.currentVersion %}
+
+{% include "/fragments/tech-preview.adoc" %}
+
+Payara and GlassFish have supported classic remote EJB since its inception. Classic remote EJB uses IIOP-RMI (Internet Inter-ORB Protocol Remote Method Invocation) for transport and https://omg.org/spec/SEC[CSIv2] (Common Secure Interoperability Protocol Version 2) for security. 
+
+While feature rich, these protocols were not designed with firewalls, NAT, (private) clouds, docker and generally the Internet in mind. For these environments the requirements of the protocol, such as establishing independent connections back from the server to the client, are too troublesome. Practically speaking in these environments only one protocol really works, and that's HTTP(S).
+
+Additionally, IIOP-RMI/CSIv2 also requires heavyweight client libs. In the case of Payara the client lib is almost as big as the entire server as it's essentially a special form of the ACC (Application Client Container). For HTTP(S) much smaller clients can be used, or even widely available HTTP agents such as wget or curl.
+
+For these reasons Payara features an additional EJB remoting technology based on HTTP and using a thin client.  
+
+NOTE: HTTP for EJB remoting in Payara is a completely different stack from the one IIOP-RMI/CSIv2 is using, and does not just replace the transport layer protocol in that existing stack.
+
+WARNING: In the current version of this feature, not all remote EJB features are implemented yet.
+
+HTTP for EJB remoting in Payara makes use of an endpoint on the Payara server, which by default has the path `/ejb-invoker`. This endpoint is disabled out of the box. It can be enabled using the `enable-ejb-invoker` asadmin command:
+
+*Usage*::
+`asadmin> enable-ejb-invoker "ejb-invoker"`
+
+*Aim*::
+Enabling the endpoint that listens to remote EJB calls over HTTP.
+
+[[command-options]]
+==== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Shortcut |Description |Default |Mandatory
+|`--target` |N/A |The instance or cluster to enable the endpoint on | server | No
+|`--contextRoot` | (primary, no need to specify name) | Context root where an endpoint is listening for remote EJB calls | "ejb-invoker" | No
+|=======================================================================
+
+[[example]]
+==== Example
+
+The following command will enable the endpoint on the DAS
+
+[source, shell]
+----
+asadmin > enable-ejb-invoker
+
+----
+
+Once enabled, the endpoint can be disabled again using the `disable-ejb-invoker` asadmin command:
+
+*Usage*::
+`asadmin> disable-ejb-invoker`
+
+*Aim*::
+Disabling the endpoint that listens to remote EJB calls over HTTP.
+
+[[command-options-1]]
+==== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Shortcut |Description |Default |Mandatory
+|`--target` |N/A |The instance or cluster to disable the endpoint on | server | No
+|=======================================================================
+
+[[example-1]]
+==== Example
+
+The following command will disable the endpoint on the DAS
+
+[source, shell]
+----
+asadmin > disable-ejb-invoker
+
+----
+
+NOTE: The enable and disable commands deploy and undeploy an internal mini-war containing the endpoint. In this version this mini-war is shown in all overviews that show deployed applications once enabled.
+
+You need to add a dependency to the Payara *thin client* to your client project to call remote EJBs using a type-safe
+proxy (as is the norm for remote EJB programming): 
+
+[source, xml]
+----
+<dependency>
+    <groupId>fish.payara.extras</groupId>
+    <artifactId>ejb-http-client</artifactId>
+    <version>5.191</version>
+</dependency>
+----
+
+To obtain a type-safe proxy for a remote EJB bean, the traditional approach via JDNI is used. An example is given below.
+
+First, consider the following remote EJB interface:
+
+[source, java]
+----
+@Remote
+public interface BeanRemote {
+    String method();
+}
+----
+
+Second, consider a (secured) EJB implementing that interface and residing in an application called "test" on a Payara server listening to localhost:8080:
+
+[source, java]
+----
+@Stateless
+public class Bean implements BeanRemote, Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Override
+    @RolesAllowed("g1")
+    public String method() {
+        return "method";
+    }
+
+}
+----
+
+
+Given the above, the following client code can be used to obtain a proxy to the `BeanRemote` bean and invoke a remote method on it:
+
+[source, java]
+----
+import static javax.naming.Context.INITIAL_CONTEXT_FACTORY;
+import static javax.naming.Context.PROVIDER_URL;
+import static javax.naming.Context.SECURITY_CREDENTIALS;
+import static javax.naming.Context.SECURITY_PRINCIPAL;
+
+import java.util.Hashtable;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+
+Hashtable<String, String> environment = new Hashtable<String, String>();
+environment.put(INITIAL_CONTEXT_FACTORY, "fish.payara.ejb.rest.client.RemoteEJBContextFactory");
+environment.put(PROVIDER_URL, "https://localhost:8080/ejb-invoker");
+environment.put(SECURITY_PRINCIPAL, "u1");
+environment.put(SECURITY_CREDENTIALS, "p1");
+        
+InitialContext ejbRemoteContext = new InitialContext(environment);
+
+BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
+
+beanRemote.method() // returns "method"
+----
+
+If a remote bean is not secured, only the `INITIAL_CONTEXT_FACTORY` and `PROVIDER_URL` parameters are required.
+
+WARNING: When accessing secured EJBs and passing the credential you *should* use only HTTPS, as the credential will be transferred in cleartext (not encrypted, only base64 encoded).
+
+The proxy uses the JAX-RS/Jersey REST client builder to communicate with the remote server. The properties of this client builder can be customized via the JNDI environment properties. They are given below:
+
+[cols="4,10,10a",options="header"]
+.`JNDI customizatin options`
+|===
+|Property |Behaviour| Type
+|`fish.payara.connectTimeout`
+| The connect timeout. Value 0 represents infinity. Negative values are not allowed. Unit is microseconds.
+| Number (from which it's Long value is taken) or String that can be converted to a Long.
+|`fish.payara.readTimeout`
+| The timeout to read a response. If the remote Payara doesn't respond within the defined time a ProcessingException is thrown with TimeoutException as the cause. Value 0 represents infinity. Negative values are not allowed. Unit is microseconds.
+| Number (from which it's Long value is taken) or String that can be converted to a Long.
+|`fish.payara.keyStore`
+| The key store to be used by the proxy. The key store contains the private key as well as certificates with associated public keys.
+| Instance of `java.security.KeyStore` or string representing fully qualified classname.
+|`fish.payara.trustStore`
+| The trust store to be used by the proxy. The trust store must contain the certificates that are needed to communicate with the Payara remote server.
+| Instance of `java.security.KeyStore` or string representing fully qualified classname.
+|`fish.payara.sslContext`
+| The SSL context that will be used by the proxy for creating secured connections to the Payara remote server. This context *must* be fully initialized, including the trust- and key managers. Should not be used together with the `fish.payara.keyStore` and/or `fish.payara.trustStore` properties.
+| Instance of `javax.net.ssl.SSLContext` or string representing fully qualified classname.
+|`fish.payara.hostnameVerifier`
+| The hostname verifier to be used by the proxy to verify the endpoint's hostname against the identification information of it.
+| Instance of `javax.net.ssl.HostnameVerifier` or string representing fully qualified classname.
+|`fish.payara.executorService`
+| The executor service that will be used for executing asynchronous tasks. _(for future use)_
+| Instance of `java.util.concurrent.ExecutorService` or string representing fully qualified classname.
+|`fish.payara.scheduledExecutorService`
+| The executor service that will be used for executing scheduled asynchronous tasks. _(for future use)_
+| Instance of `java.util.concurrent.ScheduledExecutorService` or string representing fully qualified classname.
+|`fish.payara.withConfig`
+| The configuration for the internal JAX-RS/Jersey REST client.
+| Instance of `javax.ws.rs.core.Configuration` or string representing fully qualified classname.
+|===
+
+
+
+
+
+
+
+
+
+
