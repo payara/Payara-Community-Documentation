@@ -15,7 +15,7 @@ Due to some changes in the following areas, you might encounter some small funct
 
 If you are uncertain if this might impact your application, please feel free to ask more information.
 
-There are new as asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
+There are new asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
 
 The Remote EJB over HTTP protocol is in technical preview.
 
@@ -57,7 +57,7 @@ The Remote EJB over HTTP protocol is in technical preview.
 -   https://github.com/payara/Payara/pull/3760[PAYARA-3508] - Improve logging in ConnectionPool
 -   https://github.com/payara/Payara/pull/3737[PAYARA-3514] - ***Community Contribution*** Typo and newline fix
 
-== Security
+== Security Fixes
 
 -   https://github.com/payara/Payara/pull/3461[PAYARA-3331] - Upgrade jackson to 2.9.7 to fix:
     -   CVE-2018-14718
