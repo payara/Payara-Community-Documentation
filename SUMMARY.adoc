@@ -246,6 +246,7 @@
 == Appendices
 
 * link:release-notes/release-notes-history.adoc[History of Release Notes]
+** link:release-notes/release-notes-191.adoc[Payara Server 5.191 Release Notes]
 ** link:release-notes/release-notes-184.adoc[Payara Server 5.184 Release Notes]
 ** link:release-notes/release-notes-183.adoc[Payara Server 5.183 Release Notes]
 ** link:release-notes/release-notes-182.adoc[Payara Server 5.182 Release Notes]
