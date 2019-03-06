@@ -41,7 +41,7 @@
 ** link:documentation/payara-server/logging/logging.adoc[Logging]
 *** link:documentation/payara-server/logging/access-logging-max-file-size.adoc[Access Logging Max File Size]
 *** link:documentation/payara-server/logging/notification-logging.adoc[Notification Logging]
-*** link:documentation/payara-server/logging/daily-log-rotation.adoc[Daily log rotation]
+*** link:documentation/payara-server/logging/daily-log-rotation.adoc[Daily Log Rotation]
 *** link:documentation/payara-server/logging/ansi-colours.adoc[ANSI Coloured Logging]
 *** link:documentation/payara-server/logging/log-compression.adoc[Compression of log files]
 *** link:documentation/payara-server/logging/json-formatter.adoc[JSON Log Formatter]
