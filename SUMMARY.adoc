@@ -40,6 +40,7 @@
 ** link:documentation/payara-server/h2/h2.adoc[H2 Database]
 ** link:documentation/payara-server/logging/logging.adoc[Logging]
 *** link:documentation/payara-server/logging/access-logging-max-file-size.adoc[Access Logging Max File Size]
+*** link:documentation/payara-server/logging/access-logging-date-stamp-property.adoc[Access Logging Date Stamp Property]
 *** link:documentation/payara-server/logging/notification-logging.adoc[Notification Logging]
 *** link:documentation/payara-server/logging/ansi-colours.adoc[ANSI Coloured Logging]
 *** link:documentation/payara-server/logging/log-compression.adoc[Compression of log files]
