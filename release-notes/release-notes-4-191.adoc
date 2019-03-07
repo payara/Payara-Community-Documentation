@@ -20,7 +20,7 @@ Due to some changes in the following areas, you might encounter some small funct
 
 If you are uncertain if this might impact your application, please feel free to ask more information.
 
-There are new as asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
+There are new asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
 
 
 
@@ -47,7 +47,7 @@ There are new as asadmin commands for the configuration of the health check feat
 -   https://github.com/payara/Payara/pull/3783[PAYARA-3507] - Improve the Executor Pool and Queue Sizes in Payara Micro
 -   https://github.com/payara/Payara/pull/3785[PAYARA-3508] - Improve logging in ConnectionPool
 
-== Security
+== Security Fixes
 
 -   https://github.com/payara/Payara/pull/3461[PAYARA-3331] - Upgrade jackson to 2.9.7 to fix:
     -   CVE-2018-14718
