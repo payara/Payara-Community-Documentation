@@ -7,7 +7,7 @@ The documentation of Payara Server distribution. Provides information about conf
 link:documentation/payara-micro/payara-micro.adoc[Payara Micro Documentation]::
 The documentation of Payara Micro edition, which is a single file runtime capable of running applications from the command line. Payara Micro is designed to run applications in cloud and containerized environments a well as in embedded and IoT devices. It provides most of the functionality of Payara Server, adding some specific features for flexible deployments and ease of use. 
 
-NOTE: Most of the Payara Server documentation also applies to Payara Micro unless stated otherwise
+NOTE: Most of the Payara Server documentation also applies to Payara Micro unless stated otherwise 
 
 link:documentation/user-guides/user-guides.adoc[User Guides]::
 Useful guides and tutorials.
