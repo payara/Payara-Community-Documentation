@@ -146,7 +146,6 @@ environment.put(SECURITY_CREDENTIALS, "p1");
 InitialContext ejbRemoteContext = new InitialContext(environment);
 
 BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
-
 beanRemote.method() // returns "method"
 ----
 +
@@ -155,11 +154,11 @@ NOTE: If a remote bean is not secured, only the `INITIAL_CONTEXT_FACTORY` and `P
 WARNING: When accessing secured EJBs you *should* use only HTTPS, as the submitted credentials will be transferred in clear text (not encrypted, only base64 encoded), which is a security risk you should avoid in any production environment.
 
 [[jndi-customization-options]]
-== JNDI Customization Options
+=== JNDI Customization Options
 
 Under the covers the remote EJB proxy uses a JAX-RS (Jersey) REST client builder in order to establish communication with the remote server. If you want to customize and modify the parameters for this communication (timeouts, keystores, etc.) the following JNDI context properties can be used to this end:
 
-[cols="4,10,10a",options="header"]
+[cols="4,10,10",options="header"]
 .`JNDI Options for Custom HTTP(S) Communication`
 |===
 |Property |Behaviour| Type

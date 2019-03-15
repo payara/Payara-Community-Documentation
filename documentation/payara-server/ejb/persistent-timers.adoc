@@ -1,5 +1,5 @@
 [[persistent-ejb-timers-with-hazelcast]]
-= Persistent EJB Timers with the Domain Data Grid
+= Persistent EJB Timers on the Domain Data Grid
 
 _Since Payara Server 5.181_
 
