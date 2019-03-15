@@ -1,0 +1,4 @@
+[[enhanced-ejb-features]]
+= Enhancements to EJB Features
+
+This section details several improvements and enhancements done to the EJB features available on Payara Server.
