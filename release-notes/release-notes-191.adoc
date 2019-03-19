@@ -181,7 +181,7 @@ We also made a fix to the managed scheduled executor service that now allows it 
 
 If you are uncertain if this might impact your application, please feel free to ask for more information.
 
-There are new as asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
+There are new asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
 
 The Remote EJB over HTTP protocol is in technical preview.
 
