@@ -7,22 +7,18 @@
 * Java EE 8 Applications
 * MicroProfile 2.1
 
-== Notes
-Due to some changes in the following areas, you might encounter some small functionality changes:
+== Release Highlights
 
-- Executor Service
-- Async CDI events
-- EJB Timers
-- Security
-- Access log
+A new year means a new version number for the Payara Platform. With the release of 5.191, we welcome the return of the Help Docs.
+Oracle recently donated GlassFish to the Eclipse Foundation along with the rest of Java EE, and that includes the help documentation.
+Thanks to their donation, we can use and update the help docs again for the Payara Platform.
 
-If you are uncertain if this might impact your application, please feel free to ask more information.
+As usual, our release continues our quest to eradicate all bugs, with this release bringing with it roughly forty fixes. 
+Some of the notable bug fixes for this release include a fix for viewing remote instance monitoring information, some HTTP2 
+fixes (including a memory leak!), variable substitution not working for Payara Micro post-boot files, and making it so the 
+interactive asadmin prompt doesn’t die when it prompts you for extra command parameters.
 
-There are new asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
-
-The Remote EJB over HTTP protocol is in technical preview.
-
-
+See below for a complete list of new features, improvements, security updates, and bug fixes:
 
 == New Features
 
@@ -173,4 +169,19 @@ The Remote EJB over HTTP protocol is in technical preview.
 -   https://github.com/payara/Payara/pull/3781[PAYARA-3517] - Upgrade hibernate-validator to 6.0.15.Final
 
 Known issues can be seen on our GitHub issues page here: https://github.com/payara/Payara/issues
+
+==== Due to some changes in the following areas, you might encounter some small functionality changes:
+
+* **Executor Service** - Some pool size settings for the internal executor service were changed, and it was changed so that the pool won't immediately reject tasks when exhausted. 
+We also made a fix to the managed scheduled executor service that now allows it to properly execute tasks from versioned applications.
+* **CDI Events** - EE contexts for CDI TransactionScoped extension invocations where added and now the implicit discovery of CDI beans are set on application deployment.
+* **EJB Timers** - The EJB Timer service was made serialisable, and we added a fix to a failure involving non-persistent flags.
+* **Security** - We made it so you can restrict the permitted HTTP methods for form-based authentication, and also made a fix to secured remote EJBs which involved overriding a couple of methods.
+* **Access Log** - A couple of rotation-based features to access logging were added.
+
+If you are uncertain if this might impact your application, please feel free to ask for more information.
+
+There are new asadmin commands for the configuration of the health check feature, the old ones are still valid but are deprecated.
+
+The Remote EJB over HTTP protocol is in technical preview.
 
