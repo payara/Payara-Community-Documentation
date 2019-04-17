@@ -26,6 +26,8 @@ Installing a plugin from the Update Center is the easiest way :
 5. In the URL field, enter the following update center url based on your IDE version and Click *OK* button.
    * *NetBeans IDE 8.2* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_8.2/updates.xml
    * *Apache NetBeans IDE 9.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_9.0/updates.xml
+   * *Apache NetBeans IDE 10.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_10.0/updates.xml
+   * *Apache NetBeans IDE 11.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_11.0/updates.xml
 6. Under the *Available Plugins* tab, search for `Payara` in the search box.
 7. Check all 5 plugins:
   * Payara EE Common
@@ -48,7 +50,7 @@ Installing a plugin from the Update Center is the easiest way :
 7. When the NetBeans IDE Installer screen is displayed, click next and accept the license agreements and click Install.
 8. The plugin has now been installed and can be seen in the "Installed" tab. Now click *Finish* to restart NetBeans IDE.
 
-
+////
 ===  NetBeans + Payara plugins Bundle
 
 1. To download the Payara Plugin with NetBeans IDE, Please https://github.com/payara/ecosystem-netbeans-plugin/releases[click here] and download the *PayaraPlugins.with.NetBeans.IDE* zip file.
@@ -57,4 +59,4 @@ Installing a plugin from the Update Center is the easiest way :
         ** Start the IDE at the command line > _netbeans-install-directory\bin\netbeans.exe_ or click on the _netbeans-install-directory\bin\netbeans.exe_
     * *OS X or Linux* - 
         ** Type at the command prompt: _/netbeans-install-directory/bin/netbeans_
-
+////
