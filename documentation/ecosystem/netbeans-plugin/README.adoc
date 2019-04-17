@@ -49,14 +49,3 @@ Installing a plugin from the Update Center is the easiest way :
 6. Once the file has been selected, NetBeans will display module information. Now click the *Install* button at the bottom.
 7. When the NetBeans IDE Installer screen is displayed, click next and accept the license agreements and click Install.
 8. The plugin has now been installed and can be seen in the "Installed" tab. Now click *Finish* to restart NetBeans IDE.
-
-////
-===  NetBeans + Payara plugins Bundle
-
-1. To download the Payara Plugin with NetBeans IDE, Please https://github.com/payara/ecosystem-netbeans-plugin/releases[click here] and download the *PayaraPlugins.with.NetBeans.IDE* zip file.
-2. Now extract the zip file and start the IDE :
-    * *Microsoft Windows* - 
-        ** Start the IDE at the command line > _netbeans-install-directory\bin\netbeans.exe_ or click on the _netbeans-install-directory\bin\netbeans.exe_
-    * *OS X or Linux* - 
-        ** Type at the command prompt: _/netbeans-install-directory/bin/netbeans_
-////
