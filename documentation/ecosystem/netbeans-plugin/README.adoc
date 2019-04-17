@@ -13,7 +13,7 @@ This means you can deploy and manage applications from the NetBeans interface.
 [[installing]]
 == Installing Payara NetBeans Plugins
 
-Payara offers three ways to install NetBeans plugins :
+Payara offers two ways to install NetBeans plugins :
 
 === Update Center Installation
 
