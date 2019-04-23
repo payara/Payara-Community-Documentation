@@ -9,6 +9,12 @@ These include:
 link:maven-plugin.adoc[Payara Micro Maven Plugin]::
 A plugin for Apache Maven is available for Payara Micro.
 
+link:maven-archetype.adoc[Payara Micro Maven Archetype]::
+An archetype for Apache Maven is available for Payara Micro.
+
+link:gradle-plugin.adoc[Payara Micro Gradle Plugin]::
+A plugin for Gradle is available for Payara Micro.
+
 link:netbeans-plugin.adoc[Payara NetBeans Plugin]::
 A plugin for using Payara is available for NetBeans.
 

@@ -214,6 +214,7 @@
 * link:documentation/ecosystem/ecosystem.adoc[Ecosystem]
 ** link:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]
 ** link:documentation/ecosystem/maven-archetype.adoc[Payara Micro Maven Archetype]
+** link:documentation/ecosystem/gradle-plugin.adoc[Payara Micro Gradle Plugin]
 ** link:documentation/ecosystem/netbeans-plugin/README.adoc[Payara NetBeans Plugin]
 *** link:documentation/ecosystem/netbeans-plugin/payara-server.adoc[Payara Server]
 *** link:documentation/ecosystem/netbeans-plugin/payara-micro.adoc[Payara Micro]
