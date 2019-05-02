@@ -155,7 +155,7 @@ Example:
 ----
 
 NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
-you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`. See <<using-toolchains>> for more information.
 
 .Configuration tags
 [cols="2,1,7",options="header"]
@@ -253,7 +253,7 @@ Example:
 ----
 
 NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
-you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`. See <<using-toolchains>> for more information.
 
 .Configuration tags
 [cols="2,1,7",options="header"]
@@ -272,3 +272,71 @@ you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 identify the process id of the running payara-micro.
 
 |===
+
+[[using-toolchains]]
+=== Using Toolchains
+The Maven Toolchains provide a way for plugins to discover what JDK (or other tools) are to be used during the build and Payara Micro Maven Plugin also supports using toolchains with its configuration.
+
+In order to use the toolchains with either `payara-micro:start` or `payara-micro:stop`, first toolchains plugin should be defined as:
+[source,XML]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-toolchains-plugin</artifactId>
+    <version>1.1</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>toolchain</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <toolchains>
+            <jdk>
+                <version>1.8</version>
+                <vendor>oracle</vendor>
+            </jdk>
+        </toolchains>
+    </configuration>
+</plugin>
+----
+
+toolchains.xml is the file for configuring each toolchain and it should reside under the .m2 folder. A sample would be as:
+----
+<?xml version="1.0" encoding="UTF8"?>
+<toolchains>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.7</version>
+            <vendor>oracle</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home</jdkHome>
+        </configuration>
+    </toolchain>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.8</version>
+            <vendor>oracle</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home</jdkHome>
+        </configuration>
+    </toolchain>
+</toolchains>
+----
+The version and the vendor defined in the plugins section should match one of the entries defined in the toolchains.xml file.
+After configuring the toolchain, the plugin can be executed with `start` and `stop` goals as:
+
+[source,Shell]
+----
+mvn toolchains:toolchain payara-micro:start
+----
+[source,Shell]
+----
+mvn toolchains:toolchain payara-micro:stop
+----
+
