@@ -106,7 +106,8 @@ The `@Clustered` annotation has several configuration options. They are detailed
 | keyName
 | clustered-key-name
 | The key in the distributed map to bind the clustered object to.
-| The name of the bean.
+| The name of the bean. If the bean is a CDI bean and has no assigned name,
+the bean class name will be used.
 
 | lock
 | clustered-lock-type
