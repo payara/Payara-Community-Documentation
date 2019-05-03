@@ -1,0 +1,212 @@
+[[asadmin-audit]]
+= Asadmin Audit Service
+
+_Since Payara Server 5.192_
+
+This feature allows you to log the actions taken in the admin
+console as asadmin commands, together with the user who executed
+them in order to audit Payara Server
+
+[[starting-and-stopping-the-asadmin-audit]]
+== Starting and Stopping the Asadmin Audit Service
+
+The audit service can be configured from the admin console or with asadmin
+commands. The audit service can be found in the admi console under
+*Configurations -> your-config -> Security -> Admin Audit*
+
+image:/images/admin-console/admin-audit-menu.png[Admin Audit Service in Web Console]
+
+
+Once enabled, actions in the admin console that have a corresponding
+`asadmin` command will be sent to the 
+link:ocumentation/payara-server/notification-service/notification-service.adoc[Notification service].
+
+
+Check the *Enabled* box (and the *Dynamic* box too if you don't want to
+restart the domain) to switch the request tracing service on.
+
+The *Audit Level* options sets the level of admin commands to audit:
+
+**MODIIFIERS**:: (default) All admin commands that change something within Payara Server
+**ACCESSORS**:: All admin commands that change something within Payara Server or retrieve information from Payara Server
+**INTERNAL**:: All admin commands, including internal Payara Server commands
+
+
+Aside from this configuration settings, you can also define which notifiers will be
+used to relay the admin console audit events by moving them to the **Selected Notifiers**
+box.
+
+image:/images/request-tracing/select-notifiers.png[Activate Notifiers in the Admin Console]
+
+IMPORTANT: Keep in mind that for admin audit events to be relayed to the
+selected notifiers, both the
+link:/documentation/payara-server/notification-service/notification-service.adoc[Notification Service]
+and each respective notifier must be enabled first.
+
+TIP: You don't need to manually add each notifier on this screen. When enabling
+a notifier on its configuration screen, the server will **automatically** add it to the list
+of selected notifiers for the Admin audit service. This same result occurs when
+enabling the notifier using the appropriate _asadmin_ command.
+
+[[asadmin-commands]]
+== Asadmin Commands
+The following is the list of available asadmin commands with their available
+options to configure the asadmin recorder:
+
+[[set-admin-audit-configuration]]
+== `set-admin-audit-configuration`
+
+*Usage*::
+`asadmin> set-admin-audit-configuration`
+
+*Aim*::
+This command can be used to set all configuration of the request
+tracing service at once.
+
+[[command-options]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enabled` |Boolean |Enables or disables the service |false |Yes
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a restart. Otherwise a restart is required. |false |No
+|`--auditLevel | MODIFIERS, ACCESSORS, INTERNAL | The level of detail for the admin
+audit service | MODIFIERS | No
+|=======================================================================
+
+[[example]]
+=== Example
+
+[source, shell]
+----
+asadmin> set-admin-audit-configuration
+    --enabled=true
+    --dynamic=true
+    --auditLevel=ACCESSORS
+----
+
+[[get-admin-audit-configuration]]
+== `get-admin-audit-configuration`
+
+
+[[set-admin-audit-service-notifier-configuration]]
+== `set-admin-audit-service-notifier-configuration`
+
+*Usage*::
+
+----
+asadmin> set-admin-audit-service-notifier-configuration
+ --notifier=<string.value>
+ --enabled=true|false 
+ --dynamic=true|false 
+ --noisy=true|false
+----
+
+*Aim*::
+This command can be used to enable or disable a specific notifier or to change its noisy setting.
+
+[[command-options-14]]
+==== Command Options
+
+[cols=",,,,",options="header",]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+| `--notifier`
+| String
+a| The notifier to configure. One of (case insensitive):
+
+* `LOG`
+* `HIPCHAT`
+* `SLACK`
+* `JMS`
+* `EMAIL`
+* `XMPP`
+* `SNMP`
+* `EVENTBUS`
+* `NEWRELIC`
+* `DATADOG`
+* `CDIEVENTBUS`
+
+| -
+| yes
+
+|`--enable`
+|Boolean
+|Enables or disables the notifier
+|false
+|Yes
+
+|`--noisy`
+|Boolean
+|Sets the notifier to noisy (a.k.a verbose) or not noisy. A noisy notifier includes more detailed logging information in the notifiers output.
+|-
+|No
+
+|`--dynamic`
+|Boolean
+|Whether to apply the changes directly to the server/instance without a restart
+|false
+|No
+
+| `--target`
+| String
+| The instance or cluster that will be configured
+| server
+| no
+
+|===
+
+[[example-14]]
+==== Examples
+
+To enable the log notifier for the HealthCheck Service without having to
+restart the server, use the following command:
+
+[source, shell]
+----
+asadmin> set-healthcheck-service-notifier-configuration
+ --notifier=log
+ --enabled=true
+ --dynamic=true
+----
+
+
+
+*Usage*::
+`asadmin> get-admin-audit-configuration`
+
+*Aim*::
+This command can be used to list the configuration settings of the Admin Audit.
+
+[[command-options-4]]
+=== Command Options
+
+There are no available options for this command.
+
+[[example-4]]
+=== Example
+
+[source, shell]
+----
+asadmin> get-admin-audit-configuration
+----
+
+Will give an output similar to the following:
+
+----
+Enabled  Audit Level  
+false    MODIFIERS    
+Name  Notifier Enabled
+service-log    false
+Command get-requesttracing-configuration executed successfully.
+----
+
+
+
