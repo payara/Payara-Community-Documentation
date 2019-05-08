@@ -3,8 +3,8 @@
 
 _Since version 5.192_
 
-Payara Server now includes a feature to allow support for using only the value of 
-CN from a client certificate for authentication on a secure webapp.
+Payara Server now includes a feature to support using only the value of 
+CN from a client certificate for authentication on a secure web application.
 A new flag `common-name-as-principal-name` can be set on the certificate realm to
 enable this feature - it is set to false by default.
 
@@ -13,7 +13,7 @@ enable this feature - it is set to false by default.
 
 This feature can be enabled as follows:
 
-. Navigate to `server-config` under the `Configurations` tab in the tree
+. Navigate to the applicable configuration page for your use (e.g. `server-config`) under the `Configurations` tab in the tree
 . Open `Security/Realms` and select `Certificate`
 . Click the `Add Property` button
 . Set the new property _Name_ to be `common-name-as-principal-name` and set the _Value_ to `true`
@@ -36,6 +36,6 @@ You can also use the following command to set the flag through asadmin:
 
 [source, shell]
 ----
-asadmin> set configs.config.server-config.security-service.auth-realm.certificate.property.common-name-as-principal-name=true
+asadmin> set configs.config.$YOUR_INSTANCE_CONFIG.security-service.auth-realm.certificate.property.common-name-as-principal-name=true
 asadmin> restart-domain $DOMAIN_NAME
 ----
