@@ -189,7 +189,7 @@ asadmin> stop-all-domains --force=false
 `asadmin> start-instance instancename`
 
 *Aim*::
-This command can be used to start a specified instance of Payara
+This command can be used to start a specified instance of Payara, which can be either a local or remote instance. This command runs on the DAS.
 
 [[command-options-3]]
 === Command Options
@@ -215,5 +215,48 @@ To start an instance named instance1 and sync it with the DAS with a timeout of 
 [source]
 ----
 asadmin> start-instance --timeout 180 --sync true instance1
+----
+
+[[start-local-instance]]
+== `start-local-instance`
+
+*Usage*::
+`asadmin> start-local-instance instancename`
+
+*Aim*::
+This command can be used to start a specified instance of Payara, but only when it corresponds to a local instance. A local instance is located in the same host from where the `asadmin` command is executed. This command is executed in "local" mode, which means that the DAS is not started in order to effectively execute it. Keep in mind that running the instance using the `sync` option has some nuances, so read the note below for more information.
+
+[[command-options-3]]
+=== Command Options
+
+NOTE: These are not the same as the options for the `start-instance` command.
+
+
+Usage: asadmin [asadmin-utility-options] start-local-instance
+
+
+[cols="1,1,4,1,1",options="header",]
+|====
+|Option |Type |Description |Default |Mandatory
+|`-v, --verbose` | Boolean |Specifies that the server log is printed to the console from which asadmin is executed. Control is not returned to the console after the instance has started. The instance can be stopped and control returned by typing `CTRL-C`. | false |No
+|`-w, --watchdog` | Boolean |Starts the server in watchdog mode. This is only useful if verbose is false. It does the same thing as verbose -- except without the dumping of output to standard out and err streams.| false |No
+|`-d, --debug` |Boolean |Specifies whether the instance is started in debug mode |false |No
+|`-n, --dry-run` |Boolean | Specifies to dump the full human readable JVM invocation command that would be used to launch the instance instead of actually launching it. |false |No
+|`--sync` | none, normal or full |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | normal |No
+|`--nodedir` | String | Specifies the folder on the local filesystem where the node the instance is in resides. | ${PAYARA_INSTALL_DIR}/glassfish/nodes/. |No
+|`--node` | String | Specifies the node the instance is in. | The single folder inside the `nodedir` directory, in the case that there's only a single folder. |No - if the node directory contains a single folder, Yes - otherwise
+|`--timeout` |Integer |Specifies how long to take for the local instance to start in seconds. If starting the instance takes longer than this amount then this command will fail (but the instance may still continue its startup process...). Available since 4.1.2.191.3 and 5.192 |600 |No
+|====
+
+WARNING: Using full sync will cause the configuration to be deleted if the DAS cannot be reached.
+
+[[example-3]]
+=== Example
+
+To start a local instance named instance1 with a timeout of 180 seconds:
+
+[source]
+----
+asadmin> start-local-instance --timeout 180 instance1
 ----
 
