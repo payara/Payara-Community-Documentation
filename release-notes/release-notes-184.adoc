@@ -54,9 +54,9 @@ the only (and therefore mandatory) replacement.
 
 String representations of principals that are based on X500Principals
 have changed since Payara 5.184. The sequence of RDNs (Relative
-Distinguished Names) used to be rendered with a command (,) and a space
+Distinguished Names) used to be rendered with a comma (,) and a space
 ( ) as separator, but due to an internal class change are now rendered
-with only a command character (’,’ ASCII 44) as separator. For instance
+with only a comma character (’,’ ASCII 44) as separator. For instance
 a distinguished name that used to be represented in string form as
 `"C=UK, ST=lak, L=zak, O=kaz, OU=bar, CN=lfoo"` is now represented as
 `"C=UK,ST=lak,L=zak,O=kaz,OU=bar,CN=lfoo"`
