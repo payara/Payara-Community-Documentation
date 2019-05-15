@@ -21,12 +21,22 @@ detailed in the spec], the following is also implemented in Payara Server and Pa
 === Configurable Managed Executor Services
 The managed and scheduled managed executor pool can be configured via the _set-fault-tolerance-configuration_ asadmin command.
 
-The managed executor service is used to execute methods annotated with @Asynchronous, whereas the managed scheduled executor 
+The managed executor service is used to execute methods annotated with `@Asynchronous`, whereas the managed scheduled executor 
 service is used by the CircuitBreaker and Timeout interceptors for their timeout operations (scheduling the circuit breaker 
 to be set to half open, and just timing out respectively).
 
+=== Alternative @Asynchronous Annotations
+Since 5.192 the Payara specific configuration property `MP_Fault_Tolerance_Alternative_Asynchronous_Annotations` can be used to specify a comma separated list of fully qualified class names of those annotations that should have the same effect as FT's `@Asynchronous`. These annotations do not have to be interceptor bindings.
+
+For example:
+
+----
+MP_Fault_Tolerance_Alternative_Asynchronous_Annotations=javax.ejb.Asynchronous
+----
+
+
 === Annotation Priority
-The order that the fault tolerance annotations are invoked is as follows:
+Prior to 5.192 the order that the fault tolerance annotations are invoked is as follows:
 
 * Fallback (_SPECIAL CASE - you'll ONLY get here if there is an exception kicking off the asynchronous thread_)
 * Asynchronous
@@ -37,6 +47,19 @@ The order that the fault tolerance annotations are invoked is as follows:
 * Timeout
 
 Since the asynchronous annotation is invoked first, if it's combined with any other fault tolerance annotations they will be processed on the asynchronous thread.
+
+Since 5.192 interactions between annotations are handled as described by the 2.0 specification effectively nesting computation in the following way (skipping handling for annotations not present): 
+
+1. Asynchronous
+2. Fallback
+3. Retry
+4. Circuit Breaker
+5. Timeout
+6. Bulkhead
+7. (calling annotated method; might be wrapped by other interceptors)
+
+As specified the interceptor priority can be changed using the property `mp.fault.tolerance.interceptor.priority` affecting all annotations including alternative ones.
+
 
 [[fault-tolerance-configuration]]
 == Fault Tolerance Configuration
