@@ -190,3 +190,8 @@ Under the covers the remote EJB proxy uses a JAX-RS (Jersey) REST client builder
 | The configuration for the internal JAX-RS/Jersey REST client.
 | Instance of `javax.ws.rs.core.Configuration` or a `String` representing its fully qualified classname.
 |===
+
+[[system-properties-fallbacks]]
+=== System Properties Fallbacks
+
+The JNDI customization options listed above as well the environment variables defined in `javax.naming.Context` (except `APPLET`) can be set by setting a system property of the same name that will act as a fallback. That means it will not override an environment variable already present but is used in case it is not defined when `InitialContextFactory.getInitialContext` is invoked.
