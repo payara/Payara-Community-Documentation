@@ -194,7 +194,13 @@ Under the covers the remote EJB proxy uses a JAX-RS (Jersey) REST client builder
 | Instance of `fish.payara.ejb.http.client.adapter.ClientAdapter`
 |===
 
-The constants are also exposed as static fields of `fish.payara.ejb.rest.client.RemoteEJBContextFactory`
+The constants are also exposed as static fields of `fish.payara.ejb.rest.client.RemoteEJBContextFactory`.
+
+[[system-properties-fallbacks]]
+=== System Properties Fallbacks
+
+The JNDI customization options listed above as well the environment variables defined in `javax.naming.Context` (except `APPLET`) can be set by setting a system property of the same name that will act as a fallback.
+That means it will not override an environment variable already present but is used in case it is not defined when `InitialContextFactory.getInitialContext` is invoked.
 
 [[client-side-adapter]]
 == Client side adapter
