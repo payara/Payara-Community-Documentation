@@ -265,3 +265,5 @@ The serialization can be customized by means of JSON-B annotations.
 
 === Programming model limitations
 
+HTTP adapter uses staless HTTP requests.
+In current form it is therefore unfit for invoking stateful objects, like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
