@@ -131,6 +131,7 @@ Example:
         <daemon>true</daemon>
         <javaPath>/path/to/Java/Executable</javaPath>
         <deployWar>true</deployWar>
+        <contextRoot>myApp</contextRoot>
         <javaCommandLineOptions>
             <option>
                 <value>-Xdebug</value>
@@ -202,6 +203,10 @@ to `true` you can skip this and instantly interrupt the executor thread.
 |false
 |If the attached project is of type WAR, it will automatically be deployed to
 payara-micro if `deployWar` is set to `true`.
+
+|`contextRoot`
+|_none_
+|Defines the context root of an application.
 
 |`javaCommandLineOptions`
 |_none_
