@@ -66,6 +66,7 @@ match the value from the instance & node config
 
 The configuration within Payara Server of the settings denoted in the above link takes the form of dotted names. These
 names adhere to the following syntax:
+
 * Each property is prepended with "Docker"
 * Each child object is specified individually, with all of its parents prepended to it
 * Arrays must be surrounded with square braces
