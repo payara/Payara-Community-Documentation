@@ -27,7 +27,7 @@ name already exists, the create-instance command will fail, and Payara Server wi
 from the DAS.
 
 Please note that it is required that secure-admin be enabled for Docker instances to start (which is why a passwordfile
-is mandatory).
+is mandatory when creating a Docker node).
 
 [[starting-an-instance]]
 === Starting an Instance
