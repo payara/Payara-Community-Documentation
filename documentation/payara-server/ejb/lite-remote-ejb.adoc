@@ -200,12 +200,12 @@ The constants are also exposed as static fields of `fish.payara.ejb.rest.client.
 === System Properties Fallbacks
 
 The JNDI customization options listed above as well the environment variables defined in `javax.naming.Context` (except `APPLET`) can be set by setting a system property of the same name that will act as a fallback.
-That means it will not override an environment variable already present but is used in case it is not defined when `InitialContextFactory.getInitialContext` is invoked.
+That means it will not override an environment variable that is already present but would be used in the case that it is not defined when `InitialContextFactory.getInitialContext` is invoked.
 
 [[client-side-adapter]]
 == Client side adapter
 
-EJB Lite connector is in its current form suited for invoking stateless remote EJBs.
+EJB Lite connector is, in its current form, suited for invoking stateless remote EJBs.
 However, if you're using the connector with existing clients, those may depend on stateful interactions, like invoking stateful EJBs or accessing application server data sources and connection factories.
 Client side adapters serve the purpose of emulating stateful behavior at the client and delegate the requests to stateful backend, when all information from the client is collected.
 
@@ -226,15 +226,15 @@ public interface ClientAdapter {
 }
 ----
 
-When a client adapter is passed in factory's environment, every JNDI lookup is first passed to the adapter instance.
+To make use of the adapter, put an instance of `ClientAdapter` into JNDI context property `fish.payara.clientAdapter`. Every JNDI lookup will be  first passed to the adapter instance in such case.
 If adapter returns non-empty Optional, that return value is passed back to the client.
 
 === Composing multiple adapters
 
-Client side emulation might require stubbing diverse JNDI names and return types, and handling all of that in single ClientAdapter implementation would result in not very maintenable code.
+Client side emulation might require stubbing diverse JNDI names and return types, and handling all of that in a single ClientAdapter implementation would result in not very maintenable code.
 Therefore the client library offers two classes that help with composition of multiple Client adapters into the parent instance to be passed to `RemoteEJBContextFactory`:
 
-* `CompositeClientAdapter` concatenates multiple client adapter instances, calling adapters in defined order and returning first non-empty proxy provided by the adapters.
+* `CompositeClientAdapter` concatenates multiple client adapter instances, calling adapters in a defined order and returning first non-empty proxy provided by the adapters.
 * `ClientAdapterCustomizer` is a decorator, that helps separate JNDI name matching from instantiation of client adapter.
 Most used method of customizer is `matchPrefix`, which will only call downstream adapter when requested JNDI name matches prefix.
 This prefix is stripped before invoking the downstream adapter.
@@ -262,7 +262,7 @@ See https://javadoc.io/doc/fish.payara.extras/ejb-http-client[API documentation]
 === Serialization limitations
 
 HTTP adapter utilizes http://json-b.net/[JSON-B] for serialization.
-This places limits on types of objects that can be transmitted as method argument or return types.
+This places limits on types of objects that can be transmitted as method arguments or return types.
 The serialization can be customized by means of JSON-B annotations.
 
 * By default, only public properties and fields are transferred
@@ -272,4 +272,4 @@ The serialization can be customized by means of JSON-B annotations.
 === Programming model limitations
 
 HTTP adapter uses staless HTTP requests.
-In current form it is therefore unfit for invoking stateful objects, like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
+In current form, it is therefore unfit for invoking stateful objects like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
