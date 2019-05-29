@@ -152,7 +152,7 @@ If older, pre-5.192, domains are being migrated this has to be taken into accoun
     <jvm-options>[9|]-Xbootclasspath/a:${com.sun.aas.installRoot}/lib/grizzly-npn-api.jar</jvm-options>
 ```
 
-The following `jvm-options` have to be  have to removed:
+The following `jvm-options` have to be removed:
 
 ```xml
     <jvm-options>-Djava.endorsed.dirs=${com.sun.aas.installRoot}/modules/endorsed${path.separator}${com.sun.aas.installRoot}/lib/endorsed</jvm-options>
