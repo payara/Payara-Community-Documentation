@@ -1,0 +1,62 @@
+[[docker-nodes]]
+= Docker Nodes
+
+A Docker node is similar to the existing SSH, DCOM, and CONFIG nodes in that
+it is a virtual representation of a Payara Server installation, providing connection
+details that the Domain Administration Server (DAS) uses to communicate with the
+installation to create, stop, start, and delete instances. Where it
+differs from these existing node types is that instances created against it are actually housed in Docker containers,
+and so also contains details on how to communicate with the
+Docker engine of the remote machine.
+
+IMPORTANT: The Docker engine must expose its REST admin service on an HTTP port
+
+[[creating-a-node]]
+== Creating a Docker Node
+
+Creating a Docker node is done in a similar manner to creating an SSH or CONFIG
+node, either by asadmin command, or by the Nodes page of the admin console.
+
+Docker nodes do have some unique configuration properties however:
+
+* Docker Password File - This is the fully-qualified path of the password file that the Docker instance will use for
+authentication against the DAS. Please note, that this path should be the path to the file on the *remote* machine.
+This file should be a standard Payara password file as you would use with asadmin. This must be specified, as Docker
+instances require secure admin to be enabled to start.
+* TLS - Whether or not to use HTTPS to communicate with the Docker engine or not.
+* Docker Port - The port that the Docker engine is listening on. Defaults to 2376.
+* Docker Image - The Docker image to use. Payara Server will default to using the
+_payara/payaraserver-node:{{book.currentVersion}}_ image.
+
+The configuration options of CONFIG nodes are also available, namely _nodehost_, _nodedir_, and _installdir_. Specifying
+the _nodehost_ option remains mandatory, but for docker nodes the _installdir_ and _nodedir_ options can safely be left as
+their defaults unless you're specifying your own Docker image.
+
+The asadmin command for creating Docker nodes is as follows:
+
+[source, shell]
+----
+asadmin create-node-docker --nodehost localhost --useTls true --dockerPasswordFile /opt/passwordfile --dockerport 2376 DockerInstance1
+----
+
+TIP: The admin console page for creating Docker nodes is the same as creating the other node types: simply
+select _DOCKER_ as the node type from the dropdown.
+
+[[configuring-tls]]
+== Configuring TLS
+
+As Docker must expose an HTTP port, it is recommended that it be protected using TLS outside of developement environments.
+
+A guide for how to do so can be found here: https://docs.docker.com/engine/security/https/
+
+Assuming you followed this guide, you will need to perform the following steps to allow Payara Server to communicate
+with the Docker engine:
+
+1. Import the CA certificate into the Domain truststore (defaults to
+_${payaraHome}/glassfish/domains/${domainName}/config/cacerts.jks_)
+2. Create a PKCS12 bundle from the client certificate and key
+3. Import the generated PKCS12 bundle into the Domain's keystore (defaults to
+_${payaraHome}/glassfish/domains/${domainName}/config/keystore.jks_)
+
+TIP: Please ensure that the _useTLS_ option of the node matches whether or not you have configured TLS for the Docker
+engine, as otherwise any communication with the Docker engine will fail.
