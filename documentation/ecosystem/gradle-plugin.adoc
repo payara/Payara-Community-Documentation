@@ -3,8 +3,7 @@
 Payara Micro has a Gradle plugin which can start and stop Payara Micro and create
 an Uber JAR bundle of the application and Payara Micro.
 
-The plugin requires JDK 8 or higher and the latest version is currently
-`1.0.1`
+The plugin requires JDK 8 or higher and the latest version is currently `1.0.2`
 
 
 === Installation
@@ -12,7 +11,7 @@ To use it, simply add the following script to your `build.gradle`:
 
 ```
 plugins {
-  id "fish.payara.micro-gradle-plugin" version "1.0.1"
+  id "fish.payara.micro-gradle-plugin" version "1.0.2"
 }
 ```
 
@@ -20,7 +19,7 @@ plugins {
 
 ```
 payaraMicro {
-    payaraVersion = '5.191'
+    payaraVersion = '{{ book.currentVersion }}'
     deployWar = false
     useUberJar = true
     daemon = false
@@ -51,8 +50,8 @@ the specified configurations.
 |Absolute path to the java executable..
 
 |`payaraVersion`
-|5.182
-|By default `microBundle` task fetches payara-micro with version 5.182.
+|{{ book.currentVersion }}
+|By default `microBundle` task fetches payara-micro with version {{ book.currentVersion }}.
 
 |=== 
 
@@ -80,8 +79,8 @@ ID and version. This configuration element has the higher precedence compared to
 |Absolute path to payara-micro executable.
 
 |`payaraVersion`
-|5.182
-|By default `microStart` task fetches payara-micro with version 5.182.
+|{{ book.currentVersion }}
+|By default `microStart` task fetches payara-micro with version {{ book.currentVersion }}.
 
 |`daemon`
 |false
