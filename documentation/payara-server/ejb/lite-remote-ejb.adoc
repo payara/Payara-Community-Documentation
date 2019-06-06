@@ -229,6 +229,7 @@ public interface ClientAdapter {
 To make use of the adapter, put an instance of `ClientAdapter` into JNDI context property `fish.payara.clientAdapter`. Every JNDI lookup will be  first passed to the adapter instance in such case.
 If adapter returns non-empty Optional, that return value is passed back to the client.
 
+[[composing-multiple-adapters]]
 === Composing multiple adapters
 
 Client side emulation might require stubbing diverse JNDI names and return types, and handling all of that in a single ClientAdapter implementation would result in not very maintenable code.
@@ -239,6 +240,7 @@ Therefore the client library offers two classes that help with composition of mu
 Most used method of customizer is `matchPrefix`, which will only call downstream adapter when requested JNDI name matches prefix.
 This prefix is stripped before invoking the downstream adapter.
 
+[[composite-client-adapter-example]]
 ==== Composite Client Adapter example
 
 [source,java]
@@ -257,9 +259,11 @@ Context context = new InitialContext(props);
 
 See https://javadoc.io/doc/fish.payara.extras/ejb-http-client[API documentation] of the client library for detailed description of `ClientAdapterCustomizer` methods and contracts of `CompositeClientAdapter`.
 
-== Known limitations
+[[known-limitations]]
+== Known Limitations
 
-=== Serialization limitations
+[[serialization-limitations]]
+=== Serialization Limitations
 
 HTTP adapter utilizes http://json-b.net/[JSON-B] for serialization.
 This places limits on types of objects that can be transmitted as method arguments or return types.
@@ -269,7 +273,8 @@ The serialization can be customized by means of JSON-B annotations.
 * Complex object graphs should form a tree and not contain cyclic references
 * Polymorphism is not supported by default
 
-=== Programming model limitations
+[[programming-model-limitations]]
+=== Programming Model Limitations
 
 HTTP adapter uses staless HTTP requests.
 In current form, it is therefore unfit for invoking stateful objects like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
