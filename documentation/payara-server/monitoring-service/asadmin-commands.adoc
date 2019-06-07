@@ -303,7 +303,7 @@ You can use the verbose mode to see which levels were restarted:
 
 [source, shell]
 ----
-asadmin > get-monitoring-level
+asadmin > restart-monitoring
      --target=server
      --verbose
 ----
