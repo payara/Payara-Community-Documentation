@@ -303,7 +303,7 @@ Will give an output similar to the following:
 Restarted 3 modules
 ----
 
-You can use the verbose mode to see which levels were restarted:
+You can use the verbose mode to see which modules were affected and what monitoring level they are currently set to:
 
 [source, shell]
 ----
@@ -311,8 +311,6 @@ asadmin > restart-monitoring
      --target=server
      --verbose
 ----
-
-Verbose mode will show you which modules were affected and what monitoring level they are set to.
 
 Will give an output similar to the following:
 
