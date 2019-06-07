@@ -175,7 +175,7 @@ _Since Payara Server 5.183_
 `asadmin> get-monitoring-level`
 
 *Aim*::
-This command can be used get monitoring level of a module.
+This command can be used to get monitoring level of a module.
 
 [[command-options]]
 ==== Command Options
@@ -246,4 +246,74 @@ thread-pool                  OFF
 transaction-service          OFF
 web-container                OFF
 web-services-container       OFF
+----
+
+_Since Payara Server 5.193_
+
+[[restart-monitoring]]
+== `restart-monitoring`
+
+*Usage*::
+`asadmin> restart-monitoring`
+
+*Aim*::
+This command can be used to restart monitoring levels.
+
+[[command-options]]
+==== Command Options
+
+[cols="3,1,5,1,1",options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The name of the configuration to get the monitoring service configuration from.
+|server-config
+|no
+
+|`--verbose`
+|String
+|Enable verbose output for the current command.
+|false
+|no
+
+|===
+
+[[example]]
+==== Example
+
+[source, shell]
+----
+asadmin > restart-monitoring
+     --target=server-config
+----
+
+Will give an output similar to the following:
+[source, shell]
+----
+Restarted 3 modules
+----
+
+You can use the verbose mode to see which levels were restarted:
+
+[source, shell]
+----
+asadmin > get-monitoring-level
+     --target=server
+     --verbose
+----
+
+Will give an output similar to the following:
+
+[source, shell]
+----
+Module                       Monitoring Level
+cloud                        HIGH
+cloud-elasticity             LOW
+cloud-orchestrator           HIGH
 ----
