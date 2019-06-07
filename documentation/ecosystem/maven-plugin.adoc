@@ -4,7 +4,7 @@ Payara Micro has a Maven plugin which can start and stop Payara Micro and create
 an Uber JAR bundle of the application and Payara Micro.
 
 The plugin requires JDK 8 or higher and the latest version is currently
-`1.0.2`
+`1.0.5`
 
 === Configurable Goals
 
@@ -84,8 +84,8 @@ with the provided class.
 |Appends all system properties defined into the `payara-boot.properties` file.
 
 |`payaraVersion`
-|5.182
-|By default bundle mojo fetches payara-micro with version 5.182.
+|{{ book.currentVersion }}
+|By default bundle mojo fetches payara-micro with version {{ book.currentVersion }}.
 
 |`deployArtifacts`
 |_None_
@@ -122,15 +122,16 @@ Example:
     <configuration>
         <useUberJar>true</useUberJar>
         <payaraMicroAbsolutePath>/path/to/payara-micro.jar</payaraMicroAbsolutePath>
-        <payaraVersion>5.182</payaraVersion>
+        <payaraVersion>{{ book.currentVersion }}</payaraVersion>
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>5.182</version>
+            <version>{{ book.currentVersion }}</version>
         </artifactItem>
         <daemon>true</daemon>
         <javaPath>/path/to/Java/Executable</javaPath>
         <deployWar>true</deployWar>
+        <contextRoot>myApp</contextRoot>
         <javaCommandLineOptions>
             <option>
                 <value>-Xdebug</value>
@@ -155,7 +156,7 @@ Example:
 ----
 
 NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
-you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`. See <<using-toolchains>> for more information.
 
 .Configuration tags
 [cols="2,1,7",options="header"]
@@ -176,8 +177,8 @@ ID and version. This configuration element has the higher precedence compared to
 |Absolute path to payara-micro executable.
 
 |`payaraVersion`
-|5.182
-|By default start mojo fetches payara-micro with version 5.182.
+|{{ book.currentVersion }}
+|By default start mojo fetches payara-micro with version {{ book.currentVersion }}.
 
 |`artifactItem`
 |_none_
@@ -202,6 +203,10 @@ to `true` you can skip this and instantly interrupt the executor thread.
 |false
 |If the attached project is of type WAR, it will automatically be deployed to
 payara-micro if `deployWar` is set to `true`.
+
+|`contextRoot`
+|_none_
+|Defines the context root of an application.
 
 |`javaCommandLineOptions`
 |_none_
@@ -246,14 +251,14 @@ Example:
         <artifactItem>
             <groupId>fish.payara.extras</groupId>
             <artifactId>payara-micro</artifactId>
-            <version>5.182</version>
+            <version>{{ book.currentVersion }}</version>
         </artifactItem>
     </configuration>        
 </plugin>
 ----
 
 NOTE: If you want to execute the payara-micro plugin along with maven-toolchains-plugin,
-you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
+you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`. See <<using-toolchains>> for more information.
 
 .Configuration tags
 [cols="2,1,7",options="header"]
@@ -272,3 +277,71 @@ you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 identify the process id of the running payara-micro.
 
 |===
+
+[[using-toolchains]]
+=== Using Toolchains
+The Maven Toolchains provide a way for plugins to discover what JDK (or other tools) are to be used during the build and Payara Micro Maven Plugin also supports using toolchains with its configuration.
+
+In order to use the toolchains with either `payara-micro:start` or `payara-micro:stop`, first toolchains plugin should be defined as:
+[source,XML]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-toolchains-plugin</artifactId>
+    <version>1.1</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>toolchain</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <toolchains>
+            <jdk>
+                <version>1.8</version>
+                <vendor>oracle</vendor>
+            </jdk>
+        </toolchains>
+    </configuration>
+</plugin>
+----
+
+toolchains.xml is the file for configuring each toolchain and it should reside under the .m2 folder. A sample would be as:
+----
+<?xml version="1.0" encoding="UTF8"?>
+<toolchains>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.7</version>
+            <vendor>oracle</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home</jdkHome>
+        </configuration>
+    </toolchain>
+    <toolchain>
+        <type>jdk</type>
+        <provides>
+            <version>1.8</version>
+            <vendor>oracle</vendor>
+        </provides>
+        <configuration>
+            <jdkHome>/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home</jdkHome>
+        </configuration>
+    </toolchain>
+</toolchains>
+----
+The version and the vendor defined in the plugins section should match one of the entries defined in the toolchains.xml file.
+After configuring the toolchain, the plugin can be executed with `start` and `stop` goals as:
+
+[source,Shell]
+----
+mvn toolchains:toolchain payara-micro:start
+----
+[source,Shell]
+----
+mvn toolchains:toolchain payara-micro:stop
+----
+

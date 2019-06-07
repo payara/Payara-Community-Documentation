@@ -16,6 +16,60 @@ Payara has been part of the MicroProfile project from its inception and, therefo
 |Specifications
 |Maven
 
+| 2.2
+|
+* JAX-RS 2.1
+* CDI 2.0
+* JSON-P 1.1
+* Common Annotations 1.3
+* JSON-B 1.0
+* https://github.com/eclipse/microprofile-config/releases/tag/1.3[Config 1.3]
+* https://github.com/eclipse/microprofile-metrics/releases/tag/1.1[Metrics 1.1]
+* https://github.com/eclipse/microprofile-health/releases/tag/1.0[Health Check 1.0]
+* https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/2.0[Fault Tolerance 2.0]
+* https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.1[JWT Authentication 1.1]
+* https://github.com/eclipse/microprofile-opentracing/releases/tag/1.3[OpenTracing 1.3]
+* https://github.com/eclipse/microprofile-open-api/releases/tag/1.1[OpenAPI 1.1]
+* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.2[Rest Client 1.2]
+
+| [source, xml]
+----
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>2.2</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+----
+
+| 2.1
+|
+* JAX-RS 2.1
+* CDI 2.0
+* JSON-P 1.1
+* Common Annotations 1.3
+* JSON-B 1.0
+* https://github.com/eclipse/microprofile-config/releases/tag/1.3[Config 1.3]
+* https://github.com/eclipse/microprofile-metrics/releases/tag/1.1[Metrics 1.1]
+* https://github.com/eclipse/microprofile-health/releases/tag/1.0[Health Check 1.0]
+* https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/1.1[Fault Tolerance 1.1]
+* https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.1[JWT Authentication 1.1]
+* https://github.com/eclipse/microprofile-opentracing/releases/tag/1.2[OpenTracing 1.2]
+* https://github.com/eclipse/microprofile-open-api/releases/tag/1.0[OpenAPI 1.0]
+* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.1[Rest Client 1.1]
+
+| [source, xml]
+----
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>2.1</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+----
+
 | 2.0
 |
 * JAX-RS 2.1
@@ -57,7 +111,7 @@ Payara has been part of the MicroProfile project from its inception and, therefo
 * https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.0[JWT Authentication 1.0]
 * https://github.com/eclipse/microprofile-opentracing/releases/tag/1.0[OpenTracing 1.0]
 * https://github.com/eclipse/microprofile-open-api/releases/tag/1.0[OpenAPI 1.0]
-* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.1[Rest Client 1.1]
+* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.0[Rest Client 1.0]
 
 
 | [source, xml]
@@ -135,9 +189,17 @@ Payara has been part of the MicroProfile project from its inception and, therefo
 
 == Payara Support for MicroProfile
 
+Version 2.2::
+Version 2.2 of MicroProfile includes an update to FaultTolerance, the RestClient, OpenAPI and OpenTracing.
+This is supported by both Payara Server and Payara Micro from release *5.192*
+
+Version 2.1::
+Version 2.1 of MicroProfile includes an update to OpenTracing, bringing it up to version 1.2.
+This is supported by both Payara Server and Payara Micro from release *5.191*
+
 Version 2.0::
 Version 2.0 of MicroProfile brings in Java EE 8 technology updates: CDI 2.0, JAX-RS 2.1, JSON-P 1.1, Commons Annotation 1.3, and JSON-B 1.0. This version also includes updates present in 1.4: Fault Tolerance 1.1, JWT-Auth 1.1, and OpenTracing 1.1.
-This is supported by both Payara Server and Payara Micro from release *4.1.2.183* and *5.183*
+This is supported by both Payara Server and Payara Micro from release *5.183*
 
 Version 1.3::
 Version 1.3 of MicroProfile includes 3 new APIs, and updates to the existing Metrics and Config APIs.

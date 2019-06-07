@@ -110,6 +110,24 @@ For *EAR* applications, you can include the
 With this, all libraries included on the EAR's `lib/` directory will
 take precedence.
 
+[[use-bundled-jsf]]
+== Use other JSF implementation
+
+In order to make the server use the bundled JSF implementation within the application, you need to set an additional configuration parameter; class loading delegation alone is not enough.
+You need to indicate within the _payara-web.xml_ (or glassfish-web.xml) file that the server should use the bundled JSF implementation as follows:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "https://docs.payara.fish/schemas/payara-web-app_4.dtd">
+<payara-web-app error-url="">
+    <class-loader delegate="false"/>
+    <property name="useBundledJsf" value="true" />
+</payara-web-app>
+----
+
+By specifying these options, the bundled JSF implementation within your deployment (WAR or EAR) will be used correctly.
+
 [[extreme-classloading-isolation]]
 == Extreme Classloading Isolation
 

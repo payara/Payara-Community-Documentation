@@ -32,7 +32,7 @@ artifact, e.g. {{ book.currentVersion }}.
 _Since Payara Micro 4.1.1.171_
 
 Starting from this release, you need to add a dependency to
-the link:/documentation/payara-server/app-deployment/public-api.adoc[Public API]
+the link:/documentation/payara-server/public-api/[Public API]
 when developing applications that use proprietary features (`@Clustered` or
 `@NamedCache` for example)
 

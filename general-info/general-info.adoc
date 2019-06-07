@@ -100,7 +100,7 @@ to merge your changes into the main project.
 Before we merge your pull request though, you must read and sign the
 Individual Contributor License Agreement (CLA) before sending it to us at
 the address specified on the document, or as an email attachment to
-info@payara.fish.
+cla@payara.org.
 
 Once we've received the CLA and checked it for any mistakes, we'll allow
 any pull requests you've made to start being merged.

@@ -19,3 +19,7 @@ _book
 *.swp
 /temp/
 package-lock.json
+
+#IntelliJ
+.idea
+*.iml

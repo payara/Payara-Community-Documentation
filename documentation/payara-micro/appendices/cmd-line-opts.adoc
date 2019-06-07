@@ -28,10 +28,13 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |`--clustername <cluster-name>`
 |Sets the cluster group name.|
 |`--clusterpassword <cluster-password>`|Sets the cluster group password.|
+|`--contextroot <context-path>`|Sets the context root of the application originating from the `--deploy` option given first that does not specify a context root itself. See 
+<<deploy-cmd-line#define-context-root,Define context root>> for more details.
+|
 |`--copytouberjar <directory-path`
 |<directory-path> copy a directory into the root of an uberjar|
-|`--deploy <file-path>`
-|Specifies a WAR file to deploy.| If not set, has no value and is not used.
+|`--deploy <file-path>[:<context-path]`
+|Specifies a WAR file to deploy and optionally the context path to use for that application.| If not set, has no value and is not used.
 |`--deploydir <directory-path>`
 |Sets a directory which will be scanned for EAR, WAR, and RAR files for auto-deployment.
 |If not set, has no value and is not used.
@@ -64,9 +67,10 @@ on members with the same IP Address.| _false_
 |Sets the Hazelcast configuration file to use for overriding the built-in Hazelcast
 cluster configuration.| If not set, the built-in Hazelcast configuration file
 is used.
-|`--hzPublicAddress <host-name or ip>`|
-|`--instancegroup <group-name>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
-|See `--group`|
+|`--hzinitialjoinwait <time in seconds>`|Sets the time in seconds for Payara Micro to wait before attempting to join the
+data grid.|1
+|`--hzPublicAddress <host-name or ip>`|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT|
+|`--instancegroup <group-name>`|See `--group`|
 |`--interfaces`|Specifies the Interfaces that the data grid discovery mode should use to listen. Can be comma separated, e.g. 127.0.0.1,192.168.0.*|
 |`--lite`
 |Sets the micro container to lite mode, which means it clusters with other Payara
@@ -105,9 +109,9 @@ line arguments and exit.|
 |Provides a file of asadmin commands to run *after all deployments have completed*.|
 |`--prebootcommandfile <file-path>`
 |Provides a file of asadmin commands to run *before booting the server*.|
-|`--requesttracingadaptivesamplingtargetcount`||
-|`--requesttracingadaptivesamplingtimeunit`||
-|`--requesttracingadaptivesamplingtimevalue`||
+|`--requesttracingadaptivesamplingtargetcount`|The target number of traces to sample per the configured time window | 6
+|`--requesttracingadaptivesamplingtimeunit`| The time unit for the adaptive sample time; a `java.util.concurrent.TimeUnit` value (also in singular) or one of the short forms: `ns`, `us`/`µs`, `ms`, `s`, `m`/`min`/`mins`, `h` or `d`.  | MINUTES
+|`--requesttracingadaptivesamplingtimevalue`| The period of time to attempt to hit the adaptive sample target count in | 1
 |`--requesttracingthresholdunit <threshold-unit-notation>`
 |Sets the time unit for the requestTracingThresholdValue option, i.e. `SECONDS`,
 `ms`, `days` etc.|
