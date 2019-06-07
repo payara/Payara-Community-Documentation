@@ -308,6 +308,8 @@ asadmin > restart-monitoring
      --verbose
 ----
 
+Verbose mode will show you which modules were affected and what monitoring level they are set to.
+
 Will give an output similar to the following:
 
 [source, shell]
