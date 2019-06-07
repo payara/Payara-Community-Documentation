@@ -257,7 +257,10 @@ _Since Payara Server 5.193_
 `asadmin> restart-monitoring`
 
 *Aim*::
-This command can be used to restart monitoring levels.
+This command can be used to restart monitoring levels. 
+It will set all modules to 'OFF' before setting them to their previous level.
+
+This command is useful when AMX metrics 'breaks' as some users have reported setting monitoring levels to 'OFF' and back again fixes it, however doing so manually can be slow and prone to error.
 
 [[command-options]]
 ==== Command Options
