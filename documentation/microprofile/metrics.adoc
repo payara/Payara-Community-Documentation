@@ -65,7 +65,7 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
 </config>
 ----
 
-IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application is deployed which uses the connection pool.
+IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application that uses the connection pool is deployed.
 
 [[templating-metrics-amx-mbeans]]
 === Templating Metrics for AMX MBeans
@@ -74,28 +74,23 @@ _Since Payara Server 4.1.2.182 and 5.182_
 
 It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example). 
 
-You can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
+[[simple-templating]]
+==== Simple Templating
 
-These placeholders are used as follow:
+You can use the `%s` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
 
-`key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
-
-`attribute`:: Used as a placeholder for the name of an attribute of an AMX MBean.
-
-`subattribute`:: Used as a placeholder for the name of a subattribute (or second-level attribute), which corresponds to an attribute of a `CompositeData` type of attribute in the corresponding AMX MBean.
-
-IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholders in the `name` element as well to prevent name collisions between different templated metrics.
+IMPORTANT: You will need to use the `%s` placeholder in the name element as well to allow each metric to have a different name and avoid collisions.
 
 [[example]]
-==== Example
+===== Example
 
 Here's a simple example of defining a custom metric definition template that will generate metrics for the number of free connections available to all JDBC connections pools:
 
 [source, xml]
 ----
 <metadata>
-     <name>jdbc.connection.pool.${key}Pool.numconnfree</name>
-     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/${key}Pool/numconnfree#current</mbean>
+     <name>jdbc.connection.pool.%sPool.numconnfree</name>
+     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/%sPool/numconnfree#current</mbean>
      <type>counter</type>
      <unit>none</unit>
      <displayName>numconnfreePool</displayName>
@@ -118,7 +113,27 @@ vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
 vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
 ----
 
-Here's another example of defining a custom metric definition template with multiple placeholder that will generate metrics for the number of free connections available to all JDBC connections pools:
+[[advanced-templating]]
+==== Advanced Templating
+
+_Since Payara Server 4.1.2.184 and 5.184_
+
+If you need more control on the attributes of specific MBeans used in a metric definition, you can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define more fine-grained metrics.
+
+These placeholders are used as follows:
+
+`key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
+
+`attribute`:: Used as a placeholder for the name of an *attribute* of an AMX MBean.
+
+`subattribute`:: Used as a placeholder for the name of a *sub-attribute* (or second-level attribute), which corresponds to the attribute of a `CompositeData` object.
+
+IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholders in the `name` element as well to prevent name collisions between different templated metrics.
+
+[[example-1]]
+===== Example
+
+Here's an example of defining a custom metric definition template with these placeholders that will generate a counter metric for each specific connection metric that is available to all JDBC connection pools:
 
 [source, xml]
 ----
@@ -161,14 +176,12 @@ vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count 0
 ......
 ----
 
-IMPORTANT: Prior to versions *5.184* and *4.1.2.184*, instead of the 3 placeholders described previously, the MicroProfile Metrics runtime supported the generic placeholder `%s` instead. This placeholder was used as a wildcard (`*`) expression to template metrics based on the AMX MBeans names. These placeholders where introduced to broaden the scope of available metric definitions.
-
 [[metrics-configuration]]
 == Metrics Configuration
 
 Metrics can be configured by using Admin Console or Asadmin commands. 
 
-_Since *5.183*&nbsp;_
+_Since Payara Platform 5.183_
 
 [[using-the-admin-console]]
 === Using the Admin Console
