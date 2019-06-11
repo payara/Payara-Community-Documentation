@@ -120,7 +120,7 @@ _Since Payara Server 4.1.2.184 and 5.184_
 
 If you need more control on the attributes of specific MBeans used in a metric definition, you can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define more fine-grained metrics.
 
-These placeholders are used as follow:
+These placeholders are used as follows:
 
 `key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
 

@@ -41,14 +41,14 @@ You can also use the following asadmin command to set the value of the property 
 asadmin> set configs.config.${YOUR_INSTANCE_CONFIG}.security-service.auth-realm.certificate.property.common-name-as-principal-name=true
 ----
 
-IMPORTANT: After setting the value of the property, make sure that you **restart the server instance** to for the changes to take effect.
+IMPORTANT: After setting the value of the property, make sure that you **restart the server instance** for the changes to take effect.
 
 [[using-cn-as-subject-in-applications]]
 === Using `CN` as Subject in Applications
 
-With the feature enable, users can be correctly authenticated when a valid certificate uses the common name instead of the full domain name. It is also possible to map users to roles and groups in this manner.
+With the feature enabled, users can be correctly authenticated when a valid certificate uses the common name instead of the full domain name. It is also possible to map users to roles and groups in this manner.
 
-For example if previously an user authorization roles and groups were mapped like this in the `payara-web.xml` deployment descriptor:
+For example, if user authorization roles and groups were mapped like this in the `payara-web.xml` deployment descriptor:
 
 [source,xml]
 ----
