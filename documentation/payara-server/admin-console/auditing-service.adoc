@@ -205,7 +205,7 @@ false    MODIFIERS
 Name     Notifier Enabled
 LOG      false
 
-Command get-requesttracing-configuration executed successfully.
+Command get-admin-audit-configuration executed successfully.
 ----
 
 NOTE: The first row corresponds to the service configuration, second row onwards will detail any notifiers being configured..
