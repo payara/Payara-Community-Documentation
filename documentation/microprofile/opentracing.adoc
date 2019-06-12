@@ -10,13 +10,26 @@ Provided version of the API: {{ book.mpOpenTracingSpecUrl }}[MicroProfile Open T
 
 The Open Tracing API was created to allow easier tracing of the flow of a request in microservices environment across service boundaries.
 
-A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the README of the MicroProfile OpenTracing source code repository].
+A full overview for the reasoning behind the API can be found in https://github.com/eclipse/microprofile-opentracing/blob/master/README.adoc[the README of the MicroProfile OpenTracing source code repository].
 
 {{ book.mpOpenTracingSpecUrl }}[The complete specification] is maintained in the same repository.
 
-The Payara implementation of `io.opentracing.Tracer` supports TextMap carriers with HTTP_HEADERS and TEXT_MAP formats and ByteBuffer carriers with BINARY format
-since Payara Server 4.1.2.183 and 5.183.
+[[text-and-binary-carriers]]
+== Text and Binary Carriers Support
+
+_Since Payara Platform 4.1.2.183 and 5.183_
+
+The Payara Platform implementation of the `io.opentracing.Tracer` interface supports the following carriers:
+
+* `TextMap` carriers with `HTTP_HEADERS` and `TEXT_MAP` formats 
+* `ByteBuffer` carriers that use the `BINARY` format
+
+[[jax-ws-support]]
+== JAX-WS Support
+
+_Since Payara Server 5.192_
+
+The Payara Platform's MicroProfile implementation supports tracing of requests that are handled by SOAP Web Services implemented via the JAX-WS API. Since JAX-WS is only supported on Payara Server Full Profile, this support is not covered on Payara Micro.
 
 [[opentracing-configuration]]
 === OpenTracing Configuration
