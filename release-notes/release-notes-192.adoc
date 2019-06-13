@@ -30,6 +30,15 @@ preview) as our first iteration of better native Docker integration. These
 function similarly to existing nodes, except the instances created for a Docker
 node are run within Docker containers.
 
+=== Removal of System Property
+
+The system property `java.ext.dirs` is no longer supported. This also means that
+JAR files within the `<payara-home>/glassfish/domains/<domain>/lib/ext` directory are no longer placed on the classpath.
+The `<payara-home>/glassfish/domains/<domain>/lib` directory is the preferred place to put these additional JAR files or
+the `asadmin add-library` command can be used to place it there for you.
+
+Also the System property `java.endorsed.dirs` is no longer supported.
+
 == Known Issues
 
 - [PAYARA-3865] - Output of asadmin osgi commands is not displayed. The issue was discovered later in release cycle. Workaround is to use OSGi shell over
