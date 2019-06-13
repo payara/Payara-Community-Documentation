@@ -130,4 +130,5 @@ The following JVM options appear in both `domain` and `production` domain:
 * `-Dorg.jboss.weld.serialization.beanIdentifierIndexOptimization=false`
 * `-Dorg.glassfish.grizzly.DEFAULT_MEMORY_MANAGER=org.glassfish.grizzly.memory.HeapMemoryManager`
 
-Support for the `java.endorsed.dirs` and `java.ext.dirs` options are removed from version 5.192 onwards (these were deprecated since 5.191)
+Support for the `java.endorsed.dirs` and `java.ext.dirs` options are removed from version 5.192 onwards (these were deprecated since 5.191).
+The concept of endorsed and ext directories are no longer supported with Java 9+.
