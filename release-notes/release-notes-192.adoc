@@ -30,10 +30,23 @@ preview) as our first iteration of better native Docker integration. These
 function similarly to existing nodes, except the instances created for a Docker
 node are run within Docker containers.
 
+=== Removal Of Some System Properties When Using JDK 11
+
+The system property `java.ext.dirs` is no longer supported in JDK 11. This also means that
+JAR files within the `<payara-home>/glassfish/domains/<domain>/lib/ext` directory are no longer placed on the classpath.
+The `<payara-home>/glassfish/domains/<domain>/lib` directory is the preferred place to put these additional JAR files or
+the `asadmin add-library` command can be used to place it there for you.
+
+Also the System property `java.endorsed.dirs` is no longer supported in JDK 11.
+
+Both system properties are already deprecated since Payara Server 5.191. They should still be supported in version 5.192 when running on JDK 8, but, due to a bug [PAYARA-3931], they also can't be used with JDK 8 until this is fixed (see *Known Issues* below).
+
 == Known Issues
 
 - [PAYARA-3865] - Output of asadmin osgi commands is not displayed. The issue was discovered later in release cycle. Workaround is to use OSGi shell over
 telnet. The server can be started by issuing command asadmin osgi telnetd start.
+- [PAYARA-3931] - Using the system property `java.ext.dirs` and `java.endorsed.dirs` leads to an exception. This also means that
+JAR files within the `<payara-home>/glassfish/domains/<domain>/lib/ext` directory are no longer placed on the classpath.
 
 == Bug Fixes
 
