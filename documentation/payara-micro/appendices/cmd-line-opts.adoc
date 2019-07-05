@@ -121,7 +121,7 @@ line arguments and exit.|
 |Sets the root configuration directory and saves the configuration across restarts.
 |Defaults to `java.io.tmpdir`.
 |`--secretsdir`|Directory to read configuration from key-value files using the Microprofile config api.|
-|`--shutdowngrace <duration-ms>`|  After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating.  | 0
+|`--shutdowngrace <duration-ms>`|  After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. Currently, new requests are still accepted during this grace period. | 0
 |`--sslport <ssl-port-number>`
 |Sets the HTTPs port that the instance will bind to.| If not set, has no value
 and HTTPS is disabled.
