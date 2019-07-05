@@ -16,7 +16,7 @@ libraries from applications, and
 _latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
 directory | true, false | true
 
-| fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. | 0 - Integer.MAX | 0
+| fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. Currently, new requests are still accepted during this grace period.| 0 - Integer.MAX | 0
 
 | fish.payara.permittedFormBasedAuthHttpMethods | String | A comma separated list of HTTP methods that are permitted to use for FORM based authentication (`j_security_check`). If not set all HTTP methods are permitted. | GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH | null (undefined)
 
