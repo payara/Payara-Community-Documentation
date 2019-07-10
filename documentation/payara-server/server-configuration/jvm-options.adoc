@@ -64,5 +64,5 @@ You can specify the range for each JVM option when specifying multiple options t
 +
 [source, shell]
 ----
-asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true":"[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions":"[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2"
+asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true:[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions:[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2"
 ----
