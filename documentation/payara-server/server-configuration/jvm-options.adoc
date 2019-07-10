@@ -34,8 +34,8 @@ You can omit either the minimum or maximum versions by leaving the fields blank.
 [[using-asadmin-commands]]
 === Using Asadmin commands
 
-JVM options can be configured using the 'create-jvm-options' asadmin command
-NOTE: The jvm option key value pair must be enclosed in quotation marks as follows - asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true"
+JVM options can be configured using the 'create-jvm-options' asadmin command. The jvm option key value pair must be enclosed in quotation marks as follows: `_asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true"_`
+
 The `create-jvm-options` asadmin command has been modified to set the miminum and maximum JDK versions in the following ways:
 
 . Use the `--min-jvm` and `--max-jvm` arguments to set the versions when running the command:
