@@ -34,15 +34,17 @@ You can omit either the minimum or maximum versions by leaving the fields blank.
 [[using-asadmin-commands]]
 === Using Asadmin commands
 
+JVM options can be configured using the 'create-jvm-options' asadmin command
+NOTE: The jvm option key value pair must be enclosed in quotation marks as follows - asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true"
 The `create-jvm-options` asadmin command has been modified to set the miminum and maximum JDK versions in the following ways:
 
 . Use the `--min-jvm` and `--max-jvm` arguments to set the versions when running the command:
 +
 [source, shell]
 ----
-asadmin create-jvm-options --target=server-config --min-jvm=1.8.0u162 -Djava.awt.headless\=true
+asadmin create-jvm-options --target=server-config --min-jvm=1.8.0u162 "-Djava.awt.headless\=true"
 
-asadmin create-jvm-options --target=server-config --max-jvm=1.8.0u172 -XX\:+UnlockDiagnosticVMOptions
+asadmin create-jvm-options --target=server-config --max-jvm=1.8.0u172 "-XX\:+UnlockDiagnosticVMOptions"
 ----
 +
 NOTE: When using these arguments to set multiple JVM options, the specified versions will be applied for each option.
@@ -51,16 +53,16 @@ NOTE: When using these arguments to set multiple JVM options, the specified vers
 +
 [source, shell]
 ----
-asadmin create-jvm-options --target=server-config [1.8.0u162|]-Djava.awt.headless\=true
+asadmin create-jvm-options --target=server-config "[1.8.0u162|]-Djava.awt.headless\=true"
 
-asadmin create-jvm-options --target=server-config [|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions
+asadmin create-jvm-options --target=server-config "[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions"
 
-asadmin create-jvm-options --target=server-config [1.8.0u168|1.8.0u172]-XX\:NewRatio\=2
+asadmin create-jvm-options --target=server-config "[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2"
 ----
 +
 You can specify the range for each JVM option when specifying multiple options too:
 +
 [source, shell]
 ----
-asadmin create-jvm-options --target=server-config -Djava.awt.headless\=true:[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions:[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2
+asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true":"[|1.8.0u172]-XX\:+UnlockDiagnosticVMOptions":"[1.8.0u168|1.8.0u172]-XX\:NewRatio\=2"
 ----
