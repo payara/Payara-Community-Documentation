@@ -13,7 +13,7 @@ IMPORTANT: The Docker engine must expose its REST admin service on an HTTP port
 
 [[exposing-the-docker-rest-admin-service]]
 == Exposing the Docker REST Admin Service
-To expose the REST admin service of the Docker engine, you need to specify the -H option in your DOCKER_OPTS environment
+To expose the REST admin service of the Docker engine, you need to specify the `-H` option in your `DOCKER_OPTS` environment
 variable, or otherwise specify it in the command that starts the docker service.
 
 For example:
