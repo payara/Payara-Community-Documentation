@@ -99,6 +99,13 @@ GAVs to be copied under MICRO-INF/lib folder.
 
 |=== 
 
+Additionally boot command scripts will be included if they exist in `src/main/resources`
+and transferred to the `MICRO-INF` directory of the created uber jar artifact.
+
+- `pre-boot-commands.txt` - provides a file of asadmin commands to run before booting the server.
+- `post-boot-commands.txt` - provides a file of asadmin commands to run after booting the server.
+- `post-deploy-commands.txt` - provides a file of asadmin commands to run after all deployments have completed.
+
 ==== `start`
 *Aim*: This goal starts Payara Micro with the specified configuration.
 
