@@ -9,14 +9,9 @@ same events described in its link:/documentation/payara-server/request-tracing-s
 [[usage]]
 == Usage
 
-Payara Micro exposes 3 command line options to configure request tracing. To be
-explicit about the desired configuration, all three arguments can be used, but
-this is not necessary since the command to enable tracing can also accept explicit
-configuration options.
-
-Since all three options can be specified with an extra parameter following the
-`--enableRequestTracing` argument as a shorthand, a detailed summary of this shorthand
-usage is given below.
+Payara Micro exposes a number of command line options to configure request tracing. These options cover the most frequent
+use cases for Payara Micro, but you can also configure the Request Tracing Service using a *post*-boot command file as you
+would the server to get access to the full range of options.
 
 [[configuration-options]]
 === Configuration Options
@@ -49,8 +44,25 @@ value is given. The accepted strings are (case insensitive):
 * `DAYS`
 
 | `requestTracingThresholdValue`
-| Accepts a `long` value to determine the threshold value before a request is traced,
+| Accepts an integer value to determine the threshold value before a request is traced,
 defaulting to 30 if no value is entered.
+
+| `enablerequesttracingadaptivesampling`
+| Enables the _Adaptive Sampling_ option when present.
+
+| `requesttracingadaptivesamplingtargetcount`
+| Accepts an integer value to determine the threshold value before a request is traced,
+defaulting to 6 if no value is entered.
+
+| `requesttracingadaptivesamplingtimevalue`
+| Accepts an integer value to determine the threshold value before a request is traced,
+defaulting to 1 if no value is entered.
+
+| `requesttracingadaptivesamplingtimeunit`
+| Accepts a String value determining the time unit, defaulting to minutes if no
+value is given. The accepted strings are (case insensitive):
+
+
 |===
 
 [[shorthand-notation]]
