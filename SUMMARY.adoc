@@ -136,6 +136,8 @@
 ** link:documentation/payara-server/request-tracing-service/request-tracing-service.adoc[Request Tracing Service]
 *** link:documentation/payara-server/request-tracing-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/request-tracing-service/configuration.adoc[Configuration]
+*** link:documentation/payara-server/request-tracing-service/usage.adoc[Usage]
+*** link:documentation/payara-server/request-tracing-service/terminology.adoc[Terminology]
 ** link:documentation/payara-server/phone-home/phonehome-overview.adoc[Phone Home]
 *** link:documentation/payara-server/phone-home/phone-home-information.adoc[Gathered Data]
 *** link:documentation/payara-server/phone-home/phone-home-asadmin.adoc[Asadmin Commands]
