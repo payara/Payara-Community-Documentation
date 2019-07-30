@@ -28,6 +28,8 @@ instances require secure admin to be enabled to start.
 * Docker Image - The Docker image to use. Payara Server will default to using the
 _payara/payaraserver-node:{{book.currentVersion}}_ image.
 
+NOTE: in only Payara Server 5.192 the Docker image option needs to be specified.
+
 The configuration options of CONFIG nodes are also available, namely _nodehost_, _nodedir_, and _installdir_. Specifying
 the _nodehost_ option remains mandatory, but for docker nodes the _installdir_ and _nodedir_ options can safely be left as
 their defaults unless you're specifying your own Docker image.
