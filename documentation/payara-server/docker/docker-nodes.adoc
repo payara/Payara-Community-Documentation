@@ -25,10 +25,8 @@ This file should be a standard Payara password file as you would use with asadmi
 instances require secure admin to be enabled to start.
 * TLS - Whether or not to use HTTPS to communicate with the Docker engine or not.
 * Docker Port - The port that the Docker engine is listening on. Defaults to 2376.
-* Docker Image - The Docker image to use. Payara Server will default to using the
-_payara/payaraserver-node:{{book.currentVersion}}_ image.
-
-NOTE: in only Payara Server 5.192 the Docker image option needs to be specified.
+* Docker Image - The Docker image to use. This must be specified; the suggested image name is the Payara provided image:
+_payara/payaraserver-node:{{book.currentVersion}}_.
 
 The configuration options of CONFIG nodes are also available, namely _nodehost_, _nodedir_, and _installdir_. Specifying
 the _nodehost_ option remains mandatory, but for docker nodes the _installdir_ and _nodedir_ options can safely be left as
