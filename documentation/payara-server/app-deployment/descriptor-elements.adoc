@@ -226,7 +226,7 @@ given amount of milliseconds for an EJB to be freed. Only after this
 `max-wait-time-in-millis` is exceeded will the server create a new instance of
 the requested EJB.
 
-For more detail, see the link:/documentation/payara-server/ejb.adoc[Enhanced EJB configuration] section.
+For more detail, see the link:/documentation/payara-server/README.adoc[Enhanced EJB configuration] section.
 
 [[webservice-default-login-config]]
 == `webservice-default-login-config`
