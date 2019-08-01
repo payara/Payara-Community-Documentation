@@ -96,7 +96,7 @@ Command get-notification-configuration executed successfully.
 `asadmin> set-notification-configuration --enabled=true --dynamic=true --notifierEnabled=true --notifierDynamic=true --useseparatelogfile=true`
 
 *Aim*::
-This command can be used to set the the configuration of the Notification Service and the Log Notifier
+This command can be used to set the configuration of the Notification Service and the Log Notifier
 at the same time.
 
 [[command-options-4]]
