@@ -5,7 +5,7 @@ _Since version 4.1.2.181_
 
 WARNING: This feature is released in *_technical preview_*. It's fully usable 
 and supported but it's subject to change in future versions. Read more in 
-link:general-info/technical-preview.adoc[Features in Technical Preview].
+link:/general-info/technical-preview.adoc[Features in Technical Preview].
 
 Payara Notification Logging Service captures information about events which come 
 from other services, such as the JMX Monitoring Service, the HealthCheck service 
