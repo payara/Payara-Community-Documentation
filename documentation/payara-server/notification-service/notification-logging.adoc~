@@ -40,15 +40,26 @@ file can be found at:
 
 This section will go through following topics:
 
+<<<<<<< HEAD:documentation/payara-server/notification-service/notification-logging.adoc
+* link:payara-notification-logging.adoc#enabling-or-disabling-logging-to-a-file[Enabling or Disabling Logging to a File]
+* link:payara-notification-logging.adoc#configuring-log-file-rotation[Configuring Log File Rotation]
+** link:payara-notification-logging.adoc#rotation-on-date-change[Rotation on Date Change]
+** link:payara-notification-logging.adoc#rotation-on-file-size[Rotation on File Size]
+** link:payara-notification-logging.adoc#rotation-on-time-limit[Rotation on Time Limit]
+* link:payara-notification-logging.adoc#to-set-maximum-number-of-history-files[To Set Maximum Number of History Files]
+* link:payara-notification-logging.adoc#to-change-the-name-and-location-of-the-log-file[To Change the Name and Location of the Log File]
+* link:payara-notification-logging.adoc#to-set-compress-on-rotation[To Set Compress on Rotation]
+=======
 * link:notification-logging.adoc#enabling-or-disabling-logging-to-a-file[Enabling or Disabling Logging to a File]
 * link:notification-logging.adoc#configuring-log-file-rotation[Configuring Log File Rotation]
 ** link:notification-logging.adoc#rotation-on-date-change[Rotation on Date Change]
 ** link:notification-logging.adoc#rotation-on-file-size[Rotation on File Size]
 ** link:notification-logging.adoc#rotation-on-time-limit[Rotation on Time Limit]
+* link:notification-logging.adoc#to-change-logging-format[To Change Logging Format]
 * link:notification-logging.adoc#to-set-maximum-number-of-history-files[To Set Maximum Number of History Files]
 * link:notification-logging.adoc#to-change-the-name-and-location-of-the-log-file[To Change the Name and Location of the Log File]
 * link:notification-logging.adoc#to-set-compress-on-rotation[To Set Compress on Rotation]
-
+>>>>>>> 22fafb7... SERV-135 Fixed broken links in the 5.192 branch:documentation/payara-server/logging/notification-logging.adoc
 
 NOTE: Payara server most be restarted after changes are made to logging options 
 for it to apply. 
