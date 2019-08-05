@@ -10,8 +10,8 @@ same events described in its link:/documentation/payara-server/request-tracing-s
 == Usage
 
 Payara Micro exposes a number of command line options to configure request tracing. These options cover the most frequent
-use cases for Payara Micro, but you can also configure the Request Tracing Service using a *post*-boot command file as you
-would the server to get access to the full range of options.
+use cases for Payara Micro, but you can also configure the Request Tracing Service using a *post*-boot command file,
+giving you access to the asadmin commands and the full range of options they provide.
 
 [[configuration-options]]
 === Configuration Options
@@ -43,26 +43,42 @@ value is given. The accepted strings are (case insensitive):
 * `HOURS`
 * `DAYS`
 
+This is combined with the `requestTracingThresholdValue` setting to determine the threshold time period.
+
 | `requestTracingThresholdValue`
 | Accepts an integer value to determine the threshold value before a request is traced,
-defaulting to 30 if no value is entered.
+defaulting to 30 if no value is entered. This is combined with the `requestTracingThresholdUnit` setting to determine
+the threshold time period.
 
 | `enablerequesttracingadaptivesampling`
-| Enables the _Adaptive Sampling_ option when present.
+| Enables the _Adaptive Sampling_ option when present. When enabled, this allows the sample rate to change to attempt to
+meet a target count of traces over a specified period of time.
 
 | `requesttracingadaptivesamplingtargetcount`
 | Accepts an integer value to determine the threshold value before a request is traced,
-defaulting to 6 if no value is entered.
+defaulting to 6 if no value is entered. Only used if adaptive sampling is enabled.
 
 | `requesttracingadaptivesamplingtimevalue`
 | Accepts an integer value to determine the threshold value before a request is traced,
-defaulting to 1 if no value is entered.
+defaulting to 1 if no value is entered. Only used if adaptive sampling is enabled.
+This is combined with the `requesttracingadaptivesamplingtimeunit` setting to determine
+the adaptive sampling time period.
 
 | `requesttracingadaptivesamplingtimeunit`
 | Accepts a String value determining the time unit, defaulting to minutes if no
 value is given. The accepted strings are (case insensitive):
 
+* `NANOSECONDS`
+* `MICROSECONDS`
+* `MILLISECONDS`
+* `SECONDS`
+* `MINUTES`
+* `HOURS`
+* `DAYS`
 
+This is combined with the `requesttracingadaptivesamplingtimevalue` setting to determine
+the adaptive sampling time period.
+Only used if adaptive sampling is enabled.
 |===
 
 [[shorthand-notation]]
