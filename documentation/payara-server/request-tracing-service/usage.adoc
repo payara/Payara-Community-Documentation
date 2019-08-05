@@ -1,7 +1,7 @@
 [[usage]]
 = Usage
 
-Tracing in the Payara Platform is done either automatically, or via using the MicroProfile OpenTracing `@Traced`
+Tracing in the Payara Platform is done either automatically, or by using using the MicroProfile OpenTracing `@Traced`
 annotation. This section covers manually decorating your applications for tracing.
 
 [[using-the-traced-annotation]]
@@ -9,7 +9,7 @@ annotation. This section covers manually decorating your applications for tracin
 
 The `@Traced` annotation can be placed on CDI Bean methods to automatically trace each call
 of the method. You can also place the annotation on the class itself to trace all methods
-within the class.
+within the class, rather than adding the annotation to each method individually.
 
 The `@Traced` annotation accepts two optional parameters:
 
@@ -122,7 +122,7 @@ JAX-RS calls as these will automatically do this for you.
 
 [[disabling-automatic-tracing]]
 == Disabling Automatic Tracing of JAX-RS Methods and MicroProfile REST Client Calls
-By default, calls to JAX-RS methods and any calls made from a MicroProfile REST Client are traced.
+By default, calls to JAX-RS methods and any calls by a MicroProfile REST Client are traced.
 
 [[disabling-jaxrs-tracing]]
 === Disabling Automatic Tracing of JAX-RS Methods
