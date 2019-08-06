@@ -93,11 +93,11 @@ Command get-notification-configuration executed successfully.
 == `set-notification-configuration`
 
 *Usage*::
-`asadmin> set-notification-configuration --enabled=true --dynamic=true --notifierName="service-log" --notifierEnabled=true --notifierDynamic=true`
+`asadmin> set-notification-configuration --enabled=true --dynamic=true --notifierEnabled=true --notifierDynamic=true --useseparatelogfile=true`
 
 *Aim*::
-This command can be used to set all configuration of the
-Notification Service at once.
+This command can be used to set the configuration of the Notification Service and the Log Notifier
+at the same time.
 
 [[command-options-4]]
 === Command Options
@@ -108,12 +108,13 @@ Notification Service at once.
 |`--enabled=true` |Boolean |Enables or disables the service |False |No
 |`--dynamic=true` |Boolean |When set to true, applies the changes
 without a restart. Otherwise a restart is required. |False |No
-|`--notifierName` |String |The name of the notifier to use
-|`service-log` |Yes
-|`--notifierEnabled` |Boolean |Enables or disables notifications |false
+|`--notifierEnabled` |Boolean |Enables or disables the log notifier |false
 |Yes
-|`--notifierDynamic=true` |Boolean |When set to true, applies the
-changes without a restart. Otherwise a restart is required. |false |No
+|`--notifierDynamic` |Boolean |When set to true, applies the
+changes to the log notifier without a restart. Otherwise a restart is required. |false |No
+|`--useseparatelogfile` |Boolean |When set to true, prints notifications to the configured
+ log file
+ (see link:documentation/payara-server/logging/notification-logging.adoc[Notification Logging])|false |No
 |=======================================================================
 
 [[example-4]]
@@ -121,10 +122,10 @@ changes without a restart. Otherwise a restart is required. |false |No
 
 [source, shell]
 ----
-asadmin> set-requesttracing-configuration
+asadmin> set-notification-configuration
     --enabled=true
     --dynamic=true
-    --notifierName="service-log"
     --notifierEnabled=true
     --notifierDynamic=true
+    --useseparatelogfile=false
 ----
