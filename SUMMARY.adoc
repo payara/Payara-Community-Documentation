@@ -56,6 +56,8 @@
 ** link:documentation/payara-server/asadmin-commands/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/asadmin-commands/server-management-commands.adoc[Server Management Commands]
 *** link:documentation/payara-server/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]
+*** link:documentation/payara-server/asadmin-commands/disabling-jline.adoc[Disabling JLine]
+*** link:documentation/payara-server/asadmin-commands/auto-naming.adoc[Auto-Naming]
 ** link:documentation/payara-server/rest-api/rest-api-documentation.adoc[REST API Documentation]
 *** link:documentation/payara-server/rest-api/overview.adoc[Overview]
 *** link:documentation/payara-server/rest-api/security.adoc[Security]
