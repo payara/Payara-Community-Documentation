@@ -97,6 +97,10 @@ GAVs to be copied under MICRO-INF/deploy folder.
 |Can contain a list of artifactItems, which defines the dependencies with their
 GAVs to be copied under MICRO-INF/lib folder.
 
+|`uberJarClassifier`
+|microbundle
+|Specifies the maven artifact classifier to use for the generated uber-jar.
+
 |=== 
 
 The `bundle` goal always searches for domain configuration files in `src/main/resources` to copy in to the `MICRO-INF/domain` directory of the created uber jar.
@@ -184,10 +188,14 @@ you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 
 |`useUberJar`
 |false
-|Use created uber-jar that resides in target folder. The name of the JAR
+|Use the created uber-jar that resides in the target folder. The name of the JAR
 artifact will be resolved automatically by evaluating its final name, artifact
 ID and version. This configuration element has the higher precedence compared to
 `payaraMicroAbsolutePath`, `payaraVersion` and `artifactItem`.
+
+|`uberJarClassifier`
+|microbundle
+|Specifies the maven artifact classifier to use for the generated uber-jar.
 
 |`payaraMicroAbsolutePath`
 |_none_
@@ -286,12 +294,22 @@ you need to execute the plugin as: `mvn toolchains:toolchain payara-micro:start`
 
 |`processId`
 |_none_
-|Process id of the running payara-micro.
+|Process id of the running Payara Micro instance.
 
 |`artifactItem`
 |_none_
 |Defines payara-micro artifact with its coordinates. This information is used to
-identify the process id of the running payara-micro.
+identify the process id of the running Payara Micro instance.
+
+|`useUberJar`
+|false
+|Use the name of the created uber-jar that resides in target folder to identify
+the process id of the running Payara Micro instance.
+
+|`uberJarClassifier`
+|microbundle
+|Specifies the maven artifact classifier of the generated uber-jar to identify
+the process id of the running Payara Micro instance.
 
 |===
 
