@@ -1,0 +1,42 @@
+[[monitoring-console]]
+= Monitoring Console
+
+Since 5.193 Payara Server ships with a build in monitoring console. Currently this feature is in an early MVP stage providing basic functionality that will be expanded upon in upcoming releases.
+
+The monitoring console module collects a multitude of metrics from all nodes that are accessible on DAS via REST API. 
+By installing the `monitoring-console-webapp.war` on the DAS the metrics can be viewed as live graphs on the applications home page.
+
+NOTE: Please be aware that following details reflect the current state of a evolving product that are likely to change in the future.
+
+[[monitoring-console-installation]]
+== Installation
+To run the application deploy the `monitoring-console-webapp.war` on the DAS. The war is contained in the root of the release archive. 
+Installing the application on other instances will not show any data.
+
+NOTE: The monitoring console feature is only contained in Payara Server distribution.
+
+[[monitoring-console-api]]
+== REST API
+The API returns JSON data.
+
+* `{app-root}/api/series`: Lists all available metric series in form `[<string>]`
+* `{app-root}/api/series/{series}/statistics`: Returns life data including statistics on the requested metric series in form `[<object>]`
+
+NOTE: The purpose of the REST API is to supply the needed data for the GUI. As the GUI changes and develops the REST API is likely to change as well.
+
+[[monitoring-console-gui]]
+== Graphical User Interface
+After installing the `monitoring-console-webapp.war` open the home page at the application root you have chosen, for example `/monitoring-console-webapp/`.
+
+The drop down at the top of the page contains the list of available metrics series.
+Select a series and press the _add_ button right to the list. A graph showing the series appears. When multiple instances have a non-zero value for the series each is represented by a line in the graph. More series can be added by selecting another series and clicking _add_. Added graphs can be removed with the **[ x ]** at the top right corner of the graph.
+
+The configuration of chosen graphs is stored in the browser's local storage.
+
+At the top of the page there are several display options that are applied to all graphs. Currently these are used to experiment with user options. Later these will be moved to individual graph configuration.
+
+NOTE: The number of available metric series depends on the server configuration. Enabling health monitoring or monitoring services adds further metrics. Currently the selection provides many series that are less useful to most users. This will be improved in future releases providing a more focussed selection of generally useful metrics.
+
+== Removal
+Currently the monitoring console feature has no on/off switch.
+To remove the monitoring console data collection from the Payara Server remove the `monitoring-console-core.jar` from the `/glassfish/mondules` folder of your installation(s) and restart the server.
