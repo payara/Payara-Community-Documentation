@@ -27,3 +27,5 @@ each MBean can give the most useful information.
 How can I consume JMX monitoring data from Payara Server?::
 After a selection of relevant metrics have been chosen, they will need to be
 imported to a monitoring tool for graphing purposes.
+
+Additional monitoring guides can be found on our website, https://www.payara.fish/documentation/guides-and-how-tos/#maintenance_monitoring[Maintenance and Monitoring Guides].
