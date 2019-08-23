@@ -19,4 +19,4 @@ link:docker-instances.adoc[Docker Instances]:: How to create and use an instance
 
 * https://info.payara.fish/using-payara-micro-with-docker-guide[Using Payara Micro with Docker] 
 
-* https://www.payara.fish/page/clustering-payara-server-in-docker/[Clustering Payara Server with Docker] 
+* https://www.payara.fish/page/clustering-payara-server-in-docker/[Clustering Payara Server with Docker]

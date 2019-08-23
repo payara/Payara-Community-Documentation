@@ -49,39 +49,76 @@ The following administration commands can be used to configure the MicroProfile 
 _Since Payara Server 4.1.2.182 and 5.182_
 
 *Usage*::
-`asadmin set-microprofile-healthcheck-configuration --enabled=<true|false> --endpoint=<context-root> --target=<target[default:server]>`
+----
+asadmin set-microprofile-healthcheck-configuration 
+        [--enabled=true|false]
+        [--securityenabled=true|false]
+        [--roles=<role-list>] 
+        [--endpoint=<context-root[default:health]>] 
+        [--target=<target[default:server]>]
+        [--virtualservers=<virtualserver-list>]
+----
 *Aim*::
 Enables or disables the MicroProfile healthcheck service and configures the endpoint where all registered health checks are exposed.
 
 [[command-options]]
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="1,1,10,1,1", options="header"]
 |====
 |Option
+|Type
 |Description
 |Default
 |Mandatory
 
 |`enabled`
+|Boolean
 |Enables or disables the service
 |true
 |No
 
+|`securityenabled`
+|Boolean
+|Whether or not secure access to the health-check endpoint is enabled.
+
+_Since Payara Server 5.193_
+|false
+|No
+
+|`roles`
+|String
+|If defined, the endpoint will be assigned to a list of the role specified as a comma-separated.
+
+_Since Payara Server 5.193_
+|`microprofile`
+|No
+
 |`endpoint`
+|String
 |The context root used to expose the health checks endpoint.
 |health
 |No
 
 |`target`
+|String
 |The target configuration where the command should be run
 |server
 |No
 
 |`virtualservers`
+|String
 |If defined, the '/health' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
 |-
 |No
 |====
 
 IMPORTANT: Changes made with this command will only be applied when the server or instance is restarted.
+
+[[security-configuration]]
+=== Security Configuration
+By default, HealthCheck endpoints binds to root context application which is 
+`__default-web-module` (docroot) system application and `__default-web-module` 
+application uses default realm (`file`) of server. If user application deployed 
+with the empty context-root then the security configuration of the deployed 
+application will be shared by HealthCheck endpoints.

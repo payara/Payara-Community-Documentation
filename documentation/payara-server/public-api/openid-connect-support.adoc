@@ -170,6 +170,20 @@ They are detailed below.
 | 500
 | Value must not be negative and if value is zero then infinite timeout.
 
+| `tokenAutoRefresh`
+| `payara.security.openid.token.autoRefresh`
+| false
+| Enables or disables the automatically performed refresh of Access and Refresh Token.  _Since Payara Server 5.193_
+| false
+| N/A.
+
+| `tokenMinValidity`
+| `payara.security.openid.token.minValidity`
+| false
+| Sets the minimum validity time(in milliseconds) the Access Token must be valid before it is considered expired. _Since Payara Server 5.193_
+| 10000
+| Value must not be negative.
+
 | `claimsDefinition.callerNameClaim`
 | `payara.security.openid.callerNameClaim`
 | false
@@ -222,11 +236,55 @@ The client secret can be input directly, or for added security it can be aliased
 - link:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
 - link:/documentation/microprofile/config.adoc[Config API]
 
-[[oidc-integrations]]
-=== Google and Azure AD integration
+[[google-oidc-integrations]]
+=== Google integration
 
-The Payara API also provides the in-built support for Google and Azure AD OpenID Provider using the `@GoogleAuthenticationDefinition` and `@AzureAuthenticationDefinition` annotations.
+The Payara API provides the in-built support for Google OpenID Provider via the `@GoogleAuthenticationDefinition` annotation.
 
+==== Request Refresh Token
+To enable the refresh token feature, set the `tokenAutoRefresh` to true 
+and add the `access_type` parameter value to `offline`
+so that application can refresh access tokens when the user is not present at the browser. 
+
+If application requests `offline` access then application can receive access and refresh token. 
+Once application has a refresh token, it can obtain a new access token at any time or as older ones expire.
+Otherwise If application requests `online` access, your application will only receive an access token
+
+[source, java]
+----
+@GoogleAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    ...
+    tokenAutoRefresh = true,
+    extraParameters = {"access_type=offline", "approval_prompt=force"}
+)
+public class SecurityBean {
+}
+----
+
+[[azure-ad-oidc-integrations]]
+=== Azure AD integration
+
+The Payara API also provides the in-built support for Azure AD OpenID Provider via the `@AzureAuthenticationDefinition` annotation.
+
+==== Request Refresh Token
+To receive the refresh token, set the `tokenAutoRefresh` to true and explicitly add the `offline_access` scope to definition.
+
+[source, java]
+----
+@AzureAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    ...
+    tokenAutoRefresh = true,
+    scope = {OPENID_SCOPE, EMAIL_SCOPE, PROFILE_SCOPE, OFFLINE_ACCESS_SCOPE}
+)
+public class SecurityBean {
+}
+----
 
 [[extra-resources]]
 == Extra Resources
