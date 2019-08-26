@@ -1,7 +1,7 @@
 [[monitoring-console]]
 = Monitoring Console
 
-Since 5.193 Payara Server ships with a build in monitoring console. Currently this feature is in an early MVP stage providing basic functionality that will be expanded upon in upcoming releases.
+Since 5.193 Payara Server ships with a built in monitoring console. Currently this feature is in an early MVP stage providing basic functionality that will be expanded upon in upcoming releases.
 
 The monitoring console module collects a multitude of metrics from all nodes that are accessible on DAS via REST API. 
 By installing the `monitoring-console-webapp.war` on the DAS the metrics can be viewed as live graphs on the applications home page.
