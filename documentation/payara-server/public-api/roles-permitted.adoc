@@ -66,8 +66,8 @@ method's parameters annotated with `javax.inject.Named` annotation.
 [[usage-example]]
 === Example
 
-Here’s an example that protects a single method by defining dynamically resolved roles name
-and `@Named("customer")` annotation is used to define the parameter name and reference the 
+Here's an example that protects a single method by defining dynamically resolved role name.
+The `@Named("customer")` annotation is used to define the parameter name and reference the
 parameter value in dynamic role expression.
 
 [source, java]
@@ -90,7 +90,7 @@ public String findRole(Customer customer, Product product) {
 }
 ----
 
-If the parameter name not defined using `Named` annotation and the method have single parameter then `param` is used as default parameter name:
+If the parameter name is not defined using the `Named` annotation and the method has a single parameter then `param` is used as the default parameter name:
 
 [source, java]
 ----
