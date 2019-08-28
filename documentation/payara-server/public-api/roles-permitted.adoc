@@ -56,6 +56,50 @@ They are detailed below.
 | -
 |===
 
+[[dynamic-roles]]
+== Dynamic Roles
+
+The `@RolesPermitted` annotation also allows to dynamically specify security roles permitted to access methods in an application
+by using a predefined expression language (EL) as a dynamic role expression that interacts with the business 
+method's parameters annotated with `javax.inject.Named` annotation.
+
+[[usage-example]]
+=== Example
+
+Here’s an example that protects a single method by defining dynamically resolved roles name
+and `@Named("customer")` annotation is used to define the parameter name and reference the 
+parameter value in dynamic role expression.
+
+[source, java]
+----
+@RolesPermitted("#{'CustomerCare_'.concat(customer.name)}")
+public void updateCustomer(@Named("customer") Customer customer){
+}
+----
+
+Multiple parameters can also be used in EL expression of dynamic security roles:
+
+[source, java]
+----
+@RolesPermitted("#{self.findRole(customer, product)}")
+public void updateCustomer(@Named("customer") Customer customer, @Named("product") Product product){
+}
+
+public String findRole(Customer customer, Product product) {
+    return customer.type + "_" + product.model
+}
+----
+
+If the parameter name not defined using `Named` annotation and the method have single parameter then `param` is used as default parameter name:
+
+[source, java]
+----
+@RolesPermitted("#{'CustomerCare_'.concat(param.name)}")
+public void updateCustomer(Customer customer){
+}
+----
+
+
 == Extra Resources
 
 See link:https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html[@RolesAllowed] for the original annotation on which this annotation is based.
