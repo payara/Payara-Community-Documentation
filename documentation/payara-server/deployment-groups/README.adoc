@@ -3,7 +3,7 @@
 Deployment Groups are a new feature in Payara 5. The Deployment Group is designed to replace the deployment targeting aspect of Clusters
 that was available in previous versions of Payara.
 
-*For more information about Deployment Groups in Payara 5, read blog articles:*
+*For more information about Deployment Groups in Payara 5, read our blog articles on this topic:*
 
 * https://blog.payara.fish/clustering-and-deployment-groups-in-payara-server-5[Clustering and Deployment Groups in Payara Server 5].
 
