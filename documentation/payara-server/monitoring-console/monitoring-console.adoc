@@ -10,7 +10,7 @@ NOTE: Please be aware that following details reflect the current state of a evol
 
 [[monitoring-console-installation]]
 == Installation
-To run the application deploy the `monitoring-console-webapp.war` on the DAS. The war is contained in the root of the release archive. 
+To run the application deploy the `monitoring-console-webapp.war` on the DAS. The war is contained in the `monitoring-console` folder of the release archive. 
 Installing the application on other instances will not show any data.
 
 NOTE: The monitoring console feature is only contained in Payara Server distribution.
@@ -37,6 +37,6 @@ At the top of the page there are several display options that are applied to all
 
 NOTE: The number of available metric series depends on the server configuration. Enabling health monitoring or monitoring services adds further metrics. Currently the selection provides many series that are less useful to most users. This will be improved in future releases providing a more focussed selection of generally useful metrics.
 
-== Removal
-Currently the monitoring console feature has no on/off switch.
-To remove the monitoring console data collection from the Payara Server remove the `monitoring-console-core.jar` from the `/glassfish/mondules` folder of your installation(s) and restart the server.
+== Disable Data Collection
+While the visualisation of data is located in the monitoring console web application the data collection itself is an integral part of the Payara Server.
+To disable the data collection remove the `monitoring-console-core.jar` from the `/glassfish/mondules` folder of your installation(s) and restart the server.
