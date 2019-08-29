@@ -12,7 +12,7 @@
             "options": [
                 {
                     "value": "https://docs.payara.fish/",
-                    "text": "LATEST (5.192)"
+                    "text": "LATEST (5.193)"
                 }
             ]
         }
@@ -20,7 +20,7 @@
 
 
     "variables": {
-        "currentVersion": "5.192",
+        "currentVersion": "5.193",
         "glassfishVersion": "5",
         "payaraWebDtd": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/master/schemas/payara-web-app_4.dtd",
         "payaraResourcesDtd": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/master/schemas/payara-resources_1_6.dtd",
