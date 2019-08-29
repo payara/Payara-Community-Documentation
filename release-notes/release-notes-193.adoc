@@ -12,7 +12,7 @@ PAYARA-3939 removed Guava from the Payara codebase. This is important when upgra
 
 PAYARA-4031 addressed a problem with changing the master password for nodes. In previous releases, changing the master password for only a domain before attempting to start an instance on another node would render that instance unusable. This fix changed the functionality of running `change-master-password` against a node. It now will not interact with any keystores, only the saved password file. This makes the master password change work the way we believe was originally intended: you need to run the command against each node after changing the domain master password before starting those instances.
 
-## New Feature
+## New Features
 
 -   [https://github.com/payara/Payara/pull/4090[PAYARA-3573]] - Dynamic Instances
 -   [https://github.com/payara/Payara/pull/4076[PAYARA-3830]] - Support Metrics 2.0
@@ -21,7 +21,7 @@ PAYARA-4031 addressed a problem with changing the master password for nodes. In 
 -   [https://github.com/payara/Payara/pull/3987[PAYARA-3876]] - Add profiles for building dev version of Payara with full source embedded
 -   [https://github.com/payara/Payara/pull/4142[PAYARA-3885]] - Implement "Parameterized" dynamically resolved role names for @RolesPermitted annotation
 
-## Improvement
+## Improvements
 
 -   [https://github.com/payara/Payara/pull/4058[PAYARA-3218]] - Add Deployment Performance Analyzer
 -   [https://github.com/payara/Payara/pull/3739[PAYARA-3492]] - Upgrade JLine version to v3.x
@@ -55,7 +55,7 @@ PAYARA-4031 addressed a problem with changing the master password for nodes. In 
 
 -   [https://github.com/payara/Payara/pull/4004[PAYARA-3881]] - CVE-2019-12086 Jackson Databind upgrade
 
-## Bug
+## Bug Fixes
 
 -   [https://github.com/payara/Payara/pull/3975[PAYARA-3101]] - MicroProfile endpoints security support
 -   [https://github.com/payara/Payara/pull/3739[PAYARA-3698]] - ! no longer allowed in admin password when using multimode asadmin
