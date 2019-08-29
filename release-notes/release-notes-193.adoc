@@ -80,6 +80,7 @@ PAYARA-4031 addressed a problem with changing the master password for nodes. In 
 -   [https://github.com/payara/Payara/pull/4125[PAYARA-3968]] - Payara Micro Postboot Script asadmin Commands Incorrect Quotation Mark Parsing
 -   [https://github.com/payara/Payara/pull/4127[PAYARA-3992]] - JsonB serialization error when using Custom serializer
 -   [https://github.com/payara/Payara/pull/4094[PAYARA-3996]] - Ensure that the TimerWrapper references correct EJBTimerService [Community Contribution: https://github.com/realityforge[realityforge]]
+-   [https://github.com/payara/patched-src-jersey/pull/31[PAYARA-4000]] - A REST management DELETE command returns 415 code instead of 404
 -   [https://github.com/payara/Payara/pull/4140[PAYARA-4012]] - Delete unused and unmaintained javaee-api modules
 -   [https://github.com/payara/Payara/pull/4115[PAYARA-4026]] - MP Fault Tolerance fails on 2.0.1
 -   [https://github.com/payara/Payara/pull/4136[PAYARA-4028]] - PostConstruct setting values are lost in Clustered Startup Singleton EJB within WAR/EAR
@@ -102,13 +103,13 @@ PAYARA-4031 addressed a problem with changing the master password for nodes. In 
 -   [https://github.com/payara/Payara/pull/4175[PAYARA-4092]] - JVM Options page shows error on RC1
 -   [https://github.com/payara/Payara/pull/4043[PAYARA-3928]] - NPE when using enabling notifications via the CDI event bus
 
-## Task
+## Tasks
 
 -   [https://github.com/payara/Payara/pull/4050[PAYARA-3950]] - Process all properties files [Community Contribution: https://github.com/edthorne[edthorne]]
 -   [https://github.com/payara/Payara/pull/4074[PAYARA-3980]] - Remove duplicated element 'description' [Community Contribution: https://github.com/pzygielo[pzygielo]]
 -   [https://github.com/payara/Payara/pull/4104[PAYARA-4010]] - Cleanup Expired Certificates in the Server
 
-## Component Upgrade
+## Component Upgrades
 
 -   [https://github.com/payara/Payara/pull/3898[PAYARA-3749]] - Upgrade servlet-api to 4.0.2 [Community Contribution: https://github.com/mulderbaba[mulderbaba]]
 -   [https://github.com/payara/Payara/pull/4007[PAYARA-3896]] - Upgrade Weld to 3.1.1.Final [Community Contribution: https://github.com/mulderbaba[mulderbaba]]
