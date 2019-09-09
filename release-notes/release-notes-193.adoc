@@ -1,4 +1,14 @@
-## Notes
+[[release-notes]]
+= Payara Platform 5.193 Release Notes
+
+[[supported-apis-and-applications]]
+== Supported APIs and Applications
+
+* Java EE 8 Applications
+* MicroProfile 2.2 (excluding MicroProfile Metrics 1.1)
+* MicroProfile Metrics 2.0
+
+== Notes
 
 ### JDK11
 
