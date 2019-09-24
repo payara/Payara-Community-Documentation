@@ -20,6 +20,7 @@
 
 
     "variables": {
+        "fakeVarToForceGitbookRebuild": "1",
         "currentVersion": "5.181",
         "glassfishVersion": "5",
         "mpConfigVersion": "1.1",
