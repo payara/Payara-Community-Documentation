@@ -18,6 +18,7 @@ Here's a list of Payara Server Asadmin commands that are not supported by GlassF
 - link:/documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups Commands]
 - link:/documentation/payara-server/asadmin-commands/disabling-jline.adoc[Disabling JLine Logging]
 - link:server-management-commands.adoc[Server Management Commands]
+- link:print-certificate.adoc[Print Certificate Command]
 - link:misc-commands.adoc[Miscellaneous Commands]
 
 == Command Autocompletion

@@ -54,6 +54,13 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
     <vendor>
         <!--sample metadata-->
         <metadata>
+            <!--tags are since 5.193 -->
+            <tags>
+                <tag>
+                    <name>operatingSystem</name>
+                    <value>Linux</name>
+                </tag>
+            </tags>
             <name>system.cpu.load</name>
             <mbean>java.lang:type=OperatingSystem/SystemCpuLoad</mbean>
             <type>gauge</type>
@@ -65,7 +72,7 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
 </config>
 ----
 
-IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application is deployed which uses the connection pool.
+IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application that uses the connection pool is deployed.
 
 [[templating-metrics-amx-mbeans]]
 === Templating Metrics for AMX MBeans
@@ -74,28 +81,29 @@ _Since Payara Server 4.1.2.182 and 5.182_
 
 It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example). 
 
-You can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
+[[simple-templating]]
+==== Simple Templating
 
-These placeholders are used as follow:
+You can use the `%s` placeholder to define a template in the metadata definition of the metric using the `mbean` element. The server will look for all MBeans that match the expression defined and will generate metrics for each one of them.
 
-`key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
-
-`attribute`:: Used as a placeholder for the name of an attribute of an AMX MBean.
-
-`subattribute`:: Used as a placeholder for the name of a subattribute (or second-level attribute), which corresponds to an attribute of a `CompositeData` type of attribute in the corresponding AMX MBean.
-
-IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholders in the `name` element as well to prevent name collisions between different templated metrics.
+IMPORTANT: You will need to use the `%s` placeholder in the name element as well to allow each metric to have a different name and avoid collisions.
 
 [[example]]
-==== Example
+===== Example
 
 Here's a simple example of defining a custom metric definition template that will generate metrics for the number of free connections available to all JDBC connections pools:
 
 [source, xml]
 ----
 <metadata>
-     <name>jdbc.connection.pool.${key}Pool.numconnfree</name>
-     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/${key}Pool/numconnfree#current</mbean>
+     <tags>
+        <tag>
+            <name>name</name>
+            <value>%s</value>
+        </tag>
+     </tags>
+     <name>jdbc.connection.pool.numconnfree</name>
+     <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/%sPool/numconnfree#current</mbean>
      <type>counter</type>
      <unit>none</unit>
      <displayName>numconnfreePool</displayName>
@@ -107,18 +115,38 @@ Which will yield the following results:
 
 [source, text]
 ----
-# TYPE vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree 0
-# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
-# TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/DerbyPool"} 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/H2Pool"} 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/__TimerPool"} 0 0
 ----
 
-Here's another example of defining a custom metric definition template with multiple placeholder that will generate metrics for the number of free connections available to all JDBC connections pools:
+[[advanced-templating]]
+==== Advanced Templating
+
+_Since Payara Server 4.1.2.184 and 5.184_
+
+If you need more control on the attributes of specific MBeans used in a metric definition, you can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define more fine-grained metrics.
+
+These placeholders are used as follows:
+
+`key`:: Used as a placeholder of the name (or part of the name) of an AMX MBean.
+
+`attribute`:: Used as a placeholder for the name of an *attribute* of an AMX MBean.
+
+`subattribute`:: Used as a placeholder for the name of a *sub-attribute* (or second-level attribute), which corresponds to the attribute of a `CompositeData` object.
+
+IMPORTANT: You will need to use the `${key}`, `${attribute}` and `${subattribute}` placeholders in the `name` element as well to prevent name collisions between different templated metrics.
+
+[[example-1]]
+===== Example
+
+Here's an example of defining a custom metric definition template with these placeholders that will generate a counter metric for each specific connection metric that is available to all JDBC connection pools:
 
 [source, xml]
 ----
@@ -161,14 +189,12 @@ vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count 0
 ......
 ----
 
-IMPORTANT: Prior to versions *5.184* and *4.1.2.184*, instead of the 3 placeholders described previously, the MicroProfile Metrics runtime supported the generic placeholder `%s` instead. This placeholder was used as a wildcard (`*`) expression to template metrics based on the AMX MBeans names. These placeholders where introduced to broaden the scope of available metric definitions.
-
 [[metrics-configuration]]
 == Metrics Configuration
 
 Metrics can be configured by using Admin Console or Asadmin commands. 
 
-_Since *5.183*&nbsp;_
+_Since Payara Platform 5.183_
 
 [[using-the-admin-console]]
 === Using the Admin Console
@@ -184,11 +210,16 @@ image:/images/microprofile/metrics.png[Set Metrics Configuration]
 ==== `set-metrics-configuration`
 
 *Usage*::
-`asadmin> set-metrics-configuration
+----
+asadmin> set-metrics-configuration
         [--enabled=true|false]
-        [--securemetrics=true|false]
+        [--securityenabled=true|false]
+        [--roles=<role-list>] 
         [--dynamic=true|false]
-        [--target <instance-name>]`
+        [--endpoint=<context-root[default:metrics]>]
+        [--target=<instance-name[default:server]>]
+        [--virtualservers=<virtualserver-list>]
+----
 *Aim*::
 Provides a way to set the configuration of the metrics service of the targeted config.
 
@@ -208,16 +239,26 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |true
 |No
 
+|`securityenabled`
+|Boolean
+|Whether or not secure access to the metrics endpoint is enabled.
+
+_Since Payara Server 5.193_
+|false
+|No
+
+|`roles`
+|String
+|If defined, the endpoint will be assigned to a list of the role specified as a comma-separated.
+
+_Since Payara Server 5.193_
+|`microprofile`
+|No
+
 |`endpoint`
 |String
 |The context root used to expose the metrics endpoint.
 |`metrics`
-|No
-
-|`securemetrics`
-|Boolean
-|If set to `true`, the endpoint can be accessed only via HTTPS and will disable all non-secured communications with a `403 - Forbidden` response code.
-|false
 |No
 
 |`dynamic`
@@ -245,13 +286,15 @@ _Since Payara Server 4.1.2.184 and 5.184_
 
 [source,Shell]
 ----
-asadmin> set-metrics-configuration --enabled=true --securemetrics=true --dynamic=true --target instance1
+asadmin> set-metrics-configuration --enabled=true --securityenabled=true --dynamic=true --target instance1
 ----
 
 ==== `get-metrics-configuration`
 
 *Usage*::
-`asadmin> get-metrics-configuration [--target <instance-name>]`
+----
+asadmin> get-metrics-configuration [--target <instance-name>]
+----
 *Aim*::
 Returns the current configuration options for the metrics service on the targeted configuration.
 
@@ -278,3 +321,11 @@ Returns the current configuration options for the metrics service on the targete
 ----
 asadmin> get-metrics-configuration --target cluster1
 ----
+
+[[security-configuration]]
+=== Security Configuration
+By default, Metrics endpoints binds to root context application which is 
+`__default-web-module` (docroot) system application and `__default-web-module` 
+application uses default realm (`file`) of server. If user application deployed 
+with the empty context-root then the security configuration of the deployed 
+application will be shared by Metrics endpoints.
