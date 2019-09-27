@@ -311,6 +311,10 @@ the process id of the running Payara Micro instance.
 |Specifies the maven artifact classifier of the generated uber-jar to identify
 the process id of the running Payara Micro instance.
 
+|`maxStopTimeoutMillis`
+|5000
+|Defines the maximum timeout in milliseconds to wait for the process of Payara Micro instance to stop.
+
 |===
 
 [[using-toolchains]]
