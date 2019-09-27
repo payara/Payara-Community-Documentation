@@ -35,6 +35,6 @@ See link:persistent-timers.adoc[Persistent EJB Timers on the Domain Data Grid] f
 == Configuring MDB Bean Pool Size with ActivationConfigProperty
 
 It is now possible, with Payara 5.193, to configure the MDB bean pool size with the `ActivationConfigProperty`
-Any Bean annotated with `@MessageDriven` can use `@ActivationConfigProperty` to set property names and property values. For Example;
+Any Bean annotated with `@MessageDriven` can use `@ActivationConfigProperty` to set property names and property values. E.g
 
-	```@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")```
+ @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"
