@@ -49,7 +49,8 @@ SHA-256: `ebab3232311439dfc93559ca0dfa8cc230f51ab221cdc0a4901a8533f129f3ad`
 `OpenJDK Runtime Environment (Zulu 8.40.0.25-CA-linux64) (build 1.8.0_222-b10)`
 - Summary of the information for the certification environment:
 +
-Apache Derby, Linux, Ubuntu 18.04.3
+Apache Derby, Linux, Ubuntu 18.04.3 +
+Interoperatibility tests carried out against Eclipse Glassfish 5.1.0
 
 
 == Test results
