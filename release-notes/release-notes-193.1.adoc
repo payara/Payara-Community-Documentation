@@ -1,0 +1,42 @@
+[[release-notes]]
+= Payara Platform 5.193.1 Release Notes
+
+[[supported-apis-and-applications]]
+== Supported APIs and Applications
+
+* Java EE 8 Applications
+* MicroProfile 2.2 (excluding MicroProfile Metrics 1.1)
+* MicroProfile Metrics 2.0
+* Jakarta EE 8
+
+== Notes
+
+=== Jakarta EE TCK Compatibility
+
+With the public release of 5.193.1, Payara Server Full is now officially certified as Jakarta EE compatible!
+
+== 5.193.1 Updates
+
+== New Features
+
+-   [https://github.com/payara/Payara/pull/4212[PAYARA-4027]] - Add timeout parameter to start-deployment-group command  
+
+== Bug  
+
+-   [https://github.com/payara/Payara/pull/4191[PAYARA-3500]] - Admin console shows incorrect virtual servers for MP health and metrics targets
+-   [https://github.com/payara/Payara/pull/4228[PAYARA-3501]] - Configuration changes in MP health and metrics in Admin console don't warn about restart needed
+-   [https://github.com/payara/Payara/pull/4200[PAYARA-4025]] - REGRESSION: Setting context root with app.war:context stopped working in Payara Micro 5.192
+-   [https://github.com/payara/Payara/pull/4234[PAYARA-4055]] - Jaxrs client obtained from the request context must be the same instance
+-   [https://github.com/payara/Payara/pull/4210[PAYARA-4077]] - CDI test EnterpriseSecurityContextPropagationInAsyncObserverTest fails 
+-   [https://github.com/payara/Payara/pull/4210[PAYARA-4078]]- CDI InterceptorEnvironmentJNDISessionBeanTest fails
+-   [https://github.com/payara/Payara/pull/4195[PAYARA-4083]] - Unsatisfied dependencies for type YubicoAPI in CDI TCK
+-   [https://github.com/payara/Payara/pull/4171[PAYARA-4087]] - Allow use of single char operands in payara micro commands
+-   [https://github.com/payara/Payara/pull/4188[PAYARA-4104]] - Disabling Hazelcast for 5.193 Server causes startup failure
+-   [https://github.com/payara/Payara/pull/4193[PAYARA-4113]] - Post Boot Commands Don't Print Failure Cause
+-   [https://github.com/payara/Payara/pull/4194[PAYARA-4115]] - List-Nodes-Docker Command Fails with Invalid Number of Columns
+-   [https://github.com/payara/Payara/pull/4217[PAYARA-4122]] - Unable to acquire global lock for resolve payara-micro-service
+-   [https://github.com/payara/Payara/pull/4219[PAYARA-4123]] - Async errors are missing in resumed response  
+-   [https://github.com/payara/Payara/pull/4202[PAYARA-4125]] - MP HealthCheck NPE from when first saving values in admin console
+-   [https://github.com/payara/Payara/pull/4224[PAYARA-4131]] - java.lang.ClassNotFoundException: org.glassfish.admin.rest.resources.generatedASM.DomainResource not found by org.glassfish.main.admin.rest-service
+-   [https://github.com/payara/Payara/pull/4222[PAYARA-4140]] - ResourceValidator fails on jms/ee20/cditests/ejbweb
+-   [https://github.com/payara/Payara/pull/4231[PAYARA-4146]] - JavaMail Fails to Load Default Providers
