@@ -9,7 +9,7 @@ Detailed information about features and fixes in every release.
 *2019*
 
 * 2019 Q3 - link:release-notes-193.adoc[Payara Server 5.193/5.193.1]
-* 2019 Q2 - lin:release-notes-192.adoc[Payara Server 5.192]
+* 2019 Q2 - link:release-notes-192.adoc[Payara Server 5.192]
 * 2019 Q1 - link:release-notes-191.adoc[Payara Server 5.191] (link:release-notes-4-191.adoc[Payara Server 4.1.2.191])
 
 *2018*
