@@ -56,6 +56,12 @@ This command starts all server instances in the deployment group
 | Start instances in verbose mode
 | true
 | No
+
+| instanceTimeout
+| Integer
+| Add a timeout value to instances
+| 120
+| No
 |===
 
 [[stop-deployment-group-command]]
