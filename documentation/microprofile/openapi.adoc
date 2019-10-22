@@ -149,6 +149,7 @@ image:/images/microprofile/openapi.png[Set OpenAPI Configuration]
 ----
 asadmin> set-openapi-configuration
         [--enabled=true|false]
+        [--corsheaders=true|false]
         [--securityenabled=true|false]
         [--roles=<role-list>] 
         [--target=<target[default:server]>]
@@ -174,6 +175,14 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 |Boolean
 |Whether the service should be enabled/disabled.
 |true
+|No
+
+|`corsheaders`
+|Boolean
+|Whether or not CORS headers (e.g. `Access-Control-Allow-Origin=*`) should be added to OpenAPI endpoint responses.
+
+_Since Payara Server 5.192_
+|false
 |No
 
 |`securityenabled`
