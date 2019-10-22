@@ -148,8 +148,10 @@ image:/images/microprofile/openapi.png[Set OpenAPI Configuration]
 *Usage*::
 ----
 asadmin> set-openapi-configuration
-    [--enabled=true|false]
-    [--target=<target>]
+        [--enabled=true|false]
+        [--corsheaders=true|false]
+        [--target=<target[default:server]>]
+        [--virtualservers=<virtualserver-list>]
 ----
 *Aim*::
 Enables or disables the OpenAPI service.
@@ -169,6 +171,13 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 |`enabled`
 |Whether the service should be enabled/disabled.
 |true
+|No
+
+|`corsheaders`
+|Whether or not CORS headers (e.g. `Access-Control-Allow-Origin=*`) should be added to OpenAPI endpoint responses.
+
+_Since Payara Server 5.192_
+|false
 |No
 
 |`target`
