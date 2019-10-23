@@ -60,12 +60,12 @@ The complete list of configurable properties is the following:
 |fish.payara.is-connection-validation-required |Boolean |false |true -
 Validate connections, allow server to reconnect in case of failure
 |fish.payara.connection-validation-method |String
-|[multiblock cell omitted] |The method of connection validation table,
+| |The method of connection validation table,
 autocommit, meta-data, custom-validation
-|fish.payara.validation-table-name |String |[multiblock cell omitted]
+|fish.payara.validation-table-name |String |
 |The name of the table used for validation if the validation method is
 set to table
-|fish.payara.validation-classname |String |[multiblock cell omitted]
+|fish.payara.validation-classname |String |
 |The name of the custom class used for validation if the
 validation-method is set to custom-validation
 |fish.payara.fail-all-connections |Boolean |false |Close all connections
@@ -108,21 +108,20 @@ will be closed. 0 implies the feature is not enabled.
 |fish.payara.wrap-jdbc-objects |Boolean |true |When set to true,
 application will get wrapped jdbc objects for Statement,
 PreparedStatement, CallableStatement, ResultSet, DatabaseMetaData
-|fish.payara.sql-trace-listeners |String |[multiblock cell omitted]
+|fish.payara.sql-trace-listeners |String |
 |Comma-separated list of classes that implement the
 org.glassfish.api.jdbc.SQLTraceListener interface
 |fish.payara.ping |Boolean |false |When enabled, the pool is pinged
 during creation or reconfiguration to identify and warn of any erroneous
 values for its attributes
-|fish.payara.init-sql |String |[multiblock cell omitted] |Specify a SQL
+|fish.payara.init-sql |String | |Specify a SQL
 string to be executed whenever a connection is created from the pool
 |fish.payara.statement-leak-timeout-in-seconds |Number |0 |0 implies no
 statement leak detection
 |fish.payara.statement-leak-reclaim |Boolean |false |If enabled, leaked
 statement will be reclaimed by the pool after statement leak timeout
 occurs
-|fish.payara.statement-cache-type |String |[multiblock cell omitted]
-|[multiblock cell omitted]
+|fish.payara.statement-cache-type |String | |
 |fish.payara.slow-query-threshold-in-seconds |Number |-1 |SQL queries
 that exceed this time in seconds will be logged. Any value <= 0 disables
 Slow Query Logging
