@@ -166,14 +166,16 @@ The messages support simple markup using `pass:[*]boldpass:[*]` and `pass:[_]ita
 
 [[monitoring-console-widget-add]]
 ==== Adding Widgets
-Widgets can be added to any page. Open the side panel by clicking on the cog `?`
+Widgets can be added to any page. Open the side panel by clicking on the cog
 symbol in the top right. Use the dropdown in the _Widget_ property of the _Page_ settings to select a metric or enter the metric directly in the text field below and press the _add_ button.
 
 image::/images/monitoring-console/mc_widget_add.png[Adding a Widget]
 
+Currently new widget are always added to the first column. Use the link:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget.
+
 [[monitoring-console-widget-remove]]
 ==== Removing a Widget
-Any widget can be removed from any page. Click the cog `?` symbol  of the widget,  click _remove_ and confirm the browser dialog. 
+Any widget can be removed from any page. Click the cog symbol  of the widget,  click _remove_ and confirm the browser dialog. 
 
 image::/images/monitoring-console/mc_widget_remove.png[Removing a Widget]
 
@@ -184,12 +186,65 @@ Remember that a page originating from a preset can be reset to recover a widget 
 
 [[monitoring-console-preset-core]]
 ==== Core 
+The _Core_ page gives an overview over some of the important instance metrics.
+Each instance in the grid is shown separately. 
 
-[[monitoring-console-preset-request-tracing]]
-==== Request Tracing
+image::/images/monitoring-console/mc_core_overview.png[Core Page]
+
+* _Heap Usage_: Percentage of the current instance maximum heap memory already used.
+* _CPU Usage_: Percentage CPU usage by the instance (not the machine but the process).
+* _Thread Count_: Total number of threads used by the instance.
+* _Thread Pool Current Thread Count_: Total number of threads in the HTTP thread pool used by the instance.
+* _Request Count_: Number of HTTP request per second processed by the instance.
+* _Active Sessions_: Total number of active session for the instance.
 
 [[monitoring-console-preset-http]]
 ==== HTTP
+The _HTTP_ page gives a rough overview over the state of the HTTP services of each instance.
+
+image::/images/monitoring-console/mc_http_overview.png[HTTP Page]
+
+* _Connection Queue Count Open Connections_: Total number of open connection in the connection queue
+* _ Thread Pool Current Thread Count_: Total number of currently used threads of the HTTP thread pool
+* _Server Count2xx_: Requests per seconds and instance responding with Success.
+* _Server Count3xx_: Requests per seconds and instance responding with Redirection.
+* _Server Count4xx_: Requests per seconds and instance responding with Client Error.
+* _Server Count5xx_: Requests per seconds and instance responding with Server Error.
+
+
+[[monitoring-console-preset-request-tracing]]
+==== Request Tracing
+The _Request Tracing_ page overview page shows traces that exceeded the set threshold.
+
+NOTE: If this page does not show any data, no request have exceeded the threshold or the request tracing has not been enabled altogether. 
+
+All traces for the same method are shown as a single bar. The length and position of the bar gives the range of total trace duration. The bar starts at the minimum duration observed and ends at the maximum duration observed in the last minute.
+The legend shows the average duration and the method traced (innermost trace span operation)
+
+image::/images/monitoring-console/mc_rt_overview.png[Request Tracing Page]
+
+When all time minimum and/or maximum are added the bar starts and/or ends at these values.
+
+By clicking on one of the bars in the overview the details of all traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
+For each trace each of the spans corresponds to a bar in this graph.
+
+image::/images/monitoring-console/mc_rt_details.png[Request Tracing Details Page]
+
+By default the traces are sorted longest (slowest) to shortest (fastest) total duration.
+On the time axis the spans are shown relative to the start of the trace.
+
+When the side panel is opened the details of each trace span can be viewed by clicking on the span bar.
+
+The legend again gives average durations for each of the spans occuring for the traced method.
+
+The detail view is not automatically refreshing. To refresh the view click on the `&#10226;` icon in the top left of the widget.
+
+The spans can be sorted by wall time by clicking on the `?` icon in the top left.
+To switch sort order back to duration click the icon right to it.
+
+To get back to the overview close the details by clicking the `?` icon in the top left.
+
+WARNING: Be aware that the graphs shown in the example images above show unrealistically low numbers because the request tracing had been configured to such low thresholds to force traces as requests exceed the set thresholds. In a more realistic configurations the durations are more likely to be in range of few hundret milliseconds to some seconds.
 
 [[monitoring-console-disable]]
 == Disable Data Collection
