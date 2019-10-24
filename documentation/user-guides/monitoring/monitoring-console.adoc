@@ -205,7 +205,7 @@ The _HTTP_ page gives a rough overview over the state of the HTTP services of ea
 image::/images/monitoring-console/mc_http_overview.png[HTTP Page]
 
 * _Connection Queue Count Open Connections_: Total number of open connection in the connection queue
-* _ Thread Pool Current Thread Count_: Total number of currently used threads of the HTTP thread pool
+* _Thread Pool Current Thread Count_: Total number of currently used threads of the HTTP thread pool
 * _Server Count2xx_: Requests per seconds and instance responding with Success.
 * _Server Count3xx_: Requests per seconds and instance responding with Redirection.
 * _Server Count4xx_: Requests per seconds and instance responding with Client Error.
