@@ -23,91 +23,94 @@ NOTE: The console will let you know that some metrics are only available when th
 
 [[monitoring-console-pages]]
 === Pages
-The monitoring console is organized in fully customisable pages. A page is a collection of link:#monitoring-console-widgets[widgets] arranged in columns. Usually pages are focussed on visualising metrics of a specific area of the server, like HTTP or request tracing. The monitoring console has preconfigured pages as a starting point that can be changed and extended by the user.
+The monitoring console is organized in fully customisable pages. A page is a collection of link:#monitoring-console-widgets[widgets] arranged in columns. Usually pages are focussed on visualising metrics of a specific area of the server, like HTTP or request tracing. The monitoring console has preconfigured pages as a starting point that can be changed and extended by the user. New custom pages can be created.
 
 
 [[monitoring-console-page-switch]]
 ==== Switching Pages
-To switch page use the drop-down at the top center of the page.
+To switch page use the drop-down menu at the top center of the page.
 
 image::/images/monitoring-console/mc_page_menu.png[Page Navigation]
 
 
 [[monitoring-console-page-layout]]
 ==== Changing Page Layout
-Each page uses a column layout of 1-4 columns. The number of columns for a page can be changed using `&#11034;` to `&#11034;&#11034;&#11034;&#11034;` buttons at the top right of the page.
+Each page uses a column layout of 1-4 columns. The number of columns for a page can be changed using top right _Layout_ menu.
 
-image::/images/monitoring-console/mc_page_layout.png[Page Layout Toolbar]
-
-Changing the column layout of a page does not change the preferred position of the widgets. If a widget is set to column 3 but a 2-column layout is used all widgets of the 3rd or 4th column get pushed to the 2nd column instead. This allows switching layouts without redoing the configuration entirely. This feature can also be used to quickly "zoom" into the metrics most left on the page by switching to 1 or 2 column layout.
+Changing the column layout of a page does not change the preferred position of the widgets. If a widget is set to column 3 but a 2-column layout is used all widgets of the 3rd or 4th column get pushed to the 2nd column instead. This allows switching layouts without redoing the configuration entirely.
 
 
 [[monitoring-console-page-interval]]
 ==== Changing Page Update Interval
-By default the graphs on a page update every 2 seconds. To control the interval use the set of buttons left to the column configuration. 
+By default the graphs on a page update every 2 seconds. To control the interval use top right _Data Refresh_ menu or open the _Settings_ and change the interval in the _Global_ settings.
 
-image::/images/monitoring-console/mc_interval_toolbar.png[Page Inteveral Toolbar]
+image::/images/monitoring-console/mc_settings_global.png[Global Settings]
 
-The interval can paused `&#9208;`, continued `&#9654;`, made slower (turtle) or faster (rabbit). To reset the interval to standard of 2 seconds also use the `&#9654;` button.
+The interval can be paused and continued without changing the interval duration by using the _paused_ checkbox next to the interval setting.
 
 
 [[monitoring-console-page-add]]
 ==== Adding Pages
-To add a new page click the plus icon `+` in the top left next to the Payara Logo.
+To add a new page use the top right _Page_ menu and select _New..._.
 
-image::/images/monitoring-console/mc_page_add.png[Adding a Page]
+This creates a new _Unnamed_ page which can be renamed in the _Page_ settings.
 
-With a new _Unnamed_ page created the page is renamed in the _Page_ options.
-After naming the page widgets can be link:#monitoring-console-widget-add[added].
+image::/images/monitoring-console/mc_settings_page.png[Page Settings]
+
+After naming the page link:#monitoring-console-widget-add[add widgets].
+
 
 [[monitoring-console-page-delete]]
 ==== Deleting a Page
-To delete a page click on the `x` in the top right corner (closed options) and confirm the browser dialogue. 
+To delete a page open top right _Page_ menu, select _Delete_ and confirm the browser confirmation dialogue. 
 
-image::/images/monitoring-console/mc_page_delete.png[Deleting a Page]
+NOTE: Pages that are based on a preset cannot be deleted. They can only be reset to default preset configuration.
 
-WARNING: Once a page is deleted it cannot be restored or reset. It can only be restored by link:#monitoring-console-page-import[importing a complete configuration].
 
 [[monitoring-console-page-reset]]
 ==== Reset a Page
-When the configuration of a preconfigured page or any of the widgets on it was changed by the user the page can be reset by clicking the `&#10226;` button in the top right icon toolbar.
+When the configuration of a preconfigured page or any of the widgets on it was changed by the user the page can be reset by selecting _Reset_ from the top right _Page_ menu.
 
-image::/images/monitoring-console/mc_config_toolbar.png[Page Configuration Toolbar]
+WARNING: The reset will affect all widgets and the general page settings of the currently shown page. All changes made by the user will be overridden.
 
-WARNING: The reset will affect all widgets and the general page setup of the currently shown page. All changes made by the user will be overridden.
-
-To reset all pages to only the resets the local storage of the browser for the page needs to be cleared. With no configuration in local browser storage the config is reset to the preconfigured pages again.
-
-
-[[monitoring-console-page-export]]
-==== Export Configuration
-A configuration contains all pages. Any changes made to a page or widget setup are contained in this configuration. By clicking the export button in the top right icon toolbar the configuration is downloaded as JSON file.
-
-
-[[monitoring-console-page-import]]
-==== Import Configuration
-To import a previously exported JSON file click the import button in the top right icon toolbar any select the JSON file to import. This feature can be used to version and distribute configurations for similar installations.
-
-WARNING: Improting files will override any changes made to any page included in the file.
+To reset all pages and remove all user created pages clear the browser's local storage for the monitoring console page.
 
 
 [[monitoring-console-widgets]]
 === Widgets
 Widgets are the components that can be placed on a page to show a particular metric.
-While there are different types of widgets usually a widget shows a line graph of one or more metrics. 
+While there are different types of widgets usually a widget shows a line graph of one or more metrics for the entire cluster.
+
+
+[[monitoring-console-widget-add]]
+==== Adding a Widget
+Widgets can be added to any page. Open the side panel by clicking on _Settings_ top right menu.
+Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select the category of the metric to add. This populates the second dropdown with all metrics for that category. Select a metric from the second dropdown to prefill the widget series name field below and press the _Add_ button.
+
+image::/images/monitoring-console/mc_settings_page.png[Page Settings]
+
+When added, widgets are automatically placed in a column so that they are evenly distributed on the page.
+Use the link:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget and select the action you want to apply to the widget.
+
+NOTE: The widget series name field allows you to enter the name manually for advanced use cases or in case a metric is not available now but known to become available at some point. See link:#monitoring-console-widget-advanced[Series with Wildcards] for more details.
+
 
 [[monitoring-console-widget-config]]
 ==== Configuring a Widget
-To configure a widget select it by clicking on its title as shown below.
+To configure a widget select it by clicking on its title (light blue background in image below).
 
-image::/images/monitoring-console/mc_widget_options.png[Selecting a Widget]
+image::/images/monitoring-console/mc_widget_settings.png[Open Widget Settings]
 
 This opens the side panel and shows the detail configuration of the widget.
-Deselect the widget by clicking on its title again or click on cogs symbol to close the side panel.
+The side panel can be closed by either deselecting the widget, by clicking on its title again, or by clicking the _Settings_ menu or its _Hide_ item.
+
+NOTE: If the settings have been opened explicitly through the _Settings_ menu an empty selection will not close the settings side panel.
 
 NOTE: Note that while mutli-select is supported many widget options only show when only one widget is selected. 
 
 The _Widget_ settings are concerned with the widgets position within the page.
+
+image::/images/monitoring-console/mc_settings_widget.png[Widget Settings]
 
 .Widget Settings
 [cols="1,1,4",options="header"]
@@ -115,11 +118,13 @@ The _Widget_ settings are concerned with the widgets position within the page.
 | Property | Default | Description 
 | Type | `Time Curve`  | Changes the type of the graph used to show the metric. This also affects which data of the metric the widget is focussed on.  
 | Column | 1  | The column in the layout the widget *prefers* to be in.
-| Item   | 1  | Within columns widgets are sorted by their item value, lowest values first.
+| Item   | 1  | Within columns widgets are sorted by their item value, lowest values first. The item position is automatically updated during page layout should it be needed.
 | Span   | 1  | How many columns and rows the widget should span.
 |====================
 
 The _Data_ settings are concerned with what and how the data is shown in the graph of a widget.
+
+image::/images/monitoring-console/mc_settings_data.png[Widget Data Settings]
 
 .Data Settings
 [cols="1,1,4",options="header"]
@@ -136,23 +141,27 @@ The _Data_ settings are concerned with what and how the data is shown in the gra
 
 [[monitoring-console-widget-decorations]]
 ==== Configuring Widget Decorations
-Decorations are visual helper that can be added to a graph of a widget in order to make it easier to for the user to understand the data displayed. In particular these are reference lines.
+Decorations are visual helpers that can be added to a graph of a widget in order to make it easier to for the user to quickly understand the data displayed. In particular these are reference lines.
+
+image::/images/monitoring-console/mc_settings_decorations.png[Widget Decoration Settings]
 
 [cols="1,1,4",options="header"]
 |====================
 | Property | Default | Description
 | Waterline | (undefined) | Adds a simple reference line that could mark a upper or lower limit. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
 | Threshold Reference | `Off` | Controls what value the _Alarming Threshold_ and _Critical Threshold_ are compared to. Usually this is the most recent value but in some cases the all time minimum, maximum or average are useful too.
-| Alarming Threshold | (undefined) | The limit for the _"Alarming"_ state. When no _Critical Threshold_ is defined or if it is larger than this value the threshold is exceeded if the reference value is larger than the threshold. Otherwise if it is lower. When exceeded the status becomes _"Alaraming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
-| Critical Threshold | (undefined) | The limit of the _"Critical"_ state. When no _Alarmin Threshold_ is defined or if it is smaller than this value the threshold is exceeded if the reference value is larger then the threshold. Otherwise if it is lower. When exceeded the status becomes _"Critical"_, overrides staus _"Alarming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
+| Alarming Threshold | (undefined) | The limit for the _"Alarming"_ state. If _Critical Threshold_ is undefined or if it's value is larger than this value the alarming threshold is exceeded if the reference value is larger than the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the arlarming value. When exceeded the status becomes _"Alaraming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
+| Critical Threshold | (undefined) | The limit of the _"Critical"_ state. If _Alarming Threshold_ is undefined or it's value is smaller than this value the critical threshold is exceeded if the reference value is larger then the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the critical value. When exceeded the status becomes _"Critical"_, overrides staus _"Alarming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
 |====================
 
-Besides adding a reference line to the graph the critical and alraming thresholds affect the status evaluation.
+Besides adding a reference line to the graph the critical and alarming thresholds affect the status evaluation.
 
 [[monitoring-console-widget-status]]
 ==== Configuring Widget Status Messages
 The current value of a metric can automatically be categorised as a certain status.
 For example based on the threshold values of decorations or by encountered errors or missing data. The _Status_ settings allows to set a custom message for a particular status.
+
+image::/images/monitoring-console/mc_settings_status.png[Widget Status Settings]
 
 [cols="1,1,4",options="header"]
 |====================
@@ -164,22 +173,69 @@ For example based on the threshold values of decorations or by encountered error
 
 The messages support simple markup using `pass:[*]boldpass:[*]` and `pass:[_]italicpass:[_]`.
 
-[[monitoring-console-widget-add]]
-==== Adding Widgets
-Widgets can be added to any page. Open the side panel by clicking on the cog
-symbol in the top right. Use the dropdown in the _Widget_ property of the _Page_ settings to select a metric or enter the metric directly in the text field below and press the _add_ button.
-
-image::/images/monitoring-console/mc_widget_add.png[Adding a Widget]
-
-Currently new widget are always added to the first column. Use the link:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget.
 
 [[monitoring-console-widget-remove]]
 ==== Removing a Widget
-Any widget can be removed from any page. Click the cog symbol  of the widget,  click _remove_ and confirm the browser dialog. 
-
-image::/images/monitoring-console/mc_widget_remove.png[Removing a Widget]
+Any widget can be removed from any page. Click the cog symbol in the top right of the widget, select _Remove_ and confirm the browser dialog. 
 
 Remember that a page originating from a preset can be reset to recover a widget that was removed accidentally.
+
+
+[[monitoring-console-widget-advanced]]
+==== Using Advanced Data Series
+A series is a name or key for a particular metric shown in a widget. 
+Each metric has a unique key or series name.
+Usually these names use _tags_ to categorise metrics into groups. For example:
+
+        ns:jvm MetricName
+        ns:jvm @:groupName MetricName
+
+The patterns shown above exemplify conventions used throughout Payara monitoring console.
+The first grouping level usually is the `ns` (short for namespace), the second the `@` (short for _group_).
+In the example the metrics belong to the `jvm` namespace and the `groupName` group within that namespace.
+
+When metrics are selected using the dropdowns these details are filled in for the user by selecting items from the dropdowns. 
+Alternatively a user may chose to enter the series key manually which allows to use a wild-card `*` instead of either a tag value (like `jvm`) or the _MetricName_. For example:
+
+        ns:jvm @:* Duration
+
+This will then match all existing series that match the pattern. This feature can be used to automatically show all metrics of a certain pattern in a single widget as it is done by the request tracing page.
+
+
+[[monitoring-console-settings]]
+=== Global Configurations
+Currently the configuration that controls the monitoring console UI is only stored in the browser's local storage.
+It can be exported and imported in the form of JSON files to share or distribute configurations.
+
+[[monitoring-console-page-export]]
+==== Export Configuration
+A configuration contains all pages. All changes made to a page or widget setup are contained in this configuration. To download this configuraton as JSON file select _Export_ from the _Settings_ top right menu.
+
+
+[[monitoring-console-page-import]]
+==== Import Configuration
+To import a previously exported JSON file select _Import_ in the top right _Settings_ menu and select the JSON file to import. This feature can be used to version and distribute configurations for similar installations.
+
+WARNING: Importing files will override any changes made to pages existing in both the current configuration and the imported file. Importing pages will not remove pages that are not contained in the imported file.
+
+
+[[monitoring-console-page-rotation]]
+==== Page Rotation
+Monitoring console is built with the intention of being used to display metrics on status monitors. 
+To allow viewing a variety of pages and their metrics on a single screen the pages can be automatically rotated showing each page for a configured interval duration.
+
+To enable page rotation open the _Settings_ and check the _enabled_ checkbox in the _Global_ Settings _Page Rotation_ property.
+This starts the rotation immediately.
+
+image::/images/monitoring-console/mc_settings_global.png[Global Settings]
+
+The duration can be adjusted changing the text field of the _Page Rotation_ to another time value. Use units to express the duration, as for example: `1min`, `30sec`.
+Changes take effect immediately.
+
+The rotation will show each page for the configured duration. 
+Pages can be excluded from rotation by switching to the page using the page menu. 
+Open the _Settings_ and uncheck the _Include in Rotation_ checkbox in the _Page_ settings.
+
 
 [[monitoring-console-presets]]
 === Preconfigured Pages
@@ -191,12 +247,12 @@ Each instance in the grid is shown separately.
 
 image::/images/monitoring-console/mc_core_overview.png[Core Page]
 
+* _Active Sessions_: Total number of active session for the instance.
+* _Thread Count_: Total number of threads used by the instance.
+* _Request Count_: Number of HTTP request per second processed by the instance.
 * _Heap Usage_: Percentage of the current instance maximum heap memory already used.
 * _CPU Usage_: Percentage CPU usage by the instance (not the machine but the process).
-* _Thread Count_: Total number of threads used by the instance.
-* _Thread Pool Current Thread Count_: Total number of threads in the HTTP thread pool used by the instance.
-* _Request Count_: Number of HTTP request per second processed by the instance.
-* _Active Sessions_: Total number of active session for the instance.
+* _Thread Pool Current Thread Usage_: Percentage of HTTP thread pool threads currently in use by the instance.
 
 [[monitoring-console-preset-http]]
 ==== HTTP
@@ -205,7 +261,7 @@ The _HTTP_ page gives a rough overview over the state of the HTTP services of ea
 image::/images/monitoring-console/mc_http_overview.png[HTTP Page]
 
 * _Connection Queue Count Open Connections_: Total number of open connection in the connection queue
-* _Thread Pool Current Thread Count_: Total number of currently used threads of the HTTP thread pool
+* _Thread Pool Current Threads Busy_: Number of threads in the HTTP thread pool currently processing a HTTP request.
 * _Server Count2xx_: Requests per seconds and instance responding with Success.
 * _Server Count3xx_: Requests per seconds and instance responding with Redirection.
 * _Server Count4xx_: Requests per seconds and instance responding with Client Error.
@@ -216,16 +272,16 @@ image::/images/monitoring-console/mc_http_overview.png[HTTP Page]
 ==== Request Tracing
 The _Request Tracing_ page overview page shows traces that exceeded the set threshold.
 
-NOTE: If this page does not show any data, no request have exceeded the threshold or the request tracing has not been enabled altogether. 
+NOTE: If this page does not show any data, no request has exceeded the threshold or the request tracing has not been enabled. Check _Configuration_ => _Request Tracing_. 
 
-All traces for the same method are shown as a single bar. The length and position of the bar gives the range of total trace duration. The bar starts at the minimum duration observed and ends at the maximum duration observed in the last minute.
+All traces for the same method are shown as a single bar. The length and position of the bar gives the range of total trace duration for all the occurrences that exceeded the threshold. The bar starts at the minimum duration observed and ends at the maximum duration observed in the last minute.
 The legend shows the average duration and the method traced (innermost trace span operation)
 
 image::/images/monitoring-console/mc_rt_overview.png[Request Tracing Page]
 
-When all time minimum and/or maximum are added the bar starts and/or ends at these values.
+When all time minimum and/or maximum are added in the _Widget_ _Data_ settings the bar starts and/or ends at these "all time" values instead of the minumum and/or maximum within the last minute.
 
-By clicking on one of the bars in the overview the details of all traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
+By clicking on one of the bars in the overview the details of all kept traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
 For each trace each of the spans corresponds to a bar in this graph.
 
 image::/images/monitoring-console/mc_rt_details.png[Request Tracing Details Page]
@@ -235,16 +291,30 @@ On the time axis the spans are shown relative to the start of the trace.
 
 When the side panel is opened the details of each trace span can be viewed by clicking on the span bar.
 
-The legend again gives average durations for each of the spans occuring for the traced method.
+The legend gives average durations for each of the spans occurring for the traced method.
 
-The detail view is not automatically refreshing. To refresh the view click on the `&#10226;` icon in the top left of the widget.
+NOTE: The detail view does not automatically refresh. To refresh click the refresh icon next to the _Sorting_ menu in the top right of the widget.
 
-The spans can be sorted by wall time by clicking on the `?` icon in the top left.
-To switch sort order back to duration click the icon right to it.
+The spans can be sorted by wall time by selecting _Sort by Wall Time_ or by duration by selecting _Sort By Duration_ in the _Sorting_ menu in the top right of the widget.
 
-To get back to the overview close the details by clicking the `?` icon in the top left.
+To get back to the overview close the details by clicking the x-icon on the right side of the _Sorting_ menu.
 
-WARNING: Be aware that the graphs shown in the example images above show unrealistically low numbers because the request tracing had been configured to such low thresholds to force traces as requests exceed the set thresholds. In a more realistic configurations the durations are more likely to be in range of few hundret milliseconds to some seconds.
+WARNING: Be aware that the graphs in the example images above show unrealistically low numbers due to the way that request tracing was configured. In a more realistic configurations the durations are more likely to be in range of few hundred milliseconds to some seconds.
+
+
+[[monitoring-console-user]]
+=== User Defined Metrics
+Payara monitoring console is build with the intention to allow user defined metrics to be visualised. 
+So far these include the MicroProfile Metrics that might originate from deployed application and other extensions of the server.
+These are included in the available metrics automatically.
+
+Open the _Settings_ and look for _MP Metrics_ in the topmost dropdown for the _Add Widgets_ property in the _Page_ settings.
+
+image::/images/monitoring-console/mc_settings_page_MP.png[Page Settings MP Metrics]
+
+The metrics found in the second dropdown originate from existing MicroProfile Metrics defined in the server.
+Eventual MP tags used become the `@` group of the shown series key, the MP metric stays the metric name.
+
 
 [[monitoring-console-disable]]
 == Disable Data Collection
