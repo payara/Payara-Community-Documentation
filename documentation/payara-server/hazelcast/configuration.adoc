@@ -5,9 +5,10 @@ Payara Server supports configuring Hazelcast through the Admin Console and
 asadmin commands. The Hazelcast configuration file can also be directly edited,
 but will not be covered in depth in this section.
 
-Configuration of Hazelcast is set in three sections. The first section applies to the whole
-domain, the second section applies to specific configurations and therefore to
-Payara Server instances that use that configuration and the final section covers how certain configuration can be configured on domain creation.
+Configuration of Hazelcast is divided into three sections. The first section 
+applies to the whole domain, the second section applies to specific configurations 
+and therefore to Payara Server instances that use that configuration and the 
+final section covers how certain settings can be specified when a domain is created.
 
 Using a Hazelcast configuration file will cause the settings set via the Admin
 Console and _asadmin_ commands to be ignored. Any parameters not specified in
@@ -87,8 +88,8 @@ list of IP Addresses can be specified here.
 to use. The path specified is relative to the domain _config_ directory.
 
 If you are using a custom GlassFish server configuration for a cluster
-or standalone instance (e.g. _cluster-config_), then the Hazelcast
-the configuration file should be placed in the directory with the same name
+or standalone instance (e.g. _cluster-config_), then the Hazelcast 
+configuration file should be placed in the directory with the same name
 (e.g. _<domain-root>/config/cluster-config_). This will ensure it is
 replicated to the node during startup.
 
@@ -290,39 +291,65 @@ asadmin> set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=
 
 [[configuring-hazelcast-on-domain-creation]]
 == Configuring Hazelcast on Domain Creation
-Following options has been added to the 'create-domain' command to make it possible to configure certain Hazelcast setting on domain creation:
+_Since Payara Server 5.194 and 5.193.2_
+
+The following options can be used with the `create-domain` command to specify certain Hazelcast settings when a domain is created:
 
 [cols=(,,,,),options="header"]
 |====
 |Option|Type|Description|Default|Mandatory
 
-| `--hazelcastdasport` | Port Number | The port to run Hazelcast on for the DAS. If this port is busy, the port specified will be incremented until a valid port is found. The `--hazelcastdasport` option cannot be used with the `--portbase` option. The `--hazelcastdasport` option overrides the `hazelcast.das.port` property of the `--domainproperties` option. | 4900 | No
+| `--hazelcastdasport` | Port Number | The port to run Hazelcast on for the DAS. 
+If this port is busy and auto-increment option is enabled, the port specified 
+will be incremented until a valid port is found. The `--hazelcastdasport` 
+option cannot be used with the `--portbase` option. The `--hazelcastdasport` 
+option overrides the `hazelcast.das.port` property of the `--domainproperties` 
+option. | 4900 | No
 
-| `--hazelcaststartport` | Port Number | The port the other Payara Server instances use to run Hazelcast on. If this port is busy, the port specified will be incremented until a valid port is found. The `--hazelcaststartport` option cannot be used with the `--portbase` option. The `--hazelcaststartport` option overrides the hazelcast.start.port property of the `--domainproperties` option. | 5900 | No
+| `--hazelcaststartport` | Port Number | The port the other Payara Server 
+instances use to run Hazelcast on. If this port is busy and auto-increment 
+option is enabled, the port specified will be incremented until a valid port is 
+found. The `--hazelcaststartport` option cannot be used with the `--portbase` 
+option. The `--hazelcaststartport` option overrides the hazelcast.start.port 
+property of the `--domainproperties` option. | 5900 | No
 
-| `--hazelcastautoincrement` | Boolean | By default the cluster uses the next unoccupied port that is available starting with the start port. When auto-increment is turned off an occupied start port results in a startup failure instead. The `--hazelcastautoincrement` option overrides the `hazelcast.auto.increment` property of the `--domainproperties` option | 5900 | No
+| `--hazelcastautoincrement` | Boolean | By default the Data Grid uses the next 
+unoccupied port that is available starting with the start port. When 
+auto-increment is turned off an occupied start port results in a startup failure 
+instead. The `--hazelcastautoincrement` option overrides the `hazelcast.auto.increment` 
+property of the `--domainproperties` option. | 5900 | No
 |====
 
-Following domain properties have been added  to the 'create-domain' command to make it possible to configure certain Hazelcast setting on domain creation:
+The following domain properties have been added  to the 'create-domain' command 
+to make it possible to configure certain Hazelcast setting when a domain is created:
 
 
 [cols=(,,,,),options="header"]
 |====
 |Property|Description
 
-| `hazelcast.das.port` | This property specifies the port number of the port the DAS use to run Hazelcast on. The `hazelcast.das.port` property is overridden by the `--hazelcastdasport` option.
+| `hazelcast.das.port` | This property specifies the port number of the port the
+ DAS use to run Hazelcast on. The `hazelcast.das.port` property is overridden by 
+the `--hazelcastdasport` option.
 
-| `hazelcast.start.port` | This property specifies the port number of the port the other Payara Server instances use to run Hazelcast on. The hazelcast.start.port property is overridden by the `--hazelcaststartport` option.
+| `hazelcast.start.port` | This property specifies the port number of the port 
+the other Payara Server instances use to run Hazelcast on. The hazelcast.start.port 
+property is overridden by the `--hazelcaststartport` option.
 
-| `hazelcast.auto.increment` | This property specifies whether or not to use the next unoccupied port that is available starting with the start port. When auto-increment is turned off an occupied start port results in a startup failure instead. The hazelcast.auto.increment property is overridden by the `--hazelcastautoincrement` option.
+| `hazelcast.auto.increment` | This property specifies whether or not to use the 
+next unoccupied port that is available starting with the start port. When auto-increment 
+is turned off an occupied start port results in a startup failure instead. The 
+hazelcast.auto.increment property is overridden by the `--hazelcastautoincrement` option.
 |====
 
-If the `portbase` options are used, the values for the ports of the Hazelcast DAS start port and the Hazelcast start Port are calculated as follows:
+NOTE: If the `portbase` options are used, the values for the ports of the 
+Hazelcast DAS start port and the Hazelcast start Port are calculated as follows: 
+Hazelcast DAS start port: _portbase_ + 49 and Hazelcast start port: _portbase_ + 59.
 
-    * Hazelcast DAS start port: _portbase_ + 49
-    * Hazelcast start port: _portbase_ + 59
+*The following examples demonstrate creating a domain with all of the Hazelcast 
+related options:*
 
-The following examples demonstrate creating a domain with all of the Hazelcast related options:
+An example of `create-domain` command with Hazelcast specific options:
 ----
 asadmin> asadmin create-domain --hazelcastdasport 7900 --hazelcaststartport 8900 --hazelcastautoincrement true testDomain
 
@@ -346,7 +373,10 @@ Domain testDomain created.
 Domain testDomain admin port is 4848.
 Domain testDomain allows admin login as user "admin" with no password.
 Command create-domain executed successfully.
+----
 
+An example of `create-domain` command with Hazelcast specific domain properties:
+----
 asadmin> create-domain --domainproperties hazelcast.das.port=7900:hazelcast.auto.increment=false:hazelcast.start.port=8900 testDomain
 
 Using default port 8080 for HTTP Instance.
@@ -369,5 +399,3 @@ Domain testDomain admin port is 4848.
 Domain testDomain allows admin login as user "admin" with no password.
 Command create-domain executed successfully.
 ----
-
-
