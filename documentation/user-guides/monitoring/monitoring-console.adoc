@@ -7,8 +7,16 @@ NOTE: Please be aware that following details reflect the current state of a evol
 
 [[monitoring-console-installation]]
 == Installation
-To run the application deploy the `monitoring-console-webapp.war` on the DAS. The war is contained in the `monitoring-console` folder of the release archive. 
-Installing the application on other instances will not show any data.
+To start the monitoring console run the following asadmin command:
+
+        asadmin> set-monitoring-console-configuration --enabled=true
+        
+The console is now available at http://localhost:8080/monitoring-console/ .
+Like the admin GUI the monnitoring console only runs on the DAS.
+
+To stop the monitoring console run:
+
+        asadmin> set-monitoring-console-configuration --enabled=false
 
 NOTE: The monitoring console feature is only contained in Payara Server distribution.
 
