@@ -20,6 +20,14 @@ To stop the monitoring console run:
 
 NOTE: The monitoring console feature is only contained in Payara Server distribution.
 
+
+[[monitoring-console-disable]]
+== Enabling Data Collection
+The collection of monitoring data gets enabled and disabled in connection with the general configuration: _Monitoring_ => _Monitoring Service_ => _Enabled_
+
+NOTE: To remove only the monitoring data collection from the server without disabling the monitoring service itself delete the `monitoring-console-core.jar` from the `/glassfish/modules` folder of your installation(s) and restart the server.
+
+
 [[monitoring-console-gui]]
 == Graphical User Interface
 After installing the `monitoring-console-webapp.war` open the home page at the application root you have chosen, for example `/monitoring-console-webapp/`.
@@ -323,8 +331,3 @@ image::/images/monitoring-console/mc_settings_page_MP.png[Page Settings MP Metri
 The metrics found in the second dropdown originate from existing MicroProfile Metrics defined in the server.
 Eventual MP tags used become the `@` group of the shown series key, the MP metric stays the metric name.
 
-
-[[monitoring-console-disable]]
-== Disable Data Collection
-While the visualisation of data is located in the monitoring console web application the data collection itself is an integral part of the Payara Server.
-To disable the data collection remove the `monitoring-console-core.jar` from the `/glassfish/mondules` folder of your installation(s) and restart the server.
