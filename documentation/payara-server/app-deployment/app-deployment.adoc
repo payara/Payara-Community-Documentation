@@ -92,7 +92,7 @@ If an application matching the GAV coordinates exists on multiple repositories, 
 Although the command accepts Maven GAV coordinates, it does not actually make use of Maven, and so artefacts will not be saved into your local maven repository.
 ====
 
-==Overwriting the Application Name
+== Overwriting the Application Name
 
 _Since Payara Server 4.1.2.182 and 5.182_
 

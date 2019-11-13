@@ -35,3 +35,19 @@ The Payara Platform's MicroProfile implementation supports tracing of requests t
 === OpenTracing Configuration
 
 You can configure the notifiers and open tracing service by using the link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[asadmin commands] and also using the link:/documentation/payara-server/request-tracing-service/configuration.adoc[Administration console].
+
+[[alternative-implementation]]
+== Using Alternate Opentracing Implementations
+
+_Since Payara Server 5.194_
+
+If you wish to use an alternative implementation of OpenTracing, i.e. Jaeger, then the alternative implementation must be provided as a jar in the lib directory of your domain. In it must be a file named `io.opentracing.Tracer` under _META-INF/services_, with the name of the class implementing `io.opentracing.Tracer`. That implementation must have a no-argument constructor. Alternate Opentracing implementations will only trace JAX-RS, JAX-WS and classes or methods annotated with `@Traced`; Payara's own request tracing service can trace link:/documentation/payara-server/request-tracing-service/request-tracing-service.adoc[more types of request]. Payara's request tracing service MUST also be enabled, whichever implementation is being used in order for tracing to occur. All other configuration within Payara's request tracing service will have no effect on the supplied tracer, which must be configured separately to Payara.
+
+Activating Request Tracing is done either via the admin console or using the commands:
+
+`set-requesttracing-configuration --enabled=true --dynamic=true`
+`bootstrap-requesttracing`
+
+NOTE: All other options for request tracing are ignored as the created Spans are not processed within Payara.
+
+As an example, see https://github.com/payara/ecosystem-jaeger-tracing, which shows how to integrate a Jaeger client tracer. This can be added as a library to Payara with the command `add-library jaeger-tracer-lib`. Enabling request tracing in Payara Server is then required, which will then send traces from OpenTracing to a Jaeger collector on the same host.

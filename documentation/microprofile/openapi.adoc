@@ -148,8 +148,12 @@ image:/images/microprofile/openapi.png[Set OpenAPI Configuration]
 *Usage*::
 ----
 asadmin> set-openapi-configuration
-    [--enabled=true|false]
-    [--target=<target>]
+        [--enabled=true|false]
+        [--corsheaders=true|false]
+        [--securityenabled=true|false]
+        [--roles=<role-list>] 
+        [--target=<target[default:server]>]
+        [--virtualservers=<virtualserver-list>]
 ----
 *Aim*::
 Enables or disables the OpenAPI service.
@@ -159,24 +163,52 @@ NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always 
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="1,1,10,1,1", options="header"]
 |===
 |Option
+|Type
 |Description
 |Default
 |Mandatory
 
 |`enabled`
+|Boolean
 |Whether the service should be enabled/disabled.
 |true
 |No
 
+|`corsheaders`
+|Boolean
+|Whether or not CORS headers (e.g. `Access-Control-Allow-Origin=*`) should be added to OpenAPI endpoint responses.
+
+_Since Payara Server 5.192_
+|false
+|No
+
+|`securityenabled`
+|Boolean
+|Whether or not secure access to the openapi endpoint is enabled.
+
+_Since Payara Server 5.193_
+|false
+|No
+
+|`roles`
+|String
+|If defined, the endpoint will be assigned to a list of the role specified as a comma-separated.
+
+_Since Payara Server 5.193_
+|`microprofile`
+|No
+
 |`target`
+|String
 |The target Payara config to apply the change to.
 |server-config
 |No
 
 |`virtualservers`
+|String
 |If defined, the '/openapi' endpoint will be assigned to the list of virtual servers specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available. _Since Payara Server 4.1.2.184 and 5.184_
 |-
 |No
@@ -195,15 +227,25 @@ Gets the status of the OpenAPI service.
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="1,1,10,1,1", options="header"]
 |===
 |Option
+|Type
 |Description
 |Default
 |Mandatory
 
 |`target`
+|String
 |The target Payara config to apply the change to.
 |server-config
 |false
 |===
+
+[[security-configuration]]
+=== Security Configuration
+By default, OpenAPI endpoints binds to root context application which is 
+`__default-web-module` (docroot) system application and `__default-web-module` 
+application uses default realm (`file`) of server. If user application deployed 
+with the empty context-root then the security configuration of the deployed 
+application will be shared by OpenAPI endpoints.

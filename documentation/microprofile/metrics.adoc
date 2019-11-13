@@ -54,6 +54,13 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
     <vendor>
         <!--sample metadata-->
         <metadata>
+            <!--tags are since 5.193 -->
+            <tags>
+                <tag>
+                    <name>operatingSystem</name>
+                    <value>Linux</name>
+                </tag>
+            </tags>
             <name>system.cpu.load</name>
             <mbean>java.lang:type=OperatingSystem/SystemCpuLoad</mbean>
             <type>gauge</type>
@@ -89,7 +96,13 @@ Here's a simple example of defining a custom metric definition template that wil
 [source, xml]
 ----
 <metadata>
-     <name>jdbc.connection.pool.%sPool.numconnfree</name>
+     <tags>
+        <tag>
+            <name>name</name>
+            <value>%s</value>
+        </tag>
+     </tags>
+     <name>jdbc.connection.pool.numconnfree</name>
      <mbean>amx:pp=/mon/server-mon[server],type=jdbc-connection-pool-mon,name=resources/%sPool/numconnfree#current</mbean>
      <type>counter</type>
      <unit>none</unit>
@@ -102,15 +115,15 @@ Which will yield the following results:
 
 [source, text]
 ----
-# TYPE vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_timer_pool_pool_numconnfree 0
-# TYPE vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_derby_pool_pool_numconnfree 0
-# TYPE vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree counter
-# HELP vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree The total number of free connections in the pool as of the last sampling.
-vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconnfree 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/DerbyPool"} 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/H2Pool"} 0
+# TYPE vendor_jdbc_connection_pool_numconnfree_total counter
+# HELP vendor_jdbc_connection_pool_numconnfree_total The total number of free connections in the pool as of the last sampling.
+vendor_jdbc_connection_pool_numconnfree_total{name="resources/__TimerPool"} 0 0
 ----
 
 [[advanced-templating]]
@@ -197,11 +210,16 @@ image:/images/microprofile/metrics.png[Set Metrics Configuration]
 ==== `set-metrics-configuration`
 
 *Usage*::
-`asadmin> set-metrics-configuration
+----
+asadmin> set-metrics-configuration
         [--enabled=true|false]
-        [--securemetrics=true|false]
+        [--securityenabled=true|false]
+        [--roles=<role-list>] 
         [--dynamic=true|false]
-        [--target <instance-name>]`
+        [--endpoint=<context-root[default:metrics]>]
+        [--target=<instance-name[default:server]>]
+        [--virtualservers=<virtualserver-list>]
+----
 *Aim*::
 Provides a way to set the configuration of the metrics service of the targeted config.
 
@@ -221,16 +239,26 @@ Provides a way to set the configuration of the metrics service of the targeted c
 |true
 |No
 
+|`securityenabled`
+|Boolean
+|Whether or not secure access to the metrics endpoint is enabled.
+
+_Since Payara Server 5.193_
+|false
+|No
+
+|`roles`
+|String
+|If defined, the endpoint will be assigned to a list of the role specified as a comma-separated.
+
+_Since Payara Server 5.193_
+|`microprofile`
+|No
+
 |`endpoint`
 |String
 |The context root used to expose the metrics endpoint.
 |`metrics`
-|No
-
-|`securemetrics`
-|Boolean
-|If set to `true`, the endpoint can be accessed only via HTTPS and will disable all non-secured communications with a `403 - Forbidden` response code.
-|false
 |No
 
 |`dynamic`
@@ -258,13 +286,15 @@ _Since Payara Server 4.1.2.184 and 5.184_
 
 [source,Shell]
 ----
-asadmin> set-metrics-configuration --enabled=true --securemetrics=true --dynamic=true --target instance1
+asadmin> set-metrics-configuration --enabled=true --securityenabled=true --dynamic=true --target instance1
 ----
 
 ==== `get-metrics-configuration`
 
 *Usage*::
-`asadmin> get-metrics-configuration [--target <instance-name>]`
+----
+asadmin> get-metrics-configuration [--target <instance-name>]
+----
 *Aim*::
 Returns the current configuration options for the metrics service on the targeted configuration.
 
@@ -291,3 +321,11 @@ Returns the current configuration options for the metrics service on the targete
 ----
 asadmin> get-metrics-configuration --target cluster1
 ----
+
+[[security-configuration]]
+=== Security Configuration
+By default, Metrics endpoints binds to root context application which is 
+`__default-web-module` (docroot) system application and `__default-web-module` 
+application uses default realm (`file`) of server. If user application deployed 
+with the empty context-root then the security configuration of the deployed 
+application will be shared by Metrics endpoints.
