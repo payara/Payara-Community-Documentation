@@ -28,7 +28,7 @@ This endpoint is disabled out of the box and it can be enabled using the `set-ej
 [[set-ejb-invoker-configuration]]
 ==== `set-ejb-invoker-configuration`
 
-_Since Payara Server 4.1.2.182 and 5.182_
+_Since Payara Server 5.194_
 
 *Usage*::
 ----
