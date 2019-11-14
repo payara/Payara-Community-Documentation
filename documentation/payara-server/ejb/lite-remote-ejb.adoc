@@ -7,7 +7,7 @@ _Since Payara Server 5.191_
 
 {% include "/fragments/tech-preview.adoc" %}
 
-Payara Server and GlassFish have supported classic remote EJB since its inception. Classic remote EJB uses the **IIOP-RMI** (Internet Inter-ORB Protocol Remote Method Invocation) protocol for transport communication and the https://omg.org/spec/SEC[CSIv2] (Common Secure Interoperability Protocol Version 2) protocol for security. 
+Payara Server and GlassFish have supported classic remote EJB since its inception. Classic remote EJB uses the **IIOP-RMI** (Internet Inter-ORB Protocol Remote Method Invocation) protocol for transport communication and the https://omg.org/spec/SEC[CSIv2] (Common Secure Interoperability Protocol Version 2) protocol for security.
 
 While feature rich, these protocols were not designed with firewalls, NAT, (private) clouds, Docker and generally the Internet in mind. For these environments the requirements of the protocol, such as establishing independent connections back from the server to the client, are too troublesome.
 
@@ -16,6 +16,8 @@ The **IIOP-RMI/CSIv2** also requires the use of multiple heavyweight client libr
 Payara Server features an additional complimentary EJB remoting technology based on the HTTP(S) protocol while favoring the use of a thin client library that make remote applications much lighter while circumventing known challenges for the Internet and other scenarios.
 
 IMPORTANT: HTTP(S) for EJB Remoting in Payara Server is a completely different feature from the classic IIOP-RMI/CSIv2-based feature, and does not intend to replace the transport layer protocol used on it, rather it is implemented as an additional independent feature.
+
+IMPORTANT: TX Propagation and Security Propagation is *not supported* by EJB Remoting in Payara Server.
 
 WARNING: In the current version of this feature, not all remote EJB features are implemented yet.
 
@@ -142,7 +144,7 @@ environment.put(INITIAL_CONTEXT_FACTORY, "fish.payara.ejb.rest.client.RemoteEJBC
 environment.put(PROVIDER_URL, "https://localhost:8080/ejb-invoker");
 environment.put(SECURITY_PRINCIPAL, "u1");
 environment.put(SECURITY_CREDENTIALS, "p1");
-        
+
 InitialContext ejbRemoteContext = new InitialContext(environment);
 
 BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
