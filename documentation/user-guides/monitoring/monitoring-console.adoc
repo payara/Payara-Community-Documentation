@@ -30,7 +30,7 @@ NOTE: To remove only the monitoring data collection from the server without disa
 
 [[monitoring-console-gui]]
 == Graphical User Interface
-After installing the `monitoring-console-webapp.war` open the home page at the application root you have chosen, for example `/monitoring-console-webapp/`.
+After enabling the monitoring console open the home page at `/monitoring-console/`.
 
 The console comes with a set of link:#monitoring-console-presets[preconfigured pages] each focussing on a different aspects of the server. 
 
@@ -122,8 +122,6 @@ The side panel can be closed by either deselecting the widget, by clicking on it
 
 NOTE: If the settings have been opened explicitly through the _Settings_ menu an empty selection will not close the settings side panel.
 
-NOTE: Note that while mutli-select is supported many widget options only show when only one widget is selected. 
-
 The _Widget_ settings are concerned with the widgets position within the page.
 
 image::/images/monitoring-console/mc_settings_widget.png[Widget Settings]
@@ -131,7 +129,8 @@ image::/images/monitoring-console/mc_settings_widget.png[Widget Settings]
 .Widget Settings
 [cols="1,1,4",options="header"]
 |====================
-| Property | Default | Description 
+| Property | Default | Description
+| Display Name | (undefined) | Optional name to customise the displayed widget title. If no name is given the _Data Series_ is shown.
 | Type | `Time Curve`  | Changes the type of the graph used to show the metric. This also affects which data of the metric the widget is focussed on.  
 | Column | 1  | The column in the layout the widget *prefers* to be in.
 | Item   | 1  | Within columns widgets are sorted by their item value, lowest values first. The item position is automatically updated during page layout should it be needed.
@@ -145,10 +144,13 @@ image::/images/monitoring-console/mc_settings_data.png[Widget Data Settings]
 .Data Settings
 [cols="1,1,4",options="header"]
 |====================
-| Property | Default | Description 
+| Property | Default | Description
+| Series | - | The metric key given when adding the metric (read-only)
 | Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
 | Unit 1/sec | `false` | Whether or not to show the metric as change per second (delta between two points in the series normalised to average delta per second).
-| Extra Lines | (none) | Check to add the all time minimum, maximum or avager line to the graph
+| Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
+| Upscaling _decimal value_ | `false` | Check to mark the metric as one that is provided as a decimal value during collection (floats or doubles and alike). This will then revert the conversion applied during collection which converts decimal values to an integer number with 4 available decimal digits by multiplying them by 10,000. So this divides values by 10,000 again to move them back into their original value range.
+| Extra Lines | (none) | Check to add the all time minimum, maximum or average line to the graph
 | Display | _Fill_, _Curvy_ | Options on how to display the current value line in the graph: With _Points_ marked, with _Fill_ under the area between line and axis and whether or not to use curves to draw the line.
 | X-Axis | _Labels_ | Whether or not to show labels for the x-axis.
 | Y-Axis | (undefined) | Set a minimum or maximum number for the y-axis instead. When not set range is derived automatically from the data points. 
