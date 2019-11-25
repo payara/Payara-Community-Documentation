@@ -24,23 +24,97 @@ WARNING: In the current version of this feature, not all remote EJB features are
 [[configuring-http-for-remote-ejb]]
 == Configuring HTTP(S) for Remote EJBs
 
-HTTP(S) for EJB remoting in Payara Server makes use of a special web endpoint on which is located by default on the path `/ejb-invoker`. This endpoint is disabled out of the box and it can be enabled using the `enable-ejb-invoker` asadmin command.
+HTTP(S) for EJB remoting in Payara Server makes use of a special web endpoint on which is located by default on the path `/ejb-invoker`.
+This endpoint is disabled out of the box and it can be enabled using the `set-ejb-invoker-configuration` asadmin command.
+
+[[set-ejb-invoker-configuration]]
+==== `set-ejb-invoker-configuration`
+
+_Since Payara Server 5.194_
 
 *Usage*::
-`asadmin> enable-ejb-invoker "ejb-invoker"`
+----
+asadmin set-ejb-invoker-configuration 
+        [--enabled=true|false]
+        [--securityenabled=true|false]
+        [--roles=<role-list>]
+        [--authmoduleclass=<SAM-class>]
+        [--authmodule=<security-provider-id>]
+        [--realmname=<realm-name>]
+        [--authtype=<auth-type>]
+        [--endpoint=<context-root[default:ejb-invoker]>] 
+        [--target=<target[default:server]>]
+----
 
 *Aim*::
-Enables the endpoint that allows HTTP(S) transport based communication for remote EJBs.
+Enables or disables the endpoint that allows HTTP(S) transport based communication for remote EJBs.
 
 [[command-options]]
 === Command Options
 
-[cols=",,,,",options="header",]
-|=======================================================================
-|Option |Shortcut |Description |Default |Mandatory
-|`--target` |N/A |The instance or cluster to enable the endpoint on | server | No
-|`--contextRoot` | (primary, no need to specify name) | Context root for the endpoint, can be overwritten | "ejb-invoker" | No
-|=======================================================================
+[cols="1,1,10,1,1", options="header"]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`enabled`
+|Boolean
+|Enables or disables the ejb-invoker application.
+|true
+|No
+
+|`securityenabled`
+|Boolean
+|Whether or not secure access to the ejb-invoker endpoint is enabled.
+|false
+|No
+
+|`roles`
+|String
+|If defined, the endpoint will be assigned to a list of the role specified as a comma-separated..
+|invoker
+|No
+
+|`endpoint`
+|String
+|The context root used to expose the ejb-invoker application endpoint.
+|ejb-invoker
+|No
+
+|`authmoduleclass`
+|String
+|Defines the full qualified class name implementing `javax.security.auth.message.module.ServerAuthModule`. If defined and securityenabled set to true, HttpServlet Message security provider is created and ejb-invoker application secured with configured SAM.
+|
+|No
+
+|`authmodule`
+|String
+|Defines the existing message security provider id. If defined and securityenabled set to true, ejb-invoker application secured by security provider.
+|
+|No
+
+|`realmname`
+|String
+|Defines the registered realm name. If defined and securityenabled set to true, ejb-invoker application secured and realm used for the authentication.
+|
+|No
+
+|`authtype`
+|String
+|The instance or cluster to enable the endpoint.
+|
+|No
+
+|`target`
+|String
+|The target configuration where the command should be run.
+|server
+|No
+
+|====
 
 [[example]]
 === Example
@@ -49,26 +123,44 @@ The following command will enable the endpoint on the DAS:
 
 [source, shell]
 ----
-asadmin > enable-ejb-invoker
-
+asadmin > set-ejb-invoker-configuration --enabled=true
 ----
 
-Once enabled, the endpoint can be disabled again using the `disable-ejb-invoker` asadmin command:
+NOTE: The `set-ejb-invoker-configuration --enabled=true/false` commands actually deploy/undeploy an internal small WAR application that exposes the endpoint. In this version this application is shown in all overviews that show deployed applications once enabled.
+
+
+[[get-ejb-invoker-configuration]]
+==== `get-ejb-invoker-configuration`
+
+_Since Payara Server 5.194_
 
 *Usage*::
-`asadmin> disable-ejb-invoker`
+----
+asadmin get-ejb-invoker-configuration 
+        [--target=<target[default:server]>]
+----
 
 *Aim*::
-Disables the endpoint that allows HTTP(S) transport based communication for remote EJBs.
+Returns the current configuration options for the ejb-invoker application on the targeted configuration.
 
-[[command-options-1]]
+[[command-options]]
 === Command Options
 
-[cols=",,,,",options="header",]
-|=======================================================================
-|Option |Shortcut |Description |Default |Mandatory
-|`--target` |N/A |The instance or cluster to disable the endpoint on | server | No
-|=======================================================================
+[cols="1,1,10,1,1", options="header"]
+|===
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`target`
+|String
+|The target configuration where the command should be run.
+|server
+|No
+|===
+
 
 [[example-1]]
 === Example
@@ -77,10 +169,8 @@ The following command will disable the endpoint on the DAS:
 
 [source, shell]
 ----
-asadmin > disable-ejb-invoker
+asadmin > get-ejb-invoker-configuration --target cluster1
 ----
-
-NOTE: The `enable-ejb-invoker` and `disable-ejb-invoker` commands actually deploy and undeploy an internal small WAR application that exposes the endpoint. In this version this application is shown in all overviews that show deployed applications once enabled.
 
 [[configuring-thin-client]]
 == Configuring the Thin Client Dependency
@@ -182,6 +272,21 @@ Under the covers the remote EJB proxy uses a JAX-RS (Jersey) REST client builder
 |`fish.payara.hostnameVerifier`
 | The hostname verifier to be used by the proxy to verify the endpoint's hostname against the identification information of it.
 | Instance of a `javax.net.ssl.HostnameVerifier` or a `String` representing its fully qualified classname.
+|`fish.payara.provider.principal`
+| The principal to be used by the proxy to access the secured endpoint.
+| Instance of a `String`.
+|`fish.payara.provider.credentials`
+| The credentials to be used by the proxy to access the secured endpoint.
+| Instance of a `String`.
+|`fish.payara.provider.authType`
+| To specify the authentication type of the secured endpoint. By default `BASIC` is defined.
+| Instance of a `String`.
+|`fish.payara.requestFilter`
+| To register the custom filter for the client request invoked by proxy.
+| Instance of a `javax.ws.rs.client.ClientRequestFilter` or a `Class` implementing `javax.ws.rs.client.ClientRequestFilter`.
+|`fish.payara.responseFilter`
+| To register the custom filter for the client response received by proxy.
+| Instance of a `javax.ws.rs.client.ClientResponseFilter ` or a `Class` implementing `javax.ws.rs.client.ClientResponseFilter`.
 |`fish.payara.executorService`
 | The executor service that will be used for executing asynchronous tasks. _(for future use)_
 | Instance of `java.util.concurrent.ExecutorService` or a `String` representing its fully qualified classname.

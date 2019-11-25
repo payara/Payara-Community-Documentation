@@ -23,3 +23,7 @@ package-lock.json
 #IntelliJ
 .idea
 *.iml
+
+#Eclipse
+.project
+
