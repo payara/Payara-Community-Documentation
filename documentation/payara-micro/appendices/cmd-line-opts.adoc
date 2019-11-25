@@ -11,7 +11,13 @@ https://en.wikipedia.org/wiki/Camel_case[camelCase notation]
 |`--accesslog <directory-path>`
 |Sets user defined directory path for the access log.|
 |`--accesslogformat`
-|Sets user defined log format for the access log.|
+|Sets user defined log format for the access log.|"%client.name% %auth-user-name% %datetime% %request% %status% %response.length%"
+|`--accessloginterval`
+|Sets user defined access log write interval.|300
+|`--accesslogsuffix`
+|Sets user defined simple date time suffix for access log filenames.|yyyy-MM-dd
+|`--accesslogprefix`
+|Sets user defined prefix for access log filenames.|
 |`--additionalrepository <repo-url>`
 |Specifies an additional repository to search for deployable artefacts in. Since 4.1.2.184 and 5.184 it is possible to use basic authentication. For example https://USER:PASSWORD@example.payara.fish/repositories/repo/ . You may also use aliases https://USER:{ALIAS=ALIAS_NAME}@example.payara.fish/repositories/repo/|
 |`--addjars <jar-path>`
