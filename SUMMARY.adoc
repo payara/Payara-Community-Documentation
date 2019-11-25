@@ -225,6 +225,7 @@
 ** link:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]
 ** link:documentation/ecosystem/maven-archetype.adoc[Payara Micro Maven Archetype]
 ** link:documentation/ecosystem/gradle-plugin.adoc[Payara Micro Gradle Plugin]
+** link:documentation/ecosystem/maven-bom.adoc[Bill Of Material (BOM)]
 ** link:documentation/ecosystem/eclipse-plugin.adoc[Payara Tools Eclipse Plugin]
 ** link:documentation/ecosystem/netbeans-plugin/README.adoc[Payara Apache NetBeans IDE tools]
 *** link:documentation/ecosystem/netbeans-plugin/payara-server.adoc[Payara Server]
