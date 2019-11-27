@@ -8,7 +8,7 @@ The Payara API provides the `@CertificateIdentityStoreDefinition` and `@Certific
 [[usage]]
 == Usage
 
-The Certificate realm authentication mechanism and identity store are defined through the `@CertificateAuthenticationMechanismDefinition` and `@CertificateIdentityStoreDefinition` annotation.
+The Certificate realm authentication mechanism and identity store are defined through the `@CertificateAuthenticationMechanismDefinition` and `@CertificateIdentityStoreDefinition` annotations.
 Specifying this in a valid place as defined by the Jakarta EE Security API will create the mechanism.
 Often this may mean that any class is a valid position.
 If the Certificate realm not found with the defined name then a new Certificate realm created otherwise existing Certificate realm instance is used to authenticate the users.
