@@ -24,7 +24,7 @@ public class MyRestApp extends Application {
 }
 ----
 
-The `RealmIdentityStoreDefinition` is repeatable annotation hence multiple realm can also be defined:
+The `RealmIdentityStoreDefinition` is a repeatable annotation hence multiple realms can also be defined:
 [source, java]
 ----
 @ApplicationScoped
