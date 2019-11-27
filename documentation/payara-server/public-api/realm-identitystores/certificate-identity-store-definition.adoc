@@ -3,7 +3,7 @@
 
 _Since Payara Server 5.194_
 
-The Payara API provides a `@CertificateIdentityStoreDefinition` and `@CertificateAuthenticationMechanismDefinition` annotation that creates an identity store and authentication mechanism to authenticate the users using the certificate realm.
+The Payara API provides the `@CertificateIdentityStoreDefinition` and `@CertificateAuthenticationMechanismDefinition` annotations that create an identity store and authentication mechanism to authenticate users using the certificate realm.
 
 [[usage]]
 == Usage
