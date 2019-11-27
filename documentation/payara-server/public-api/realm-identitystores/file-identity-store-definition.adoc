@@ -11,7 +11,8 @@ The Payara API provides a `@FileIdentityStoreDefinition` annotation that creates
 The File realm identity store is defined through the `@FileIdentityStoreDefinition` annotation.
 Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the mechanism.
 Often this may mean that any class is a valid position.
-If file realm not found with defined name then an new file realm created otherwise existing file realm instance is used to authenticate the users.
+If the file realm not found with the defined name then a new File realm is registered on the server using the `create-auth-realm` asadmin command,
+otherwise existing file realm instance is used to authenticate the users.
 
 [[usage-example]]
 === Example
@@ -32,8 +33,7 @@ public class MyRestApp extends Application {
 [[configuration]]
 == Configuration
 
-The file realm identity store can be configured with both `@FileIdentityStoreDefinition` annotation attributes 
-and MicroProfile Config properties. The annotation and MicroProfile properties has several configuration options.
+The file realm identity store can be configured with both `@FileIdentityStoreDefinition` annotation attributes and MicroProfile Config properties. The annotation and MicroProfile properties have several configuration options.
 
 They are detailed as shown below.
 
@@ -43,13 +43,13 @@ They are detailed as shown below.
 
 | `value`
 |
-| The name of realm.
+| The name of the realm.
 | `file`
 |
 
 | `file`
 | `payara.security.file`
-| The location of file to store user credentials locally. If no file name is defined then realm name is used as the file name.
+| The location of the file to store user credentials locally. If no file name is defined then the realm name is used as the file name.
 | Realm Name
 |
 
@@ -68,4 +68,4 @@ They are detailed as shown below.
 |===
 
 *Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
-then the MicroProfile Config property value always take precedence over the `@FileIdentityStoreDefinition` annotation value.
+then the MicroProfile Config property value always takes precedence over the `@FileIdentityStoreDefinition` annotation value.

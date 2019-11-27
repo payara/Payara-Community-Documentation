@@ -44,11 +44,10 @@ public class MyRestApp extends Application {
 The `@RealmIdentityStoreDefinition` annotation is configured with the options as shown below.
 
 |===
-| Option | Type | Description | Default | Required
+| Option | Description | Default | Required
 
 | `value`
-| String
-| The name of existing realm.
+| The name of the existing realm.
 | Default realm
 |
 |===
