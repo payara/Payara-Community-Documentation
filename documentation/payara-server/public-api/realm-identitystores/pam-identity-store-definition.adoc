@@ -33,7 +33,7 @@ public class MyRestApp extends Application {
 == Configuration
 
 The PAM realm identity store can be configured with both `@PamIdentityStoreDefinition` annotation attributes 
-and MicroProfile Config properties. The annotation and mp config properties has several configuration options.
+and MicroProfile Config properties. The annotation and MicroProfile properties has several configuration options.
 
 They are detailed as shown below.
 
@@ -61,5 +61,5 @@ They are detailed as shown below.
 
 |===
 
-*Note :* If both annotation attribute and mp config property defined for same option 
-then MicroProfile Config property value always take precedence over `@PamIdentityStoreDefinition` annotation value.
+*Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
+then the MicroProfile Config property value always take precedence over the `@PamIdentityStoreDefinition` annotation value.
