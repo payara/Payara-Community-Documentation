@@ -42,7 +42,8 @@ asadmin set-ejb-invoker-configuration
         [--authmodule=<security-provider-id>]
         [--realmname=<realm-name>]
         [--authtype=<auth-type>]
-        [--endpoint=<context-root[default:ejb-invoker]>] 
+        [--endpoint=<context-root[default:ejb-invoker]>]
+        [--virtualservers=<virtualserver-list>]
         [--target=<target[default:server]>]
 ----
 
@@ -105,6 +106,12 @@ Enables or disables the endpoint that allows HTTP(S) transport based communicati
 |`authtype`
 |String
 |The instance or cluster to enable the endpoint.
+|
+|No
+
+|`virtualservers`
+|String
+|If defined, the endpoint will be assigned to a list of *virtual servers* specified as a comma-separated list of names. Otherwise, the endpoint will be assigned to all virtual servers available.
 |
 |No
 
