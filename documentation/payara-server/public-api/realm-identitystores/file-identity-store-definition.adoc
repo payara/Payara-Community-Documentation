@@ -9,7 +9,7 @@ The Payara API provides a `@FileIdentityStoreDefinition` annotation that creates
 == Usage
 
 The File realm identity store is defined through the `@FileIdentityStoreDefinition` annotation.
-Specifying this in a valid place as defined by the Jakarta EE Security API will create the mechanism.
+Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the mechanism.
 Often this may mean that any class is a valid position.
 If file realm not found with defined name then an new file realm created otherwise existing file realm instance is used to authenticate the users.
 

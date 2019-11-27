@@ -9,7 +9,7 @@ The Payara API provides a `@PamIdentityStoreDefinition` annotation that creates 
 == Usage
 
 The PAM realm identity store is defined through the `@PamIdentityStoreDefinition` annotation.
-Specifying this in a valid place as defined by the Jakarta EE Security API will create the mechanism.
+Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the mechanism.
 Often this may mean that any class is a valid position.
 If a PAM realm is not found with the defined name then a new PAM realm is created, otherwise the existing PAM realm instance is used to authenticate the users.
 
