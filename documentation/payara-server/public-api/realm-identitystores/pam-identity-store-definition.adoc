@@ -1,0 +1,65 @@
+[[pam-identity-store]]
+= PAM Identity Store
+
+_Since Payara Server 5.194_
+
+The Payara API provides a `@PamIdentityStoreDefinition` annotation that creates an identity store to authenticate the users using the pam realm.
+
+[[usage]]
+== Usage
+
+The PAM realm identity store is defined through the `@PamIdentityStoreDefinition` annotation.
+Specifying this in a valid place as defined by the Jakarta EE Security API will create the mechanism.
+Often this may mean that any class is a valid position.
+If PAM realm not found with defined name then an new PAM realm created otherwise existing PAM realm instance is used to authenticate the users.
+
+[[usage-example]]
+=== Example
+
+The following code sample illustrates how to configure PAM realm identity store:
+
+[source, java]
+----
+@ApplicationScoped
+@ApplicationPath("/rest")
+@DeclareRoles({ "a", "b" })
+@BasicAuthenticationMechanismDefinition(realmName = "pam-realm")
+@PamIdentityStoreDefinition("pam-realm")
+public class MyRestApp extends Application {
+}
+----
+
+[[configuration]]
+== Configuration
+
+The PAM realm identity store can be configured with both `@PamIdentityStoreDefinition` annotation attributes 
+and MicroProfile Config properties. The annotation and mp config properties has several configuration options.
+
+They are detailed as shown below.
+
+
+|===
+| Option | MP Config property | Description | Default | Required
+
+| `value`
+|
+| The name of PAM realm.
+|
+| true
+
+| `assignGroups`
+| `payara.security.pam.assignGroups`
+| The users are assigned membership to these groups for the purposes of authorization decisions.
+|
+|
+
+| `jaasContext`
+| `payara.security.pam.jaasContext`
+| The JAAS Context of Pam realm.
+| `pamRealm`
+|
+
+|===
+
+*Note :* If both annotation attribute and mp config property defined for same option 
+then MicroProfile Config property value always take precedence over `@PamIdentityStoreDefinition` annotation value.

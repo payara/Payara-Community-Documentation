@@ -1,0 +1,13 @@
+[[realm-identity-stores]]
+= Realm Identity Stores Support
+
+_Since Payara Server 5.194_
+
+The Payara API provides a way to authenticate with realms using the Jakarta EE Identity Stores. 
+The realm identity stores initialized by specifying any of the following annotation in a valid place as defined by the Jakarta EE Security API.
+
+- link:realm-identity-store-definition.adoc[@RealmIdentityStoreDefinition]
+- link:file-identity-store-definition.adoc[@FileIdentityStoreDefinition]
+- link:certificate-identity-store-definition.adoc[@CertificateIdentityStoreDefinition]
+- link:pam-identity-store-definition.adoc[@PamIdentityStoreDefinition]
+- link:solaris-identity-store-definition.adoc[@SolarisIdentityStoreDefinition]
