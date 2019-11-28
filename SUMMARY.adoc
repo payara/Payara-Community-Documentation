@@ -237,6 +237,7 @@
 *** link:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
 *** link:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
 *** link:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
+** link:documentation/ecosystem/security-connectors.adoc[Security Connectors]
 ** link:documentation/ecosystem/docker-images.adoc[Docker Images]
 
 [[user-guides]]
