@@ -4,7 +4,7 @@ _Since 5.194_
 
 Payara Platform consists of many artifacts and it depends on lots of APIs as well as their implementations.
 Having matching versions of these dependencies prevents many classloading issues.
-Payara's Bill Of Material (BOM) artifact collects all of these version for following types of artifacts:
+Payara's Bill Of Material (BOM) artifact collects all of these versions for the following types of artifacts:
 
 * Payara Distribution artifacts
 * Payara Client libraries
@@ -57,7 +57,7 @@ An example application utilizing the BOM can be seen in repository https://githu
 
 === Payara Distribution
 
-Distribution artifacts do not define scope, and are therefore imported in scope `compile`..
+Distribution artifacts do not define scope and are therefore imported in scope `compile`..
 
 [%header, cols="1,3l,2"]
 |===
@@ -151,7 +151,7 @@ APIs are declared in scope provided, as they define classes present within the s
 
 === Test tooling
 
-Arquillian is recomended way for integration tests with the server.
+Arquillian is the recommended way for integration tests with the server.
 Payara Platform provides multiple connectors fitting the deployment scenarios.
 These artifacts are declared in scope `test`.
 
@@ -301,5 +301,4 @@ This is non-exhaustive list of dependencies. By default all are declared in defa
 |
 
 |===
-
 
