@@ -20,7 +20,7 @@
 
 
     "variables": {
-        "currentVersion": "5.194",
+        "currentVersion": "5.201",
         "glassfishVersion": "5",
         "payaraWebDtd": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/master/schemas/payara-web-app_4.dtd",
         "payaraResourcesDtd": "https://raw.githubusercontent.com/payara/Payara-Server-Documentation/master/schemas/payara-resources_1_6.dtd",
