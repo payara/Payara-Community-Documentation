@@ -10,5 +10,5 @@ The documentation of Payara Micro edition, which is a single file runtime capabl
 NOTE: Most of the Payara Server documentation also applies to Payara Micro unless stated otherwise
 
 link:documentation/user-guides/user-guides.adoc[User Guides]::
-Useful guides and tutorials.
+Useful guides and tutorials. 
 
