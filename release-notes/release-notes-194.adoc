@@ -79,7 +79,6 @@ Console
 for autoscaling Docker Nodes
 * https://github.com/payara/Payara/pull/4250[PAYARA-4118] - Graceful
 shutdown of PayaraExecutorService slows down server shutdown
-* PAYARA-4138 - Hot deploy the Engine of application +
 * https://github.com/payara/Payara/pull/4201[PAYARA-4143] - Replace
 usage of File.deleteOnExit() with manual deletion on exit.
 * https://github.com/payara/Payara/pull/4270[PAYARA-4158] - Domain Data
