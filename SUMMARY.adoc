@@ -7,7 +7,7 @@
 * link:README.adoc[Introduction]
 ** link:general-info/general-info.adoc[Overview]
 ** link:release-notes/README.adoc[Release Notes]
-*** link:release-notes/release-notes-193.adoc[Payara Server 5.193 Release Notes]
+*** link:release-notes/release-notes-194.adoc[Payara Server 5.194 Release Notes]
 ** link:security/security.adoc[Security]
 *** link:security/security-fix-list.adoc[Security Fixes Summary]
 ** link:general-info/supported-platforms.adoc[Supported Platforms]
