@@ -144,6 +144,7 @@ restarted to apply any changes made
 |Lite Data Grid Instance|If set to true, cluster members with this configuration
 will be Hazelcast "lite" nodes, meaning they will not store any cache data
 locally and rely on other cluster members to store data.
+|Config Specific Data Grid Start Port|Sets Data Grid Start Port to the instance. If set to 0 (default) the Domain wide start port will be used instead.
 |Public Address for this Data Grid Node|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
 
 |Instance Group | Instance group name for all Server Instances using the configuration.

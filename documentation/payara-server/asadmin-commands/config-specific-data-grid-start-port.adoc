@@ -1,0 +1,29 @@
+[[config-specific-data-grid-start-port]]
+= Config Specific Data Grid Start Port
+
+_@Since **Payara Server 5.194**_
+
+The Config Specific Data Grid Start Port feature is an _asadmin_ feature that allows 
+more control over the port usage by letting users set the Data Grid port during or 
+after the creation of an instance. 
+
+Sets Data Grid Start Port to the instance. If set to 0 (default) the Domain wide start port will be used instead
+[[usage]]
+== Usage
+
+The config specific Data Grid Start Port can be set by specifying `--dataGridStartPort` 
+option when using the `create-instance` or `create-local-instance` commands. It can also 
+be set by specifying `--configSpecificDataGridStartPort` option when using the `set-hazelcast-configuration` 
+command. If no port is set or set to 0(default), the Domain wide start port will be used instead. 
+
+
+[[Examples]]
+=== Examples
+
+Name generation:
+[source, bash]
+----
+asadmin create-instance --dataGridStartPort 2900 --node localhost-domain1 instance1
+asadmin create-local-instance --dataGridStartPort 2900 --node localhost-domain1
+asadmin set-hazelcast-configuration --dynamic=true --configSpecificDataGridStartPort=4900 --target=instance-config
+----
