@@ -8,12 +8,6 @@
 * MicroProfile 3.2
 * Jakarta EE 8 Applications
 
-== JDK11
-
-Payara Server on JDK11 will no longer be in technical preview with the
-5.194 release! This means you are now able to use Payara in Production
-on JDK11 confidently.
-
 == Notes
 
 ### JDK 11
