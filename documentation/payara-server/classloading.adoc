@@ -143,7 +143,7 @@ To configure whitelist packaging you can use the `<whitelist-package>`
 element on the _glassfish-web.xml_ (WAR artifacts) or the
 _glassfish-application.xml_ (EAR artifacts). This element can be
 included multiple times to whitelist multiple packages. Here is an
-example of whitelisting both the *Google Guava*, *Jackson* and *Face Config* packages
+example of whitelisting both the *Google Guava*, *Jackson* and *Faces Config* packages
 for a WAR application:
 
 [source, xml]
