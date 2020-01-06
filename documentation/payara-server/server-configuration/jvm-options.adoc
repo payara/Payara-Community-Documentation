@@ -70,7 +70,9 @@ asadmin create-jvm-options --target=server-config "-Djava.awt.headless\=true:[|1
 [[multimode-double-escaping]]
 === Multimode double escaping
 
-When creating JVM options in the multimode of asadmin, you need to perform a _double_ escaping of the values since Payara version 5.193.
+_Since Payara Server 5.193_
+
+When creating JVM options in the multimode of asadmin, you need to perform a _double_ escaping of the values.
 
 So first, start up _asadmin_ in multimode.
 
