@@ -12,7 +12,7 @@ To start the monitoring console run the following asadmin command:
         asadmin> set-monitoring-console-configuration --enabled=true
 
 The console is now available at http://localhost:8080/monitoring-console/ .
-Like the admin GUI the monnitoring console only runs on the DAS.
+Like the admin GUI the monitoring console only runs on the DAS.
 
 To stop the monitoring console run:
 
@@ -32,7 +32,7 @@ NOTE: To remove only the monitoring data collection from the server without disa
 == Graphical User Interface
 After enabling the monitoring console open the home page at `/monitoring-console/`.
 
-The console comes with a set of link:#monitoring-console-presets[preconfigured pages] each focussing on a different aspects of the server.
+The console comes with a set of link:#monitoring-console-presets[preconfigured pages] each focussing on different aspects of the server.
 
 NOTE: The console will let you know that some metrics are only available when the monitoring configuration of certain server parts is set to `HIGH`.
 
@@ -44,7 +44,7 @@ The monitoring console is organized in fully customisable pages. A page is a col
 
 [[monitoring-console-page-switch]]
 ==== Switching Pages
-To switch page use the drop-down menu at the top center of the page.
+To switch page use the drop-down menu at the top centre of the page.
 
 image::/images/monitoring-console/mc_page_menu.png[Page Navigation]
 
@@ -101,7 +101,7 @@ While there are different types of widgets usually a widget shows a line graph o
 [[monitoring-console-widget-add]]
 ==== Adding a Widget
 Widgets can be added to any page. Open the side panel by clicking on _Settings_ top right menu.
-Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select the category of the metric to add. This populates the second dropdown with all metrics for that category. Select a metric from the second dropdown to prefill the widget series name field below and press the _Add_ button.
+Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select the category of the metric to add. This populates the second dropdown with all metrics for that category. Select a metric from the second dropdown to pre-fill the widget series name field below and press the _Add_ button.
 
 image::/images/monitoring-console/mc_settings_page.png[Page Settings]
 
@@ -129,7 +129,7 @@ image::/images/monitoring-console/mc_settings_widget.png[Widget Settings]
 |====================
 | Property | Default | Description
 | Display Name | (undefined) | Optional name to customise the displayed widget title. If no name is given the _Data Series_ is shown.
-| Type | `Time Curve`  | Changes the type of the graph used to show the metric. This also affects which data of the metric the widget is focussed on. Possible choices:
+| Type | `Time Curve`  | Changes the type of graph used to show the metric. This also affects which data of the metric the widget is focussed on. Possible choices:
 `Time Curve`: a line chart of current values (usually last 60 seconds),
 `Range Indicator`: show distributions of values (of last 60 seconds),
 `Alerts`: shows a table of alerts
@@ -146,10 +146,10 @@ image::/images/monitoring-console/mc_settings_data.png[Widget Data Settings]
 [cols="1,1,4",options="header"]
 |====================
 | Property | Default | Description
-| Series | - | The metric key given when adding the metric (read-only)
+| Series | - | The metric key is given when adding the metric (read-only)
 | Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
-| Unit 1/sec | `false` | Whether or not to show the metric as change per second (delta between two points in the series normalised to average delta per second).
-| Coloring | _Instance Name_ | Sets the property of a metric data series that is used to select the colors the data is shown with. _Instance Name_ will show data in same color that belongs to the same instance. _Series Name_  shows the metric series in same color (independent of instance). This is individual to each widget. _Result Set Index_ will show data in same color that is at the same index in the server response. _Instance and Series Name_ shows same instance and series in same color. This is a global. This means another widget using this coloring with same instance and series will have the same color as well.
+| Unit 1/sec | `false` | Whether or not to show the metric as a change per second (delta between two points in the series normalised to average delta per second).
+| Coloring | _Instance Name_ | Used to select the colours the data is shown with. _Instance Name_ will show data in the same colour that belongs to the same instance. _Series Name_ shows the metric series in the same colour (independent of instance). This is individual to each widget. _Result Set Index_ will show data in the same colour that is at the same index in the server response. _Instance and Series Name_ shows the same instance and series in the same colour. This is global. This means another widget using this colouring with the same instance and series will have the same colour as well.
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
 | Upscaling _decimal value_ | `false` | Check to mark the metric as one that is provided as a decimal value during collection (floats or doubles and alike). This will then revert the conversion applied during collection which converts decimal values to an integer number with 4 available decimal digits by multiplying them by 10,000. So this divides values by 10,000 again to move them back into their original value range.
 | Extra Lines | (none checked) | Check to add the all time minimum, maximum or average line to the graph
@@ -171,13 +171,13 @@ image::/images/monitoring-console/mc_settings_decorations.png[Widget Decoration 
 | Property | Default | Description
 | Waterline | (undefined) | Adds a simple reference line that could mark a upper or lower limit. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
 | Threshold Reference | `Off` | Controls what value the _Alarming Threshold_ and _Critical Threshold_ are compared to. Usually this is the most recent value but in some cases the all time minimum, maximum or average are useful too.
-| Alarming Threshold | (undefined) | The limit for the _"Alarming"_ state. If _Critical Threshold_ is undefined or if it's value is larger than this value the alarming threshold is exceeded if the reference value is larger than the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the arlarming value. When exceeded the status becomes _"Alaraming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
-| Critical Threshold | (undefined) | The limit of the _"Critical"_ state. If _Alarming Threshold_ is undefined or it's value is smaller than this value the critical threshold is exceeded if the reference value is larger then the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the critical value. When exceeded the status becomes _"Critical"_, overrides staus _"Alarming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
+| Alarming Threshold | (undefined) | The limit for the _"Alarming"_ state. If _Critical Threshold_ is undefined or if it's value is larger than this value the alarming threshold is exceeded if the reference value is larger than the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the alarming value. When exceeded the status becomes _"Alarming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
+| Critical Threshold | (undefined) | The limit of the _"Critical"_ state. If _Alarming Threshold_ is undefined or it's value is smaller than this value the critical threshold is exceeded if the reference value is larger then the threshold. Otherwise, if the _Critical Threshold_ is lower than the _Alarming Threshold_, the threshold becomes 'inverse', and is exceeded when the reference value falls below the critical value. When exceeded the status becomes _"Critical"_, overrides status _"Alarming"_. Enter in unit of y-axis, e.g. 20ms, 5s, 2GB, 4%, 123
 |====================
 
 Besides adding a reference line to the graph the critical and alarming thresholds affect the status evaluation.
 
-Use the color input to individually override the widget's color for waterline, alarming line or critical line in graphs. Press the button right next to it which shows the default color as configured in the _Colors_ settings to reset the individual color to use the default setting instead. A color set to the default changes with the default.
+Use the colour input to individually override the widget's colour for waterline, alarming line or critical line in graphs. Press the button right next to it which shows the default colour as configured in the _Colors_ settings to reset the individual colour to use the default setting instead. A colour set to the default changes with the default.
 
 [[monitoring-console-widget-status]]
 ==== Configuring Widget Status Messages
@@ -203,9 +203,9 @@ The values of metric series can be tracked by the server to report values that o
 This is represented by states:
 
 * _Red_: values in this range indicate an unhealthy state
-* _Amber_: values in this range indicate an degraded state
-* _Green_: values in this range indicate an healthy state
-* _White_: values is this range are in no particular state (neither good or bad, maybe undecidable)
+* _Amber_: values in this range indicate a degraded state
+* _Green_: values in this range indicate a healthy state
+* _White_: values in this range are in no particular state (neither good or bad, maybe undecidable)
 
 image::/images/monitoring-console/mc_settings_alerts.png[Widget Alerts Settings]
 
@@ -224,10 +224,10 @@ A _Red_ or _Amber_ state causes an alert that is shown on top of the graph.
 
 image::/images/monitoring-console/mc_sample_alert-graph.png[Alert for a line graph]
 
-When an alert occured for a metric shown in a graph the background of the line causing the alert is colored in _Red_ or _Amber_ default color until the alerts is stopped.
+When an alert occurred for a metric shown in a graph the background of the line causing the alert is coloured in _Red_ or _Amber_ default colour until the alert is stopped.
 
 Alerts are considered ongoing as long as the state is _Red_ or _Amber_.
-If it is evaludated to _Green_ or _White_ the alert stops. Stopped alerts are no longer shown on top of line graphs.
+If it is evaluated to _Green_ or _White_ the alert stops. Stopped alerts are no longer shown on top of line graphs.
 Another way to remove an alert from the line graph is to acknowledge the alert by checking its checkbox.
 To see even stopped or acknowledged alerts add a widget of type _Alert Table_.
 
@@ -236,9 +236,9 @@ image::/images/monitoring-console/mc_sample_alert-table.png[Alert Table]
 By default an alert table shows all alerts including stopped and acknowledged alerts.
 Use the widget _Alerts_ settings to exclude alerts with certain properties.
 
-Alert table show the overall state of each instance in the table's legend.
+Alert table shows the overall state of each instance in the table's legend.
 
-_Alerts_ settings can equally be used for line graphs to create a more restictive setting.
+_Alerts_ settings can equally be used for line graphs to create a more restrictive setting.
 
 NOTE: Currently watches are only added programmatically as part of the server. User defined watches are not yet possible.
 
@@ -264,7 +264,7 @@ The first grouping level usually is the `ns` (short for namespace), the second t
 In the example the metrics belong to the `jvm` namespace and the `groupName` group within that namespace.
 
 When metrics are selected using the dropdowns these details are filled in for the user by selecting items from the dropdowns.
-Alternatively a user may chose to enter the series key manually which allows to use a wild-card _star_ instead of either a tag value (like `jvm`) or the _MetricName_. For example:
+Alternatively, a user may choose to enter the series key manually which allows using a wild-card _star_ instead of either a tag value (like `jvm`) or the _MetricName_. For example:
 
         ns:jvm @:* Duration
 
@@ -278,7 +278,7 @@ It can be exported and imported in the form of JSON files to share or distribute
 
 [[monitoring-console-page-export]]
 ==== Export Configuration
-A configuration contains all pages. All changes made to a page or widget setup are contained in this configuration. To download this configuraton as JSON file select _Export_ from the _Settings_ top right menu.
+A configuration contains all pages. All changes made to a page or widget setup are contained in this configuration. To download this configuration as JSON file select _Export_ from the _Settings_ top right menu.
 
 
 [[monitoring-console-page-import]]
@@ -306,8 +306,8 @@ Pages can be excluded from rotation by switching to the page using the page menu
 Open the _Settings_ and uncheck the _Include in Rotation_ checkbox in the _Page_ settings.
 
 === Color Configurations
-Newer versions of the Monitoring Console allow to configure the colors used in graphs.
-There is a global color configuration affecting all graphs.
+Newer versions of the Monitoring Console allow to configure the colours used in graphs.
+There is a global colour configuration affecting all graphs.
 
 image::/images/monitoring-console/mc_settings_colors.png[Widget Status Settings]
 
@@ -315,9 +315,9 @@ image::/images/monitoring-console/mc_settings_colors.png[Widget Status Settings]
 [cols="1,1,4",options="header"]
 |====================
 | Property | Default | Description
-| Scheme | - | The selected scheme is applied to set the colors palette for _Data_ as well as _Defaults_ and _Opacity_. This is only a convinient way to switch all of these between different settings. The individual properties can be changed afterwards as usual without affecting the scheme.
-| Data # (Palette) | (colors of _Payara_ scheme) | The list of colors to use when coloring data series in graphs. This is the line color in line charts or the bar color in bar charts. Background will use the same color with _Opacity_. Add new colors by using the `+` button. The `-` button removes the last color of the list. If there are less colors in this palette than needed for different lines in a graph new colors are derived based on this palette. The derived colors focus on bright colors with high contrast but might not always fit well with the rest of the palette. In such case consider addng more colors to the palette.
-| Defaults | (default of _Payara_ scheme) | Sets the default colors for _Waterline_, _Alaraming_ and _Critical_ as well as _Red_, _Amber_, _Green_ and _White_ state lines, backgrounds and texts. Some of these can be individually overridden in the widget's configuration for these lines.
+| Scheme | - | The selected scheme is applied to set the colours palette for _Data_ as well as _Defaults_ and _Opacity_. This is only a convenient way to switch all of these between different settings. The individual properties can be changed afterwards as usual without affecting the scheme.
+| Data # (Palette) | (colours of _Payara_ scheme) | The list of colours to use when colouring data series in graphs. This is the line colour in line charts or the bar colour in bar charts. Background will use the same colour with _Opacity_. Add new colours by using the `+` button. The `-` button removes the last colour of the list. If there are less colours in this palette than needed for different lines in a graph new colours are derived based on this palette. The derived colours focus on bright colours with high contrast but might not always fit well with the rest of the palette. In such case consider adding more colours to the palette.
+| Defaults | (default of _Payara_ scheme) | Sets the default colours for _Waterline_, _Alarming_ and _Critical_ as well as _Red_, _Amber_, _Green_ and _White_ state lines, backgrounds and texts. Some of these can be individually overridden in the widget's configuration for these lines.
 | Opacity | 10 | Background opacity for lines or bars in graphs, 0 (fully transparent) to 100 (solid).
 | Thickness | (3) | Line width on a scale 1-8. Each point corresponds to 0.5px with. Default for lines in a line graph is 3, so 1.5px.
 |====================
@@ -328,7 +328,7 @@ image::/images/monitoring-console/mc_settings_colors.png[Widget Status Settings]
 
 [[monitoring-console-preset-core]]
 ==== Core Page
-The _Core_ page gives an overview over some of the important instance metrics.
+The _Core_ page gives an overview of some of the important instance metrics.
 Each instance in the grid is shown separately.
 
 image::/images/monitoring-console/mc_page_core.png[Core Page]
@@ -342,7 +342,7 @@ image::/images/monitoring-console/mc_page_core.png[Core Page]
 
 [[monitoring-console-preset-http]]
 ==== HTTP Page
-The _HTTP_ page gives a rough overview over the state of the HTTP services of each instance.
+The _HTTP_ page gives a rough overview of the state of the HTTP services of each instance.
 
 image::/images/monitoring-console/mc_page_http.png[HTTP Page]
 
@@ -355,7 +355,7 @@ image::/images/monitoring-console/mc_page_http.png[HTTP Page]
 
 [[monitoring-console-preset-jvm]]
 ==== JVM Page
-The _JVM_ pages gives a general overview over the state of the JVM running Payara Server.
+The _JVM_ pages gives a general overview of the state of the JVM running Payara Server.
 
 image::/images/monitoring-console/mc_page_jvm.png[JVM Page]
 
@@ -377,13 +377,13 @@ image::/images/monitoring-console/mc_page_monitoring.png[Monitoring Page]
 * _Sources_: Number of sources metrics are collected from in a particular second. This varies as some sources are collected in an interval of several seconds.
 * _Sources with Errors_: Shows how many of the sources that were collected caused an error during collection that potentially ends the collection of that source so that some metrics usually provided by that source might no longer be collected. This can explain missing metrics.
 * _Metrics Time_: The total time it took to collect all sources. As collection happens once every second this should be well below 1 second. This metric is watched and alerts are created should the time exceed 600ms for multiple times in a row. This time can vary a lot depending on the server configurations as sources are enabled and disabled. It can also be influenced strongly by the deployed applications as they can contribute metrics in large numbers.
-* _Watches Time_: The total time it took to collect and evaluate all watches. This time is less critical but it should usually be well below 1 second. Typically in range of two digit milliseconds.
+* _Watches Time_: The total time it took to collect and evaluate all watches. This time is less critical but it should usually be well below 1 second. Typically in the range of two digit milliseconds.
 * _Alerts_: The total number of ongoing (active) alerts.
 
 
 [[monitoring-console-preset-health-checks]]
 ==== Health Checks Page
-A page that gives an overview over the state of the server health checks.
+A page that gives an overview of the state of the server health checks.
 The individual checks need to be enabled in the server _HealthCheck_ configuration.
 
 NOTE: It is not required to enabled the _HealthCheck service_ in the general tab in case the checks should only be enabled for metrics based monitoring without causing health check notifier messages.
@@ -391,11 +391,11 @@ NOTE: It is not required to enabled the _HealthCheck service_ in the general tab
 image::/images/monitoring-console/mc_page_health-checks.png[Health Checks Page]
 
 * _CPU_: CPU Health Check, percentage of CPU used by the server instance during last 4 seconds
-* _GC_: Garbage Collection Health Check, percentage of time used to collect garbage objects during last 4 seconds
+* _GC_: Garbage Collection Health Check, percentage of time used to collect garbage objects during the last 4 seconds
 * _Memory_: Machine Memory Usage Health Check, percentage of the total available physical memory used
 * _Heap_: Heap Memory Usage Health Check, percent of total available heap memory used by the JVM
 * _MP Health_: MicroProfile Health Check, percent of instances that respond with `UP` status to a liveliness health endpoint request (this includes the DAS that is the only instance that is performing this check every 12 seconds)
-* _Connecton Pool_: Connection Pool Health Check, percent of connections currently used for each JDBC connection pool
+* _Connection Pool_: Connection Pool Health Check, percent of connections currently used for each JDBC connection pool
 * _Alerts_: A list of all health check related alerts
 
 
@@ -410,10 +410,10 @@ The legend shows the average duration and the method traced (innermost trace spa
 
 image::/images/monitoring-console/mc_page_request-tracing.png[Request Tracing Page]
 
-When all time minimum and/or maximum are added in the _Widget_ _Data_ settings the bar starts and/or ends at these "all time" values instead of the minumum and/or maximum within the last minute.
+When all time minimum and/or maximum are added in the _Widget_ _Data_ settings the bar starts and/or ends at these "all time" values instead of the minimum and/or maximum within the last minute.
 
 By clicking on one of the bars in the overview the details of all kept traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
-For each trace each of the spans corresponds to a bar in this graph.
+For each trace, each of the spans corresponds to a bar in this graph.
 
 image::/images/monitoring-console/mc_page_request-tracing2.png[Request Tracing Details Page]
 
@@ -436,7 +436,7 @@ WARNING: Be aware that the graphs in the example images above show unrealistical
 [[monitoring-console-user]]
 === User Defined Metrics
 Payara monitoring console is build with the intention to allow user defined metrics to be visualised.
-So far these include the MicroProfile Metrics that might originate from deployed application and other extensions of the server.
+So far these include the MicroProfile Metrics that might originate from a deployed application and other extensions of the server.
 These are included in the available metrics automatically.
 
 Open the _Settings_ and look for _MP Metrics_ in the topmost dropdown for the _Add Widgets_ property in the _Page_ settings.
