@@ -172,7 +172,7 @@ Returns the current configuration options for the ejb-invoker application on the
 [[example-1]]
 === Example
 
-The following command will disable the endpoint on the DAS:
+The following command returns the current configuration options from the DAS:
 
 [source, shell]
 ----
