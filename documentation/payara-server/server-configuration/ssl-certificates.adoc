@@ -11,12 +11,12 @@ These keystores are protected with the Master Password of your domain.
 [[add-certificate]]
 == Adding SSL Certificate
 
-To add your SSL Certificate to the Payara Server configuration files, you need
+To add your SSL Certificate to the Payara Server configuration files, you need:
 
 - The private key associated with your certificate.
-- The Certificate you received from the Certificate Authority based on your Certificate Signing Request (CSR) you made.
+- The Certificate you received from the Certificate Authority based on your Certificate Signing Request (CSR).
 
-You can find the detailed steps of adding a self-signed certificate into Payara for testing purposes in the blog [Securing Payara Server with Custom SSL Certificate](https://blog.payara.fish/securing-payara-server-with-custom-ssl-certificate).
+You can find the detailed steps of adding a self-signed certificate into Payara for testing purposes in the blog https://blog.payara.fish/securing-payara-server-with-custom-ssl-certificate[Securing Payara Server with Custom SSL Certificate].
 
 The private key can be stored in various formats. We assume that the key is in a format which can be read by the Java key tool program, such as PKCS#8 (file starts with `BEGIN ENCRYPTED PRIVATE KEY`)
 
@@ -25,7 +25,7 @@ The private key can be stored in various formats. We assume that the key is in a
 In a first step, we combine the Private key and the Certificate we received into a file.  This file can then be used to merge our data into the files used by the Payara installation. 
 In this step, we also specify an alias name for our key/certificate. This alias name is important as we will use it later to refer to our specific SSL Certificate.
 
-The command to perform this combination is the following with OpenSSL 
+The command to perform this combination is the following with OpenSSL:
 
      openssl pkcs12 -export -in mycert.crt -inkey mycert.key -out mycert.p12 -name mydomain_certificate
 
@@ -39,7 +39,7 @@ The resulting file, _mycert.p12_ is also encrypted with a password that is reque
 
 The information needs to be imported into the _keystore.jks_ file of your Payara Domain which will use it.
 
-This is performed using the _keytool_ command of the JDK
+This is performed using the _keytool_ command of the JDK:
 
     keytool -importkeystore -destkeystore keystore.jks -srckeystore mycert.p12 -srcstoretype PKCS12 -alias mydomain_certificate
 
