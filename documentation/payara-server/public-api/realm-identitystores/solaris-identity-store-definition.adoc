@@ -9,7 +9,7 @@ The Payara API provides a `@SolarisIdentityStoreDefinition` annotation that crea
 == Usage
 
 The Solaris realm identity store is defined through the `@SolarisIdentityStoreDefinition` annotation.
-Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the mechanism.
+Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the identity store.
 Often this may mean that any class is a valid position.
 If a Solaris realm is not found with the defined name then a new Solaris realm is registered on the server using the `create-auth-realm` asadmin command,
 otherwise the existing Solaris realm instance is used to authenticate the users.

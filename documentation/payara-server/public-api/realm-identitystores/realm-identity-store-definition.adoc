@@ -3,10 +3,14 @@
 
 _Since Payara Server 5.194_
 
-The Payara API provides a way to authenticate with existing realms using the `@RealmIdentityStoreDefinition` annotation.
+The Payara API provides a way to authenticate with the existing realms using the `@RealmIdentityStoreDefinition` annotation.
 
 [[usage]]
 == Usage
+
+The realm identity store is defined through the `@RealmIdentityStoreDefinition` annotation.
+Specifying this in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API] will create the identity store.
+Often this may mean that any class is a valid position.
 
 [[usage-example]]
 === Example
