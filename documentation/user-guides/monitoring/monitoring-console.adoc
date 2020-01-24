@@ -404,6 +404,20 @@ image::/images/monitoring-console/mc_page_health-checks.png[Health Checks Page]
 * _Alerts_: A list of all health check related alerts
 
 
+[[monitoring-console-preset-threads]]
+==== Thread Health Page
+The _Threads_ page gives detailed information on thread health of the cluster and lists information on stuck or hogging threads. Total number of live and darmon threads are given for reference.
+
+image::/images/monitoring-console/mc_page_threads.png[Thread Health Page]
+
+* _Stuck Thread Incidents_: Table listing the most recent information for threads that are considered stuck. This is the case if the time passed since a thread started a not yet finished unit of work becomes longer than the set threshold in the _Stuck Threads_ health check configuration. This could be because it is waiting at a lock or the operation takes a considerable amount of time.
+* _Hogging Thread Incidents_: Table listing the most recent information for threads that are considered hogging. This is the case if the thread's use of the CPU in percent points is higher than the theshold value configured in the _Hogging Threads_ health check configuration for n times in a row, where n is 1 + the configured number of retries.
+* _Live Threads_: Total number of threads used by the JVM (including daemon threads)
+* _Daemon Threads_: Total number of daemon threads used by the JVM
+
+WARNING: Be aware that the number shown in the example image are not characteristic. For demontration purposes the thresholds have been set uncharacteristically low to be able to "force" entries. Usually the threshold for stuck threads should be in region of some seconds to a few minutes. The threshold for hogging threads should be well above 90% with a few reties.
+
+
 [[monitoring-console-preset-request-tracing]]
 ==== Request Tracing Page
 The _Request Tracing_ page overview page shows traces that exceeded the set threshold.
