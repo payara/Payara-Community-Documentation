@@ -450,7 +450,7 @@ NOTE: To capture slow SQL queries the _JDBC Connection Pool_ configuration's _Sl
 
 image::/images/monitoring-console/mc_page_sql.png[Slow SQL Page]
 
-* _Slow SQL Queries_: Shows SQL details for queries that were to slow. _Value_ refers to the duration of the SQL query.
+* _Slow SQL Queries_: Shows SQL details for queries that were too slow. _Value_ refers to the duration of the SQL query.
 * _Worst SQL Execution Time_: Shows SQL query activity. Each data point gives the duration of the slowest query run during last second. Zero means no SQL query was run.
 * _Slow SQL Alerts_: A list of alerts caused by too slow SQL queries in reference to the _Slow Query Log Threshold_ given in the pool configuration. Single outliers cause a degraded state (amber alerts), outlier groups cause unhealthy state (red alerts).
 
