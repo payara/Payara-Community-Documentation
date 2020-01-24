@@ -132,7 +132,10 @@ image::/images/monitoring-console/mc_settings_widget.png[Widget Settings]
 | Type | `Time Curve`  | Changes the type of graph used to show the metric. This also affects which data of the metric the widget is focussed on. Possible choices:
 `Time Curve`: a line chart of current values (usually last 60 seconds),
 `Range Indicator`: show distributions of values (of last 60 seconds),
-`Alerts`: shows a table of alerts
+`Alerts`: shows a table of alerts,
+`Annotations`: shows a table or list of annotations; these are key-value attributes associated with a metric series.
+| Mode | _(Default)_ | If available for the type of widget the display mode can be switched between _Table_ and _List_.
+Table view is best fitted for annotations that share common attributes, lists are better fitted for annotations with potentially differing attributes.
 | Column | 1  | The column in the layout the widget *prefers* to be in.
 | Item   | 1  | Within columns widgets are sorted by their item value, lowest values first. The item position is automatically updated during page layout should it be needed.
 | Size   | 1 / 1 | How many width (number of columns) and height (number of rows) the widget should span. Note that this is a target size. If page number of columns is reduced the width might be reduced to match the page layout.
@@ -149,14 +152,16 @@ image::/images/monitoring-console/mc_settings_data.png[Widget Data Settings]
 | Series | - | The metric key is given when adding the metric (read-only)
 | Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
 | Unit 1/sec | `false` | Whether or not to show the metric as a change per second (delta between two points in the series normalised to average delta per second).
-| Coloring | _Instance Name_ | Used to select the colours the data is shown with. _Instance Name_ will show data in the same colour that belongs to the same instance. _Series Name_ shows the metric series in the same colour (independent of instance). This is individual to each widget. _Result Set Index_ will show data in the same colour that is at the same index in the server response. _Instance and Series Name_ shows the same instance and series in the same colour. This is global. This means another widget using this colouring with the same instance and series will have the same colour as well.
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
 | Upscaling _decimal value_ | `false` | Check to mark the metric as one that is provided as a decimal value during collection (floats or doubles and alike). This will then revert the conversion applied during collection which converts decimal values to an integer number with 4 available decimal digits by multiplying them by 10,000. So this divides values by 10,000 again to move them back into their original value range.
 | Extra Lines | (none checked) | Check to add the all time minimum, maximum or average line to the graph
-| Lines | (none checked) | Options on how to display the current value line in the graph: Check _Points_ to show individual data points on the line, check _Curvy_ to use Bézier curves instead of straight line connections.
+| Lines | (none checked) | Options on how to display the current value line in the graph: Check _Points_ to show individual data points on the line, check _Curvy_ to use BÃ©zier curves instead of straight line connections.
 | Background | _Fill_ | When _Fill_ is checked the area between line and axis is filled. The background transparency can be configured globally in the _Colors_ settings.
 | X-Axis | _Labels_ | Whether or not to show labels for the x-axis.
 | Y-Axis | (undefined) | Set a minimum or maximum number for the y-axis instead. When not set range is derived automatically from the data points.
+| Coloring | _Instance Name_ | Used to select the colours the data is shown with. _Instance Name_ will show data in the same colour that belongs to the same instance. _Series Name_ shows the metric series in the same colour (independent of instance). This is individual to each widget. _Result Set Index_ will show each matching series in a different colour. _Instance and Series Name_ shows the same instance and series in the same colour. This is global. This means another widget using this colouring with the same instance and series will have the same colour as well.
+| Fields | _(blank)_ | A comma or space sperated list of fields to show for an annotation list or table. The given field order is reflected in the view.
+| Annotations | (checked) |  Whether or not to show annotations for an alert table.
 |====================
 
 
@@ -405,14 +410,18 @@ The _Request Tracing_ page overview page shows traces that exceeded the set thre
 
 NOTE: If this page does not show any data, no request has exceeded the threshold or the request tracing has not been enabled. Check _Configuration_ => _Request Tracing_.
 
-All traces for the same method are shown as a single bar. The length and position of the bar gives the range of total trace duration for all the occurrences that exceeded the threshold. The bar starts at the minimum duration observed and ends at the maximum duration observed in the last minute.
+The _Trace Duration Range_ widget shows all traces for the same method as a single bar. The length and position of the bar gives the range of total trace duration for all the occurrences that exceeded the threshold. The bar starts at the minimum duration observed and ends at the maximum duration observed in the last minute.
 The legend shows the average duration and the method traced (innermost trace span operation)
 
 image::/images/monitoring-console/mc_page_request-tracing.png[Request Tracing Page]
 
 When all time minimum and/or maximum are added in the _Widget_ _Data_ settings the bar starts and/or ends at these "all time" values instead of the minimum and/or maximum within the last minute.
 
-By clicking on one of the bars in the overview the details of all kept traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
+The _Trace Duration Above Threshold_ widget shows a graph where each point marks the duration of a "slow" request at the moment the requests occured. Possible alerts are shown on top of the graph.
+
+The _Trace Data_ view adds tracing details for the "slow" requests that can be sorted by wall-time or value using the widget menu (gear icon in top right corner of the widget).
+
+By clicking on one of the bars in the overview's _Trace Duration Range_ widget the details of all kept traces for this method can be viewed. This data corresponds to the traces stored in the trace-store.
 For each trace, each of the spans corresponds to a bar in this graph.
 
 image::/images/monitoring-console/mc_page_request-tracing2.png[Request Tracing Details Page]
@@ -431,6 +440,30 @@ The spans can be sorted by wall time by selecting _Sort by Wall Time_ or by dura
 To get back to the overview close the details by clicking the x-icon on the right side of the _Sorting_ menu.
 
 WARNING: Be aware that the graphs in the example images above show unrealistically low numbers due to the way that request tracing was configured. In a more realistic configurations the durations are more likely to be in range of few hundred milliseconds to some seconds.
+
+
+[[monitoring-console-preset-sql]]
+==== SQL Page
+The _SQL_ page gives insight into slow SQL queries for all connection pools configured in Payara server.
+
+NOTE: To capture slow SQL queries the _JDBC Connection Pool_ configuration's _Slow Query Log Threshold_ in the _Advanced_ tab needs to be set to a positive number.
+
+image::/images/monitoring-console/mc_page_sql.png[Slow SQL Page]
+
+* _Slow SQL Queries_: Shows SQL details for queries that were too slow. _Value_ refers to the duration of the SQL query.
+* _Worst SQL Execution Time_: Shows SQL query activity. Each data point gives the duration of the slowest query run during last second. Zero means no SQL query was run.
+* _Slow SQL Alerts_: A list of alerts caused by too slow SQL queries in reference to the _Slow Query Log Threshold_ given in the pool configuration. Single outliers cause a degraded state (amber alerts), outlier groups cause unhealthy state (red alerts).
+
+
+[[monitoring-console-preset-alerts]]
+==== Alerts Page
+The main use of the _Alerts_ page is to check for any server alerts.
+The page is split into two lists: the upper list containing all ongoing alerts, and the lower list containing past alerts.
+As always for alert lists both lists are sorted starting with the most recent severe alert progressing to the oldest least severe alert. Annotations associated with alerts are hidden in this view to make room for more alert entries.
+
+image::/images/monitoring-console/mc_page_alerts.png[Alerts Page]
+
+Past alerts can be managed by acknowledging the alerts which makes them disapear from the list.
 
 
 [[monitoring-console-user]]
