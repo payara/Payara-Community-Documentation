@@ -155,7 +155,7 @@ image::/images/monitoring-console/mc_settings_data.png[Widget Data Settings]
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
 | Upscaling _decimal value_ | `false` | Check to mark the metric as one that is provided as a decimal value during collection (floats or doubles and alike). This will then revert the conversion applied during collection which converts decimal values to an integer number with 4 available decimal digits by multiplying them by 10,000. So this divides values by 10,000 again to move them back into their original value range.
 | Extra Lines | (none checked) | Check to add the all time minimum, maximum or average line to the graph
-| Lines | (none checked) | Options on how to display the current value line in the graph: Check _Points_ to show individual data points on the line, check _Curvy_ to use Bézier curves instead of straight line connections.
+| Lines | (none checked) | Options on how to display the current value line in the graph: Check _Points_ to show individual data points on the line, check _Curvy_ to use BÃ©zier curves instead of straight line connections.
 | Background | _Fill_ | When _Fill_ is checked the area between line and axis is filled. The background transparency can be configured globally in the _Colors_ settings.
 | X-Axis | _Labels_ | Whether or not to show labels for the x-axis.
 | Y-Axis | (undefined) | Set a minimum or maximum number for the y-axis instead. When not set range is derived automatically from the data points.
@@ -446,7 +446,7 @@ WARNING: Be aware that the graphs in the example images above show unrealistical
 ==== SQL Page
 The _SQL_ page gives insight into slow SQL queries for all connection pools configured in Payara server.
 
-NOTE: To capture slow SQL queries _JDBC Connection Pool_ configuration's _Slow Query Log Threshold_ in the _Advanced_ tab needs to be set to a positve number.
+NOTE: To capture slow SQL queries the _JDBC Connection Pool_ configuration's _Slow Query Log Threshold_ in the _Advanced_ tab needs to be set to a positive number.
 
 image::/images/monitoring-console/mc_page_sql.png[Slow SQL Page]
 
