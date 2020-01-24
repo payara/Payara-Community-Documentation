@@ -458,7 +458,7 @@ image::/images/monitoring-console/mc_page_sql.png[Slow SQL Page]
 [[monitoring-console-preset-alerts]]
 ==== Alerts Page
 The main use of the _Alerts_ page is to check for any server alerts.
-The page is split in two lists, the upper list containing all ongoing alerts and the lower list containing past alerts.
+The page is split into two lists: the upper list containing all ongoing alerts, and the lower list containing past alerts.
 As always for alert lists both lists are sorted starting with most servere recent alert progressing to the least severe oldest alert. Annotations associated with alerts are hidden in this view to make room for more alert entries.
 
 image::/images/monitoring-console/mc_page_alerts.png[Alerts Page]
