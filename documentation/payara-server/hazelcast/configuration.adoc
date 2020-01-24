@@ -389,7 +389,7 @@ asadmin> set-hazelcast-configuration --dynamic=true --configSpecificDataGridStar
 As noted in the enable Hazelcast section, the `set-hazelcast-configuration`
 asadmin command is used to both enable/disable Hazelcast, and to
 configure it. The `set-hazelcast-configuration` command is used to set both domain wide
-and config specific settings. You can pass the ``--help` option to the command to see
+and config specific settings. You can pass the `--help` option to the command to see
 usage instructions and available arguments in your terminal, both of which
 are listed below:
 
@@ -498,6 +498,8 @@ instance to.||
 |--membername|String|Member name|instance name|
 |--membergroup|String|Instance group name for all Server Instances using the configuration.
 Future functionality may use this name.|config name|
+
+|--encryptdatagrid|Boolean|Enables or disables encryption of data stored in the data grid store using a key created using the `generate-encryption-key` command |_false_|No
 
 |`--help`
 

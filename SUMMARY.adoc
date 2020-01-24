@@ -104,6 +104,7 @@
 *** link:documentation/payara-server/hazelcast/viewing-members.adoc[Viewing Members]
 *** link:documentation/payara-server/hazelcast/using-hazelcast.adoc[Using Hazelcast]
 *** link:documentation/payara-server/hazelcast/asadmin.adoc[Administration Commands]
+*** link:documentation/payara-server/hazelcast/datagrid-encryption.adoc[Data Grid Encryption]
 ** link:documentation/payara-server/health-check-service/README.adoc[HealthCheck Service]
 *** link:documentation/payara-server/health-check-service/asadmin-commands.adoc[Asadmin Commands]
 *** link:documentation/payara-server/health-check-service/config/README.adoc[Configuration]
