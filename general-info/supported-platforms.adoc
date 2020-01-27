@@ -11,10 +11,9 @@ Similarly, other platforms can always be requested for support.
 
 Payara Server currently supports the following Java Virtual Machines:
 
-* Oracle JDK8 (u162+)
-* Azul Zulu JDK8 (u162+)
-* OpenJDK JDK8 (u162+)
-* IBM Java SDK 8
+* Oracle JDK8 (u162+), Oracle JDK 11 (11.0.5+)
+* Azul Zulu JDK8 (u162+), Azul Zulu JDK 11 (11.0.5u10+)
+* OpenJDK JDK8 (u162+), OpenJDK 11 (11.0.5+)
 
 NOTE: A separate Payara Blue distribution is no longer required for IBM Java SDK.
 
