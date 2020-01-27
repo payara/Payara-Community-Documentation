@@ -15,6 +15,8 @@ An aim of this specification is to provide a much more natural coding style, wit
 
 The {repo}[Eclipse MicroProfile Rest Client] repository contains a number of {repo}/spec/src/main/asciidoc/clientexamples.asciidoc[examples] and information about how to use this API.
 
+Implementation in Payara is based on Jersey's Microprofile Rest client, the interaction with client interfaces is translated into interaction with standard JAX-RS client.
+
 [[cdi]]
 == CDI
 Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/cdi.asciidoc[here]
@@ -39,15 +41,17 @@ public class MyService {
 }
 ----
 
+The endpoint to connect to in such case must either be configured directly in attribute `baseUri` of `@RegisterRestClient` or via Microprofile Config properties.
+
 [[async]]
 == Async
 
 Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/async.asciidoc[here]
 
-It is possible for Rest Client interface methods to be declared asynchronous.
-This allows the thread invoking the interface method to proceed while the RESTful request occurs on another thread.
+It is possible for Rest Client interface methods to be declared asynchronous, by having return type of `CompletionStage<?>`.
+This allows the thread invoking the interface method to proceed while client communication occurs on another thread.
 
-Any method of the interface class is deemed an asynchonronous method if it has a return type of `CompletionStage`.
+The threadpool to use is configured via `RestClientBuilder.executorService`, or default one is used, which is managed thread pool of the server.
 
 [[providers]]
 == Providers
@@ -67,3 +71,15 @@ Payara Server and Micro support the following provider types:
 * `ResponseExceptionMapper`
 
 See the full {repo}/spec/src/main/asciidoc/providers.asciidoc[MicroProfile documentation] for the registration methods.
+
+[[ssl]]
+== SSL
+Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/ssl.asciidoc[here]
+
+On per-client basis, or via Microprofile Config properties following aspects of SSL communication of the client can be set:
+
+* Trust store, listing trusted certificates and authorities -- by default the one of the server is used
+* Hostname verifier, useful for suppresing trust checks for some host names
+* Keystore for setting up mutual SSL trust
+
+Programmatically it is also possible to provide implementation of `SslContext` to control all aspects of SSL communication
