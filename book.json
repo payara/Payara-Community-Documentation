@@ -39,6 +39,6 @@
         "mpOpenAPIVersion": "1.1",
         "mpOpenAPISpecUrl": "https://github.com/eclipse/microprofile-open-api/releases/tag/1.1",
         "mpRestClientVersion": "1.3",
-        "mpRestClientSepcUrl": "https://github.com/eclipse/microprofile-rest-client/releases/tag/1.3"
+        "mpRestClientSpecUrl": "https://github.com/eclipse/microprofile-rest-client/releases/tag/1.3"
     }
 }
