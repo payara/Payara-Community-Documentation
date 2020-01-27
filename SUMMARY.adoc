@@ -34,6 +34,7 @@
 **** link:documentation/payara-server/server-configuration/security/security-realms.adoc[Security Realms]
 *** link:documentation/payara-server/server-configuration/jvm-options.adoc[JVM Options]
 *** link:documentation/payara-server/server-configuration/jsf-options.adoc[JSF Options]
+*** link:documentation/payara-server/server-configuration/ssl-certificates.adoc[SSL Certificates]
 ** link:documentation/payara-server/deployment-groups/README.adoc[Deployment Groups]
 *** link:documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups ASAdmin commands]
 *** link:documentation/payara-server/deployment-groups/timers.adoc[Timers in Deployment Groups]
