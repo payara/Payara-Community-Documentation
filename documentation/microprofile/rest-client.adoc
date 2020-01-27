@@ -76,10 +76,10 @@ See the full {repo}/spec/src/main/asciidoc/providers.asciidoc[MicroProfile docum
 == SSL
 Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/ssl.asciidoc[here]
 
-On per-client basis, or via Microprofile Config properties following aspects of SSL communication of the client can be set:
+On a per-client basis, or via Microprofile Config properties, the following aspects of SSL communication of the client can be set:
 
-* Trust store, listing trusted certificates and authorities -- by default the one of the server is used
-* Hostname verifier, useful for suppresing trust checks for some host names
+* Trust store, listing trusted certificates and authorities -- by default the one used by the Payara Platform is used
+* Hostname verifier, useful for suppressing trust checks for some host names
 * Keystore for setting up mutual SSL trust
 
-Programmatically it is also possible to provide implementation of `SslContext` to control all aspects of SSL communication
+Programmatically it is also possible to provide an implementation of `SslContext` to control all aspects of SSL communication.
