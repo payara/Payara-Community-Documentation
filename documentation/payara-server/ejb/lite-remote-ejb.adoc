@@ -34,7 +34,7 @@ _Since Payara Server 5.194_
 
 *Usage*::
 ----
-asadmin set-ejb-invoker-configuration 
+asadmin set-ejb-invoker-configuration
         [--enabled=true|false]
         [--securityenabled=true|false]
         [--roles=<role-list>]
@@ -143,7 +143,7 @@ _Since Payara Server 5.194_
 
 *Usage*::
 ----
-asadmin get-ejb-invoker-configuration 
+asadmin get-ejb-invoker-configuration
         [--target=<target[default:server]>]
 ----
 
@@ -193,6 +193,11 @@ Client applications that wish to use HTTP(S) as the transport protocol when call
 </dependency>
 ----
 
+This artifact requires a patched version of the Jersey client which is pulled intransitive. This patched version is available within our [Payara Patched Project repository](https://github.com/payara/Payara_PatchedProjects).
+The Maven repository definition is present in the pom.xml file of the `ejb-http-client` artifact. However, when your dependencies are managed by a Company Nexus, for example, you might need to update it to refer to the Payara Patched Project repository.
+
+Also, we recommend having a look at the BOM feature so that versions can be defined more consistently.
+
 Finally, the code that executes the call to the remote EJB must be modified in some manner. To obtain a type-safe proxy for any remote EJB bean, the traditional approach via JDNI is still used. An example is given below:
 
 . First, consider the following remote EJB interface:
@@ -237,7 +242,7 @@ import javax.naming.InitialContext;
 public class RemoteEJBLiteClient{
 
     public static void main(String... args) throws NamingException{
-        
+
         Properties environment = new Properties();
         environment.put(INITIAL_CONTEXT_FACTORY, "fish.payara.ejb.rest.client.RemoteEJBContextFactory");
         environment.put(PROVIDER_URL, "http://localhost:8080/ejb-invoker");
