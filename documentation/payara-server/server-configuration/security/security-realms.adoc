@@ -95,7 +95,7 @@ and it is empty by default.
 
 .Supported OIDs
 |===
-|DN part id |OID name |Object ID
+|DN Part Id |OID Name |Object ID
 |CN |Common Name |2.5.4.3
 |SURNAME |Surname |2.5.4.4
 |SERIALNUMBER |Serial Number of the certificate |2.5.4.5
@@ -149,7 +149,7 @@ to take effect.
 When we configured realm to use parts of distinguished name for groups, we can also map these groups to roles.
 
 For example, if user authorization roles were mapped like this in the `payara-web.xml` deployment descriptor and we
-enabled using CN as a principal name and set the `dn-parts-used-for-groups` to `OU`:
+enabled using `CN` as a principal name and set the `dn-parts-used-for-groups` to `OU`:
 
 [source,xml]
 ----
@@ -193,3 +193,15 @@ Then the role mapping can be based on organizational unit in this case. But you 
   </security-role-mapping>
 </payara-web-app>
 ----
+
+You have to use the `dn-parts-used-for-groups` property wisely - the set of values must be predictable to be useful.
+Also if you would decide to use more ids to filter out group names from a distinguished name,
+there may be conflicts - you can have a state UK and also organisational unit UK. All parsed groups are equal.
+
+The role mapping then works in the same way. It does not matter if it was mapped via principal name or any group name.
+If any rule matched, the principal has the role.
+
+== Extra Resources
+
+See also link:https://javaee.github.io/tutorial/security-intro005.html[Java EE Tutorial: Working with Realms, Users, Groups, and Roles]
+
