@@ -9,16 +9,16 @@ to correctly configure the HealthCheck Service.
 
 *Usage*::
 ----
-set-healthcheck-configuration 
- --enabled=true|false 
- --dynamic=true|false  
- --historic-trace-enabled=true|false 
- --historic-trace-store-size=20 
+set-healthcheck-configuration
+ --enabled=true|false
+ --dynamic=true|false
+ --historic-trace-enabled=true|false
+ --historic-trace-store-size=20
  --historic-trace-store-timeout=<integer.value>s|m|h|d
 ----
 
 *Aim*::
-Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection. 
+Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection.
 
 [[command-options-8]]
 ==== Command Options
@@ -169,7 +169,7 @@ asadmin > healthcheck-configure
 ----
 
 [[list-healthcheck-services]]
-== `list-healthcheck-services` 
+== `list-healthcheck-services`
 
 *Usage*::
 `asadmin> list-healthcheck-services`
@@ -201,7 +201,7 @@ Command healthcheck-list-services executed successfully.
 
 
 [[healthcheck-list-services]]
-== `healthcheck-list-services` 
+== `healthcheck-list-services`
 
 NOTE: This is deprecated in 5.191 and will be removed in the future as it is replaced with the <<list-healthcheck-services>> command.
 
@@ -239,14 +239,14 @@ Command healthcheck-list-services executed successfully.
 *Usage*::
 
 ----
-set-healthcheck-service-configuration 
+set-healthcheck-service-configuration
  --service=<service.name>
  --enabled=true|false
- --dynamic=true|false 
+ --dynamic=true|false
  --time=<integer.value>
  --time-unit=DAYS|HOURS|MINUTES|SECONDS|MILLISECONDS
- --threshold-critical=80 
- --threshold-warning=50 
+ --threshold-critical=80
+ --threshold-warning=50
  --threshold-good=0
  --hogging-threads-threshold=<integer.value>
  --hogging-threads-retry-count=<integer.value>
@@ -372,7 +372,7 @@ needing a restart would be as follows:
 
 [source, shell]
 ----
-asadmin> set-healthcheck-service-configuration 
+asadmin> set-healthcheck-service-configuration
  --enabled=true
  --service=gc
  --dynamic=true
@@ -736,7 +736,7 @@ NOTE: This is deprecated in 5.191 and will be removed in the future as it is rep
 *Usage*::
 `asadmin> healthcheck-stuckthreads-configure --enabled true|false --dynamic true|false
 --time=<integer.value> --unit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
---threshold=<integer.value> --thresholdUnit=MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
+--threshold=<integer.value> --thresholdUnit=MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS`
 
 *Aim*::
 Configures the Stuck Thread checker. The Stuck Threads checker is comparable to the request tracing service, in that it is triggered by exceeding a configured threshold. but in this case it reports on all threads that, when the healthcheck runs, have taken longer than the threshold time.
@@ -821,8 +821,8 @@ asadmin> healthcheck-stuckthreads-configure
 ----
 asadmin> set-healthcheck-service-notifier-configuration
  --notifier=<string.value>
- --enabled=true|false 
- --dynamic=true|false 
+ --enabled=true|false
+ --dynamic=true|false
  --noisy=true|false
 ----
 
