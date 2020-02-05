@@ -39,12 +39,12 @@ potentially give more accurate trace data, at the expense of a small extra perfo
 **Reservoir Sampling**:: When disabled, the trace stores will contain the longest request traces. When enabled, the
 chance of any sampled request being in the trace stores becomes constant. Note that this applies to both trace stores -
 in most circumstances it doesn't make sense to have this enabled if _Store Historic Traces_ is also enabled.
-**Trace Store Size**:: The maximum number of traces to be stored in the rolling trace store.
+**Trace Store Size**:: The maximum number of traces to be stored in the local rolling trace store. A store shared in a cluster uses the maximim setting of this property of any instance in the cluster with request tracing enabled.
 **Trace Store Timeout**:: The timeout value for when traces will be removed from the rolling trace store. This is
 ignored when reservoir sampling is enabled.
 **Store Historic Traces**:: When enabled, a second trace store is created to store the longest historical request traces.
 **Historic Trace Store Size**:: Determines the number of historical trace events that can be stored in memory when
-historical storing is enabled. The default value is **20** records.
+historical storing is enabled. The default value is **20** records. A store shared in a cluster uses the maximim setting of this property of any instance in the cluster with request tracing enabled.
 **Historic Trace Store Timeout**:: Determines how long before Request Tracing messages are removed. This field is
 specified in the format "%d %h %m %s" where % is an integer. Any of the units can also be omitted.
 
