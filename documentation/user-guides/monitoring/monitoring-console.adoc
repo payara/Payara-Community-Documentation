@@ -371,12 +371,10 @@ The below table describes possible choices for each step of a watch condition.
 | `is` _operator_ | Start | Select the comparison operator to use when comparing the actual value(s) to the threshold. The comparison is of form _actual operator threshold_.
 | `is` _threshold_ | Start | The numeric threshold. The upper/lower limit. With the right unit selected the number can be given with a unit such as `5min` for time units, or `4KB` for bytes.
 | `is` _scope_ | Start | Select a scopes for the actual values that are compared to the threshold. The semantics of the different scoped are described in a separate table below.
-| `is` _scope-length_ | Start | The length defines how many of the most recent data points of the watched metric are included in the scope of the comparison.
-| `is` _scope-type_ | Start | Does the scope consist of the most recent number of points ('x') or the point in the most recent duration given in milliseconds ('ms').
+| `is` _scope-length_ | Start | The length defines how many of the most recent data points of the watched metric are included in the scope of the comparison. A number with time unit refers to the number of the points, a number with time unit to the duration of points to consider for the scope.
 | `until` _operator_ | Stop | same as for start
 | `until` _scope_ | Stop | same as for start
 | `until` _scope-length_ | Stop | same as for start
-| `until` _scope-type_ | Stop | same as for start
 |====================
 
 The below table describes the semantics of the different types of comparison scopes.
@@ -407,14 +405,8 @@ Go to the _Watches_ page using the top page menu or the _Global_ settings.
 
 image::/images/monitoring-console/mc_page_watches1.png[List of Watches]
 
-The current state of each watch is shown by the left symbol:
-
-* a pause symbol means the watch is disabled
-* a recoding symbol (circle) means the watch is enabled
-* a stop symbol (square) means the watch is stopped (permanently)
-
-The status is also reflected by the checkbox left of the watches name, checked for enabled, unchecked for disabled.
-Disabled watches names are also greyed out.
+The status of each watch is reflected by the checkbox left of the watches name, checked for enabled, unchecked for disabled.
+Disabled or stopped watches names are also greyed out.
 To disable an enabled watch un-check the checkbox or use the _Disable_ item form the cogs menu on the right of the watch widget.
 To enable a disabled watch check the checkbox or use the _Enable_ item from the cogs menu.
 The change has immediate effect.
