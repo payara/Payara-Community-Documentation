@@ -391,7 +391,7 @@ The below table describes the semantics of the different types of comparison sco
 
 After composing the watch conditions press _Save or Update_ to install the watch.
 If a watch of the same name already exists the existing watch is replaced.
-Watches that originate from server modules cannot be replaced. To change them disable the existing watch, click to edit it which creates a duplicate with a different name that can be adjusted freely.
+Watches that originate from server modules cannot be replaced. To change them disable the existing watch and click to edit it, this will create a duplicate with a different name that can be adjusted freely.
 
 ==== Editing a Watch
 To edit a previously created watch click on its name in the list of watches or chose _Edit_ from the cogs menu on the right.
