@@ -339,7 +339,7 @@ Optionally a stop condition can be given which when met will stop the alert. If 
 Such pairs of start and stop can be defined for 3 levels:
 
 * Unhealthy: corresponds to a "red" alert
-* Degraded: corresponds to a "amber" alert
+* Degraded: corresponds to an "amber" alert
 * Healthy: conditions for particularly good values, these will not cause alerts but can be used to mark a _healthy_ range in graphs.
 
 Each watch must have at least an _Unhealthy_ or a _Degraded_ condition.
