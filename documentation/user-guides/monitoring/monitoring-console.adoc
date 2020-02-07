@@ -383,7 +383,7 @@ The below table describes the semantics of the different types of comparison sco
 [cols="1,3",options="header"]
 |====================
 | Scope | Description
-| `for last` | The comparison must be true for each point in the scope for the condition to be met. Similar to a _all_ logic. The number of points included is specified afterwards. This is either a bare number refering number of points to include or a number with a time unit refering to a duration where all points within the duration from most recent point backwards are included in the scope.
+| `for last` | The comparison must be true for each point in the scope for the condition to be met. Similar to a _all_ logic. The number of points included is specified afterwards. This is either a bare number referring number of points to include or a number with a time unit referring to a duration where all points within the duration from most recent point backwards are included in the scope.
 | `for average of last` | The comparison must be true for the single average value of all points in the scope for the condition to be met. The number of points included is specified afterwards as number of duration from which to consider points.
 | `in last` | The comparison must be true for at least one of the points included in the scope for the condition to be met. Similar to an _any_ logic. The number of points included is specified afterwards as number of duration from which to consider points.
 | `in sample` | The comparison must be true for at least one of the points available for the condition to be met. For this scope type no length is given as all available points are considered. This can vary but usually consists of the last minute of data.
