@@ -398,7 +398,7 @@ To edit a previously created watch click on its name in the list of watches or c
 
 Watches that originate from server modules cannot be edited. When clicking their names or when choosing _Duplicate_ from their cogs menu a duplicate with a different name is created. The suggested name _Copy of {original name}_ can be changed as long as it is different to existing watch names.
 
-When changing the name of edited watch to an existing name this overrides that watch. In other words watches are always identified by their name.
+When changing the name of an edited watch to an existing name this overrides that watch. In other words watches are always identified by their name.
 
 ==== Disabling or Enabling a Watch
 Go to the _Watches_ page using the top page menu or the _Global_ settings.
