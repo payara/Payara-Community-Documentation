@@ -335,7 +335,7 @@ A watch describes the conditions to meet to start and stop alerts in relation to
 For example to get an alert every time a HTTP request causes a server error (responds with any of the 5xx status codes) a custom watch is installed.
 This is very similar to a custom health check that could be linked to any metric available where the thresholds are defined as part of the watch.
 There are many varieties of conditions that can be formulated. Each watch has a start condition which when met starts a new alert.
-Optionally a stop condition can be given. It has to be met to stop the alert once it is started. If no such stop condition is given an alert stops as soon as its start condition is no longer met.
+Optionally a stop condition can be given which when met will stop the alert. If no such stop condition is given an alert stops as soon as its start condition is no longer met.
 Such pairs of start and stop can be defined for 3 levels:
 
 * Unhealthy: corresponds to a "red" alert
