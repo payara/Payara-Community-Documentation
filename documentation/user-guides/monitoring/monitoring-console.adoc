@@ -328,6 +328,90 @@ image::/images/monitoring-console/mc_settings_colors.png[Widget Status Settings]
 |====================
 
 
+
+[[monitoring-console-watches]]
+=== User Defined Watches
+A watch describes the conditions to meet to start and stop alerts in relation to a specific metric.
+For example to get an alert every time an HTTP request causes a server error (responds with any of the 5xx status codes) a custom watch is installed.
+This is very similar to a custom health check that could be linked to any metric available where the thresholds are defined as part of the watch.
+There are many varieties of conditions that can be formulated. Each watch has a start condition which when met starts a new alert.
+Optionally a stop condition can be given which when met will stop the alert. If no such stop condition is given an alert stops as soon as its start condition is no longer met.
+Such pairs of start and stop conditions can be defined for 3 levels:
+
+* Unhealthy: corresponds to a "red" alert
+* Degraded: corresponds to an "amber" alert
+* Healthy: conditions for particularly good values, these will not cause alerts but can be used to mark a _healthy_ range in graphs.
+
+Each watch must have at least an _Unhealthy_ or a _Degraded_ condition.
+When both are given alerts can transition between _Degraded_ and _Unhealthy_ as the same issue or alert.
+_Unhealthy_ takes precedence over _Degraded_ and _Healthy_, _Degraded_ takes precedence over _Healthy_ should their condition be met at the same time.
+Should a _Degraded_ alert be acknowledged but it transitions to _Unhealthy_ afterwards the acknowledgement is reset so this change is not missed.
+
+
+[[monitoring-console-watches-create]]
+==== Creating a Watch
+To create custom watches go to the _Watches_ page using the top page menu or the _Global_ settings.
+
+image::/images/monitoring-console/mc_page_watches2.png[Creating a Watch]
+
+The above example shows a relatively simple watch named _HTTP server errors_. The name of the watch can be anything as long as it is unique.
+The watch should have both a _Unhealthy_ and a _Degraded_ level.
+
+The field after the _If_ holds the name of the metric series the watch is linked to, in this case the `ns:http ServerCount5xx` metric, as shown on the _HTTP_ page. The _in_ clause specifies the unit type of the given metric, here it is the `Count` of 5xx responses. Following _is_ the comparison operator is selected, here `>`. This is followed by the threshold value, here `3` or `1`, and the scope of the comparison, here `in sample`.
+As both do not use a stop condition the checkbox after _until_ is not checked.
+
+The below table describes possible choices for each step of a watch condition.
+
+.Watch Condition Segments
+[cols="1,1,3",options="header"]
+|====================
+| Segment | Start/Stop | Description
+| `If` _metric-series_ | Both | Give the name of the metric series to watch. As monitoring is a generic, dynamic and open system there is no definitve pre-defined list of available metrics. The metrics currently available are listed at http://localhost:8080/monitoring-console/api/series/ (assuming DAS runs on localhost).
+| `in` _unit_ | Both | Select the unit for the given metric series. This should be the same unit given in widget configuration _Data_ property _Unit_. Depending on the chosen unit the threshold can be given in values of this unit, e.g. when selecting _Milliseconds_ the threshold can be given as `1s` for 1 second.
+| `is` _operator_ | Start | Select the comparison operator to use when comparing the actual value(s) to the threshold. The comparison is of form _actual operator threshold_.
+| `is` _threshold_ | Start | The numeric threshold. The upper/lower limit. With the right unit selected the number can be given with a unit such as `5min` for time units, or `4KB` for bytes.
+| `is` _scope_ | Start | Select a scopes for the actual values that are compared to the threshold. The semantics of the different scoped are described in a separate table below.
+| `is` _scope-length_ | Start | The length defines how many of the most recent data points of the watched metric are included in the scope of the comparison. A number with time unit refers to the number of the points, a number with time unit to the duration of points to consider for the scope.
+| `until` _operator_ | Stop | same as for start
+| `until` _scope_ | Stop | same as for start
+| `until` _scope-length_ | Stop | same as for start
+|====================
+
+The below table describes the semantics of the different types of comparison scopes.
+
+.Watch Condition Scopes
+[cols="1,3",options="header"]
+|====================
+| Scope | Description
+| `for last` | The comparison must be true for each point in the scope for the condition to be met. Similar to a _all_ logic. The number of points included is specified afterwards. This is either a bare number referring number of points to include or a number with a time unit referring to a duration where all points within the duration from most recent point backwards are included in the scope.
+| `for average of last` | The comparison must be true for the single average value of all points in the scope for the condition to be met. The number of points included is specified afterwards as number of duration from which to consider points.
+| `in last` | The comparison must be true for at least one of the points included in the scope for the condition to be met. Similar to an _any_ logic. The number of points included is specified afterwards as number of duration from which to consider points.
+| `in sample` | The comparison must be true for at least one of the points available for the condition to be met. For this scope type no length is given as all available points are considered. This can vary but usually consists of the last minute of data.
+|====================
+
+After composing the watch conditions press _Save or Update_ to install the watch.
+If a watch of the same name already exists the existing watch is replaced.
+Watches that originate from server modules cannot be replaced. To change them disable the existing watch and click to edit it, this will create a duplicate with a different name that can be adjusted freely.
+
+==== Editing a Watch
+To edit a previously created watch click on its name in the list of watches or chose _Edit_ from the cogs menu on the right.
+
+Watches that originate from server modules cannot be edited. When clicking their names or when choosing _Duplicate_ from their cogs menu a duplicate with a different name is created. The suggested name _Copy of {original name}_ can be changed as long as it is different to existing watch names.
+
+When changing the name of an edited watch to an existing name this overrides that watch. In other words watches are always identified by their name.
+
+==== Disabling or Enabling a Watch
+Go to the _Watches_ page using the top page menu or the _Global_ settings.
+
+image::/images/monitoring-console/mc_page_watches1.png[List of Watches]
+
+The status of each watch is reflected by the checkbox left of the watches name, checked for enabled, unchecked for disabled.
+Disabled or stopped watches names are also greyed out.
+To disable an enabled watch un-check the checkbox or use the _Disable_ item from the cogs menu on the right of the watch widget.
+To enable a disabled watch check the checkbox or use the _Enable_ item from the cogs menu.
+The change has immediate effect.
+
+
 [[monitoring-console-presets]]
 === Preconfigured Pages
 
