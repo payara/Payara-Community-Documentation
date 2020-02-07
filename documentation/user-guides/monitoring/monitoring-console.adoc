@@ -407,7 +407,7 @@ image::/images/monitoring-console/mc_page_watches1.png[List of Watches]
 
 The status of each watch is reflected by the checkbox left of the watches name, checked for enabled, unchecked for disabled.
 Disabled or stopped watches names are also greyed out.
-To disable an enabled watch un-check the checkbox or use the _Disable_ item form the cogs menu on the right of the watch widget.
+To disable an enabled watch un-check the checkbox or use the _Disable_ item from the cogs menu on the right of the watch widget.
 To enable a disabled watch check the checkbox or use the _Enable_ item from the cogs menu.
 The change has immediate effect.
 
