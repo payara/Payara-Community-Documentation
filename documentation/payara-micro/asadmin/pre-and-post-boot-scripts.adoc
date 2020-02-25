@@ -74,6 +74,14 @@ correctly:
 
 image:/images/payara-micro/uber-jar-command-scripts-structure.png[Uber JAR Command scripts structure]
 
+[[boot-scripts-with-persistent-rootdir]]
+== Boot Scripts with Persistent Root Directory
+
+The effects of boot scripts are applied to config directory after their link:/documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[variable references] are resolved.
+
+When commands do not utilize variable references it is enough to apply boot scripts once, during <<../configuring/config-cmd-line.adoc#warmup, warmup run>>, sparing a bit of startup time.
+Conversely, when variable should be resolved on each startup, boot script arguments need to be passed to each invocation.
+
 [[restrictions-on-preboot-scripts]]
 == Restrictions on Preboot Scripts
 
