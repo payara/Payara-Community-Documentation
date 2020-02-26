@@ -50,4 +50,4 @@ Activating Request Tracing is done either via the admin console or using the com
 
 NOTE: All other options for request tracing are ignored as the created Spans are not processed within Payara.
 
-As an example, see https://github.com/payara/ecosystem-jaeger-tracing, which shows how to integrate a Jaeger client tracer. This can be added as a library to Payara with the command `add-library jaeger-tracer-lib`. Enabling request tracing in Payara Server is then required, which will then send traces from OpenTracing to a Jaeger collector on the same host.
+As an example, see https://github.com/payara/ecosystem-jaeger-tracing, which shows how to integrate a Jaeger client tracer. This can be added as a library to Payara with the command `add-library jaeger-tracer-lib-with-dependencies`. Enabling request tracing in Payara Server is then required, which will then send traces from OpenTracing to a Jaeger collector on the same host.

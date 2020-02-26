@@ -500,13 +500,13 @@ image:/images/microprofile/config-property.png[Set Config Property]
 [[using-asadmin-commands]]
 === Using Asadmin Commands
 
-==== `set-config-secrets-dir`
+==== `set-config-dir`
 
 {% set previewVersion = "4.1.2.181" %}
 {% include "/fragments/tech-preview.adoc" %}
 
 *Usage*::
-`asadmin> set-config-secrets-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
+`asadmin> set-config-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
 *Aim*::
 Sets the directory to be used for the directory config source.
 
