@@ -34,7 +34,7 @@ After that, it is possible to launch payara with plain
 java -jar $rootDirectory/launch-micro.jar
 ----
 
-This makes configuration directory self-sufficient and the distribution file is no longer needed.
+This makes configuration directory self-sufficient and the distribution file (`payara-micro.jar`) is no longer needed.
 
 [[starting-an-instance-programmatically]]
 == Starting an Instance Programmatically

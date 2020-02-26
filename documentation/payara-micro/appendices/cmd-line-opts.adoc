@@ -145,5 +145,5 @@ and HTTPS is disabled.
 |`--version`
 |Displays the version information|
 |`--warmup`
-|Bootstrap the server and exit immediately|
+|Exit the server immediately after configuration is done, applications are deployed and it's ready to serve requests. |
 |=======================================================================
