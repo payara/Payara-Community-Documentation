@@ -62,4 +62,3 @@ NOTE: The new MicroProfile `@Traced` annotation replaces the Payara Server & Mic
 We currently do not offer the following OpenTracing features:
 
 * Conversion to or from OpenTracing 0.31 or newer API
-* Third-party OpenTracing implementation integration with the Request Tracing Service
