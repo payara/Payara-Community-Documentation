@@ -7,7 +7,7 @@
 * link:README.adoc[Introduction]
 ** link:general-info/general-info.adoc[Overview]
 ** link:release-notes/README.adoc[Release Notes]
-*** link:release-notes/release-notes-194.adoc[Payara Server 5.194 Release Notes]
+*** link:release-notes/release-notes-201.adoc[Payara Server 5.201 Release Notes]
 ** link:security/security.adoc[Security]
 *** link:security/security-fix-list.adoc[Security Fixes Summary]
 ** link:general-info/supported-platforms.adoc[Supported Platforms]
@@ -275,6 +275,7 @@
 == Appendices
 
 * link:release-notes/release-notes-history.adoc[History of Release Notes]
+** link:release-notes/release-notes-201.adoc[Payara Server 5.201 Release Notes]
 ** link:release-notes/release-notes-194.adoc[Payara Server 5.194 Release Notes]
 ** link:release-notes/release-notes-193.adoc[Payara Server 5.193/5.193.1 Release Notes]
 ** link:release-notes/release-notes-192.adoc[Payara Server 5.192 Release Notes]
