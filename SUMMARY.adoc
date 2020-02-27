@@ -179,6 +179,7 @@
 *** link:documentation/payara-server/docker/docker-nodes.adoc[Docker Nodes]
 *** link:documentation/payara-server/docker/docker-instances.adoc[Docker Instances]
 * link:documentation/payara-micro/payara-micro.adoc[Payara Micro Documentation]
+** link:documentation/payara-micro/rootdir.adoc[Root Configuration Directory]
 ** link:documentation/payara-micro/starting-instance.adoc[Starting an Instance]
 ** link:documentation/payara-micro/stopping-instance.adoc[Stopping an Instance]
 ** link:documentation/payara-micro/deploying/deploying.adoc[Deploying Applications]

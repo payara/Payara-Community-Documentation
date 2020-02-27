@@ -107,6 +107,8 @@ than unpacking the runtime.| _false_
 |`--outputuberjar <file-path>`
 |Packages up an Uber JAR at the specified path based on the provided command
 line arguments and exit.|
+|`--outputlauncher`
+|Create launcher `launch-micro.jar` into the root directory that is specified by `--rootdir` and exit.|
 |`--port <http-port-number>`
 |Sets the HTTP port that the instance will bind to.| 8080
 |`--postbootcommandfile <file-path>`
@@ -116,7 +118,7 @@ line arguments and exit.|
 |`--prebootcommandfile <file-path>`
 |Provides a file of asadmin commands to run *before booting the server*.|
 |`--requesttracingadaptivesamplingtargetcount`|The target number of traces to sample per the configured time window | 6
-|`--requesttracingadaptivesamplingtimeunit`| The time unit for the adaptive sample time; a `java.util.concurrent.TimeUnit` value (also in singular) or one of the short forms: `ns`, `us`/`µs`, `ms`, `s`, `m`/`min`/`mins`, `h` or `d`.  | MINUTES
+|`--requesttracingadaptivesamplingtimeunit`| The time unit for the adaptive sample time; a `java.util.concurrent.TimeUnit` value (also in singular) or one of the short forms: `ns`, `us`/`Âµs`, `ms`, `s`, `m`/`min`/`mins`, `h` or `d`.  | MINUTES
 |`--requesttracingadaptivesamplingtimevalue`| The period of time to attempt to hit the adaptive sample target count in | 1
 |`--requesttracingthresholdunit <threshold-unit-notation>`
 |Sets the time unit for the requestTracingThresholdValue option, i.e. `SECONDS`,
@@ -142,4 +144,6 @@ and HTTPS is disabled.
 `java.io.tmpdir`.
 |`--version`
 |Displays the version information|
+|`--warmup`
+|Exit the server immediately after configuration is done, applications are deployed and it's ready to serve requests. |
 |=======================================================================
