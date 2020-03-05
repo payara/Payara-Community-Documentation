@@ -5,7 +5,7 @@ _Since *4.1.2.181*; *5.181*&nbsp;_
 Provided version of the API: {{ book.mpFaultToleranceSpecUrl }}[MicroProfile Fault Tolerance {{ book.mpFaultToleranceVersion }}]
 
 == Background
-The Fault Tolerance API was created to help separate execution logic from execution. 
+The Fault Tolerance API was created to help separate execution logic from execution.
 The execution can be configured with a number of fault tolerance policies.
 
 A full overview for the reasoning behind the API can be found in
@@ -14,15 +14,15 @@ README for the source code repository.]
 
 
 == Additions to the Fault Tolerance Spec
-In addition to the functionality 
+In addition to the functionality
 https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc[
 detailed in the spec], the following is also implemented in Payara Server and Payara Micro:
 
 === Configurable Managed Executor Services
 The managed and scheduled managed executor pool can be configured via the _set-fault-tolerance-configuration_ asadmin command.
 
-The managed executor service is used to execute methods annotated with `@Asynchronous`, whereas the managed scheduled executor 
-service is used by the CircuitBreaker and Timeout interceptors for their timeout operations (scheduling the circuit breaker 
+The managed executor service is used to execute methods annotated with `@Asynchronous`, whereas the managed scheduled executor
+service is used by the CircuitBreaker and Timeout interceptors for their timeout operations (scheduling the circuit breaker
 to be set to half open, and just timing out respectively).
 
 === Alternative @Asynchronous Annotations
@@ -48,7 +48,7 @@ Prior to 5.192 the order that the fault tolerance annotations are invoked is as 
 
 Since the asynchronous annotation is invoked first, if it's combined with any other fault tolerance annotations they will be processed on the asynchronous thread.
 
-Since 5.192 interactions between annotations are handled as described by the 2.0 specification effectively nesting computation in the following way (skipping handling for annotations not present): 
+Since 5.192 interactions between annotations are handled as described by the 2.0 specification effectively nesting computation in the following way (skipping handling for annotations not present):
 
 1. Asynchronous
 2. Fallback
@@ -64,14 +64,14 @@ As specified the interceptor priority can be changed using the property `mp.faul
 [[fault-tolerance-configuration]]
 == Fault Tolerance Configuration
 
-Fault Tolerance can be configured by using Admin Console or Asadmin commands. 
+Fault Tolerance can be configured by using Admin Console or Asadmin commands.
 
 _Since *5.183*&nbsp;_
 
 [[using-the-admin-console]]
 === Using the Admin Console
 
-To configure the Fault Tolerance in the Admin Console, go to Configuration 
+To configure the Fault Tolerance in the Admin Console, go to Configuration
 → [instance-configuration (like server-config)] → MicroProfile → Fault Tolerance:
 
 image:/images/microprofile/fault-tolerance.png[Set Fault Tolerance Configuration]
@@ -79,11 +79,18 @@ image:/images/microprofile/fault-tolerance.png[Set Fault Tolerance Configuration
 [[using-asadmin-commands]]
 === Using Asadmin Commands
 
+NOTE: Since Payara 5.202 the configuration no longer allows to configure user defined pools to run the fault tolerance exection. Instead FT uses two dedicated executor pools that are well suited for the usage pattern typically experience when executing FT semantics. The maximum size of these pools is now configured instead to scale them up or down.
+
 ==== `set-fault-tolerance-configuration`
 
 *Usage*::
-`asadmin> set-fault-tolerance-configuration [--managedexecutorservicename=<managedexecutorservicename>] 
-[--managedscheduledexecutorservicename=<managedscheduledexecutorservicename>] [--target=<server-config>]`
+```
+asadmin>set-fault-tolerance-configuration
+  [--asyncmaxpoolsize=asyncmaxpoolsize]
+  [--delaymaxpoolsize=delaymaxpoolsize]
+  [--target=server-config]
+```
+
 *Aim*::
 Provides a way to set the configuration of the fault tolerance service of the targetted config.
 
@@ -96,14 +103,14 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 |Default
 |Mandatory
 
-|`managedexecutorservicename`
-|The JNDI name of the Managed Executor Service to look up.
-|`(concurrent/__defaultManagedExecutorService)`
+|`asyncmaxpoolsize`
+|The maximum size of the thread pool used to run asynchronous exection. The dedicated executor pool is dynamic will create threads on rising demand and dispose idle threads on falling demand. Changes to this configuration take effect without restart.
+|`1000`
 |no
 
-|`managedscheduledexecutorservicename`
-|The JNDI name of the Managed Scheduled Executor Service to look up.
-|`(concurrent/__defaultManagedScheduledExecutorService)`
+|`delaymaxpoolsize`
+|The maxium size of the thread pool used to schedule delays and detect timeouts as part of the fault tolerance exection. The dedicated executor pool is likely to use up to this number of threads. Changes to this configuration require a restart of the server to take effect.
+|`20`
 |no
 
 |`target`
@@ -114,12 +121,14 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 |===
 
 
+
+
 ===== Example
 
 [source,Shell]
 ----
-asadmin> set-fault-tolerance-configuration --managedexecutorservicename=concurrent/managedExecutor1 
---managedScheduledExecutorServiceName=concurrent/managedScheduledExecutor1 --target instance1
+asadmin> set-fault-tolerance-configuration --asyncmaxpoolsize=2000
+--delaymaxpoolsize=30 --target instance1
 ----
 
 ==== `get-fault-tolerance-configuration`
