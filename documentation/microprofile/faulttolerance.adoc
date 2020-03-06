@@ -109,7 +109,7 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 |no
 
 |`delaymaxpoolsize`
-|The maxium size of the thread pool used to schedule delays and detect timeouts as part of the fault tolerance exection. The dedicated executor pool is likely to use up to this number of threads. Changes to this configuration require a restart of the server to take effect.
+|The maximum size of the executor used to schedule delays and detect timeouts as part of the Fault Tolerance execution. The dedicated executor is likely to use up to this number of threads. Changes to this configuration require a restart of the server to take effect.
 |`20`
 |no
 
@@ -161,4 +161,3 @@ Returns the current configuration options for the Fault Tolerance service on the
 ----
 asadmin> get-fault-tolerance-configuration --target=cluster1
 ----
-
