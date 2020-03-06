@@ -18,8 +18,11 @@ A plugin for Gradle is available for Payara Micro.
 link:eclipse-plugin.adoc[Payara Tools Eclipse Plugin]::
 A plugin for using Payara is available for Eclipse.
 
-link:netbeans-plugin/README.adoc[Payara NetBeans Plugin]::
-A plugin for using Payara is available for NetBeans.
+link:netbeans-plugin/README.adoc[Payara Apache NetBeans tools]::
+The tools for using Payara is available in the Apache NetBeans.
+
+link:vscode-extension/README.adoc[Payara VSCode Extension]::
+An extensions for using Payara is available for Visual Studio Code.
 
 link:cloud-connectors/README.adoc[Cloud Connectors]::
 Cloud Connectors are a collection of JCA adapters which can interact with popular
