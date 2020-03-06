@@ -3,12 +3,12 @@
 Payara Platform provides the Payara extension to integrate Payara Server into the Visual Studio Code.
 The extension is available in the link:https://marketplace.visualstudio.com/items?itemName=Payara.payara-vscode[Visual Studio Marketplace].
 
-* <<installing-server,Installing Payara extension>>
+* <<installing-extension,Installing Payara extension>>
 * <<adding-server,Adding Payara Server to VSCode>>
 * <<managing-server,Managing Payara Server from VSCode>>
 * <<deploy-application,Deploying Applications to Payara Server>>
 
-[[installing-server]]
+[[installing-extension]]
 == Installing Payara extension
 
 1. Click *Extensions* on the left-most menu of the editor:
