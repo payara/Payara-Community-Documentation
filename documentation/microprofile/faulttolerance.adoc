@@ -104,7 +104,7 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 |Mandatory
 
 |`asyncmaxpoolsize`
-|The maximum size of the thread pool used to run asynchronous exection. The dedicated executor pool is dynamic will create threads on rising demand and dispose idle threads on falling demand. Changes to this configuration take effect without restart.
+|The maximum size of the thread pool used to run asynchronous execution. The dedicated executor will create threads dynamically on rising demand and dispose idle threads on falling demand. Changes to this configuration take effect without restart.
 |`1000`
 |no
 
