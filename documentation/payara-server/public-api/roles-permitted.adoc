@@ -8,9 +8,11 @@ The Payara Public API provides a `@RolesPermitted` annotation that creates an au
 [[usage]]
 == Usage
 
-The authorisation interceptor is defined through the `@RolesPermitted` annotation. Specifying this on an interceptable method of any CDI bean will make that method eligible for interception by the corresponding interceptor. This interceptor will check that the caller of a method is any or all of the specified roles. If this holds, the call to the method proceeds. If not, an exception of type `CallerAccessException` is thrown.
+The authorisation interceptor is defined through the `@RolesPermitted` annotation. Specifying this on an interceptable method of a non-passivation capable CDI bean will make that method eligible for interception by the corresponding interceptor. This interceptor will check that the caller of a method is any or all of the specified roles. If this holds, the call to the method proceeds. If not, an exception of type `CallerAccessException` is thrown.
 
 NOTE: The annotation can alternatively be placed at the class level of a CDI bean, in which case it will apply to all interceptable methods of that bean.
+
+NOTE: Examples of a non-passivation capable CDI bean are beans defined in the Request and Application scope.
 
 [[usage-example]]
 === Example
