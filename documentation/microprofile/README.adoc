@@ -20,8 +20,9 @@ Version 3.2 of MicroProfile is a minor release that updates Metrics to maintain 
 This is supported by both Payara Server and Payara Micro from release *5.194*.
 
 Version 3.1::
-Version 3.1 of MicroProfile provides updates to Metrics and Health Check.
-This is supported by both Payara Server and Payara Micro from release *5.194*.
+Version 3.1 of MicroProfile provides updates to Metrics and Health Check. 
+This version of the MicroProfile API contained an unintentional breaking change in the Metrics API, so should not be used and is
+not supported by Payara Server or Payara Micro.
 
 Version 3.0::
 Version 3.0 of MicroProfile brings in another Java EE API: JSON-P 1.1. This version also includes updates to Metrics, Health Check, and Rest Client.
