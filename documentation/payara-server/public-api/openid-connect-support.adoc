@@ -71,7 +71,7 @@ public class CallbackServlet extends HttpServlet {
 == Configuration
 
 OpenID Client can be configured with both `@OpenIdAuthenticationDefinition` annotation attributes and Microprofile Config properties.
-The annotation and mp config properties has several configuration options.
+The annotation and MicroProfile properties has several configuration options.
 
 They are detailed below.
 
@@ -206,8 +206,8 @@ They are detailed below.
 | Must be in the form `"key=value"`.
 |===
 
-*Note :* If both annotation attribute and mp config property defined for same option 
-then Microprofile Config property value always take precedence over `@OpenIdAuthenticationDefinition` annotation value.
+*Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
+then the MicroProfile Config property value always take precedence over the `@OpenIdAuthenticationDefinition` annotation value.
 
 [[el-support]]
 === Expression Language Support

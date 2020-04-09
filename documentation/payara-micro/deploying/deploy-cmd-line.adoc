@@ -8,9 +8,7 @@ Payara Micro supports deploying applications directly from the command line.
 
 As noted in the section
 link:/documentation/payara-micro/starting-instance.adoc#starting-an-instance-from-the-command-line[Starting an Instance],
-all Payara Micro actions are run for the Payara Micro JAR, all in one command;
-it is not possible to start an instance with one command, and deploy an application
-to it with another.
+all Payara Micro actions are run for the Payara Micro JAR, all in one command.
 
 The general structure of starting, configuring, and deploying an application to
 an instance is as follows:
@@ -20,20 +18,34 @@ an instance is as follows:
 java -jar payara-micro.jar --option1 --option2 ...
 ----
 
-== Define configuration directory
+[[persistent-rootdir]]
+== Using Persistent Configuration Directory
 
-Payara Micro creates a directory where it creates the equivalent of the Payara Server domain directory in order to run properly.
-With the command line parameter `--rootdir` one can specify the location of this directory.
+When <<../rootdir.adoc#persistent-rootdir, persistent configuration directory>> is reused across restarts (i. e. not running in a container), it is recommended not to specify deployment each time Payara Micro is invoked from that directory.
+Doing so will cause the application to be deployed twice -- once at startup and second time when deployment section of the command line is processed.
 
-It is important to specify this value in production scenarios because the default value is in the temporary directory of the OS which can be cleaned by some processes.
-If this happens, the application will not behave correctly anymore.
+The best approach if your application uses persistent filesystem is to use warmup run for deployment:
 
-[source, shell]
+[source,shell]
 ----
-java -jar payara-micro.jar --rootdir <directory-path> --option2 ...
+# perform deployments and configuration
+java -jar payara-micro.jar --rootdir micro-root --warmup application.war
+
+# all further invocations do not specify deployment
+java -jar payara-micro.jar --rootdir micro-root
 ----
 
-If the <directory-path> doesn't exist, it is created on the fly.
+Alternatively a launcher can be generated for configured root directory as well:
+
+[source,shell]
+----
+# perform deployments and configuration
+java -jar payara-micro.jar --rootdir micro-root --warmup application.war
+java -jar payara-micro.jar --rootdir micro-root --outputlauncher
+
+# all further invocations use parameterless launcher
+java -jar micro-root/launch-micro.jar
+----
 
 
 [[deploying-an-application-package]]
@@ -119,7 +131,6 @@ option multiple times:
 ----
 java -jar payara-micro.jar --deployFromGAV "fish.payara.examples,test,1.0-SNAPSHOT" --additionalRepository https://maven.java.net/content/repositories/promoted/ --additionalRepository https://raw.github.com/payara/Payara_PatchedProjects/master/
 ----
-
 
 [[define-context-root]]
 == Define context root

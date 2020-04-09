@@ -1,14 +1,18 @@
 [[configuring-hazelcast]]
 = Configuring the Domain Data Grid underlying Hazelcast
+:toc:
+:toclevels: 3
 
 Payara Server supports configuring Hazelcast through the Admin Console and
 asadmin commands. The Hazelcast configuration file can also be directly edited,
 but will not be covered in depth in this section.
 
-Configuration of Hazelcast is divided into three sections. The first section 
+Configuration of Hazelcast is divided into four sections. The first section 
 applies to the whole domain, the second section applies to specific configurations 
-and therefore to Payara Server instances that use that configuration and the 
-final section covers how certain settings can be specified when a domain is created.
+and therefore to Payara Server instances that use that configuration, the 
+third section covers how certain settings can be specified when a domain is created
+and the final section covers how to configure config specific Data Grid Start Port 
+during or after the creation of an instance.
 
 Using a Hazelcast configuration file will cause the settings set via the Admin
 Console and _asadmin_ commands to be ignored. Any parameters not specified in
@@ -23,8 +27,15 @@ instead of the default Hazelcast one. Setting a global serializer will not overr
 This was created to avoid a https://github.com/payara/Payara/issues/759[bug]
 that causes `ClassNotFoundException` errors.
 
+
+
+[[setting-hazelcast-configuration-file]]
+== Setting a Hazelcast Configuration File
+
+Hazelcast configuration file can be either set using Admin Console or asadmin CLI.
+
 [[setting-hazelcast-configuration-file-admin-console]]
-== Setting a Hazelcast Configuration File with the Admin Console
+=== Setting a Hazelcast Configuration File with the Admin Console
 
 To set the Hazelcast configuration from a Hazelcast Configuration file:
 
@@ -38,7 +49,7 @@ configuration directory:
 image::/images/hazelcast/hazelcast-admin-console-set-configuration-file.png[Hazelcast Set Configuration File]
 
 [[setting-hazelcast-configuration-file-asadmin]]
-== Setting a Hazelcast Configuration File using asadmin
+=== Setting a Hazelcast Configuration File using asadmin
 
 The `set-hazelcast-configuration` command can be used to set the configuration
 file:
@@ -52,7 +63,7 @@ As with the admin console, this path is relative to your domain configuration
 directory.
 
 [[configuring-domain-wide-hazelcast-with-the-admin-console]]
-=== Configuring Domain Wide Hazelcast Settings with the Admin Console
+== Configuring Domain Wide Hazelcast Settings with the Admin Console
 Some Hazelcast configuration settings apply to the whole domain.
 Navigate to the _Data Grid page for the domain wide settings.
 
@@ -124,7 +135,7 @@ Payara Server domains and Payara Micro instances.
 |====
 
 [[configuring-config-specifc-hazelcast-with-the-admin-console]]
-=== Configuring Server Config Specfic Hazelcast Settings with the Admin Console
+== Configuring Server Config Specfic Hazelcast Settings with the Admin Console
 
 Navigate to the _Data Grid_ page for the specific configuration.
 
@@ -144,6 +155,7 @@ restarted to apply any changes made
 |Lite Data Grid Instance|If set to true, cluster members with this configuration
 will be Hazelcast "lite" nodes, meaning they will not store any cache data
 locally and rely on other cluster members to store data.
+|Config Specific Data Grid Start Port|This is only available since 5.194. Sets Data Grid Start Port to the instance. If set to 0 (default) the Domain wide start port will be used instead.
 |Public Address for this Data Grid Node|The Public Address to use for this Data Grid Node. Used when the node is behind a NAT
 
 |Instance Group | Instance group name for all Server Instances using the configuration.
@@ -163,13 +175,221 @@ Enter your required values, and click _Save_. Restarting the domain or
 instance/cluster is not necessary for any changes made to take effect, provided
 that _"Dynamic"_ remains set to "_true_"
 
+[[configuring-hazelcast-on-domain-creation]]
+== Configuring Hazelcast on Domain Creation
+_Since Payara Server 5.194 and 5.193.2_
+
+The following options can be used with the `create-domain` command to specify certain Hazelcast settings when a domain is created:
+
+[cols=(,,,,),options="header"]
+|====
+|Option|Type|Description|Default|Mandatory
+
+| `--hazelcastdasport` | Port Number | The port to run Hazelcast on for the DAS. 
+If this port is busy and auto-increment option is enabled, the port specified 
+will be incremented until a valid port is found. The `--hazelcastdasport` 
+option cannot be used with the `--portbase` option. The `--hazelcastdasport` 
+option overrides the `hazelcast.das.port` property of the `--domainproperties` 
+option. | 4900 | No
+
+| `--hazelcaststartport` | Port Number | The port the other Payara Server 
+instances use to run Hazelcast on. If this port is busy and auto-increment 
+option is enabled, the port specified will be incremented until a valid port is 
+found. The `--hazelcaststartport` option cannot be used with the `--portbase` 
+option. The `--hazelcaststartport` option overrides the hazelcast.start.port 
+property of the `--domainproperties` option. | 5900 | No
+
+| `--hazelcastautoincrement` | Boolean | By default the Data Grid uses the next 
+unoccupied port that is available starting with the start port. When 
+auto-increment is turned off an occupied start port results in a startup failure 
+instead. The `--hazelcastautoincrement` option overrides the `hazelcast.auto.increment` 
+property of the `--domainproperties` option. | 5900 | No
+|====
+
+The following domain properties have been added  to the 'create-domain' command 
+to make it possible to configure certain Hazelcast setting when a domain is created:
+
+
+[cols=(,,,,),options="header"]
+|====
+|Property|Description
+
+| `hazelcast.das.port` | This property specifies the port number of the port the
+ DAS use to run Hazelcast on. The `hazelcast.das.port` property is overridden by 
+the `--hazelcastdasport` option.
+
+| `hazelcast.start.port` | This property specifies the port number of the port 
+the other Payara Server instances use to run Hazelcast on. The hazelcast.start.port 
+property is overridden by the `--hazelcaststartport` option.
+
+| `hazelcast.auto.increment` | This property specifies whether or not to use the 
+next unoccupied port that is available starting with the start port. When auto-increment 
+is turned off an occupied start port results in a startup failure instead. The 
+hazelcast.auto.increment property is overridden by the `--hazelcastautoincrement` option.
+|====
+
+NOTE: If the `portbase` options are used, the values for the ports of the 
+Hazelcast DAS start port and the Hazelcast start Port are calculated as follows: 
+Hazelcast DAS start port: _portbase_ + 49 and Hazelcast start port: _portbase_ + 59.
+
+*The following examples demonstrate creating a domain with all of the Hazelcast 
+related options:*
+
+An example of `create-domain` command with Hazelcast specific options:
+[source, shell]
+----
+asadmin> asadmin create-domain --hazelcastdasport 7900 --hazelcaststartport 8900 --hazelcastautoincrement true testDomain
+
+Using default port 4848 for Admin.
+Using default port 8080 for HTTP Instance.
+Using default port 7676 for JMS.
+Using default port 3700 for IIOP.
+Using default port 8181 for HTTP_SSL.
+Using default port 3820 for IIOP_SSL.
+Using default port 3920 for IIOP_MUTUALAUTH.
+Using default port 8686 for JMX_ADMIN.
+Using default port 6666 for OSGI_SHELL.
+Using default port 9009 for JAVA_DEBUGGER.
+Using port 7900 for Hazelcast DAS.
+Using port 8900 for Hazelcast Start.
+Distinguished Name of the self-signed X.509 Server Certificate is:
+[CN=dev,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
+Distinguished Name of the self-signed X.509 Server Certificate is:
+[CN=dev-instance,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
+Domain testDomain created.
+Domain testDomain admin port is 4848.
+Domain testDomain allows admin login as user "admin" with no password.
+Command create-domain executed successfully.
+----
+
+An example of `create-domain` command with Hazelcast specific domain properties:
+[source, shell]
+----
+asadmin> create-domain --domainproperties hazelcast.das.port=7900:hazelcast.auto.increment=false:hazelcast.start.port=8900 testDomain
+
+Using default port 8080 for HTTP Instance.
+Using default port 7676 for JMS.
+Using default port 3700 for IIOP.
+Using default port 8181 for HTTP_SSL.
+Using default port 3820 for IIOP_SSL.
+Using default port 3920 for IIOP_MUTUALAUTH.
+Using default port 8686 for JMX_ADMIN.
+Using default port 6666 for OSGI_SHELL.
+Using default port 9009 for JAVA_DEBUGGER.
+Using port 7900 for Hazelcast DAS.
+Using port 8900 for Hazelcast Start.
+Distinguished Name of the self-signed X.509 Server Certificate is:
+[CN=dev,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
+Distinguished Name of the self-signed X.509 Server Certificate is:
+[CN=dev-instance,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
+Domain testDomain created.
+Domain testDomain admin port is 4848.
+Domain testDomain allows admin login as user "admin" with no password.
+Command create-domain executed successfully.
+----
+
+[[configuring-config-specific-data-grid-start-port]]
+== Configuring Config Specific Data Grid Start Port
+
+_@Since **Payara Server 5.194**_
+
+It is possible to configure the port used by Hazelcast to bind the corresponding 
+instance to the Data Grid by letting users set its value during or after the 
+creation of an instance.
+
+[[configuring-config-specific-data-grid-start-port-on-instance-creation]]
+=== Configuring Config Specific Data Grid Start Port on Instance Creation
+The following option can be used with the `create-instance` or the `create-local-instance` commands 
+to specify config Specific Data Grid Start Port when an instance is created:
+
+[cols=(,,,,),options="header"]
+|====
+|Option|Type|Description|Default|Mandatory
+
+| `--dataGridStartPort` | Port Number | Sets Data Grid Start Port to the instance. 
+If set to 0 the Domain wide start port will be used instead | 0 | No
+|====
+
+**The following examples demonstrate creating an instance with `--dataGridStartPort` options:**
+
+An example of `create-instance` command:
+[source, shell]
+----
+asadmin> asadmin create-instance --dataGridStartPort 2900 --node localhost-domain1 instance1
+
+Command _create-instance-filesystem executed successfully.
+Port Assignments for server instance instance1: 
+OSGI_SHELL_TELNET_PORT=26666
+JAVA_DEBUGGER_PORT=29009
+JMS_PROVIDER_PORT=27676
+HTTP_LISTENER_PORT=28080
+IIOP_SSL_LISTENER_PORT=23820
+ASADMIN_LISTENER_PORT=24848
+IIOP_SSL_MUTUALAUTH_PORT=23920
+JMX_SYSTEM_CONNECTOR_PORT=28686
+HTTP_SSL_LISTENER_PORT=28181
+IIOP_LISTENER_PORT=23700
+The instance, instance1, was created on host localhost
+Command create-instance executed successfully.
+----
+
+An example of `create-local-instance` command:
+[source, shell]
+----
+asadmin> asadmin create-local-instance --dataGridStartPort 2900 --node localhost-domain1 instance2
+
+Rendezvoused with DAS on localhost:4848.
+Using DAS host localhost and port 4848 from existing das.properties for node
+localhost-domain1. To use a different DAS, create a new node using create-node-ssh or
+create-node-config. Create the instance with the new node and correct
+host and port:
+asadmin --host das_host --port das_port create-local-instance --node node_name instance_name.
+Port Assignments for server instance instance2: 
+OSGI_SHELL_TELNET_PORT=26667
+JAVA_DEBUGGER_PORT=29010
+JMS_PROVIDER_PORT=27677
+HTTP_LISTENER_PORT=28081
+IIOP_SSL_LISTENER_PORT=23821
+ASADMIN_LISTENER_PORT=24849
+IIOP_SSL_MUTUALAUTH_PORT=23921
+JMX_SYSTEM_CONNECTOR_PORT=28687
+HTTP_SSL_LISTENER_PORT=28182
+IIOP_LISTENER_PORT=23701
+Command create-local-instance executed successfully.
+----
+
+[[configuring-config-specific-data-grid-start-port-After-instance-creation]]
+=== Configuring Config Specific Data Grid Start Port After Instance Creation
+
+Config Specific Data Grid Start Port can be either set using Admin Console or asadmin CLI
+after an instance has been created.
+
+[[setting-config-specific-data-grid-start-port-with-the-admin-console]]
+==== Setting Config Specific Data Grid Start Port with the Admin Console
+
+. Select the Configuration from the page tree, click on the relevant instance and finally click on the Data Grid.
+
+. On the Configuration Specific Data Grid Configuration, set your Data Grid Start Port and click Save.
+
+image::/images/hazelcast/hazelcast-admin-console-config-data-grid-start-port.png[Config Specific Data Grid Start Port Option]
+
+[[setting-hazelcast-configuration-file-asadmin]]
+==== Setting a Config Specific Data Grid Start Port using asadmin CLI
+
+The `set-hazelcast-configuration` command can be used to set the Config Specific Data Grid Start Port:
+
+[source, shell]
+----
+asadmin> set-hazelcast-configuration --dynamic=true --configSpecificDataGridStartPort=2900 --target=instance1-config
+----
+
 [[configuring-hazelcast-using-asadmin]]
 == Configuring Hazelcast using Asadmin
 
 As noted in the enable Hazelcast section, the `set-hazelcast-configuration`
 asadmin command is used to both enable/disable Hazelcast, and to
 configure it. The `set-hazelcast-configuration` command is used to set both domain wide
-and config specific settings. You can pass the ``--help` option to the command to see
+and config specific settings. You can pass the `--help` option to the command to see
 usage instructions and available arguments in your terminal, both of which
 are listed below:
 
@@ -258,6 +478,9 @@ cluster members if `tcpip` is selected as the cluster mode.|None|No
 |`--lite` |Boolean|Sets the cluster to lite mode, where it will cluster but *not*
 store any cluster data.|_false_|No
 
+|`--configSpecificDataGridStartPort` |Port Number|Sets Data Grid Start Port to the instance. 
+If set to 0 the Domain wide start port will be used instead.|0|No
+
 |`--jndiname`
 
 `-j` |JNDI Name|Specifies the JNDI name to bind the Hazelcast
@@ -276,6 +499,8 @@ instance to.||
 |--membergroup|String|Instance group name for all Server Instances using the configuration.
 Future functionality may use this name.|config name|
 
+|--encryptdatagrid|Boolean|Enables or disables encryption of data stored in the data grid store using a key created using the `generate-encryption-key` command |_false_|No
+
 |`--help`
 
 `-?` ||Displays the help menu.|_false_|No
@@ -287,115 +512,4 @@ cluster called _cluster1_:
 [source, shell]
 ----
 asadmin> set-hazelcast-configuration --enabled=true --target=cluster1 --dynamic=true -f hazelcast-config.xml --startport=5902 -g 224.2.2.3 --multicastport=6666 --clustermode multicast --hostAwareParitioning=true -j payara/Hazelcast
-----
-
-[[configuring-hazelcast-on-domain-creation]]
-== Configuring Hazelcast on Domain Creation
-_Since Payara Server 5.194 and 5.193.2_
-
-The following options can be used with the `create-domain` command to specify certain Hazelcast settings when a domain is created:
-
-[cols=(,,,,),options="header"]
-|====
-|Option|Type|Description|Default|Mandatory
-
-| `--hazelcastdasport` | Port Number | The port to run Hazelcast on for the DAS. 
-If this port is busy and auto-increment option is enabled, the port specified 
-will be incremented until a valid port is found. The `--hazelcastdasport` 
-option cannot be used with the `--portbase` option. The `--hazelcastdasport` 
-option overrides the `hazelcast.das.port` property of the `--domainproperties` 
-option. | 4900 | No
-
-| `--hazelcaststartport` | Port Number | The port the other Payara Server 
-instances use to run Hazelcast on. If this port is busy and auto-increment 
-option is enabled, the port specified will be incremented until a valid port is 
-found. The `--hazelcaststartport` option cannot be used with the `--portbase` 
-option. The `--hazelcaststartport` option overrides the hazelcast.start.port 
-property of the `--domainproperties` option. | 5900 | No
-
-| `--hazelcastautoincrement` | Boolean | By default the Data Grid uses the next 
-unoccupied port that is available starting with the start port. When 
-auto-increment is turned off an occupied start port results in a startup failure 
-instead. The `--hazelcastautoincrement` option overrides the `hazelcast.auto.increment` 
-property of the `--domainproperties` option. | 5900 | No
-|====
-
-The following domain properties have been added  to the 'create-domain' command 
-to make it possible to configure certain Hazelcast setting when a domain is created:
-
-
-[cols=(,,,,),options="header"]
-|====
-|Property|Description
-
-| `hazelcast.das.port` | This property specifies the port number of the port the
- DAS use to run Hazelcast on. The `hazelcast.das.port` property is overridden by 
-the `--hazelcastdasport` option.
-
-| `hazelcast.start.port` | This property specifies the port number of the port 
-the other Payara Server instances use to run Hazelcast on. The hazelcast.start.port 
-property is overridden by the `--hazelcaststartport` option.
-
-| `hazelcast.auto.increment` | This property specifies whether or not to use the 
-next unoccupied port that is available starting with the start port. When auto-increment 
-is turned off an occupied start port results in a startup failure instead. The 
-hazelcast.auto.increment property is overridden by the `--hazelcastautoincrement` option.
-|====
-
-NOTE: If the `portbase` options are used, the values for the ports of the 
-Hazelcast DAS start port and the Hazelcast start Port are calculated as follows: 
-Hazelcast DAS start port: _portbase_ + 49 and Hazelcast start port: _portbase_ + 59.
-
-*The following examples demonstrate creating a domain with all of the Hazelcast 
-related options:*
-
-An example of `create-domain` command with Hazelcast specific options:
-----
-asadmin> asadmin create-domain --hazelcastdasport 7900 --hazelcaststartport 8900 --hazelcastautoincrement true testDomain
-
-Using default port 4848 for Admin.
-Using default port 8080 for HTTP Instance.
-Using default port 7676 for JMS.
-Using default port 3700 for IIOP.
-Using default port 8181 for HTTP_SSL.
-Using default port 3820 for IIOP_SSL.
-Using default port 3920 for IIOP_MUTUALAUTH.
-Using default port 8686 for JMX_ADMIN.
-Using default port 6666 for OSGI_SHELL.
-Using default port 9009 for JAVA_DEBUGGER.
-Using port 7900 for Hazelcast DAS.
-Using port 8900 for Hazelcast Start.
-Distinguished Name of the self-signed X.509 Server Certificate is:
-[CN=dev,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
-Distinguished Name of the self-signed X.509 Server Certificate is:
-[CN=dev-instance,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
-Domain testDomain created.
-Domain testDomain admin port is 4848.
-Domain testDomain allows admin login as user "admin" with no password.
-Command create-domain executed successfully.
-----
-
-An example of `create-domain` command with Hazelcast specific domain properties:
-----
-asadmin> create-domain --domainproperties hazelcast.das.port=7900:hazelcast.auto.increment=false:hazelcast.start.port=8900 testDomain
-
-Using default port 8080 for HTTP Instance.
-Using default port 7676 for JMS.
-Using default port 3700 for IIOP.
-Using default port 8181 for HTTP_SSL.
-Using default port 3820 for IIOP_SSL.
-Using default port 3920 for IIOP_MUTUALAUTH.
-Using default port 8686 for JMX_ADMIN.
-Using default port 6666 for OSGI_SHELL.
-Using default port 9009 for JAVA_DEBUGGER.
-Using port 7900 for Hazelcast DAS.
-Using port 8900 for Hazelcast Start.
-Distinguished Name of the self-signed X.509 Server Certificate is:
-[CN=dev,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
-Distinguished Name of the self-signed X.509 Server Certificate is:
-[CN=dev-instance,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK]
-Domain testDomain created.
-Domain testDomain admin port is 4848.
-Domain testDomain allows admin login as user "admin" with no password.
-Command create-domain executed successfully.
 ----

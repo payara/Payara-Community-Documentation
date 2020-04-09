@@ -3,7 +3,7 @@
 
 As described in
 link:/documentation/payara-micro/deploying/deploy-cmd-line.adoc[Deploying From the Command Line],
-the starting and configuration of an instance has to be done in its entirety on
+the starting and configuration of an instance can be done in its entirety on
 one line.
 
 The options available can be seen by running the JAR with the `--help` option,
@@ -25,6 +25,29 @@ As an example, see below for starting an instance with a non-default HTTP port:
 [source, java]
 ----
 java -jar payara-micro.jar --port 2468
+----
+
+[[warmup]]
+== Separating Configuration from Production Run
+
+An instance can be configured separately, but only when <<../rootdir.adoc#persistent, persistent root configuration directory>> is specified by means of command line argument `--rootDir`.
+
+When switch `--warmup` is supplied all configuration and deployment command line parameters are applied to configuration directory and the instance immediately shuts down:
+
+[source,java]
+----
+java -jar payara-micro.jar --option1 --option2 deployment.war --warmup
+----
+
+Another use case for --warmup is to collect profiling information for e. g. Class Data Sharing feature of JDK:
+
+[source,shell]
+----
+# Open JDK 11; launcher needs to be used because of simpler classpath
+java -XX:DumpLoadedClassList=classes.lst -jar rootidr/launch-micro.jar  --warmup
+
+# OpenJ9
+java -Xshareclasses:name=payara-micro -jar payara-micro.jar --warmup
 ----
 
 [[read-configuration-from-a-file]]

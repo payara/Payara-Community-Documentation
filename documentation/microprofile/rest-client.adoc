@@ -1,6 +1,8 @@
 [[rest-client-api]]
 = Eclipse MicroProfile Rest Client API
 
+:repo: https://github.com/eclipse/microprofile-rest-client/tree/1.3.4
+
 _Since Payara Server 4.1.2.182 and 5.182_
 
 Provided version of the API: {{ book.mpRestClientSpecUrl }}[MicroProfile Rest Client {{ book.mpRestClientVersion }}]
@@ -8,20 +10,19 @@ Provided version of the API: {{ book.mpRestClientSpecUrl }}[MicroProfile Rest Cl
 [[background]]
 == Background
 
-The MicroProfile Rest Client provides a type-safe approach to invoke RESTful services over HTTP. An aim of this specification is
-to provide a much more natural coding style, with the underlying MicroProfile implementation handling the communication between the
-client and service.
+The MicroProfile Rest Client provides a type-safe approach to invoke RESTful services over HTTP.
+An aim of this specification is to provide a much more natural coding style, with the underlying MicroProfile implementation handling the communication between the client and service.
 
-The https://github.com/eclipse/microprofile-rest-client/tree/microprofile-rest-client-1.1[Eclipse MicroProfile Rest Client] 
-repository contains a number of 
-https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/clientexamples.asciidoc[examples] 
-and information about how to use this API.
+The {repo}[Eclipse MicroProfile Rest Client] repository contains a number of {repo}/spec/src/main/asciidoc/clientexamples.asciidoc[examples] and information about how to use this API.
+
+Implementation in Payara is based on Jersey's Microprofile Rest client, the interaction with client interfaces is translated into interaction with standard JAX-RS client.
 
 [[cdi]]
 == CDI
-Full MicroProfile documentation available https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/cdi.asciidoc[here]
+Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/cdi.asciidoc[here]
 
-Rest Client interfaces may be injected as CDI beans. To do this, you must first register your interface class by using the `@RegisterRestClient` annotation, and then use the `@RestClient` qualifier on the injected bean, like so:
+Rest Client interfaces may be injected as CDI beans.
+To do this, you must first register your interface class by using the `@RegisterRestClient` annotation, and then use the `@RestClient` qualifier on the injected bean, like so:
 
 [source, java]
 ----
@@ -40,21 +41,25 @@ public class MyService {
 }
 ----
 
+The endpoint to connect to in such case must either be configured directly in attribute `baseUri` of `@RegisterRestClient` or via Microprofile Config properties.
+
 [[async]]
 == Async
 
-Full MicroProfile documentation available https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/async.asciidoc[here]
+Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/async.asciidoc[here]
 
-It is possible for Rest Client interface methods to be declared asynchronous. This allows the thread invoking the interface method to proceed while the RESTful request occurs on another thread.
+It is possible for Rest Client interface methods to be declared asynchronous, by having return type of `CompletionStage<?>`.
+This allows the thread invoking the interface method to proceed while client communication occurs on another thread.
 
-Any method of the interface class is deemed an asynchonronous method if it has a return type of `CompletionStage`.
+The threadpool to use is configured via `RestClientBuilder.executorService`, or default one is used, which is managed thread pool of the server.
 
 [[providers]]
 == Providers
 
-Full MicroProfile documentation available https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/providers.asciidoc[here]
+Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/providers.asciidoc[here]
 
-The `RestClientBuilder` interface extends the `Configurable` interface from JAX-RS, allowing a user to register custom providers while it's being built. Payara Server and Micro support the following provider types:
+The `RestClientBuilder` interface extends the `Configurable` interface from JAX-RS, allowing a user to register custom providers while it's being built.
+Payara Server and Micro support the following provider types:
 
 * `ClientRequestFilter`
 * `ClientResponseFilter`
@@ -65,4 +70,16 @@ The `RestClientBuilder` interface extends the `Configurable` interface from JAX-
 * `WriterInterceptor`
 * `ResponseExceptionMapper`
 
-See the full https://github.com/eclipse/microprofile-rest-client/blob/microprofile-rest-client-1.1/spec/src/main/asciidoc/providers.asciidoc[MicroProfile documentation] for the registration methods.
+See the full {repo}/spec/src/main/asciidoc/providers.asciidoc[MicroProfile documentation] for the registration methods.
+
+[[ssl]]
+== SSL
+Full MicroProfile documentation available {repo}/spec/src/main/asciidoc/ssl.asciidoc[here]
+
+On a per-client basis, or via Microprofile Config properties, the following aspects of SSL communication of the client can be set:
+
+* Trust store, listing trusted certificates and authorities -- by default the one used by the Payara Platform is used
+* Hostname verifier, useful for suppressing trust checks for some host names
+* Keystore for setting up mutual SSL trust
+
+Programmatically it is also possible to provide an implementation of `SslContext` to control all aspects of SSL communication.
