@@ -27,7 +27,7 @@ The following fields can be configured for network listeners:
 
 ---
 [[configuration-name]]
-==== Name
+=== Name
 
 The unique name of the network listener. This cannot be edited from the admin console.
 
@@ -37,7 +37,7 @@ The unique name of the network listener. This cannot be edited from the admin co
 
 ---
 [[configuration-protocol]]
-==== Protocol
+=== Protocol
 
 The protocol used by the network listener. This cannot be edited from the admin console.
 
@@ -47,7 +47,7 @@ The protocol used by the network listener. This cannot be edited from the admin 
 
 ---
 [[configuration-status]]
-==== Status
+=== Status
 
 The status of the network listener. This determines whether the listener will be actively listening for requests.
 
@@ -57,7 +57,7 @@ The status of the network listener. This determines whether the listener will be
 
 ---
 [[configuration-jk-listener]]
-==== JK Enabled
+=== JK Enabled
 
 Whether `mod_jk` support should be enabled for this listener. Should only be enabled if `mod_jk` is being
 explicitly configured on an Apache Web Server in conjunction with Payara Server.
@@ -78,7 +78,7 @@ The location of the `mod_jk` configuration file. Defaults to `${com.sun.aas.inst
 
 ---
 [[configuration-port]]
-==== Port
+=== Port
 
 The port used by the network listener. The selected port will be used to listen for requests.
 
@@ -88,7 +88,7 @@ The port used by the network listener. The selected port will be used to listen 
 
 ---
 [[configuration-address]]
-==== Address
+=== Address
 
 The address used by the network listener. `0.0.0.0` corresponds to all addresses.
 
@@ -98,7 +98,7 @@ The address used by the network listener. `0.0.0.0` corresponds to all addresses
 
 ---
 [[configuration-transport]]
-==== Transport
+=== Transport
 
 The transport used by the network listener. This cannot be edited from the admin console. Defaults to `tcp`.
 
@@ -108,7 +108,7 @@ The transport used by the network listener. This cannot be edited from the admin
 
 ---
 [[configuration-thread-pool]]
-==== Thread Pool
+=== Thread Pool
 
 The thread pool used by the network listener. This determines the pool of threads used to service requests.
 

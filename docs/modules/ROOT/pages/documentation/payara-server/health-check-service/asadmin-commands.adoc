@@ -21,7 +21,7 @@ set-healthcheck-configuration
 Enables and disables the HealthCheck service. This includes configuration for tracing historic health check events for later inspection.
 
 [[command-options-8]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,1,1",options="header"]
 |===
@@ -71,7 +71,7 @@ Enables and disables the HealthCheck service. This includes configuration for tr
 NOTE: Enabling or disabling the health check service implicitly also enables or disables the log notifier which is the default notifier. This behaviour is similar to the replaced <<healthcheck-configure>> command.
 
 [[example-8]]
-==== Example
+=== Example
 
 The following example will enable the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
@@ -98,7 +98,7 @@ NOTE: This is deprecated in 5.191 and will be removed in the future as it is rep
 Enables and disables the HealthCheck service. Also allows configuration of the store of historical health checks.
 
 [[command-options]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,1,1",options="header"]
 |===
@@ -152,7 +152,7 @@ link:#healthcheck-notifier-configure[`healthcheck-[NOTIFIER_NAME\]-configure`]
 command to enable or disable other available notifiers.
 
 [[example]]
-==== Example
+=== Example
 
 The following example will enable the Healthcheck service such that it will
 only activate from the next time the server is restarted. It enables the log
@@ -178,12 +178,12 @@ asadmin > healthcheck-configure
 Lists the names of all available metric checker services.
 
 [[command-options-9]]
-==== Command Options
+=== Command Options
 
 There are no options available.
 
 [[example-9]]
-==== Example
+=== Example
 
 Running the command will show output similar to the example below:
 
@@ -212,12 +212,12 @@ NOTE: This is deprecated in 5.191 and will be removed in the future as it is rep
 Lists the names of all available metric checker services.
 
 [[command-options-1]]
-==== Command Options
+=== Command Options
 
 There are no options available.
 
 [[example-1]]
-==== Example
+=== Example
 
 Running the command will show output similar to the example below:
 
@@ -259,7 +259,7 @@ Enables or disables the monitoring of an specific metric. The command
 also configures the frequency of monitoring for that metric. Furthermore it configures metric specific properties.
 
 [[command-options-10]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,3a,1",options="header",]
 |===
@@ -366,7 +366,7 @@ command, it will succeed and the configuration will be saved, but the HealthChec
 service will not be enabled.
 
 [[example-10]]
-==== Examples
+=== Examples
 A very basic example command to simply enable the GC checker and activate it without
 needing a restart would be as follows:
 
@@ -453,7 +453,7 @@ Enables or disables the monitoring of an specific checker. The command
 also configures the frequency of monitoring for that metric.
 
 [[command-options-2]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,3a,1",options="header",]
 |===
@@ -524,7 +524,7 @@ command, it will succeed and the configuration will be saved, but the HealthChec
 service will not be enabled.
 
 [[example-2]]
-==== Example
+=== Example
 A very basic example command to simply enable the GC checker and activate it without
 needing a restart would be as follows:
 
@@ -558,7 +558,7 @@ This command only configures thresholds for the following checkers:
 * Machine Memory Usage
 
 [[command-options-3]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,3a,1",options="header"]
 |===
@@ -610,7 +610,7 @@ NOTE: In order to execute this command for an specific metric, the
 `healthcheck-configure-service` command needs to be executed first.
 
 [[example-3]]
-==== Example
+=== Example
 
 Monitoring the health of JDBC connection pools is a common need. In that
 scenario, it is very unlikely that on-the-fly configuration changes
@@ -649,7 +649,7 @@ You can also use this command to  enable the checker and configure the monitorin
 frequency as you would do with the `healthcheck-configure-service` command.
 
 [[command-options-4]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,3a,1",options="header"]
 |===
@@ -704,7 +704,7 @@ frequency as you would do with the `healthcheck-configure-service` command.
 |===
 
 [[example-4]]
-==== Example
+=== Example
 
 Monitoring which threads hog the CPU is extremely important since this can lead
 to performance degradation, deadlocks and extreme bottlenecks issues that web
@@ -742,7 +742,7 @@ NOTE: This is deprecated in 5.191 and will be removed in the future as it is rep
 Configures the Stuck Thread checker. The Stuck Threads checker is comparable to the request tracing service, in that it is triggered by exceeding a configured threshold. but in this case it reports on all threads that, when the healthcheck runs, have taken longer than the threshold time.
 
 [[command-options-5]]
-==== Command Options
+=== Command Options
 
 [cols="3,1,5,3a,1",options="header"]
 |===
@@ -797,7 +797,7 @@ Configures the Stuck Thread checker. The Stuck Threads checker is comparable to 
 |===
 
 [[example-5]]
-==== Example
+=== Example
 The following example configures the stuckthreads checker to check every 30
 seconds for any threads which have been stuck for more than 5 minutes and
 applies the configuration change without needing a restart:
@@ -830,7 +830,7 @@ asadmin> set-healthcheck-service-notifier-configuration
 This command can be used to enable or disable a specific notifier or to change its noisy setting.
 
 [[command-options-14]]
-==== Command Options
+=== Command Options
 
 [cols=",,,,",options="header",]
 |===
@@ -886,7 +886,7 @@ a| The notifier to configure. One of (case insensitive):
 |===
 
 [[example-14]]
-==== Examples
+=== Examples
 
 To enable the log notifier for the HealthCheck Service without having to
 restart the server, use the following command:
@@ -913,7 +913,7 @@ This command can be used to enable or disable the notifier represented by
 the _[NOTIFIER_NAME]_ placeholder.
 
 [[command-options-6]]
-==== Command Options
+=== Command Options
 
 [cols=",,,,",options="header",]
 |===
@@ -941,7 +941,7 @@ TIP: You can find the list of available notifiers using the
 link:/documentation/payara-server/notification-service/asadmin-commands.adoc#notifier-list-services[`notifier-list-services`] command.
 
 [[example-6]]
-==== Examples
+=== Examples
 
 . To enable the log notifier for the HealthCheck Service without having to
 restart the server, use the following command:
@@ -975,11 +975,11 @@ Lists the current configuration for the health check service, configured checker
 and enabled notifiers.
 
 [[command-options-7]]
-==== Command Options
+=== Command Options
 There are no options available.
 
 [[example-7]]
-==== Example
+=== Example
 A sample output is as follows:
 
 ----

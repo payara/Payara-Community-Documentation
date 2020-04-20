@@ -11,7 +11,7 @@ asadmin>set-amx-enabled --enabled true --dynamic true --target server
 ----
 
 [[using-web-admin-console]]
-==== Using the Admin Console
+== Using the Admin Console
 
 To boot AMX using Admin Console:
 
