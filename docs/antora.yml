@@ -1,7 +1,7 @@
 name: payara-server-documentation
 title: Payara Server Documentation
-version: 'master'
+version: 'V2.0'
 prerelease: true
 start_page: ROOT:README.adoc
 nav:
-- modules/ROOT/nav.adoc
+- modules/ROOT/pages/nav.adoc

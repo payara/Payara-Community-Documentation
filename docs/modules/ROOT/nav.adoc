@@ -1,3 +1,0 @@
-* xref:README.adoc[README]
-* xref:classloading.adoc[Classloading]
-* xref:javamail.adoc[Java Mail]
