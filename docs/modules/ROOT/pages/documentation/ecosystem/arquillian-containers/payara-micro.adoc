@@ -5,7 +5,7 @@ instance for integration testing.
 
 == Steps for Building
 
-In {{ book.currentVersion }}, the Payara Micro Arquillian container is in beta,
+In {currentVersion}, the Payara Micro Arquillian container is in beta,
 and as such required building from the link:https://github.com/payara/Payara[Payara]
 Git project. The steps for doing so are as follows:
 

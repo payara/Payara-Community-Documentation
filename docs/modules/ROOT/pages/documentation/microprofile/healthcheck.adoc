@@ -2,7 +2,7 @@
 
 _Since Payara Server 4.1.2.181 and 5.181_
 
-Provided version of the API: {{ book.mpHealthSpecUrl }}[MicroProfile Health Check {{ book.mpHealthVersion }}]
+Provided version of the API: {mpHealthSpecUrl}[MicroProfile Health Check {mpHealthVersion}]
 
 [[background]]
 == Background
@@ -12,7 +12,7 @@ The Health Check API was created to allow easier probing of the state of computi
 A full overview for the reasoning behind the API can be found in
 https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the README for the source code repository.]
 
-{{ book.mpHealthSpecUrl }}[The complete specification] is maintained in the same repository.
+{mpHealthSpecUrl}[The complete specification] is maintained in the same repository.
 
 [[rest-endpoints]]
 == REST Endpoints

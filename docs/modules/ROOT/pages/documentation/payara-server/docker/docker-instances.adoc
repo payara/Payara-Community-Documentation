@@ -220,13 +220,13 @@ See below for some examples:
 |Docker.Env=[arg1:foo\|arg2:bar]
 
 |Each child object of a parent object is specified individually
-|{HostConfig: {Memory: 2048, CpuShares: 3}}
+|{HostConfig: {Memory: 2048, CpuShares: 3}
 |Docker.HostConfig.Memory=2048
  Docker.HostConfig.CpuShares=3
 
 |The colon character is used to denote the value of an object within an array & objects within an array are
  separated using a comma
-|{HostConfig: {BlkioDeviceReadBps: [{Path: /opt/foo, Rate: 24},{Path: /opt/bar, Rate: 48}]}}
+|{HostConfig: {BlkioDeviceReadBps: [{Path: /opt/foo, Rate: 24},{Path: /opt/bar, Rate: 48}]}
 |Docker.HostConfig.BlkioDeviceReadBps=[Path:/opt/foo,Rate:24\|Path:/opt/bar,Rate:48]
 |===
 

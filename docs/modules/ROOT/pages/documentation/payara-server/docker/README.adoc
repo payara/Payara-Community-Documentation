@@ -1,7 +1,7 @@
 [[docker-integration]]
 = Docker Integration
 
-% set previewVersion = book.currentVersion %}
+% set previewVersion = currentVersion %}
 
 {% include "/fragments/tech-preview.adoc" %}
 

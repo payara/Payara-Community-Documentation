@@ -2,7 +2,7 @@
 
 _Since *4.1.2.181*; *5.181*&nbsp;_
 
-Provided version of the API: {{ book.mpFaultToleranceSpecUrl }}[MicroProfile Fault Tolerance {{ book.mpFaultToleranceVersion }}]
+Provided version of the API: {mpFaultToleranceSpecUrl}[MicroProfile Fault Tolerance {mpFaultToleranceVersion}]
 
 == Background
 The Fault Tolerance API was created to help separate execution logic from execution.

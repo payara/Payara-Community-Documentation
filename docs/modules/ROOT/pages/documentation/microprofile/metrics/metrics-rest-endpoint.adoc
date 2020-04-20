@@ -4,7 +4,7 @@ MicroProfile Metrics specifies that all metrics are published at the endpoint `/
 
 [[metric-scopes]]
 == Metric Scopes
-The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/{{ book.mpMetricsVersion }}/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
+The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/{mpMetricsVersion}/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
 
 **Base**::
 Base metrics are mandatory for all implementations to provide. This is so that there is a predictable baseline of metrics which will be available on any MicroProfile implementation.

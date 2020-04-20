@@ -2,7 +2,7 @@
 
 _Since *4.1.2.181*; *5.181*&nbsp;_
 
-Provided version of the API: {{ book.mpJwtSpecUrl }}[MicroProfile Authentication API {{ book.mpJwtVersion }}]
+Provided version of the API: {mpJwtSpecUrl}[MicroProfile Authentication API {mpJwtVersion}]
 
 == Background
 
@@ -22,7 +22,7 @@ Payara Server and Payara Micro implement the JWT authentication mechanism as a n
 
 == Vending tokens
 
-A JWT token, like most API tokens, is typically vended from a website for use with the services provided by that site. For instance, from Google or Facebook one can obtain such a token for usage with their respective APIs.
+A JWT token, like most API tokens, is typically vended from a website for use with the services provided by that site. For instance, from Google or Faceone can obtain such a token for usage with their respective APIs.
 
 Though JWT tokens are more universal in format, they are still intended for use with a specific service (website / api). This is encoded in the *mandatory* `iss` ("issuer") field. The value of the field can be anything that the intended service can recognize (see below).
 

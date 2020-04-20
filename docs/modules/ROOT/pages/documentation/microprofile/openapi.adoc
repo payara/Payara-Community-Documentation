@@ -2,7 +2,7 @@
 
 _Since *4.1.2.182*; *5.182*&nbsp;_
 
-Provided version of the API: {{ book.mpOpenAPISpecUrl }}[MicroProfile OpenAPI {{ book.mpOpenAPIVersion }}]
+Provided version of the API: {mpOpenAPISpecUrl}[MicroProfile OpenAPI {mpOpenAPIVersion}]
 
 [[background]]
 == Background
@@ -12,9 +12,9 @@ so many concepts in the API will be familiar.
 For a full overview of the API, review https://github.com/eclipse/microprofile-open-api/releases[
 the documentation for the appropriate release.]
 
-{{ book.mpOpenAPISpecUrl }}[MicroProfile OpenAPI 1.0] was released in MicroProfile 1.3.
+{mpOpenAPISpecUrl}[MicroProfile OpenAPI 1.0] was released in MicroProfile 1.3.
 
-IMPORTANT: Version {{ book.mpOpenAPIVersion }} of the OpenAPI specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the OpenAPI specification.
+IMPORTANT: Version {mpOpenAPIVersion} of the OpenAPI specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the OpenAPI specification.
 
 [[endpoint]]
 == REST Endpoint
@@ -58,7 +58,7 @@ The OpenAPI can be configured through the link:config.adoc[Config API]. For exam
 | `mp.openapi.servers`  |  Configuration property to specify the list of global servers that provide connectivity information. For example,
 `mp.openapi.servers=https://xyz.com/v1,https://abc.com/v1`
 | `mp.openapi.servers.path.`   |  Prefix of the configuration property to specify an alternative list of servers to service all operations in a path. For example,
-`mp.openapi.servers.path./airlines/bookings/{id}=https://xyz.io/v1`
+`mp.openapi.servers.path./airlines/ngs/{id}=https://xyz.io/v1`
 | `mp.openapi.servers.operation.` | Prefix of the configuration property to specify an alternative list of servers to service an operation.
 Operations that want to specify an alternative list of servers must define an `operationId`, a unique string used to identify the operation. For example,
 `mp.openapi.servers.operation.getBooking=https://abc.io/v1`

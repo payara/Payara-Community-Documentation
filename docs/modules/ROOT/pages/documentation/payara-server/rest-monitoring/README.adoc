@@ -1,11 +1,11 @@
 = REST monitoring
 
-{% set previewVersion = book.currentVersion %}
+{% set previewVersion = currentVersion %}
 
 {% include "/fragments/tech-preview.adoc" %}
 
 This section covers how to use the REST monitoring functionality in
-Payara Server {{ book.currentVersion }}.
+Payara Server {currentVersion}.
 
 The REST monitoring implements a Jolokia type functionality in Payara Server.
 

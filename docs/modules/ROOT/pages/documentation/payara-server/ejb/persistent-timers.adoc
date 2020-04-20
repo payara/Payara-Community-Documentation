@@ -3,7 +3,7 @@
 
 _Since Payara Server 5.181_
 
-{% set previewVersion = book.currentVersion %}
+{% set previewVersion = currentVersion %}
 
 {% include "/fragments/tech-preview.adoc" %}
 

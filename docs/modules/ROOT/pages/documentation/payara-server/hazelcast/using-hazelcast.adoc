@@ -32,7 +32,7 @@ dependencies section:
 <dependency>
   <groupId>fish.payara.api</groupId>
   <artifactId>payara-api</artifactId>
-  <version>{{ book.currentVersion }}</version>
+  <version>{currentVersion}</version>
 </dependency>
 ----
 

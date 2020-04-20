@@ -24,7 +24,7 @@ In your project's POM, include the following dependency:
 ----
 
 `${payara.version}` is a Maven property, which specifies the version of the Maven
-artifact, e.g. {{ book.currentVersion }}.
+artifact, e.g. {currentVersion}.
 
 [[public-api-reference]]
 === Public API Reference

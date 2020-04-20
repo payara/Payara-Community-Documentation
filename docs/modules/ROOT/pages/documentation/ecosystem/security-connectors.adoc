@@ -4,7 +4,7 @@ Security Connectors are a collection of Jakarta EE Security adaptor that impleme
 industry-standard security protocols, specifications and integrates with third-party
 security artifacts & components.
 
-In version {{ book.currentVersion }}, the available connectors on maven central are:
+In version {currentVersion}, the available connectors on maven central are:
 
 == link:../payara-server/public-api/openid-connect-support.adoc[OpenId Connect Client:]
 

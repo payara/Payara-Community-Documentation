@@ -68,22 +68,22 @@ A couple of quick notes:
 [[search]]
 === `Search`
 
-_Not supported in the current technical preview included with Payara Server {{ book.currentVersion }}_.
+_Not supported in the current technical preview included with Payara Server {currentVersion}_.
 
 [[list]]
 === `List`
 
-_Not supported in the current technical preview included with Payara Server {{ book.currentVersion }}_.
+_Not supported in the current technical preview included with Payara Server {currentVersion}_.
 
 === `Write`
 
-_Not supported in the current technical preview included with Payara Server {{ book.currentVersion }}_.
+_Not supported in the current technical preview included with Payara Server {currentVersion}_.
 
 [[version]]
 === `Version`
 
 The `version` operation is not fully supported in Payara Server
-{{ book.currentVersion }}, but a GET request on the default operation produces similar results.
+{currentVersion}, but a GET request on the default operation produces similar results.
 
 [[bulk-operations]]
 === Bulk Operations

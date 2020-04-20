@@ -19,7 +19,7 @@ plugins {
 
 ```
 payaraMicro {
-    payaraVersion = '{{ book.currentVersion }}'
+    payaraVersion = '{currentVersion}'
     deployWar = false
     useUberJar = true
     daemon = false
@@ -50,8 +50,8 @@ the specified configurations.
 |Absolute path to the java executable..
 
 |`payaraVersion`
-|{{ book.currentVersion }}
-|By default `microBundle` task fetches payara-micro with version {{ book.currentVersion }}.
+|{currentVersion}
+|By default `microBundle` task fetches payara-micro with version {currentVersion}.
 
 |=== 
 
@@ -79,8 +79,8 @@ ID and version. This configuration element has the higher precedence compared to
 |Absolute path to payara-micro executable.
 
 |`payaraVersion`
-|{{ book.currentVersion }}
-|By default `microStart` task fetches payara-micro with version {{ book.currentVersion }}.
+|{currentVersion}
+|By default `microStart` task fetches payara-micro with version {currentVersion}.
 
 |`daemon`
 |false
