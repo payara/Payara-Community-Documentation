@@ -34,7 +34,7 @@ public class SecurityBean {
 }
 ----
 
-IMPORTANT: Once the user is authenticated they will not have any roles defined, regardless of the OAuth scope. Roles should be specified using `@DeclareRoles`. See link:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[this sample project] for a more detailed example.
+IMPORTANT: Once the user is authenticated they will not have any roles defined, regardless of the OAuth scope. Roles should be specified using `@DeclareRoles`. See xref:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/oauth2[this sample project] for a more detailed example.
 
 When defining a OAuth2 flow within an application deployed on Payara Server it is possible to retrieve the access token within any bean in the scope of the callback/redirectURI resource used to configure the authentication:
 
@@ -127,9 +127,9 @@ public class SecurityBean {
 
 The client secret can be input directly, or for added security it can be aliased using any of the following features:
 
-- link:/documentation/payara-server/password-aliases/README.adoc[Password Aliases]
-- link:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
-- link:/documentation/microprofile/config.adoc[Config API]
+- xref:/documentation/payara-server/password-aliases/README.adoc[Password Aliases]
+- xref:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
+- xref:/documentation/microprofile/config.adoc[Config API]
 
 [[extra-resources]]
 == Extra Resources

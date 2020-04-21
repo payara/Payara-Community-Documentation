@@ -30,5 +30,5 @@ the section `Logger Settings` - as on the following picture:
 
 image:logging/logging_setup.png[Logger Settings]
 
-link:/documentation/payara-server/logging/daily-log-rotation.adoc[Daily log rotation] +
+xref:/documentation/payara-server/logging/daily-log-rotation.adoc[Daily log rotation] +
 Documentation about daily log rotation in Payara and how to configure it.

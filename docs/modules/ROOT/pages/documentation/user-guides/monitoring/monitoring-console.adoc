@@ -32,14 +32,14 @@ NOTE: To remove only the monitoring data collection from the server without disa
 == Graphical User Interface
 After enabling the monitoring console open the home page at `/monitoring-console/`.
 
-The console comes with a set of link:#monitoring-console-presets[preconfigured pages] each focussing on different aspects of the server.
+The console comes with a set of xref:#monitoring-console-presets[preconfigured pages] each focussing on different aspects of the server.
 
 NOTE: The console will let you know that some metrics are only available when the monitoring configuration of certain server parts is set to `HIGH`.
 
 
 [[monitoring-console-pages]]
 === Pages
-The monitoring console is organized in fully customisable pages. A page is a collection of link:#monitoring-console-widgets[widgets] arranged in columns. Usually pages are focussed on visualising metrics of a specific area of the server, like HTTP or request tracing. The monitoring console has preconfigured pages as a starting point that can be changed and extended by the user. New custom pages can be created.
+The monitoring console is organized in fully customisable pages. A page is a collection of xref:#monitoring-console-widgets[widgets] arranged in columns. Usually pages are focussed on visualising metrics of a specific area of the server, like HTTP or request tracing. The monitoring console has preconfigured pages as a starting point that can be changed and extended by the user. New custom pages can be created.
 
 
 [[monitoring-console-page-switch]]
@@ -73,7 +73,7 @@ This creates a new _Unnamed_ page which can be renamed in the _Page_ settings.
 
 image::monitoring-console/mc_settings_page.png[Page Settings]
 
-After naming the page link:#monitoring-console-widget-add[add widgets].
+After naming the page xref:#monitoring-console-widget-add[add widgets].
 
 
 [[monitoring-console-page-delete]]
@@ -106,9 +106,9 @@ Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select 
 image::monitoring-console/mc_settings_page.png[Page Settings]
 
 When added, widgets are automatically placed in a column so that they are evenly distributed on the page.
-Use the link:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget and select the action you want to apply to the widget.
+Use the xref:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget and select the action you want to apply to the widget.
 
-NOTE: The widget series name field allows you to enter the name manually for advanced use cases or in case a metric is not available now but known to become available at some point. See link:#monitoring-console-widget-advanced[Series with Wildcards] for more details.
+NOTE: The widget series name field allows you to enter the name manually for advanced use cases or in case a metric is not available now but known to become available at some point. See xref:#monitoring-console-widget-advanced[Series with Wildcards] for more details.
 
 
 [[monitoring-console-widget-config]]

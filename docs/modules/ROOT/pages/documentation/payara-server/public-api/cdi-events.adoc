@@ -11,7 +11,7 @@ instances provided that they are connected to the same cluster.
 [[requirements]]
 == Requirements
 
-Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the link:../hazelcast/README.adoc[Data Grid] section for more details.
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:../hazelcast/README.adoc[Data Grid] section for more details.
 
 
 [[initializing-the-event-bus]]
@@ -48,7 +48,7 @@ The payload passed as an argument to the `fire()` method has to
 implement the `Serializable` interface.
 
 An outbound event will be fired asynchronously on a remote instance. If
-link:#loopback[loopback] is allowed, it will be fired also on the same
+xref:#loopback[loopback] is allowed, it will be fired also on the same
 instance, but in a different thread. Therefore the call doesn't block
 the current thread.
 
@@ -164,7 +164,7 @@ If you are using Payara Server, the name of the DAS instance is `server`
 by default. In the case of a separate standalone instance, use the
 instance's name in the configuration. If you are using Payara Micro, the
 instance's name is configured using the `--name` option, or is generated
-by if not configured (see the section link:/documentation/payara-micro/configuring/instance-names.adoc[Payara Micro Instance
+by if not configured (see the section xref:/documentation/payara-micro/configuring/instance-names.adoc[Payara Micro Instance
 Names]).
 
 [[loopback]]

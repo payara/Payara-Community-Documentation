@@ -4,7 +4,7 @@
 _Since Payara Server 4.1.1.171_
 
 Payara Server is able to direct notifications from the
-link:/documentation/payara-server/notification-service/notification-service.adoc[Notification service]
+xref:/documentation/payara-server/notification-service/notification-service.adoc[Notification service]
 to a single given email address.
 
 [[requirements]]
@@ -25,7 +25,7 @@ At a high level, the steps to configure the email notifier are:
 
 You will need a `JavaMail` session to send the notifications; instructions
 on setting up a `JavaMail` session can be found
-link:/documentation/payara-server/javamail.adoc[in the core documentation].
+xref:/documentation/payara-server/javamail.adoc[in the core documentation].
 
 The email notifier is configured in the **Email** tab of the Notification
 Section of the server's instance configuration.

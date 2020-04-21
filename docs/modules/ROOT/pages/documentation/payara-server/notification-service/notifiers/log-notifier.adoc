@@ -16,7 +16,7 @@ software.
 The log notifier only handles the output of notifications from the
 notification service sent to the log and is not responsible for any
 other log output - more details on Payara Server logging can be found on
-link:/documentation/payara-server/logging/logging.adoc[the logging page].
+xref:/documentation/payara-server/logging/logging.adoc[the logging page].
 
 [[configuration]]
 == Configuration
@@ -65,7 +65,7 @@ asadmin> notification-log-configure --enabled=true --dynamic=true
 ----
 
 More details on specific commands for the notification service can be
-found on the link:/documentation/payara-server/notification-service/notification-service.adoc[notification service page].
+found on the xref:/documentation/payara-server/notification-service/notification-service.adoc[notification service page].
 
 [[log-configuration]]
 === Log Configuration

@@ -7,12 +7,12 @@ process, whereas `PayaraMicroRuntime.class` methods are used on running instance
 
 The list of methods in the API:
 
-* link:#deployment-methods[Deployment Methods]
-* link:#setup-and-shutdown-methods[Setup and Shutdown Methods]
-* link:#cdi-methods[CDI Methods]
-* link:#run-methods[Run Methods]
-* link:#get-methods[Get Methods]
-* link:#library-methods[Library Methods]
+* xref:#deployment-methods[Deployment Methods]
+* xref:#setup-and-shutdown-methods[Setup and Shutdown Methods]
+* xref:#cdi-methods[CDI Methods]
+* xref:#run-methods[Run Methods]
+* xref:#get-methods[Get Methods]
+* xref:#library-methods[Library Methods]
 
 [[deployment-methods]]
 == Deployment Methods
@@ -133,7 +133,7 @@ objects on bootstrapped instances.
 
 These methods are used for getting information on running Payara Micro instances.
 For information on the `Get` methods of an non-bootstrapped instance, see the
-link:/documentation/payara-micro/appendices/config-methods.adoc[Configuration Methods section].
+xref:/documentation/payara-micro/appendices/config-methods.adoc[Configuration Methods section].
 
 [cols=",",options="header",]
 |=======================================================================

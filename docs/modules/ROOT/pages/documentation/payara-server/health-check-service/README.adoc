@@ -24,7 +24,7 @@ problems have occurred.
 NOTE: The Host Memory Usage currently only works on Linux and BSD derivatives.
 
 If the
-link:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[Log Notifier]
+xref:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[Log Notifier]
 is enabled, such events will be presented in the server's log file like in the
 following sample:
 

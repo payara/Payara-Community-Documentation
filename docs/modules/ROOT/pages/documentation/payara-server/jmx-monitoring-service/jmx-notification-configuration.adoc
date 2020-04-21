@@ -2,7 +2,7 @@
 = JMX Notification Configuration
 
 JMX Monitoring can be configured to send notifications using the
-link:/documentation/payara-server/notification-service/notification-service.adoc[notification service].
+xref:/documentation/payara-server/notification-service/notification-service.adoc[notification service].
 This allows you to forward data from exposed MBeans to your configured
 notifiers.
 
@@ -73,7 +73,7 @@ NANOSECONDS|MICROSECONDS|MILLISECONDS|SECONDS|MINUTES|HOURS|DAYS
 
 Before you receive notifications from your chosen notifier, please ensure
 that you have configured the
-link:/documentation/payara-server/notification-service/notification-service.adoc[notification service].
+xref:/documentation/payara-server/notification-service/notification-service.adoc[notification service].
 
 To select notifiers to use for JMX Monitoring, hold the `CTRL` or `SHIFT` key
 to select multiple notifiers, and then click `Add >`.
@@ -90,7 +90,7 @@ For each notifier you wish to enable use the command:
 asadmin> monitoring-<notifier>-notifier-configure --enabled true
 ----
 
-Available Notifiers can be viewed on the link:/documentation/payara-server/notification-service/notifiers.adoc[notifiers page].
+Available Notifiers can be viewed on the xref:/documentation/payara-server/notification-service/notifiers.adoc[notifiers page].
 
 [[adding-properties-via-admin-console]]
 == Adding Properties via the admin console

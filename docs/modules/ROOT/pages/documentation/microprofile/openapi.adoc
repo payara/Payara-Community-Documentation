@@ -39,7 +39,7 @@ MicroProfile OpenAPI specifies several ways of configuring the data in the produ
 [[sources-config]]
 === Config Properties
 
-The OpenAPI can be configured through the link:config.adoc[Config API]. For example, these configuration properties can be put in the `microprofile-config.properties`.
+The OpenAPI can be configured through the xref:config.adoc[Config API]. For example, these configuration properties can be put in the `microprofile-config.properties`.
 
 |===
 | Config key | Value description
@@ -108,7 +108,7 @@ The following file names are allowed for this file. The file given must also be 
 [[sources-annotations]]
 === Annotations
 
-The MicroProfile OpenAPI API provides many annotations to use to augment the OpenAPI document. These are detailed in the link:https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc#annotations[OpenAPI Specification]. These annotations are applied before the OASFilter.
+The MicroProfile OpenAPI API provides many annotations to use to augment the OpenAPI document. These are detailed in the xref:https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc#annotations[OpenAPI Specification]. These annotations are applied before the OASFilter.
 
 [[sources-annotation-example]]
 ==== Example

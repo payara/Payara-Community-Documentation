@@ -67,12 +67,12 @@ executing CRUD operations of resources.
 |Name |Description |Schema
 |*messageParameters* _optional_ |A set of metadata information for the
 method`s body parameters. Only available for *POST* methods.|+++<+++ string,
-link:#methodparameter[MethodParameter] +++>+++ map
+xref:#methodparameter[MethodParameter] +++>+++ map
 |*name* _optional_|The name of the method, one of `GET`, `POST` or `DELETE`
 |string
 |*queryParameters* _optional_|A set of metadata information for the method`s
 query parameters. Only available for `GET` methods. |+++<+++ string,
-link:#methodparameter[MethodParameter] +++>+++ map
+xref:#methodparameter[MethodParameter] +++>+++ map
 |=======================================================================
 
 [[methodparameter]]
@@ -112,7 +112,7 @@ of the method or command executed (in case of a failed operation).
 SUCCESS or FAILURE |string
 |*extraProperties* _optional_ |A group of additional properties that
 contains the statistics results and child resources for monitoring.
-|link:#monitoringresult-extraproperties[extraProperties]
+|xref:#monitoringresult-extraproperties[extraProperties]
 |*message* _optional_ |Details the message the server sends in case of
 encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string
@@ -130,7 +130,7 @@ results of query operations. |+++<+++ string, string(url) +++>+++ map
 |*entity* _optional_ |A list of the metric information and statistics
 retrieved since the last monitoring was executed. Each property of this
 object represents a separate metric/statistic. |+++<+++ string,
-link:#statistic[Statistic] +++>+++ map
+xref:#statistic[Statistic] +++>+++ map
 |=======================================================================
 
 === OperationResult
@@ -151,7 +151,7 @@ of the method or command executed (in case of a failed operation).
 |*extraProperties* _optional_ |A group of additional properties that
 contain context information about the resource and the operations this
 resource supports.
-|link:#operationresult-extraproperties[extraProperties]
+|xref:#operationresult-extraproperties[extraProperties]
 |*message* _optional_ |Details the message the server sends in case of
 encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string
@@ -172,13 +172,13 @@ of add, update or delete operations. |string
 |*commands* _optional_ |A list of metadata sets of the available
 non-CRUD operations (asadmin subcommands) that can be executed on the
 target resource. This property is only available for the results of
-query operations. |+++<+++ link:#command[Command] +++>+++ array
+query operations. |+++<+++ xref:#command[Command] +++>+++ array
 |*entity* _optional_ |Represents the current configuration of a
 resource. Each property of the resource is configured as a key-value
 pair of the object itself. |+++<+++ string, string +++>+++ map
 |*methods* _optional_ |A list of medatada sets of available CRUD methods
 that the target resource supports. This property is only available for
-the results of query operations. |+++<+++ link:#method[Method] +++>+++ array
+the results of query operations. |+++<+++ xref:#method[Method] +++>+++ array
 |=======================================================================
 
 === Statistic
@@ -234,7 +234,7 @@ of the method or command executed (in case of a failed operation).
 |*exit_code* _optional_ |The result of the operation's execution, either
 `SUCCESS` or `FAILURE` |string
 |*extraProperties* _optional_ |Holds the session token
-|link:#tokenresult-extraproperties[extraProperties]
+|xref:#tokenresult-extraproperties[extraProperties]
 |*message* _optional_ |Details the message the server sends in case of
 encountering an error in executing the operation. If no error was
 encountered, this property is empty. |string

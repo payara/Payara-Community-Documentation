@@ -5,4 +5,4 @@ As proof of compatibility, output of Jakarta EE Compatibility Test Suite tests a
 
 Following distributions of Payara 5.194 are certified:
 
-* link:./tck-results-full-5.194.adoc[Payara Server 5.194 - Full profile]
+* xref:./tck-results-full-5.194.adoc[Payara Server 5.194 - Full profile]

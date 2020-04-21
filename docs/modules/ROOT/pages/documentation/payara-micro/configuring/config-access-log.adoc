@@ -22,9 +22,9 @@ Payara Micro supports a number of commands to help you configure access logging.
 
 All options available for configuring Payara Micro can be seen by running the JAR with the `--help` option,
 or by consulting the
-link:/documentation/payara-micro/appendices/cmd-line-opts.adoc[Payara Micro Command Line Options]
+xref:/documentation/payara-micro/appendices/cmd-line-opts.adoc[Payara Micro Command Line Options]
 section in the
-link:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
+xref:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
 
 [[usage-examples]]
 == Usage Examples

@@ -41,7 +41,7 @@ This makes configuration directory self-sufficient and the distribution file (`p
 
 You need to import two classes from the `fish.payara.micro` package (contained
 in the Payara Micro JAR, see section
-link:/documentation/payara-micro/maven/maven.adoc[Maven Support] for
+xref:/documentation/payara-micro/maven/maven.adoc[Maven Support] for
 instructions on importing this JAR with **Maven**):
 
 [source,Java]
@@ -74,7 +74,7 @@ public class EmbeddedPayara
 To start an instance with non-default settings (configuration changes or deploying
 applications upon startup), you have to call the `getInstance()` method before
 using `bootstrap()`. More details on this can be found in the
-link:/documentation/payara-micro/configuring/config-program.adoc[Configuring an Instance Programmatically]
+xref:/documentation/payara-micro/configuring/config-program.adoc[Configuring an Instance Programmatically]
 section. The use of the `getInstance()` method does not exclude you from using
 the default settings however; calling the `bootstrap()` method on its own (as
 shown in the example above) is functionally equivalent to calling the

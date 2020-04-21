@@ -7,7 +7,7 @@ Payara Micro supports deploying applications directly from the command line.
 == Deploying an Application
 
 As noted in the section
-link:/documentation/payara-micro/starting-instance.adoc#starting-an-instance-from-the-command-line[Starting an Instance],
+xref:/documentation/payara-micro/starting-instance.adoc#starting-an-instance-from-the-command-line[Starting an Instance],
 all Payara Micro actions are run for the Payara Micro JAR, all in one command.
 
 The general structure of starting, configuring, and deploying an application to

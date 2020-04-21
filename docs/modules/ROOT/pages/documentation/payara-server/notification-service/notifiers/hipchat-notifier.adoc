@@ -9,7 +9,7 @@ integrations from services to notify users of events.
 
 Payara Server has now included functionality to send notifications from
 the
-link:/documentation/payara-server/notification-service/notification-service.adoc[Notification Service]
+xref:/documentation/payara-server/notification-service/notification-service.adoc[Notification Service]
 to a HipChat room
 
 [[requirements]]

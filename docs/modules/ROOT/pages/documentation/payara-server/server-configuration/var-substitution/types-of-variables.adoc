@@ -68,4 +68,4 @@ An example of a reference to a MicroProfile property called `foo` would look lik
 ${MPCONFIG=foo}
 -----------
 
-MicroProfile properties need to be declared in one of the Payara defined link:/documentation/microprofile/config.adoc#config-sources[config sources].
+MicroProfile properties need to be declared in one of the Payara defined xref:/documentation/microprofile/config.adoc#config-sources[config sources].

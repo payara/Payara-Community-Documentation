@@ -6,17 +6,17 @@ Payara Server or Payara Micro version 172 or higher.
 
 In version {currentVersion}, the available connectors are:
 
-* link:apache-kafka.adoc[Apache Kafka]
-* link:amazon-sqs.adoc[Amazon SQS]
-* link:mqtt.adoc[MQTT]
-* link:azure-sb.adoc[Azure Service Bus]
+* xref:apache-kafka.adoc[Apache Kafka]
+* xref:amazon-sqs.adoc[Amazon SQS]
+* xref:mqtt.adoc[MQTT]
+* xref:azure-sb.adoc[Azure Service Bus]
 
 === Obtaining the connectors
 
 Cloud connectors are currently not available in binary form, but have to be
 built from source as follows:
 
-Clone the link:https://github.com/payara/Cloud-Connectors[Cloud-Connectors] git repository:
+Clone the xref:https://github.com/payara/Cloud-Connectors[Cloud-Connectors] git repository:
 
 ----
 git clone git@github.com:payara/Cloud-Connectors.git

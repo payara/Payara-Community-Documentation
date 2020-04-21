@@ -115,7 +115,7 @@ you will have to add your files and recommit after any changes you make!
 To debug Payara the first step is to build it, to give you something to
 debug and hopefully catch any glaring issues. A guide to building
 Payara Server from source can be found
-link:/build-instructions/build-instructions.adoc[in our build instructions page].
+xref:/build-instructions/build-instructions.adoc[in our build instructions page].
 Once you have built Payara Server, the full distribution will be available
 as a _.zip_ file within your local repository under the path:
 

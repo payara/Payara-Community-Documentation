@@ -4,7 +4,7 @@ _Since Payara Server 4.1.2.173_
 
 CDI Development Mode enables some CDI related tools and features that help when developing and inspecting applications that contain CDI beans.
 
-This mode also provides link:cdi-probe/README.adoc[CDI Probe], which allows to inspect and monitor CDI beans of deployed applications at runtime.
+This mode also provides xref:cdi-probe/README.adoc[CDI Probe], which allows to inspect and monitor CDI beans of deployed applications at runtime.
 
 It's possible to enable CDI Development Mode for each application separately or enable it for all applications globaly. In both cases, each application is assigned a separate CDI Probe instance.
 
@@ -18,6 +18,6 @@ NOTE: If CDI Development Mode is enabled by one of the options above, it can't b
  
 Next sections describe how to enable CDI Development Mode, using either
 
-- link:enabling-cdi-dev-web-desc.adoc[web.xml Application Descriptor]
-- link:enabling-cdi-dev-console.adoc[Administration Console]
-- link:enabling-cdi-dev-asadmin.adoc[Asadmin deploy command]
+- xref:enabling-cdi-dev-web-desc.adoc[web.xml Application Descriptor]
+- xref:enabling-cdi-dev-console.adoc[Administration Console]
+- xref:enabling-cdi-dev-asadmin.adoc[Asadmin deploy command]

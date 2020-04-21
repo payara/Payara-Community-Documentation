@@ -148,7 +148,7 @@ Enables and disables the HealthCheck service. Also allows configuration of the s
 IMPORTANT: Starting from release _4.1.1.171_, the `--notifierenabled` argument is
 used to enable or disable the **Log Notifier**, which is considered the _default_
 notifier. Use the
-link:#healthcheck-notifier-configure[`healthcheck-[NOTIFIER_NAME\]-configure`]
+xref:#healthcheck-notifier-configure[`healthcheck-[NOTIFIER_NAME\]-configure`]
 command to enable or disable other available notifiers.
 
 [[example]]
@@ -354,7 +354,7 @@ value
 |no
 
 |`--stuck-threads-threshold-unit`
-|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|xref:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
 |The unit for the threshold for when a thread should be considered stuck. Only available for `st` service.
 |-
 |no
@@ -697,7 +697,7 @@ frequency as you would do with the `healthcheck-configure-service` command.
 
 | `--unit`
 | TimeUnit
-| The time unit to set the frequency of the metric monitoring. Must correspond to a valid link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`] value
+| The time unit to set the frequency of the metric monitoring. Must correspond to a valid xref:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`java.util.concurrent.TimeUnit`] value
 | `SECONDS`
 | no
 
@@ -771,7 +771,7 @@ Configures the Stuck Thread checker. The Stuck Threads checker is comparable to 
 |no
 
 |`--unit`
-|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|xref:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
 |The unit for the time between healthchecks
 |-
 |no
@@ -783,7 +783,7 @@ Configures the Stuck Thread checker. The Stuck Threads checker is comparable to 
 |no
 
 |`--thresholdUnit`
-|link:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
+|xref:https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/TimeUnit.html[`TimeUnit`]
 |The unit for the threshold for when a thread should be considered stuck
 |-
 |no
@@ -938,7 +938,7 @@ the _[NOTIFIER_NAME]_ placeholder.
 |===
 
 TIP: You can find the list of available notifiers using the
-link:/documentation/payara-server/notification-service/asadmin-commands.adoc#notifier-list-services[`notifier-list-services`] command.
+xref:/documentation/payara-server/notification-service/asadmin-commands.adoc#notifier-list-services[`notifier-list-services`] command.
 
 [[example-6]]
 === Examples
@@ -954,7 +954,7 @@ asadmin> healthcheck-log-notifier-configure
 ----
 
 . To disable the
-link:/documentation/payara-server/notification-service/notifiers/hipchat-notifier.adoc[Hipchat notifier]
+xref:/documentation/payara-server/notification-service/notifiers/hipchat-notifier.adoc[Hipchat notifier]
 without having to restart the server, use the following command:
 +
 [source, shell]

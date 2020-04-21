@@ -6,35 +6,35 @@ which complement and enhance the developer experience.
 
 These include:
 
-link:maven-plugin.adoc[Payara Micro Maven Plugin]::
+xref:maven-plugin.adoc[Payara Micro Maven Plugin]::
 A plugin for Apache Maven is available for Payara Micro.
 
-link:maven-archetype.adoc[Payara Micro Maven Archetype]::
+xref:maven-archetype.adoc[Payara Micro Maven Archetype]::
 An archetype for Apache Maven is available for Payara Micro.
 
-link:gradle-plugin.adoc[Payara Micro Gradle Plugin]::
+xref:gradle-plugin.adoc[Payara Micro Gradle Plugin]::
 A plugin for Gradle is available for Payara Micro.
 
-link:eclipse-plugin.adoc[Payara Tools Eclipse Plugin]::
+xref:eclipse-plugin.adoc[Payara Tools Eclipse Plugin]::
 A plugin for using Payara is available for Eclipse.
 
-link:netbeans-plugin/README.adoc[Payara Apache NetBeans tools]::
+xref:netbeans-plugin/README.adoc[Payara Apache NetBeans tools]::
 The tools for using Payara are available in the Apache NetBeans.
 
-link:vscode-extension/README.adoc[Payara VSCode Extension]::
+xref:vscode-extension/README.adoc[Payara VSCode Extension]::
 An extension for using Payara is available for Visual Studio Code.
 
-link:cloud-connectors/README.adoc[Cloud Connectors]::
+xref:cloud-connectors/README.adoc[Cloud Connectors]::
 Cloud Connectors are a collection of JCA adapters which can interact with popular
 message brokers, including:
-* link:cloud-connectors/amazon-sqs.adoc[Amazon SQS]
-* link:cloud-connectors/apache-kafka.adoc[Apache Kafka]
-* link:cloud-connectors/azure-sb.adoc[Azure Service Bus]
-* link:cloud-connectors/mqtt.adoc[MQTT]
+* xref:cloud-connectors/amazon-sqs.adoc[Amazon SQS]
+* xref:cloud-connectors/apache-kafka.adoc[Apache Kafka]
+* xref:cloud-connectors/azure-sb.adoc[Azure Service Bus]
+* xref:cloud-connectors/mqtt.adoc[MQTT]
 
-link:arquillian-containers/README.adoc[Arquillian Containers]::
+xref:arquillian-containers/README.adoc[Arquillian Containers]::
 Arquillian containers help perform integration tests for application servers. There are various containers available for Payara:
-* link:arquillian-containers/payara-micro.adoc[Payara Micro]
+* xref:arquillian-containers/payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
 * Payara Remote (not yet documented)
 * Payara Managed (not yet documented)

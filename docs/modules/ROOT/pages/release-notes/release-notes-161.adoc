@@ -4,7 +4,7 @@ Release Highlights
 
 The most eye catching feature in this release is a new look for the Admin Console; we’ve given the Admin Console another go over from our initial attempt, rebranding it to look more distinctly Payara!
 
-The more exciting highlight of this release is the Healthcheck Service. In its initial release, this service allows you to monitor CPU usage, the number of times Garbage Collection has occurred, the machine memory usage, the heap memory usage, and any hogging threads. Documentation for it can be found link:/documentation/payara-server/health-check-service/README.adoc[here], and documentation for the asadmin commands can be found link:/documentation/payara-server/health-check-service/asadmin-commands.adoc[here].
+The more exciting highlight of this release is the Healthcheck Service. In its initial release, this service allows you to monitor CPU usage, the number of times Garbage Collection has occurred, the machine memory usage, the heap memory usage, and any hogging threads. Documentation for it can be found xref:/documentation/payara-server/health-check-service/README.adoc[here], and documentation for the asadmin commands can be found xref:/documentation/payara-server/health-check-service/asadmin-commands.adoc[here].
 
 [[updated-modules]]
 Updated Modules

@@ -6,7 +6,7 @@ security artifacts & components.
 
 In version {currentVersion}, the available connectors on maven central are:
 
-== link:../payara-server/public-api/openid-connect-support.adoc[OpenId Connect Client:]
+== xref:../payara-server/public-api/openid-connect-support.adoc[OpenId Connect Client:]
 
 Implements https://openid.net/connect/[OpenId Connect] standard protocol by implementing Jakarta EE Security
 https://jakarta.ee/specifications/security/1.0/apidocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html[HTTP Authentication Mechanism]
@@ -17,7 +17,7 @@ and also provides access to the user's profile info, Identity token, Access toke
 
 Maven Coordinates: https://mvnrepository.com/artifact/fish.payara.security.connectors/security-connector-oidc-client[`fish.payara.security.connectors:security-connector-oidc-client`]
 
-== link:../payara-server/public-api/oauth-support.adoc[OAuth 2.0 Client:]
+== xref:../payara-server/public-api/oauth-support.adoc[OAuth 2.0 Client:]
 
 Implements https://oauth.net/2/[OAuth 2.0] standard protocol by implementing Jakarta EE Security
 https://jakarta.ee/specifications/security/1.0/apidocs/javax/security/enterprise/authentication/mechanism/http/HttpAuthenticationMechanism.html[HTTP Authentication Mechanism]

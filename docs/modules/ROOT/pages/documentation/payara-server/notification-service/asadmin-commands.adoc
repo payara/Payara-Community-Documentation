@@ -43,7 +43,7 @@ asadmin> notification-configure --enabled=true --dynamic=true
 Lists available notifiers to use with the service. These can then
 be configured individually or referenced by other service commands, for
 example the
-link:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[`Request Tracing Configuration`]
+xref:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[`Request Tracing Configuration`]
 commands.
 
 [[command-options-1]]
@@ -114,7 +114,7 @@ without a restart. Otherwise a restart is required. |False |No
 changes to the log notifier without a restart. Otherwise a restart is required. |false |No
 |`--useseparatelogfile` |Boolean |When set to true, prints notifications to the configured
  log file
- (see link:documentation/payara-server/logging/notification-logging.adoc[Notification Logging])|false |No
+ (see xref:documentation/payara-server/logging/notification-logging.adoc[Notification Logging])|false |No
 |=======================================================================
 
 [[example-4]]

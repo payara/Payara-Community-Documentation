@@ -56,7 +56,7 @@ commands: one which runs an asadmin command on a subset of instances in a cluste
 and another than runs an asadmin command on all instances in a cluster.
 
 More detail on these can be found in the
-link:/documentation/payara-micro/asadmin.adoc[Running Asadmin Commands on Bootstrapped Instances] section.
+xref:/documentation/payara-micro/asadmin.adoc[Running Asadmin Commands on Bootstrapped Instances] section.
 
 Here is an example of deploying an application to all instances in a cluster:
 

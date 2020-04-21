@@ -3,11 +3,11 @@
 
 This section documents several extensions made to the security mechanisms and APIs that are provided by Payara Server.
 
-* link:certificate-realm-principal-name.adoc[Certificate Realm: Principal Name]
-* link:certificate-realm-groups.adoc[Certificate Realm: Group Names]
+* xref:certificate-realm-principal-name.adoc[Certificate Realm: Principal Name]
+* xref:certificate-realm-groups.adoc[Certificate Realm: Group Names]
 
 == Extra Resources
 
-* link:https://javaee.github.io/tutorial/security-intro005.html[Java EE Tutorial: Working with Realms, Users, Groups, and Roles]
-* link:https://dzone.com/refcardz/getting-started-java-ee[DZone: Security in Java EE Applications]
+* xref:https://javaee.github.io/tutorial/security-intro005.html[Java EE Tutorial: Working with Realms, Users, Groups, and Roles]
+* xref:https://dzone.com/refcardz/getting-started-java-ee[DZone: Security in Java EE Applications]
 

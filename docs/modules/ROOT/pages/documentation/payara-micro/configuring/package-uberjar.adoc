@@ -117,4 +117,4 @@ total 304K
 IMPORTANT: Additional JAR files that are placed in the `$\{PAYARA_INSTALL_DIR}/lib`
 directory will be ignored when being packaged to the Uber JAR. To package additional
 JAR files into an Uber JAR, check the
-link:/documentation/payara-micro/adding-jars.adoc[Adding Third Party JARs section]
+xref:/documentation/payara-micro/adding-jars.adoc[Adding Third Party JARs section]

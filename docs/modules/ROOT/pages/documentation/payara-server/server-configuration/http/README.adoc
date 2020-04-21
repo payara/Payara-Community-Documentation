@@ -14,6 +14,6 @@ although most of the time this separation can be ignored.
 The configuration for each of these objects can be found in their respective pages:
 
 * Transport (Not yet documented).
-* link:protocols.adoc[Protocols].
-* link:network-listeners.adoc[Network Listeners].
-* link:virtual-servers.adoc[Virtual Servers].
+* xref:protocols.adoc[Protocols].
+* xref:network-listeners.adoc[Network Listeners].
+* xref:virtual-servers.adoc[Virtual Servers].

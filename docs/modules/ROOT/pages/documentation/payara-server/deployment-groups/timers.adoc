@@ -31,7 +31,7 @@ Persistent timers are the default kind of timer.
 Because deployment groups do not need to share configurations amongst instances, there are several confiration and operational constraints that are not enforced by the server.
 To ensure correct behaviour of persistent timers within a deployment group, the following conditions need to be met:
 
-* EJB Timer Service needs to use shared storage -- external database or link:../ejb/persistent-timers.adoc[DataGrid]
+* EJB Timer Service needs to use shared storage -- external database or xref:../ejb/persistent-timers.adoc[DataGrid]
 * All instances of deployment groups and the Domain Administration Server share the same configuration of EJB Timer Service
 * Applications with persistent timers are deployed to a deployment group and not managed on instance level afterwards
 * Instances are members of only a single deployment group

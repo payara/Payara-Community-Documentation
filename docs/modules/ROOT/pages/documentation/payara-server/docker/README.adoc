@@ -10,8 +10,8 @@ These function in a similar manner to instances hosted on a SSH, DCOM,
 or CONFIG node type, though as the name suggests are targetted towards creating
 and using instances housed within Docker containers.
 
-link:docker-nodes.adoc[Docker Nodes]:: How to create and use a Docker node.
-link:docker-instances.adoc[Docker Instances]:: How to create and use an instance within a Docker container.
+xref:docker-nodes.adoc[Docker Nodes]:: How to create and use a Docker node.
+xref:docker-instances.adoc[Docker Instances]:: How to create and use an instance within a Docker container.
 
 == Payara Platform and Docker User Guides
 

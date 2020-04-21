@@ -8,12 +8,12 @@ however.
 The configuration methods available to you should be detected by your IDE, allowing
 you to view them using the auto-complete feature common to most popular IDEs.
 Alternatively, you can consult the
-link:/documentation/payara-micro/appendices/config-methods.adoc[Payara Micro Configuration Methods]
+xref:/documentation/payara-micro/appendices/config-methods.adoc[Payara Micro Configuration Methods]
 section in the
-link:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
+xref:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
 
 As noted in the
-link:/documentation/payara-micro/deploying/deploy-program-bootstrap.adoc[Deploying an Application Programmatically]
+xref:/documentation/payara-micro/deploying/deploy-program-bootstrap.adoc[Deploying an Application Programmatically]
 section, you can either call the desired configuration commands on one line during
 instance initialization, or on separate lines after creating a `PayaraMicro` variable.
 

@@ -13,5 +13,5 @@ the lack of timeouts would lead to validators endlessly waiting for a
 response, causing unwanted side effects.
 
 For details on the new capabilities of Payara Server connection pools,
-see the link:/documentation/payara-server/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.adoc[Advanced
+see the xref:/documentation/payara-server/advanced-jdbc/advanced-jdbc-configuration-and-diagnostics.adoc[Advanced
 JDBC Configuration and Diagnostics] article page in the extended documentation.

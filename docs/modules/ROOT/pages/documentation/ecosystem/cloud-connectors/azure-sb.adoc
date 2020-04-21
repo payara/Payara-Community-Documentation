@@ -4,7 +4,7 @@ The Microsoft Azure Service Bus allows code that runs both outside and inside
 Azure to communicate with Azure.
 
 In order to connect to Azure, the `AzureSBRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the link:README.adoc#Installing-a-connector[
+be deployed as shown in the xref:README.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 In order to make use of this connector in an application, the following maven dependency is needed:

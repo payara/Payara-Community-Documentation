@@ -2,15 +2,15 @@
 = Configuring an Instance from the Command Line
 
 As described in
-link:/documentation/payara-micro/deploying/deploy-cmd-line.adoc[Deploying From the Command Line],
+xref:/documentation/payara-micro/deploying/deploy-cmd-line.adoc[Deploying From the Command Line],
 the starting and configuration of an instance can be done in its entirety on
 one line.
 
 The options available can be seen by running the JAR with the `--help` option,
 or by consulting the
-link:/documentation/payara-micro/appendices/cmd-line-opts.adoc[Payara Micro Command Line Options]
+xref:/documentation/payara-micro/appendices/cmd-line-opts.adoc[Payara Micro Command Line Options]
 section in the
-link:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
+xref:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
 
 The general structure of starting, configuring, and deploying an application to
 an instance is as follows:

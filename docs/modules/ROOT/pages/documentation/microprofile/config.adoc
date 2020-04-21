@@ -85,7 +85,7 @@ available to all server instances in a domain.
 
 {% if currentVersion == "4.1.2.181" %}
 
-WARNING: The (secrets) directory config source is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in link:/general-info/technical-preview.adoc[Features in Technical Preview].
+WARNING: The (secrets) directory config source is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in xref:/general-info/technical-preview.adoc[Features in Technical Preview].
 
 {% endif %}
 

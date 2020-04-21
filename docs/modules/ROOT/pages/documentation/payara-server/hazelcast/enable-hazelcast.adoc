@@ -32,7 +32,7 @@ If this is a problem ensure Dynamic is unchecked and restart each affected insta
 The `set-hazelcast-configuration` asadmin command can be used to enable or disable
 Hazelcast and therefore the Data Grid. This
 command is also used to configure other aspects of Hazelcast, which is covered
-link:/documentation/payara-server/hazelcast/configuration.adoc#configuring-hazelcast-using-asadmin[in the configuration section].
+xref:/documentation/payara-server/hazelcast/configuration.adoc#configuring-hazelcast-using-asadmin[in the configuration section].
 The command requires the Admin Server to be running, and will expect it to be listening
 on port **4848** unless specified differently with the asadmin utility `--port` option.
 

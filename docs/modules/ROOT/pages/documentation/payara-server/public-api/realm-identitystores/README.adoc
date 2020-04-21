@@ -16,8 +16,8 @@ configuration and mapped to Payara realms to authenticate the users.
 The realm identity stores are initialized by specifying any of the following annotations
 in a valid place as defined by the https://jakarta.ee/specifications/security/1.0/apidocs/[Jakarta EE Security API].
 
-- link:realm-identity-store-definition.adoc[@RealmIdentityStoreDefinition]
-- link:file-identity-store-definition.adoc[@FileIdentityStoreDefinition]
-- link:certificate-identity-store-definition.adoc[@CertificateIdentityStoreDefinition]
-- link:pam-identity-store-definition.adoc[@PamIdentityStoreDefinition]
-- link:solaris-identity-store-definition.adoc[@SolarisIdentityStoreDefinition]
+- xref:realm-identity-store-definition.adoc[@RealmIdentityStoreDefinition]
+- xref:file-identity-store-definition.adoc[@FileIdentityStoreDefinition]
+- xref:certificate-identity-store-definition.adoc[@CertificateIdentityStoreDefinition]
+- xref:pam-identity-store-definition.adoc[@PamIdentityStoreDefinition]
+- xref:solaris-identity-store-definition.adoc[@SolarisIdentityStoreDefinition]
