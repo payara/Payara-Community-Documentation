@@ -83,11 +83,17 @@ available to all server instances in a domain.
 
 |===
 
-{% if currentVersion == "4.1.2.181" %}
+ifeval::[{currentVersion} == "4.1.2.181"]
 
-WARNING: The (secrets) directory config source is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in xref:/general-info/technical-preview.adoc[Features in Technical Preview].
+include::partial$tech-preview.adoc[]
 
-{% endif %}
+endif::[]
+
+ifeval::[{currentVersion} == {currentVersion}]
+
+include::partial$tech-preview.adoc[]
+
+endif::[]
 
 == Converters
 In addition to the standard converters specified by the API, Payara's implementation
