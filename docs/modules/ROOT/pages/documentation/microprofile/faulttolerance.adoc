@@ -74,7 +74,7 @@ _Since *5.183*&nbsp;_
 To configure the Fault Tolerance in the Admin Console, go to Configuration
 → [instance-configuration (like server-config)] → MicroProfile → Fault Tolerance:
 
-image:/images/microprofile/fault-tolerance.png[Set Fault Tolerance Configuration]
+image:microprofile/fault-tolerance.png[Set Fault Tolerance Configuration]
 
 [[using-asadmin-commands]]
 === Using Asadmin Commands

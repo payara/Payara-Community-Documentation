@@ -21,7 +21,7 @@ Existing network listeners can be configured from the admin console or with asad
 commands. The network listener configurations can be found in the admin console under
 *Configurations* -> *your-config* -> *Network Config* -> *Network Listeners*.
 
-image::/images/http/network-listener-config.png[Configuration Page Location]
+image::http/network-listener-config.png[Configuration Page Location]
 
 The following fields can be configured for network listeners:
 

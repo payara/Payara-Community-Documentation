@@ -132,7 +132,7 @@ To configure the Notification Service in the Administration Console, go
 to _Configuration -> [instance-configuration (like server-config)] -> Notification Service_
 and click on the *SNMP* tab:
 
-image:/images/notification-service/snmp/admin-console-configuration.png[Notification Service in Admin Console]
+image:notification-service/snmp/admin-console-configuration.png[Notification Service in Admin Console]
 
 [[from-the-command-line]]
 === From the Command Line
@@ -212,4 +212,4 @@ respective port?
 Here's a sample of how the SNMP traps are visualized using
 http://www.mg-soft.com/tringer.html[MG-Soft's Trap Ringer] software:
 
-image:/images/notification-service/snmp/trap-ringer-pro-output.png[SNMP Traps onTRinger]
+image:notification-service/snmp/trap-ringer-pro-output.png[SNMP Traps onTRinger]

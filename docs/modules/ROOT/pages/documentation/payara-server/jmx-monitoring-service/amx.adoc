@@ -15,4 +15,4 @@ asadmin>set-amx-enabled --enabled true --dynamic true --target server
 
 To boot AMX using Admin Console:
 
-image:/images/jmx-monitoring-service/enable_amx.png[Enable AMX]
+image:jmx-monitoring-service/enable_amx.png[Enable AMX]

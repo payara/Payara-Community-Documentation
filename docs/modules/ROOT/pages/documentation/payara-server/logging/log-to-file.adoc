@@ -14,7 +14,7 @@ is running in cloud environment where disk space is scarce.
 
 To configure `Log to File` option using Admin Console:
 
-image:/images/logging/log_to_file.png[Log to File enabled]
+image:logging/log_to_file.png[Log to File enabled]
 
 [[using-asadmin-utility]]
 == Using an `asadmin` command

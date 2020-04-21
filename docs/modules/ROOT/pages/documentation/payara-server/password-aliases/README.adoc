@@ -15,12 +15,12 @@ password is needed.
 To use a password alias, navigate to any configuration view where you would
 have previously entered a password in plaintext format:
 
-image::/images/password-aliases/password-aliases-unused.png[Password in plain text]
+image::password-aliases/password-aliases-unused.png[Password in plain text]
 
 In place of the password, you can enter an alias which corresponds to the password
 in the form: `${ALIAS=<password-alias-name>}`:
 
-image::/images/password-aliases/password-aliases-using.png[Placeholder for Password Alias]
+image::password-aliases/password-aliases-using.png[Placeholder for Password Alias]
 
 To create a password alias from the admin console, read the instructions detailed
 link:/documentation/payara-server/password-aliases/password-alias-admin-console-commands.adoc[here].

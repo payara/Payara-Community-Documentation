@@ -13,7 +13,7 @@ The extension is available in the link:https://marketplace.visualstudio.com/item
 
 1. Click *Extensions* on the left-most menu of the editor:
 
-image::../../images/vscode-extension/install-marketplace.png[alt=Visual Studio Marketplace, width="60%"]
+image::../..vscode-extension/install-marketplace.png[alt=Visual Studio Marketplace, width="60%"]
 2. On the Marketplace side-panel, search for the *Payara* extension.
 3. Click the *Install* button.
 
@@ -23,16 +23,16 @@ image::../../images/vscode-extension/install-marketplace.png[alt=Visual Studio M
 1. Click *Payara* icon in the activity bar on the left-most of the editor.
 2. Then press the *+* button in the Payara Server explorer:
 
-image::../../images/vscode-extension/add-payara-server.png[alt=Add Payara Server, width="60%"]
+image::../..vscode-extension/add-payara-server.png[alt=Add Payara Server, width="60%"]
 3. Browse the Payara Server installation path (recently used servers location are listed by default):
 
-image::../../images/vscode-extension/browse-payara-server.png[alt=Browse Server Runtime, width="60%"]
+image::../..vscode-extension/browse-payara-server.png[alt=Browse Server Runtime, width="60%"]
 4. Choose a name for the server.
 
-image::../../images/vscode-extension/name-payara-server.png[alt=Fill server name, width="60%"]
+image::../..vscode-extension/name-payara-server.png[alt=Fill server name, width="60%"]
 4. Then select a domain from the list or create a new domain by pressing the *+* button:
 
-image::../../images/vscode-extension/select-payara-server-domain.png[alt=Select server domain, width="60%"]
+image::../..vscode-extension/select-payara-server-domain.png[alt=Select server domain, width="60%"]
 5. That’s how to add Payara Server to VSCode.
 
 [[managing-server]]
@@ -51,7 +51,7 @@ Right clicking on the server lets you do the following things:
 * Update Admin credentials
 * Update JDK Path
 
-image::../../images/vscode-extension/start-payara-server.png[alt=Start Payara Server, width="60%"]
+image::../..vscode-extension/start-payara-server.png[alt=Start Payara Server, width="60%"]
 
 [[deploy-application]]
 == Deploying Applications to Payara Server
@@ -60,9 +60,9 @@ An application can be deployed and undeployed easily from VSCode.
 
 Right click on the application and select *Run on Payara Server* to deploy the application:
 
-image::../../images/vscode-extension/deploy-application.png[alt=Deploy application, width="60%"]
+image::../..vscode-extension/deploy-application.png[alt=Deploy application, width="60%"]
 
 
 The deploy application can be opened in the browser, undeployed or disabled by right clicking on the application:
 
-image::../../images/vscode-extension/list-application.png[alt=Open application homepage, width="60%"]
+image::../..vscode-extension/list-application.png[alt=Open application homepage, width="60%"]

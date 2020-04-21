@@ -18,7 +18,7 @@ Existing virtual servers can be configured from the admin console or with `set`
 asadmin commands. The virtual server configurations can be found in the admin
 console under *Configurations* -> *your-config* -> *Virtual Servers*.
 
-image::/images/http/virtual-server-config.png[Configuration Page Location]
+image::http/virtual-server-config.png[Configuration Page Location]
 
 The following fields can be configured:
 

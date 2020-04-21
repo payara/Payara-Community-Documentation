@@ -35,7 +35,7 @@ such as `org.glassfish.api.jdbc.validation.DerbyConnectionValidation` for a
 From the same screen, you can also set whether to close all connections on
 failure.
 
-image:/images/connection-pools/connection_pools_4.png[Connection validation configuration in Admin console]
+image:connection-pools/connection_pools_4.png[Connection validation configuration in Admin console]
 
 [[set-up-the-validation-using-asadmin]]
 == Set up the validation using administration commands

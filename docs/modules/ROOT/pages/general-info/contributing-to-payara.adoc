@@ -40,7 +40,7 @@ but the commands below should get you started:
 When on the Payara GitHub page, click on the "Fork" button on the top right. This will create your own fork of
 Payara as a remote repository on your GitHub account.
 
-image:/images/forkingpayarafromgit.png[Forking GitHub repository]
+image:forkingpayarafromgit.png[Forking GitHub repository]
 
 Once you have your own up-to-date fork of Payara, you can now clone the
 repository (creating a local repository on your computer).

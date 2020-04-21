@@ -17,7 +17,7 @@ When log rotation is configured, you can turn on compression of rotated
 files in the `Logger Settings` section, by ticking the `Compress on Rotation`
 checkbox:
 
-image:/images/logging/compress_on_rotation.png[Compress on Rotation enabled]
+image:logging/compress_on_rotation.png[Compress on Rotation enabled]
 
 [[using-asadmin-utility]]
 == Using an `asadmin` command
@@ -41,4 +41,4 @@ contents.
 This is an example how the *Log Viewer* may visualize 3 compressed
 log files:
 
-image:/images/logging/zipped_logs.png[Log Viewer with compressed log files]
+image:logging/zipped_logs.png[Log Viewer with compressed log files]

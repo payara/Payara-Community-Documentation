@@ -14,7 +14,7 @@ To view data grid members from the admin console:
 
 Selected the Data Grid tree node under the Domain and Select the "Data Grid Instances" tab.
 
-image:/images/hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Domain Cluster Members]
+image:hazelcast/hazelcast-admin-console-view-cluster-members-from-domain.png[Domain Cluster Members]
 
 [[viewing-cluster-members-asadmin]]
 == Viewing Cluster Members via asadmin

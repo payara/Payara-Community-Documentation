@@ -41,11 +41,11 @@ follow these steps:
 . Login to New Relic with your account credentials, and if you haven't setup a
 monitoring agent yet, the following screen will be shown:
 +
-image:/images/notification-service/newrelic/agent-setup-1.png[NewRelic agent setup welcome screen]
+image:notification-service/newrelic/agent-setup-1.png[NewRelic agent setup welcome screen]
 
 . Select the *Java* option and the agent installation procedure will be shown:
 +
-image:/images/notification-service/newrelic/agent-setup-2.png[NewRelic Java agent setup procedure]
+image:notification-service/newrelic/agent-setup-2.png[NewRelic Java agent setup procedure]
 +
 From the screen shown, copy the value of the _License Key_ (you need to press the
 *Reveal License Key* button first) since you will need it later.
@@ -168,11 +168,11 @@ INFO: New Relic Agent: Writing to log file: /opt/payara-4.1.2.172/glassfish/doma
 portal and on the *APM* dashboard you can see a new entry for recently configured
 server:
 +
-image:/images/notification-service/newrelic/apm-dashboard.png[NewRelic APM Dashboard]
+image:notification-service/newrelic/apm-dashboard.png[NewRelic APM Dashboard]
 +
 You can access the latest monitoring statistics if you wish so:
 +
-image:/images/notification-service/newrelic/apm-application-details.png[NewRelic Application Details]
+image:notification-service/newrelic/apm-application-details.png[NewRelic Application Details]
 
 
 [[retrieving-api-key]]
@@ -181,18 +181,18 @@ image:/images/notification-service/newrelic/apm-application-details.png[NewRelic
 Now that the agent has been correctly installed, login back to your NewRelic account
 portal and head to the *Insights* dashboard:
 
-image:/images/notification-service/newrelic/insights-dashboard.png[NewRelic Insights Dashboard]
+image:notification-service/newrelic/insights-dashboard.png[NewRelic Insights Dashboard]
 
 Access the _Manage Data_ option on the side menu, you will be presented the
 following screen:
 
-image:/images/notification-service/newrelic/insights-api-keys-screen.png[NewRelic Insights API Keys]
+image:notification-service/newrelic/insights-api-keys-screen.png[NewRelic Insights API Keys]
 
 Click on the `+` icon at the side of the *Insert Keys* header. Take note of the
 _Account ID_ and _API Key_ value on this screen. Also add a brief description to
 reference this key on the dashboard:
 
-image:/images/notification-service/newrelic/insights-insert-api-key.png[NewRelic Insights Insert API Keys]
+image:notification-service/newrelic/insights-insert-api-key.png[NewRelic Insights Insert API Keys]
 
 [[payara-server-configuration]]
 == Payara Server Configuration
@@ -209,7 +209,7 @@ To configure the Notification Service in the Administration Console, go to
 _Configuration -> [instance-configuration (like server-config)] -> Notification Service_
 and click on the *NewRelic* tab:
 
-image:/images/notification-service/newrelic/admin-console-configuration.png[NewRelic Configuration on Admin Console]
+image:notification-service/newrelic/admin-console-configuration.png[NewRelic Configuration on Admin Console]
 
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) and input the NewRelic Account ID and the newly inserted
@@ -282,7 +282,7 @@ Payara Server notifier?
 Here's a sample of how these notifications are visualized on the Data Explorer
 dashboard for the NewRelic Insights service:
 
-image:/images/notification-service/newrelic/insights-data-explorer-results.png[NewRelic Insights Data Explorer]
+image:notification-service/newrelic/insights-data-explorer-results.png[NewRelic Insights Data Explorer]
 
 You can observe that the events are correctly identified depending the severity
 of the notification and they are correctly grouped by their custom category (in

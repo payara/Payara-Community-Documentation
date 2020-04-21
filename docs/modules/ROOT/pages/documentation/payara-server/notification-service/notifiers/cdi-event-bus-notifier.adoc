@@ -8,7 +8,7 @@ link:../notification-service.adoc[Notification service] into the internal Payara
 [[notifier-configuration]]
 == CDI Event Bus Notifier Configuration
 
-image:/images/notification-service/cdi-event-bus/cdi-event-bus-notif-config.png[Admin console config]
+image:notification-service/cdi-event-bus/cdi-event-bus-notif-config.png[Admin console config]
 
 `Enabled`::
 Enables/Disables the CDI Event Bus notifier.

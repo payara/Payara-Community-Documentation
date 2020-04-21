@@ -38,11 +38,11 @@ Here are the instructions to retrieve the API keys:
 https://app.datadoghq.com/. Then, in the side menu select the _Integrations_ ->
 _APIs_ option:
 +
-image:/images/notification-service/datadog/side-menu.png[Datadog Admin Panel Side Menu]
+image:notification-service/datadog/side-menu.png[Datadog Admin Panel Side Menu]
 
 . On the APIs tab you will observe the default API Key available for integration:
 +
-image:/images/notification-service/datadog/apikey-panel.png[Datadog API Key Panel]
+image:notification-service/datadog/apikey-panel.png[Datadog API Key Panel]
 +
 You can also create a new API key if you want to use it exclusively for your Payara
 Server installation.
@@ -51,7 +51,7 @@ Server installation.
 which services or platform stacks are integrating with Datadog other than your Payara
 Server installation:
 +
-image:/images/notification-service/datadog/apikey-name-dialog.png[Datadog API Key Name]
+image:notification-service/datadog/apikey-name-dialog.png[Datadog API Key Name]
 
 
 [[payara-server-configuration]]
@@ -70,7 +70,7 @@ To configure the Notification Service in the Administration Console, go
 to _Configuration -> [instance-configuration (like server-config)] ->
 Notification Service_ and click on the *Datadog* tab:
 
-image:/images/notification-service/datadog/admin-console-configuration.png[Datadog Configuration on Admin Console]
+image:notification-service/datadog/admin-console-configuration.png[Datadog Configuration on Admin Console]
 
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) and input the three tokens highlighted in the
@@ -141,4 +141,4 @@ configured on your Datadog account?
 Here's a sample of how the notifications are visualized on the Datadog
 event notification panel (on the side menu select the _Event_ option):
 
-image:/images/notification-service/datadog/event-sample.png[DataDog Events Sample]
+image:notification-service/datadog/event-sample.png[DataDog Events Sample]

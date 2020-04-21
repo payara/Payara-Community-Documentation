@@ -166,7 +166,7 @@ _Since *5.183*&nbsp;_
 To configure the Config Ordinal in the Admin Console, go to Configuration 
 → [instance-configuration (like server-config)] → MicroProfile → Config → Ordinal:
 
-image:/images/microprofile/config-ordinal.png[Set Config Ordinal]
+image:microprofile/config-ordinal.png[Set Config Ordinal]
 
 [[using-asadmin-commands]]
 === Using Asadmin Commands
@@ -265,7 +265,7 @@ _Since *5.183*&nbsp;_
 To configure the Config Property in the Admin Console, go to Configuration 
 → [instance-configuration (like server-config)] → MicroProfile → Config → Property:
 
-image:/images/microprofile/config-property.png[Set Config Property]
+image:microprofile/config-property.png[Set Config Property]
 
 [[using-asadmin-commands]]
 === Using Asadmin Commands
@@ -495,7 +495,7 @@ _Since *5.183*&nbsp;_
 To configure the Config Secrets Directory in the Admin Console, go to Configuration 
 → [instance-configuration (like server-config)] → MicroProfile → Config → Directory:
 
-image:/images/microprofile/config-property.png[Set Config Property]
+image:microprofile/config-property.png[Set Config Property]
 
 [[using-asadmin-commands]]
 === Using Asadmin Commands

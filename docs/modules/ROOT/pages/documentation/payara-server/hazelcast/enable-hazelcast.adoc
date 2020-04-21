@@ -13,12 +13,12 @@ From the Admin Console home:
 
 . Select Data Grid under the instance's configuration from the page tree:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-instance-config.png[Payara Server 5.181 Page Tree]
+image::hazelcast/hazelcast-admin-console-select-instance-config.png[Payara Server 5.181 Page Tree]
 
 . Unheck "Enabled" (and optionally "Dynamic" to apply the configuration without a
 restart) and save.
 +
-image::/images/hazelcast/hazelcast-admin-console-enable-hazelcast.png[Payara Server 5.181 Disabling DataGrid]
+image::hazelcast/hazelcast-admin-console-enable-hazelcast.png[Payara Server 5.181 Disabling DataGrid]
 
 CAUTION: Disabling the Data Grid for a configuration will disable the Data Grid for
 all instances using the configuration. If this is combined with Dynamic and multiple

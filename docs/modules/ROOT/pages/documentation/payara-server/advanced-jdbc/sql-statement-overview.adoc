@@ -13,7 +13,7 @@ The activation of the collection is controlled by the monitoring service.
 When using the Web Administration console, go to _Configuration → [instance-configuration (like server-config)] → Monitoring:_
 and select the level _High_ for the _JDBC Connection pool_ component.
 
-image:/images/advanced-jdbc/activate-sql-statements.png[Activate JDBC Connection pool monitoring with administration console]
+image:advanced-jdbc/activate-sql-statements.png[Activate JDBC Connection pool monitoring with administration console]
 
 When using the _asadmin_ CLI, you can execute the following command to set the _Level Value_
 

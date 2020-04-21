@@ -7,7 +7,7 @@ Log file rotation keeps log files manageable and organized, as old log files are
 [[Enabling-daily-rotation]]
 == Enabling daily rotation
 
-image:/images/logging/daily-log-rotation.png[Daily rotation config]
+image:logging/daily-log-rotation.png[Daily rotation config]
 
 By default a size rotation of 2mb is used for logs in Payara Server, meaning no log files will be deleted until the size limit is reached and a new log is made at midnight.
 
@@ -17,7 +17,7 @@ Payara Server also has a number of rotation conditions which can be changed in t
 * Size - Logs are rotated when they exceed a certain limit.
 * Number - Maximum number of enteries in a log file.
 
-image:/images/logging/log_rotation_settings.png[Log rotation settings]
+image:logging/log_rotation_settings.png[Log rotation settings]
 
 Which allows you to change how the logs are rotated to your needs and can be combined with daily log rotation. Enabling daily log rotation and setting a limit on the number of logs to keep will keep a certain number of days of logs before the oldest log file gets deleted at midnight.
 

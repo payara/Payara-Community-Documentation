@@ -27,7 +27,7 @@ Then specify the *Slow Query Log Threshold* time in
 seconds or use a decimal value to signify milliseconds. The value **-1**
 disables the feature:
 
-image:/images/advanced-jdbc/slowsqllogging.png[Slow SQL Logging settings in the administration console]
+image:advanced-jdbc/slowsqllogging.png[Slow SQL Logging settings in the administration console]
 
 [[asadmin]]
 === Using Asadmin commands

@@ -19,7 +19,7 @@ it is recommended that leaks are closed and all logged leaks are monitored inste
 . Scroll down to _Connection Settings_
 . Set the _Connection Leak Timeout_ and _Statement Leak Timeout_ value in seconds
 
-image:/images/connection-pools/connection_pools_5.png[Leak Detection setting in Admin console]
+image:connection-pools/connection_pools_5.png[Leak Detection setting in Admin console]
 
 [[setting-leak-detection-via-asadmin]]
 == Configuring Leak Detection using administration commands

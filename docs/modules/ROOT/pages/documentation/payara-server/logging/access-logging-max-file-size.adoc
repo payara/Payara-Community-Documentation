@@ -17,7 +17,7 @@ If the value for this option is set to 0 rotation is disabled.
 
 To configure `Max File Size` option using Admin Console:
 
-image:/images/logging/max_file_size.png[Max File Size]
+image:logging/max_file_size.png[Max File Size]
 
 [[using-asadmin-utility]]
 == Using an `asadmin` command

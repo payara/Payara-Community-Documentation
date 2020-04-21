@@ -16,13 +16,13 @@ ensure that the DAS itself is within the same Hazelcast cluster as the micro
 instances. Hazelcast can be enabled for the DAS on the Domain tab, under the
 _Hazelcast_ section:
 
-image:/images/payara-micro/enable-hazelcast-on-das.png[Enable Hazelcast]
+image:payara-micro/enable-hazelcast-on-das.png[Enable Hazelcast]
 
 From here, selecting the _Cluster Members_ tab brings up the instances within
 the cluster. At the bottom of the page, you will find a table filled with the
 Payara Micro instances:
 
-image:/images/payara-micro/micro-instances-on-das.png[Micro Instances on DAS]
+image:payara-micro/micro-instances-on-das.png[Micro Instances on DAS]
 
 To send an administration command:
 
@@ -30,7 +30,7 @@ To send an administration command:
 . Enter the asadmin command in the textbox
 . Press *Send Asadmin Command*
 
-image:/images/payara-micro/sending-asadmin-command-from-the-das-to-micro.png[Send commands from DAS]
+image:payara-micro/sending-asadmin-command-from-the-das-to-micro.png[Send commands from DAS]
 
 [[sending-asadmin-commands-from-the-command-line]]
 == Sending Asadmin Commands from the Command Line

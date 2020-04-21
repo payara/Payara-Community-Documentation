@@ -40,7 +40,7 @@ To create a new deployment group. Navigate to the Deployment Groups node in the 
 tree, click on the New button and give the deployment group a unique name. From
 this screen it is also possible to add a number of new server instances if desired,
 however it is possible to add existing instances to the group later.
-image:/images/deployment-groups/deployment-group-new.png[Create New Deployment Group]
+image:deployment-groups/deployment-group-new.png[Create New Deployment Group]
 
 === Using asadmin commands
 To create a new deployment group run the command;
@@ -57,7 +57,7 @@ instances are not deleted.
 
 === Using the Administration Console
 To delete a deployment group. Navigate to the group in the console, select it and choose delete.
-image:/images/deployment-groups/delete-deployment-group.png[Delete a Deployment Group]
+image:deployment-groups/delete-deployment-group.png[Delete a Deployment Group]
 
 
 === Using asadmin commands
@@ -73,7 +73,7 @@ When you have an existing standalone instance it can be assigned to a deployment
 using the administration console and via asadmin. To add an existing instance to
 a deployment group. Navigate to the deployment group in the administration Console and
 then select the instance in the drop down from the Instances tab.
-image:/images/deployment-groups/add-server-to-dg.png[Add a Server to a Deployment Group]
+image:deployment-groups/add-server-to-dg.png[Add a Server to a Deployment Group]
 The same can be achieved using the asadmin command;
 [source, shell]
 ----
@@ -84,7 +84,7 @@ TIP: An instance can be in many deployment Groups
 === Removing an Instance
 If you want to remove an instance from a deployment group. Navigate to the deployment group,
 select the instance and choose remove from the "more actions..." drop down.
-image:/images/deployment-groups/remove-server-from-dg.png[Remove a Server from a Deployment Group]
+image:deployment-groups/remove-server-from-dg.png[Remove a Server from a Deployment Group]
 The same can be acheived using the asadmin command.
 [source, shell]
 ----
@@ -100,7 +100,7 @@ stopped and restarted. To do this, navigate to the deployment group and choose "
 TIP: These commands are Data Grid safe and restart the deployment group in
 such a way as to minimize the danger of Data Grid disruption.
 
-image:/images/deployment-groups/lifecycle-dg.png[Server Lifecycle Management]
+image:deployment-groups/lifecycle-dg.png[Server Lifecycle Management]
 
 The same can be achieved using the asadmin commands;
 [source, shell]
@@ -115,7 +115,7 @@ To deploy an application to a deployment group you just select the deployment gr
 name in the list of targets in the usual way. This can be done both on the Applications
  tab of the Deployment Group or on the Applications section of the administration console.
 
-image:/images/deployment-groups/deploy-to-dg.png[Deploy to a deployment group]
+image:deployment-groups/deploy-to-dg.png[Deploy to a deployment group]
 
 To deploy an application using asadmin just specify the deployment group as a target when
 running the deploy command.

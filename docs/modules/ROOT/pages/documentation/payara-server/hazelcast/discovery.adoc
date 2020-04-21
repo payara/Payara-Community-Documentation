@@ -91,7 +91,7 @@ subjects:
 The domain discovery mode can be configured in the admnistration console under the Data Grid node.
 The discovery mode set applies domain wide.
 
-image:/images/domain-datagrid/discovery-mode.png[Domain Discovery Mode]
+image:domain-datagrid/discovery-mode.png[Domain Discovery Mode]
 
 == Configuration via Asadmin
 

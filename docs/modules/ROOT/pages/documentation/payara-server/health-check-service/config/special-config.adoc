@@ -6,7 +6,7 @@ They do not have a threshold range configuration, instead opting for different a
 
 Here's a configuration sample of the *Hogging Threads* checker:
 
-image:/images/healthcheck/hogging-threads-checker-configuration.png[Hogging Threads Checker Configuration in the Admin Console]
+image:healthcheck/hogging-threads-checker-configuration.png[Hogging Threads Checker Configuration in the Admin Console]
 
 The following are the attributes used to configure this checker:
 
@@ -18,7 +18,7 @@ thread in order for the service to send notifications. Its default value is **3*
 
 And here's a configuration sample for the *Stuck Threads* checker:
 
-image:/images/healthcheck/stuck-threads-checker-configuration.png[Stuck Threads Checker Configuration in the Admin Console]
+image:healthcheck/stuck-threads-checker-configuration.png[Stuck Threads Checker Configuration in the Admin Console]
 
 The following are the attributes used to configure this checker:
 

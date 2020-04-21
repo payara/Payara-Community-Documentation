@@ -11,7 +11,7 @@ _Since Payara Platform 5.183_
 To configure the Metrics in the Admin Console, go to Configuration 
 → [instance-configuration (like server-config)] → MicroProfile → Metrics:
 
-image:/images/microprofile/metrics.png[Set Metrics Configuration]
+image:microprofile/metrics.png[Set Metrics Configuration]
 
 [[using-asadmin-commands]]
 == Using Asadmin Commands

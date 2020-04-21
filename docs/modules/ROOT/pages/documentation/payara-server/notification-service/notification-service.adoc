@@ -33,4 +33,4 @@ log notification event that would get published by another service.
 
 The Notification service can be configured through the admin console:
 
-image:/images/notification-service/general-config.png[Notification Service General Configuration]
+image:notification-service/general-config.png[Notification Service General Configuration]

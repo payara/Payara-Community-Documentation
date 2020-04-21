@@ -11,7 +11,7 @@ can be then easily parsed by a JSON parser for further data processing.
 To enable the JSON formatter using the Admin Console, just select `JSON`
 from the list of Logging Formats, either for `Console` or `Log File`:
 
-image:/images/logging/json_config.png[JSON format configuration in Web Console]
+image:logging/json_config.png[JSON format configuration in Web Console]
 
 The following administration command will enable the JSON formatter:
 
@@ -22,7 +22,7 @@ asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.form
 
 Once the JSON formatter is enabled, the log file may look similar to this sample:
 
-image:/images/logging/json_example.png[Example log file with JSON format]
+image:logging/json_example.png[Example log file with JSON format]
 
 [[add-an-underscore-prefix]]
 == Add an underscore prefix
@@ -39,4 +39,4 @@ asadmin> set-log-attributes fish.payara.deprecated.jsonlogformatter.underscorepr
 By default, `fish.payara.deprecated.jsonlogformatter.underscoreprefix` property value is false.
 Once underscore prefix enabled, all JSON fields should be prefixed with underscore, similar to this sample:
 
-image:/images/logging/json_underscore_prefix_example.png[Example log file with the underscore prefix in JSON fields]
+image:logging/json_underscore_prefix_example.png[Example log file with the underscore prefix in JSON fields]

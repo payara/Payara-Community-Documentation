@@ -27,7 +27,7 @@ JDK Versions for JVM Options can be configured in three different ways: Using th
 
 To configure the JDK versions for JVM options in the admin console, head to the *Configurations -> <instance configuration> -> JVM Settings* and on the *JVM Options* tab specify the versions in the table:
 
-image::/images/jvm-options/configure-jdk-versions-admin-console.png[Configure JDK versions for JVM options in Admin console]
+image::jvm-options/configure-jdk-versions-admin-console.png[Configure JDK versions for JVM options in Admin console]
 
 You can omit either the minimum or maximum versions by leaving the fields blank.
 

@@ -15,7 +15,7 @@ Existing protocols can be configured from the admin console or with asadmin
 commands. The protocol configurations can be found in the admin console under
 *Configurations* -> *your-config* -> *Network Config* -> *Protocols*.
 
-image::/images/http/protocol-config.png[Configuration Page Location]
+image::http/protocol-config.png[Configuration Page Location]
 
 The following fields can be configured for protocols:
 

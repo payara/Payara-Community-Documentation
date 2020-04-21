@@ -69,14 +69,14 @@ To set up Hazelcast for persistence:
 . Select the instance's configuration from the page tree:
 . Select _"Availability Service"_ to view the _"Availability Service"_ page:
 +
-image::/images/hazelcast/hazelcast-admin-console-select-availability-service.png[Availability Service]
+image::hazelcast/hazelcast-admin-console-select-availability-service.png[Availability Service]
 
 ==== Setting Web Persistence
 
 . Open the "Web Container Availability" tab, and select "Hazelcast" from the
 Persistence Type drop-down menu:
 +
-image::/images/hazelcast/hazelcast-admin-console-availability-enable-web-persistence.png[Web Persistence]
+image::hazelcast/hazelcast-admin-console-availability-enable-web-persistence.png[Web Persistence]
 
 . Save the changes.
 
@@ -85,7 +85,7 @@ image::/images/hazelcast/hazelcast-admin-console-availability-enable-web-persist
 . Open the "EJB Container Availability" tab and select "Hazelcast" from the
 Persistence Type drop-down menu:
 +
-image::/images/hazelcast/hazelcast-admin-console-availability-enable-ejb-persistence.png[EJB Persistence]
+image::hazelcast/hazelcast-admin-console-availability-enable-ejb-persistence.png[EJB Persistence]
 
 . Save the changes.
 

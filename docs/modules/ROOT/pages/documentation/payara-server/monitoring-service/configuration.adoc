@@ -10,7 +10,7 @@ can be configured by using the web console or administration commands.
 To configure the Monitoring Service in the Administration Console, go to
 _Configuration -> [instance-configuration (like server-config)] -> Monitoring_:
 
-image:/images/monitoring-service/monitoring-service-admin-console.png[Monitoring Service Configuration in the Admin Console]
+image:monitoring-service/monitoring-service-admin-console.png[Monitoring Service Configuration in the Admin Console]
 
 Check the *Monitoring Service* box to enable the Monitoring Service.
 

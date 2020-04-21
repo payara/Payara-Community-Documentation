@@ -45,7 +45,7 @@ Click the _New_ button and enter the following values:
 
 Click Next and then click Finish on the next screen, accepting the default values.
 
-image:/images/connection-pools/connection_pools_1.jpg[New JDBC Connection Pool]
+image:connection-pools/connection_pools_1.jpg[New JDBC Connection Pool]
 
 Add the following properties to the connection pool by going to the _Additional Properties_
 tab of the connection pool:
@@ -61,7 +61,7 @@ tab of the connection pool:
 |connectionAttributes | |Other connection attributes (supported by the JDBC driver)
 |=======================================================================
 
-image:/images/connection-pools/connection_pools_2.png[Connection pool properties]
+image:connection-pools/connection_pools_2.png[Connection pool properties]
 
 To test the connection attributes, go back to the _General_ tab and click the
 _Ping_ button at the top of the screen. You should see a message stating that the

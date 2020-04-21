@@ -12,7 +12,7 @@ JavaMail sessions are added from the `Resources` tab on the left pane of
 the Admin Console. Select `New` on the `Sessions` table to create a new
 JavaMail session:
 
-image:/images/mail/admin-console-javamail-location.png[image]
+image:mail/admin-console-javamail-location.png[image]
 
 Emails will be sent with a return address of `example@example.com`,
 using `SMTP` to send mail and `IMAP` to retrieve mail. With the current
@@ -33,7 +33,7 @@ with your email provider for their specific configuration.
 
 The example below shows the configuration of a mail host:
 
-image:/images/mail/admin-console-javamail-configuration.png[image]
+image:mail/admin-console-javamail-configuration.png[image]
 
 [[from-asadmin]]
 === Configurating a JavaMail session using an asadmin command

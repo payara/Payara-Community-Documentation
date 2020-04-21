@@ -8,7 +8,7 @@ One way to ensure no accidental changes are made would be to revoke access to th
 
 As an alternative, Payara Server now ships with a configurable warning bar to ensure any user will see a warning message in while viewing the console:
 
-image:/images/admin-console/environment-warning.png[alt="Payara Server 172 Environment Warning screenshot"]
+image:admin-console/environment-warning.png[alt="Payara Server 172 Environment Warning screenshot"]
 
 The warning can be configured in the admin console as seen in the screenshot above. There is a new "_Environment Warning_" tab in the "_Domain_" section which allows you to configure the text and colours of the warning message.
 

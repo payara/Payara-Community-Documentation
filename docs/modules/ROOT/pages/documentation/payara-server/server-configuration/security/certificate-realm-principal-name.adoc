@@ -26,7 +26,7 @@ This feature can be configured on the default certificate realm as follows on th
 . Click the `Add Property` button
 . Set the property _Name_ to be `common-name-as-principal-name` and set the _Value_ to `true`
 
-image:/images/security/common-name-as-principal-name.png[Common Name As Principal Name Setting]
+image:security/common-name-as-principal-name.png[Common Name As Principal Name Setting]
 
 [[using-asadmin-utility]]
 === Using an `asadmin` command

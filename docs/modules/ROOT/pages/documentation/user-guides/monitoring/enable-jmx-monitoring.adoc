@@ -17,7 +17,7 @@ With Payara Server started, VisualVM will detect the running Payara Server as an
 instance of GlassFish (provided both Payara Server and VisualVM are started as
 the same user):
 
-image:/images/guides/monitoring/visual-vm1.png[Payara Server in VisualVM]
+image:guides/monitoring/visual-vm1.png[Payara Server in VisualVM]
 
 NOTE: This automatic detection of Payara Server uses `jstatd` to connect to the
 target JVM. MBeans are still accessible here, but this is not using JMX. A later
@@ -32,7 +32,7 @@ garbage collection information.
 To view the MBeans from Payara Server as well as the JVM, we must execute a JMX
 _operation_ to start the AMX subsystem.
 
-image:/images/guides/monitoring/visual-vm2.png[Booting AMX]
+image:guides/monitoring/visual-vm2.png[Booting AMX]
 
 As shown in the image below, expand the `amx-support` folder and select the
 `boot-amx` MBean. The default selected tab will be `Attributes`, so select the
@@ -62,12 +62,12 @@ this will be raw data. Since we have not yet enabled monitoring, click the
 "Configure Monitoring" link for the relevant server instance. In the image below
 we only have the DAS ("`server`") to choose:
 
-image:/images/guides/monitoring/admin-console-monitoring1.png[Click the link for the relevant instance]
+image:guides/monitoring/admin-console-monitoring1.png[Click the link for the relevant instance]
 
 That link will take you directly to the correct page for the `server-config` -
 the place where we enable monitoring for the DAS as shown:
 
-image:/images/guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels of monitoring]
+image:guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels of monitoring]
 
 Use the icon to select all available modules, change the value for the "Level"
 dropdown to `HIGH` and click "Change Level". This has not yet saved the changes,
@@ -109,7 +109,7 @@ are easy to identify; all MBeans which show monitoring data are suffixed with
 _"-mon"_. A good example is `web-request-mon`, which will show metrics on requests
 for each module in the available Virtual Servers:
 
-image:/images/guides/monitoring/visual-vm3.png[Web request metrics in VisualVM]
+image:guides/monitoring/visual-vm3.png[Web request metrics in VisualVM]
 
 In the screenshot, the Admin Console module is selected and the `requestcount`
 attribute is selected. Each attribute in **bold** is a _composite attribute_,

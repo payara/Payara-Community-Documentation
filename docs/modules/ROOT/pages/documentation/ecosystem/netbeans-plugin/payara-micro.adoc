@@ -7,23 +7,23 @@
 
 * On the Choose Project panel, select *Maven* from Categories, select *Payara Micro Application* from Projects, and click Next.
 
-image::/images/netbeans-plugin/payara-micro/create-new-project.png[Select Payara Micro Application]
+image::netbeans-plugin/payara-micro/create-new-project.png[Select Payara Micro Application]
 
 * On the Name and Location panel, enter MicroApp as the project name, set the Project Location, set the GAV details, and then click Next.
 
-image::/images/netbeans-plugin/payara-micro/create-new-project-set-name.png[Enter Application name]
+image::netbeans-plugin/payara-micro/create-new-project-set-name.png[Enter Application name]
 
 * Select Payara Micro version. Click *Finish*.
 
-image::/images/netbeans-plugin/payara-micro/create-new-project-set-version.png[Select Payara Micro version]
+image::netbeans-plugin/payara-micro/create-new-project-set-version.png[Select Payara Micro version]
 
 * When you click Finish, the IDE creates the following projects from the Payara Micro maven archetype.
 
-image::/images/netbeans-plugin/payara-micro/new-project-created.png[Application created]
+image::netbeans-plugin/payara-micro/new-project-created.png[Application created]
 
 * Now Simply Run it.
 
-image::/images/netbeans-plugin/payara-micro/new-project-running.png[Application running]
+image::netbeans-plugin/payara-micro/new-project-running.png[Application running]
 
 [[override-goals]]
 === Override default maven goals

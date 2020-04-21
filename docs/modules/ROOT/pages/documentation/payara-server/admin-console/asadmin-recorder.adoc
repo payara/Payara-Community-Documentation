@@ -16,9 +16,9 @@ whether or not the asadmin recorder feature is enabled or not. Clicking
 this button will enable or disable the asadmin recorder feature
 respectively:
 
-image:/images/recorder/enable-recorder.png[Enable recorder in Web Console]
+image:recorder/enable-recorder.png[Enable recorder in Web Console]
 
-image:/images/recorder/disable-recorder.png[Disable recorder in Web Console]
+image:recorder/disable-recorder.png[Disable recorder in Web Console]
 
 Once enabled, actions in the admin console that have a corresponding
 `asadmin` command will be recorded to a file. By default, this file is
@@ -45,7 +45,7 @@ of disabling the asadmin recorder.
 To configure the asadmin recorder, navigate to the following page in the
 admin console: _server -> Asadmin Recorder_:
 
-image:/images/recorder/recorder-config.png[Asadmin recorder configuration]
+image:recorder/recorder-config.png[Asadmin recorder configuration]
 
 You will be presented with the following configuration options:
 

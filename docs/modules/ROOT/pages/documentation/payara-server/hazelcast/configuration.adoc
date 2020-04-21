@@ -46,7 +46,7 @@ To set the Hazelcast configuration from a Hazelcast Configuration file:
 Configuration file and click "Save". This path is relative to your domain
 configuration directory:
 +
-image::/images/hazelcast/hazelcast-admin-console-set-configuration-file.png[Hazelcast Set Configuration File]
+image::hazelcast/hazelcast-admin-console-set-configuration-file.png[Hazelcast Set Configuration File]
 
 [[setting-hazelcast-configuration-file-asadmin]]
 === Setting a Hazelcast Configuration File using asadmin
@@ -67,7 +67,7 @@ directory.
 Some Hazelcast configuration settings apply to the whole domain.
 Navigate to the _Data Grid page for the domain wide settings.
 
-image::/images/hazelcast/hazelcast-admin-console-domain-hazelcast-options.png[Data Grid Domain Wide Options]
+image::hazelcast/hazelcast-admin-console-domain-hazelcast-options.png[Data Grid Domain Wide Options]
 
 The following configuration options are available here:
 
@@ -139,7 +139,7 @@ Payara Server domains and Payara Micro instances.
 
 Navigate to the _Data Grid_ page for the specific configuration.
 
-image::/images/hazelcast/hazelcast-admin-console-config-hazelcast-options.png[Data Grid Domain Wide Options]
+image::hazelcast/hazelcast-admin-console-config-hazelcast-options.png[Data Grid Domain Wide Options]
 
 The following configuration options are available here:
 
@@ -371,7 +371,7 @@ after an instance has been created.
 
 . On the Configuration Specific Data Grid Configuration, set your Data Grid Start Port and click Save.
 
-image::/images/hazelcast/hazelcast-admin-console-config-data-grid-start-port.png[Config Specific Data Grid Start Port Option]
+image::hazelcast/hazelcast-admin-console-config-data-grid-start-port.png[Config Specific Data Grid Start Port Option]
 
 [[setting-hazelcast-configuration-file-asadmin]]
 ==== Setting a Config Specific Data Grid Start Port using asadmin CLI

@@ -36,23 +36,23 @@ and generate a notification token are as follows:
 if one does not exist. The example below shows the creation of a room
 called "_payara-notifications_"
 +
-image:/images/notification-service/hipchat/hipchat-create-room.png[Create Hipchat room]
+image:notification-service/hipchat/hipchat-create-room.png[Create Hipchat room]
 +
 After you have created the target room, or if a room already exists, visit
 `https://${your-team-name}.hipchat.com/rooms` and search for the room
 name to filter out any others, as shown below:
 +
-image:/images/notification-service/hipchat/hipchat-view-room.png[View Hipchat room]
+image:notification-service/hipchat/hipchat-view-room.png[View Hipchat room]
 
 . Select your room and select the "*Tokens*" link in the left-hand menu to
 add a new notification token:
 +
-image:/images/notification-service/hipchat/hipchat-room-tokens.png[Select Hipchat Tokens]
+image:notification-service/hipchat/hipchat-room-tokens.png[Select Hipchat Tokens]
 
 . Finally, give your token an informative label, since this will be displayed
 in your room when notifications are received:
 +
-image:/images/notification-service/hipchat/hipchat-create-token.png[Create Hipchat room token]
+image:notification-service/hipchat/hipchat-create-token.png[Create Hipchat room token]
 
 [[payara-server-configuration]]
 == Payara Server Configuration
@@ -61,7 +61,7 @@ Once you have a token, the configuration of the notifier within Payara
 Server involves just one step. In the Admin Console, simply add the room
 name and token to the appropriate fields, as shown below:
 
-image:/images/notification-service/hipchat/admin-console-configuration.png[Configuring Hipchat Notifier on Admin Console]
+image:notification-service/hipchat/admin-console-configuration.png[Configuring Hipchat Notifier on Admin Console]
 
 Make sure that the *Enabled* box is ticked so that the notifier will be
 used. If you would like the changes to take effect without needing a
@@ -116,4 +116,4 @@ service you are using are enabled, you should see output like the
 example, which shows the Healthcheck service outputting CPU information
 every _3 seconds_:
 
-image:/images/notification-service/hipchat/hipchat-notifications.png[image] .
+image:notification-service/hipchat/hipchat-notifications.png[image] .

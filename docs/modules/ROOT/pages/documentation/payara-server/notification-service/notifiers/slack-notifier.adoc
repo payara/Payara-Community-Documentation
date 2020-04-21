@@ -38,12 +38,12 @@ additional options to format incoming messages to the channel.
 https://payara.slack.com/apps. Then, in the search box type *Incoming Webhooks*.
 A suggestion will appear in the results display:
 +
-image:/images/notification-service/slack/application-portal.png[Slack Application Portal]
+image:notification-service/slack/application-portal.png[Slack Application Portal]
 
 . Now, proceed to select the channel that the WebHook will use to direct
 the notification events to:
 +
-image:/images/notification-service/slack/channel-selection.png[Incoming WebHook Channel Selection]
+image:notification-service/slack/channel-selection.png[Incoming WebHook Channel Selection]
 +
 NOTE: It's recommended to choose a _private_ channel, since it will keep these
 notifications events protected in case of unwanted disclosure and it won't
@@ -56,7 +56,7 @@ attention to the WebHook URL, which is usually follows this structure:
 +
 Like in the following sample:
 +
-image:/images/notification-service/slack/webhook-url.png[WebHook URL Sample]
+image:notification-service/slack/webhook-url.png[WebHook URL Sample]
 +
 We will use these 3 tokens when configuring the server's integration
 later.
@@ -72,7 +72,7 @@ notification messages
 be visualized in the messages We recommend using one of the Payara logos
 like in this sample:
 +
-image:/images/notification-service/slack/webhook-additional-settings.png[WebHook Additional Settings]
+image:notification-service/slack/webhook-additional-settings.png[WebHook Additional Settings]
 
 [[payara-server-configuration]]
 == Payara Server Configuration
@@ -89,7 +89,7 @@ To configure the Notification Service in the Administration Console, go
 to _Configuration -> [instance-configuration (like server-config)] ->
 Notification Service_ and click on the *Slack* tab:
 
-image:/images/notification-service/slack/admin-console-configuration.png[Slack Configuration on Admin Console]
+image:notification-service/slack/admin-console-configuration.png[Slack Configuration on Admin Console]
 
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) and input the three tokens highlighted in the
@@ -161,4 +161,4 @@ https://api.slack.com/docs/rate-limits[rate limit for the Slack API]
 Here's a sample of how the notifications are visualized on the Slack
 Desktop application:
 
-image:/images/notification-service/slack/notifications-sample.png[Slack Notifications Sample]
+image:notification-service/slack/notifications-sample.png[Slack Notifications Sample]

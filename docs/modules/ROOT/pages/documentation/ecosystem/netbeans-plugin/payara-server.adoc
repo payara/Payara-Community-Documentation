@@ -29,7 +29,7 @@ license agreement.
 That's how to add Payara Server to NetBeans. You'll see a window where the final
 configuration settings can be changed.
 
-image::/images/netbeans-plugin/payara-server/netbeans-plugin-configure-server.png[Server Configuration Window]
+image::netbeans-plugin/payara-server/netbeans-plugin-configure-server.png[Server Configuration Window]
 
 The previous options are all repeated here, with a few new options. You can
 click the *help* button in the bottom right to see what they all do in detail.
@@ -42,7 +42,7 @@ Disabling the registered Derby server will speed up server start time.
 All of the management of Payara Server from NetBeans is done through the
 *Services* tab which can be found next to the *Projects* and *Files* tabs.
 
-image::/images/netbeans-plugin/payara-server/netbeans-services.png[NetBeans Services]
+image::netbeans-plugin/payara-server/netbeans-services.png[NetBeans Services]
 
 Once Payara Server is added to NetBeans it can be found under *Servers* with
 the configured name. Right clicking on the server let's you do the following
@@ -68,7 +68,7 @@ First, the application run settings need to be configured to use Payara Server.
 Go to *Properties* on a project and then the *Run* section of this window. This
 menu lists the configuration for deploying the application.
 
-image::/images/netbeans-plugin/payara-server/netbeans-project-run-configuration.png[Project Run Configuration]
+image::netbeans-plugin/payara-server/netbeans-project-run-configuration.png[Project Run Configuration]
 
 Select the Payara Server you have configured. You can also select a context path
 for the application to be deployed to, as well as NetBeans behaviour when
@@ -87,12 +87,12 @@ of the application redeployment operation and dynamically replaces the classload
 
 The Hot Deploy mode can be enabled in the Apache NetBeans IDE from the *Properties* panel of the Payara Server.
 
-image::/images/netbeans-plugin/payara-server/netbeans-plugin-hot-deploy.png[Enable Hot Deploy]
+image::netbeans-plugin/payara-server/netbeans-plugin-hot-deploy.png[Enable Hot Deploy]
 
 Also, make sure to enable the *Compile on Save* and *Deploy on Save* option from the *Properties* panel of the Project.
 
-image::/images/netbeans-plugin/payara-server/netbeans-project-compile-on-save.png[Compile on Save]
-image::/images/netbeans-plugin/payara-server/netbeans-project-deploy-on-save.png[Deploy on Save]
+image::netbeans-plugin/payara-server/netbeans-project-compile-on-save.png[Compile on Save]
+image::netbeans-plugin/payara-server/netbeans-project-deploy-on-save.png[Deploy on Save]
 
 NOTE: The Hot Deploy feature is in technical preview and only supported by Maven Web Applications from the Apache NetBeans IDE v11.3.
 
