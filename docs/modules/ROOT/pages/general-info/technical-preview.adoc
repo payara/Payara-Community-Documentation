@@ -11,6 +11,4 @@ Features released in technical preview usually become standard full features in 
 
 Features in technical preview have the following warning in their documentation:
 
-{% set previewVersion = currentVersion %}
-
-{% include "/fragments/tech-preview.adoc" %}
+include::partial$tech-preview.adoc[]
