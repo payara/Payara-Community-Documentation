@@ -55,7 +55,7 @@ in the following example:
 java -jar payara-micro.jar --addLibs third-party.jar --addLibs /opt/application/jars --addLibs ~/v/mysql-jdbc-driver.jar
 ----
 
-This argument cannot be used when instance is started via <<starting.adoc#starting-an-instance-from-rootdir-launcher, root directory launcher>>. 
+This argument cannot be used when instance is started via xref:documentation/payara-micro/starting-instance.adoc[root directory launcher]. 
 It is however accepted when creating a launcher via `--outputlauncher` and provided libraries will be added to launcher's classpath.
 
 [[programmatically-using-api]]
