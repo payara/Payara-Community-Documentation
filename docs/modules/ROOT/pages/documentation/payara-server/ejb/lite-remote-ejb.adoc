@@ -3,9 +3,8 @@
 
 _Since Payara Server 5.191_
 
-{% set previewVersion = currentVersion %}
-
-{% include "/fragments/tech-preview.adoc" %}
+:previewVersion: {currentVersion}
+include::partial$tech-preview.adoc[]
 
 Payara Server and GlassFish have supported classic remote EJB since its inception. Classic remote EJB uses the **IIOP-RMI** (Internet Inter-ORB Protocol Remote Method Invocation) protocol for transport communication and the https://omg.org/spec/SEC[CSIv2] (Common Secure Interoperability Protocol Version 2) protocol for security.
 

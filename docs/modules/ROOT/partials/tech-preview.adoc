@@ -12,8 +12,8 @@ If set previewVersion = book.currentVersion, the fragment will be visible for al
 
 //// 
 
-{% if book.currentVersion == previewVersion %}
+ifeval::[{currentVersion} == {previewVersion}]
 
 WARNING: This feature is released in *_technical preview_*. It's fully usable and supported but it's subject to change in future versions. Read more in xref:/general-info/technical-preview.adoc[Features in Technical Preview].
 
-{% endif %}
+endif::[]

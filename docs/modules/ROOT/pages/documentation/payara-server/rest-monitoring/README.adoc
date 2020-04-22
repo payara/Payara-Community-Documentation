@@ -1,8 +1,7 @@
 = REST monitoring
 
-{% set previewVersion = currentVersion %}
-
-{% include "/fragments/tech-preview.adoc" %}
+:previewVersion: {currentVersion}
+include::partial$tech-preview.adoc[]
 
 This section covers how to use the REST monitoring functionality in
 Payara Server {currentVersion}.

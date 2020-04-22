@@ -3,9 +3,8 @@
 
 _Since Payara Server 5.181_
 
-{% set previewVersion = currentVersion %}
-
-{% include "/fragments/tech-preview.adoc" %}
+:previewVersion: {currentVersion}
+include::partial$tech-preview.adoc[]
 
 It is possible to persist an EJB Timer to the Domain Data Grid rather than to a database. The same feature is standard in xref:/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
 
