@@ -26,4 +26,5 @@ package-lock.json
 
 #Eclipse
 .project
+migrate-antora.sh
 
