@@ -1,0 +1,37 @@
+= Ecosystem
+
+The Payara Foundation not only provides application servers in the form of Payara
+Server, Payara Micro, and Payara MicroProfile; there are also satellite projects
+which complement and enhance the developer experience.
+
+These include:
+
+xref:maven-plugin.adoc[Payara Micro Maven Plugin]::
+A plugin for Apache Maven is available for Payara Micro.
+
+xref:maven-archetype.adoc[Payara Micro Maven Archetype]::
+An archetype for Apache Maven is available for Payara Micro.
+
+xref:gradle-plugin.adoc[Payara Micro Gradle Plugin]::
+A plugin for Gradle is available for Payara Micro.
+
+xref:eclipse-plugin.adoc[Payara Tools Eclipse Plugin]::
+A plugin for using Payara is available for Eclipse.
+
+xref:netbeans-plugin/README.adoc[Payara NetBeans Plugin]::
+A plugin for using Payara is available for NetBeans.
+
+xref:cloud-connectors/README.adoc[Cloud Connectors]::
+Cloud Connectors are a collection of JCA adapters which can interact with popular
+message brokers, including:
+* xref:cloud-connectors/amazon-sqs.adoc[Amazon SQS]
+* xref:cloud-connectors/apache-kafka.adoc[Apache Kafka]
+* xref:cloud-connectors/azure-sb.adoc[Azure Service Bus]
+* xref:cloud-connectors/mqtt.adoc[MQTT]
+
+xref:arquillian-containers/README.adoc[Arquillian Containers]::
+Arquillian containers help perform integration tests for application servers. There are various containers available for Payara:
+* xref:arquillian-containers/payara-micro.adoc[Payara Micro]
+* Payara Embedded (not yet documented)
+* Payara Remote (not yet documented)
+* Payara Managed (not yet documented)
