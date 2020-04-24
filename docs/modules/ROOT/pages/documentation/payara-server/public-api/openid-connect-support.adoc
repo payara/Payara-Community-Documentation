@@ -1,0 +1,292 @@
+[[openid-connect-support]]
+= OpenID Connect Support
+
+_Since Payara Server 4.1.2.183 and 5.183_
+
+The Payara API provides a `@OpenIdAuthenticationDefinition` annotation that creates an authorization mechanism for OpenID Connect support. 
+This works in the same way as other authorization mechanisms in the Java EE Security API.
+
+[[usage]]
+== Usage
+
+The OpenID Connect authentication mechanism is defined through the `@OpenIdAuthenticationDefinition` annotation. 
+Specifying this in a valid place as defined by the Java EE Security API will create the mechanism. 
+Often this may mean that any class is a valid position.
+
+[[usage-example]]
+=== Example
+
+Here's an example that configures a OpenID Connect client:
+
+[source, java]
+----
+@OpenIdAuthenticationDefinition(
+       providerURI = "https://sample-openid-server.com",
+       clientId = "87068hgfg5675htfv6mrucov57bknst.apps.sample.com",
+       clientSecret = "{my-secret}",
+       redirectURI = "${baseURL}/callback",
+       extraParameters = {
+            "testKey=testValue",
+            "testKey2=testValue2"
+      
+)
+public class SecurityBean {
+
+}
+----
+
+See xref:https://github.com/javaee-samples/vendoree-samples/tree/master/payara/openid[this sample project] for a more detailed example.
+
+When defining a OpenID Connect flow within an application deployed on Payara Server, 
+it is possible to retrieve the access token, identity token, user claims and the other authentication information within any bean in the scope of the callback/redirectURI resource used to configure the authentication:
+
+[source, java]
+----
+@WebServlet("/callback")
+public class CallbackServlet extends HttpServlet {
+    
+    @Inject
+    OpenIdContext context;
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+        //Here's the caller name
+        out.println(context.getCallerName());
+        //Here's the caller groups
+        out.println(context.getCallerGroups());
+        //Here's the unique subject identifier within the issuer
+        out.println(context.getSubject());
+        //Here's the access token
+        out.println(context.getAccessToken());
+        //Here's the identity token
+        out.println(context.getIdentityToken());
+        //Here's the user claims
+        out.println(context.getClaimsJson());
+   
+}
+----
+
+[[configuration]]
+== Configuration
+
+OpenID Client can be configured with both `@OpenIdAuthenticationDefinition` annotation attributes and Microprofile Config properties.
+The annotation and MicroProfile properties has several configuration options.
+
+They are detailed below.
+
+.Configuration Options
+|===
+| Option | MP Config property | Required | Description | Default value | Requirements
+
+| `providerURI`
+| `payara.security.openid.providerURI`
+| true
+| The provider uri to discover the metadata of the OpenID Connect provider.
+|
+| The endpoint must be HTTPS.
+
+| `clientId`
+| `payara.security.openid.clientId`
+| true
+| The client identifier issued when the application was registered.
+|
+| N/A.
+
+| `clientSecret`
+| `payara.security.openid.clientSecret`
+| true
+| The client secret for the registered application.
+|
+| N/A.
+
+| `redirectURI`
+| `payara.security.openid.redirectURI`
+| true
+| The URL to redirect the user to upon successful authentication.
+| ${baseURL}/Callback
+| Must be equal to one set in the OpenID Connect provider.
+
+| `scope`
+| `payara.security.openid.scope`
+| false
+| The scopes requested from the OpenID Connect provider.
+| {openid, email, profile}
+| N/A.
+
+| `responseType`
+| `payara.security.openid.responseType`
+| false
+| Response Type value defines the processing flow to be used.
+| code
+| N/A.
+
+| `responseMode`
+| `payara.security.openid.responseMode`
+| false
+| Informs the Authorization Server of the mechanism to be used for returning parameters from the Authorization Endpoint.
+|
+| N/A.
+
+| `prompt`
+| `payara.security.openid.prompt`
+| false
+| The prompt value specifies whether the authorization server prompts the user for re-authentication and consent.
+|
+| N/A.
+
+| `display`
+| `payara.security.openid.display`
+| false
+| The display value specifying how the authorization server displays the authentication and consent user interface pages.
+| page
+| N/A.
+
+| `useNonce`
+| `payara.security.openid.useNonce`
+| false
+| Enables string value used to mitigate replay attacks.
+| true
+| N/A.
+
+| `useSession`
+| `payara.security.openid.useSession`
+| false
+| If enabled state & nonce value stored in session otherwise in cookies.
+| true
+| N/A.
+
+| `jwksConnectTimeout`
+| `payara.security.openid.jwks.connect.timeout`
+| false
+| Sets the connect timeout(in milliseconds) for Remote JWKS retrieval.
+| 500
+| Value must not be negative and if value is zero then infinite timeout.
+
+| `jwksReadTimeout`
+| `payara.security.openid.jwks.read.timeout`
+| false
+| Sets the read timeout(in milliseconds) for Remote JWKS retrieval.
+| 500
+| Value must not be negative and if value is zero then infinite timeout.
+
+| `tokenAutoRefresh`
+| `payara.security.openid.token.autoRefresh`
+| false
+| Enables or disables the automatically performed refresh of Access and Refresh Token.  _Since Payara Server 5.193_
+| false
+| N/A.
+
+| `tokenMinValidity`
+| `payara.security.openid.token.minValidity`
+| false
+| Sets the minimum validity time(in milliseconds) the Access Token must be valid before it is considered expired. _Since Payara Server 5.193_
+| 10000
+| Value must not be negative.
+
+| `claimsDefinition.callerNameClaim`
+| `payara.security.openid.callerNameClaim`
+| false
+| Defines the name of callerName claim and maps the claim's value to caller name value in IdentityStore#validate. _Since Payara Server 5.184_
+| preferred_username
+| N/A.
+
+| `claimsDefinition.callerGroupsClaim`
+| `payara.security.openid.callerGroupsClaim`
+| false
+| Defines the name of callerGroups claim and maps the claim's value to caller groups value in IdentityStore#validate. _Since Payara Server 5.184_
+| groups
+| N/A.
+
+| `extraParameters`
+|
+| false
+| An array of extra options to be sent to the OpenID Connect provider.
+|
+| Must be in the form `"key=value"`.
+|===
+
+*Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
+then the MicroProfile Config property value always take precedence over the `@OpenIdAuthenticationDefinition` annotation value.
+
+[[el-support]]
+=== Expression Language Support
+
+Additionally, the `@OpenIdAuthenticationDefinition` supports the use of expression language (EL) notation for dynamic configuration scenarios. 
+This means that you can use any CDI bean properties to set the OpenID Connect configuration like this:
+
+[source, java]
+----
+@OpenIdAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    redirectURI="#{openidConfigBean.redirectURI}"
+)
+public class SecurityBean {
+}
+----
+
+[[secret-alias]]
+=== Client Secret Aliasing
+
+The client secret can be input directly, or for added security it can be aliased using any of the following features:
+
+- xref:/documentation/payara-server/password-aliases/README.adoc[Password Aliases]
+- xref:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
+- xref:/documentation/microprofile/config.adoc[Config API]
+
+[[google-oidc-integrations]]
+=== Google integration
+
+The Payara API provides the in-built support for Google OpenID Provider via the `@GoogleAuthenticationDefinition` annotation.
+
+==== Request Refresh Token
+To enable the refresh token feature, set the `tokenAutoRefresh` to true 
+and add the `access_type` parameter value to `offline`
+so that application can refresh access tokens when the user is not present at the browser. 
+
+If application requests `offline` access then application can receive access and refresh token. 
+Once application has a refresh token, it can obtain a new access token at any time or as older ones expire.
+Otherwise If application requests `online` access, your application will only receive an access token
+
+[source, java]
+----
+@GoogleAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    ...
+    tokenAutoRefresh = true,
+    extraParameters = {"access_type=offline", "approval_prompt=force"}
+)
+public class SecurityBean {
+}
+----
+
+[[azure-ad-oidc-integrations]]
+=== Azure AD integration
+
+The Payara API also provides the in-built support for Azure AD OpenID Provider via the `@AzureAuthenticationDefinition` annotation.
+
+==== Request Refresh Token
+To receive the refresh token, set the `tokenAutoRefresh` to true and explicitly add the `offline_access` scope to definition.
+
+[source, java]
+----
+@AzureAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    ...
+    tokenAutoRefresh = true,
+    scope = {OPENID_SCOPE, EMAIL_SCOPE, PROFILE_SCOPE, OFFLINE_ACCESS_SCOPE}
+)
+public class SecurityBean {
+}
+----
+
+[[extra-resources]]
+== Extra Resources
+
+To read more about OpenID Connect itself, visit http://openid.net/specs/openid-connect-core-1_0.html
