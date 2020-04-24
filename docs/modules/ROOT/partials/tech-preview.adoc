@@ -1,16 +1,16 @@
 //// 
 
-A fragment to include into a feature which is in tech preview.
+A partial page to include into a feature which is in tech preview.
 Variable "previewVersion" specifies the Payara version in which the feature is in preview
 
 Include with (see general-info/technical-preview.adoc for an example usage):
 
-set previewVersion = "4.1.2.XXX"
+:previewVersion: "4.1.2.XXX"
 include "/fragments/tech-preview.adoc"
 
-If set previewVersion = book.currentVersion, the fragment will be visible for all versions.
+If set {previewVersion} == {currentVersion}, the fragment will be visible for all versions.
 
-//// 
+////
 
 ifeval::[{currentVersion} == {previewVersion}]
 
