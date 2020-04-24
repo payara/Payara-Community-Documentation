@@ -131,7 +131,7 @@ community, manage the workflow of these issues.
 [[documentation]]
 == Documentation
 
-We make use of GitBook to store and host our technical documentation about
+We make use of Antora to store and host our technical documentation about
 Payara, as well as general information (such as this document) about the
 Payara project.
 
