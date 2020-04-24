@@ -61,7 +61,7 @@ instance starts it must discover other Data Grid nodes so that it can join the g
 Once an instance has connected to a Payara Instance that is already a member of the grid then
 it can become a member of the grid.
 
-Payara provides a number of configurable xref:discovery.adoc[Discovery] Modes
+Payara provides a number of configurable xref:documentation/payara-server/hazelcast/discovery.adoc[Discovery] Modes
 
 === Hazelcast
 

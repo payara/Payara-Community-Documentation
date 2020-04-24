@@ -17,10 +17,10 @@ tool.
 These guides aim to give an overview of monitoring Payara Server with JMX. As 
 new guides get added, this section will include:
 
-xref:enable-jmx-monitoring.adoc[How do I enable JMX monitoring in Payara Server?]::
+xref:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc[How do I enable JMX monitoring in Payara Server?]::
 Before anything else, we need to know how to enable JMX monitoring and get
 familiarised with the concepts involved.
-xref:mbeans.adoc[What MBean metrics should I monitor?]::
+xref:documentation/user-guides/monitoring/mbeans.adoc[What MBean metrics should I monitor?]::
 Once monitoring data is enabled through JMX in Payara Server, the next important
 step is to understand which MBeans are most important, and which metrics from
 each MBean can give the most useful information.

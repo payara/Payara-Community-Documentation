@@ -21,7 +21,7 @@ java -jar payara-micro.jar --option1 --option2 ...
 [[persistent-rootdir]]
 == Using Persistent Configuration Directory
 
-When <<../rootdir.adoc#persistent-rootdir, persistent configuration directory>> is reused across restarts (i. e. not running in a container), it is recommended not to specify deployment each time Payara Micro is invoked from that directory.
+When xref:documentation/payara-micro/rootdir.adoc[persistent root configuration directory] is reused across restarts (i. e. not running in a container), it is recommended not to specify deployment each time Payara Micro is invoked from that directory.
 Doing so will cause the application to be deployed twice -- once at startup and second time when deployment section of the command line is processed.
 
 The best approach if your application uses persistent filesystem is to use warmup run for deployment:
