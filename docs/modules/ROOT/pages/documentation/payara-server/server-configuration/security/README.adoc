@@ -5,4 +5,4 @@ This section documents several extensions made to the security mechanisms and AP
 
 Currently, the documented extensions are:
 
-* xref:security-realms.adoc[Security Realms]
+* xref:documentation/payara-server/server-configuration/security/security-realms.adoc[Security Realms]

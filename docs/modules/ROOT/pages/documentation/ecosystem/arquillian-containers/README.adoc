@@ -10,9 +10,9 @@ The Payara Arquillian containers provide various Arquillian containers for integ
 
 In version {currentVersion}, there are containers available for the following distributions:
 
-* xref:payara-micro.adoc[Payara Micro]
+* xref:documentation/ecosystem/arquillian-containers/payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
-* xref:payara-remote.adoc[Payara Remote]
+* xref:documentation/ecosystem/arquillian-containers/payara-remote.adoc[Payara Remote]
 * Payara Managed (not yet documented)
 
 === Obtaining the Containers
@@ -32,7 +32,7 @@ Some containers will be either in development or an early release version. In th
 the same process can be used, but the artifact will need to be built from source.
 The containers can be found in the main Payara source.
 
-Clone the xref:https://github.com/payara/Payara[Payara] Git repository:
+Clone the https://github.com/payara/Payara[Payara] Git repository:
 
 ----
 git clone https://github.com/payara/Payara.git

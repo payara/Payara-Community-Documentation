@@ -17,9 +17,9 @@ Here's a list of Payara Server Asadmin commands that are not supported by GlassF
 - xref:/documentation/payara-server/rest-monitoring/configuring-rest-monitoring.adoc[REST Monitoring Commands]
 - xref:/documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups Commands]
 - xref:/documentation/payara-server/asadmin-commands/disabling-jline.adoc[Disabling JLine Logging]
-- xref:server-management-commands.adoc[Server Management Commands]
-- xref:print-certificate.adoc[Print Certificate Command]
-- xref:misc-commands.adoc[Miscellaneous Commands]
+- xref:/documentation/payara-server/asadmin-commands/server-management-commands.adoc[Server Management Commands]
+- xref:/documentation/payara-server/asadmin-commands/print-certificate.adoc[Print Certificate Command]
+- xref:/documentation/payara-server/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]
 
 == Command Autocompletion
 
@@ -27,4 +27,4 @@ _Since *5.184*&nbsp;_
 
 When running the `asadmin` utility, command autocompletion is supported similar to that found in the bash linux utility. To use this, run `asadmin` without any arguments. Any commands entered from this prompt can be autocompleted by tapping the `<Tab>` key.
 
-Alternatively, you can generate a bash autocompletion file to allow autocompletion without entering the `asadmin` prompt. To find out more, xref:misc-commands.adoc#generate-bash-autocomplete-command[read the documentation here].
+Alternatively, you can generate a bash autocompletion file to allow autocompletion without entering the `asadmin` prompt. To find out more, xref:/documentation/payara-server/asadmin-commands/misc-commands.adoc#generate-bash-autocomplete-command[read the documentation here].

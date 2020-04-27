@@ -6,10 +6,10 @@ Payara Server or Payara Micro version 172 or higher.
 
 In version {currentVersion}, the available connectors are:
 
-* xref:apache-kafka.adoc[Apache Kafka]
-* xref:amazon-sqs.adoc[Amazon SQS]
-* xref:mqtt.adoc[MQTT]
-* xref:azure-sb.adoc[Azure Service Bus]
+* xref:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
+* xref:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
+* xref:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
+* xref:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
 
 === Obtaining the connectors
 
