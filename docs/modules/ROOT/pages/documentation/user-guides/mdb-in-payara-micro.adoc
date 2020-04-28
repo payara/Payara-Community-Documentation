@@ -11,10 +11,10 @@ receiving them.
 === Setting up Apache ActiveMQ
 
 The following is a short overview of how to install and start ActiveMQ on most
-environments (Linux/Unix/macOS). See xref:http://activemq.apache.org/getting-started.html[
+environments (Linux/Unix/macOS). See http://activemq.apache.org/getting-started.html[
 the ActiveMQ documentation] for additional details.
 
-Download `apache-activemq-5.14.5-bin.tar` from xref:http://activemq.apache.org/activemq-5145-release.html[
+Download `apache-activemq-5.14.5-bin.tar` from http://activemq.apache.org/activemq-5145-release.html[
 the ActiveMQ 5.14.5 release page] and use a terminal to extract:
 
 ----
