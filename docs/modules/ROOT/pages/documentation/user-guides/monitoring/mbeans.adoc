@@ -156,7 +156,7 @@ usage. They are all in the form of
 `amx:pp=amx:pp=/mon/server-mon[instance-name],type=type-of-mbean,name=MBeanName`
 where `instance-name` is replaced by the name of the instance i.e.
 `amx:pp=/mon/server-mon[server],type=web-request-mon,name=web/request`.
-See xref:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc#enable-jmx-view[Viewing JMX Monitoring Data]
+See xref:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc##enable-monitoring-payara-server[Viewing JMX Monitoring Data]
 for how to view all available MBeans.
 
 IMPORTANT: Payara MBeans are only available when AMX is booted. This is done
@@ -910,5 +910,5 @@ response time from among the response times
 
 Payara Server includes OpenMQ as a JMS broker, which includes its own MBeans.
 Documentation on them can be found in the official
-xref:https://javaee.github.io/glassfish/doc/4.0/mq-dev-guide-jmx.pdf[GlassFish reference guide for coding JMX clients].
+https://javaee.github.io/glassfish/doc/4.0/mq-dev-guide-jmx.pdf[GlassFish reference guide for coding JMX clients].
 Check section 3: _Message Queue MBean Reference_
