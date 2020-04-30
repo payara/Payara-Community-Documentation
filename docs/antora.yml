@@ -1,4 +1,4 @@
-name: payara-server-documentation
+name: docs
 title: Payara Server Documentation
 version: 5.201
 start_page: ROOT:README.adoc
