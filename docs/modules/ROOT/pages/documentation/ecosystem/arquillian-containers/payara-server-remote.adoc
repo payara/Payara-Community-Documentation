@@ -1,22 +1,28 @@
-= Payara Remote Arquillian Container
+= Payara Server Remote Arquillian Container
 
-The Payara Remote Arquillian container connects to a running remote Payara Server instance for integration testing. You can use your normal Payara deployment to perform your test. The integration connects Arquillian to the DAS via the REST Interfaces to Administer Payara Server over http or https protocol. This gives you the flexibility to use any possible deployment scenarios having your servers either on many different physical or virtual nodes, or on the same one.
+The Payara Server Remote Arquillian container connects to a running remote Payara 
+Server instance for integration testing using a remote protocol. You can use 
+your normal Payara deployment to perform your test. The integration connects 
+Arquillian to the DAS via the REST Interfaces to Administer Payara Server over 
+http or https protocol. This gives you the flexibility to use any possible 
+deployment scenarios having your servers either on many different physical or 
+virtual nodes, or on the same one.
 
 == Usage
 
-The Payara Remote Arquillian container can be found on Maven Central,
+The Payara Server Remote Arquillian container can be found on Maven Central,
 and can be included in your project using the following Maven coordinates:
 
 [source,XML]
 ----
 <dependency>
   <groupId>fish.payara.arquillian</groupId>
-  <artifactId>arquillian-payara-server-4-remote</artifactId>
+  <artifactId>arquillian-payara-server-remote</artifactId>
   <version>${version}</version>
 </dependency>
 ----
 
-You can find the latest artifact version https://mvnrepository.com/artifact/fish.payara.arquillian/arquillian-payara-server-4-remote[from here].
+You can find the latest artifact version https://mvnrepository.com/artifact/fish.payara.arquillian/arquillian-payara-server-remote[from here].
 
 == Configuring the Container
 
@@ -33,9 +39,17 @@ through the specified system properties in the arquillian JVM:
 to access the DAS. The property value can be true or false.
 | `false`
 
+| `adminHost`
+| The host to be used to access Payara Admin API.
+| `localhost`
+
 | `adminPort`
 | The port to be used to access Payara Admin API.
 | `4848`
+
+| `authorisation`
+| If true, basic access authentication is enabled. And indicates that remote server requires an `adminUser` & `adminPassword`.
+| `false`
 
 | `adminUser`
 | The name of the admin user of your DAS. If omitted, no authentication will be used to access the DAS. In this case the `adminPassword` property should also be empty.
@@ -44,10 +58,6 @@ to access the DAS. The property value can be true or false.
 | `adminPassword`
 | The password of the admin user of your DAS. Cannot be omitted if you declare the admin user. If no authentication will be used to access the DAS you must have empty password for your admin user of your domain.
 | `null`
-
-| `serverHttps`
-| You can use this to specify whether the http or https protocol will be used to access the target server for deployment, on which your test runs. The property value can be true or false.
-| `false`
 
 | `libraries`
 | A comma-separated list of library JAR files. Specify the library JAR files by their relative or absolute paths. Specify relative paths relative to `domain-dir/lib/applibs`. The libraries are made available to the application in the order specified.
@@ -70,8 +80,7 @@ Valid values of the target are:
 
  - cluster_name: Deploys the component to every server instance in the cluster. They can be on the same or on several other hosts as the DAS server. Note: Arquillian use only one instance to run the test case.
  
-The domain name as a target (which is valid for GlassFish) is not a reasonable 
-deployment scenario in case of testing.
+The domain name as a target is not a reasonable deployment scenario in case of testing.
 
 The HOST address and port numbers of the test server instance used by Arquillian 
 (determined by the target property) been retrieved automatically from the DAS server. 
@@ -82,7 +91,7 @@ proxy configuration).
 |===
 
 
-NOTE: The context root that will be used to run the tests is also retrieved automatically from the DAS server. If you do not have a `sun-web.xml` or `glassfish-web.xml` file in your web application, Payara will use the name of your deployment without the extension as context root. The same rule is applied for enterprise applications if there is no application.xml file. The jar test-deployments are treated as a web application. You can use the above standard GlassFish XML files as normal to declare your context root to be applied. You should consider the above description to avoid any conflict with your already deployed web or enterprise applications in your administrative domain. 
+NOTE: The context root that will be used to run the tests is also retrieved automatically from the DAS server. If you do not have a `sun-web.xml`, `glassfish-web.xml` or `payara-web.xml` file in your web application, Payara will use the name of your deployment without the extension as context root. The same rule is applied for enterprise applications if there is no `application.xml` file. The jar test-deployments are treated as a web application. You can use the above standard GlassFish / Payara XML files as normal to declare your context root to be applied. You should consider the above description to avoid any conflict with your already deployed web or enterprise applications in your administrative domain. 
 
 The easiest way to provide these system properties to the extension runtime is through the surefire plugin.
 
@@ -92,9 +101,9 @@ The easiest way to provide these system properties to the extension runtime is t
 <plugin>
   <artifactId>maven-surefire-plugin</artifactId>
   <configuration>
-    <systemProperties>
+    <systemPropertyVariables>
       <adminHttps>true</adminHttps>
-    </systemProperties>
+    </systemPropertyVariables>
   </configuration>
 </plugin>
 ----

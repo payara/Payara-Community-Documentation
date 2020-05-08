@@ -1,38 +1,23 @@
-= Payara Micro Arquillian Container
+= Payara Micro Managed Arquillian Container
 
-The Payara Micro Arquillian container provides a managed Payara Micro
+The Payara Micro Managed Arquillian container provides a managed Payara Micro
 instance for integration testing.
 
-== Steps for Building
+== Usage
 
-In {currentVersion}, the Payara Micro Arquillian container is in beta,
-and as such required building from the xref:https://github.com/payara/Payara[Payara]
-Git project. The steps for doing so are as follows:
-
-Clone the xref:https://github.com/payara/Payara[Payara] Git repository:
-
-----
-git clone https://github.com/payara/Payara.git
-----
-
-Build and install:
-
-----
-cd Payara/
-mvn clean install -DskipTests -f appserver/extras/arquillian-containers/pom.xml
-----
-
-The Arquillian container can then be found in your local Maven repository,
+The Payara Micro Managed Arquillian container can be found on Maven Central,
 and can be included in your project using the following Maven coordinates:
 
 [source,XML]
 ----
 <dependency>
-    <groupId>fish.payara.arquillian</groupId>
-    <artifactId>arquillian-payara-micro-5-managed</artifactId>
-    <version>${version}</version>
+  <groupId>fish.payara.arquillian</groupId>
+  <artifactId>arquillian-payara-micro-managed</artifactId>
+  <version>${version}</version>
 </dependency>
 ----
+
+You can find the latest artifact version https://mvnrepository.com/artifact/fish.payara.arquillian/arquillian-payara-micro-managed[from here].
 
 == Configuring the Container
 
