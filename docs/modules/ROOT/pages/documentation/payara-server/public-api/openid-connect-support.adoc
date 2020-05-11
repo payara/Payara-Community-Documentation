@@ -240,10 +240,10 @@ The client secret can be input directly, or for added security it can be aliased
 === Fetch Caller Data
 As OpenId Connect Client is built on top of Jakarta EE Security API,
 therefore `javax.security.enterprise.SecurityContext` interface can provide 
-caller info which is available as a CDI bean and can be injected into any context-aware instance:
+caller info which is available as a CDI bean and can be injected into any context-aware instance.
 
 The Payara API also provides a `fish.payara.security.openid.api.OpenIdContext` 
-interface, available as a CDI bean and consist of the following methods:
+interface which is also available as a CDI bean and consist of the following methods:
 
 - The `getCallerName()` method - Gets the caller name of the currently authenticated user.
 - The `getCallerGroups()` method - Gets the groups associated with the caller.
@@ -326,7 +326,7 @@ image::security-connector/oidc/azure/token_configuration.png[Token configuration
 - Press **Add groups claim** button to select group types and customize Id and/or Access token properties:
 image::security-connector/oidc/azure/add_groups_claim.png[Add Groups Claim]
 
-Groups claim can also be defined via Azure **Manifest** under the **Manage** section which is a JSON configuration file.
+- Groups claim can also be defined via Azure **Manifest** under the **Manage** section which is a JSON configuration file.
 
 - To retrieve and map the caller name & groups from token claims, set the caller name & group claim definition to `preferred_username` & `groups`.
 [source, java]
@@ -349,10 +349,18 @@ public class SecurityBean {
 [[keycloak-oidc-integration]]
 === Keycloak integration
 
-- First login to Keycloak admin console and add the new realm by pressing the **Add Realm** button.
+Keycloak is Open Source Identity and Access Management Server, which is a OAuth2
+and OpenID Connect(OIDC) protocol complaint. In this section, the basic steps 
+are described to setup Keycloak OpenId provider.For more details about Keycloak 
+configuration options, please visit to the official documentation:
+https://www.keycloak.org/documentation.html
+
+- Refer Keycloak https://www.keycloak.org/docs/latest/getting_started/index.html[getting started documentation] to run and setup keycloak.
+
+- After Keycloak setup done, login to Keycloak admin console and add the new realm by pressing the **Add Realm** button:
 image::security-connector/oidc/keycloak/add_realm.png[Add Realm]
 
-- Note the OpenId endpoint configuration URL from endpoint section:
+- Copy the OpenId endpoint configuration URL from endpoint section:
 image::security-connector/oidc/keycloak/realm_endpoint.png[Realm Endpoint]
 
 - Now add the **Role** that will be used by the application to define which users will be authorized to access the application.
