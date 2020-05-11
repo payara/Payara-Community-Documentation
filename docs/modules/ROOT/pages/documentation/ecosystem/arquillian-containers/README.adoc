@@ -7,10 +7,10 @@ The Payara Arquillian containers provide various Arquillian containers for integ
 
 In version {currentVersion}, there are containers available for the following distributions:
 
-* xref:documentation/ecosystem/payara-micro-managed.adoc[Payara Micro Managed]
-* xref:documentation/ecosystem/payara-server-remote.adoc[Payara Server Remote]
-* xref:documentation/ecosystem/payara-server-managed.adoc[Payara Server Managed]
-* xref:documentation/ecosystem/payara-server-embedded.adoc[Payara Server Embedded]
+* xref:documentation/ecosystem/arquillian-containers/payara-micro-managed.adoc[Payara Micro Managed]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-remote.adoc[Payara Server Remote]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-managed.adoc[Payara Server Managed]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-embedded.adoc[Payara Server Embedded]
 
 === Obtaining the Containers
 
