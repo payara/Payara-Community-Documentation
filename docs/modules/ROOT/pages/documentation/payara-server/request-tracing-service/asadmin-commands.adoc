@@ -1,0 +1,272 @@
+[[request-tracing-command-reference]]
+= Administration Commands
+
+The following is a detailed list of the administration commands that can be used
+to correctly configure the Request Tracing Service.
+
+[[set-requesttracing-configuration]]
+== `set-requesttracing-configuration`
+
+*Usage*::
+`asadmin> set-requesttracing-configuration`
+
+*Aim*::
+This command can be used to set all configuration of the request
+tracing service at once. It effectively is an alias for `requesttracing-configure`.
+
+[[command-options]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enabled` |Boolean |Enables or disables the service |false |Yes
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a restart. Otherwise a restart is required. |false |No
+|`--thresholdValue` |Integer |Sets the number of time units which
+trigger the tracing of a request |30 |No
+|`--thresholdUnit` |TimeUnit |Sets the time unit to use for
+the threshold |`SECONDS` |No
+|`--notifierEnabled` |Boolean |Enables or disables notifications |false
+|Yes
+|`--notifierDynamic` |Boolean |When set to true, applies the
+changes without a restart. Otherwise a restart is required. |false |No
+|`--historicaltraceenabled` |Boolean |When present, enables the storage
+of the slowest historical request traces. |false |No
+|`--historicaltracestoresize` |Integer |Sets how many request traces
+will be stored. |20 |No
+|`--historicaltracestoretimeout` |String |Sets how long before Request Tracing
+messages are removed. This field is specified in the format "%d %h %m %s" where
+% is an integer. Any of the units can also be omitted. |N/A |No
+|=======================================================================
+
+WARNING: Starting from release _4.1.1.171_, the `--notifierEnabled` and `--notifierDynamic`
+arguments are used to enable or disable the **Log Notifier**, which is considered
+the _default_ notifier. Use the `requesttracing-<notifiername>-notifier-configure` commands to
+enable or disable other available notifiers.
+
+[[example]]
+=== Example
+
+[source, shell]
+----
+asadmin> set-requesttracing-configuration
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
+    --dynamic=true
+    --notifierEnabled=true
+    --notifierDynamic=true
+    --historicaltraceenabled
+    --historicaltracestoresize=20
+    --historicaltracestoretimeout=1d 2h 3m 30s
+----
+
+[[requesttracing-configure]]
+== `requesttracing-configure`
+
+*Usage*::
+`asadmin> requesttracing-configure --enabled=true --thresholdValue=10 --thresholdUnit="SECONDS" --dynamic=true --historicaltraceenabled --historicaltracestoresize=20`
+
+*Aim*::
+Enables or disables the service and provides ways to configure
+threshold time by specifying a value and a unit, and can store a given
+number of the slowest historical request traces.
+
+[[command-options-1]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enabled` |Boolean |Enables or disables the service |false |Yes
+|`--thresholdValue` |Integer |Sets the number of time units which
+trigger the tracing of a request |30 |No
+|`--thresholdUnit` |TimeUnit |Sets the time unit to use for
+the threshold |`SECONDS` |No
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a server/instance restart. Otherwise a restart is required. |false |No
+|`--historicaltraceenabled` |Boolean |When present, enables the storage
+of the slowest historical request traces. |false |No
+|`--historicaltracestoresize` |Integer |Sets how many request traces
+will be stored. | 20 |No
+|`--historicaltracestoretimeout` |String |Sets how long before Request Tracing
+messages are removed. This field is specified in the format "%d %h %m %s" where
+% is an integer. Any of the units can also be omitted. |N/A |No
+|=======================================================================
+
+[[example-1]]
+=== Example
+
+[source, shell]
+----
+asadmin> requesttracing-configure
+    --enabled=true
+    --thresholdValue=10
+    --thresholdUnit="SECONDS"
+    --dynamic=true
+    --historicaltraceenabled
+    --historicaltracestoresize=20
+    --historicaltracestoretimeout=1d 2h 3m 30s
+----
+
+[[requesttracing-notifier-configure]]
+== `requesttracing-[NOTIFIER_NAME]-notifier-configure`
+
+*Usage*::
+`asadmin> requesttracing-[NOTIFIER_NAME]-notifier-configure --enabled=true --dynamic=true`
+
+*Aim*::
+This command can be used to enable or disable the notifier represented by the
+_[NOTIFIER_NAME]_ placeholder.
+
+[[command-options-3]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--enable` |Boolean |Enables or disables the notifier |false|Yes
+|`--dynamic` |Boolean |When set to true, applies the changes
+without a server/instance restart. |false |No
+|=======================================================================
+
+[[example-4]]
+=== Examples
+
+. To enable the log notifier for the Request Tracing Service without having to
+restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> requesttracing-log-notifier-configure
+    --enabled=true
+    --dynamic=true
+----
+
+. To disable the
+xref:/documentation/payara-server/notification-service/notifiers/slack-notifier.adoc[Slack notifier]
+without having to restart the server, use the following command:
++
+[source, shell]
+----
+asadmin> requesttracing-slack-notifier-configure
+    --enabled=false
+    --dynamic=true
+----
+
+[[get-requesttracing-configuration]]
+== `get-requesttracing-configuration`
+
+*Usage*::
+`asadmin> get-requesttracing-configuration`
+
+*Aim*::
+This command can be used to list the configuration settings of the Request Tracing
+Service.
+
+[[command-options-4]]
+=== Command Options
+
+There are no available options for this command.
+
+[[example-4]]
+=== Example
+
+[source, shell]
+----
+asadmin> get-requesttracing-configuration
+----
+
+Will give an output similar to the following:
+
+----
+Request Tracing Service enabled?: true
+Historical Tracing Enabled?: true
+Historical Tracing Store Size: 3
+Historical Tracing Store Timeout in Seconds: 30s
+Below are the configuration details of each notifier listed by its name.
+
+Notifier Name        Notifier Enabled
+service-jms          false
+service-hipchat      false
+service-snmp         false
+service-cdieventbus  false
+service-eventbus     false
+service-email        false
+service-datadog      false
+service-newrelic     false
+service-slack        false
+service-xmpp         false
+service-log          true
+Command get-requesttracing-configuration executed successfully.
+----
+
+
+
+[[list-historic-requesttraces]]
+== `list-historic-requesttraces`
+
+*Usage*::
+`asadmin> list-historic-requesttraces`
+
+*Aim*::
+This command can be used to list a number of previous request trace messages
+from the Request Tracing Service.
+
+[[command-options-5]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|=======================================================================
+|Option |Type |Description |Default |Mandatory
+|`--first` |Integer |A limit for the number of Request Tracing messages to
+return |false|No
+|=======================================================================
+
+[[example-4]]
+=== Example
+
+[source, shell]
+----
+asadmin> get-requesttracing-configuration
+----
+
+Will give an output similar to the following:
+
+----
+Occurring Time  Elapsed Time  Traced Message
+1504514022439   13            {"RequestTrace": {"startTime":"1014016643025","elapsedTime":"13",
+"TraceEvent": {"eventType": "TRACE_START","eventName":"StartTrace","id=":"8a953268-d90e-401d-a375-6aa7f7009c62","conversationId=":"8a953268-d90e-401d-a375-6aa7f7009c62","timestamp=":"1014016643025","Server": "server","Domain": "payaradomain","traceTime=":"0"},
+"TraceEvent": {"eventType": "TRACE_END","eventName":"TraceEnd","id=":"ee261145-c93c-4d2d-bad7-501f49b54910","conversationId=":"8a953268-d90e-401d-a375-6aa7f7009c62","timestamp=":"1014030367041","traceTime=":"13724016"}}}
+----
+
+The request tracing messages are in JSON format, so can be parsed by log parsing
+tools as if it were in the following format:
+
+----
+{
+   "RequestTrace":{
+      "startTime":"1014016643025",
+      "elapsedTime":"13",
+      "TraceEvent":{
+         "eventType":"TRACE_START",
+         "eventName":"StartTrace",
+         "id=":"8a953268-d90e-401d-a375-6aa7f7009c62",
+         "conversationId=":"8a953268-d90e-401d-a375-6aa7f7009c62",
+         "timestamp=":"1014016643025",
+         "Server":"server",
+         "Domain":"payaradomain",
+         "traceTime=":"0"
+     ,
+      "TraceEvent":{
+         "eventType":"TRACE_END",
+         "eventName":"TraceEnd",
+         "id=":"ee261145-c93c-4d2d-bad7-501f49b54910",
+         "conversationId=":"8a953268-d90e-401d-a375-6aa7f7009c62",
+         "timestamp=":"1014030367041",
+         "traceTime=":"13724016"
+     
+  
+}
+----

@@ -1,0 +1,119 @@
+= Eclipse MicroProfile Fault Tolerance API
+
+_Since *4.1.2.181*; *5.181*&nbsp;_
+
+Provided version of the API: {mpFaultToleranceSpecUrl}[MicroProfile Fault Tolerance {mpFaultToleranceVersion}]
+
+== Background
+The Fault Tolerance API was created to help separate execution logic from execution. 
+The execution can be configured with a number of fault tolerance policies.
+
+A full overview for the reasoning behind the API can be found in
+https://github.com/eclipse/microprofile-fault-tolerance/blob/master/README.adoc[the
+README for the source code repository.]
+
+https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/1.0[
+The complete specification] is maintained in the same repository
+
+
+== Additions to the Fault Tolerance Spec
+In addition to the functionality 
+https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc[
+detailed in the spec], the following is also implemented in Payara Server and Payara Micro:
+
+=== Configurable Managed Executor Services
+The managed and scheduled managed executor pool can be configured via the _set-fault-tolerance-configuration_ asadmin command.
+
+The managed executor service is used to execute methods annotated with @Asynchronous, whereas the managed scheduled executor 
+service is used by the CircuitBreaker and Timeout interceptors for their timeout operations (scheduling the circuit breaker 
+to be set to half open, and just timing out respectively).
+
+=== Annotation Priority
+The order that the fault tolerance annotations are invoked is as follows:
+
+* Fallback (_SPECIAL CASE - you'll ONLY get here if there is an exception kicking off the asynchronous thread_)
+* Asynchronous
+* Fallback
+* Retry
+* Bulkhead
+* CircuitBreaker
+* Timeout
+
+Since the asynchronous annotation is invoked first, if it's combined with any other fault tolerance annotations they will be processed on the asynchronous thread.
+
+== Asadmin Commands
+
+==== `set-fault-tolerance-configuration`
+
+*Usage*::
+`asadmin> set-fault-tolerance-configuration [--managedexecutorservicename=<managedexecutorservicename>] 
+[--managedscheduledexecutorservicename=<managedscheduledexecutorservicename>] [--target=<server-config>]`
+*Aim*::
+Provides a way to set the configuration of the fault tolerance service of the targetted config.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`managedexecutorservicename`
+|The JNDI name of the Managed Executor Service to look up.
+|"" (concurrent/__defaultManagedExecutorService)
+|no
+
+|`managedscheduledexecutorservicename`
+|The JNDI name of the Managed Scheduled Executor Service to look up.
+|"" (concurrent/__defaultManagedScheduledExecutorService)
+|no
+
+|`target`
+|The target Payara config to apply the change to
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-fault-tolerance-configuration --managedexecutorservicename=concurrent/managedExecutor1 
+--managedScheduledExecutorServiceName=concurrent/managedScheduledExecutor1 --target instance1
+----
+
+==== `get-fault-tolerance-configuration`
+
+*Usage*::
+`asadmin> get-fault-tolerance-configuration [--target=server-config]`
+*Aim*::
+Returns the current configuration options for the Fault Tolerance service on the targetted config.
+
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`target`
+|The config to get the fault tolerance configuration for.
+|server-config
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-fault-tolerance-configuration --target=cluster1
+----
+

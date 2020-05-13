@@ -1,0 +1,6 @@
+name: docs
+title: Payara Server Documentation
+version: 4.1.2.181
+start_page: ROOT:README.adoc
+nav:
+- modules/ROOT/nav.adoc
