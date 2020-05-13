@@ -4,7 +4,7 @@ The Microsoft Azure Service Bus allows code that runs both outside and inside
 Azure to communicate with Azure.
 
 In order to connect to Azure, the `AzureSBRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:cloud-connectors.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 In order to make use of this connector in an application, the following maven dependency is needed:
@@ -65,8 +65,9 @@ public class SendAzureMessage {
  public void init() {
     try (AzureSBConnection connection = factory.createConnection()) {
         connection.sendMessage("testq", new BrokeredMessage("Hello World"));
+    }
     catch (Exception ex) {
-   
+    }
 }
 ----
 
@@ -90,7 +91,7 @@ public class ReceiveAzureMessage implements AzureSBListener {
     @OnAzureSBMessage
     public void receiveMessage(BrokeredMessage message) {
         // Handle message
-   
+    }
 }
 ----
 

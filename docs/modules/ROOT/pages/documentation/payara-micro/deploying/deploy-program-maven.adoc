@@ -39,7 +39,7 @@ public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
        PayaraMicro.getInstance().addRepoUrl("https://raw.github.com/Pandrex247/Payara_PatchedProjects/Payara-Maven-Deployer");
        PayaraMicro.getInstance().addDeployFromGAV("fish.payara.testing,clusterjsp,1.1").bootStrap();
-   
+    }
 }
 ----
 

@@ -6,16 +6,16 @@ which complement and enhance the developer experience.
 
 These include:
 
-xref:maven-plugin.adoc[Payara Micro Maven Plugin]::
+xref:documentation/ecosystem/maven-plugin.adoc[Payara Micro Maven Plugin]::
 A plugin for Apache Maven is available for Payara Micro.
 
-xref:netbeans-plugin.adoc[Payara NetBeans Plugin]::
+xref:documentation/ecosystem/netbeans-plugin.adoc[Payara NetBeans Plugin]::
 A plugin for using Payara is available for NetBeans.
 
-xref:cloud-connectors/cloud-connectors.adoc[Cloud Connectors]::
+xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc[Cloud Connectors]::
 Cloud Connectors are a collection of JCA adapters which can interact with popular
 message brokers, including:
-* xref:cloud-connectors/amazon-sqs.adoc[Amazon SQS]
-* xref:cloud-connectors/apache-kafka.adoc[Apache Kafka]
-* xref:cloud-connectors/azure-sb.adoc[Azure Service Bus]
-* xref:cloud-connectors/mqtt.adoc[MQTT]
+* xref:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
+* xref:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
+* xref:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
+* xref:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
