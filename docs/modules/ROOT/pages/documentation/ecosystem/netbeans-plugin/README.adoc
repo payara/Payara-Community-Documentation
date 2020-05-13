@@ -1,0 +1,51 @@
+= Payara NetBeans Plugin
+
+Payara Platform provides the Netbeans plugins to integrate Payara Server and Payara Micro into Netbeans. 
+The plugins are installable from the NetBeans interface
+
+In version {currentVersion}, the available plugins are :
+
+* xref:payara-server.adoc[Payara Server] - allows you to add Payara Server as a recognised server in NetBeans. 
+This means you can deploy and manage applications from the NetBeans interface.
+* xref:payara-micro.adoc[Payara Micro] - allows you to use Payara Micro to start and reload your applications from the Netbeans interface
+
+
+[[installing]]
+== Installing Payara NetBeans Plugins
+
+Payara offers two ways to install NetBeans plugins :
+
+=== Update Center Installation
+
+Installing a plugin from the Update Center is the easiest way :
+
+1. Go to *Tools -> Plugins*.
+2. On the Plugins window, switch to the Settings tab.
+3. On the Settings tab, click *Add* button and the *Update Center Customizer* dialog box appears.
+4. In the Name field, enter *Payara Update Center*.
+5. In the URL field, enter the following update center url based on your IDE version and Click *OK* button.
+   * *NetBeans IDE 8.2* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_8.2/updates.xml
+   * *Apache NetBeans IDE 9.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_9.0/updates.xml
+   * *Apache NetBeans IDE 10.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_10.0/updates.xml
+   * *Apache NetBeans IDE 11.0* : https://github.com/payara/ecosystem-netbeans-plugin/releases/download/NB_11.0/updates.xml
+6. Under the *Available Plugins* tab, search for `Payara` in the search box.
+7. Check all 5 plugins:
+  * Payara EE Common
+  * Payara Common
+  * Payara Java EE
+  * Payara Tooling
+  * Payara Micro
+8. Click *Install*.
+9. Follow the installer wizard.
+
+
+=== Manual Installation
+
+1. To download the Payara NetBeans Plugin, please http://plugins.netbeans.org/plugin/72263/payara-server[click here].
+2. To get the plugins ready for installation, start NetBeans IDE as described in https://netbeans.org/community/releases/81/install.html[Installing and the Starting the NetBeans IDE].
+3. Extract the nbm file(s) from PayaraPlugins.zip file.
+4. Start NetBeans and select the *Tools -> Plugins* menu item.
+5. Switch to the "Downloaded" tab and select the *Add Plugins...* button to browse to the downloaded nbm files.
+6. Once the file has been selected, NetBeans will display module information. Now click the *Install* button at the bottom.
+7. When the NetBeans IDE Installer screen is displayed, click next and accept the license agreements and click Install.
+8. The plugin has now been installed and can be seen in the "Installed" tab. Now click *Finish* to restart NetBeans IDE.

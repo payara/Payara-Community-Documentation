@@ -1,0 +1,8 @@
+[security]
+= Security Extensions
+
+This section documents several extensions made to the security mechanisms and APIs that are provided by Payara Server.
+
+Currently, the documented extensions are:
+
+* xref:security-realms.adoc[Security Realms]
