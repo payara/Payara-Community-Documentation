@@ -64,5 +64,5 @@ Command backup-domain executed successfully.
 [[see-also]]
 ==== See Also
 
-* xref:restore-domain.adoc[Restore a Payara Server Domain]
-* xref:upgrade-payara.adoc[Upgrade Payara Server]
+* xref:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]
+* xref:documentation/user-guides/upgrade-payara.adoc[Upgrade Payara Server]

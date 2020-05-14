@@ -5,9 +5,9 @@ The plugins are installable from the NetBeans interface
 
 In version {currentVersion}, the available plugins are :
 
-* xref:payara-server.adoc[Payara Server] - allows you to add Payara Server as a recognised server in NetBeans. 
+* xref:documentation/ecosystem/netbeans-plugin/payara-server.adoc[Payara Server] - allows you to add Payara Server as a recognised server in NetBeans. 
 This means you can deploy and manage applications from the NetBeans interface.
-* xref:payara-micro.adoc[Payara Micro] - allows you to use Payara Micro to start and reload your applications from the Netbeans interface
+* xref:documentation/ecosystem/netbeans-plugin/payara-micro.adoc[Payara Micro] - allows you to use Payara Micro to start and reload your applications from the Netbeans interface
 
 
 [[installing]]
