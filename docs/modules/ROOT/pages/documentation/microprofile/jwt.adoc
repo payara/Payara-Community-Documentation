@@ -84,7 +84,7 @@ Then put `privateKey.pem` on the root of the classpath (for instance, in a Maven
         signedJWT.sign(new RSASSASigner(readPrivateKey("privateKey.pem")));
         
         return signedJWT.serialize();
-   
+    }
     
     public static PrivateKey readPrivateKey(String resourceName) throws Exception {
         byte[] byteBuffer = new byte[16384];
@@ -101,7 +101,7 @@ Then put `privateKey.pem` on the root of the classpath (for instance, in a Maven
 
         return KeyFactory.getInstance("RSA")
                          .generatePrivate(new PKCS8EncodedKeySpec(Base64.getDecoder().decode(key)));
-   
+    }
 ----
 
 The code here assumes the location of the raw JSON file on the classpath being passed in, the private key on the root of the classpath and the result as a string. If other input/outputs are needed that should be easy to do using the above code as a starting point.

@@ -20,7 +20,6 @@
 *** xref:documentation/payara-server/server-configuration/var-substitution/README.adoc[Variables in the configuration]
 **** xref:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Variable types]
 **** xref:documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
-*** xref:documentation/payara-server/server-configuration/virtual-servers.adoc[Virtual Servers]
 *** xref:documentation/payara-server/server-configuration/http/README.adoc[HTTP Service]
 **** xref:documentation/payara-server/server-configuration/http/network-listeners.adoc[Network Listeners]
 **** xref:documentation/payara-server/server-configuration/http/protocols.adoc[Protocols]

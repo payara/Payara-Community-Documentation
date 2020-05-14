@@ -16,5 +16,5 @@ Here's a list of Payara Server Asadmin commands that are not supported by GlassF
 - xref:/documentation/payara-server/request-tracing-service/asadmin-commands.adoc[Request Tracing Commands]
 - xref:/documentation/payara-server/rest-monitoring/configuring-rest-monitoring.adoc[REST Monitoring Commands]
 - xref:/documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups Commands]
-- xref:server-management-commands.adoc[Server Management Commands]
-- xref:misc-commands.adoc[Miscellaneous Commands]
+- xref:/documentation/payara-server/asadmin-commands/server-management-commands.adoc[Server Management Commands]
+- xref:/documentation/payara-server/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]

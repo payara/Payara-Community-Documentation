@@ -81,8 +81,9 @@ public class SendSQSMessage {
  public void init() {
     try (AmazonSQSConnection connection = factory.createConnection()) {
         connection.sendMessage(new SendMessageRequest("queueURL", "Hello World"));
+    }
     catch (Exception ex) {
-   
+    }
 }
 ----
 
@@ -108,7 +109,7 @@ public class ReceiveSQSMessage implements AmazonSQSListener {
  @OnSQSMessage
  public void receiveMessage(Message message) {
      // Handle message
-
+ }
 }
 ----
 

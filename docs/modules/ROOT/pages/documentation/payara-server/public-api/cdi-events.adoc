@@ -11,7 +11,7 @@ instances provided that they are connected to the same cluster.
 [[requirements]]
 == Requirements
 
-Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:hazelcast/hazelcast.adoc[Hazelcast] section for more details.
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:documentation/payara-server/hazelcast/hazelcast.adoc[Hazelcast] section for more details.
 
 
 [[initializing-the-event-bus]]
@@ -175,22 +175,22 @@ CDI.current().getBeanManager().fireEvent("This is an event", new Outbound() {
     @Override
     public String eventName() {
         return System.getProperty("eventname");
-   
+    }
 
     @Override
     public boolean loopBack() {
         return Boolean.getBoolean(System.getProperty("loopback"));
-   
+    }
 
     @Override
     public String instanceName() {
         return System.getProperty("instanceName");
-   
+    }
 
     @Override
     public Class<? extends Annotation> annotationType() {
         return this.getClass();
-   
+    }
 });
 ----
 
