@@ -1,0 +1,62 @@
+= Eclipse MicroProfile Metrics API
+
+_Since *4.1.2.181*; *5.181*&nbsp;_
+
+Provided version of the API: {mpMetricsSpecUrl}[MicroProfile Metrics {mpMetricsVersion}]
+
+== Background
+The Metrics API was designed to provide monitoring support for applications as well as the underlying runtime. This is considered separate to ***health checks*** which are concerned with a binary status of "healthy" or "unhealthy". In design, the Metrics API has borrowed heavily from DropWizard Metrics, so many of the concepts in the API will be familiar.
+
+For a full overview of the API, review https://github.com/eclipse/microprofile-metrics/releases[the documentation for the appropriate release.] 
+
+A key goal of the specification was to provide HTTP endpoints in Prometheus format (as well as JSON). Since the https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-details[Prometheus Text format] is widely used by monitoring products other than Prometheus, this gives a lot of compatibility out-of-the-box.
+
+https://github.com/eclipse/microprofile-metrics/releases/tag/1.0[MicroProfile Metrics 1.0] was released in MicroProfile 1.2
+
+IMPORTANT: Version 1.0 of the Metrics specification does not define the behaviour of implementations where multiple applications are deployed to the same container. This limitation will be addressed in a later version of the Metrics specification.
+
+== REST Endpoint
+MicroProfile Metrics specifies that all metrics are published at the endpoint `/metrics`. For both Payara Server and Payara Micro, this means that the endpoint can be found on the HTTP port (default `8080`). By visiting these endpoints in a browser, the Prometheus text format can be viewed directly.
+
+==== Metric Scopes
+The Metrics specification https://github.com/eclipse/microprofile-metrics/blob/1.0/spec/src/main/asciidoc/metrics_spec.adoc#scopes[defines three _Scopes_], **Base**, **Vendor** and **Application** which correspond to the following purposes:
+
+**Base**::
+Base metrics are mandatory for all implementations to provide. This is so that there is a predictable baseline of metrics which will be available on any MicroProfile implementation.
++
+These metrics can be accessed under `/metrics/base`.
+
+**Vendor**::
+Vendor metrics are specific to each implmentation and are intended to offer metrics which are unique to each vendor.
++
+These metrics can be accessed under `/metrics/vendor`.
+
+**Application**::
+Application metrics are reserved for those metrics which are to be exposed from the application by using the developer API.
++
+These metrics can be accessed under `/metrics/application`.
+
+== Custom Vendor Metrics
+JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `$PAYARA_HOME/glassfish/domains/$DOMAIN_NAME/config/` folder with the following format:
+
+[source, xml]
+----
+<config>
+    <base>
+        ...
+    </base>
+    <vendor>
+        <!--sample metadata-->
+        <metadata>
+            <name>system.cpu.load</name>
+            <mbean>java.lang:type=OperatingSystem/SystemCpuLoad</mbean>
+            <type>gauge</type>
+            <unit>none</unit>
+            <displayName>System CPU Load</displayName>
+            <description>Recent CPU usage for the whole system.</description>
+        </metadata>
+    </vendor>
+</config>
+----
+
+NOTE: It is important to note that Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application is deployed which uses the connection pool.
