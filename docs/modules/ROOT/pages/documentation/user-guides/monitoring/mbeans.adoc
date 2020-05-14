@@ -156,7 +156,7 @@ usage. They are all in the form of
 `amx:pp=amx:pp=/mon/server-mon[instance-name],type=type-of-mbean,name=MBeanName`
 where `instance-name` is replaced by the name of the instance i.e.
 `amx:pp=/mon/server-mon[server],type=web-request-mon,name=web/request`.
-See xref:enable-jmx-monitoring.adoc#enable-jmx-view[Viewing JMX Monitoring Data]
+See xref:documentation/user-guides/monitoring/enable-jmx-monitoring.adoc#enable-monitoring-payara-server[Viewing JMX Monitoring Data]
 for how to view all available MBeans.
 
 IMPORTANT: Payara MBeans are only available when AMX is booted. This is done
