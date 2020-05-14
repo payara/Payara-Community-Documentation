@@ -78,4 +78,4 @@ image:healthcheck/cpu-usage-checker-configuration.png[CPU Usage Checker Configur
 == From the Command Line
 
 You can configure the HealthCheck Service by using the asadmin commands
-documented on the xref:../asadmin-commands.adoc[corresponding section]
+documented on the xref:documentation/payara-server/health-check-service/asadmin-commands.adoc[corresponding section]

@@ -1,6 +1,6 @@
 = REST monitoring
 
-:previewVersion: {currentVersion}
+:previewVersion: currentVersion
 
 include::partial$tech-preview.adoc[]
 
