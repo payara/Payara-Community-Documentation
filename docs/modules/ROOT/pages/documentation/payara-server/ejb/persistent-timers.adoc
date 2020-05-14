@@ -3,7 +3,7 @@
 
 _Since Payara Server 5.181_
 
-:previewVersion: {currentVersion}
+:previewVersion: currentVersion
 
 include::partial$tech-preview.adoc[]
 

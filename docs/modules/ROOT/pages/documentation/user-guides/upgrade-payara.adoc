@@ -47,7 +47,7 @@ will *not* recreate things stored in the instance directory which are outside
 of the configuration like JMS file stores. If there is any JMS persistence
 which does not use a database, these must be handled manually.
 
-See xref:restore-domain.adoc[Restore a Payara Domain] for more detail.
+See xref:documentation/user-guides/restore-domain.adoc[Restore a Payara Domain] for more detail.
 
 [[method-2-move-the-domain-directory-and-node-directories]]
 == Method 2: Move the domain directory and node directories
@@ -138,5 +138,5 @@ You can also start nodes in the same way:
 [[see-also]]
 ==== See Also
 
-* xref:backup-domain.adoc[Payara Server Domain Backup]
-* xref:restore-domain.adoc[Restore a Payara Server Domain]
+* xref:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
+* xref:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]
