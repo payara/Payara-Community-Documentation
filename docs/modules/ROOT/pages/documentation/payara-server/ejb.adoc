@@ -1,0 +1,220 @@
+[[enhanced-ejb-configuration-deployment]]
+= Enhanced EJB Configuration and Deployment
+
+This page list the improvements done to EJB configuration and deployment on
+Payara Server.
+
+[[controlling-stateless-ejb-concurrent-instances]]
+== Controlling Stateless EJB Concurrent Instances
+
+_Since Payara Server 4.1.2.172_
+
+In prior releases, it was not possible to control the maximum number of *_concurrent_*
+Stateless EJB instances in Payara Server. It was, however, possible to control
+the number of *_pooled_* Stateless EJB instances, as well as *_concurrent_* MDB
+instances.
+
+NOTE: These features were available in Oracle GlassFish Server 3.1 and earlier but not
+in the GlassFish Open Source editions (3.1.2.x and 4.x).
+
+It is now possible to limit concurrent Stateless EJB instances that are dispatched,
+allowing fine-grained control of resources, limiting surface area for DDOS attacks
+and making applications run more smoothly and efficiently.
+
+The key difference is that previously it was not possible to limit the number of
+concurrent threads dispatched for the same Stateless EJB, the only limit was the
+number of pooled beans.  When the pool ran out, new EJB instances were created,
+with no upper bound. In the current release, this upper bound can be established
+so the maximum number of threads is not exceeded beyond this value.
+
+These limits are controlled on a per-EJB basis, using `bean-pool` elements in the
+`glassfish-ejb-jar.xml` deployment descriptor file:
+
+[cols="4,10a",options="header"]
+.`bean-pool` elements in `glassfish-ejb-jar.xml`
+|===
+|Element |Behaviour
+|`<max-pool-size>`
+|This element controls the maximum concurrent instances that are dispatched for
+this EJB (number of threads).  The default is configured in the domain; this has
+not changed from previous versions.
+|`<max-wait-time-in-millis>`
+|This element controls what to do when the number of requests exceeds the amount
+of beans available in the pool.
+Possible values of this element include:
+
+* `-1` (_default_)
++
+_Current behaviour is unchanged_: when the pooled number is exceeded, a new EJB
+instance is created, there is no upper bound
+
+* `0`
++
+_This is new behaviour_: when the pooled number is exceeded, the request will
+wait for a bean to free up in the pool. This effectively caps the number of threads
+that are concurrently created for a this particular EJB request.
+
+* Between `1` - `MAX_INTEGER`
++
+This is the new behaviour, when the pool number is exceeded, the request will wait
+for a bean to free up in the pool, up to the number of milliseconds specified here.
+After this time has expired, a new EJB instance is created and dispatched, thus
+the configured pool size acts as a soft upper bound, one that can be exceeded
+once the timer has expired.
+
+|`<steady-pool-size>`
+|This element controls the *minimum* number of beans in the bean pool. This will
+increase performance at the expense of memory footprint.
+|===
+
+Additionally, a new system property `fish.payara.ejb-container.max-wait-time-in-millis`
+can be set to change the default global value of `<max-wait-time-in-millis>`
+for *_all_* Stateless EJB bean pools.
+
+IMPORTANT: Unless overridden in the deployment descriptor file, this will become
+the new default value and can be used to cap the upper bound of all concurrent
+invocations of any Stateless EJB pools.
+
+[[example]]
+=== Example
+
+The following is a sample `glassfish-ejb-jar.xml` deployment descriptor that configures
+2 EJBs with the settings mentioned beforehand.
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+  <enterprise-beans>
+    <ejb>
+      <ejb-name>PooledStatelessBean</ejb-name>
+      <bean-pool>
+          <max-pool-size>1</max-pool-size>
+          <max-wait-time-in-millis>0</max-wait-time-in-millis>
+          <steady-pool-size>1</steady-pool-size>
+      </bean-pool>
+    </ejb>
+    <ejb>
+      <ejb-name>PooledMDB</ejb-name>
+      <bean-pool>
+          <max-pool-size>1</max-pool-size>
+          <resize-quantity>1</resize-quantity>
+      </bean-pool>
+    </ejb>
+  </enterprise-beans>
+</glassfish-ejb-jar>
+----
+
+[[overwriting--the-module-name]]
+== Overwriting the Module Name
+
+_Since Payara Server 4.1.2.174_
+
+When deploying an EJB-JAR module on Payara Server, the portable JNDI names for all scanned EJBs will be generated using the name of the module as specified on the _ejb-jar.xml_ deployment descriptor:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns = "http://java.sun.com/xml/ns/javaee"
+         version = "3.1"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd">
+    <module-name>MODULE_NAME</module-name>
+</ejb-jar>
+----
+
+NOTE: If the name's not specified in the deployment descriptor, the specification states that the module name will be the same as the JAR artifact used to deploy it.
+
+However, When deploying a JAR from an IDE (like **NetBeans** or **IntelliJ**), the IDE deploys to Payara Server using the asadmin `deploy` command, with the `--name` option specified. This will force the module to have the specified name over the name
+defined in _ejb-jar.xml_. This is undesired because the IDE usually infers the module name from the name of the project or the JAR file and doesn't take the correct name of the module into account.
+
+In the current release, an improvement has been implemented to solve this scenario:
+The module name defined in the deployment descriptor will **always** be used even if it tries to be overridden using the `-name` option.
+
+IMPORTANT: In the case you need to overwrite the name of the module when deploying the module, use the `--forceName` command option.
+
+[[overwriting--the-application-name]]
+=== Overwriting the Application Name
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+In the case of EAR artifacts, the portable JNDI names for all scanned EJBs will use the application name defined in the _application.xml_ deployment descriptor:
+
+[source, xml]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_7.xsd" version="7">
+    <display-name>My Application</display-name>
+    <application-name>APPLICATION_NAME</application-name>
+    ...
+</application>
+----
+
+NOTE: You can use the `--name` and `--force` deployment options to override the application name in a similar manner with what happens with EJB-JAR modules.
+
+[[persistent-ejb-timers-with-hazelcast]]
+== Persistent EJB Timers with the Domain Data Grid
+
+_Since Payara Server 5.181_
+
+:previewVersion: {currentVersion}
+
+include::partial$tech-preview.adoc[]
+
+It is possible to persist an EJB Timer to the Domain Data Grid rather than to a database. The same feature is standard in xref:/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
+
+Persisting an EJB Timer to the Domain Data Grid means that the Data Grid itself will store the timer details, preserving it even if the original instance leaves the cluster.
+
+IMPORTANT: All stored timers are lost if the whole domain is stopped.
+
+The Persistence service for EJB Timers can be set in the administration console by navigating to the *EJB Timer Service* tab in the EJB Container node of a configuration.
+
+To use the Data Grid to store EJB Timers set the *Persistence Service* to _DataGrid_
+
+image:ejb/set-ejb-timer-persistence.png[Set EJB Persistence to Data Grid]
+
+EJB Timers will be coordinated across a single deployment group and if an instance of the deployment group is stopped another instance in the same deployment group will take ownership of the timer and ensure it is fired.
+
+CAUTION: Clustered Timer Firing Mode is NOT user in this version of Payara Server and is always "One Per Deployment Group"
+
+It is also possible to set the `ejb-timer-service` using asadmin commands. To get the current state, run the following command:
+
+[source, shell]
+----
+asadmin> get configs.config.${your-config}.ejb-container.ejb-timer-service
+----
+
+This will return the current state from the domain.xml, which by default should be something similar to the following:
+
+[source, bash]
+----
+asadmin> get configs.config.server-config.ejb-container.ejb-timer-service
+
+configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Database
+configs.config.server-config.ejb-container.ejb-timer-service.max-redeliveries=1
+configs.config.server-config.ejb-container.ejb-timer-service.minimum-delivery-interval-in-millis=1000
+configs.config.server-config.ejb-container.ejb-timer-service.redelivery-interval-internal-in-millis=5000
+Command get executed successfully.
+----
+
+To persist to the DataGrid you need only change the value for `configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service` to `DataGrid`. To do this, run the following `set` command:
+
+[source, bash]
+----
+asadmin> set configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=DataGrid
+----
+
+WARNING: `set` commands are not dynamic. You will need to restart your domain to apply the changes.
+
+[[timer-migration]]
+=== Timer Migration
+
+EJB Timers stored in the Domain Data Grid support timer migration between Instances in the same Deployment Group. You can migrate timers using the Administration console from the *Deployment Group* page. Timers can also be migrated between instances using asadmin commands like this:
+
+[source, shell]
+----
+asadmin> migrate-timers --target server1 server2
+----
+
+Where `server1` is the active instance to migrate timers to and `server2` is the failed instance.

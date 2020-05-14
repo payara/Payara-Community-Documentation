@@ -1,0 +1,6 @@
+[[payara-schemas]]
+= Payara Schemas
+
+Schemas for the Payara Platform.
+
+** xref:{payaraWebDtd}[DTD for payara-web.xml]

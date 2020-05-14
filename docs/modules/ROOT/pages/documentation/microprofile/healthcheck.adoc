@@ -1,0 +1,82 @@
+= Eclipse MicroProfile Health Check API
+
+_Since Payara Server 4.1.2.181 and 5.181_
+
+Provided version of the API: {mpHealthSpecUrl}[MicroProfile Health Check {mpHealthVersion}]
+
+[[background]]
+== Background
+
+The Health Check API was created to allow easier probing of the state of  computing nodes with a cloud infrastructure environment.
+
+A full overview for the reasoning behind the API can be found in
+https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the README for the source code repository.]
+
+{mpHealthSpecUrl}[The complete specification] is maintained in the same repository.
+
+[[rest-endpoint]]
+== REST Endpoint
+
+The MicroProfile Healthchecks API defines that a REST endpoint are available from the root context at `/health` by default, and that upon invocation all registered health checks are performed and the results aggregated.
+
+This endpoint can be altered using the `set-microprofile-healthcheck-configuration` asadmin command to prevent collisions with other HTTP endpoints that might need to use the `health` context root.
+   
+NOTE: This endpoint will not be available until at least one application has been deployed.
+
+[[health-check-configuration]]
+== Health Check Configuration
+
+Health Check can be configured by using Admin Console or Asadmin commands. 
+
+_Since *5.183*&nbsp;_
+
+[[using-the-admin-console]]
+=== Using the Admin Console
+
+To configure the Health Check in the Admin Console, go to Configuration 
+→ [instance-configuration (like server-config)] → MicroProfile → Health Check:
+
+image:microprofile/health-check.png[Set Health Check Configuration]
+
+[[using-asadmin-commands]]
+=== Using Asadmin Commands
+
+The following administration commands can be used to configure the MicroProfile Healthcheck service:
+
+[[set-microprofile-healthcheck-configuration]]
+==== `set-microprofile-healthcheck-configuration`
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+*Usage*::
+`asadmin set-microprofile-healthcheck-configuration --enabled=<true|false> --endpoint=<context-root> --target=<target[default:server]>`
+*Aim*::
+Enables or disables the MicroProfile healthcheck service and configures the endpoint where all registered health checks are exposed.
+
+[[command-options]]
+===== Command Options
+
+[cols="1,10,1,1", options="header"]
+|====
+|Option
+|Description
+|Default
+|Mandatory
+
+|`enabled`
+|Enables or disables the service
+|true
+|No
+
+|`endpoint`
+|The context root used to expose the health checks
+|health
+|No
+
+|`target`
+|The target configuration where the command should be run
+|server
+|No
+|====
+
+IMPORTANT: Changes made with this command will only be applied when the server or instance is restarted.
