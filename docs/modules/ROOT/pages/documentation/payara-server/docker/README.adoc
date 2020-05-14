@@ -1,7 +1,7 @@
 [[docker-integration]]
 = Docker Integration
 
-% set previewVersion = currentVersion %}
+:previewVersion: {currentVersion}
 
 include::partial$tech-preview.adoc[]
 
@@ -10,5 +10,5 @@ These function in a similar manner to instances hosted on a SSH, DCOM,
 or CONFIG node type, though as the name suggests are targetted towards creating
 and using instances housed within Docker containers.
 
-xref:docker-nodes.adoc[Docker Nodes]:: How to create and use a Docker node.
-xref:docker-instances.adoc[Docker Instances]:: How to create and use an instance within a Docker container.
+xref:documentation/payara-server/docker/docker-nodes.adoc[Docker Nodes]:: How to create and use a Docker node.
+xref:documentation/payara-server/docker/docker-instances.adoc[Docker Instances]:: How to create and use an instance within a Docker container.

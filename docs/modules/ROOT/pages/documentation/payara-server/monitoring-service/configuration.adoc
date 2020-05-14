@@ -25,4 +25,4 @@ attributes:
 === From the Command Line
 
 You can configure the monitoring Service by using the administrations commands
-documented on the xref:asadmin-commands.adoc[corresponding section]
+documented on the xref:documentation/payara-server/monitoring-service/asadmin-commands.adoc[corresponding section]
