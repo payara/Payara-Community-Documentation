@@ -116,7 +116,7 @@ on all members of the cluster (including Payara Micro instances) for
 this feature to work correctly. This is default in Payara Server 5.181 onwards for both
 Payara Server domains and Payara Micro instances.
 
-|Data Grid Discovery Mode | See xref:discovery.adoc[Discovery Modes]
+|Data Grid Discovery Mode | See xref:documentation/payara-server/hazelcast/discovery.adoc[Discovery Modes]
 
 |====
 
@@ -133,7 +133,7 @@ The following configuration options are available here:
 |====
 |Property |Description
 
-|Enabled | See xref:enable-hazelcast.adoc[Disabling Data Grid] for detailed information
+|Enabled | See xref:documentation/payara-server/hazelcast/enable-hazelcast.adoc[Disabling Data Grid] for detailed information
 
 |Restart Data Grid |Determines if the Hazelcast member embedded in Payara will be
 restarted to apply any changes made
@@ -234,7 +234,7 @@ feature to work correctly.|_false_|No
 `-lk` |Hazelcast License|Enables https://hazelcast.com/products/enterprise/[Hazelcast Enterprise]
 features.||No
 
-|`--clustermode`|Cluster Mode|Can be one of `domain`, `tcpip` or `multicast`. See xref:discovery.adoc[Discovery Modes] for
+|`--clustermode`|Cluster Mode|Can be one of `domain`, `tcpip` or `multicast`. See xref:documentation/payara-server/hazelcast/discovery.adoc[Discovery Modes] for
 a detailed description of each mode | None|No
 
 |`--multicastgroup`

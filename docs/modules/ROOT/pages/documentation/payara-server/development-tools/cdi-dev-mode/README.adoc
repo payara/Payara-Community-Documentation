@@ -18,6 +18,6 @@ NOTE: If CDI Development Mode is enabled by one of the options above, it can't b
  
 Next sections describe how to enable CDI Development Mode, using either
 
-- xref:enabling-cdi-dev-web-desc.adoc[web.xml Application Descriptor]
-- xref:enabling-cdi-dev-console.adoc[Administration Console]
-- xref:enabling-cdi-dev-asadmin.adoc[Asadmin deploy command]
+- xref:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-web-desc.adoc[web.xml Application Descriptor]
+- xref:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-console.adoc[Administration Console]
+- xref:documentation/payara-server/development-tools/cdi-dev-mode/enabling-cdi-dev-asadmin.adoc[Asadmin deploy command]

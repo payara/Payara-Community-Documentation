@@ -83,5 +83,5 @@ this completely avoids any danger when needing to `--sync=full` the instance.
 [[see-also]]
 === See Also
 
-* xref:backup-domain.adoc[Payara Server Domain Backup]
-* xref:upgrade-payara.adoc[Upgrade Payara Server]
+* xref:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
+* xref:documentation/user-guides/upgrade-payara.adoc[Upgrade Payara Server]
