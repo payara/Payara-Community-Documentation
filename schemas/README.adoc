@@ -1,7 +1,0 @@
-[[payara-schemas]]
-= Payara Schemas
-
-Schemas for the Payara Platform.
-
-** link:{{ book.payaraWebDtd }}[DTD for payara-web.xml]
-** link:{{ book.payaraResourcesDtd }}[DTD for payara-resources.xml]
