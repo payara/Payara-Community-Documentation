@@ -64,7 +64,6 @@ image::monitoring-console/mc_settings_global.png[Global Settings]
 
 The interval can be paused and continued without changing the interval duration by using the _paused_ checkbox next to the interval setting.
 
-
 [[monitoring-console-page-add]]
 ==== Adding Pages
 To add a new page use the top right _Page_ menu and select _New..._.
@@ -90,6 +89,63 @@ When the configuration of a preconfigured page or any of the widgets on it was c
 WARNING: The reset will affect all widgets and the general page settings of the currently shown page. All changes made by the user will be overridden.
 
 To reset all pages and remove all user created pages clear the browser's local storage for the monitoring console page.
+
+
+[[monitoring-console-page-sync]]
+==== Page Synchronisation
+Monitoring Console uses the browser's local storage to store the page configuration (which includes the widgets placed on a page).
+This means by default changes to page configurations do not affect other users.
+To make pages available to others and to start from a common base configuration pages are explicitly synchronised with a persistent server page configuration.
+
+The chosen role controls the behaviour and available options for the page synchronisation.
+It is the _Administrator_'s role that is meant to manage the persistent server page configuration.
+The _Administrator_ pushes local changes to the server to update the base configuration.
+_User_s and _Guest_s pull the server configuration to update their local configuration with the base.
+The control remains with each user.
+
+The _Page Synchronisation_ dialogue shown when entering the console UI allows the user to pick the pages that should be updated (pulled).
+
+image::monitoring-console/mc_dia_pages.png[Page Synchronisation]
+
+Based on the role the pages to synchronise are pre-selected.
+
+* _Guest_: by default updates all pages available remotely unless they are already up to date
+* _Administrator_ and _User_: by default updates all pages available remotely unless a page has been locally changed
+
+The newest version is marked by a green background for easier orientation.
+
+This dialogue can also be opened from the _Global_ settings by clicking the _Update Local Pages_ button shown _Page Sync_ property.
+
+image::monitoring-console/mc_setting_global_rolesync.png[Global Page Synchronisation Settings]
+
+_Administrator_s also find a button to _Update Remote Pages_ with any changes applied to local changes.
+This is only needed for pages that are not using _auto_matic updates.
+
+To share a page that so far is not part of the persistent remote configuration open the _Page_ settings and look for the _Sync_ property:
+
+image::monitoring-console/mc_setting_page_sync.png[Page Synchronisation Settings]
+
+_User_s and _Administrator_s can both _Push_ a page to update the persistent remote configuration and _Pull_ the remote configuration to update the local page.
+_Administrator_s can also enable or disable the _auto_matic page synchronisation.
+When enabled any local change done by an _Administrator_ is automatically pushed to the remote configuration and can be pulled by other users.
+
+
+[[monitoring-console-user-role]]
+==== Changing User Role
+The monitoring console can be used in one of three roles:
+
+* Guest: A user that uses the console only on occasion to check existing metrics on existing pages ("read-only" user).
+* User: A user that uses the console to experiment with its features without affecting others.
+* Administrator:  A user that uses the console to configure the configuration that is the basis for other users.
+
+When no role is set for the session the user is asked to chose the role when opening monitoring console.
+
+image::monitoring-console/mc_dia_role.png[Role Selection]
+
+The selection can be changed at any time in the _Global_ settings for _Role_.
+
+image::monitoring-console/mc_setting_global_rolesync.png[Role Setting]
+
 
 
 [[monitoring-console-widgets]]
@@ -160,7 +216,7 @@ image::monitoring-console/mc_settings_data.png[Widget Data Settings]
 | X-Axis | _Labels_ | Whether or not to show labels for the x-axis.
 | Y-Axis | (undefined) | Set a minimum or maximum number for the y-axis instead. When not set range is derived automatically from the data points.
 | Coloring | _Instance Name_ | Used to select the colours the data is shown with. _Instance Name_ will show data in the same colour that belongs to the same instance. _Series Name_ shows the metric series in the same colour (independent of instance). This is individual to each widget. _Result Set Index_ will show each matching series in a different colour. _Instance and Series Name_ shows the same instance and series in the same colour. This is global. This means another widget using this colouring with the same instance and series will have the same colour as well.
-| Fields | _(blank)_ | A comma or space sperated list of fields to show for an annotation list or table. The given field order is reflected in the view.
+| Fields | _(blank)_ | A comma or space separated list of fields to show for an annotation list or table. The given field order is reflected in the view.
 | Annotations | (checked) |  Whether or not to show annotations for an alert table.
 |====================
 
@@ -278,8 +334,23 @@ This will then match all existing series that match the pattern. This feature ca
 
 [[monitoring-console-settings]]
 === Global Configurations
-Currently the configuration that controls the monitoring console UI is only stored in the browser's local storage.
-It can be exported and imported in the form of JSON files to share or distribute configurations.
+The configuration that controls the monitoring console UI.
+It is stored in the browser's local storage.
+For manual sharing the configuration can be exported and imported in the form of JSON files to share or distribute configurations.
+Server integrated sharing can be done using the build in page synchronisation which is a two way update mechanism to update either the local configuration with server configuration or the other way around which allows to share changes made by one user with other users in a more convenient way.
+
+
+.Global Settings
+[cols="1,1,4",options="header"]
+|====================
+| Property | Default | Description
+| Data Refresh | `2s` | Interval duration used to update the currently shown page with new data (poll duration). To pause any page update check _enabled_ checkbox.
+| Page Rotation | (undefined duration) | Duration each page is shown during page rotation. To run a rotation enter a interval duration using a number with time unit and check the _enabled_ checkbox. To stop rotation un-check the _enabled_ checkbox.
+| Role | _User_ | Select the used user role. See section xref:#monitoring-console-user-role[Changing User Role] for details.
+| Page Sync | - | _Update Local Pages_ button opens the dialog to pull page configuration updates from server (not available to _Guest_ role). _Update Remote Pages_ button pushes changes to local pages to remote (server) if such a page already exist remotely (_Administrator_ role only).
+| Watches | - | Just a short-cut to the watches configuration page
+|====================
+
 
 [[monitoring-console-page-export]]
 ==== Export Configuration
@@ -490,16 +561,16 @@ image::monitoring-console/mc_page_health-checks.png[Health Checks Page]
 
 [[monitoring-console-preset-threads]]
 ==== Thread Health Page
-The _Threads_ page gives detailed information on thread health of the cluster and lists information on stuck or hogging threads. Total number of live and darmon threads are given for reference.
+The _Threads_ page gives detailed information on thread health of the cluster and lists information on stuck or hogging threads. Total number of live and daemon threads are given for reference.
 
 image::monitoring-console/mc_page_threads.png[Thread Health Page]
 
 * _Stuck Thread Incidents_: Table listing the most recent information for threads that are considered stuck. This is the case if the time passed since a thread started a not yet finished unit of work becomes longer than the set threshold in the _Stuck Threads_ health check configuration. This could be because it is waiting at a lock or the operation takes a considerable amount of time.
-* _Hogging Thread Incidents_: Table listing the most recent information for threads that are considered hogging. This is the case if the thread's use of the CPU in percent points is higher than the theshold value configured in the _Hogging Threads_ health check configuration for n times in a row, where n is 1 + the configured number of retries.
+* _Hogging Thread Incidents_: Table listing the most recent information for threads that are considered hogging. This is the case if the thread's use of the CPU in percent points is higher than the threshold value configured in the _Hogging Threads_ health check configuration for n times in a row, where n is 1 + the configured number of retries.
 * _Live Threads_: Total number of threads used by the JVM (including daemon threads)
 * _Daemon Threads_: Total number of daemon threads used by the JVM
 
-WARNING: Be aware that the number shown in the example image are not characteristic. For demontration purposes the thresholds have been set uncharacteristically low to be able to "force" entries. Usually the threshold for stuck threads should be in region of some seconds to a few minutes. The threshold for hogging threads should be well above 90% with a few reties.
+WARNING: Be aware that the number shown in the example image are not characteristic. For demonstration purposes the thresholds have been set uncharacteristically low to be able to "force" entries. Usually the threshold for stuck threads should be in region of some seconds to a few minutes. The threshold for hogging threads should be well above 90% with a few reties.
 
 
 [[monitoring-console-preset-request-tracing]]
@@ -515,7 +586,7 @@ image::monitoring-console/mc_page_request-tracing.png[Request Tracing Page]
 
 When all time minimum and/or maximum are added in the _Widget_ _Data_ settings the bar starts and/or ends at these "all time" values instead of the minimum and/or maximum within the last minute.
 
-The _Trace Duration Above Threshold_ widget shows a graph where each point marks the duration of a "slow" request at the moment the requests occured. Possible alerts are shown on top of the graph.
+The _Trace Duration Above Threshold_ widget shows a graph where each point marks the duration of a "slow" request at the moment the requests occurred. Possible alerts are shown on top of the graph.
 
 The _Trace Data_ view adds tracing details for the "slow" requests that can be sorted by wall-time or value using the widget menu (gear icon in top right corner of the widget).
 
@@ -561,7 +632,7 @@ As always for alert lists both lists are sorted starting with the most recent se
 
 image::monitoring-console/mc_page_alerts.png[Alerts Page]
 
-Past alerts can be managed by acknowledging the alerts which makes them disapear from the list.
+Past alerts can be managed by acknowledging the alerts which makes them disappear from the list.
 
 
 [[monitoring-console-user]]
