@@ -32,6 +32,17 @@ Payara has been part of the MicroProfile project from its inception and, therefo
 * https://github.com/eclipse/microprofile-open-api/releases/tag/1.0[OpenAPI 1.0]
 * https://github.com/eclipse/microprofile-rest-client/releases/tag/1.1[Rest Client 1.1]
 
+| [source, xml]
+----
+<dependency>
+    <groupId>org.eclipse.microprofile</groupId>
+    <artifactId>microprofile</artifactId>
+    <version>2.1</version>
+    <type>pom</type>
+    <scope>provided</scope>
+</dependency>
+----
+
 | 2.0
 |
 * JAX-RS 2.1
@@ -73,7 +84,7 @@ Payara has been part of the MicroProfile project from its inception and, therefo
 * https://github.com/eclipse/microprofile-jwt-auth/releases/tag/1.0[JWT Authentication 1.0]
 * https://github.com/eclipse/microprofile-opentracing/releases/tag/1.0[OpenTracing 1.0]
 * https://github.com/eclipse/microprofile-open-api/releases/tag/1.0[OpenAPI 1.0]
-* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.0[Rest Client 1.0]
+* https://github.com/eclipse/microprofile-rest-client/releases/tag/1.1[Rest Client 1.1]
 
 
 | [source, xml]
