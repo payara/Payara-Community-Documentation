@@ -36,26 +36,27 @@ A sample output of this request is shown below:
   "request": {
     "mbean": "java.lang:type=Memory",
     "type": "read"
- ,
+  },
   "value": {
     "HeapMemoryUsage": {
       "committed": 450363392,
       "init": 264241152,
       "max": 477626368,
       "used": 97480984
-   ,
+    },
     "ObjectPendingFinalizationCount": 0,
     "NonHeapMemoryUsage": {
       "committed": 139460608,
       "init": 2555904,
       "max": -1,
       "used": 122389432
-   ,
+    },
     "Verbose": false,
     "ObjectName": "java.lang:type=Memory"
  ,
   "timestamp": 1502799650273,
   "status": 200
+  }
 }
 ----
 

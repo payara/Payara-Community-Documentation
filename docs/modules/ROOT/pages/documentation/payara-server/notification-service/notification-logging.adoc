@@ -4,7 +4,6 @@
 _Since version 4.1.2.181_
 
 :previewVersion: {currentVersion}
-
 include::partial$tech-preview.adoc[]
 
 Payara Notification Logging Service captures information about events which come 

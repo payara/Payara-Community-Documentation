@@ -5,7 +5,7 @@ Variable "previewVersion" specifies the Payara version in which the feature is i
 
 Include with (see general-info/technical-preview.adoc for an example usage):
 
-:previewVersion: "4.1.2.XXX"
+:previewVersion: "4.1.2.181"
 include "/partial pages/tech-preview.adoc"
 
 If set previewVersion = currentVersion, the partial page will be visible for all versions.

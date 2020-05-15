@@ -12,5 +12,4 @@ Features released in technical preview usually become standard full features in 
 Features in technical preview have the following warning in their documentation:
 
 :previewVersion: {currentVersion}
-
 include::partial$tech-preview.adoc[]
