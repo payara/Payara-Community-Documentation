@@ -44,7 +44,7 @@ name to filter out any others, as shown below:
 +
 image:notification-service/hipchat/hipchat-view-room.png[View Hipchat room]
 
-. Select your room and select the "*Tokens*" xref in the left-hand menu to
+. Select your room and select the "*Tokens*" link in the left-hand menu to
 add a new notification token:
 +
 image:notification-service/hipchat/hipchat-room-tokens.png[Select Hipchat Tokens]

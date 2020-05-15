@@ -59,12 +59,12 @@ possible amount of data.
 Open the Admin Console and select "Monitoring Data" in the left-hand "Tree"
 pane. This is where monitoring data can be viewed in the admin console, though
 this will be raw data. Since we have not yet enabled monitoring, click the
-"Configure Monitoring" xref for the relevant server instance. In the image below
+"Configure Monitoring" link for the relevant server instance. In the image below
 we only have the DAS ("`server`") to choose:
 
-image:guides/monitoring/admin-console-monitoring1.png[Click the xref for the relevant instance]
+image:guides/monitoring/admin-console-monitoring1.png[Click the link for the relevant instance]
 
-That xref will take you directly to the correct page for the `server-config` -
+That link will take you directly to the correct page for the `server-config` -
 the place where we enable monitoring for the DAS as shown:
 
 image:guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels of monitoring]
@@ -118,3 +118,25 @@ the bold text in VisualVM will expand the attribute to show the available data
 as seen above. Visiting a page in the admin console will increment the `count`
 value in the `requestcount` attribute, though the _Refresh_ button will need to
 be clicked to update the value.
+
+[[remotely-viewing-jmx-monitoring-data-visualvm]]
+=== Remotely Viewing JMX Monitoring Data with VisualVM
+To remotely get the data from secured Payara Server into VisualVM, you have 
+to use the SSL connection (which is the default). For an SSL connection to 
+work, you need to use the same SSL certificate as used in a remote Payara Server. 
+This certificate is not available in standard JDK, so you'll need to add the 
+file `Keystore.jks` in the domain directory (it is under `${DOMAIN_HOME}/config/`) 
+to VisualVM. This is required since the SSL connection will provide the 
+certificate for authentication. 
+
+VisualVM doesn't accept any certificates by default so you will have to 
+configure it manually. Once you have the Keystore of a running domain, 
+run VisualVM using the following command: 
+
+[source, shell]
+----
+visualvm -J-Djavax.net.ssl.trustStore=${PATH_TO_KEYSTORE}/keystore.jks -J-Djavax.net.ssl.trustStorePassword=changeit
+----
+
+This will allow VisualVM to trust the provided SSL certificate. The 
+default password for the Payara keystores is `changeit`. 
