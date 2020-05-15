@@ -37,24 +37,24 @@ A sample output of this request is shown below:
   "request": {
     "mbean": "java.lang:type=Memory",
     "type": "read"
- ,
+  },
   "value": {
     "HeapMemoryUsage": {
       "committed": 450363392,
       "init": 264241152,
       "max": 477626368,
       "used": 97480984
-   ,
+    },
     "ObjectPendingFinalizationCount": 0,
     "NonHeapMemoryUsage": {
       "committed": 139460608,
       "init": 2555904,
       "max": -1,
       "used": 122389432
-   ,
+    },
     "Verbose": false,
     "ObjectName": "java.lang:type=Memory"
- ,
+  },
   "timestamp": 1502799650273,
   "status": 200
 }
@@ -99,12 +99,12 @@ It is possible to execute bulk operations using the REST monitoring API too. To 
     "type" : "<OPERATION_TYPE>",
     "mbean" : "<MBEAN_NAME>",
     "attribute" : "<ATTRIBUTE_NAME>"
- ,
-  {
+  }
+ ,{
     "type" : "<OPERATION_TYPE>",
     "mbean" : "<MBEAN_NAME>",
     "attribute" : "<ATTRIBUTE_NAME>"
- ,
+  },
   ...
 ]
 ----
@@ -147,25 +147,25 @@ Which will yield an output similar to the following:
         "request": {
             "mbean": "java.lang:type=Compilation",
             "type": "read"
-       ,
+        },
         "value": {
             "Name": "HotSpot 64-Bit Tiered Compilers",
             "CompilationTimeMonitoringSupported": true,
             "TotalCompilationTime": 106363,
             "ObjectName": "java.lang:type=Compilation"
-       ,
+        },
         "timestamp": 1529353755633,
         "status": 200
-   ,
+    },
     {
         "request": {
             "mbean": "java.lang:type=Runtime",
             "attribute": "Uptime",
             "type": "read"
-       ,
+        },
         "value": 8541422,
         "timestamp": 1529353755636,
         "status": 200
-   
+    }
 ]
 ----
