@@ -570,7 +570,7 @@ image::monitoring-console/mc_page_threads.png[Thread Health Page]
 * _Live Threads_: Total number of threads used by the JVM (including daemon threads)
 * _Daemon Threads_: Total number of daemon threads used by the JVM
 
-WARNING: Be aware that the number shown in the example image are not characteristic. For demonstration purposes the thresholds have been set uncharacteristically low to be able to "force" entries. Usually the threshold for stuck threads should be in region of some seconds to a few minutes. The threshold for hogging threads should be well above 90% with a few reties.
+WARNING: Be aware that the number shown in the example image are not characteristic. For demonstration purposes the thresholds have been set uncharacteristically low to be able to "force" entries. Usually the threshold for stuck threads should be in region of some seconds to a few minutes. The threshold for hogging threads should be well above 90% with a few retries.
 
 
 [[monitoring-console-preset-request-tracing]]
