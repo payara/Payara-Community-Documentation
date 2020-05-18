@@ -125,8 +125,8 @@ To share a page that so far is not part of the persistent remote configuration o
 
 image::monitoring-console/mc_setting_page_sync.png[Page Synchronisation Settings]
 
-_User_s and _Administrator_s can both _Push_ a page to update the persistent remote configuration and _Pull_ the remote configuration to update the local page.
-_Administrator_s can also enable or disable the _auto_matic page synchronisation.
+__User__s and __Administrator__s can both _Push_ a page to update the persistent remote configuration and _Pull_ the remote configuration to update the local page.
+__Administrator__s can also enable or disable the __auto__matic page synchronisation.
 When enabled any local change done by an _Administrator_ is automatically pushed to the remote configuration and can be pulled by other users.
 
 
