@@ -100,7 +100,7 @@ To make pages available to others and to start from a common base configuration 
 The chosen role controls the behaviour and available options for the page synchronisation.
 It is the _Administrator_'s role that is meant to manage the persistent server page configuration.
 The _Administrator_ pushes local changes to the server to update the base configuration.
-_User_s and _Guest_s pull the server configuration to update their local configuration with the base.
+__User__s and __Guest__s pull the server configuration to update their local configuration with the base.
 The control remains with each user.
 
 The _Page Synchronisation_ dialogue shown when entering the console UI allows the user to pick the pages that should be updated (pulled).
