@@ -138,7 +138,7 @@ The monitoring console can be used in one of three roles:
 * User: A user that uses the console to experiment with its features without affecting others.
 * Administrator:  A user that uses the console to configure the configuration that is the basis for other users.
 
-When no role is set for the session the user is asked to chose the role when opening monitoring console.
+When no role is set for the session the user is asked to choose a role when opening the monitoring console.
 
 image::monitoring-console/mc_dia_role.png[Role Selection]
 
