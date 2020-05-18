@@ -118,7 +118,7 @@ This dialogue can also be opened from the _Global_ settings by clicking the _Upd
 
 image::monitoring-console/mc_setting_global_rolesync.png[Global Page Synchronisation Settings]
 
-_Administrator_s also find a button to _Update Remote Pages_ with any changes applied to local changes.
+__Administrator__s also find a button to _Update Remote Pages_ with any changes applied to local changes.
 This is only needed for pages that are not using _auto_matic updates.
 
 To share a page that so far is not part of the persistent remote configuration open the _Page_ settings and look for the _Sync_ property:
