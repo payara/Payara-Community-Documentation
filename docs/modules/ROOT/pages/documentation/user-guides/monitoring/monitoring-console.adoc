@@ -337,7 +337,7 @@ This will then match all existing series that match the pattern. This feature ca
 The configuration that controls the monitoring console UI.
 It is stored in the browser's local storage.
 For manual sharing the configuration can be exported and imported in the form of JSON files.
-Server integrated sharing can be done using the build in page synchronisation which is a two way update mechanism to update either the local configuration with server configuration or the other way around which allows to share changes made by one user with other users in a more convenient way.
+Server integrated sharing can be done using the built in page synchronisation which is a two-way update mechanism to update either the local configuration with server configuration or the other way around which allows the sharing of changes made by one user with other users in a more convenient way.
 
 
 .Global Settings
