@@ -265,6 +265,7 @@
 ** xref:documentation/user-guides/bypassing-jms-connections-through-a-firewall.adoc[Bypassing JMS Connections through a Firewall]
 ** xref:documentation/user-guides/mdb-in-payara-micro.adoc[Using Payara Micro as a JMS Client]
 ** xref:documentation/user-guides/using-the-maven-cargo-plugin.adoc[Deploying to Payara Server from Maven]
+** xref:documentation/user-guides/starter-with-jpa.adoc[Add JPA to MP Starter]
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
