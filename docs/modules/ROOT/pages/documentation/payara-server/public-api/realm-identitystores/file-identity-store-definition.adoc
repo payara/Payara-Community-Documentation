@@ -33,7 +33,7 @@ public class MyRestApp extends Application {
 [[configuration]]
 == Configuration
 
-The file realm identity store can be configured with both `@FileIdentityStoreDefinition` annotation attributes and MicroProfile Config properties. The annotation and MicroProfile properties have several configuration options.
+The file realm identity store can be configured with both `@FileIdentityStoreDefinition` annotation attributes and MicroProfile Config properties. The annotation and MicroProfile properties have several configuration options.
 
 They are detailed as shown below.
 
@@ -67,5 +67,5 @@ They are detailed as shown below.
 
 |===
 
-*Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
+*Note:* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
 then the MicroProfile Config property value always takes precedence over the `@FileIdentityStoreDefinition` annotation value.

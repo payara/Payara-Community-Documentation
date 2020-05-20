@@ -33,7 +33,7 @@ public class MyRestApp extends Application {
 [[configuration]]
 == Configuration
 
-The Solaris realm identity store can be configured with both `@SolarisIdentityStoreDefinition` annotation attributes and MicroProfile Config properties. The annotation and MicroProfile properties have several configuration options.
+The Solaris realm identity store can be configured with both `@SolarisIdentityStoreDefinition` annotation attributes and MicroProfile Config properties. The annotation and MicroProfile properties have several configuration options.
 
 They are detailed as shown below.
 

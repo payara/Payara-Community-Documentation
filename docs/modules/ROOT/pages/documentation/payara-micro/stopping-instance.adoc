@@ -35,7 +35,7 @@ public class EmbeddedPayara{
         PayaraMicro micro = PayaraMicro.getInstance();
         micro.bootStrap();
         micro.shutdown();
-   
+    }
 }
 ----
 
@@ -53,6 +53,6 @@ public class EmbeddedPayara{
 
         PayaraMicroRuntime instance = PayaraMicro.bootstrap();
         instance.shutdown();
-   
+    }
 }
 ----

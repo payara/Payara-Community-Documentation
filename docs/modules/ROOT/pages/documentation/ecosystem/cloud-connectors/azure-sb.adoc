@@ -65,8 +65,9 @@ public class SendAzureMessage {
  public void init() {
     try (AzureSBConnection connection = factory.createConnection()) {
         connection.sendMessage("testq", new BrokeredMessage("Hello World"));
+    }
     catch (Exception ex) {
-   
+    }
 }
 ----
 
@@ -90,7 +91,7 @@ public class ReceiveAzureMessage implements AzureSBListener {
     @OnAzureSBMessage
     public void receiveMessage(BrokeredMessage message) {
         // Handle message
-   
+    }
 }
 ----
 

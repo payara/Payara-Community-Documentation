@@ -91,12 +91,12 @@ The following gives an example:
 
 Just like the connection factory shown above, the destination has to be named.
 The destination also has to have the type `javax.jms.Queue` or `java.jms.Topic`
-and we'll have to specify the same resource adapter name again.
+and we`ll have to specify the same resource adapter name again.
 
 The vendor specific implementation of our required type also has to be specified;
 for a queue implementation provided by ActiveMQ this is
-`org.apache.activemq.command.ActiveMQQueue`. Finally the name of the queue we're
-sending to on the ActiveMQ server has to be given (if the queue doesn't exist,
+`org.apache.activemq.command.ActiveMQQueue`. Finally the name of the queue we`re
+sending to on the ActiveMQ server has to be given (if the queue doesn`t exist,
 ActiveMQ wil create it automatically, so we are not required to configure the
 broker).
 
@@ -133,25 +133,27 @@ public class SendJMSMessage {
     @PostConstruct
     public void myTimer() {
         sendMessage(s -> createTextMessage(s, "Hello, world!"));
-   
+    }
  
     public void sendMessage(Function<Session, Message> message) {
         try (Connection connection = factory.createConnection()) {
             Session session = connection.createSession(true, AUTO_ACKNOWLEDGE);
             session.createProducer(queue)
                    .send(message.apply(session));
+        }
         catch (JMSException ex) {
             logger.log(SEVERE, "Exception sending msg", ex);
-       
-   
+        }
+    }
  
     public TextMessage createTextMessage(Session session, String message) {
         try {
             return session.createTextMessage(message);
+        }
         catch(JMSException e) {
             throw new IllegalStateException(e);
-       
-   
+        }
+    }
 }
 ----
 
@@ -180,7 +182,7 @@ public class MyMessageListener implements MessageListener {
     @Override
     public void onMessage(Message message) {
         // handle message
-   
+    }
 }
 ----
 

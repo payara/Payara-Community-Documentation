@@ -281,7 +281,7 @@ Note: you can alternatively create a json file and then use curl syntax for send
 
 [source, shell]
 ----
->> curl -H 'Accept: application/json' -H 'Content-Type: application/json' -i 'http://dockerHost1:2376/containers/create?name=ManagedContainer2' --data '{
+>> curl -H \'Accept: application/json\' -H 'Content-Type: application/json' -i \'http://dockerHost1:2376/containers/create?name=ManagedContainer2\' --data \'{
   "Image": "payara/server-node:mytag",
   "HostConfig": {
     "Mounts": [
@@ -290,10 +290,10 @@ Note: you can alternatively create a json file and then use curl syntax for send
         "Source": "/app/passwordfile-docker.txt",
         "Target": "/opt/payara/passwords/passwordfile.txt",
         "ReadOnly": true
-     
+      }
     ],
     "NetworkMode": "host"
- ,
+  },
   "Env": [
     "PAYARA_DAS_HOST=payaraDas",
     "PAYARA_DAS_PORT=4848",
@@ -301,7 +301,7 @@ Note: you can alternatively create a json file and then use curl syntax for send
     "PAYARA_INSTANCE_NAME=ManagedContainer2",
     "DOCKER_CONTAINER_IP=dockerHost1"
   ]
-}
+}\'
 
 HTTP/1.1 201 Created
 Api-Version: 1.39
@@ -314,7 +314,7 @@ Content-Length: 90
 
 {"Id":"e7803ce3ec964805c41d8a0eef5838299b5b8d38aa9e0801f05f3bc56b8d5fa1","Warnings":null}
 
->> curl -i 'http://dockerHost1:2376/containers/ManagedContainer2/start' --data ''
+>> curl -i \'http://dockerHost1:2376/containers/ManagedContainer2/start\' --data ''
 HTTP/1.1 204 No Content
 Api-Version: 1.39
 Docker-Experimental: false
@@ -339,7 +339,7 @@ Docker Container IP is: dockerHost1
 Instance name provided, but local file system for instance missing, checking if file system or new instance needs to be created.
 Checking if an instance with name ManagedContainer2 has been registered with the DAS
 ./payara5/bin/asadmin -I false -t -H payaraDas -p 4848 -W /pathInDocker/passwordfile.txt list-instances --nostatus ManagedContainer2
-Found an instance with name ManagedContainer2 registered to the DAS, checking if registered Docker Container ID matches this container's ID
+Found an instance with name ManagedContainer2 registered to the DAS, checking if registered Docker Container ID matches this container\'s ID
 ./payara5/bin/asadmin -I false -t -H payaraDas -p 4848 -W /pathInDocker/passwordfile.txt _get-docker-container-id --instance ManagedContainer2
 Registered Docker Container ID is: e7803ce3ec964805c41d8a0eef5838299b5b8d38aa9e0801f05f3bc56b8d5fa1
 Docker Container IDs do not match, creating a new instance.

@@ -62,12 +62,11 @@ A simple example is as follows:
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
-public class EmbeddedPayara
-{
-    public static void main(String[] args) throws BootstrapException
-    {
+public class EmbeddedPayara{
+
+    public static void main(String[] args) throws BootstrapException{
         PayaraMicro.bootstrap();
-   
+    }
 }
 ----
 
@@ -86,12 +85,11 @@ example below:
 import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 
-public class EmbeddedPayara
-{
-    public static void main(String[] args) throws BootstrapException
-    {
+public class EmbeddedPayara{
+    
+    public static void main(String[] args) throws BootstrapException{
         PayaraMicro.getInstance().bootStrap();
-   
+    }
 }
 ----
 
@@ -106,11 +104,9 @@ import fish.payara.micro.BootstrapException;
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.PayaraMicroRuntime;
 
-public class EmbeddedPayara
-{
-    public static void main(String[] args) throws BootstrapException
-    {
+public class EmbeddedPayara{
+    public static void main(String[] args) throws BootstrapException{
         PayaraMicroRuntime instance = PayaraMicro.bootStrap();
-   
+    }
 }
 ----

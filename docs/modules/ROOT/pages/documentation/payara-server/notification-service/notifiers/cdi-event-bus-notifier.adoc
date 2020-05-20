@@ -66,8 +66,8 @@ Notification events can be observed as a standard `@Inbound` CDI event of type `
             Optional<HealthCheckResultEntry> mostCritical = event.getData()
             .as(HealthCheckNotificationData.class).getEntries()
             .stream().sorted().findFirst();
-       
-
+        }
+    }
    
 ----
 

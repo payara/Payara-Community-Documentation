@@ -1,7 +1,7 @@
 [[docker-integration]]
 = Docker Integration
 
-% set previewVersion = currentVersion %}
+:previewVersion: currentVersion
 
 include::partial$tech-preview.adoc[]
 
