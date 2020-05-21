@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
         out.println("</form");
         out.println("</body></html>");
         out.flush();
-   
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -58,14 +58,15 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         printHeaders(out);
         if (status.equals(AuthenticationStatus.SUCCESS)){
-            out.println("Successfully logged in);
+            out.println("Successfully logged in");
+        }
         else {
             PrintWriter out = resp.getWriter();
             printHeaders(out);
             out.println("Failed to log in");    
-       
+        }
         out.flush();
-   
+    }
     
     private void printHeaders(PrintWriter out){
         out.println("<html>");
@@ -73,7 +74,7 @@ public class LoginServlet extends HttpServlet {
         out.println("<title>Two Idenity Stores Authentication</title>");
         out.println("</head>");
         out.println("<body>");
-   
+    }
     
 }
 ----
