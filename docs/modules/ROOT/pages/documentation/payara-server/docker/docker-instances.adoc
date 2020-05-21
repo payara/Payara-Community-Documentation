@@ -196,7 +196,7 @@ https://docs.docker.com/engine/api/v1.39/#operation/ContainerCreate
 IMPORTANT: The image name is not configurable - Payara Server expects the image name to
 match the value from the node config
 
-The configuration within Payara Server of the settings denoted in the above xref takes the form of dotted names. These
+The configuration within Payara Server of the settings denoted in the above link takes the form of dotted names. These
 names adhere to the following syntax:
 
 * Each property is prepended with "Docker"

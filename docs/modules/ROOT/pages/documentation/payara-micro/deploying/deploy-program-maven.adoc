@@ -19,7 +19,7 @@ import fish.payara.micro.BootstrapException;
 public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
        PayaraMicro.getInstance().addDeployFromGAV("fish.payara.testing,clusterjsp, 1.1").bootStrap();
-    }
+   
 }
 ----
 

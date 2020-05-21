@@ -23,7 +23,7 @@ The following code sample illustrates how to configure file realm identity store
 ----
 @ApplicationScoped
 @ApplicationPath("/rest")
-@DeclareRoles({ "a", "b")
+@DeclareRoles({ "a", "b"})
 @BasicAuthenticationMechanismDefinition(realmName = "file-realm")
 @FileIdentityStoreDefinition("file-realm")
 public class MyRestApp extends Application {
@@ -67,5 +67,5 @@ They are detailed as shown below.
 
 |===
 
-*Note:* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
+*Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
 then the MicroProfile Config property value always takes precedence over the `@FileIdentityStoreDefinition` annotation value.

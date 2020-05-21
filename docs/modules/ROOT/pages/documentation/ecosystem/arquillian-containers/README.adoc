@@ -1,10 +1,7 @@
 = Arquillian Containers
 
 :previewVersion: 5.181
-
 include::partial$tech-preview.adoc[]
-
-
 
 The Payara Arquillian containers provide various Arquillian containers for integration testing with Payara.
 
@@ -12,7 +9,7 @@ In version {currentVersion}, there are containers available for the following di
 
 * xref:documentation/ecosystem/arquillian-containers/payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
-* xref:documentation/ecosystem/arquillian-containers/payara-remote.adoc[Payara Remote]
+* Payara Remote (not yet documented)
 * Payara Managed (not yet documented)
 
 === Obtaining the Containers

@@ -110,8 +110,6 @@ public void receiveEvent(@Observes @Inbound @MyQualifier String message) {
 }
 ----
 
-
-
 [[event-name]]
 === Event name
 
@@ -222,4 +220,4 @@ CDI.current().getBeanManager().fireEvent("This is an event", new Outbound() {
 
 The above code creates a dynamic instance of the
 `@Outbound` annotation and fires the event `"This is an event"`
-using a bean manager retrieve via a static `CDI.current()` method.
+using a bean manager retrieve via a static `CDI.current`()` method.

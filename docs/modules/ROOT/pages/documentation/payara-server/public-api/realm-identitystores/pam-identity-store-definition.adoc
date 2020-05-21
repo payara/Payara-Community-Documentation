@@ -23,7 +23,7 @@ The following code sample illustrates how to configure PAM realm identity store:
 ----
 @ApplicationScoped
 @ApplicationPath("/rest")
-@DeclareRoles({ "a", "b")
+@DeclareRoles({ "a", "b"})
 @BasicAuthenticationMechanismDefinition(realmName = "pam-realm")
 @PamIdentityStoreDefinition("pam-realm")
 public class MyRestApp extends Application {

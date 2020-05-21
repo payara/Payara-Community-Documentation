@@ -23,7 +23,7 @@ The following code sample illustrates how to configure Solaris realm identity st
 ----
 @ApplicationScoped
 @ApplicationPath("/rest")
-@DeclareRoles({ "a", "b")
+@DeclareRoles({ "a", "b"})
 @BasicAuthenticationMechanismDefinition(realmName = "solaris-realm")
 @SolarisIdentityStoreDefinition("solaris-realm")
 public class MyRestApp extends Application {
