@@ -27,7 +27,7 @@ Here's an example that configures a Google OAuth2 endpoint:
     extraParameters = {
         "testKey=testValue",
         "testKey2=testValue2"
-   
+    }
 )
 public class SecurityBean {
 
@@ -51,7 +51,7 @@ public class CallbackServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         //Here's the access token
         out.println(token.getAccessToken());
-   
+    }
 }
 ----
 

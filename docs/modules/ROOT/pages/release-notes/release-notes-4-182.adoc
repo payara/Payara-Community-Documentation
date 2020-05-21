@@ -74,11 +74,11 @@ NOTE: This version is distributed only to Payara Enterprise customers
 * https://github.com/payara/Payara/pull/2424[PAYARA-2440] - Refactor a line within prettyDateFormat
 * https://github.com/payara/Payara/pull/2448[PAYARA-2464] - asadmin doesn't consider jacc-provider properties
 * https://github.com/payara/Payara/pull/2455[PAYARA-2492] - Jasper Exception when loading an application deployed to Payara Micro Programmatically
-* https://github.com/payara/Payara/pull/2180[PAYARA-2501] - – Switch getCanonicalPath to getRealPath to resolve symxref issue
+* https://github.com/payara/Payara/pull/2180[PAYARA-2501] - – Switch getCanonicalPath to getRealPath to resolve symlink issue
 * https://github.com/payara/Payara/pull/2401[PAYARA-2507] - Hazelcast messagelisteners registered twice
 * https://github.com/payara/Payara/pull/2449[PAYARA-2508] - Log file doesn't display logs on an upgraded domain.
 * https://github.com/payara/Payara/pull/2420[PAYARA-2511] - If default config value not set, optional shouldn't have a value
-* https://github.com/payara/Payara/pull/2418[PAYARA-2512] - Investigate and fix JSON logging on Payara Micro
+* https://github.com/payara/Payara/pulls/2418[PAYARA-2512] - Investigate and fix JSON logging on Payara Micro
 * https://github.com/payara/Payara/pull/2476[PAYARA-2554] - NPE when starting span in the new context if instance is null
 * https://github.com/payara/Payara/pull/2531[PAYARA-2558] - Embedded SNAPSHOT dependency fails to run
 * https://github.com/payara/Payara/pull/2495[PAYARA-2562] - NPE reported when setting monitoring levels after secure admin is enabled

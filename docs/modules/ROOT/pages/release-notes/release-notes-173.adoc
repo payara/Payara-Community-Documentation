@@ -209,7 +209,7 @@ to prepend other Asadmin Utility parameters]
 * PAYARA-1807 - Ship payara full also as tar gz
 * https://github.com/payara/Payara/pull/1761[PAYARA-1816 - Add explicit
 javax.faces.SEPARATOR_CHAR in the Admin GUI app]
-* https://github.com/payara/Payara/pull/1749[PAYARA-1832 - Add xref to
+* https://github.com/payara/Payara/pull/1749[PAYARA-1832 - Add link to
 Notification service configuration page from other services in Admin
 Console]
 * https://github.com/payara/Payara/pull/1771[PAYARA-1845 - Move
