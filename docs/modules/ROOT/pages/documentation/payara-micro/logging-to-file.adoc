@@ -31,11 +31,10 @@ need to use `setUserLogFile(String filePath)` method.
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
 
-public class EmbeddedPayara
-{
-    public static void main(String[] args) throws BootstrapException
-    {
+public class EmbeddedPayara{
+    
+    public static void main(String[] args) throws BootstrapException{
          PayaraMicro.getInstance().setUserLogFile("/home/user/PayaraMicro.log").bootStrap();
-   
+    }
 }
 ----

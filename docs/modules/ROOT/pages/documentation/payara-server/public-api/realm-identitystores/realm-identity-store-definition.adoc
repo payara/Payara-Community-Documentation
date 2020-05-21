@@ -21,7 +21,7 @@ The following code sample illustrates how to configure realm identity store:
 ----
 @ApplicationScoped
 @ApplicationPath("/rest")
-@DeclareRoles({ "a", "b")
+@DeclareRoles({ "a", "b"})
 @BasicAuthenticationMechanismDefinition(realmName = "file")
 @RealmIdentityStoreDefinition("file")
 public class MyRestApp extends Application {
@@ -33,7 +33,7 @@ The `RealmIdentityStoreDefinition` is a repeatable annotation hence multiple rea
 ----
 @ApplicationScoped
 @ApplicationPath("/rest")
-@DeclareRoles({ "a", "b")
+@DeclareRoles({ "a", "b"})
 @BasicAuthenticationMechanismDefinition
 @RealmIdentityStoreDefinition("realm1")
 @RealmIdentityStoreDefinition("realm2")

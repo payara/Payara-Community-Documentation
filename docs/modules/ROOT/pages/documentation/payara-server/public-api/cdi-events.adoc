@@ -110,8 +110,6 @@ public void receiveEvent(@Observes @Inbound @MyQualifier String message) {
 }
 ----
 
-
-
 [[event-name]]
 === Event name
 
@@ -201,22 +199,22 @@ CDI.current().getBeanManager().fireEvent("This is an event", new Outbound() {
     @Override
     public String eventName() {
         return System.getProperty("eventname");
-   
+    }
 
     @Override
     public boolean loopBack() {
         return Boolean.getBoolean(System.getProperty("loopback"));
-   
+    }
 
     @Override
     public String instanceName() {
         return System.getProperty("instanceName");
-   
+    }
 
     @Override
     public Class<? extends Annotation> annotationType() {
         return this.getClass();
-   
+    }
 });
 ----
 

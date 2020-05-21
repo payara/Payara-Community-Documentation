@@ -81,7 +81,7 @@ public class EmbeddedPayara{
         micro.addDeployment("/home/user/three.war");
 
         micro.bootStrap();
-   
+    }
 }
 ----
 
@@ -104,6 +104,6 @@ public class EmbeddedPayara{
         PayaraMicro micro = PayaraMicro.getInstance();
         micro.setDeploymentDir(deployments);
         micro.bootStrap();
-   
+    }   
 }
 ----

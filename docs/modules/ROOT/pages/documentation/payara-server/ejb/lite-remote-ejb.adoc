@@ -218,7 +218,7 @@ public class Bean implements BeanRemote, Serializable {
     @RolesAllowed("g1")
     public String method() {
         return "method";
-   
+    }
 
 }
 ----
@@ -246,7 +246,7 @@ public class RemoteEJBLiteClient{
 
         BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
         beanRemote.method() // returns "method"
-   
+    }
 }
 ----
 
@@ -320,7 +320,7 @@ public class RemoteEJBLiteClient{
 
         BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
         beanRemote.method() // returns "method"
-   
+    }
 }
 ----
 
