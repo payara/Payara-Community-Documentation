@@ -30,7 +30,7 @@ SQL should support JDBC 4.2]
 message for stop-domain if domain1 is not running]
 * https://github.com/payara/Payara/pull/2299[PAYARA-2171 - Add timeout
 parameter to start-instance command]
-* https://github.com/payara/Payara/pull/2182[PAYARA-2232 - Add xref to
+* https://github.com/payara/Payara/pull/2182[PAYARA-2232 - Add link to
 generated application.wadl into Admin Console and Payara Micro log]
 * https://github.com/payara/Payara/pull/2181[PAYARA-2257 - A command to
 remove config from MP configuration source]

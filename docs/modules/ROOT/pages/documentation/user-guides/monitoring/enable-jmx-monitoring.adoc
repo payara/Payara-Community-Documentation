@@ -59,12 +59,12 @@ possible amount of data.
 Open the Admin Console and select "Monitoring Data" in the left-hand "Tree"
 pane. This is where monitoring data can be viewed in the admin console, though
 this will be raw data. Since we have not yet enabled monitoring, click the
-"Configure Monitoring" xref for the relevant server instance. In the image below
+"Configure Monitoring" link for the relevant server instance. In the image below
 we only have the DAS ("`server`") to choose:
 
-image:guides/monitoring/admin-console-monitoring1.png[Click the xref for the relevant instance]
+image:guides/monitoring/admin-console-monitoring1.png[Click the link for the relevant instance]
 
-That xref will take you directly to the correct page for the `server-config` -
+That link will take you directly to the correct page for the `server-config` -
 the place where we enable monitoring for the DAS as shown:
 
 image:guides/monitoring/admin-console-monitoring2.png[Enable HIGH levels of monitoring]

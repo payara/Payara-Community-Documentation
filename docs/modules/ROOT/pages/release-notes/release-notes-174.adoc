@@ -227,7 +227,7 @@ resource adapter name]
 * https://github.com/payara/Payara/pull/2073[PAYARA-2215 - Payara Micro
 start parameter –addjars not working on windows]
 * https://github.com/payara/Payara/pull/2095[PAYARA-2231 - Create New
-Network Listener xref not working]
+Network Listener link not working]
 * https://github.com/payara/Payara/pull/2111[PAYARA-2236 - JBatch
 support for H2 database]
 * https://github.com/payara/Payara/pull/2109[PAYARA-2238 - Request
