@@ -5,7 +5,7 @@ massively scalable publish/subscribe message queue architected as a distributed
 transaction log.
 
 In order to connect to Apache Kafka, the `KafkaRAR-0.1.0-SNAPSHOT.rar` has to be
-deployed as shown in the xref:README.adoc#Installing-a-connector[
+deployed as shown in the xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 Once deployed, something like the following should be printed to the startup
@@ -72,8 +72,10 @@ public class SendKafkaMessage {
  public void init() {
     try (KafkaConnection connection = factory.createConnection()) {
         connection.send(new ProducerRecord("test","hello","world"));
-    } catch (Exception ex) {
     }
+    catch (Exception ex) {
+    }
+ }
 }
 ----
 

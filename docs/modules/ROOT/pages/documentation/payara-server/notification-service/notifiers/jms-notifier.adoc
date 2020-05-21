@@ -91,15 +91,15 @@ public class NotificationConsumer implements MessageListener {
     public void onMessage(Message message) {
         try {
             System.out.println("Message received: " + message.getBody(String.class));
-        } catch (JMSException ex) {}
+        }
+        catch (JMSException ex) {}
     }
 }
 ----
 
 . View the result of the MessageDrivenBean's `onMessage()` command. In
 this example, the CPU metric of the health check service was configured
-to notify every _5 seconds_, so the result of simply printing to
-`System.out` is following log entries:
+to notify every _5 seconds_, so the result of simply printing to `System.out` is following log entries:
 +
 [source, shell]
 ----

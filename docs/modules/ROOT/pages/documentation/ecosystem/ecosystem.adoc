@@ -36,5 +36,5 @@ xref:documentation/ecosystem/arquillian-containers/README.adoc[Arquillian Contai
 Arquillian containers help perform integration tests for application servers. There are various containers available for Payara:
 * xref:documentation/ecosystem/arquillian-containers/payara-micro.adoc[Payara Micro]
 * Payara Embedded (not yet documented)
-* Payara Remote (not yet documented)
+* xref:documentation/ecosystem/arquillian-containers/payara-remote.adoc[Payara Remote]
 * Payara Managed (not yet documented)

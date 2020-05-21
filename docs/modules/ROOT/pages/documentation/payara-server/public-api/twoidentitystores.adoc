@@ -22,7 +22,6 @@ The following code sample authenticates a user by using both single username/pas
 TwoIdentityStoreAuthenticationMechanismDefinition(loginToContinue
         = @LoginToContinue(loginPage = "/Login", errorPage = "/Failure")
 )
-
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
     
@@ -58,8 +57,9 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         printHeaders(out);
         if (status.equals(AuthenticationStatus.SUCCESS)){
-            out.println("Successfully logged in);
-        } else {
+            out.println("Successfully logged in");
+        }
+        else {
             PrintWriter out = resp.getWriter();
             printHeaders(out);
             out.println("Failed to log in");    

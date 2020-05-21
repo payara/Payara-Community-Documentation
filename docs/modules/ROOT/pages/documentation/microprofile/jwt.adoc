@@ -28,7 +28,7 @@ Though JWT tokens are more universal in format, they are still intended for use 
 
 For example:
 
-[source, javascript]
+[source, json]
 ----
 {
     "iss": "fish.payara.example",
@@ -160,7 +160,7 @@ If this is true, the default `https://payara.fish/mp-jwt/` namespace will be use
 For example: 
 
 If following JSON is the token payload and `enable.namespace` property is true.
-[source, javascript]
+[source, json]
 ----
 {
   "https://payara.fish/mp-jwt/groups": ["admin", "read", "write"],
@@ -233,6 +233,3 @@ The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switch
 Two full examples of using JWT authentication with a JAX-RS endpoint as well as a Servlet resource are provided here: 
 
 * https://github.com/javaee-samples/microprofile1.2-samples/tree/master/jwt-auth
-
-
-

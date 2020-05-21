@@ -4,7 +4,7 @@ MQTT (Message Queue Telemetry Transport)  is a lightweight publish-subscribe
 messaging protocol.
 
 In order to connect to a MQTT broker, the `MQTTRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:README.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 In order to make use of this connector in an application, the following maven
@@ -64,8 +64,10 @@ public class SendMQTTMessage {
  public void init() {
     try (MQTTConnection connection = factory.createConnection()) {
         connection.publish("test", "{\"test\": \"Hello World\"}".getBytes(), 0, false);
-    } catch (Exception ex) {
     }
+    catch (Exception ex) {
+    }
+  }
 }
 ----
 

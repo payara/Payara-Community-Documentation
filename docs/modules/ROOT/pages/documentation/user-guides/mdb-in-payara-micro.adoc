@@ -11,10 +11,10 @@ receiving them.
 === Setting up Apache ActiveMQ
 
 The following is a short overview of how to install and start ActiveMQ on most
-environments (Linux/Unix/macOS). See xref:http://activemq.apache.org/getting-started.html[
+environments (Linux/Unix/macOS). See http://activemq.apache.org/getting-started.html[
 the ActiveMQ documentation] for additional details.
 
-Download `apache-activemq-5.14.5-bin.tar` from xref:http://activemq.apache.org/activemq-5145-release.html[
+Download `apache-activemq-5.14.5-bin.tar` from http://activemq.apache.org/activemq-5145-release.html[
 the ActiveMQ 5.14.5 release page] and use a terminal to extract:
 
 ----
@@ -85,18 +85,18 @@ The following gives an example:
     name = "java:app/activemq/factory",
     interfaceName = "javax.jms.ConnectionFactory",
     resourceAdapter = "activemq-rar-5.14.5",
-    properties = { "ServerUrl=tcp://127.0.0.1:61616", "UserName=admin", "Password=admin" }
+    properties = { "ServerUrl=tcp://127.0.0.1:61616", "UserName=admin", "Password=admin"
 )
 ----
 
 Just like the connection factory shown above, the destination has to be named.
 The destination also has to have the type `javax.jms.Queue` or `java.jms.Topic`
-and we'll have to specify the same resource adapter name again.
+and we`ll have to specify the same resource adapter name again.
 
 The vendor specific implementation of our required type also has to be specified;
 for a queue implementation provided by ActiveMQ this is
-`org.apache.activemq.command.ActiveMQQueue`. Finally the name of the queue we're
-sending to on the ActiveMQ server has to be given (if the queue doesn't exist,
+`org.apache.activemq.command.ActiveMQQueue`. Finally the name of the queue we`re
+sending to on the ActiveMQ server has to be given (if the queue doesn`t exist,
 ActiveMQ wil create it automatically, so we are not required to configure the
 broker).
 
@@ -140,7 +140,8 @@ public class SendJMSMessage {
             Session session = connection.createSession(true, AUTO_ACKNOWLEDGE);
             session.createProducer(queue)
                    .send(message.apply(session));
-        } catch (JMSException ex) {
+        }
+        catch (JMSException ex) {
             logger.log(SEVERE, "Exception sending msg", ex);
         }
     }
@@ -148,7 +149,8 @@ public class SendJMSMessage {
     public TextMessage createTextMessage(Session session, String message) {
         try {
             return session.createTextMessage(message);
-        } catch(JMSException e) {
+        }
+        catch(JMSException e) {
             throw new IllegalStateException(e);
         }
     }

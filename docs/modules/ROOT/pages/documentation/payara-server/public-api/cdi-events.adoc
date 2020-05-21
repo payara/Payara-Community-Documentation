@@ -110,8 +110,6 @@ public void receiveEvent(@Observes @Inbound @MyQualifier String message) {
 }
 ----
 
-
-
 [[event-name]]
 === Event name
 
