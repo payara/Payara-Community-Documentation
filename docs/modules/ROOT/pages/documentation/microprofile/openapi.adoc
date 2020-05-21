@@ -121,7 +121,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
     @Operation(operationId = "hello world")
     public String helloWorld() {
         return "Hello World!";
-   
+    }
 ----
 
 [[asadmin]]

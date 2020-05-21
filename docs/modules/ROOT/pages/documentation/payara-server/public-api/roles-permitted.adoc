@@ -1,0 +1,61 @@
+[[roles-permitted]]
+= RolesPermitted Support
+
+_Since Payara Server 4.1.2.182 and 5.182_
+
+The Payara API provides a `@RolesPermitted` annotation that creates an authorisation interceptor for usage with CDI beans. This largely works in the same way as the `@RolesAllowed` common annotation, which in Java EE is primarily used by EJB.
+
+[[usage]]
+== Usage
+
+The authorisation interceptor is defined through the `@RolesPermitted` annotation. Specifying this on an interceptable method of a CDI bean will make that method eligible for interception by the roles permitted interceptor. This interceptor will check that the caller of a method is any or all of the specified roles. If this holds, the call to the method proceeds. If not, an exception of type `CallerAccessException` is thrown.
+
+The annotation can alternatively be placed at the class level of a CDI bean, in which case it will apply to all interceptable methods of that bean.
+
+[[usage-example]]
+=== Example
+
+Here's an example that protects a single method:
+
+[source, java]
+----
+@RequestScoped
+public class TestRolesPermitted {
+
+    @Inject
+    Principal principal;
+
+    @RolesPermitted({"payaraAdmin"})
+    public String getUserName() {
+        return principal.getName();
+    }
+}
+----
+
+See https://github.com/javaee-samples/vendoree-samples/tree/master/payara/rolesPermitted[this sample project] for a more detailed example.
+
+[[configuration]]
+== Configuration
+
+The `@RolesPermitted` annotation has several configuration options.
+
+They are detailed below.
+
+.Configuration Options
+|===
+| Option | Required | Description | Requirements
+
+| `value`
+| true
+| The roles which are allowed to access this method.
+| -
+
+| `semantics`
+| no
+| Whether accessing caller must be in any one of the given roles (`OR`) or all given roles (`AND`). Defaults to `OR`.
+| -
+|===
+
+== Extra Resources
+
+See https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html[@RolesAllowed] for the original annotation on which this annotation is based.

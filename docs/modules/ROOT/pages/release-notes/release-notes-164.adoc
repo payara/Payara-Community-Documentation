@@ -39,7 +39,7 @@ Component Upgrades
 
 * Jersey 2.22.2
 * Hazelcast 3.7.1
-* Eclipsexref 2.6.3
+* Eclipselink 2.6.3
 * mail 1.5.6
 * btrace 1.2.3
 * Jackson 2.8.1

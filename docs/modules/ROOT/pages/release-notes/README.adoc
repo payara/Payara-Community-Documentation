@@ -8,7 +8,7 @@ Detailed information about features and fixes in every release.
 
 *2018*
 
-* 2018 Q2 - xref:release-notes/release-notes-182.adoc[Payara Server 5.182] (xref:release-notes/release-notes/release-notes-4-182.adoc[Payara Server 4.1.2.182])
+* 2018 Q2 - xref:release-notes/release-notes-182.adoc[Payara Server 5.182]
 * 2018 Q1 - xref:release-notes/release-notes-181.adoc[Payara Server 5.181]
 * 2018 Q1 - xref:release-notes/release-notes-4-181.adoc[Payara Server 4.1.2.181]
 

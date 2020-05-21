@@ -28,7 +28,7 @@ import fish.payara.micro.PayaraMicro;
 public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
         PayaraMicro.getInstance().setHttpPort(2468).setClusterStartPort(5902).bootStrap();
-   
+    }
 }
 ----
 
@@ -45,7 +45,7 @@ public class EmbeddedPayara{
         micro.setHttpPort(2468);
         micro.setClusterStartPort(5902);
         micro.bootStrap();
-   
+    }
 }
 ----
 
@@ -62,6 +62,6 @@ import fish.payara.micro.PayaraMicro;
 public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
         PayaraMicro.getInstance().setApplicationDomainXML("config/domain.xml").bootStrap();
-   
+    }
 }
 ----

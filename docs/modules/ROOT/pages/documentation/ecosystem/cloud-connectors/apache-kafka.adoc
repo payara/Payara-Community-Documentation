@@ -72,8 +72,9 @@ public class SendKafkaMessage {
  public void init() {
     try (KafkaConnection connection = factory.createConnection()) {
         connection.send(new ProducerRecord("test","hello","world"));
+    }
     catch (Exception ex) {
-   
+    }
 }
 ----
 
@@ -99,7 +100,7 @@ public class ReceiveKafkaMessage implements KafkaListener {
  @OnRecord(topics="test")
  public void receiveMessage(ConsumerRecord record) {
      // Handle record
-
+ }
 }
 ----
 
