@@ -114,6 +114,8 @@ The MicroProfile OpenAPI API provides many annotations to use to augment the Ope
 ==== Example
 
 The following code could be used to give the corresponding operation an ID of "hello world".
+
+[source, java]
 ----
 import org.eclipse.microprofile.openapi.annotations.Operation;
 ...
@@ -121,7 +123,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
     @Operation(operationId = "hello world")
     public String helloWorld() {
         return "Hello World!";
-   
+    }
 ----
 
 [[openApi-configuration]]

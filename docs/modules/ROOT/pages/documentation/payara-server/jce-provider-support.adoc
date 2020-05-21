@@ -26,10 +26,10 @@ public class MyJCECertificateFactory extends CertificateFactory {
  
         if (certificate instanceof X509Certificate == false) {
             return certificate;
-       
+        }
  
         return new MyJCEX509Certificate((X509Certificate) certificate);
-   
+    }
  
 }
 ----
@@ -49,7 +49,7 @@ public class MyJCEX509Certificate extends X509Certificate {
  
     public MyJCEX509Certificate(X509Certificate certificate) {
         this.certificate = certificate;
-   
+    }
      
     @Override
     public X500Principal getSubjectX500Principal() {
@@ -58,10 +58,10 @@ public class MyJCEX509Certificate extends X509Certificate {
  
         if ("C=UK,ST=lak,L=zak,O=kaz,OU=bar,CN=lfoo".equals(principal.getName())) {
             return new X500Principal("CN=u1");
-       
+        }
          
         return principal;
-   
+    }
      
     @Override
     public Principal getSubjectDN() {
@@ -70,10 +70,10 @@ public class MyJCEX509Certificate extends X509Certificate {
  
         if ("CN=lfoo,OU=bar,O=kaz,L=zak,ST=lak,C=UK".equals(principal.getName())) {
             return new X500Principal("CN=u1");
-       
+        }
          
         return principal;
-   
+    }
  
     // Other methods omitted for brevity
 }
@@ -88,7 +88,7 @@ Finally, the factory can be installed for example via a Servlet that we can easi
 
 [source, java]
 ----
-@WebServlet(urlPatterns = { "/BouncyServlet")
+@WebServlet(urlPatterns = { "/BouncyServlet"})
 public class BouncyServlet extends HttpServlet {
  
     private static final long serialVersionUID = 1L;
@@ -102,7 +102,7 @@ public class BouncyServlet extends HttpServlet {
         int pos = Security.insertProviderAt(provider, 1);
                  
         response.getWriter().print("pos:" + pos);
-   
+    }
  
 }
 ----

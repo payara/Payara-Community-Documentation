@@ -74,7 +74,7 @@ NOTE: This version is distributed only to Payara Enterprise customers
 * https://github.com/payara/Payara/pull/2424[PAYARA-2440] - Refactor a line within prettyDateFormat
 * https://github.com/payara/Payara/pull/2448[PAYARA-2464] - asadmin doesn't consider jacc-provider properties
 * https://github.com/payara/Payara/pull/2455[PAYARA-2492] - Jasper Exception when loading an application deployed to Payara Micro Programmatically
-* https://github.com/payara/Payara/pull/2180[PAYARA-2501] - – Switch getCanonicalPath to getRealPath to resolve symxref issue
+* https://github.com/payara/Payara/pull/2180[PAYARA-2501] - – Switch getCanonicalPath to getRealPath to resolve symlink issue
 * https://github.com/payara/Payara/pull/2401[PAYARA-2507] - Hazelcast messagelisteners registered twice
 * https://github.com/payara/Payara/pull/2449[PAYARA-2508] - Log file doesn't display logs on an upgraded domain.
 * https://github.com/payara/Payara/pull/2420[PAYARA-2511] - If default config value not set, optional shouldn't have a value

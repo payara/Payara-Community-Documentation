@@ -65,15 +65,17 @@ sending a message:
 @Startup
 public class SendKafkaMessage {
  
- @Resource(lookup = "java:app/kafka/factory")
- private KafkaConnectionFactory factory;
- 
- @PostConstruct
- public void init() {
-    try (KafkaConnection connection = factory.createConnection()) {
-        connection.send(new ProducerRecord("test","hello","world"));
-    catch (Exception ex) {
-   
+    @Resource(lookup = "java:app/kafka/factory")
+    private KafkaConnectionFactory factory;
+
+    @PostConstruct
+    public void init() {
+        try (KafkaConnection connection = factory.createConnection()) {
+            connection.send(new ProducerRecord("test","hello","world"));
+        }
+        catch (Exception ex) {
+        }
+    }
 }
 ----
 
@@ -96,10 +98,10 @@ The following gives an example:
 })
 public class ReceiveKafkaMessage implements KafkaListener {
  
- @OnRecord(topics="test")
- public void receiveMessage(ConsumerRecord record) {
-     // Handle record
-
+    @OnRecord(topics="test")
+    public void receiveMessage(ConsumerRecord record) {
+        // Handle record
+    }
 }
 ----
 

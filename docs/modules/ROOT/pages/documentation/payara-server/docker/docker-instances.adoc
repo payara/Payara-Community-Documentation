@@ -29,6 +29,9 @@ from the DAS.
 Please note that it is required that secure-admin be enabled for Docker instances to start (which is why a passwordfile
 is mandatory when creating a Docker node).
 
+NOTE: When autonaming is enabled, Payara Server will only attempt to resolve conflicts with instance names - it will not
+attempt to resolve conflicts in container name.
+
 [[starting-an-instance]]
 === Starting an Instance
 
@@ -61,10 +64,10 @@ Configuration of the Docker containers is done via system properties in an insta
 A complete list of the available configuration options can be found in the Docker Engine REST API here:
 https://docs.docker.com/engine/api/v1.39/#operation/ContainerCreate
 
-IMPORTANT: The container and image name are not configurable - Payara Server expects the container and image names to
-match the value from the instance & node config
+IMPORTANT: The image name is not configurable - Payara Server expects the image name to
+match the value from the node config
 
-The configuration within Payara Server of the settings denoted in the above xref takes the form of dotted names. These
+The configuration within Payara Server of the settings denoted in the above link takes the form of dotted names. These
 names adhere to the following syntax:
 
 * Each property is prepended with "Docker"
@@ -99,7 +102,61 @@ See below for some examples:
 |===
 
 IMPORTANT: Payara Server assumes that the network mode in use is bridged - it expects to be able to talk to each
-instance using the port listed in its config
+instance using the port listed in its config.
+
+[[creating-instances-from-docker]]
+== Creating Instances from Docker
+For Payara Server 5.193, the default Docker Image now supports creating instances from Docker itself, making use of the
+xref:documentation/payara-server/asadmin-commands/auto-naming.adoc[auto-naming] feature to resolve any conflicts. This
+opens up the possibility for limited autoscaling to be achieved; instances are still tied to nodes however, and so any
+scaling must be done on the same machine. When instances are created this way, unless specified the container name will
+not match that of the instance.
+
+IMPORTANT: As alluded to in the previous paragraph, a Docker Node must be registered to the DAS to create instances
+from Docker. The instances must also be housed on the machine that maps to this Docker Node.
+
+See below for some examples:
+
+* Creating a container with a set instance name, resolving conflicts:
+[source, shell]
+----
+docker container create --network host --mount type=bind,source="/home/anon/passwordfile.txt",target="/opt/payara/passwords/passwordfile.txt",readonly -e PAYARA_DAS_HOST=payaraDas -e PAYARA_DAS_PORT=4848 -e PAYARA_NODE_NAME=docky1 -e PAYARA_INSTANCE_NAME=insty1 payara/server-node:5.193
+
+>>>     Instance named insty1 created in a container named elastic_ganguly
+>>>     Instance named insty1-BamboozledBarrcuda created in a container named wonderful_yonath
+----
+
+* Creating containers without specifying an instance name:
+[source, shell]
+----
+docker container create --network host --mount type=bind,source="/home/anon/passwordfile.txt",target="/opt/payara/passwords/passwordfile.txt",readonly -e PAYARA_DAS_HOST=payaraDas -e PAYARA_DAS_PORT=4848 -e PAYARA_NODE_NAME=docky1 payara/server-node:5.193
+
+>>>     Instance named Magnanimous-Monkfish  created in a container named sleepy_elgamel
+----
+
+* Creating a container without specifying an instance name, using the Docker REST API:
+[source, shell]
+----
+curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/json' -i 'http://docky1:2376/containers/create' --data '{
+  "Image": "payara/server-node:5.193",
+  "HostConfig": {
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/anon/passwordfile.txt",
+        "Target": "/opt/payara/passwords/passwordfile.txt",
+        "ReadOnly": true
+     
+    ],
+    "NetworkMode": "host"
+ ,
+  "Env": [
+    "PAYARA_DAS_HOST=payaraDas",
+    "PAYARA_DAS_PORT=4848",
+    "PAYARA_NODE_NAME=docky1"
+  ]
+}
+----
 
 
 

@@ -17,8 +17,8 @@ Here's a list of Payara Server Asadmin commands that are not supported by GlassF
 - xref:/documentation/payara-server/rest-monitoring/configuring-rest-monitoring.adoc[REST Monitoring Commands]
 - xref:/documentation/payara-server/deployment-groups/asadmin-commands.adoc[Deployment Groups Commands]
 - xref:/documentation/payara-server/asadmin-commands/disabling-jline.adoc[Disabling JLine Logging]
-- xref:server-management-commands.adoc[Server Management Commands]
-- xref:misc-commands.adoc[Miscellaneous Commands]
+- xref:documentation/payara-server/server-management-commands.adoc[Server Management Commands]
+- xref:documentation/payara-server/misc-commands.adoc[Miscellaneous Commands]
 
 == Command Autocompletion
 

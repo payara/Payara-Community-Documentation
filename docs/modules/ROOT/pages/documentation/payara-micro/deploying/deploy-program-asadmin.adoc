@@ -38,12 +38,12 @@ public class EmbeddedPayara {
             if (instance == runtime.getLocalDescriptor()){
                 subset.add(instance);
                 break;
-           
-       
+            }
+        }
 
         // Run the deploy asadmin command on the subset Collection
         runtime.run(subset, "deploy", "/home/user/test.war");
-   
+    }
 }
 ----
 
@@ -72,7 +72,7 @@ public class EmbeddedPayara{
 
         // Run the deploy asadmin command on all instances in the runtime's cluster
         runtime.run("deploy", "/home/user/test.war");
-   
+    }
 }
 ----
 

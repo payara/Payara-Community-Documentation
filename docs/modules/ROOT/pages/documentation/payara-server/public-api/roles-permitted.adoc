@@ -28,7 +28,7 @@ public class TestRolesPermitted {
     @RolesPermitted({"payaraAdmin"})
     public String getUserName() {
         return principal.getName();
-   
+    }  
 }
 ----
 

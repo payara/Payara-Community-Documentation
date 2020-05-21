@@ -62,11 +62,11 @@ This section details the GitHub issues marked as enhancements that have been imp
 
 This section details the GitHub issues marked as bugs that have been fixed for this release.
 
-* 138 – Verify Symbolic xref checking in Payara
+* 138 – Verify Symbolic link checking in Payara
 * 139 – Fix exception handling code in `com.sun.enterprise.util.io.FileUtils.java`
 * 191 – Payara Embedded Web Profile does not contain Hazelcast
 * 192 – Prevent null pointer exception when GMS is not enabled
-* 197 – Slow startup/hang when application uses Eclipsexref and genericra
+* 197 – Slow startup/hang when application uses EclipseLink and genericra
 * 207 – Fix checking to verify table existence in specified schema in DB2 persistence manager
 * 209 - CDI Injection in Entity Listener results in null reference
 * 218 - EJB webservice with wssecurity policy gets NoClassDefFoundError:

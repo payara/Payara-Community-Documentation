@@ -57,15 +57,17 @@ sending a message:
 @Startup
 public class SendMQTTMessage {
  
- @Resource(lookup = "java:app/mqtt/factory")
- private MQTTConnectionFactory factory;
+  @Resource(lookup = "java:app/mqtt/factory")
+  private MQTTConnectionFactory factory;
  
- @PostConstruct
- public void init() {
+  @PostConstruct
+  public void init() {
     try (MQTTConnection connection = factory.createConnection()) {
         connection.publish("test", "{\"test\": \"Hello World\"}".getBytes(), 0, false);
+    }
     catch (Exception ex) {
-   
+    }
+  }
 }
 ----
 
@@ -87,7 +89,7 @@ public class ReceiveMQTTMessage implements MQTTListener {
    @OnMQTTMessage
    public void receiveMessage(String topic, MqttMessage message) {
        // Handle message
-  
+   }
 }
 ----
 

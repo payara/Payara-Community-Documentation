@@ -66,12 +66,11 @@ public class JaccInstaller implements ServletContextListener {
                         new CustomPolicyConfigurationFactory(),
                         new CustomPolicy()
                 );
-
-   
+    }
 
     private String getAppContextId(ServletContext servletContext) {
         return servletContext.getVirtualServerName() + " " + servletContext.getContextPath();
-   
+    }
 
 }
 ----
