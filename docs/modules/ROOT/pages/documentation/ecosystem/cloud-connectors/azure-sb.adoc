@@ -61,12 +61,14 @@ public class SendAzureMessage {
  @Resource(lookup = "java:app/azuresb/factory")
  private AzureSBConnectionFactory factory;
  
- @PostConstruct
- public void init() {
-    try (AzureSBConnection connection = factory.createConnection()) {
-        connection.sendMessage("testq", new BrokeredMessage("Hello World"));
-    catch (Exception ex) {
-   
+  @PostConstruct
+  public void init() {
+      try (AzureSBConnection connection = factory.createConnection()) {
+          connection.sendMessage("testq", new BrokeredMessage("Hello World"));
+      }
+      catch (Exception ex) {
+      }
+  }
 }
 ----
 
@@ -90,7 +92,7 @@ public class ReceiveAzureMessage implements AzureSBListener {
     @OnAzureSBMessage
     public void receiveMessage(BrokeredMessage message) {
         // Handle message
-   
+    }
 }
 ----
 

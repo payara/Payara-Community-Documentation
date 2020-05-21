@@ -165,7 +165,7 @@ See below for a complete list of new features, improvements, security updates, a
 -   https://github.com/payara/Payara/pull/3583[PAYARA-3421] - Upgrade jsp components to 2.3.3
 -   https://github.com/payara/Payara/pull/3634[PAYARA-3439] - Upgrade asm to version 7.0
 -   https://github.com/payara/Payara/pull/3705[PAYARA-3472] - Update Weld to 3.1.0.Final
--   https://github.com/payara/Payara/pull/3711[PAYARA-3477] - Upgrade Eclipsexref to 2.7.4
+-   https://github.com/payara/Payara/pull/3711[PAYARA-3477] - Upgrade EclipseLink to 2.7.4
 -   https://github.com/payara/Payara/pull/3781[PAYARA-3517] - Upgrade hibernate-validator to 6.0.15.Final
 
 Known issues can be seen on our GitHub issues page here: https://github.com/payara/Payara/issues

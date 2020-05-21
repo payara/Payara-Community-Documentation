@@ -198,7 +198,7 @@ hibernate-validator to 6.0.12.Final
 * https://github.com/payara/Payara/pull/3039[PAYARA-2996] - Align
 jboss-logging versions to 3.3.2.Final
 * https://github.com/payara/Payara/pull/3045[PAYARA-3002] - Upgrade
-Eclipsexref to 2.7.3
+EclipseLink to 2.7.3
 * https://github.com/payara/Payara/pull/3046[PAYARA-3003] - Upgrade asm
 to version 6.2.1
 * https://github.com/payara/Payara/pull/3089[PAYARA-3049] - Update jline

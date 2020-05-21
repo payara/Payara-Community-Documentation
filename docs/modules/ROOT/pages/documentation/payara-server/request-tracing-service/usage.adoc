@@ -25,12 +25,12 @@ public class TracedExample {
     @Traced
     public String method1() {
         return "anon1";
-   
+    }
 
     @Traced(operationName = "tracingTest")
     public String method2() {
         return "anon2";
-   
+    }
 
 }
 ----
@@ -52,12 +52,12 @@ public class JaxrsEndpoints {
     @GET
     public String method1Traced() {
         return tracedExample.method1();
-   
+    }
 
     @GET
     public String method2NotTraced() {
         return new TracedExample().method2();
-   
+    }
 
 }
 ----
@@ -97,7 +97,7 @@ it is done like so with a _try-with-resources_ block:
 public void tracerExample() {
     try (Span span = tracer.buildSpan("example").startActive(true)) {
         // Code to trace
-   
+    }
 }
 ----
 
@@ -143,14 +143,14 @@ public class JaxrsEndpoints {
     @GET
     public String method1Traced() {
         return tracedExample.method1();
-   
+    }
 
     // Tracing disabled
     @GET
     @Traced(false)
     public String method2NotTraced() {
         return new TracedExample().method2();
-   
+    }
 
 }
 ----
