@@ -5,15 +5,15 @@ An instance of CDI Probe is attached to each application in CDI Development Mode
 
 == Access from Admin Console
 
-Once CDI Development Mode is enabled for an application, the *Edit Application* page in the Admin Console provides a xref to open the CDI Probe web application.
+Once CDI Development Mode is enabled for an application, the *Edit Application* page in the Admin Console provides a link to open the CDI Probe web application.
 
-You can find the xref called *CDI Probe* in the *Modules and Components* table, in the *Action* column:
+You can find the link called *CDI Probe* in the *Modules and Components* table, in the *Action* column:
 
 image::probe/console-edit-application.png[]
 
-NOTE: It may happen that the *CDI Probe* xref isn't visible if the *CDI Development Mode* checkbox on this page isn't checked. If the development mode is enabled by other means, the CDI Probe is still accessible. Either check the *CDI Development Mode* checkbox and press *Save* or access CDI Probe directly by adding `/weld-probe` to the URL of your application.
+NOTE: It may happen that the *CDI Probe* link isn't visible if the *CDI Development Mode* checkbox on this page isn't checked. If the development mode is enabled by other means, the CDI Probe is still accessible. Either check the *CDI Development Mode* checkbox and press *Save* or access CDI Probe directly by adding `/weld-probe` to the URL of your application.
 
-The *CDI Probe* xref will open a new window, which will open the CDI Probe web application:
+The *CDI Probe* link will open a new window, which will open the CDI Probe web application:
 
 image::probe/cdi-probe.png[]
 
@@ -23,6 +23,6 @@ If your application serves web pages, you can also access the CDI Probe web appl
 
 image::probe/cdi-probe-in-web-app.png[]
 
-If the application used some CDI beans during processing of the HTTP request, the toolbar will also contain a xref to see all bean invocations as a tree of events, which may look like this:
+If the application used some CDI beans during processing of the HTTP request, the toolbar will also contain a link to see all bean invocations as a tree of events, which may look like this:
 
 image::probe/cdi-probe-bean-invocations.png[]

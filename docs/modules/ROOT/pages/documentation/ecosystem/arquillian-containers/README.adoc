@@ -4,8 +4,6 @@
 
 include::partial$tech-preview.adoc[]
 
-
-
 The Payara Arquillian containers provide various Arquillian containers for integration testing with Payara.
 
 In version {currentVersion}, there are containers available for the following distributions:

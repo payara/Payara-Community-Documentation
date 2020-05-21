@@ -119,7 +119,7 @@ public class Bean implements BeanRemote, Serializable {
     @RolesAllowed("g1")
     public String method() {
         return "method";
-   
+    }
 
 }
 ----

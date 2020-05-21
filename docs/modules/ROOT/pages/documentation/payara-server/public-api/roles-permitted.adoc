@@ -28,7 +28,7 @@ public class TestRolesPermitted {
     @RolesPermitted("payaraAdmin")
     public String getUserName() {
         return principal.getName();
-   
+    }
 }
 ----
 
@@ -125,7 +125,6 @@ public void updateCustomer(Customer customer){
     ...
 }
 ----
-
 
 == Extra Resources
 

@@ -53,8 +53,8 @@ public class EmbeddedPayara {
             ClusterCommandResult commandResult = (ClusterCommandResult)results.get(descriptor);
             if(commandResult.getExitStatus() == ClusterCommandResult.ExitStatus.SUCCESS){
                 LOG.info("Application was succesfully deployed on cluster instance " + descriptor.getInstanceName());
-           
-       
-   
+            }
+        }
+    }
 }
 ----

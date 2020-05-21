@@ -18,7 +18,7 @@ import fish.payara.micro.PayaraMicro;
 public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
         PayaraMicro.getInstance().addDeployment("/home/user/example.war").bootStrap();
-   
+    }
 }
 ----
 
@@ -36,7 +36,7 @@ public class EmbeddedPayara{
     public static void main(String[] args) throws BootstrapException{
         File file = new File("/home/user/example.war");
         PayaraMicro.getInstance().addDeploymentFile(file).bootStrap();
-   
+    }
 }
 ----
 
@@ -54,7 +54,7 @@ public class EmbeddedPayara{
         PayaraMicro micro = PayaraMicro.getInstance();
         micro.addDeployment("/home/user/example.war");
         micro.bootStrap();
-   
+    }
 }
 ----
 
@@ -81,13 +81,13 @@ public class EmbeddedPayara{
         micro.addDeployment("/home/user/three.war");
 
         micro.bootStrap();
-   
+    }
 }
 ----
 
 Alternatively, you can use the programmatic equivalent of the `--deploymentDir`
 command line option (described in the section
-xref:deploy-cmd-line.adoc#deploying-multiple-applications[Deploying From the Command Line]),
+xref:documentation/payara-micro/deploying/deploy-cmd-line.adoc#deploying-multiple-applications[Deploying From the Command Line]),
 the `setDeploymentDir(File deploymentRoot)` method
 
 For example:
@@ -104,6 +104,6 @@ public class EmbeddedPayara{
         PayaraMicro micro = PayaraMicro.getInstance();
         micro.setDeploymentDir(deployments);
         micro.bootStrap();
-   
+    }
 }
 ----

@@ -92,15 +92,15 @@ public class SQLTraceLogger implements SQLTraceListener {
     private static Logger initLogger() {
         _logger = LogDomains.getLogger(SQLTraceLogger.class, LogDomains.SQL_TRACE_LOGGER);
         return _logger;
-   
+    }
 
     public SQLTraceLogger() {
-
+    }
    
 
     public void sqlTrace(SQLTraceRecord record) {
         _logger.log(Level.FINE, record.toString());
-   
+    }
 
 }
 ----

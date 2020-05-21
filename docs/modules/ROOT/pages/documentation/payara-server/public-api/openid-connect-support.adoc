@@ -28,7 +28,7 @@ Here's an example that configures a OpenID Connect client:
        extraParameters = {
             "testKey=testValue",
             "testKey2=testValue2"
-      
+       }
 )
 public class SecurityBean {
 
@@ -63,7 +63,7 @@ public class CallbackServlet extends HttpServlet {
         out.println(context.getIdentityToken());
         //Here's the user claims
         out.println(context.getClaimsJson());
-   
+    }
 }
 ----
 
