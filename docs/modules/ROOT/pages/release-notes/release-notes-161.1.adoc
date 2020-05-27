@@ -1,20 +1,18 @@
 [[updated-modules]]
-Updated Modules
----------------
+== Updated Modules
 
 This section details the modules that have been updated since the last release (4.1.1.161).
 
 * Metro 2.3.2-b608.payara-p3 (Removed Pax-Logging)
 
 [[fixed-issues]]
-Fixed Issues
-------------
+== Fixed Issues
 
 This section details the issues marked as bugs that have been fixed for this release.
 
 [[payara-fixes]]
-Payara Fixes
-^^^^^^^^^^^^
+=== Payara Fixes
+
 
 This section details the fixes implemented by the Payara team or community.
 
@@ -28,8 +26,7 @@ This section details the fixes implemented by the Payara team or community.
 * https://github.com/payara/Payara/issues/673[673/PAYARA-642 – Fix Classloader issue when bootstrapping the ORB for OSGi bundle deployments]
 
 [[known-issues]]
-Known Issues
-------------
+== Known Issues
 
 Known issues can be seen on our GitHub issues page here:
 https://github.com/payara/Payara/issues

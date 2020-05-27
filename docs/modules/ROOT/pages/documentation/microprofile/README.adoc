@@ -58,7 +58,7 @@ supported by Payara Server and Payara Micro, an application targeting version
 1.0 of MicroProfile can be run on any release of Payara Server or Payara Micro.
 
 == What does each specification contain?
-[cols=",a,a", options="header"]
+[cols="1,3a,5a", options="header"]
 |===
 |Version
 |Specifications
@@ -344,3 +344,4 @@ supported by Payara Server and Payara Micro, an application targeting version
     <scope>provided</scope>
 </dependency>
 ----
+|===

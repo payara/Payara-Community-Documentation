@@ -18,7 +18,7 @@ This issue is a known Jline v2.x issue which is the version included in Payara S
 
 As a fix for this issue, a new asadmin property has been implemented to disable JLine logging. The following steps show how this can be done:
 
-=== Disabling JLine in the asadmin file directly
+== Disabling JLine in the asadmin file directly
 . Navigate to '_{Payara Install Directory}/bin/_'
 . Open the asadmin file (if you are on a Windows PC, open the asadmin.bat file instead)
 . Alter the last line of the file as follows:

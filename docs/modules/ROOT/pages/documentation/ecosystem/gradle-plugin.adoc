@@ -6,7 +6,7 @@ an Uber JAR bundle of the application and Payara Micro.
 The plugin requires JDK 8 or higher and the latest version is currently `1.0.3`
 
 
-=== Installation
+== Installation
 To use it, simply add the following script to your `build.gradle`:
 
 ```
@@ -15,7 +15,7 @@ plugins {
 }
 ```
 
-==== Configuration Example:
+=== Configuration Example:
 
 ```
 payaraMicro {
@@ -30,9 +30,9 @@ payaraMicro {
 
 For more information, https://plugins.gradle.org/plugin/fish.payara.micro-gradle-plugin[click here].
 
-=== Plugin Tasks
+== Plugin Tasks
 
-==== `microBundle`
+=== `microBundle`
 *Aim*: This task bundles the attached project's artifact into an Uber JAR with
 the specified configurations.
 
@@ -55,7 +55,7 @@ the specified configurations.
 
 |=== 
 
-==== `microStart`
+=== `microStart`
 *Aim*: This task starts Payara Micro with the specified configuration.
 
 *Usage*: `gradle microStart`
@@ -114,7 +114,7 @@ values. key-value pairs will be formatted as `key=value`.
 
 |===
 
-==== `microStop`
+=== `microStop`
 *Aim*: This task stops Payara Micro with the specified configuration. 
 By default this goal tries to find out currently executing payara-micro instance based on project GAV.
 If `processId` is defined, it will take precedence and the given `processId` will

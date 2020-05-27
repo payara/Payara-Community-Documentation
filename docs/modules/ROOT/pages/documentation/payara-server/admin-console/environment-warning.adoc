@@ -12,17 +12,17 @@ image:admin-console/environment-warning.png[alt="Payara Server 172 Environment W
 
 The warning can be configured in the admin console as seen in the screenshot above. There is a new "_Environment Warning_" tab in the "_Domain_" section which allows you to configure the text and colours of the warning message.
 
-=== Configuring the Environment Warning via Asadmin
+== Configuring the Environment Warning via Asadmin
 
 There are corresponding asadmin commands to get and set the configuration
 
-==== `set-environment-warning-configuration`
+=== `set-environment-warning-configuration`
 
 *Usage:* `asadmin> set-environment-warning-configuration --enabled=true --message="Caution, this is on production" --textcolour="#00ff00" --backgroundcolour="#ff00ff"`
 
 *Aim:* Sets the environment warning properties and can enable/disable the warning
 
-==== `get-environment-warning-configuration`
+=== `get-environment-warning-configuration`
 
 *Usage:* `asadmin> get-environment-warning-configuration`
 
@@ -39,7 +39,7 @@ Command get-environment-warning-configuration executed successfully.
 
 ==== Command Options
 
-[cols="2,2,5,1,1",options="header"]
+[cols="4,2,5,1,1",options="header"]
 |====
 |Option
 |Type

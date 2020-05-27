@@ -5,7 +5,7 @@ As required by the
 https://www.eclipse.org/legal/tck.php[Eclipse Foundation Technology Compatibility Kit License],
 following is a summary of the TCK results for releases of Jakarta EE Platform, Full Profile.
 
-# Payara Server 5.194 Full Profile Certification Summary
+**Payara Server 5.194 Full Profile Certification Summary**
 
 - Product Name, Version and download URL (if applicable):
 +

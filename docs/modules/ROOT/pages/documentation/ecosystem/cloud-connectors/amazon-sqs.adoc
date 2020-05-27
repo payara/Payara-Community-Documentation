@@ -4,7 +4,7 @@ Amazon SQS (Simple Queue Service) is a hosted and highly scalable distributed
 message queue.
 
 In order to connect to Amazon SQS, the `AmazonSQSRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/README.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 Once deployed, something like the following should be printed to the startup log
@@ -40,7 +40,7 @@ Note that these dependences have scope provided since the types within this
 dependency are globally available to every application deployed to Payara Micro
 after the `AmazonSQSRAR-0.1.0-SNAPSHOT.rar` was deployed.
 
-=== Sending messages
+== Sending messages
 Sending messages to Amazon SQS can be done via the JCA and an Amazon specific
 API. In order to start using this API to send messages, a resource has to be
 defined via the JCA API; a connection factory.
@@ -88,7 +88,7 @@ public class SendSQSMessage {
 }
 ----
 
-=== Receiving messages
+== Receiving messages
 Messages can be received from Amazon SQS by creating an MDB (Message Driven
 Bean) that implements the `fish.payara.cloud.connectors.amazonsqs.api.AmazonSQSListener`
 marker interface and has a single method annotated with `@OnSQSMessage` and the

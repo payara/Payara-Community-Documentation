@@ -24,7 +24,7 @@ the default ConfigSources outlined by the specification], the following are also
 supported ConfigSources:
 
 
-[cols="1,1,10", options="header"]
+[cols="2,1,10", options="header"]
 |===
 |Source
 |Ordinal
@@ -33,7 +33,7 @@ supported ConfigSources:
 |`directory`
 |90
 |Reads configuration properties from files in a specified directory. Each file name 
-is the confguration property name and the contents of the file are the config property
+is the configuration property name and the contents of the file are the config property
 value. This config source can be used to read https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod[Kubernetes secrets files].
 See below on how to specify the directory to be used for secrets files using asadmin.
 
@@ -95,7 +95,7 @@ of `1`, the same as the default converters.
 In addition to the standard configuration properties, Payara Server and Micro provide a number of out-of-the-box config properties
 you can use in your application to find information about the Payara runtime environment.
 
-[cols="1,10", options="header"]
+[cols="7,10", options="header"]
 |===
 |Property
 |Description
@@ -183,7 +183,7 @@ ordinal number is preferred.
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="2,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -256,7 +256,7 @@ Config Property can be configured by using Admin Console or Asadmin commands.
 
 _Since *5.183*&nbsp;_
 
-[[using-the-admin-console]]
+[[using-the-admin-console-get]]
 === Using the Admin Console
 
 To configure the Config Property in the Admin Console, go to Configuration 
@@ -264,7 +264,7 @@ To configure the Config Property in the Admin Console, go to Configuration
 
 image:microprofile/config-property.png[Set Config Property]
 
-[[using-asadmin-commands]]
+[[using-asadmin-commands-get]]
 === Using Asadmin Commands
 
 ==== `set-config-property`
@@ -486,7 +486,7 @@ Config Secrets Directory can be configured by using Admin Console or Asadmin com
 
 _Since *5.183*&nbsp;_
 
-[[using-the-admin-console]]
+[[using-the-admin-console-secret]]
 === Using the Admin Console
 
 To configure the Config Secrets Directory in the Admin Console, go to Configuration 
@@ -494,7 +494,7 @@ To configure the Config Secrets Directory in the Admin Console, go to Configurat
 
 image:microprofile/config-property.png[Set Config Property]
 
-[[using-asadmin-commands]]
+[[using-asadmin-commands-secret]]
 === Using Asadmin Commands
 
 ==== `set-config-dir`
@@ -510,7 +510,7 @@ Sets the directory to be used for the directory config source.
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="2,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -552,7 +552,7 @@ Gets the value of the directory to be used for the directory config source.
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="2,10,1,1", options="header"]
 |===
 |Option
 |Description

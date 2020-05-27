@@ -13,7 +13,7 @@ configuration page in the Admin Console. We would prefer to not accept internet
 translations as they are typically inaccurate.
 
 [[updated-modules]]
-= Updated Modules
+== Updated Modules
 
 This section details the modules that have been upgraded since the last release
 (4.1.144).
@@ -37,7 +37,7 @@ This section details the modules that have been upgraded since the last release
 * JAXB `2.2.12-b141219.1637`
 
 [[new-module]]
-== New Modules
+=== New Modules
 
 * Hazelcast `3.4`
 

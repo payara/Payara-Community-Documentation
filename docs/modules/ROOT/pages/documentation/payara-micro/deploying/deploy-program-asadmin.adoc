@@ -5,7 +5,7 @@ You can deploy applications using the equivalent administration commands present
 on Payara Server.
 
 [[deploying-on-a-local-instance]]
-= Deploying on a Local Instance
+== Deploying on a Local Instance
 
 It's possible to use the
 `run(Collection<InstanceDescriptor> members, String command, String... args )`
