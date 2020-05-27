@@ -5,7 +5,7 @@ As required by the
 https://www.eclipse.org/legal/tck.php[Eclipse Foundation Technology Compatibility Kit License],
 following is a summary of the TCK results for releases of Jakarta EE Platform, Full Profile.
 
-# Payara Server 5.193.1 Full Profile Certification Summary
+**Payara Server 5.193.1 Full Profile Certification Summary**
 
 - Product Name, Version and download URL (if applicable):
 +
@@ -25,14 +25,14 @@ http://docs.payara.fish/jakartaee-certification/5.193/tck-results-full-5.193.1.h
 
 - Any Additional Specification Certification Requirements:
 
-** Jakarta Dependency Injection 1.0 TCK
+== Jakarta Dependency Injection 1.0 TCK
 + 
 See test results in section `di`. +
 Download URL & SHA-256:
 https://download.eclipse.org/jakartaee/dependency-injection/1.0/jakarta.inject-tck-1.0-bin.zip[jakarta.inject-tck-1.0-bin.zip], 
 SHA-256: `b679bac9b1057df894753892a880ba6ade530607dd811157106ed767aa26481f`
 
-** Jakarta Contexts and Dependency Injection 2.0 TCK
+== Jakarta Contexts and Dependency Injection 2.0 TCK
 +
 See test results in section `cdi`. + 
 Download URL & SHA-256: 

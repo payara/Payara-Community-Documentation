@@ -1,14 +1,11 @@
-[release-notes-current]
-= Payara Server 4.1.2.174 Release Notes
-
 [[release-highlights]]
-== Release Highlights
+= Release Highlights
 
 This release has been based on https://javaee.github.io/glassfish/download[GlassFish Server Open Source 4.1.2]
 which was released on March 31, 2017.
 
 [[bugs-fixes]]
-= Bugs & Fixes
+== Bugs & Fixes
 
 * https://github.com/payara/Payara/pull/1984[PAYARA-1615 - HealthCheck
 machine memory usage inaccurate]
@@ -333,7 +330,7 @@ to 2.4.5.Final]
 to 4.12]
 
 [[known-issues]]
-= Known Issues
+== Known Issues
 
 Known issues can be seen on our GitHub issues page here:
 https://github.com/payara/Payara/issues.

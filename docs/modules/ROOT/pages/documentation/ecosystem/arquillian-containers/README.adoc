@@ -12,7 +12,7 @@ In version {currentVersion}, there are containers available for the following di
 * xref:documentation/ecosystem/arquillian-containers/payara-remote.adoc[Payara Remote]
 * Payara Managed (not yet documented)
 
-=== Obtaining the Containers
+== Obtaining the Containers
 
 Arquillian containers are included in a project via their Maven coordinates:
 
@@ -31,12 +31,14 @@ The containers can be found in the main Payara source.
 
 Clone the xref:https://github.com/payara/Payara[Payara] Git repository:
 
+[source,Shell]
 ----
 git clone https://github.com/payara/Payara.git
 ----
 
 Build and install:
 
+[source,Shell]
 ----
 cd Payara/
 mvn clean install -DskipTests

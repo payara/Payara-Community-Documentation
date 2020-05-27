@@ -4,7 +4,7 @@ MQTT (Message Queue Telemetry Transport)  is a lightweight publish-subscribe
 messaging protocol.
 
 In order to connect to a MQTT broker, the `MQTTRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/cloud-connectors.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/README.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 In order to make use of this connector in an application, the following maven
@@ -25,7 +25,7 @@ Note that this dependency have scope provided since the types within this
 dependency are globally available to every application deployed to Payara Micro
 after the `MQTTRAR-0.1.0-SNAPSHOT.rar`  was deployed.
 
-=== Sending messages
+== Sending messages
 Sending messages to a MQTT broker can be done via the JCA and an MQTT specific
 API. In order to start using this API to send messages, a resource has to be
 defined via the JCA API; a connection factory.
@@ -72,7 +72,7 @@ public class SendMQTTMessage {
 ----
 
 
-=== Receiving messages
+== Receiving messages
 Messages can be received from an MQTT broker by creating an MDB (Message Driven
 Bean) that implements the `fish.payara.cloud.connectors.mqtt.api.MQTTListener`
 marker interface and has a single method annotated with `@OnMQTTMessage` and the

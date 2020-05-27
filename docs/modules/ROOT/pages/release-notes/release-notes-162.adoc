@@ -1,6 +1,5 @@
 [[release-highlights]]
-Release Highlights
-------------------
+= Release Highlights
 
 Our highlights for the 162 release are our new asadmin command recorder, Payara Server's new ability to create uber jars and a new EAR scoped class loader.
 
@@ -13,8 +12,7 @@ EAR Scoped classloader that loads classes from within the EAR providing the abil
 Payara Server and Payara Micro can now cluster together enabling new cluster topologies for cloud based and/or containerised deployments!
 
 [[new-features]]
-New Features
-------------
+== New Features
 
 This section details the newly developed additions to Payara Server.
 
@@ -28,8 +26,7 @@ This section details the newly developed additions to Payara Server.
 * https://github.com/payara/Payara/pull/784[784/PAYARA-685 - Phone Home Service Creation]
 
 [[updated-modules]]
-Updated Modules
----------------
+== Updated Modules
 
 This section details the modules that have been updated since the last release (4.1.1.161.1).
 
@@ -40,8 +37,7 @@ This section details the modules that have been updated since the last release (
 * Mojarra 2.2.13 * Grizzly 2.3.24 * Hazelcast 3.6.2
 
 [[enhancements]]
-Enhancements
-------------
+== Enhancements
 
 This section details the issues marked as enhancements that have been implemented for this release.
 
@@ -67,14 +63,12 @@ This section details the issues marked as enhancements that have been implemente
 * https://github.com/payara/Payara/pull/786[786/PAYARA-677 - Add support for overriding app server libraries using ScopedEARClassloader on domain level]
 
 [[fixed-issues]]
-Fixed Issues
-------------
+== Fixed Issues
 
 This section details the issues marked as bugs that have been fixed for this release.
 
 [[payara-fixes]]
-Payara Fixes
-^^^^^^^^^^^^
+=== Payara Fixes
 
 This section details the fixes implemented by the Payara team or community.
 
@@ -117,8 +111,7 @@ This section details the fixes implemented by the Payara team or community.
 * https://github.com/payara/Payara/pull/783[783/PAYARA-738 - references to weld osgi bundle.jar should be fixed]
 
 [[known-issues]]
-Known Issues
-------------
+== Known Issues
 
 Known issues can be seen on our GitHub issues page here:
 https://github.com/payara/Payara/issues

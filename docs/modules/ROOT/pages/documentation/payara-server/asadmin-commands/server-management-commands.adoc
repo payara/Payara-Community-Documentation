@@ -13,6 +13,7 @@ Payara Server for managing domains.
 *Aim*::
 This command start the specified domain
 
+[cols="2,1,4,1,1",options="header"]
 |===
 |Options | Type | Description | Default | Mandatory
 
@@ -159,7 +160,7 @@ asadmin> restart-domains domain1, production
 *Aim*::
 This command can be used to stop all running domains on the server installation.
 
-[[command-options-3]]
+[[command-options-5]]
 === Command Options
 
 [cols="1,1,4,1,1",options="header",]
@@ -171,7 +172,7 @@ immediately. |true |No
 of the operating system to terminate the domain process |false |No
 |====
 
-[[example-3]]
+[[example-5]]
 === Example
 
 To forcibly stop all running domains, run the following command:
@@ -191,12 +192,12 @@ asadmin> stop-all-domains --force=false
 *Aim*::
 This command can be used to start a specified instance of Payara, which can be either a local or remote instance. This command runs on the DAS.
 
-[[command-options-3]]
+[[command-options-4]]
 === Command Options
 
 NOTE: These are not the same as the options for the `start-local-instance` command.
 
-[cols="1,1,4,1,1",options="header",]
+[cols="2,1,4,1,1",options="header",]
 |====
 |Option |Type |Description |Default |Mandatory
 |`--sync` | none, normal or full |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | normal |No
@@ -207,7 +208,7 @@ NOTE: These are not the same as the options for the `start-local-instance` comma
 
 WARNING: Using full sync will cause the configuration to be deleted if the DAS cannot be reached.
 
-[[example-3]]
+[[example-4]]
 === Example
 
 To start an instance named instance1 and sync it with the DAS with a timeout of 180 seconds:

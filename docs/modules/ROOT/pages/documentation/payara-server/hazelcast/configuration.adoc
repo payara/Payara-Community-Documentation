@@ -71,7 +71,7 @@ image::hazelcast/hazelcast-admin-console-domain-hazelcast-options.png[Data Grid 
 
 The following configuration options are available here:
 
-[cols=",",options="header",]
+[cols="4,6",options="header",]
 |====
 |Property |Description
 |Restart Data Grid |Determines if the Hazelcast member embedded in Payara will be
@@ -130,7 +130,7 @@ on all members of the cluster (including Payara Micro instances) for
 this feature to work correctly. This is default in Payara Server 5.181 onwards for both
 Payara Server domains and Payara Micro instances.
 
-|Data Grid Discovery Mode | See xref:discovery.adoc[Discovery Modes]
+|Data Grid Discovery Mode | See xref:documentation/payara-server/hazelcast/discovery.adoc[Discovery Modes]
 
 |====
 
@@ -147,7 +147,7 @@ The following configuration options are available here:
 |====
 |Property |Description
 
-|Enabled | See xref:enable-hazelcast.adoc[Disabling Data Grid] for detailed information
+|Enabled | See xref:documentation/payara-server/hazelcast/enable-hazelcast.adoc[Disabling Data Grid] for detailed information
 
 |Restart Data Grid |Determines if the Hazelcast member embedded in Payara will be
 restarted to apply any changes made
@@ -181,7 +181,7 @@ _Since Payara Server 5.194 and 5.193.2_
 
 The following options can be used with the `create-domain` command to specify certain Hazelcast settings when a domain is created:
 
-[cols=(,,,,),options="header"]
+[cols="3,1,4,1,1",options="header"]
 |====
 |Option|Type|Description|Default|Mandatory
 
@@ -373,7 +373,7 @@ after an instance has been created.
 
 image::hazelcast/hazelcast-admin-console-config-data-grid-start-port.png[Config Specific Data Grid Start Port Option]
 
-[[setting-hazelcast-configuration-file-asadmin]]
+[[setting-hazelcast-configuration-file-asadmin-2]]
 ==== Setting a Config Specific Data Grid Start Port using asadmin CLI
 
 The `set-hazelcast-configuration` command can be used to set the Config Specific Data Grid Start Port:
@@ -393,7 +393,7 @@ and config specific settings. You can pass the `--help` option to the command to
 usage instructions and available arguments in your terminal, both of which
 are listed below:
 
-[cols=(,,,,),options="header"]
+[cols="3,1,4,1,1",options="header"]
 |====
 |Option|Type|Description|Default|Mandatory
 |`--enabled`| Boolean| Enables Hazelcast. If no `target` is specified, this
@@ -460,7 +460,7 @@ feature to work correctly.|_false_|No
 `-lk` |Hazelcast License|Enables https://hazelcast.com/products/enterprise/[Hazelcast Enterprise]
 features.||No
 
-|`--clustermode`|Cluster Mode|Can be one of `domain`, `tcpip` or `multicast`. See xref:discovery.adoc[Discovery Modes] for
+|`--clustermode`|Cluster Mode|Can be one of `domain`, `tcpip` or `multicast`. See xref:documentation/payara-server/hazelcast/discovery.adoc[Discovery Modes] for
 a detailed description of each mode | None|No
 
 |`--multicastgroup`

@@ -8,7 +8,7 @@ messaging server (also known as message broker) and supports the JMS 1.1 API. As
 a client Payara Micro supports both sending messages to ActiveMQ as well as
 receiving them.
 
-=== Setting up Apache ActiveMQ
+== Setting up Apache ActiveMQ
 
 The following is a short overview of how to install and start ActiveMQ on most
 environments (Linux/Unix/macOS). See http://activemq.apache.org/getting-started.html[

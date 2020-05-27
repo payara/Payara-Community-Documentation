@@ -6,9 +6,9 @@ an Uber JAR bundle of the application and Payara Micro.
 The plugin requires JDK 8 or higher and the latest version is currently
 `1.0.5`
 
-=== Configurable Goals
+== Configurable Goals
 
-==== `bundle`
+=== `bundle`
 *Aim*: This goal bundles the attached project's artifact into an Uber JAR with
 the specified configurations. By default this goal is attached to the install
 phase.
@@ -120,7 +120,7 @@ and transferred to the `MICRO-INF` directory of the created uber jar artifact.
 - `post-boot-commands.txt` - provides a file of asadmin commands to run after booting the server.
 - `post-deploy-commands.txt` - provides a file of asadmin commands to run after all deployments have completed.
 
-==== `start`
+=== `start`
 *Aim*: This goal starts Payara Micro with the specified configuration.
 
 *Usage*: `mvn payara-micro:start`
@@ -246,7 +246,7 @@ values. key-value pairs will be formatted as `key=value`.
 
 |===
 
-==== `stop`
+=== `stop`
 *Aim*: This goal stops Payara Micro with the specified configuration. By default
 this goal tries to find the currently executing Payara Micro instance by
 checking the running uberjar. If an `artifactItem` is defined, it will take
@@ -347,6 +347,7 @@ In order to use the toolchains with either `payara-micro:start` or `payara-micro
 ----
 
 toolchains.xml is the file for configuring each toolchain and it should reside under the .m2 folder. A sample would be as:
+[source,XML]
 ----
 <?xml version="1.0" encoding="UTF8"?>
 <toolchains>
