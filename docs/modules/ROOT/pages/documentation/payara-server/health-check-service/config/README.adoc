@@ -11,7 +11,7 @@ the _domain.xml_ configuration file directly.
 To configure the HealthCheck Service in the Administration Console, go to
 _Configuration -> [instance-configuration (like server-config)] -> Healthcheck_:
 
-image:..healthcheck/admin-console-configuration.png[HealthCheck Configuration in the Admin Console]
+image:healthcheck/admin-console-configuration.png[HealthCheck Configuration in the Admin Console]
 
 Check the *Enabled* box (and the *Dynamic* box too if you don't want to
 restart the domain) to switch the HealthCheck service on.
