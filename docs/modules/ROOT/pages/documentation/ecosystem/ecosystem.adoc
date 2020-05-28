@@ -34,7 +34,7 @@ message brokers, including:
 
 xref:documentation/ecosystem/arquillian-containers/README.adoc[Arquillian Containers]::
 Arquillian containers help perform integration tests for application servers. There are various containers available for Payara:
-* xref:documentation/ecosystem/arquillian-containers/payara-micro.adoc[Payara Micro]
-* Payara Embedded (not yet documented)
-* xref:documentation/ecosystem/arquillian-containers/payara-remote.adoc[Payara Remote]
-* Payara Managed (not yet documented)
+* xref:documentation/ecosystem/arquillian-containers/payara-micro-managed.adoc[Payara Micro Managed]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-remote.adoc[Payara Server Remote]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-managed.adoc[Payara Server Managed]
+* xref:documentation/ecosystem/arquillian-containers/payara-server-embedded.adoc[Payara Server Embedded]
