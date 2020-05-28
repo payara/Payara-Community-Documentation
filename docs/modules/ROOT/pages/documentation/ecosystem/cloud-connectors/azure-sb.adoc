@@ -4,7 +4,7 @@ The Microsoft Azure Service Bus allows code that runs both outside and inside
 Azure to communicate with Azure.
 
 In order to connect to Azure, the `AzureSBRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:README.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/README.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 In order to make use of this connector in an application, the following maven dependency is needed:
@@ -24,7 +24,7 @@ Note that this dependency have scope provided since the types within this
 dependency are globally available to every application deployed to Payara Micro
 after the `AzureSBRAR-0.1.0-SNAPSHOT.rar` was deployed.
 
-=== Sending messages
+== Sending messages
 
 Sending messages to Azure can be done via the JCA and an Azure specific API. In
 order to start using this API to send messages, a resource has to be defined via
@@ -58,19 +58,21 @@ With the above shown definition in place the following code shows an example of 
 @Startup
 public class SendAzureMessage {
  
- @Resource(lookup = "java:app/azuresb/factory")
- private AzureSBConnectionFactory factory;
+  @Resource(lookup = "java:app/azuresb/factory")
+  private AzureSBConnectionFactory factory;
  
- @PostConstruct
- public void init() {
+  @PostConstruct
+  public void init() {
     try (AzureSBConnection connection = factory.createConnection()) {
         connection.sendMessage("testq", new BrokeredMessage("Hello World"));
-    } catch (Exception ex) {
     }
+    catch (Exception ex) {
+    }
+  }
 }
 ----
 
-=== Receiving messages
+== Receiving messages
 Messages can be received from Azure by creating an MDB (Message Driven Bean)
 that implements the `fish.payara.cloud.connectors.azuresb.api.AzureSBListener`
 marker interface and has a single method annotated with `@OnAzureSBMessage`

@@ -163,7 +163,7 @@ Note that in Payara 5.192 support for JDK 11 is limited to a *_technical preview
 
 ---
 [[see-also]]
-==== See Also
+== See Also
 
 * xref:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
 * xref:documentation/user-guides/restore-domain.adoc[Restore a Payara Server Domain]

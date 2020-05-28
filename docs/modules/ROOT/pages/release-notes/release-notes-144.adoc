@@ -1,5 +1,5 @@
 [[feature-improvements]]
-= Feature Improvements
+== Feature Improvements
 
 Payara 4.1.144 ships with support for setting the schema in JBatch for Derby
 (GLASSFISH-21041).
@@ -9,7 +9,7 @@ This can be found in the Admin Console under server -> Batch -> Configuration
 Tyrus has also been updated to version 1.8.3.
 
 [[bug-fixes]]
-= Bug Fixes
+== Bug Fixes
 
 Payara 4.1.144 was built upon GlassFish 4.1, so contains all of the bug fixes and
 improvements to be found there. The release notes for GlassFish 4.1 can be found here.

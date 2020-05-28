@@ -96,7 +96,7 @@ Provides a way to set the configuration of the fault tolerance service of the ta
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="4,10,1,1", options="header"]
 |===
 |Option
 |Description
@@ -140,7 +140,7 @@ Returns the current configuration options for the Fault Tolerance service on the
 
 ===== Command Options
 
-[cols="1,10,1,1", options="header"]
+[cols="2,10,1,1", options="header"]
 |===
 |Option
 |Description

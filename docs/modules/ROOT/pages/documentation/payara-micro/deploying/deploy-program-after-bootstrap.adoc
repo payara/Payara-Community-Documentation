@@ -52,7 +52,8 @@ public class EmbeddedPayara {
 
         try (InputStream is = new FileInputStream("/home/user/test.war")){
             instance.deploy("test", is);
-        } catch (IOException ex){
+        }
+        catch (IOException ex){
             Logger.getLogger(EmbeddedPayara.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -83,7 +84,8 @@ public class EmbeddedPayara{
 
         try (InputStream is = new FileInputStream("/home/user/test.war")){
             instance.deploy("test", "app", is);
-        } catch (IOException ex){
+        }
+        catch (IOException ex){
             Logger.getLogger(EmbeddedPayara.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

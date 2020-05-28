@@ -22,7 +22,7 @@ Click on the connection pool name and under the _Pool Settings_ section you
 will find Initial and Minimum Pool Size and Maximum Pool Size. Set these to
 your required sizes:
 
-image:connection-pools/connection_pools_3.jpg[Connection Pool sizes in the admin console]
+image:connection-pools/connection_pools_3.png[Connection Pool sizes in the admin console]
 
 [[setting-the-sizes-via-asadmin]]
 == Setting the sizes using administration commands

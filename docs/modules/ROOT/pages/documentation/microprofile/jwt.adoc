@@ -28,7 +28,7 @@ Though JWT tokens are more universal in format, they are still intended for use 
 
 For example:
 
-[source, javascript]
+[source, json]
 ----
 {
     "iss": "fish.payara.example",
@@ -50,9 +50,9 @@ A JWT also *must* be signed, and in the case of MicroProfile JWT this *must* be 
 One way to do this signing is by first generating an SSH keypair as follows:
 
 1. Open Terminal
-1. Generate the base key by entering: `openssl genrsa -out baseKey.pem`
-1. From the base key generate the PKCS#8 private key: `openssl pkcs8 -topk8 -inform PEM -in baseKey.pem -out privateKey.pem -nocrypt`
-1. And generate the public key: `openssl rsa -in baseKey.pem -pubout -outform PEM -out publicKey.pem`
+2. Generate the base key by entering: `openssl genrsa -out baseKey.pem`
+3. From the base key generate the PKCS#8 private key: `openssl pkcs8 -topk8 -inform PEM -in baseKey.pem -out privateKey.pem -nocrypt`
+4. And generate the public key: `openssl rsa -in baseKey.pem -pubout -outform PEM -out publicKey.pem`
 
 Then put `privateKey.pem` on the root of the classpath (for instance, in a Maven project put it in `src/main/resources`) and use the following code to create the signed JSON token as a string:
 
@@ -160,7 +160,7 @@ If this is true, the default `https://payara.fish/mp-jwt/` namespace will be use
 For example: 
 
 If following JSON is the token payload and `enable.namespace` property is true.
-[source, javascript]
+[source, json]
 ----
 {
   "https://payara.fish/mp-jwt/groups": ["admin", "read", "write"],
@@ -233,6 +233,3 @@ The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switch
 Two full examples of using JWT authentication with a JAX-RS endpoint as well as a Servlet resource are provided here: 
 
 * https://github.com/javaee-samples/microprofile1.2-samples/tree/master/jwt-auth
-
-
-

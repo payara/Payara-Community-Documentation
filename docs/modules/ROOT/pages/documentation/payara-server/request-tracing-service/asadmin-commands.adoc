@@ -17,7 +17,7 @@ tracing service at once.
 [[command-options]]
 === Command Options
 
-[cols=",,,,",options="header",]
+[cols="4,1,4,1,1",options="header",]
 |=======================================================================
 |Option |Type |Description |Default |Mandatory
 |`--enabled` |Boolean |Enables or disables the service |false |Yes
@@ -77,7 +77,7 @@ _[NOTIFIER_NAME]_ placeholder.
 without a server/instance restart. |false |No
 |=======================================================================
 
-[[example-4]]
+[[example-3]]
 === Examples
 
 . To enable the log notifier for the Request Tracing Service without having to
@@ -165,7 +165,7 @@ This command can be used to list a number of previous request trace messages fro
 |`--historicTraces` |Boolean |Whether to get the traces from the historic trace store or not |True |No
 |=======================================================================
 
-[[example-4]]
+[[example-5]]
 === Example
 
 [source, shell]
@@ -187,6 +187,7 @@ Occurring Time            Elapsed Time  Traced Message
 The request tracing messages are in JSON format, so can be parsed by log parsing
 tools as if it were in the following format:
 
+[source, json]
 ----
 {
    "traceSpans":[

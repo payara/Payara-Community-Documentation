@@ -11,7 +11,7 @@ In version {currentVersion}, the available connectors are:
 * xref:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
 * xref:documentation/ecosystem/cloud-connectors/azure-sb.adoc[Azure Service Bus]
 
-=== Obtaining the connectors
+== Obtaining the connectors
 
 Cloud connectors are currently not available in binary form, but have to be
 built from source as follows:
@@ -37,7 +37,7 @@ The connectors can be found in the following locations as JCA rars:
 * Azure Service Bus - ./AzureServiceBus/AzureSBRAR/target/AzureSBRAR-0.1.0-SNAPSHOT.rar
 
 [[Installing-a-connector]]
-=== Installing a connector
+== Installing a connector
 A connector (JCA rar) is installed by deploying it to Payara Micro in the same
 way as an application archive (e.g. a .war) is deployed. The following shows an
 example:
@@ -54,7 +54,7 @@ deployed simultaneously:
 java -jar payara-micro.jar --autobindhttp --deploy KafkaRAR-0.1.0-SNAPSHOT.rar --deploy myapp.war
 ----
 
-=== Securing credentials
+== Securing credentials
 
 In the documentation pages for the currently available cloud connectors,
 much of the configuration shown is done via annotations. This configuration

@@ -4,7 +4,7 @@ Payara Micro has a Maven archetype which can create sample Payara Micro applicat
 
 
 [[create-project]]
-=== Create a project
+== Create a project
 
 To generate a new project from the archetype, run the following command :
 
@@ -58,7 +58,7 @@ Now Maven will start creating the project structure and will display the followi
 
 
 [[run-project]]
-=== Run the project
+== Run the project
 
 [source,Shell]
 ----

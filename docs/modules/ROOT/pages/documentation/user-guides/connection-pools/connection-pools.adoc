@@ -45,7 +45,7 @@ Click the _New_ button and enter the following values:
 
 Click Next and then click Finish on the next screen, accepting the default values.
 
-image:connection-pools/connection_pools_1.jpg[New JDBC Connection Pool]
+image:connection-pools/connection_pools_1.png[New JDBC Connection Pool]
 
 Add the following properties to the connection pool by going to the _Additional Properties_
 tab of the connection pool:

@@ -95,13 +95,11 @@ public class SQLTraceLogger implements SQLTraceListener {
     }
 
     public SQLTraceLogger() {
-
     }
 
     public void sqlTrace(SQLTraceRecord record) {
         _logger.log(Level.FINE, record.toString());
     }
-
 }
 ----
 

@@ -5,7 +5,7 @@ massively scalable publish/subscribe message queue architected as a distributed
 transaction log.
 
 In order to connect to Apache Kafka, the `KafkaRAR-0.1.0-SNAPSHOT.rar` has to be
-deployed as shown in the xref:README.adoc#Installing-a-connector[
+deployed as shown in the xref:documentation/ecosystem/cloud-connectors/README.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 Once deployed, something like the following should be printed to the startup
@@ -33,7 +33,7 @@ Note that this dependency has scope `provided` since the types within this
 dependency are globally available to every application deployed to Payara Micro
 after the `KafkaRAR-0.1.0-SNAPSHOT.rar` was deployed.
 
-=== Sending messages
+== Sending messages
 Sending messages to Apache Kafka can be done via the JCA and a Kafka specific
 API. In order to start using this API to send messages, a resource has to be
 defined via the JCA API; a connection factory.
@@ -72,12 +72,14 @@ public class SendKafkaMessage {
  public void init() {
     try (KafkaConnection connection = factory.createConnection()) {
         connection.send(new ProducerRecord("test","hello","world"));
-    } catch (Exception ex) {
     }
+    catch (Exception ex) {
+    }
+ }
 }
 ----
 
-=== Receiving messages
+== Receiving messages
 Messages can be received from Apache Kafka by creating an MDB (Message Driven
 Bean) that implements the `fish.payara.cloud.connectors.kafka.api.KafkaListener`
 marker interface and has one or more methods annotated with `@OnRecord` and the

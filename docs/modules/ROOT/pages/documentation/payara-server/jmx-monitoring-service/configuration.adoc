@@ -19,7 +19,7 @@ noting the default configuration values for the service:
 * _logfrequencyunit_: `SECONDS`, valid type: `TimeUnit`, _optional_
 
 TIP: You can also boot AMX at startup or independently from the JMX Monitoring 
-service. For more information go xref:amx.adoc[here].
+service. For more information go xref:documentation/payara-server/jmx-monitoring-service/amx.adoc[here].
 
 Monitoring attributes are added to the service as properties of the
 configuration and contain the following values:

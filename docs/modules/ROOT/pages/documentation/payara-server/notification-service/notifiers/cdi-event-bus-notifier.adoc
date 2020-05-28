@@ -67,8 +67,8 @@ Notification events can be observed as a standard `@Inbound` CDI event of type `
             .as(HealthCheckNotificationData.class).getEntries()
             .stream().sorted().findFirst();
         }
-
     }
+   
 ----
 
 IMPORTANT: Observer methods must be methods of a CDI bean to receive the events.

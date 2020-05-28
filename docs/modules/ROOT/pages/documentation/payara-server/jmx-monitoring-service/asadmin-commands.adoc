@@ -27,7 +27,7 @@ configuration.
 [[command-options-1]]
 === Command Options
 
-[cols=",,,,",options="header",]
+[cols="3,1,4,1,1",options="header",]
 |====
 |Option
 |Type
@@ -102,7 +102,7 @@ quotes (').
 *Aim*::
 Retrieves the monitoring service configuration and outputs it.
 
-[[command-options-1]]
+[[command-options-2]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -134,6 +134,7 @@ or cross
 *Aim*:: Configures the CDI Event Bus Notifier for use with the JMX monitoring
 service.
 
+[[command-options-3]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -170,6 +171,7 @@ service.
 *Aim*:: Configures the Datadog Notifier for use with the JMX monitoring
 service.
 
+[[command-options-4]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -206,6 +208,7 @@ service.
 *Aim*:: Configures the eMail Notifier for use with the JMX monitoring
 service.
 
+[[command-options-5]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -242,6 +245,7 @@ service.
 *Aim*:: Configures the Event Bus Notifier for use with the JMX monitoring
 service.
 
+[[command-options-6]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -278,6 +282,7 @@ service.
 *Aim*:: Configures the Hipchat Notifier for use with the JMX monitoring
 service.
 
+[[command-options-7]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -314,6 +319,7 @@ service.
 *Aim*:: Configures the JMS Notifier for use with the JMX monitoring
 service.
 
+[[command-options-8]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -343,6 +349,7 @@ service.
 |no
 |====
 
+
 === `monitoring-log-notifier-configure`
 
 *Usage*:: `monitoring-log-notifier-configure --enabled true|false`
@@ -350,6 +357,7 @@ service.
 *Aim*:: Configures the Log Notifier for use with the JMX monitoring
 service.
 
+[[command-options-9]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -386,6 +394,7 @@ service.
 *Aim*:: Configures the New Relic Notifier for use with the JMX monitoring
 service.
 
+[[command-options-10]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -422,6 +431,7 @@ service.
 *Aim*:: Configures the Slack Notifier for use with the JMX monitoring
 service.
 
+[[command-options-11]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -458,6 +468,7 @@ service.
 *Aim*:: Configures the SNMP Notifier for use with the JMX monitoring
 service.
 
+[[command-options-12]]
 === Command Options
 
 [cols=",,,,",options="header",]
@@ -494,6 +505,7 @@ service.
 *Aim*:: Configures the XMPP Notifier for use with the JMX monitoring
 service.
 
+[[command-options-13]]
 === Command Options
 
 [cols=",,,,",options="header",]
