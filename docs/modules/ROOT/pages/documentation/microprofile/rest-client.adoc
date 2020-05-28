@@ -1,11 +1,11 @@
 [[rest-client-api]]
 = Eclipse MicroProfile Rest Client API
 
-:repo: https://github.com/eclipse/microprofile-rest-client/tree/1.3.4
+:repo: https://github.com/eclipse/microprofile-rest-client/tree/1.4.0
 
 _Since Payara Server 4.1.2.182 and 5.182_
 
-Provided version of the API: {mpRestClientSpecUrl}[MicroProfile Rest Client {mpRestClientVersion}]
+Provided version of the API: {repo}[MicroProfile Rest Client 1.4]
 
 [[background]]
 == Background
