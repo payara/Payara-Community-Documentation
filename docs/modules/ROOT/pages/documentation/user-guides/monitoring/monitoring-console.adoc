@@ -333,7 +333,7 @@ image::monitoring-console/mc_settings_colors.png[Widget Status Settings]
 === User Defined Watches
 A watch describes the conditions to meet to start and stop alerts in relation to a specific metric.
 For example to get an alert every time an HTTP request causes a server error (responds with any of the 5xx status codes) a custom watch is installed.
-This is very similar to a custom health check that could be xrefed to any metric available where the thresholds are defined as part of the watch.
+This is very similar to a custom health check that could be linked to any metric available where the thresholds are defined as part of the watch.
 There are many varieties of conditions that can be formulated. Each watch has a start condition which when met starts a new alert.
 Optionally a stop condition can be given which when met will stop the alert. If no such stop condition is given an alert stops as soon as its start condition is no longer met.
 Such pairs of start and stop conditions can be defined for 3 levels:
@@ -357,7 +357,7 @@ image::monitoring-console/mc_page_watches2.png[Creating a Watch]
 The above example shows a relatively simple watch named _HTTP server errors_. The name of the watch can be anything as long as it is unique.
 The watch should have both a _Unhealthy_ and a _Degraded_ level.
 
-The field after the _If_ holds the name of the metric series the watch is xrefed to, in this case the `ns:http ServerCount5xx` metric, as shown on the _HTTP_ page. The _in_ clause specifies the unit type of the given metric, here it is the `Count` of 5xx responses. Following _is_ the comparison operator is selected, here `>`. This is followed by the threshold value, here `3` or `1`, and the scope of the comparison, here `in sample`.
+The field after the _If_ holds the name of the metric series the watch is linked to, in this case the `ns:http ServerCount5xx` metric, as shown on the _HTTP_ page. The _in_ clause specifies the unit type of the given metric, here it is the `Count` of 5xx responses. Following _is_ the comparison operator is selected, here `>`. This is followed by the threshold value, here `3` or `1`, and the scope of the comparison, here `in sample`.
 As both do not use a stop condition the checkbox after _until_ is not checked.
 
 The below table describes possible choices for each step of a watch condition.
