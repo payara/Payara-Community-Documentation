@@ -78,7 +78,7 @@ This section details the fixes brought in from the GlassFish upstream.
 * https://github.com/payara/Payara/commit/e51a3e5babc8ee05e3ce141cca88ca9ab896fdd7[fix aggregated test report for newer Hudson versions]
 * https://java.net/jira/browse/GLASSFISH-21366[Fix for GLASSFISH-21366]
 * https://github.com/payara/Payara/commit/b5f3237d6aac9c0c22ab45092bf109d71abde6fb[Changed fix for GF 20680326]
-* https://github.com/payara/Payara/commit/ef5cdd175c9af70899d055ebcf150b13c5974b74[fix broken images xrefs, and allow jdk8 to be used to have the {@docRoot}]
+* https://github.com/payara/Payara/commit/ef5cdd175c9af70899d055ebcf150b13c5974b74[fix broken images links, and allow jdk8 to be used to have the {@docRoot}]
 * https://github.com/payara/Payara/commit/a1cbcfddf865b605833ddf59a7f50c30c2716794[FindBug fix]
 * https://java.net/jira/browse/GLASSFISH-20864[fix for bug-20864]
 * https://java.net/jira/browse/GLASSFISH-21261[fix for GLASSFISH-21261]
