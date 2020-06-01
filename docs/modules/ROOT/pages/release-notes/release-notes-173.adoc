@@ -98,7 +98,7 @@ EventBus sends same for Instance and ServerName]
 * https://github.com/payara/Payara/pull/1732[PAYARA-1810 - Restart of
 EJB Timers fails when Hazelcast is enabled on a clustered instance.]
 * https://github.com/payara/Payara/pull/1740[PAYARA-1839 - Update the
-documentation xrefs and text in the Admin Console]
+documentation links and text in the Admin Console]
 * https://github.com/payara/Payara/pull/1786[PAYARA-1841 -
 --deployFromGAV won't accept RAR files]
 * https://github.com/payara/Payara/pull/1773[PAYARA-1842 - "Restart
