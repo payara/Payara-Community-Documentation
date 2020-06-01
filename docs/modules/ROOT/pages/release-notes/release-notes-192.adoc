@@ -108,7 +108,7 @@ LoginModule configuration
 - [https://github.com/payara/Payara/pull/3900[PAYARA-3417]] - CertificateRealm should optionally return CN part a the certificate subject instead of the whole
 subject
 - [https://github.com/payara/Payara/pull/3853[PAYARA-3419]] - Persistent EJB Timer service forced too eagerly in cluster/Deployment group.
-- [https://github.com/payara/patched-src-eclipsexref/pull/3[PAYARA-3474]] - Disable stacktrace logging when JPA schema generation tries to read from non
+- [https://github.com/payara/patched-src-eclipselink/pull/3[PAYARA-3474]] - Disable stacktrace logging when JPA schema generation tries to read from non
 existing sequence
 - [https://github.com/payara/Payara/pull/3934[PAYARA-3688]] - Make the timeout parameter configurable in the start-local-instance command
 - [https://github.com/payara/Payara/pull/3930[PAYARA-3718]] - Support System Properties with EJB over Rest

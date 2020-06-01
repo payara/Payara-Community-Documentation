@@ -117,7 +117,7 @@ input the room's *ID*, *Name* and *Description* as requested:
 +
 image:notification-service/xmpp/openfire-create-room-2.png[OpenFire New Room]
 
-. Check that the room was created successfully. Click on the room's xref
+. Check that the room was created successfully. Click on the room's link
 to enter its details. Take special note of the *Service Name*, which
 will be used to configure the notifier later:
 +
