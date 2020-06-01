@@ -156,7 +156,7 @@ this:
 ----
 
 Enabling the default group to role mappings will cause all named groups
-in the application's xrefed security _realm_ to be mapped to a role of the
+in the application's linked security _realm_ to be mapped to a role of the
 same name. This will save you the time of having to redefine the same
 roles and map them to the realm groups each time they are modified.
 
