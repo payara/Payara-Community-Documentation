@@ -78,7 +78,7 @@ You can do the same thing with nodes too:
 In this way, the user configuration is always kept separate to the installation,
 and rollback is as simple as using the previous installation directory.
 
-If you are using Payara Server on Linux, you could take advantage of _"symbolic xrefs"_
+If you are using Payara Server on Linux, you could take advantage of _"symbolic links"_
 to make life easier. When your domain directory is in a non-standard
 location, it means that you need to specify its location with each
 `start`/`stop`/`restart` command. If you were to create a symbolic sto
@@ -95,7 +95,7 @@ Payara Server installation was currently used in production, for example:
 This means that any rollback is as simple as stopping the server, updating
 a symbolic link and starting it again.
 
-Without the use of symbolic xrefs, things get a bit more manual (though still
+Without the use of symbolic links, things get a bit more manual (though still
 quite straightforward). The asadmin start-domain subcommand has a
 `--domaindir` option which allows you to specify the location of a domain
 directory. So you could have a directory structure like this:

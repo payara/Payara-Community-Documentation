@@ -46,7 +46,7 @@ This section details the modules that have been upgraded since the last release
 
 This section details the GitHub issues marked as enhancements that have been
 implemented for this release. You can view the issues in detail by following the
-provided xrefs.
+provided links.
 
 * 25 – Disable SSLv3 in default domain template
 * 28 – Integrate Hazelcast as JSR107 provider
@@ -63,7 +63,7 @@ provided xrefs.
 == Fixed Issues
 
 This section details the GitHub issues marked as bugs that have been fixed for
-this release. You can view the issues in detail by following the provided xrefs.
+this release. You can view the issues in detail by following the provided links.
 
 * 45 – GLASSFISH 21148 - fixed bug in SSO clustered session management
 * 46 – GLASSFISH 21219

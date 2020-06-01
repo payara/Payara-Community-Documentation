@@ -190,7 +190,7 @@ Defines additional properties for the configuration of a virtual server.
   | 300
 | *sso-reap-interval-seconds* | The number of seconds between purges of SSO records. | 60
 | *setCacheControl*           | Comma separated list of Cache-Control response directives (See section 14.9 of: https://www.ietf.org/rfc/rfc2616.txt). | none
-| *allowLinking*             a| If set to true, resources that are symbolic xrefs will be served for all applications deployed to this virtual server. Can be overriden for an individual application in the glassfish-web.xml with:
+| *allowLinking*             a| If set to true, resources that are symbolic links will be served for all applications deployed to this virtual server. Can be overriden for an individual application in the glassfish-web.xml with:
 ----
 <glassfish-web-app>
   <property name="allowLinking" value="false" />
