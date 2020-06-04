@@ -35,4 +35,4 @@ The Payara Platform currently supports the following Operating Systems in all th
 ** SUSE 11.4, 12.2+, 15.0+
 * Other
 ** MacOS(OSX) 10.10.5 (Yosemite)+
-** IBM AIX (any version) 
+** IBM AIX (all versions) 
