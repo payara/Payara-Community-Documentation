@@ -142,8 +142,6 @@
 *** xref:documentation/payara-server/phone-home/phone-home-asadmin.adoc[Asadmin Commands]
 *** xref:documentation/payara-server/phone-home/disabling-phone-home.adoc[Disabling Phone Home]
 ** xref:documentation/payara-server/system-properties.adoc[System Properties]
-** xref:documentation/payara-server/support-integration.adoc[Support Integration]
-** xref:documentation/payara-server/production-ready-domain.adoc[Production Ready Domain]
 ** xref:documentation/payara-server/classloading.adoc[Enhanced Classloading]
 ** xref:documentation/payara-server/default-thread-pool-size.adoc[Default Thread Pool Size]
 ** xref:documentation/payara-server/public-api/README.adoc[Public API]
