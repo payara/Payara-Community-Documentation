@@ -170,9 +170,7 @@ asadmin set configs.config.server-config.security-service.activate-default-princ
 ----
 
 Except its effect will only limit itself to the application instead of
-all applications deployed on the server. This setting is configured by
-default to `true` on the
-xref:/documentation/payara-server/production-ready-domain.adoc[production-ready-domain]
+all applications deployed on the server.
 
 The default value of this property is `false`. This property can be set
 in the `glassfish-web.xml`, `glassfish-ejb-jar.xml` and

@@ -14,7 +14,4 @@ Without this change, new tasks submitted to these service components
 would just have been queued in a linear fashion.
 
 This minor optimization is configured on the _default domain_ template
-(so all newly created domains inherit it) and is also included in the
-xref:/documentation/payara-server/production-ready-domain.adoc[Production
-Ready] domain template as well, across all profiles (Full, Web, Embedded
-and Micro).
+(so all newly created domains inherit it).
