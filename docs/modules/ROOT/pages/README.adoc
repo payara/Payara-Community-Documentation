@@ -1,6 +1,30 @@
 image:payara-logo-blue.png[Payara Logo]
 
+== Introduction
+
+This is the documentation for the Payara Platform Community Edition, targeted for developers looking to play with the latest features and APIs during development before potentially moving to Payara Enterprise in production.
+
+Payara Platform Community Edition provides a frequent release cycle to drive faster innovation. Payara Server Community and Payara Micro Community are dedicated to rapid change and innovation, giving developers a place to play with the latest features of the Payara Platform as soon as possible.
+
+=== Are You Using Payara Server for Mission Critical Production Environments?
+
+Payara Server Enterprise is optimised for mission critical production systems in any environment: on premise, in the cloud, or hybrid. Payara Server is aggressively compatible with the ecosystem components you're already using, provides broad integration with cloud vendors, and support for Docker and Kubernetes. Development
+in collaboration with an industry-leading DevOps team and the global Payara community ensures Payara Server Enterprise is the best option for production Jakarta EE applications today and for the future.
+
+Payara Server Enterprise subscriptions include:
+
+* Choice of support: Migration & Project Support, 24x7, or 10x5 plans
+* Monthly releases, bug fixes, and patches
+* 10-year software lifecycle
+* Access to add-on Payara Accelerator consultancy services
+
+Learn more about Payara Server Enterprise: https://www.payara.fish/support/
+
+== History
+
 Payara Server began life in 2014, derived from GlassFish 4.1. Since then, Payara Server has been refined with bug fixes, enhanced with new features, and has grown a strong community following. The documentation here will be updated with all the significant changes made with each new release. 
+
+== Documentation 
 
 xref:documentation/payara-server/README.adoc[Payara Server Documentation]::
 The documentation of Payara Server distribution. Provides information about configuring and administering Payara Server, as well as how to deploy applications and how to use provided resources in deployed applications.

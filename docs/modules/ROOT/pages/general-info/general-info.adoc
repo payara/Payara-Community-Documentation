@@ -1,15 +1,55 @@
 [[overview]]
 = Documentation Overview
 
-This page provides some general information about the Payara Project.
+This page provides some general information about the Payara Platform Community Edition.
 
 [[release-strategy]]
 == Release Strategy
 
-Payara project has a public release every quarter. Each release incorporates fixes and enhancements from the Payara team, GlassFish upstream, and the community.
+The Payara Platform Community Edition project is released frequently (every 4 to 8 weeks on average). Each release incorporates new features, fixes, and enhancements from the Payara team, GlassFish upstream, and the community.
+
+[[new-naming-strategy]]
+== New Naming Strategy (June 2020)
+
+As of June 2020, The naming strategy of the Payara Platform Community Edition releases is changed.
+
+The general format of the version number is **Major Version Number . Year . Release Number**
+
+**Major Version numbers** will start from 5 (the current major version of Payara Platform) and only increment by 1 when a new major version (E.g Payara 6) is released. There is currently no set cadence for this version change. The change of a major version number is a product management and marketing decision.
+
+**Year** will start from 2020 (the year that Payara Enterprise and Community versions diverge) and increment by 1 annually.
+
+**Release Number** numbers will start from 2 and increment regularly.  These version changes will introduce any combination of big features, small enhancements, rewrites, and bug fixes.  The Minor Version number will reset to 1 when the Year increments (annually).
+
+There are no backward-compatible requirements for a release number change.
+
+[cols=-2*,options="header"]
+|=== 
+
+| Release date| Version  
+
+| June 2020 | 5.2020.2
+
+| xxx 2020 | 5.2020.3
+
+| xxx 2020 | 5.2020.4
+
+| ... | 5.2020.5
+
+| ...| ...
+
+| First release in 2021 | 5.2021.1
+
+| Second release in 2021 | 5.2021.2
+
+| ... | 5.2021.3
+
+| ...| ...
+
+|=== 
 
 [[naming-strategy]]
-== Naming Strategy
+== Previous Naming Strategy
 
 The Payara Server naming strategy works off of the pre-existing GlassFish
 naming strategy: Append the year and quarter as the final dot version of
@@ -23,28 +63,19 @@ patch is released for Payara 4.1.152, the version number would be
 Oracle do for GlassFish, so it's possible for a version number to be
 something like 4.1.1.152.1!
 
-Releases made to date include:
+Some examples of releases made:
 
 ****
+2020 Q1 - Payara Server 5.201 +
+
+2019 Q4 - Payara Server 5.194 +
+2019 Q3 - Payara Server 5.193 +
+2019 Q2 - Payara Server 5.192 +
+2019 Q1 - Payara Server 5.191 +
+
 2018 Q1 - Payara Server 5.181 +
 2018 Q1 - Payara Server 4.1.2.181 +
 
-2017 Q4 - Payara Server 4.1.2.174 +
-2017 Q3 - Payara Server 4.1.2.173 +
-2017 Q2 - Payara Server 4.1.2.172 +
-2017 Q1 - Payara Server 4.1.1.171 +
-
-2016 Q4 - Payara Server 4.1.1.164 +
-2016 Q3 - Payara Server 4.1.1.163 +
-2016 Q2 - Payara Server 4.1.1.162 +
-2016 Q1 - Payara Server 4.1.1.161 +
-
-2015 Q4 - Payara Server 4.1.1.154 +
-2015 Q3 - Payara Server 4.1.153 +
-2015 Q2 - Payara Server 4.1.152 +
-2015 Q1 - Payara Server 4.1.151 +
-
-2014 Q4 - Payara Server 4.1.144
 ****
 
 [[work-strategy]]
