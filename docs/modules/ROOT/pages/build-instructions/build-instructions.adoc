@@ -85,7 +85,7 @@ appserver/extras/payara-micro/payara-micro-distribution/target/
 [[building-docker-images]]
 == Building Payara Docker Images
 
-The generation of the Official Docker Images is also integrated in the main Payara repository. In order to be able to built these images, a Docker Client needs to be installed on the machine you execute the Maven command. 
+The source code of the Official Docker Images is also integrated in the main Payara repository. In order to be able to build these images, a Docker Client needs to be installed on the machine you execute the Maven command. 
 
 [source, shell]
 ----
