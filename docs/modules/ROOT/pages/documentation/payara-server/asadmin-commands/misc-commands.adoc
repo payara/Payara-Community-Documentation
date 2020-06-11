@@ -260,4 +260,4 @@ Restart all HTTP listeners of a particular instance named `FlyingFish`:
 
 The `--target` can be omitted as `target` is the primary parameter.
 
-NOTE: This command only restarts HTTP listeners. IIOP listeners are not affected and may require a server restart to make changes take effect.
+NOTE: This command only restarts all HTTP listeners except the `admin-listener`. IIOP listeners are not affected and may require a server restart to make changes take effect.
