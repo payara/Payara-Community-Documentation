@@ -82,22 +82,17 @@ target directory at:
 appserver/extras/payara-micro/payara-micro-distribution/target/
 ----
 
-[[building-payara-microprofile]]
-== Building Payara Microprofile
+[[building-docker-images]]
+== Building Payara Docker Images
 
-Payara Microprofile is built as part of Payara Micro. To build Payara
-Microprofile, you can run:
+The source code of the Official Docker Images is also integrated in the main Payara repository. In order to be able to build these images, a Docker Client needs to be installed on the machine you execute the Maven command. 
 
 [source, shell]
 ----
-mvn clean install -DskipTests
+mvn clean install -PBuildExtras,BuildDockerImages -pl :docker-images -amd
 ----
 
-Payara Microprofile can be found in its target directory at:
-
-----
-appserver/extras/payara-micro/payara-micro-microprofile-distributions/target
-----
+The Maven build expects that a regular build of Payara is already executed as it searches for some artifacts in the Maven repository (like SNAPSHOT builds of the server)
 
 [[additional-build-profiles]]
 == Additional Build Profiles
