@@ -171,6 +171,8 @@
 ** xref:documentation/payara-server/docker/README.adoc[Docker]
 *** xref:documentation/payara-server/docker/docker-nodes.adoc[Docker Nodes]
 *** xref:documentation/payara-server/docker/docker-instances.adoc[Docker Instances]
+** xref:documentation/payara-server/extras/README.adoc[Extras]
+*** xref:documentation/payara-server/extras/certificate-management.adoc[Integrated Certificate Management]
 * xref:documentation/payara-micro/payara-micro.adoc[Payara Micro Documentation]
 ** xref:documentation/payara-micro/rootdir.adoc[Root Configuration Directory]
 ** xref:documentation/payara-micro/starting-instance.adoc[Starting an Instance]
@@ -252,6 +254,7 @@
 *** xref:documentation/ecosystem/cloud-connectors/mqtt.adoc[MQTT]
 ** xref:documentation/ecosystem/security-connectors.adoc[Security Connectors]
 ** xref:documentation/ecosystem/docker-images.adoc[Docker Images]
+
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]

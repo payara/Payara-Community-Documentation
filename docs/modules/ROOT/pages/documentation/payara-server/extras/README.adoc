@@ -1,0 +1,5 @@
+[[payara-server-extras]]
+= Payara Server Extras
+
+Documentation about extra modules and plugins you can add to Payara Server.
+
