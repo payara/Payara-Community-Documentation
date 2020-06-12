@@ -6,19 +6,19 @@ This is the documentation for the Payara Platform Community Edition, targeted fo
 
 Payara Platform Community Edition provides a frequent release cycle to drive faster innovation. Payara Server Community and Payara Micro Community are dedicated to rapid change and innovation, giving developers a place to play with the latest features of the Payara Platform as soon as possible.
 
-=== Are You Using Payara Server for Mission Critical Production Environments?
+=== Are You Using Payara for Mission Critical Production Environments?
 
-Payara Server Enterprise is optimised for mission critical production systems in any environment: on premise, in the cloud, or hybrid. Payara Server is aggressively compatible with the ecosystem components you're already using, provides broad integration with cloud vendors, and support for Docker and Kubernetes. Development
-in collaboration with an industry-leading DevOps team and the global Payara community ensures Payara Server Enterprise is the best option for production Jakarta EE applications today and for the future.
+Payara Server Enterprise is optimised for mission critical production systems in any environment: on premise, in the cloud, or hybrid. Payara Server is aggressively compatible with the ecosystem components you’re already using, provides broad integration with cloud vendors, and support for Docker and Kubernetes. Development in collaboration with an industry-leading DevOps team and the global Payara community ensures Payara Server Enterprise is the best option for production Jakarta EE applications today and for the future.
 
-Payara Server Enterprise subscriptions include:
+Payara Micro Enterprise is the lightweight middleware platform of choice for containerized Jakarta EE (Java EE)  application deployments.  Less than 70MB, Payara Micro requires no installation, configuration, or code rewrites. 
+Payara Enterprise subscriptions include:
 
 * Choice of support: Migration & Project Support, 24x7, or 10x5 plans
 * Monthly releases, bug fixes, and patches
 * 10-year software lifecycle
 * Access to add-on Payara Accelerator consultancy services
 
-Learn more about Payara Server Enterprise: https://www.payara.fish/support/
+Learn more about Payara Enterprise: https://www.payara.fish/enterprise/
 
 == History
 
