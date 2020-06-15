@@ -3,9 +3,6 @@
 Though it is always possible for new versions to be supported, this page
 details the JVMs currently supported by the Payara Platform Community (both Payara Server Community and Payara Micro Community).
 
-While not all environments are tested, if it is on a supported JVM we will
-provide support for customers and address issues reported by the community.
-Similarly, other platforms can always be requested for support.
 
 == Supported Java Virtual Machines
 
