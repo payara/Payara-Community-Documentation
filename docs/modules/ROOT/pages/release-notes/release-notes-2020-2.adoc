@@ -11,6 +11,9 @@
 MicroProfile ConfigSource for Payara Variable Expressions
 * [https://github.com/payara/Payara/pull/4666[APPSERV-124]] - Monitoring
 Console: Server Side Configuration and Sharing
+* [https://github.com/payara/Payara/pull/4694[APPSERV-149]] - Add
+Command to Generate Self-Signed Certificate
+
 
 == Improvements
 
@@ -104,6 +107,10 @@ endpoint fails to parse Accept header from Telegraf
 for all AjaxBehaviourEvent classes, extension to CUSTCOM-179
 * [https://github.com/payara/Payara/pull/4681[CUSTCOM-284]] - Remove
 Expired Certificates
+* [https://github.com/payara/Payara/pull/4659[ECOSYS-157]] - OpenID Connect Caller's name and groups are null
+* [https://github.com/payara/Payara/pull/4684[ECOSYS-161]] - [Community - https://github.com/NikitaZ[NikitaZ]]
+OAuth2AccessToken empty instance injected
+
 
 == Component Upgrades
 
