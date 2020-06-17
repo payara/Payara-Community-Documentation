@@ -8,7 +8,7 @@ asciidoc:
   attributes:
     currentVersion: '5.2020.2'
     glassfishVersion: '5'
-payaraWebDtd: 'https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-web-app_4.dtd'
+    payaraWebDtd: 'https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-web-app_4.dtd'
     payaraResourcesDtd: 'https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-resources_1_6.dtd'
     mpConfigVersion: '1.4'
     mpConfigSpecUrl: 'https://github.com/eclipse/microprofile-config/releases/tag/1.4'
