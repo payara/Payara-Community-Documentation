@@ -209,7 +209,7 @@ image::monitoring-console/mc_settings_data.png[Widget Data Settings]
 [cols="1,1,4",options="header"]
 |====================
 | Property | Default | Description
-| Series | - | The metric key is given when adding the metric (read-only)
+| Series | - | The key(s) of the data series shown in the graph. Use `+` button to add further series to the same graph. To remove one series or multiple ones blank out the input field containing the series to remove. Note that only series of the same unit (same Y-axis) are meant to be shown in the same graph. Multiple series of different Y-axis are currently not supported.
 | Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
 | Unit 1/sec | `false` | Whether or not to show the metric as a change per second (delta between two points in the series normalised to average delta per second).
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
