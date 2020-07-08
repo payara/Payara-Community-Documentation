@@ -206,8 +206,8 @@ The interval is controlled by the _Query Interval_ property.
 Usually the interval is between 1 minute and 1 hour.
 If no interval is given the page will first update after 365 days.
 
-The _Reset_ button can be used to force a page update before the next interval starts and ends.
-Changes to the _Query Series_, _Query Interval_ or _Max Size_ do not have immediate effect and can equally applied immediately using the _Reset_ button.
+The _Update_ button can be used to force a page update before the next interval starts and ends.
+Changes to the _Query Series_, _Query Interval_ or _Max Size_ do not have immediate effect and can equally applied immediately using the _Update_ button.
 
 Depending on the _Query Series_ and its potential to match vast numbers of metrics it can be a good idea to limit the maximum number of widgets automatically placed on the page by the population from query using the _Max Size_ property.
 
