@@ -151,6 +151,24 @@ The selection can be changed at any time in the _Global_ settings for _Role_.
 image::monitoring-console/mc_setting_global_rolesync.png[Role Setting]
 
 
+[[monitoring-console-page-settings]]
+==== Page Settings
+The individual page settings are explained in more detail in the context of the operations they are involved in. This table gives an additional overview.
+
+.Page Settings
+[cols="1,1,4",options="header"]
+|====================
+| Property | Default | Description
+| Name | - | Name of the page; only editable for pages that do not originate from a preset
+| Page Rotation | yes | Whether or not to include the page in the page rotation
+| Type | _Manual_ | _Manual_ page (widgets added by the user) or _Query_ page (widgets added from query matches)
+| Add Widgets (_Manual_ only) | - |   Selection of the series to add as a widget to the current page
+| Max Size (_Query_ only) | - | Maximum number of widgets to place on the page from query matches
+| Query Series (_Query_ only) | - | The series pattern to use to query for series to place on the page
+| Query Interval (_Query_ only) | - | Number of seconds between repopulating the page with widgets from query matches, can be given using any time unit, e.g. `1min`, `30sec`, `1h`
+| Sync (non _Guest_ role only) | _Push_ to update the shared state with the local page, _Pull_ to update the local state with the shared state
+| Sync (_Admin_ role only) auto | yes | Whether or not to push changes to the local page to the shared state automatically when using the admin role
+
 
 [[monitoring-console-widgets]]
 === Widgets
@@ -161,6 +179,9 @@ While there are different types of widgets usually a widget shows a line graph o
 [[monitoring-console-widget-add]]
 ==== Adding a Widget
 Widgets can be added to any page. Open the side panel by clicking on _Settings_ top right menu.
+
+Make sure the page is of _Type_ _Manual_. Pages of type _Query_ can be changed to _Manual_ as well which keeps them as they are for further manual customisation.
+
 Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select the category of the metric to add. This populates the second dropdown with all metrics for that category. Select a metric from the second dropdown to pre-fill the widget series name field below and press the _Add_ button.
 
 image::monitoring-console/mc_settings_page.png[Page Settings]
@@ -169,6 +190,27 @@ When added, widgets are automatically placed in a column so that they are evenly
 Use the xref:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget and select the action you want to apply to the widget.
 
 NOTE: The widget series name field allows you to enter the name manually for advanced use cases or in case a metric is not available now but known to become available at some point. See xref:#monitoring-console-widget-advanced[Series with Wildcards] for more details.
+
+
+[[monitoring-console-widget-page-query]]
+==== Populate Widgets from Queries
+The second form of populating a page is to not manually add widgets to it but to define a series query.
+Matching metrics will be used to automatically populate the page with widgets.
+To use this option change the page _Type_ to _Query_ in the _Page_ settings.
+
+image::monitoring-console/mc_settings_page_query.png[Page Settings]
+
+At a minimum the _Query Series_ has to be defined. This should be a series using a pattern containing wild-cards (see xref:#monitoring-console-widget-advanced[Series with Wildcards] for more details).
+The matching series are ordered and placed on the page in intervals.
+The interval is controlled by the _Query Interval_ property.
+Usually the interval is between 1 minute and 1 hour.
+If no interval is given the page will first update after 365 days.
+
+The _Reset_ button can be used to force a page update before the next interval starts and ends.
+Changes to the _Query Series_, _Query Interval_ or _Max Size_ do not have immediate effect and can equally applied immediately using the _Reset_ button.
+
+Depending on the _Query Series_ and its potential to match vast numbers of metrics it can be a good idea to limit the maximum number of widgets automatically placed on the page by the population from query using the _Max Size_ property.
+
 
 
 [[monitoring-console-widget-config]]
@@ -637,6 +679,15 @@ As always for alert lists both lists are sorted starting with the most recent se
 image::monitoring-console/mc_page_alerts.png[Alerts Page]
 
 Past alerts can be managed by acknowledging the alerts which makes them disappear from the list.
+
+
+[[monitoring-console-preset-application-metrics]]
+==== Application Metrics Page
+This page uses a query to populate the page with widgets for series that originate from the MicroProfile Metrics of the server and applications deployed on the server.
+As this potentially are very many series the page by default is limited to at most 32 of them. The automatic placement will chose those series that show most dynamic.
+By default the widget placement is updated every minute. This means the order and selection of widgets placed on the page can change once a minute based on their most recent dynamics.
+The defaults can be customised using the _Page_ settings.
+
 
 
 [[monitoring-console-user]]
