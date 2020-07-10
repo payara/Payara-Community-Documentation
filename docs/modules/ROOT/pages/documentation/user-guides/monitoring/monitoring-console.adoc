@@ -166,9 +166,9 @@ The individual page settings are explained in more detail in the context of the 
 | Max Size (_Query_ only) | - | Maximum number of widgets to place on the page from query matches
 | Query Series (_Query_ only) | - | The series pattern to use to query for series to place on the page
 | Query Interval (_Query_ only) | - | Number of seconds between repopulating the page with widgets from query matches, can be given using any time unit, e.g. `1min`, `30sec`, `1h`
-| Sync (non _Guest_ role only) | _Push_ to update the shared state with the local page, _Pull_ to update the local state with the shared state
+| Sync (non _Guest_ role only) | - | _Push_ to update the shared state with the local page, _Pull_ to update the local state with the shared state
 | Sync (_Admin_ role only) auto | yes | Whether or not to push changes to the local page to the shared state automatically when using the admin role
-
+|====================
 
 [[monitoring-console-widgets]]
 === Widgets
