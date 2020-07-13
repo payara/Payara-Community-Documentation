@@ -7,7 +7,7 @@ Within the Security API specification, an `HttpAuthenticationMechanism` can be d
 
 A restriction of the current Security API specification is that only 1 `HttpAuthenticationMechanism` can be defined within an application. This restriction also applies to an EAR file where you can have multiple Web application bundled.
 
-There is already an issue to address this restriction at the Security API project, but as an intermediate solution, We have introduced a new `web.xml` parameter within Payara so that you can define an `HttpAuthenticationMechanism` for each Web applications in an EAR artifact.
+There is already an issue to address this restriction at the Security API project, but as an intermediate solution, we have introduced a new `web.xml` parameter within Payara so that you can define an `HttpAuthenticationMechanism` for each Web applications in an EAR artifact.
 
 [[configure]]
 == Configure
