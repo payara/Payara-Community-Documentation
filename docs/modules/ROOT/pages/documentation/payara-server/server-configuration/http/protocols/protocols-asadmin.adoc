@@ -1,6 +1,5 @@
 = Protocols: Asadmin Commands
-:toc:
-:toclevels: 1
+:page-toclevels: 1
 
 The following asadmin commands are available for administering HTTP protocols instead of using the admin console.
 The parameters are all explained in the configuration options above.
