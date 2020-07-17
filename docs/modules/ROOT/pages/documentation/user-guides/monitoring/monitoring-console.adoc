@@ -182,9 +182,35 @@ Widgets can be added to any page. Open the side panel by clicking on _Settings_ 
 
 Make sure the page is of _Type_ _Manual_. Pages of type _Query_ can be changed to _Manual_ as well which keeps them as they are for further manual customisation.
 
-Use the dropdown in the _Add Widgets_ property of the _Page_ settings to select the category of the metric to add. This populates the second dropdown with all metrics for that category. Select a metric from the second dropdown to pre-fill the widget series name field below and press the _Add_ button.
+Use the _Select metric(s)_ button of the _Add Widgets_ property of the _Page_ settings to open the metric selection dialog.
 
 image::monitoring-console/mc_settings_page.png[Page Settings]
+
+In the selection dialog use the filters to find the metric you are looking for.
+
+image::monitoring-console/mc_dia_add-metrics.png[Metric Selection Dialog]
+
+When the metric is found in the list of matches check it to add it to the selection.
+After selecting one or more metrics to show in the widget confirm the selection by pressing _Ok_ button of the dialog.
+
+.Selection Filters
+[cols="1,5",options="header"]
+|====================
+| Filter | Description
+| Source | Filter by the the technology or area that provided the metric within the server
+| Namespace | Filter by the namespace of a metric; this is the tag called `ns` at the start of a full series key `ns:x MetricName`
+| Group | Filter by the group tag of a metric; this is the tag called `@` often found in the middle of a full series key `ns:x @:y MetricName`
+| Metric | Filter by the metric name; this is last and only mandatory part of a full series key `MetricName`
+| Series | Free text search by substring occuring in the full series key
+| MicroProfile Application | Filter by the registry name containing a MircoProfile metric (which is equivalent with the application name)
+| MicroProfile Type | Filter by the metric type as provided with MicroProfile metadata
+| MicroProfile Property | Filter by the property of a MircoProfile metric; These are the different values available for the same metric object as individual series, for example the current, min and max counts of a counter. Note that not all actual properties of metric objects are available as metric series in the Monitoring Console.
+| MicroProfile Name | Free text search for the name provided with MicroProfile metadata
+| MicroProfile Description | Free text search for the description provided with MicroProfile metadata
+|====================
+
+Filters that cannot be used in combination with chosen options of other filters are not shown and have no effect.
+They reappear as soon as they can be used.
 
 When added, widgets are automatically placed in a column so that they are evenly distributed on the page.
 Use the xref:#monitoring-console-widget-config[side panel widget settings] to change column, span or item position of the widget or use the quick menu for the widget by clicking the cog symbol in the top right corner of the widget and select the action you want to apply to the widget.
@@ -251,7 +277,7 @@ image::monitoring-console/mc_settings_data.png[Widget Data Settings]
 [cols="1,1,4",options="header"]
 |====================
 | Property | Default | Description
-| Series | - | The key(s) of the data series shown in the graph. Use `+` button to add further series to the same graph. To remove one series or multiple ones blank out the input field containing the series to remove. Note that only series of the same unit (same Y-axis) are meant to be shown in the same graph. Multiple series of different Y-axis are currently not supported.
+| Series | - | The key(s) of the data series shown in the graph. Use _Change metric(s)_ button to change metrics linked to the widget. Note that only series of the same unit (same Y-axis) are meant to be shown in the same graph. Multiple series of different Y-axis are currently not supported.
 | Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
 | Unit 1/sec | `false` | Whether or not to show the metric as a change per second (delta between two points in the series normalised to average delta per second).
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
@@ -696,11 +722,11 @@ Payara monitoring console is build with the intention to allow user defined metr
 So far these include the MicroProfile Metrics that might originate from a deployed application and other extensions of the server.
 These are included in the available metrics automatically.
 
-Open the _Settings_ and look for _MP Metrics_ in the topmost dropdown for the _Add Widgets_ property in the _Page_ settings.
+Open the _Settings_ click _Select metric(s)_ button for _Add Widgets_ property in the _Page_ settings
+and select the _MicroProfile Metrics_ as _Source_ in the selection dialog.
 
-image::monitoring-console/mc_settings_page_MP.png[Page Settings MP Metrics]
+image::monitoring-console/mc_dia_microprofile.png[Page Selection for MP Metrics]
 
-The metrics found in the second dropdown originate from existing MicroProfile Metrics defined in the server.
 Eventual MP tags used become the `@` group of the shown series key, the MP metric stays the metric name.
 
 
