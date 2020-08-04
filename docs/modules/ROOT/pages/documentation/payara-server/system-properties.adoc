@@ -16,11 +16,13 @@ libraries from applications, and
 _latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
 directory | true, false | true
 
-| fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. Currently, new requests are still accepted during this grace period.| 0 - Integer.MAX | 0
+| fish.payara.admin.command.jline.log.disable | Boolean | When set to true, JLine logging entries for invalid key bindings and other unwanted errors will be prevented - This is a property for the asadmin tool | true, false | false
+
+| fish.payara.deployment.transform.namespace | Boolean | When set to true, Namespace transformation (`jakarta.\*` to `javax.*`) is always performed. If value is undefined then auto transformation is performed on the detection of `jakarta.*` classes in the deployment archive otherwise transformation task is disabled. | true, false, null | null (undefined)
 
 | fish.payara.permittedFormBasedAuthHttpMethods | String | A comma separated list of HTTP methods that are permitted to use for FORM based authentication (`j_security_check`). If not set all HTTP methods are permitted. | GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH | null (undefined)
 
-| fish.payara.admin.command.jline.log.disable | Boolean | When set to true, JLine logging entries for invalid key bindings and other unwanted errors will be prevented - This is a property for the asadmin tool | true, false | false
+| fish.payara.shutdowngrace | Integer | After server shutdown is initiated the server waits this period of time to finish ongoing requests before terminating. Currently, new requests are still accepted during this grace period.| 0 - Integer.MAX | 0
 
 | fish.payara.SO_KEEPALIVE | String | Enables keep alive (`SO_KEEPALIVE`) on the sockets created by an IIOP listener. Can be set as a global system property, or as a property on a specific listener (with the latter taking precedence over the global setting if both are set). Replaces deprecated property `fish.payara.SOKeepAlive`. | true, false | false (undefined)
 
