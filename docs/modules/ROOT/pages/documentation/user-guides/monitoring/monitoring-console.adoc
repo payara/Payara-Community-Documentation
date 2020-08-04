@@ -206,6 +206,7 @@ After selecting one or more metrics to show in the widget confirm the selection 
 | MicroProfile Type | Filter by the metric type as provided with MicroProfile metadata
 | MicroProfile Property | Filter by the property of a MircoProfile metric; These are the different values available for the same metric object as individual series, for example the current, min and max counts of a counter. Note that not all actual properties of metric objects are available as metric series in the Monitoring Console.
 | MicroProfile Name | Free text search for the name provided with MicroProfile metadata
+| MicroProfile Display Name | Free text search for the display name provided with MicroProfile metadata (which defaults to the MicroProfile name if non was provided)
 | MicroProfile Description | Free text search for the description provided with MicroProfile metadata
 |====================
 
