@@ -262,7 +262,8 @@ image::monitoring-console/mc_settings_widget.png[Widget Settings]
 `Time Curve`: a line chart of current values (usually last 60 seconds),
 `Range Indicator`: show distributions of values (of last 60 seconds),
 `Alerts`: shows a table of alerts,
-`Annotations`: shows a table or list of annotations; these are key-value attributes associated with a metric series.
+`Annotations`: shows a table or list of annotations; these are key-value attributes associated with a metric series,
+`RAG Status`: Shows a red, amber, green tableau for the status of the series per instance. This should only be used with series of _Data_ _Unit_ of type `Up/Down`
 | Mode | _(Default)_ | If available for the type of widget the display mode can be switched between _Table_ and _List_.
 Table view is best fitted for annotations that share common attributes, lists are better fitted for annotations with potentially differing attributes.
 | Column | 1  | The column in the layout the widget *prefers* to be in.
@@ -279,7 +280,7 @@ image::monitoring-console/mc_settings_data.png[Widget Data Settings]
 |====================
 | Property | Default | Description
 | Series | - | The key(s) of the data series shown in the graph. Use _Change metric(s)_ button to change metrics linked to the widget. Note that only series of the same unit (same Y-axis) are meant to be shown in the same graph. Multiple series of different Y-axis are currently not supported.
-| Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`.
+| Unit | `Count` | The unit controls how the raw number of a metric is interpreted and represented e.g. when displaying in axis labels. The unit also controls what values are accepted as input for numbers, like thresholds, that are on the same axis. Possible units are: `Count`, `Milliseconds`, `Nanoseconds`, `Bytes`, `Percentage`, `Up/Down` (0 is DOWN, anything above is UP).
 | Unit 1/sec | `false` | Whether or not to show the metric as a change per second (delta between two points in the series normalised to average delta per second).
 | Upscaling | (undefined) | When defined all values are multiplied by this factor. This can e.g. be used to move a decimal range between zero and one to a percentage range 0-100.
 | Upscaling _decimal value_ | `false` | Check to mark the metric as one that is provided as a decimal value during collection (floats or doubles and alike). This will then revert the conversion applied during collection which converts decimal values to an integer number with 4 available decimal digits by multiplying them by 10,000. So this divides values by 10,000 again to move them back into their original value range.
@@ -714,6 +715,22 @@ This page uses a query to populate the page with widgets for series that origina
 As this potentially are very many series the page by default is limited to at most 32 of them. The automatic placement will chose those series that show most dynamic.
 By default the widget placement is updated every minute. This means the order and selection of widgets placed on the page can change once a minute based on their most recent dynamics.
 The defaults can be customised using the _Page_ settings.
+
+
+
+==== RAG Status Page
+Like the application metrics page this page uses a query to populate the page with widgets automatically.
+The metric series originate from the _MicroProfile Health_ checks of the server and any of the deployed applications.
+
+The purpose of this page is to give a quick strong visual indication of the health status of the cluster based on _MicroProfile Health_ checks.
+
+Each _MicroProfile Health_ check is represented as a widget which shows the current status of the check in red (down for a while), amber (just went down) or green (up) for each of the instances where the check is performed.
+
+image::monitoring-console/mc_page_rag.png[RAG Status Page]
+
+In the example these are the checks _Service1_ and _Service2_ of the _health-domo-1.0-SNAPSHOT_ application.
+
+In addition to the _MicroProfile Health_ checks there are aggregate metric series for each type (_Health_, _Liveness_, _Readiness_) per application and for the cluster as well as an aggregate _Overall_ combining the three types health, liveness, readiness into a single metric series per application and for the cluster.
 
 
 
