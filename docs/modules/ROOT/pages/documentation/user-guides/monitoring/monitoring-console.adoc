@@ -10,11 +10,6 @@ NOTE: Please be aware that following details reflect the current state of a evol
 
 [[monitoring-console-installation]]
 == Enabling the GUI
-By default the monitoring console GUI is automatically enabled for the `production` domain.
-Links can be found on the _Common Tasks_ home page in section _Monitoring_ or on the _Monitoring Data_ page.
-
-For `domain1` the GUI is not enabled by default and the `set-monitoring-console-configuration` is used to enable it on demand.
-
 To enable the monitoring console GUI run the following asadmin command:
 
         asadmin> set-monitoring-console-configuration --enabled=true
