@@ -15,11 +15,9 @@ The Payara Platform currently runs the following Java Virtual Machines:
 * Adopt Open JDK with Eclipse Open J9: 8, 11 (11.0.5+)
 * Any other JVM based on OpenJDK 8u162+ or 11.0.5+
 
+The Payara Platform runs on the `x64` and `arm64` variants of the above JVMs.
+
 TLS 1.3 is supported on JDK 8 with Azul Zulu 1.8.222+, Open JDK 8u262+ based builds, and all version 11 of all above JDKs.
-
-== Supported Architectures
-
-The Payara Platform currently runs on the `x64` and `arm64` CPU architectures. 
 
 == Supported Operating Systems
 
