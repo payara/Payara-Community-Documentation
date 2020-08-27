@@ -30,3 +30,11 @@ asadmin> stop-database
 ----
 
 The above command will stop H2. 
+
+To connect to the H2 DB Timer database and execute SQL scripts, you should:
+- Stop Payara Server if running
+- Navigate to /path/to/payara/payara5/h2db/bin, to find the h2db binaries
+- Execute java -jar h2.jar (this will start the H2 Admin UI server and open browser with the Admin UI URL)
+- Set JDBC URL to jdbc:h2:/path/to/payara/payara5/glassfish/domains/domain1/lib/databases/ejbtimer
+- Leave the other options as they are and log in, then execute your SQL
+- Then stop the h2.jar process
