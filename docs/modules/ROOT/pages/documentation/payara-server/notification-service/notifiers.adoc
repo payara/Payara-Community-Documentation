@@ -11,5 +11,7 @@ other applications or services
 *CDI Event Bus*:: For sending notification events using xref:/documentation/payara-server/public-api/cdi-events.adoc[Payara's CDI Event Bus]
  and observing them in instances in the cluster.
 
+TIP: Payara Platform Enterprise provides additional link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers.html[Notifiers] (New Relic, DataDog, Email and more). These are very helpful for Operations to send notifications to 3rd party tools to monitor how the Payara Platform runtimes are doing.
+
 Appropriate instructions on how to configure and use all of these
 notification mechanisms are included in this section.
