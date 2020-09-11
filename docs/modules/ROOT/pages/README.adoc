@@ -6,6 +6,45 @@ This is the documentation for the Payara Platform Community Edition, targeted fo
 
 Payara Platform Community Edition provides a frequent release cycle to drive faster innovation. Payara Server Community and Payara Micro Community are dedicated to rapid change and innovation, giving developers a place to play with the latest features of the Payara Platform as soon as possible.
 
+== Payara Platform Editions
+
+The Payara Platform is available in 2 editions:
+
+* Payara Platform Community Edition - designed for development projects, or when innovation is higher priority than security and stability
+* Payara Platform Enterprise Edition - designed for mission critical projects in production environments
+
+=== Features only available in Payara Platform Enterprise
+
+The following features are supported by Payara Platform Enterprise but are not included in Payara Platform Community:
+
+[cols="<,<a,<,<",options="header",]
+|=======================================================
+|Feature |Enterprise Documentation References |Advantage |Business Benefit
+| Integrated Certificate Management 
+| link:{enterpriseDocsPageRootUrl}/documentation/payara-server/server-configuration/certificate-management.html[SSL/TLS Certificate Management] 
+| Create, install and manage SSL/TLS certificates without external tools, using asadmin commands or Admin Console 
+| Simplifies and makes it much less risky to perform tasks like renewing certificates, deleting expired certificates, etc.
+
+| Additional built-in notifiers 
+|
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/newrelic-notifier.html[New Relic Notifier]
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/datadog-notifier.html[Datadog Notifier]
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/email-notifier.html[Email Notifier]
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/slack-notifier.html[Slack Notifier]
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/snmp-notifier.html[SNMP Notifier]
+* link:{enterpriseDocsPageRootUrl}/documentation/payara-server/notification-service/notifiers/xmpp-notifier.html[XMPP Notifier]
+| Important for Operations to monitor how Payara Platform runtimes are doing
+| Automated Operations are possible using 3rd party tools
+
+| Yubikey Authentication Mechanism
+| link:{enterpriseDocsPageRootUrl}/documentation/payara-server/public-api/yubikey.html[Yubikey Support]
+| Allows authentication through a hardware device
+| Removes some need of using credentials and requires authenticating using a physical token in a very secure way
+|=======================================================
+
+
+
+
 === Are You Using Payara for Mission Critical Production Environments?
 
 Payara Server Enterprise is optimised for mission critical production systems in any environment: on premise, in the cloud, or hybrid. Payara Server is aggressively compatible with the ecosystem components you’re already using, provides broad integration with cloud vendors, and support for Docker and Kubernetes. Development in collaboration with an industry-leading DevOps team and the global Payara community ensures Payara Server Enterprise is the best option for production Jakarta EE applications today and for the future.
@@ -19,6 +58,7 @@ Payara Enterprise subscriptions include:
 * Access to add-on Payara Accelerator consultancy services
 
 Learn more about Payara Enterprise: https://www.payara.fish/enterprise/
+
 
 == History
 
