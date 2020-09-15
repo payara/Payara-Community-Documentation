@@ -204,6 +204,13 @@ They are detailed below.
 | An array of extra options to be sent to the OpenID Connect provider.
 |
 | Must be in the form `"key=value"`.
+
+| `logout`
+|
+| @LogoutDefinition
+| Defines the functionality that is performed when the user logs out and defines the RP Session Management configuration.
+|
+| 
 |===
 
 *Note :* If both an annotation attribute and a MicroProfile Config property are defined for the same option 
@@ -226,6 +233,55 @@ This means that you can use any CDI bean properties to set the OpenID Connect co
 public class SecurityBean {
 }
 ----
+
+[[logout]]
+=== Logout functionality
+_Since 5.2020.3_
+
+Wit the `logout` parameter of the `OpenIdAuthenticationDefinition` you can define the behavior when the user logs out of the application and defines how the RP session is managed.
+
+.Configuration Options
+|===
+| Option | MP Config property | Required | Description | Default value 
+
+| `notifyProvider`
+| payara.security.openid.provider.notify.logout
+| false
+| Notify the OIDC provider (OP) that the user has logged out of
+    the application and might want to log out of the OP as well. If true then
+    after having logged out the user from RP, redirects the End-User's User
+    Agent to the OP's logout endpoint URL. This URL is normally obtained via
+    the end_session_endpoint element of the OP's metadata or can be
+    customized via `fish.payara.security.annotations.OpenIdProviderMetadata#endSessionEndpoint`
+| false
+
+| `redirectURI`
+| payara.security.openid.logout.redirectURI
+| false
+| The post logout redirect URI to which the RP is requesting that
+   the End-User's User Agent be redirected after a logout has been
+   performed. If redirect URI is empty then redirect to OpenID connect
+  provider _authorization_endpoint_ for re-authentication.
+| 
+
+| `accessTokenExpiry`
+| payara.security.openid.logout.access.token.expiry
+| false
+| Does the application session times out when the Access Token expires.
+| false 
+
+| `identityTokenExpiry`
+| payara.security.openid.logout.identity.token.expiry
+| false
+| Does the application session times out when the Identity Token expires.
+| false
+
+
+|===
+
+A programmatic logout is performed by calling `OpenIdContext#logout()` which invalidates the RP's active OpenId Connect session and if `fish.payara.security.annotations.LogoutDefinition#notifyProvider` set to true then redirects the End-User's User Agent to the end_session_endpoint to notify the OP that the user has logged out of the RP's application and ask the user whether they want to logout from the OP as well. After successful logout, the End-User's User Agent redirect back to the RP's _post_redirect_uri_ configured via `fish.payara.security.annotations.LogoutDefinition#redirectURI`.
+
+
 
 [[secret-alias]]
 === Client Secret Aliasing
