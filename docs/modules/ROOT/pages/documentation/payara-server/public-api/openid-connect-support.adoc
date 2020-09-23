@@ -238,7 +238,7 @@ public class SecurityBean {
 === Logout functionality
 _Since 5.2020.3_
 
-Wit the `logout` parameter of the `OpenIdAuthenticationDefinition` you can define the behavior when the user logs out of the application and defines how the RP session is managed.
+With the `logout` parameter of the `OpenIdAuthenticationDefinition` you can define the behavior when the user logs out of the application and defines how the RP session is managed.
 
 .Configuration Options
 |===
@@ -251,7 +251,7 @@ Wit the `logout` parameter of the `OpenIdAuthenticationDefinition` you can defin
     the application and might want to log out of the OP as well. If true then
     after having logged out the user from RP, redirects the End-User's User
     Agent to the OP's logout endpoint URL. This URL is normally obtained via
-    the end_session_endpoint element of the OP's metadata or can be
+    the `end_session_endpoint` element of the OP's metadata or can be
     customized via `fish.payara.security.annotations.OpenIdProviderMetadata#endSessionEndpoint`
 | false
 
@@ -273,13 +273,13 @@ Wit the `logout` parameter of the `OpenIdAuthenticationDefinition` you can defin
 | `identityTokenExpiry`
 | payara.security.openid.logout.identity.token.expiry
 | false
-| Does the application session times out when the Identity Token expires.
+| Whether the application session times out when the Identity Token expires.
 | false
 
 
 |===
 
-A programmatic logout is performed by calling `OpenIdContext#logout()` which invalidates the RP's active OpenId Connect session and if `fish.payara.security.annotations.LogoutDefinition#notifyProvider` set to true then redirects the End-User's User Agent to the end_session_endpoint to notify the OP that the user has logged out of the RP's application and ask the user whether they want to logout from the OP as well. After successful logout, the End-User's User Agent redirect back to the RP's _post_redirect_uri_ configured via `fish.payara.security.annotations.LogoutDefinition#redirectURI`.
+A programmatic logout is performed by calling `OpenIdContext#logout()` which invalidates the RP's active OpenId Connect session. If `fish.payara.security.annotations.LogoutDefinition#notifyProvider` is set to true then it redirects the End-User's User Agent to the `end_session_endpoint` to notify the OP that the user has logged out of the RP's application. It will also ask the user whether they want to logout from the OP as well. After successful logout, the End-User's User Agent redirects back to the RP's `_post_redirect_uri_` configured via `fish.payara.security.annotations.LogoutDefinition#redirectURI`.
 
 
 
