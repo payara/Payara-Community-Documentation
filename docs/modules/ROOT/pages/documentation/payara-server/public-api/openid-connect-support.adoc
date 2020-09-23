@@ -267,7 +267,7 @@ With the `logout` parameter of the `OpenIdAuthenticationDefinition` you can defi
 | `accessTokenExpiry`
 | payara.security.openid.logout.access.token.expiry
 | false
-| Does the application session times out when the Access Token expires.
+| Whether the application session times out when the Access Token expires.
 | false 
 
 | `identityTokenExpiry`
