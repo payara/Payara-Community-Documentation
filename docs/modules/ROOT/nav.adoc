@@ -254,6 +254,7 @@
 *** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
 *** xref:documentation/extensions/notifiers/email-notifier.adoc[Email Notifier]
 *** xref:documentation/extensions/notifiers/newrelic-notifier.adoc[New Relic Notifier]
+*** xref:documentation/extensions/notifiers/slack-notifier.adoc[Slack Notifier]
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
