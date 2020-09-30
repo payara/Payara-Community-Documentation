@@ -249,6 +249,9 @@
 ** xref:documentation/ecosystem/security-connectors.adoc[Security Connectors]
 ** xref:documentation/ecosystem/docker-images.adoc[Docker Images]
 
+* xref:documentation/extensions/README.adoc[Extensions]
+** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
+
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
 ** xref:documentation/user-guides/backup-domain.adoc[Payara Server Domain Backup]
