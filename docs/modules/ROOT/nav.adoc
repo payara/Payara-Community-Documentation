@@ -253,6 +253,7 @@
 ** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
 *** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
 *** xref:documentation/extensions/notifiers/email-notifier.adoc[Email Notifier]
+*** xref:documentation/extensions/notifiers/newrelic-notifier.adoc[New Relic Notifier]
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
