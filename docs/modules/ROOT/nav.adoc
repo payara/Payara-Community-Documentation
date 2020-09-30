@@ -251,6 +251,7 @@
 
 * xref:documentation/extensions/README.adoc[Extensions]
 ** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
+*** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
 *** xref:documentation/extensions/notifiers/email-notifier.adoc[Email Notifier]
 
 .User Guides
