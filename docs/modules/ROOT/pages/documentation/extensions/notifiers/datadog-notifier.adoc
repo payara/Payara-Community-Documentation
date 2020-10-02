@@ -9,7 +9,7 @@ on premises or on the cloud. Datadog also eases browsing through of all this
 information by implementing combination graphs (multiple graphs that can be configured
 on a single view) of related metrics.
 
-Datadog support gathering metrics from the following sources:
+Datadog supports gathering metrics from the following sources:
 
 * Cloud Providers (Amazon Web Services, Microsoft Azure, Google Cloud Platform)
 * Message Queues (Apache Kafka, ActiveMQ, RabbitMQ)
@@ -32,7 +32,7 @@ to a Datadog account by means of an API key.
 [[datadog-integration-configuration]]
 == Datadog Account Integration
 
-When you create a Data Dog account, the service will provide you a default API key
+When you create a Datadog account, the service will provide you a default API key
 that you can use to integrate Payara Server with your account.
 
 NOTE: You can signup for a free trial account (14 days) if you want to test this

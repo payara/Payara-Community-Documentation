@@ -2,7 +2,7 @@
 
 The notifier extensions allow notifications from the Notification Service to propagate to various channels on top of the notifiers provided by default.
 
-You can find the code for each notifier here: https://github.com/payara/Notifiers. That codebase includes an example notifier that can be used as a base for any additional notifiers you might want.
+You can find the code for each notifier here: https://github.com/payara/Notifiers. The codebase includes a notifier example in case a notifier you want is not available and you'd like to implement it yourself.
 
 == Notifier Summary
 
@@ -22,7 +22,7 @@ To install a notifier extension: download the artifacts listed on the notifier d
 
 You can then restart the server to see your extension activated.
 
-TIP: Make sure that if the notifier has dependency JARs in order to run, that those dependencies are also in the installation directory.
+TIP: Make sure that, if the notifier has dependencies in order to run, the dependency artifacts are also in the installation directory. For any extension documented here, the required JAR downloads are listed towards the top of the relevant documentation page.
 
 == Creating a new Notifier
 

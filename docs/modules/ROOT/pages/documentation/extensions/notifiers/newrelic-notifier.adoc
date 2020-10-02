@@ -150,8 +150,8 @@ and add the configuration of the Java agent as a JVM start argument:
 ----
 +
 NOTE: The agent setup page has a different set of instructions for Windows and Linux
-environments, but they are so similar on the result so the specific instructions
-mentioned here are more than enough.
+environments, but they are so similar that the instructions mentioned here should
+be sufficient.
 +
 
 TIP: If you are considering installing the New Relic Java agent on a Payara Server
@@ -160,8 +160,8 @@ add the JVM (the installer won't work) option with the `javaagent` configuration
 to the instance/cluster referenced configuration. Also, make sure that the directory
 where the _newrelic.jar_ resides also contains the _newrelic.yml_ configuration file
 
-. Now, that the agent has been installed proceed to start the Payara Server domain.
-You will observe the following similar messages at the start of the domain's log
+. Now that the agent has been installed, start the Payara Server domain.
+You will observe the following messages at the start of the domain's log
 +
 [source, log]
 ----
@@ -176,7 +176,7 @@ server:
 +
 image:notification-service/newrelic/apm-dashboard.png[New Relic APM Dashboard]
 +
-You can access the latest monitoring statistics if you wish so:
+You can also access the latest monitoring statistics:
 +
 image:notification-service/newrelic/apm-application-details.png[New Relic Application Details]
 
