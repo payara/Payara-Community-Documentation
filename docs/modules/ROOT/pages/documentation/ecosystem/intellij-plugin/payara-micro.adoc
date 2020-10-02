@@ -31,7 +31,7 @@ image::intellij-plugin/payara-micro/generated-micro-project.png[Generated Micro 
 image::intellij-plugin/payara-micro/project-structure.png[Project source tree]
 
 Payara Micro application can be managed via IntelliJ Run/Debug configuration or Actions, 
-where Run configuration can be customized as per developer choice and Actions are quick & easy to use:
+where Run configuration can be customized by the developer and Actions are quick & easy to use:
 
 [[run-micro-project-via-config]]
 == Run the Payara Micro Application via configuration:
