@@ -46,7 +46,7 @@ image::intellij-plugin/payara-micro/create-run-config.png[Create Config]
 
 image::intellij-plugin/payara-micro/create-maven-run-config.png[Create Micro Maven Config]
 
-* Now add the Before launch tasks and assign a new artifact, click + on the left-hand pane, 
+* Now add the Before launch tasks and assign a new artifact, click *+* on the left-hand pane, 
 choose the *Build Artifacts* type from the drop-down list:
 
 image::intellij-plugin/payara-micro/build-artifact.png[Build artifact]
