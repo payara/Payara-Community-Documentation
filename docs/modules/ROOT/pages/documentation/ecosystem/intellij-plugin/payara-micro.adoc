@@ -93,7 +93,7 @@ The Payara IntelliJ tools also provide inbuilt actions to manage the Payara Micr
 application without creating the project configuration, which internally executes 
 Payara Micro Maven/Gradle plugin goals/tasks:
 
-* To invoke the actions, Goto *Help* menu ? *Find Action..*:
+* To invoke the actions, Goto *Help > Find Action..*:
 
 image::intellij-plugin/payara-micro/find-actions.png[Find Actions]
 
