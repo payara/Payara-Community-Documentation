@@ -25,10 +25,9 @@ image::intellij-plugin/install-marketplace.png[alt=Visual Studio Marketplace, wi
 
 * xref:documentation/ecosystem/intellij-plugin/payara-server.adoc[Payara Server] - 
 Payara IntelliJ plugin enables developers to easily configure Payara Server and 
-manage applications from the IntelliJ IDEA.
+manage applications from IntelliJ IDEA.
 
 * xref:documentation/ecosystem/intellij-plugin/payara-micro.adoc[Payara Micro] - 
 Payara IntelliJ plugin provides the support to create, run and debug Payara Micro 
 applications from the IntelliJ IDEA which is the microservices-ready version of the Payara Server.
-
 
