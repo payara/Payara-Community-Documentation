@@ -29,4 +29,4 @@ manage applications from IntelliJ IDEA.
 
 * xref:documentation/ecosystem/intellij-plugin/payara-micro.adoc[Payara Micro] - 
 Payara IntelliJ plugin provides the support to create, run and debug Payara Micro 
-applications from the IntelliJ IDEA which is the microservices-ready version of the Payara Server.
+applications from IntelliJ IDEA. Payara Micro is the microservices-ready version of the Payara Server.
