@@ -76,7 +76,7 @@ locations to automatically start the micro instance and attach the debugger to t
 
 image::intellij-plugin/payara-micro/debug-config.png[Debug Configuration]
 
-* After debugging the Payara Micro application, you may see the log in the *Debug ? Console* window:
+* After debugging the Payara Micro application, you may see the log in the *Debug > Console* window:
 
 image::intellij-plugin/payara-micro/debug-log.png[Payara Micro debug log]
 
