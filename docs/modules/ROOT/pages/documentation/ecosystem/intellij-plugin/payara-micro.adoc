@@ -36,7 +36,7 @@ where Run configuration can be customized as per developer choice and Actions ar
 [[run-micro-project-via-config]]
 == Run the Payara Micro Application via configuration:
 
-The IntelliJ IDEA needs a run configuration to build the artifacts and run the Payara Micro application.
+IntelliJ IDEA needs a run configuration to build the artifacts and run the Payara Micro application.
 
 * From the main menu, select *Run | Edit Configurations*:
 
