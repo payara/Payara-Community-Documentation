@@ -3,7 +3,7 @@
 [[create-micro-maven-project]]
 == Creating new Payara Micro Maven Application
 
-* Simply start up the IntelliJ IDEA and then Choose *File ? New ? Project* from the main menu and 
+* Simply start up IntelliJ IDEA and then Choose *File > New > Project* from the main menu and 
 select the *Payara Micro* project type: 
 
 image::intellij-plugin/payara-micro/create-new-project.png[Generate Payara Micro Application]
