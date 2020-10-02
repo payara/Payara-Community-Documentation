@@ -1,6 +1,6 @@
 = Payara IntelliJ IDEA Plugin
 
-Payara Platform provides the Payara IntelliJ IDEA tools to integrate Payara Server and Payara Micro into IntelliJ.
+Payara IntelliJ IDEA tools provide integration of the Payara Platform into IntelliJ IDEA.
 The extension is available in the https://plugins.jetbrains.com/plugin/15114-payara-tools[JetBrains Plugins Marketplace].
 
 * <<installing-plugin,Installing Payara IntelliJ plugin>>
