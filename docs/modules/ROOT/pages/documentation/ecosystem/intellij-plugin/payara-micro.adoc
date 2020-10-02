@@ -82,7 +82,7 @@ image::intellij-plugin/payara-micro/debug-log.png[Payara Micro debug log]
 
 * After the debugger session starts and the application hits the breakpoint, 
 the line where the servlet paused gets highlighted and the Debug tool window 
-appears with the list of running threads and stack-trace:
+appears with the list of running threads and the stack-trace:
 
 image::intellij-plugin/payara-micro/debug-breakpoint.png[Payara Micro debug breakpoint hit]
 
