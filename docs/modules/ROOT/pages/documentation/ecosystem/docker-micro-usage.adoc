@@ -12,9 +12,28 @@ It runs Payara Micro without any applications, therefore accessing the HTTP serv
 
 You need to add your applications to the container and deploy them.
 
+It is always recommended to specify the tag name of the Docker Image that you like to run. Otherwise, you are running the latest version and might encounter some unwanted effects due to changes between versions.
+
+....
+docker run -p 8080:8080 payara/micro:{currentVersion}
+....
+
+
+=== JDK Version
+
+_Since Payara 5.2020.3_
+
+The Docker Images are available in 2 different flavours. The one is running on JDK 8 and the other has JDK 11 on board.
+
+The command used in the Quick start above, will start the Zulu JDK 8 version. If you need the Zulu JDK 11 version, you need to add the `-jdk11` suffix to the image name.
+
+....
+docker run -p 8080:8080 payara/micro-jdk11:{currentVersion}
+....
+
 === Open ports
 
-Most common default open ports that can be exposed outside of the container:
+Most common default open ports that can be exposed outside of the container are:
 
 * 8080 - HTTP listener
 * 8443 - HTTPS listener
@@ -28,7 +47,7 @@ There are number of ways how you can run your applications with Payara Micro wit
 
 * load applications from a mounted file-system (from a disk on the host system or on network)
 * derive a new docker image that also contains your applications on the file-system
-* load applications from a maven repository accessible from the dockar container
+* load applications from a maven repository accessible from the docker container
 
 ==== *Run from a mounted volume*
 
@@ -40,7 +59,7 @@ The following command will run Payara Micro docker container and will deploy app
 
 ....
 docker run -p 8080:8080 \
- -v ~/payara-micro/applications:/opt/payara/deployments payara/micro
+ -v ~/payara-micro/applications:/opt/payara/deployments payara/micro:{currentVersion}
 ....
 
 To run a specific application within the directory, you can modify the default entry point and use `--deploy` option followed by path to the application file:
@@ -48,7 +67,7 @@ To run a specific application within the directory, you can modify the default e
 ....
 docker run -p 8080:8080 \
  -v ~/payara-micro/applications:/opt/payara/deployments \
- payara/micro \
+ payara/micro:{currentVersion} \
  --deploy /opt/payara/deployments/myapplication.war
 ....
 
@@ -56,10 +75,10 @@ docker run -p 8080:8080 \
 
 You can extend the docker image to add your deployables into the `/opt/payara/deployments` directory and run the resulting docker image instead of the original one.
 
-The following example Dockerfile will build an image that deploys `myapplication.war` when Payara Micro is started:
+The following example Dockerfile will build an image that deploys `myapplication.war` when Payara Micro starts:
 
 ....
-FROM payara/micro
+FROM payara/micro:{currentVersion}
 
 COPY myapplication.war $DEPLOY_DIR
 ....
@@ -71,7 +90,7 @@ If your application is already in a maven repository, you can run it with Payara
 The following command runs Payara Micro in the docker image and runs an application stored in a maven repository. The application group is `fish.payara.examples`, artifact name is `my-application`, and version is `1.0-SNAPSHOT`. The maven repository is available on host `172.17.0.10`:
 
 ....
-docker docker run -p 8080:8080 payara/micro \
+docker docker run -p 8080:8080 payara/micro:{currentVersion} \
  --deployFromGAV "fish.payara.examples:my-application:1.0-SNAPSHOT" \
  --additionalRepository https://172.17.0.10/content/repositories/snapshots
 ....
@@ -87,7 +106,7 @@ Some examples of how it can be used :
 
 ....
 docker run -p 8080:8080 \
- -v ~/payara-micro/applications:/opt/payara/deployments payara/micro  \
+ -v ~/payara-micro/applications:/opt/payara/deployments payara/micro:{currentVersion}  \
  --deploymentDir /opt/payara/deployments  \
  --contextroot myRoot
 ....
@@ -97,7 +116,7 @@ Deploys the (first) application within the mounted directory _~/payara-micro/app
 ....
 docker run -p 8080:8080 \
  -v ~/payara-micro/applications:/opt/payara/deployments \
- payara/micro \
+ payara/micro:{currentVersion} \
  --deploy /opt/payara/deployments/myapplication.war \
  --contextroot ROOT
 ....
@@ -105,7 +124,7 @@ docker run -p 8080:8080 \
 Deploys the _myapplication.war_ to the root.
 
 ....
-FROM payara/micro
+FROM payara/micro:{currentVersion}
 
 COPY myapplication.war $DEPLOY_DIR
 
@@ -120,9 +139,27 @@ By default the image has the Data Grid enabled and instances of Payara Micro wil
 
 To speed up boot time the Data Grid can be disabled by modifying the CMD to add `--nocluster`
 
+== Configuration
+
+=== Environment Variables
+
+The following environment variables are available to configure Payara Micro. 
+
+* `MEM_MAX_RAM_PERCENTAGE` - Value for the JVM parameter `-XX:MaxRAMPercentage` that indicate the percentage of memory assigned to the container that can be used by the Java Process. By default this is _70_.
+* `MEM_XSS` - Defines the value of the Stack size, used in the JVM parameter `-Xss`. The default value is _512k_.
+* `JVM_ARGS` - Specifies a list of JVM arguments which will be passed to Payara in the `entrypoint.sh` script.
+
+The following environment variables shouldn’t be changed, but may be helpful in your Dockerfile.
+
+[width="100%",cols="29%,50%,21%",options="header",]
+|===
+|Variable name |Value |Description
+|`HOME_DIR` |`/opt/payara` |The directory containing the Payara Micro binary
+|`PAYARA_DIR` |`/opt/payara` |The root directory of the Payara installation
+|`SCRIPT_DIR` |`/opt/payara` |The directory where the `entrypoint.sh` script can be found.
+|===
+
 == Details
 
 Payara Micro JAR file `payara-micro.jar` is located in the `/opt/payara/` directory. This directory is the default working directory of the docker image. The directory name is deliberately free of any versioning so that any scripts written to work with one version can be seamlessly migrated to the latest docker image.
 
-* Full and Web editions are derived from the OpenJDK 8 images with a Debian Jessie base
-* Micro editions are built on OpenJDK 8 images with an Alpine Linux base to keep image size as small as possible.
