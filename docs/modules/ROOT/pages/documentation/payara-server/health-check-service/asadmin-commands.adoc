@@ -938,7 +938,7 @@ the _[NOTIFIER_NAME]_ placeholder.
 |===
 
 TIP: You can find the list of available notifiers using the
-xref:/documentation/payara-server/notification-service/asadmin-commands.adoc#notifier-list-services[`notifier-list-services`] command.
+xref:/documentation/payara-server/notification-service/asadmin-commands.adoc#list-notifiers[`list-notifiers`] command.
 
 [[example-6]]
 === Examples
