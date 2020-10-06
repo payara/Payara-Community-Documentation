@@ -8,6 +8,7 @@ channels apart from the standard server log mechanism:
 *JMS*:: Taking advantage of preconfigured JMS connection resources, you
 can route notifications to a Java Message Queue so it can be consumed by
 other applications or services
+*Event Bus*:: Uses Hazelcast to send notifications into the internal Payara event bus based on Hazelcast distributed topics.
 *CDI Event Bus*:: For sending notification events using xref:/documentation/payara-server/public-api/cdi-events.adoc[Payara's CDI Event Bus]
  and observing them in instances in the cluster.
 

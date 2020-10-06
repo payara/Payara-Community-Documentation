@@ -67,6 +67,23 @@ public class CallbackServlet extends HttpServlet {
 }
 ----
 
+_Since Payara Server 5.2020.5_
+
+The original protected URL called is stored so that a redirect can be issued to this page after the callback from the OpenIdConnect provider is handled.  
+
+NOTE: Only some basic redirect is supported namely a GET. Only the URL and query parameters are available, not the headers and the request body.
+
+[source, java]
+----
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // handling the OpenIdContext information. See previous example
+        // Now return to original requested page
+        response.sendRedirect(request.getSession().getAttribute(OpenIdConstant.ORIGINAL_REQUEST).toString());
+    }
+----
+
 [[configuration]]
 == Configuration
 
