@@ -103,7 +103,6 @@ The following environment variables are available to configure Payara Server to 
 * `MEM_XSS` - Defines the value of the Stack size, used in the JVM parameter `-Xss`. The default value is _512k_.
 * `DEPLOY_PROPS` - Specifies a list of properties to be passed with the deploy commands generated in the `generate_deploy_commands.sh` script, For example `'--properties=implicitCdiEnabled=false'`.
 * `PREBOOT_COMMANDS` - The name of the file containing pre boot commands for the Payara Server instance.
-* `ADMIN_PASSWORD` - The password used for accessing the server in combination with user name defined in  `ADMIN_USER`. By default this is `admin`.
 * `PAYARA_ARGS` - additional arguments to the `start-domain` command that starts the server. Use this only if it’s not enough to specify the configuration using the `POSTBOOT_COMMANDS` or `PREBOOT_COMMANDS` file
 * `JVM_ARGS` - Specifies a list of JVM arguments which will be passed to Payara in the `startInForeground.sh` script.
 
@@ -119,6 +118,7 @@ The following environment variables shouldn’t be changed, but may be helpful i
 |`DEPLOY_DIR` |`/opt/payara/deployments` |The directory where applications are searched for in `generate_deploy_commands.sh` script.
 |`PASSWORD_FILE` |`/opt/payara/passwordFile` |The location of the password file for asadmin. This can be passed to asadmin using the `--passwordfile` parameter.
 |`ADMIN_USER` |`admin` |The user name for accessing the server with secure administration.
+|`ADMIN_PASSWORD` |`admin` | The password used for accessing the server in combination with user name defined in  `ADMIN_USER`. By default this is `admin`. Can only be set when the basic image is created.
 |`DOMAIN_NAME` |`production` | The name of the domain running within the container. 
 |`AS_ADMIN_MASTERPASSWORD` |`changit` |  The master password to pass to Payara Server. This is overriden if one is specified in the `$PASSWORD_FILE`.
 |===

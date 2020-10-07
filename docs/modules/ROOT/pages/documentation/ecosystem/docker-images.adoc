@@ -14,7 +14,7 @@ https://hub.docker.com/r/payara/server-web/[Payara Server Web]::
 Docker Images are available here for the web profile of Payara Server.
 
 
-Payara Enterprise customers have access to a private Docker repository containing Docker Images containing the Payara Enterprise Edition. These images are maintained every month. They receive JDK updates, expired Security certificate rates are cleaned and OS updates can be requested.
+TIP: Payara Enterprise customers have access to a private Docker repository containing Docker Images containing the Payara Enterprise Edition. These images are maintained every month. They receive JDK updates, expired Security Certificates are removed and OS updates can be requested.
 
 xref:/documentation/ecosystem/docker-server-usage.adoc[Payara Server Docker Image usage]
 
