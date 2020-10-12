@@ -284,6 +284,7 @@
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
+** xref:release-notes/release-notes-2020-5.adoc[Payara Community 5.2020.5 Release Notes]
 ** xref:release-notes/release-notes-2020-4.adoc[Payara Community 5.2020.4 Release Notes]
 ** xref:release-notes/release-notes-2020-3.adoc[Payara Community 5.2020.3 Release Notes]
 ** xref:release-notes/release-notes-2020-2.adoc[Payara Community 5.2020.2 Release Notes]
@@ -320,6 +321,8 @@
 * xref:schemas/README.adoc[Schemas]
 
 * xref:jakartaee-certification/README.adoc[Jakarta EE Platform 8 certification summaries]
+** xref:jakartaee-certification/5.2020.5/README.adoc[Payara Server 5.2020.5]
+*** xref:jakartaee-certification/5.2020.5/tck-results-full-5.2020.5.adoc[5.2020.5 Full Profile]
 ** xref:jakartaee-certification/5.2020.2/README.adoc[Payara Server 5.2020.2]
 *** xref:jakartaee-certification/5.2020.2/tck-results-full-5.2020.2.adoc[5.2020.2 Full Profile]
 ** xref:jakartaee-certification/5.201/README.adoc[Payara Server 5.201]
