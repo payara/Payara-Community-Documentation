@@ -91,6 +91,9 @@ translated to their actual values upon retrieval. The property values should be 
 the format referenced here:
 xref:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Types of Variables]
 
+|`cloud`
+|180
+|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:documentation/microprofile/config/cloud/README.adoc[Cloud Config Sources]
 
 |===
 
@@ -164,7 +167,7 @@ you can use in your application to find information about the Payara runtime env
 [[config-ordinal-configuration]]
 == Config Ordinal Configuration
 
-Config Ordinal can be configured by using Admin Console or Asadmin commands. 
+Config Ordinal can be configured by using Admin Console or Asadmin commands.
 
 _Since *5.183*&nbsp;_
 
