@@ -28,3 +28,5 @@ package-lock.json
 .project
 migrate-antora.sh
 
+# Antora local build
+build/
