@@ -39,7 +39,7 @@ Once all of the required options are configured. You should be able to read conf
 
 image:microprofile/config/jdbc/database-example.png[Database Example]
 
-If the key column name is set to ISBN and the value column name to Title. You can get the value of the Title column in relation to the ISBN column using the ISBN value using the following command: 
+If the key column name is set to ISBN and the value column name to Title. You can get the value of the Title column in relation to the ISBN column using the following command along with the ISBN value: 
 
 [source, shell]
 ----
