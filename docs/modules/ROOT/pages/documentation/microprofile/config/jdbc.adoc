@@ -1,6 +1,6 @@
 # JDBC Config Source
 
-The JDBC config source reads configuration properties form a database table. 
+The JDBC config source reads configuration properties from a database table. 
 
 [[configuration]]
 ## Configuration
@@ -13,7 +13,7 @@ To configure the config source from the admin console, go to `Configs` -> `your-
 
 image:microprofile/config/jdbc/admin-console-example.png[Payara Server Administration Console configuration route]
 
-Form here you configure the JNDI name of the database JDBC resources, name of the database table, name of the key column containing the key and name of the column containing the value.
+From here you configure the JNDI name of the database JDBC resources, name of the database table, name of the key column containing the key and name of the column containing the value.
 
 ### From the Command Line
 
@@ -35,7 +35,7 @@ jndi-name  Books       ISBN             Title
 
 ## Usage
 
-Once all of the required options are configured. You should be able to read configuration properties form a database table. For example, let's look at the following diagram. It shows a table named Books with columns ISBN, Author and Title.
+Once all of the required options are configured. You should be able to read configuration properties from a database table. For example, let's look at the following diagram. It shows a table named Books with columns ISBN, Author and Title.
 
 image:microprofile/config/jdbc/database-example.png[Database Example]
 
@@ -48,4 +48,4 @@ Great Expectations
 Command get-config-property executed successfully.
 ----
 
-NOTE: Currently JDBC config source only supports `get-config-property` command. 
+NOTE: Currently JDBC config source only supports the `get-config-property` command and doesn't support the `set-config-property` and `delete-config-property` commands.
