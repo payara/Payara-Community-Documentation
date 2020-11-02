@@ -7,7 +7,7 @@ The JDBC config source reads configuration properties from a database table.
 
 You can configure JDBC Config Source either via the admin console or the _asadmin_ utility. You'll need JNDI name of the database JDBC resources, name of a database table, name of the key column containing the key and name of the column containing the value. The values from the key column will be used as the config property names and the values from the value column will be used as the config property value. 
 
-The type of the database columns for the _key_ and _value_ columns needs to be of type _`String`_ or compatible.
+IMPORTANT: The type of the database columns for the _key_ and _value_ columns needs to be of type _`String`_ or compatible.
 
 ### From the Admin Console
 
