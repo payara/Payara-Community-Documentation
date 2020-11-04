@@ -42,7 +42,7 @@ NOTE: The region name is the snake-case notation, not the full words. E.g. `eu-w
 
 To configure the config source from the admin console, go to `Configs` -> `your-config` -> `MicroProfile` -> `Config` -> `DynamoDB`.
 
-image:microprofile/config/dynamodb/admin-console-example.png[Payara Server Administration Console configuration route]
+image:microprofile/config/dynamodb/admin-console-config.png[Payara Server Administration Console configuration route]
 
 From here you configure the name of the database table, the region name, name of the key column containing the key, name of the column containing the value and the maximum number of items to retrieves from the database table.
 
