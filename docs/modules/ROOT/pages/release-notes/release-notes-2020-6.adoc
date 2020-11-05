@@ -30,4 +30,4 @@
 * [https://github.com/payara/Payara/pull/4967[FISH-242]] - Unreliable registration of Custom MP HealthChecks when used in EAR
 * [https://github.com/payara/Payara/pull/4969[FISH-405]] - JPA Left Join Fetch on Embeddable ElementColection fails
 * [https://github.com/payara/Payara/pull/4969[FISH-406]] - NamedQuery with QueryHints.REFRESH fails to execute
-* [https://github.com/payara/Payara/pull/4972[FISH-429]] - ``JACC Policy Provider: Failed Permission Check'' warning in logs
+* [https://github.com/payara/Payara/pull/4972[FISH-429]] - 'JACC Policy Provider: Failed Permission Check' warning in logs
