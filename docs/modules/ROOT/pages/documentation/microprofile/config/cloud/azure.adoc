@@ -74,7 +74,7 @@ To store your secrets securely, you will need to create a key vault.
 3. Provide relevant information on the Create key vault page
 4. Click Review + create
 
-NOTE: Although key vault allows storing of keys, secrets, and certificates, the Payara Azure Config Source currently only support secrets.
+NOTE: Although key vault allows storing of keys, secrets, and certificates, the Payara Azure Config Source currently only supports secrets.
 
 image:microprofile/config/cloud/azure/key-vault-creation.png[Key Vault Creation]
 
