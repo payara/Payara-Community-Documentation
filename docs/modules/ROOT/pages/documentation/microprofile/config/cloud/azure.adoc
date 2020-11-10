@@ -7,7 +7,7 @@ The Azure cloud config source takes configuration properties from Azure Key Vaul
 If you haven't already, you will need to register an Azure Active Directory (Azure AD) application and create a service principal, so that the Microsoft identity platform can provide authentication and authorisation services. You can use the Azure portal to register your application and create a service principle.
 
 1. Once you have signed in to your Azure portal, search and select Azure Active Directory
-2. Select App registrations under the Manager section
+2. Select App registrations under the Manage section
 3. Click New registration
 
 NOTE: If you have access to multiple tenants and want to select a specific tenant to register with your application, use the Directory + subscription filter in the top menu.
@@ -53,6 +53,18 @@ Once the certificate is successfully uploaded, it should generate a _Thumbprint_
 
 image:microprofile/config/cloud/azure/certificate-upload.png[Certificate Upload]
 
+### Supported Private Key formats
+
+In this step, only an X.509 certificate is needed but the corresponding private key is needed when we configure the Payara MicroProfile Configuration Source. Currently, only an RSA private key in the PKCS8 unencrypted PEM format is supported.  We have an issue open to also support an encrypted key and other formats.  The `OpenSSL` commands to generate this private key and certificate are:
+
+    openssl req -x509 -newkey rsa:4096 -keyout demo-application.pem -out cert-demo-application.pem -days 365
+    openssl pkcs8 -in demo-application.pem -out demo-application.key
+
+The first command will ask for the Subject DN parts of the certificate and the passphrase to encrypt the private key (written into the file _demo-application.pem_)
+
+The second command will convert this encrypted private key file to the unencrypted equivalent which we require for the Payara configuration later on.
+
+
 ## Create a Key Vault
 
 To store your secrets securely, you will need to create a key vault.
@@ -62,7 +74,7 @@ To store your secrets securely, you will need to create a key vault.
 3. Provide relevant information on the Create key vault page
 4. Click Review + create
 
-NOTE: Although key vault allows storing of keys, secrets, and certificates, Azure Config Source currently only support secrets.
+NOTE: Although key vault allows storing of keys, secrets, and certificates, the Payara Azure Config Source currently only supports secrets.
 
 image:microprofile/config/cloud/azure/key-vault-creation.png[Key Vault Creation]
 
