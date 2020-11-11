@@ -12,6 +12,7 @@ When enabled it can periodically check the following performance metrics:
 * Payara Server’s JVM Heap Usage
 * CPU Usage of individual threads
 * Detects stuck threads
+* Monitors metrics exposed by MicroProfile Metrics
 
 If there is a problem with any of these metrics and they exceed a
 configurable threshold then a `GOOD`, `WARNING` or `CRITICAL` event
