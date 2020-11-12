@@ -146,6 +146,7 @@ Available Health Check Services:
         healthcheck-heap        Provides ratio on used heap memory with severity according to defined threshold values
         healthcheck-threads     Lists hogging threads with their id when given thresholds exceed
         healthcheck-machinemem  Provides ratio on used machine memory with severity according to defined threshold values
+        healthcheck-mpmetrics   Provides a way to monitor and log the values of metrics exposed by MicroProfile Metrics
 
 Command list-healthcheck-services executed successfully.
 ----
@@ -171,6 +172,8 @@ set-healthcheck-service-configuration
  --hogging-threads-retry-count=<integer.value>
  --stuck-threads-threshold=<integer.value>
  --stuck-threads-threshold-unit=DAYS|HOURS|MINUTES|SECONDS|MILLISECONDS
+ --add-metric=<metric.name>
+ --delete-metric=<metric.name>
 ----
 
 *Aim*::
@@ -218,6 +221,7 @@ a| The service metric name. One of:
   * `machine-memory-usage` or `mmu`
   * `stuck-thread` or `st`
   * `mp-health` or `mh`
+  * `mp-metrics` or `mm`
 
 | -
 | yes
@@ -299,6 +303,18 @@ value
 |-
 |no
 
+|`--add-metric`
+|String
+|Adds a metric exposed by MicroProfile Metrics to monitor. Takes a string of the format `'metricName=MetricName description=Description'`, where `metricName` is required. 
+|-
+|no
+
+|`--delete-metric`
+|String
+|Removes a metric exposed by MicroProfile Metrics that has been added to monitor. Takes a string of the format `'metricName=MetricName'`, where `metricName` is required. 
+|-
+|no
+
 |===
 
 NOTE: If this command gets executed before running the <<set-healthcheck-configuration>>
@@ -377,6 +393,22 @@ asadmin> set-healthcheck-service-configuration
  --stuck-threads-threshold-unit=MINUTES
 ----
 
+[[example-15]]
+The following example configures the Microprofile Metrics Checker to add 
+`base_thread_max_count` metrics for monitoring, adds the checker to MicroProfile Health to 
+display its result on MicroProfile Health xref:/documentation/microprofile/healthcheck.adoc#rest-endpoints[REST endpoints] 
+and applies the configuration change without needing a restart:
+
+[source, Shell]
+----
+asadmin> set-healthcheck-service-configuration
+ --service=mp-metrics
+ --enabled=true
+ --dynamic=true
+ --add-to-microprofile-health=true
+ --add-metric='metricName=base_thread_max_count'
+----
+
 [[get-healthcheck-configuration]]
 == `get-healthcheck-configuration`
 
@@ -412,6 +444,13 @@ HEAP  true     5     MINUTES  false                       80                  50
 
 Name   Enabled  Time  Unit     Add to MicroProfile Health  Threshold Time  Threshold Unit
 STUCK  true     5     MINUTES  false                       5               MINUTES
+
+Name  Enabled  Time  Unit     Add to MicroProfile Health
+MPM   true     5     MINUTES  false
+
+Monitored Metric Name  Description
+base_thread_max_count Displays the peak live thread count since the Java virtual machine started or peak was reset. This includes daemon and non-daemon threads.
+base_gc_total_total    Displays the total number of collections that have occurred. This attribute lists -1 if the collection count is undefined for this collector.
 
 Command get-healthcheck-configuration executed successfully.
 ----
