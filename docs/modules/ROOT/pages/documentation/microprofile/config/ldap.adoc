@@ -175,7 +175,7 @@ Command get-config-property executed successfully.
 
 Alternatively to fetch the user specific properties, search filter can be specified 
 with attributes unique to specific user.
-For e.g, In the following configuration tesla `uid` is used as user filter in the search query.
+For e.g, In the following configuration `uid` is used as user filter in the search query.
 
 [source, shell]
 ----
@@ -207,7 +207,7 @@ Command get-config-property executed successfully.
 ## Finding Group specific properties
 
 To find properties from the group of users search filter is mandatory to specify.
-For e.g, In the following configuration posixAccount and organizationalPerson is used as group filter.
+For e.g, In the following configuration `objectClass` is used as group filter.
 
 [source, shell]
 ----
