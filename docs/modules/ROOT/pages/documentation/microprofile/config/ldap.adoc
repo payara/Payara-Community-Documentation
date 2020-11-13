@@ -177,6 +177,8 @@ Alternatively to fetch the user specific properties, search filter can be specif
 with attributes unique to specific user.
 For e.g, In the following configuration `uid` is used as user filter in the search query.
 
+image:microprofile/config/ldap/tesla-user.png[Tesla User properties]
+
 [source, shell]
 ----
 set-ldap-config-source-configuration --enabled=true --dynamic=true 
@@ -208,6 +210,8 @@ Command get-config-property executed successfully.
 
 To find properties from the group of users search filter is mandatory to specify.
 For e.g, In the following configuration `objectClass` is used as group filter.
+
+image:microprofile/config/ldap/test-user.png[Test User properties]
 
 [source, shell]
 ----
