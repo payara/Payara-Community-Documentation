@@ -9,7 +9,7 @@ following is a summary of the TCK results for releases of Jakarta EE Platform, W
 
 - Product Name, Version and download URL (if applicable):
 +
-https://www.payara.fish/downloads/payara-platform-community-edition/[Payara Server 5.2020.6]
+https://www.payara.fish/downloads/payara-platform-community-edition/[Payara Server 5.2020.6 (Web Profile)]
 
 - Specification Name, Version and download URL:
 +
