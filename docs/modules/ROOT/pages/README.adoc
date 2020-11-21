@@ -2,6 +2,8 @@ image:payara-logo-blue.png[Payara Logo]
 
 == Introduction
 
+TEST
+
 This is the documentation for the Payara Platform Community Edition, targeted for developers looking to play with the latest features and APIs during development before potentially moving to Payara Enterprise in production.
 
 Payara Platform Community Edition provides a frequent release cycle to drive faster innovation. Payara Server Community and Payara Micro Community are dedicated to rapid change and innovation, giving developers a place to play with the latest features of the Payara Platform as soon as possible.
