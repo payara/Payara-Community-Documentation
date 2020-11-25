@@ -4,7 +4,7 @@
 == Creating new Payara Micro Maven Application
 
 * Simply start up Eclipse IDE and then Choose *File > New > Project* from the main menu
- or press the Ctrl+N to get the list of available projects:
+ or press Ctrl+N to get the list of available projects:
 
 image::eclipse-plugin/payara-micro/create-new-project.png[Generate Payara Micro Application]
 
