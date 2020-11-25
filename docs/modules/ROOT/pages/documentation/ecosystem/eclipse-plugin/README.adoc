@@ -15,7 +15,7 @@ image::eclipse-plugin/install-marketplace.png[Eclipse Marketplace]
 5. You will see a *Security Warning*, click on *Install Anyway*.
 +
 image::eclipse-plugin/install-security-warning.png[Security Warning]
-6. Finally it is needed to restart the Eclipse. Plugin is installed.
+6. Finally, you will need to restart Eclipse. The plugin will now be installed.
 
 [[tools]]
 == Payara Platform Tools
