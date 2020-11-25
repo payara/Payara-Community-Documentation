@@ -26,4 +26,4 @@ manage applications from Eclipse IDE.
 
 * xref:documentation/ecosystem/eclipse-plugin/payara-micro.adoc[Payara Micro] - 
 Payara Eclipse plugin provides the support to create, run and debug Payara Micro 
-applications from Eclipse IDE. Payara Micro is the microservices-ready version of the Payara Server.
+applications from the Eclipse IDE. Payara Micro is the microservices-ready version of Payara Server.
