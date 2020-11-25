@@ -59,6 +59,10 @@ to access the DAS. The property value can be true or false.
 | The password of the admin user of your DAS. Cannot be omitted if you declare the admin user. If no authentication will be used to access the DAS you must have empty password for your admin user of your domain.
 | `null`
 
+| `ignoreCertificates`
+| If true, ignores all certificate checks when connecting to the server. Useful when testing dockerized domains and there is no way to turn off SSL.
+| `false`
+
 | `libraries`
 | A comma-separated list of library JAR files. Specify the library JAR files by their relative or absolute paths. Specify relative paths relative to `domain-dir/lib/applibs`. The libraries are made available to the application in the order specified.
 | `N/A`
