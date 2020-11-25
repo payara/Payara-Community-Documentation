@@ -4,7 +4,7 @@ Payara Platform provides the Payara Tools plugin to integrate Payara Server and 
 The plugins are installable from the https://marketplace.eclipse.org/content/payara-tools[Eclipse Marketplace].
 
 [[installing]]
-== Installing Payara Tools plugin
+== Installing Payara Tools Plugin
 
 1. Go to *Help -> Eclipse Marketplace...*
 +
