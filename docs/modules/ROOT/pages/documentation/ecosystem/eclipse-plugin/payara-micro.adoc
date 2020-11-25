@@ -32,7 +32,7 @@ As you can see, the project has a basic structure with *src\main\java* and *src\
 image::eclipse-plugin/payara-micro/project-pom.png[Micro project generated]
 
 [[run-micro-application]]
-== Running the Payara Micro Application
+== Running The Payara Micro Application
 
 Eclipse IDE needs a run configuration to build the artifacts and run/debug the Payara Micro application.
 
