@@ -1,7 +1,7 @@
 = Payara Micro tools in Eclipse IDE
 
 [[create-micro-maven-project]]
-== Creating new Payara Micro Maven Application
+== Creating A New Payara Micro Maven Application
 
 * Simply start up Eclipse IDE and then Choose *File > New > Project* from the main menu
  or press Ctrl+N to get the list of available projects:
