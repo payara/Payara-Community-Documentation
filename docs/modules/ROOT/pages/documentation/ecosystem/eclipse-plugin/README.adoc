@@ -21,7 +21,7 @@ image::eclipse-plugin/install-security-warning.png[Security Warning]
 == Payara Platform Tools
 
 * xref:documentation/ecosystem/eclipse-plugin/payara-server.adoc[Payara Server] - 
-Payara Eclipse plugin enables developers to easily configure the Payara Server and 
+The Payara Eclipse plugin enables developers to easily configure Payara Server and 
 manage applications from Eclipse IDE.
 
 * xref:documentation/ecosystem/eclipse-plugin/payara-micro.adoc[Payara Micro] - 
