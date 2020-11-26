@@ -190,9 +190,11 @@ The MicroProfile JWT Authentication specification currently mandates that the ty
 >
 > Use of this Header Parameter is OPTIONAL.
 
-For this reason, some third-party token issuers may generate tokens that are not compatible with the Payara Platform. The Payara Platform allows to set this verification off, so you can use the `disable.type.verification` custom property and set its value to `true` to this effect. 
+For this reason, some third-party token issuers may generate tokens that are not compatible with the MicroProfile JWT specification. The Payara Platform allows to set this verification off, so you can use the `disable.type.verification` custom property and set its value to `true` to this effect. 
 
 NOTE: This property has to be defined in the `payara-mp-jwt.properties` configuration file described in the previous section.
+
+IMPORTANT: Keep in mind that tokens which are missing their type claim and are propagated to other services running on other Eclipse MicroProfile runtimes might be rejected, as the specification mandates the inclusion of the claim.
 
 == Activating JWT Authentication
 
