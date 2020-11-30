@@ -40,6 +40,8 @@ NOTE: The region name is the snake-case notation, not the full words. E.g. `eu-w
 
 ### From the Admin Console
 
+To configure the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` password aliases from the admin console, refer to the xref:documentation/payara-server/password-aliases/password-alias-admin-console-commands.adoc[Password Aliases Admin Console configuration] guide.
+
 To configure the config source from the admin console, go to `Configs` -> `your-config` -> `MicroProfile` -> `Config` -> `DynamoDB`.
 
 image:microprofile/config/dynamodb/admin-console-config.png[Payara Server Administration Console configuration route]

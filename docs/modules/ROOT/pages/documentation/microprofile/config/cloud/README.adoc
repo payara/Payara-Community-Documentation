@@ -5,6 +5,7 @@ Config Sources are available to take configuration properties from the secret st
 - xref:documentation/microprofile/config/cloud/aws.adoc[AWS Secrets Manager]
 - xref:documentation/microprofile/config/cloud/azure.adoc[Azure Secrets]
 - xref:documentation/microprofile/config/cloud/gcp.adoc[GCP Secret Manager]
+- xref:documentation/microprofile/config/cloud/hashicorp.adoc[HashiCorp Secrets]
 
 ## Configuration
 
