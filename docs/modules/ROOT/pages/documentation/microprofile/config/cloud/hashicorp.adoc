@@ -1,6 +1,6 @@
 # HashiCorp Secrets Config Source
 
-The HashiCorp Secrets Config Source takes configuration properties from HashiCorp Vault.
+The HashiCorp Secrets Config Source takes configuration properties from HashiCorp Vault. You can learn more about HashiCorp on: https://www.vaultproject.io/  
 
 ## Prerequisite
 
@@ -10,14 +10,14 @@ This documentation assumes the following:
 * You are familiar with most, if not all, of the HashiCorp Vault technology and terminology. If not please read through their documentation before you attempt to use HashiCorp Secrets Config Source
 * Your HashiCorp Vault is unsealed
 
-IMPORTANT: Hashicorp config source only supports the Vault KV secrets engine.
+IMPORTANT: Hashicorp config source only supports the Vault KV Secrets Engine.
 
 [[configuration]]
 ## Configuration in Payara Server
 
-You can configure HashiCorp Secrets Config Source either via the admin console or the _asadmin_ utility. You'll need a client token, the KV Secrets Engine API version, Vault's address represented as URL and port, the path where the kV secrets engine is enabled and the path where your secrets are stored.
+You can configure HashiCorp Secrets Config Source either via the admin console or the _asadmin_ utility. You'll need a client token, the KV Secrets Engine API version, Vault's address represented as URL and port, the path where the KV Secrets Engine is enabled and the path where your secrets are stored.
 
-NOTE: By default, the KV secrets engine is enabled at the /secret path in Vault.
+NOTE: By default, the KV Secrets Engine is enabled at the /secret path in Vault.
 
 ### From the Admin Console
 
@@ -27,7 +27,7 @@ To configure the config source from the admin console, go to `Configs` -> `your-
 
 image:microprofile/config/cloud/hashicorp/admin-console-config.png[Payara Server Administration Console configuration route]
 
-From here you can select the KV Secrets Engine API version you want to use, configure the vault address, the path where the KV secrets engine is enabled and the path where your secrets are stored. You can also decide whether to apply these changes dynamically or on the next server restart. If the config source is enabled or disabled dynamically it will take effect across the server immediately.
+From here you can select the KV Secrets Engine API version you want to use, configure the vault address, the path where the KV Secrets Engine is enabled and the path where your secrets are stored. You can also decide whether to apply these changes dynamically or on the next server restart. If the config source is enabled or disabled dynamically it will take effect across the server immediately.
 
 ### From the Command Line
 
@@ -54,7 +54,7 @@ true     2            secret               my-secret     https://127.0.0.1:8200
 
 ## Usage
 
-Provided that all of the above sections are configured correctly, the secrets can be injected into any applicable MicroProfile Config injection point as with any other Config Source. The secrets can also be fetched, created and deleted from the asadmin utility.
+Provided that all of the above sections are configured correctly, the secrets can be injected into any applicable MicroProfile Config injection point as with any other Config Source. The secrets can also be fetched, created and deleted using the asadmin utility.
 
 To fetch a secret form a HashiCorp Vault:
 
