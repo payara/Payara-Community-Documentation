@@ -3,8 +3,7 @@
 Payara Platform tools provide integration of the Payara Platform into IntelliJ 
 IDEA Ultimate Edition. The extension is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
 
-If you are developing the application on the free version of IntelliJ IDEA which 
-is Community Edition then install the Payara Micro Community tools which is also 
+If you are developing a application on IntelliJ IDEA Community Edition, then install Payara Micro Community Tools which is also 
 available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
 
 [[installing-plugin]]
