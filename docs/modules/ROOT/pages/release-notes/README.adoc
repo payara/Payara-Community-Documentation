@@ -8,6 +8,7 @@ Detailed information about features and fixes in every release.
 
 *2020*
 
+* 2020 December - xref:release-notes/release-notes-2020-7.adoc[Payara Community 5.2020.7]
 * 2020 November - xref:release-notes/release-notes-2020-6.adoc[Payara Community 5.2020.6]
 * 2020 October - xref:release-notes/release-notes-2020-5.adoc[Payara Community 5.2020.5]
 * 2020 August - xref:release-notes/release-notes-2020-4.adoc[Payara Community 5.2020.4]
