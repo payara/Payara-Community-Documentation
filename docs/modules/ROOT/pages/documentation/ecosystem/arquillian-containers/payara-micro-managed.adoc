@@ -90,7 +90,7 @@ To change this, provide java debug options to `cmdOptions`.
 |===
 
 These options can all be provided through either an environment variable or system property.
-The easiest way to provide these to the test instance is is by using an `arquillian.xml` file placed on the test classpath.
+The easiest way to provide these to the test instance is by using an `arquillian.xml` file placed on the test classpath.
 
 [source,XML]
 .Example
