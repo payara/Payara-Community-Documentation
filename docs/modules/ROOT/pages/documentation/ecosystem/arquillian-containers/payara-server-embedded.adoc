@@ -66,17 +66,14 @@ that will be added to the Payara instance using the `add-resources` command.
 | `true`
 |===
 
-The easiest way to provide these system properties to the extension runtime is through the surefire plugin.
+The easiest way to provide these system properties to the extension runtime is by using an `arquillian.xml` file.
 
 [source,XML]
 .Example
 ----
-<plugin>
-  <artifactId>maven-surefire-plugin</artifactId>
-  <configuration>
-    <systemPropertyVariables>
-      <bindHttpPort>8123</bindHttpPort>
-    </systemPropertyVariables>
-  </configuration>
-</plugin>
+ <container qualifier="payara-embedded">
+    <configuration>
+        <property name="bindHttpPort">8080</property>
+    </configuration>
+</container>
 ----

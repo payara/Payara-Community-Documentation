@@ -90,17 +90,15 @@ To change this, provide java debug options to `cmdOptions`.
 |===
 
 These options can all be provided through either an environment variable or system property.
-The easiest way to provide these to the test instance is through the surefire plugin.
+The easiest way to provide these to the test instance is is by using an `arquillian.xml` file.
 
 [source,XML]
 .Example
 ----
-<plugin>
-    <artifactId>maven-surefire-plugin</artifactId>
+<container qualifier="payara-micro-managed">
     <configuration>
-        <systemProperties>
-            <payara.microJar>/path/to/micro.jar</payara.microJar>
-        </systemProperties>
+        <property name="randomHttpPort">false</property>
+         <property name="autoBindHttp">false</property>
     </configuration>
-</plugin>
+</container>
 ----
