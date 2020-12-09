@@ -18,7 +18,7 @@ asciidoc:
     mpMetricsVersion: '2.3'
     mpMetricsSpecUrl: 'https://github.com/eclipse/microprofile-metrics/releases/tag/2.3'
     mpHealthVersion: '3.0'
-    mpHealthSpecUrl: 'https://github.com/eclipse/microprofile-health/releases/tag/2.2'
+    mpHealthSpecUrl: 'https://github.com/eclipse/microprofile-health/releases/tag/3.0'
     mpFaultToleranceVersion: '2.1'
     mpFaultToleranceSpecUrl: 'https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/2.1'
     mpJwtVersion: '1.2'
