@@ -1,0 +1,181 @@
+= Directory Config Source
+
+== Configuration
+
+Config Directory can be configured by using Admin Console or Asadmin commands.
+
+_Since *5.184*&nbsp;_
+
+=== Using the Admin Console
+
+To configure the Config Directory in the Admin Console, go to Configuration
+→ [instance-configuration (like server-config)] → MicroProfile → Config → Directory:
+
+image:microprofile/config-property.png[Set Config Property]
+
+=== Using Asadmin Commands
+
+==== `set-config-dir`
+
+:previewVersion: 4.1.2.181
+include::partial$tech-preview.adoc[]
+
+*Usage*::
+`asadmin> set-config-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
+*Aim*::
+Sets the directory to be used for the directory config source.
+
+
+===== Command Options
+
+[cols="2,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`directory`
+|Full path to the directory containing configuration files
+|-
+|yes
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> set-config-dir
+    --directory=/home/payara/.secrets
+    --target=myAppCluster
+----
+
+==== `get-config-dir`
+
+:previewVersion: 4.1.2.181
+include::partial$tech-preview.adoc[]
+
+*Usage*::
+`asadmin> get-config-dir --target=<target[default:server]>`
+*Aim*::
+Gets the value of the directory to be used for the directory config source.
+
+
+===== Command Options
+
+[cols="2,10,1,1", options="header"]
+|===
+|Option
+|Description
+|Default
+|Mandatory
+
+|`target`
+|The target configuration where the command should be run
+|server (the DAS)
+|no
+
+|===
+
+
+===== Example
+
+[source,Shell]
+----
+asadmin> get-config-dir
+    --target=myAppCluster
+----
+
+
+
+== Usage
+
+Usually this config source is used to map secrets mounted by Kubernetes or
+Docker to a directory inside a running container.
+
+Once you configured a directory to read a config (secrets) from, you need to
+make sure properties in your codebase map to files.
+
+=== Map property names to flat file hierarchy
+
+_Since *5.183*&nbsp;_
+
+1. Say you have two properties `property1` and `foo.bar.property2`.
+2. Payara is configured with secret directory `/home/payara/.secrets`
+3. Secrets mounted as files to `/home/payara/.secrets/property1` and
+   `/home/payara/.secrets/foo.bar.property2` will be read.
+
+Remember that the files may only contain the secret, no newline, metadata, etc.
+
+=== Map property names to a sub-directory structure
+
+_Since *5.2020.7*&nbsp;_
+
+1. Say you have two properties `property1` and `foo.bar.property2`.
+2. Payara is configured with secret directory `/home/payara/.secrets`
+3. Secrets mounted as files to `/home/payara/.secrets/property1` and
+   `/home/payara/.secrets/foo/bar/property2` will be read.
+
+Usually property scopes are done via "." in their names, reflecting to
+subdirectories here.
+
+Remember not to include "." in your file names or they won't be found reliably.
+Restrictions on the files content are the same as with the flat hierarchy.
+
+
+==== Kubernetes Example
+
+You want to retrieve a (secret) value via property `foo.bar.property1`:
+
+[source,Java]
+----
+@ConfigProperty("foo.bar.property1")
+----
+
+You deployed a secret to your Kubernetes cluster:
+
+[source,Yaml]
+----
+apiVersion: v1
+kind: Secret
+metadata:
+  name: foobar
+type: Opaque
+stringData:
+  property1: my-super-secret-value
+----
+
+And your pod mounts it at `/home/payara/.secrets/foo/bar`
+(only showing the relevant parts from the `Deployment` K8s YAML):
+
+[source,Yaml]
+----
+volumeMounts:
+  - name: test-secrets
+    mountPath: /home/payara/.secrets/foo/bar
+volumes:
+  - name: test-secret
+    secret:
+      secretName: foobar
+----
+
+[source,Shell]
+----
+/ # ls -la /home/payara/.secrets/foo/bar
+total 3
+drwxrwxrwt 3 root root  120 Nov 25 10:51 .
+drwxr-xr-x 3 root root 4096 Nov 25 10:51 ..
+drwxr-xr-x 2 root root   80 Nov 25 10:51 ..2020_11_25_10_51_55.283009570
+lrwxrwxrwx 1 root root   31 Nov 25 10:51 ..data -> ..2020_11_25_10_51_55.283009570
+lrwxrwxrwx 1 root root   15 Nov 25 10:51 property1 -> ..data/property1
+----
+
+Now Payara will pick up the file and read its content as a value for property
+`foo.bar.property1`

@@ -15,7 +15,7 @@ An archetype for Apache Maven is available for Payara Micro.
 xref:documentation/ecosystem/gradle-plugin.adoc[Payara Micro Gradle Plugin]::
 A plugin for Gradle is available for Payara Micro.
 
-xref:documentation/ecosystem/eclipse-plugin.adoc[Payara Tools Eclipse Plugin]::
+xref:documentation/ecosystem/eclipse-plugin/README.adoc[Payara Tools Eclipse Plugin]::
 A plugin for using Payara is available for Eclipse.
 
 xref:documentation/ecosystem/netbeans-plugin/README.adoc[Payara Apache NetBeans tools]::

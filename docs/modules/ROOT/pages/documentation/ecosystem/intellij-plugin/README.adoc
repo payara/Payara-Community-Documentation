@@ -1,10 +1,10 @@
 = Payara IntelliJ IDEA Plugin
 
-Payara IntelliJ IDEA tools provide integration of the Payara Platform into IntelliJ IDEA.
-The extension is available in the https://plugins.jetbrains.com/plugin/15114-payara-tools[JetBrains Plugins Marketplace].
+Payara Platform tools provide integration of the Payara Platform into IntelliJ 
+IDEA Ultimate Edition. The extension is available in the https://plugins.jetbrains.com/plugin/15114-payara-platform-tools[JetBrains Plugins Marketplace].
 
-* <<installing-plugin,Installing Payara IntelliJ plugin>>
-* <<tools,Payara Platform Tools>>
+If you are developing a application on IntelliJ IDEA Community Edition, then install Payara Micro Community Tools which is also 
+available in the https://plugins.jetbrains.com/plugin/15445-payara-micro-community-tools[JetBrains Plugins Marketplace].
 
 [[installing-plugin]]
 == Installing Payara IntelliJ plugin
@@ -13,10 +13,10 @@ The extension is available in the https://plugins.jetbrains.com/plugin/15114-pay
 
 2. In the Plugins dialog, switch to the Marketplace tab.
 
-3. In the dialog that opens, search for *Payara Tools*.
+3. In the dialog that opens, search for *Payara*.
 
 4. Click the *Install* button:
-image::intellij-plugin/install-marketplace.png[alt=Visual Studio Marketplace, width="60%"]
+image:intellij-plugin/install-marketplace.png[alt=Visual Studio Marketplace, width="60%"]
 
 5. Click *OK* and apply the changes, and restart IntelliJ IDEA if prompted.
 
