@@ -1,5 +1,3 @@
-:source-highlighter: rouge
-
 = Directory Config Source
 
 == Configuration
@@ -26,7 +24,7 @@ include::partial$tech-preview.adoc[]
 `asadmin> set-config-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
 *Aim*::
 Sets the directory to be used for the directory config source.
-- *Leaf directory may not start with a dot*, rendering `/home/payara/.secret`
+- *Leaf directory cannot start with a dot*, rendering `/home/payara/.secret`
   an invalid path ("." means hidden on a POSIX filesystem).
 - If relative, will lookup beneath server instance location
   (usually to be found at `<PAYARA-HOME>/glassfish/domains/<DOMAIN>/`)
@@ -43,7 +41,7 @@ Sets the directory to be used for the directory config source.
 
 |`directory`
 |Full path to the directory containing configuration files.
- Leaf directory name may not start with a dot.
+ Leaf directory name cannot start with a dot.
 |`secrets`
 |yes
 
@@ -134,8 +132,8 @@ _Since *5.2021.1*&nbsp;_
 
 Restrictions on the files content are the same as with the flat hierarchy.
 
-Updates to files and subdirectories are picked up at runtime. Re-retrieving
-the config property will use the updated values. This allows for clearing
+Updates to files and subdirectories are picked up at runtime. Retrieving
+the config property again will use the updated values. This allows for clearing
 a value by removing the file, too.
 
 ==== Dots usage and depicting directories and file name
