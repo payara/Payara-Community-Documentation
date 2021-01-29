@@ -30,6 +30,7 @@ Sets the directory to be used for the directory config source.
   an invalid path ("." means hidden on a POSIX filesystem).
 - If relative, will lookup beneath server instance location
   (usually to be found at `<PAYARA-HOME>/glassfish/domains/<DOMAIN>/`)
+- Defaults to `secrets`, targeting `<PAYARA-HOME>/glassfish/domains/<DOMAIN>/secrets/`
 
 ===== Command Options
 
@@ -43,7 +44,7 @@ Sets the directory to be used for the directory config source.
 |`directory`
 |Full path to the directory containing configuration files.
  Leaf directory name may not start with a dot.
-|-
+|`secrets`
 |yes
 
 |`target`
