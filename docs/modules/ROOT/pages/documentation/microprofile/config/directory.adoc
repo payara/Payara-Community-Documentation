@@ -47,7 +47,7 @@ Sets the directory to be used for the directory config source.
 
 |`target`
 |The target configuration where the command should be run
-|server (the DAS)
+|server-config
 |no
 
 |===
@@ -84,7 +84,7 @@ Gets the value of the directory to be used for the directory config source.
 
 |`target`
 |The target configuration where the command should be run
-|server (the DAS)
+|server-config
 |no
 
 |===
