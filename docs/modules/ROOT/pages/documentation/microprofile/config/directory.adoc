@@ -22,6 +22,7 @@ include::partial$tech-preview.adoc[]
 
 *Usage*::
 `asadmin> set-config-dir --directory=<full.path.to.dir> --target=<target[default:server]>`
+
 *Aim*::
 Sets the directory to be used for the directory config source.
 - *Leaf directory cannot start with a dot*, rendering `/home/payara/.secret`
@@ -29,6 +30,9 @@ Sets the directory to be used for the directory config source.
 - If relative, will lookup beneath server instance location
   (usually to be found at `<PAYARA-HOME>/glassfish/domains/<DOMAIN>/`)
 - Defaults to `secrets`, targeting `<PAYARA-HOME>/glassfish/domains/<DOMAIN>/secrets/`
+
+_Please note:_ after setting via `asadmin`, you will need to _restart_ the
+application server to reinitialize the config source!
 
 ===== Command Options
 
