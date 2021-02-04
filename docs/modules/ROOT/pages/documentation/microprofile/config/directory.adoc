@@ -102,6 +102,14 @@ asadmin> get-config-dir
     --target=myAppCluster
 ----
 
+=== Using Preboot or Postboot Scripts
+Especially when running Payara in a container, there is no way to restart after
+configuring via an `asadmin` command without loosing the domain configuration.
+
+Thus you should add the command to a bootscript as described at
+<<running-asadmin-commands-using-preboot-and-posboot-scripts,Pre- and Postboot scripts>>.
+See <<../../ecosystem/docker-server-usage.adoc#_environment_variables,Payara Server container image env vars>>
+for details how to use this within non-micro flavored containers.
 
 
 == Usage
