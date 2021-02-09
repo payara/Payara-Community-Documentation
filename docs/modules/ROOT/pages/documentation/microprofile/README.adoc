@@ -89,11 +89,14 @@ supported by Payara Server and Payara Micro, an application targeting version
 <dependency>
     <groupId>org.eclipse.microprofile</groupId>
     <artifactId>microprofile</artifactId>
-    <version>4.0</version>
+    <version>4.0.1</version>
     <type>pom</type>
     <scope>provided</scope>
 </dependency>
 ----
+
+*Due to a known issue with Microprofile 4.0 release, 4.0.1 release should be used instead.*
+
 
 | 3.3
 |
