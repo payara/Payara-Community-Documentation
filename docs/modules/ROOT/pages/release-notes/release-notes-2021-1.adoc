@@ -1,0 +1,27 @@
+= Payara Community 5.2021.1 Release Notes
+
+== Supported APIs and Applications
+
+* Jakarta EE 8
+* Java EE 8 Applications
+
+== Notes
+
+=== MicroProfile 4.0
+
+As MicroProfile moves toward the 4.0 final release, the Payara team has simultaneously been working to ready the Payara Platform for MicroProfile 4.0 compatibility. In this Payara Platform Community Release, you can give two of the MicroProfile specification release candidates a try: MP Health 3.0 and MP JWT Auth 1.2. This technically breaks MicroProfile 3.3 support, although functionally the MicroProfile 3.3 TCK will only fail on the `@Health` annotation removal.
+
+=== Production Domain Removal
+
+As part of our ongoing effort to reduce bloat in Payara Community
+Edition, we have removed the production domain from the distributions.
+The template for this domain
+(`common/templates/gf/production-domain.jar`) is still available,
+although this too will be removed in a future release. Note that Payara
+Enterprise Edition will still contain the production domain.
+
+== New Features
+
+* [https://github.com/payara/Payara/pull/4970[FISH-330]] - Implement
+LDAP MicroProfile Config Source
+
