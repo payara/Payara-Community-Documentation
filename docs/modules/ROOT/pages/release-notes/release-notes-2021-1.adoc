@@ -41,10 +41,10 @@ A new command has been introduced with FISH-108 to remove old JBatch executions 
 == Bug Fixes
 
 * [https://github.com/payara/patched-src-grizzly/pull/26[FISH-222]] - HTTP2 tests from h2spec fail with timeout on HTTPS listener 
-* [[FISH-462]] - TLSv1.3 is not listed as a supported SSL Protocol 
+* [https://github.com/payara/Payara/pull/4898[FISH-462]] - TLSv1.3 is not listed as a supported SSL Protocol 
 * [https://github.com/payara/patched-src-grizzly/pull/26[FISH-464]] - Race condition in Grizzly's HTTP/2 
 * [https://github.com/payara/Payara/pull/5040[FISH-505]] - Server instance tries to load Application not assigned to instance 
-* [[FISH-515]] - HTTP POST request returns 500 on Zulu JDK8 
+* [https://github.com/payara/Payara/pull/4898[FISH-515]] - HTTP POST request returns 500 on Zulu JDK8 
 * [https://github.com/payara/patched-src-grizzly/pull/27[FISH-631]] - Infinite loop in Grizzly SSL handshake causing deadlock 
 * [https://github.com/payara/Payara/pull/5051[FISH-642]] - Application Logging not performed on Payara 5 Cluster instances 
 * [https://github.com/payara/Payara/pull/5009[FISH-652]] - Error in MP JWT validation when retrieving JWKS key from remote location 
