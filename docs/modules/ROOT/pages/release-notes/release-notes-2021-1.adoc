@@ -10,7 +10,7 @@
 
 === MicroProfile 4.0
 
-Following the 5.2020.7 release, we’ve upgraded our MicroProfile implementations to be compatible with the specifications present in version 4.0 of MicroProfile. You should be able to test your MicroProfile 4.0 compatible applications using this Community release. If you discover any issues, or have any related questions, please raise them on our GitHub repository. 
+Following the 5.2020.7 release, we’ve upgraded Payara Platform to be compatible with the specifications present in version 4.0 of MicroProfile. You should be able to test your MicroProfile 4.0 compatible applications using this Community release. If you discover any issues, or have any related questions, please raise them on our GitHub repository. 
 
 === Asadmin Command to Clear old JBatch Executions
 
