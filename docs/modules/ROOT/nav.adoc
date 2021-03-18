@@ -269,10 +269,12 @@
 * xref:documentation/extensions/README.adoc[Extensions]
 ** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
 *** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
+*** xref:documentation/extensions/notifiers/discord-notifier.adoc[Discord Notifier]
 *** xref:documentation/extensions/notifiers/email-notifier.adoc[Email Notifier]
 *** xref:documentation/extensions/notifiers/newrelic-notifier.adoc[New Relic Notifier]
 *** xref:documentation/extensions/notifiers/slack-notifier.adoc[Slack Notifier]
 *** xref:documentation/extensions/notifiers/snmp-notifier.adoc[SNMP Notifier]
+*** xref:documentation/extensions/notifiers/teams-notifier.adoc[Teams Notifier]
 *** xref:documentation/extensions/notifiers/xmpp-notifier.adoc[XMPP Notifier]
 
 .User Guides
