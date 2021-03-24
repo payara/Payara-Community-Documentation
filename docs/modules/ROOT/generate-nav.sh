@@ -9,15 +9,15 @@ touch $OUTPUT_NAV_LOCATION
 
 cd $WORKING_DIR
 
-
-
 create_nav () {
     for file in "$1"/* ; do
         if [ ! -d $file ]; then
             #Count the depth of the file
             depth=$(grep -o '/' <<< $file | grep -c .)
             stars=$(printf '%*s' $depth '')
-            echo "${stars// /*} xref:$file[$file]" >> $OUTPUT_NAV_LOCATION
+            filename=${file##*/}
+            filename=${filename%.*}
+            echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
         else
             create_nav $file
         fi
@@ -27,13 +27,9 @@ create_nav () {
 for dir in */ ; do
     #Remove trailing / for easier formatting
     dir=${dir%?}
-    
-    if [ $dir == "jakartaee-certification" ]; then
-        echo ".$dir" >> $OUTPUT_NAV_LOCATION
-        create_nav $dir 0
-    fi
+    echo ".$dir" >> $OUTPUT_NAV_LOCATION
+    create_nav $dir
 done
 
-echo "----- GENERATED NAV -----"
+echo "---- GENERATED NAV -----"
 cat $OUTPUT_NAV_LOCATION
-
