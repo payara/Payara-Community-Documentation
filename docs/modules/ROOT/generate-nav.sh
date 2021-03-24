@@ -14,12 +14,13 @@ create_nav () {
         #Count the depth of the file
         depth=$(grep -o '/' <<< $file | grep -c .)
         stars=$(printf '%*s' $depth '')
+        
+        #Trim filepath for better readable titles
         filename=${file##*/}
         filename=${filename%.adoc}
-        if [ ! -d $file ]; then
-            echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
-        else
-            echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
+
+        echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
+        if [ -d $file ]; then
             create_nav $file
         fi
     done
