@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Deployment Groups :: Payara Documentation Preview</title>
+    <meta name="generator" content="Antora 2.2.0">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+    <meta name="docsearch:version" content="master" />
+  </head>
+  <body class="article">
+  <header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../..">Payara Documentation Preview</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-item hide-for-print">
+        Version: <div class="page-versions">
+  <button class="version-menu-toggle single-version" title="Current version">master</button>
+</div>
+
+      </div>
+      <div class="navbar-item hide-for-print">
+            <input type="text" id="search-input" name="search-input" placeholder="Search...">
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="https://www.payara.fish/products/downloads/">Download</a>
+          </span>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary enterprise" href="../../../../../enterprise">Documentation for Payara Enterprise</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../../README.html">Payara Platform</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">documentation</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem">ecosystem</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/arquillian-containers">arquillian-containers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/arquillian-containers/payara-micro-managed.html">payara-micro-managed</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/arquillian-containers/payara-server-embedded.html">payara-server-embedded</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/arquillian-containers/payara-server-managed.html">payara-server-managed</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/arquillian-containers/payara-server-remote.html">payara-server-remote</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/arquillian-containers/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/cloud-connectors">cloud-connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/cloud-connectors/amazon-sqs.html">amazon-sqs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/cloud-connectors/apache-kafka.html">apache-kafka</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/cloud-connectors/azure-sb.html">azure-sb</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/cloud-connectors/mqtt.html">mqtt</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/cloud-connectors/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/docker-images.html">docker-images</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/docker-micro-usage.html">docker-micro-usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/docker-server-usage.html">docker-server-usage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/eclipse-plugin">eclipse-plugin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/eclipse-plugin/payara-micro.html">payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/eclipse-plugin/payara-server.html">payara-server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/eclipse-plugin/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/ecosystem.html">ecosystem</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/gradle-plugin.html">gradle-plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/intellij-plugin">intellij-plugin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/intellij-plugin/payara-micro.html">payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/intellij-plugin/payara-server.html">payara-server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/intellij-plugin/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/maven-archetype.html">maven-archetype</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/maven-bom.html">maven-bom</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/maven-plugin.html">maven-plugin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/netbeans-plugin">netbeans-plugin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/netbeans-plugin/payara-micro.html">payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/netbeans-plugin/payara-server.html">payara-server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/netbeans-plugin/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/security-connectors">security-connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/security-connectors/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ecosystem/security-connectors.html">security-connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/ecosystem/vscode-extension">vscode-extension</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/vscode-extension/payara-micro.html">payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/vscode-extension/payara-server.html">payara-server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../ecosystem/vscode-extension/README.html">README</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/extensions">extensions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/extensions/notifiers">notifiers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/datadog-notifier.html">datadog-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/discord-notifier.html">discord-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/email-notifier.html">email-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/newrelic-notifier.html">newrelic-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/slack-notifier.html">slack-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/snmp-notifier.html">snmp-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/teams-notifier.html">teams-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../extensions/notifiers/xmpp-notifier.html">xmpp-notifier</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../extensions/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/microprofile">microprofile</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/microprofile/config">config</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/microprofile/config/cloud">cloud</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/aws.html">aws</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/azure.html">azure</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/dynamo-db.html">dynamo-db</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/gcp.html">gcp</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/hashicorp.html">hashicorp</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../microprofile/config/cloud/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/config/directory.html">directory</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/config/jdbc.html">jdbc</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/config/ldap.html">ldap</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/config/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/faulttolerance.html">faulttolerance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/healthcheck.html">healthcheck</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/jwt.html">jwt</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/microprofile/metrics">metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/metrics/metrics-configuration.html">metrics-configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/metrics/metrics-rest-endpoint.html">metrics-rest-endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../microprofile/metrics/vendor-metrics.html">vendor-metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/metrics.html">metrics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/openapi.html">openapi</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/opentracing.html">opentracing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../microprofile/rest-client.html">rest-client</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro">payara-micro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/adding-jars.html">adding-jars</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/appendices">appendices</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/appendices.html">appendices</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/cmd-line-opts.html">cmd-line-opts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/config-methods.html">config-methods</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/javadoc.html">javadoc</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/micro-api.html">micro-api</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/operation-methods.html">operation-methods</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/appendices/payara-micro-jar-structure.html">payara-micro-jar-structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/asadmin">asadmin</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/asadmin/pre-and-post-boot-scripts.html">pre-and-post-boot-scripts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/asadmin/send-asadmin-commands.html">send-asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/asadmin/using-the-payara-micro-api.html">using-the-payara-micro-api</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/asadmin.html">asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/callable-objects.html">callable-objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/cdi-events.html">cdi-events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/clustering">clustering</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/clustering/autoclustering.html">autoclustering</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/clustering/clustering.html">clustering</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/clustering/clustering-with-full-server.html">clustering-with-full-server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/clustering/lite-nodes.html">lite-nodes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/configuring">configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/config-access-log.html">config-access-log</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/config-cmd-line.html">config-cmd-line</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/config-keystores.html">config-keystores</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/config-program.html">config-program</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/config-sys-props.html">config-sys-props</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/configuring.html">configuring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/instance-names.html">instance-names</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/configuring/package-uberjar.html">package-uberjar</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/deploying">deploying</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-cmd-line.html">deploy-cmd-line</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploying.html">deploying</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-postboot-output.html">deploy-postboot-output</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-program.html">deploy-program</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-program-after-bootstrap.html">deploy-program-after-bootstrap</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-program-asadmin.html">deploy-program-asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-program-bootstrap.html">deploy-program-bootstrap</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/deploying/deploy-program-maven.html">deploy-program-maven</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/h2">h2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/h2/h2.html">h2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/jca.html">jca</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/jcache.html">jcache</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/logging-to-file.html">logging-to-file</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/maven">maven</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/maven/maven.html">maven</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/payara-micro.html">payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/persistent-ejb-timers.html">persistent-ejb-timers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/port-autobinding.html">port-autobinding</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/rootdir.html">rootdir</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-micro/services">services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../payara-micro/services/request-tracing.html">request-tracing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/starting-instance.html">starting-instance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../payara-micro/stopping-instance.html">stopping-instance</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server">payara-server</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/admin-console">admin-console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../admin-console/admin-console.html">admin-console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../admin-console/asadmin-recorder.html">asadmin-recorder</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../admin-console/auditing-service.html">auditing-service</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../admin-console/environment-warning.html">environment-warning</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/app-deployment">app-deployment</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../app-deployment/app-deployment.html">app-deployment</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../app-deployment/concurrent-cdi-bean-loading.html">concurrent-cdi-bean-loading</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../app-deployment/deployment-descriptors.html">deployment-descriptors</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../app-deployment/descriptor-elements.html">descriptor-elements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/asadmin-commands">asadmin-commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/auto-naming.html">auto-naming</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/disabling-jline.html">disabling-jline</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/misc-commands.html">misc-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/print-certificate.html">print-certificate</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../asadmin-commands/server-management-commands.html">server-management-commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../classloading.html">classloading</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default-thread-pool-size.html">default-thread-pool-size</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/deployment-groups">deployment-groups</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="timers.html">timers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/development-tools">development-tools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/development-tools/cdi-dev-mode">cdi-dev-mode</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/development-tools/cdi-dev-mode/cdi-probe">cdi-probe</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/cdi-probe/probe-rest-api.html">probe-rest-api</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/cdi-probe/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/cdi-probe/using-probe.html">using-probe</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/enabling-cdi-dev-asadmin.html">enabling-cdi-dev-asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/enabling-cdi-dev-console.html">enabling-cdi-dev-console</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/enabling-cdi-dev-web-desc.html">enabling-cdi-dev-web-desc</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../development-tools/cdi-dev-mode/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../development-tools/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/docker">docker</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../docker/docker-instances.html">docker-instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../docker/docker-nodes.html">docker-nodes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../docker/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/ejb">ejb</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../ejb/concurrent-instances.html">concurrent-instances</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../ejb/ejb-jar-names.html">ejb-jar-names</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../ejb/lite-remote-ejb.html">lite-remote-ejb</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../ejb/persistent-timers.html">persistent-timers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../ejb/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/h2">h2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../h2/h2.html">h2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/hazelcast">hazelcast</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/asadmin.html">asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/configuration.html">configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/datagrid-encryption.html">datagrid-encryption</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/discovery.html">discovery</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/enable-hazelcast.html">enable-hazelcast</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/using-hazelcast.html">using-hazelcast</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../hazelcast/viewing-members.html">viewing-members</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/health-check-service">health-check-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../health-check-service/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/health-check-service/config">config</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../health-check-service/config/common-config.html">common-config</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../health-check-service/config/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../health-check-service/config/special-config.html">special-config</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../health-check-service/config/threshold-config.html">threshold-config</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../health-check-service/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jacc.html">jacc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../javamail.html">javamail</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/jaxws">jaxws</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jaxws/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jaxws/scanning.html">scanning</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/jbatch">jbatch</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jbatch/asadmin.html">asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jbatch/database-support.html">database-support</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jbatch/jbatch.html">jbatch</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jbatch/schema-name.html">schema-name</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jbatch/table-prefix-and-suffix.html">table-prefix-and-suffix</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/jcache">jcache</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jcache/jcache-accessing.html">jcache-accessing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jcache/jcache.html">jcache</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jcache/jcache-annotations.html">jcache-annotations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jcache/jcache-creating.html">jcache-creating</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jce-provider-support.html">jce-provider-support</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/jdbc">jdbc</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/advanced-connection-pool-properties.html">advanced-connection-pool-properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/index.html">index</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/jdbc-connection-validation.html">jdbc-connection-validation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/log-jdbc-calls.html">log-jdbc-calls</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/mysql-connectorj-8-changes.html">mysql-connectorj-8-changes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/slow-sql-logger.html">slow-sql-logger</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/sql-statement-overview.html">sql-statement-overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jdbc/sql-trace-listeners.html">sql-trace-listeners</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/jmx-monitoring-service">jmx-monitoring-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jmx-monitoring-service/amx.html">amx</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jmx-monitoring-service/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jmx-monitoring-service/configuration.html">configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jmx-monitoring-service/jmx-monitoring-service.html">jmx-monitoring-service</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../jmx-monitoring-service/jmx-notification-configuration.html">jmx-notification-configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../jpa-cache-coordination.html">jpa-cache-coordination</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/logging">logging</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/access-logging-date-stamp-property.html">access-logging-date-stamp-property</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/access-logging-max-file-size.html">access-logging-max-file-size</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/ansi-colours.html">ansi-colours</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/daily-log-rotation.html">daily-log-rotation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/json-formatter.html">json-formatter</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/log-compression.html">log-compression</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/logging.html">logging</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/log-to-file.html">log-to-file</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/multiline.html">multiline</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../logging/notification-logging.html">notification-logging</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/monitoring-service">monitoring-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../monitoring-service/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../monitoring-service/configuration.html">configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../monitoring-service/monitoring-service.html">monitoring-service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/notification-service">notification-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../notification-service/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../notification-service/notification-service.html">notification-service</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/notification-service/notifiers">notifiers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../notification-service/notifiers/cdi-event-bus-notifier.html">cdi-event-bus-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../notification-service/notifiers/event-bus-notifier.html">event-bus-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../notification-service/notifiers/jms-notifier.html">jms-notifier</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../notification-service/notifiers/log-notifier.html">log-notifier</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../notification-service/notifiers.html">notifiers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/password-aliases">password-aliases</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../password-aliases/password-alias-admin-console-commands.html">password-alias-admin-console-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../password-aliases/password-alias-asadmin-commands.html">password-alias-asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../password-aliases/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/phone-home">phone-home</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../phone-home/disabling-phone-home.html">disabling-phone-home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../phone-home/phone-home-asadmin.html">phone-home-asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../phone-home/phone-home-information.html">phone-home-information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../phone-home/phonehome-overview.html">phonehome-overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/public-api">public-api</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/cdi-events.html">cdi-events</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/clustered-singleton.html">clustered-singleton</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/oauth-support.html">oauth-support</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/openid-connect-support.html">openid-connect-support</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/public-api/realm-identitystores">realm-identitystores</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/certificate-identity-store-definition.html">certificate-identity-store-definition</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/file-identity-store-definition.html">file-identity-store-definition</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/pam-identity-store-definition.html">pam-identity-store-definition</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/realm-identity-store-definition.html">realm-identity-store-definition</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../public-api/realm-identitystores/solaris-identity-store-definition.html">solaris-identity-store-definition</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/roles-permitted.html">roles-permitted</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../public-api/twoidentitystores.html">twoidentitystores</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/request-tracing-service">request-tracing-service</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/configuration.html">configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/request-tracing-service.html">request-tracing-service</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/terminology.html">terminology</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/tracing-remote-ejbs.html">tracing-remote-ejbs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../request-tracing-service/usage.html">usage</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/rest-api">rest-api</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-api/definitions.html">definitions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-api/overview.html">overview</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-api/resources.html">resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-api/rest-api-documentation.html">rest-api-documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-api/security.html">security</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/rest-monitoring">rest-monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-monitoring/asadmin-commands.html">asadmin-commands</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-monitoring/configuring-rest-monitoring.html">configuring-rest-monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-monitoring/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../rest-monitoring/using-rest-monitoring.html">using-rest-monitoring</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration">server-configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration/http">http</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/http/network-listeners.html">network-listeners</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration/http/protocols">protocols</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/protocols/http2-options.html">http2-options</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/protocols/http-options.html">http-options</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/protocols/protocols-asadmin.html">protocols-asadmin</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/protocols/ssl-options.html">ssl-options</a>
+  </li>
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/protocols/standard-options.html">standard-options</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/http/protocols.html">protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/http/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration/http/security">security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="5">
+    <a class="nav-link" href="../server-configuration/http/security/sni.html">sni</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/http/virtual-servers.html">virtual-servers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../server-configuration/jsf-options.html">jsf-options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../server-configuration/jvm-options.html">jvm-options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../server-configuration/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration/security">security</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/security/certificate-realm-groups.html">certificate-realm-groups</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/security/certificate-realm-principal-name.html">certificate-realm-principal-name</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/security/multiple-mechanism-in-ear.html">multiple-mechanism-in-ear</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/security/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../server-configuration/ssl-certificates.html">ssl-certificates</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/payara-server/server-configuration/var-substitution">var-substitution</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/var-substitution/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/var-substitution/types-of-variables.html">types-of-variables</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../server-configuration/var-substitution/usage-of-variables.html">usage-of-variables</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../system-properties.html">system-properties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/user-guides">user-guides</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/backup-domain.html">backup-domain</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/bypassing-jms-connections-through-a-firewall.html">bypassing-jms-connections-through-a-firewall</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/user-guides/connection-pools">connection-pools</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/connection-pools/connection-pools.html">connection-pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/connection-pools/leak-detection.html">leak-detection</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/connection-pools/sizing.html">sizing</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/connection-pools/validation.html">validation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/mdb-in-payara-micro.html">mdb-in-payara-micro</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#documentation/user-guides/monitoring">monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/monitoring/enable-jmx-monitoring.html">enable-jmx-monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/monitoring/mbeans.html">mbeans</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/monitoring/monitoring.html">monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../user-guides/monitoring/monitoring-console.html">monitoring-console</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/restore-domain.html">restore-domain</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/starter-with-jpa.html">starter-with-jpa</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/upgrade-payara.html">upgrade-payara</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/user-guides.html">user-guides</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../user-guides/using-the-maven-cargo-plugin.html">using-the-maven-cargo-plugin</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">general-info</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../general-info/contributing-to-payara.html">contributing-to-payara</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../general-info/general-info.html">general-info</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../general-info/supported-platforms.html">supported-platforms</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../general-info/technical-preview.html">technical-preview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">getting-started</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../getting-started/build-instructions.html">build-instructions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../getting-started/getting-started.html">getting-started</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">jakartaee-certification</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.193">5.193</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.193/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.193/tck-results-full-5.193.1.html">tck-results-full-5.193.1</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.194">5.194</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.194/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.194/tck-results-full-5.194.html">tck-results-full-5.194</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.201">5.201</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.201/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.201/tck-results-full-5.201.html">tck-results-full-5.201</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.2020.2">5.2020.2</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.2/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.2/tck-results-full-5.2020.2.html">tck-results-full-5.2020.2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.2020.5">5.2020.5</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.5/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.5/tck-results-full-5.2020.5.html">tck-results-full-5.2020.5</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.2020.6">5.2020.6</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.6/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.6/tck-results-full-5.2020.6.html">tck-results-full-5.2020.6</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.6/tck-results-web-5.2020.6.html">tck-results-web-5.2020.6</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.2020.7">5.2020.7</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.7/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2020.7/tck-results-full-5.2020.7.html">tck-results-full-5.2020.7</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#jakartaee-certification/5.2021.1">5.2021.1</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2021.1/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../jakartaee-certification/5.2021.1/tck-results-full-5.2021.1.html">tck-results-full-5.2021.1</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../jakartaee-certification/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">release-notes</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../release-notes/README.html">README</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="#release-notes/release-notes-history">release-notes-history</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-144.html">release-notes-144</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-151.html">release-notes-151</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-152.1.html">release-notes-152.1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-152.html">release-notes-152</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-153.html">release-notes-153</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-154.html">release-notes-154</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-161.1.html">release-notes-161.1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-161.html">release-notes-161</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-162.html">release-notes-162</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-163.html">release-notes-163</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-164.html">release-notes-164</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-171.html">release-notes-171</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-172.html">release-notes-172</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-173.html">release-notes-173</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-174.html">release-notes-174</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-181.html">release-notes-181</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-182.html">release-notes-182</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-183.html">release-notes-183</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-184.html">release-notes-184</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-191.html">release-notes-191</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-192.html">release-notes-192</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-193.html">release-notes-193</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-194.html">release-notes-194</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-201.html">release-notes-201</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-2.html">release-notes-2020-2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-3.html">release-notes-2020-3</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-4.html">release-notes-2020-4</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-5.html">release-notes-2020-5</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-6.html">release-notes-2020-6</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2020-7.html">release-notes-2020-7</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-2021-1.html">release-notes-2021-1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-4-181.html">release-notes-4-181</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-4-182.html">release-notes-4-182</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-4-183.html">release-notes-4-183</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-4-184.html">release-notes-4-184</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../../release-notes/release-notes-history/release-notes-4-191.html">release-notes-4-191</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../release-notes/release-notes-history.html">release-notes-history</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">schemas</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#schemas/payara-resources_1_6.dtd">payara-resources_1_6.dtd</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#schemas/payara-web-app_4.dtd">payara-web-app_4.dtd</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../schemas/README.html">README</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">security</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../security/security.html">security</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../security/security-fix-list.html">security-fix-list</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Payara Platform</span>
+    <span class="version">master</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">Payara Platform</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../../README.html">master</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../README.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../../README.html">Payara Platform</a></li>
+    <li>documentation</li>
+    <li>payara-server</li>
+    <li>deployment-groups</li>
+    <li><a href="README.html">README</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/alanroth/workspace/payara-docs-overhaul/payara-community-documentation/docs/modules/ROOT/pages/documentation/payara-server/deployment-groups/README.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Deployment Groups</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Deployment Groups are a new feature in Payara Server 5. The Deployment Group is designed to replace the deployment targeting aspect of Clusters
+that was available in previous versions of Payara.</p>
+</div>
+<div class="paragraph">
+<p><strong>For more information about Deployment Groups in Payara Server 5, read our blog articles on this topic:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://blog.payara.fish/clustering-and-deployment-groups-in-payara-server-5">Clustering and Deployment Groups in Payara Server 5</a>.</p>
+</li>
+<li>
+<p><a href="https://blog.payara.fish/deployment-groups-in-payara-server-5">Deployment Groups on Payara Server 5</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_why_replace_clusters"><a class="anchor" href="#_why_replace_clusters"></a>Why replace Clusters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Cluster in Payara Server 4 encapsulated a number of concepts;</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>First it was a target of deployment</p>
+</li>
+<li>
+<p>Second it provided in-memory data storage for web sessions and Stateful Session Beans</p>
+</li>
+<li>
+<p>Third it defined a configuration</p>
+</li>
+<li>
+<p>Fourth it treated a number of Payara Server Instances as a single grouping</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>With the introduction of the Domain Data Grid the concept of data persistence
+was split from the Cluster concept to allow all instances to automatically cluster
+and share data. The introduction of the deployment group splits out the targeting aspect
+ of clusters.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_a_deployment_group"><a class="anchor" href="#_what_is_a_deployment_group"></a>What is a Deployment Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A Deployment Group is a loose grouping of Payara Server instances that can be used as a target for deployments.
+Deployment Groups consist of 1 or more Payara Server instances and each Payara Server Instance can belong to one or more Deployment Groups.</p>
+</div>
+<div class="paragraph">
+<p>Deployment Groups can also be used to manage the lifecycle of the instances in the group.
+All instances can be started, re-started and stopped using the deployment group.
+Restarting all the instances in the deployment group performs a rolling restart
+whereby each instance is restarted in turn to ensure that any data grid held data
+is retained across the group restart.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_deployment_group"><a class="anchor" href="#_creating_a_deployment_group"></a>Creating a Deployment Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A deployment group can be created in both the administration console and via Asadmin</p>
+</div>
+<div class="sect2">
+<h3 id="_using_the_administration_console"><a class="anchor" href="#_using_the_administration_console"></a>Using the Administration console</h3>
+<div class="paragraph">
+<p>To create a new deployment group. Navigate to the Deployment Groups node in the navigation
+tree, click on the New button and give the deployment group a unique name. From
+this screen it is also possible to add a number of new server instances if desired,
+however it is possible to add existing instances to the group later.
+<span class="image"><img src="../../../_images/deployment-groups/deployment-group-new.png" alt="Create New Deployment Group"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_asadmin_commands"><a class="anchor" href="#_using_asadmin_commands"></a>Using asadmin commands</h3>
+<div class="paragraph">
+<p>To create a new deployment group run the command;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; create-deployment-group test</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deleting_a_deployment_group"><a class="anchor" href="#_deleting_a_deployment_group"></a>Deleting a Deployment Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A deployment group can be deleted in both the administration console and via Asadmin.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+When you delete a deployment group that has instances within it these
+instances are not deleted.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_using_the_administration_console_2"><a class="anchor" href="#_using_the_administration_console_2"></a>Using the Administration Console</h3>
+<div class="paragraph">
+<p>To delete a deployment group. Navigate to the group in the console, select it and choose delete.
+<span class="image"><img src="../../../_images/deployment-groups/delete-deployment-group.png" alt="Delete a Deployment Group"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_asadmin_commands_2"><a class="anchor" href="#_using_asadmin_commands_2"></a>Using asadmin commands</h3>
+<div class="paragraph">
+<p>To delete a deployment group run the command;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; delete-deployment-group test</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_deployment_group_membership"><a class="anchor" href="#_managing_deployment_group_membership"></a>Managing Deployment Group Membership</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_adding_an_instance"><a class="anchor" href="#_adding_an_instance"></a>Adding an instance</h3>
+<div class="paragraph">
+<p>When you have an existing standalone instance it can be assigned to a deployment group
+using the administration console and via asadmin. To add an existing instance to
+a deployment group. Navigate to the deployment group in the administration Console and
+then select the instance in the drop down from the Instances tab.
+<span class="image"><img src="../../../_images/deployment-groups/add-server-to-dg.png" alt="Add a Server to a Deployment Group"></span>
+The same can be achieved using the asadmin command;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; add-instance-to-deployment-group --instance testserver --deploymentgroup test2</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+An instance can be in many deployment Groups
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_removing_an_instance"><a class="anchor" href="#_removing_an_instance"></a>Removing an Instance</h3>
+<div class="paragraph">
+<p>If you want to remove an instance from a deployment group. Navigate to the deployment group,
+select the instance and choose remove from the "more actions&#8230;&#8203;" drop down.
+<span class="image"><img src="../../../_images/deployment-groups/remove-server-from-dg.png" alt="Remove a Server from a Deployment Group"></span>
+The same can be acheived using the asadmin command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; remove-instance-from-deployment-group --instance testserver --deploymentgroup test2</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_server_lifecycle_management"><a class="anchor" href="#_server_lifecycle_management"></a>Server Lifecycle Management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A deployment group can also be used to provide lifecycle management to the group
+of server instances in the deployment group. All servers in the group can be started,
+stopped and restarted. To do this, navigate to the deployment group and choose "Start Deployment Group",
+"Stop Deployment Group" or "Restart Deployment Group".</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+These commands are Data Grid safe and restart the deployment group in
+such a way as to minimize the danger of Data Grid disruption.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../../_images/deployment-groups/lifecycle-dg.png" alt="Server Lifecycle Management"></span></p>
+</div>
+<div class="paragraph">
+<p>The same can be achieved using the asadmin commands;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; start-deployment-group test2
+asadmin&gt; restart-deployment-group test2
+asadmin&gt; stop-deployment-group test2</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploying_applications_to_a_deployment_group"><a class="anchor" href="#_deploying_applications_to_a_deployment_group"></a>Deploying Applications to a Deployment Group</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To deploy an application to a deployment group you just select the deployment group
+name in the list of targets in the usual way. This can be done both on the Applications
+ tab of the Deployment Group or on the Applications section of the administration console.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../../../_images/deployment-groups/deploy-to-dg.png" alt="Deploy to a deployment group"></span></p>
+</div>
+<div class="paragraph">
+<p>To deploy an application using asadmin just specify the deployment group as a target when
+running the deploy command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">asadmin&gt; deploy --target test2 test.war</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The same targeting also works for resources.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript"> 
+(function () {
+    function getCurrentVersion() {
+        var containerElement = document.getElementsByClassName("nav-container")[0];
+        if (containerElement) {
+            var versionAttribute = containerElement.attributes["data-version"];
+            if (versionAttribute) {
+                return versionAttribute.value;
+            }
+        }
+        return null;
+    }
+
+    var currentVersion = getCurrentVersion();
+    var facetFilters = currentVersion ? ["version:"+currentVersion] : []
+
+    var searchInput = document.getElementById("search-input");
+
+    if (searchInput) {
+        docsearch({
+        apiKey: '0e166e657e381ec2661d7bd2d4426011',
+        indexName: 'payara',
+        inputSelector: '#search-input',
+        algoliaOptions: { 'facetFilters': facetFilters },
+        debug: false // Set debug to true if you want to inspect the dropdown
+        });
+        
+        searchInput.focus();
+    }
+})();
+</script>
+  </body>
+</html>

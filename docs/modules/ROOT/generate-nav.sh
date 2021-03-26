@@ -3,6 +3,7 @@
 readonly WORKING_DIR="$(pwd)/pages"
 readonly NEW_NAV_FILE_NAME="nav.adoc"
 readonly OUTPUT_NAV_LOCATION="$(pwd)/$NEW_NAV_FILE_NAME"
+readonly PARENT_DIR="/home/alanroth/workspace/payara-docs-overhaul/payara-community-documentation"
 
 rm $OUTPUT_NAV_LOCATION
 touch $OUTPUT_NAV_LOCATION
@@ -20,8 +21,8 @@ create_nav () {
         filename=${filename%.adoc}
 
         echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
-        if [ -d $file ]; then
-            create_nav $file
+        if [ -d "$file" ]; then
+            create_nav "$file"
         fi
     done
 }
@@ -32,7 +33,7 @@ for dir in */ ; do
     #New line character required before heading for correct formatting
     echo >> $OUTPUT_NAV_LOCATION
     echo ".$dir" >> $OUTPUT_NAV_LOCATION
-    create_nav $dir
+    create_nav "$dir"
 done
 
 echo "---- GENERATED NAV -----"
