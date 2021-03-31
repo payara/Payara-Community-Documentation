@@ -297,6 +297,7 @@
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
+** xref:release-notes/release-notes-2021-2.adoc[Payara Community 5.2021.2 Release Notes]
 ** xref:release-notes/release-notes-2021-1.adoc[Payara Community 5.2021.1 Release Notes]
 ** xref:release-notes/release-notes-2020-7.adoc[Payara Community 5.2020.7 Release Notes]
 ** xref:release-notes/release-notes-2020-6.adoc[Payara Community 5.2020.6 Release Notes]
