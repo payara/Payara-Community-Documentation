@@ -10,7 +10,7 @@
 
 === Jakarta EE 9 Support
 
-In this release, we have fixed several issues relating to our Jakarta EE 9 Servlet support through Eclipse Transformer. This is as a part of our ongoing effort to close the migration gap between major Jakarta versions before we provide full support for Jakarta EE 9. We encourage users to try updating their applications to Jakarta EE 9 with [Eclipse Transformer](https://github.com/eclipse/transformer), and raising any discovered bugs on our Github issue tracker.
+In this release, we have fixed several issues relating to our Jakarta EE 9 Web Component (Servlet, JSTL and JSF) support through Eclipse Transformer. This is as a part of our ongoing effort to close the migration gap between major Jakarta versions before we provide full support for Jakarta EE 9. We encourage users to try updating their applications to Jakarta EE 9 with https://github.com/eclipse/transformer[Eclipse Transformer], and raising any discovered bugs on our Github issue tracker.
 
 == New Feature
 
