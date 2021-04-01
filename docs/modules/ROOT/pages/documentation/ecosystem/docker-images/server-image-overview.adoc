@@ -19,12 +19,10 @@ Keep in mind the following:
 * The _tini_ utility is used to guarantee that the server runs seamlessly as the single child process. 
 * The server's JVM process runs under the `payara` user.
 
-NOTE: It is always recommended to specify the tag name of the Docker image that you plan to use. Otherwise, you will be running the latest version and might encounter some unwanted effects due to changes between versions.
-
 [source, shell]
 .Using a specific version
 ----
-docker run -p 8080:8080 payara/server-full:{currentVersion}
+docker run -p 8080:8080 payara/server-full:{{currentVersion}}
 ----
 
 [[other-distributions]]
@@ -34,8 +32,6 @@ Besides the Full Profile version, the Payara Server Web Profile distribution is 
 
 [[jdk-version]]
 == Specifying the JDK Version
-
-_Since Payara Server's Docker Image 5.2020.3_
 
 There are 2 different, alternative versions of the JDK images:
 
@@ -66,7 +62,7 @@ To access the DAS' administration interface (either by remote asadmin commands o
 
 [source, shell]
 ----
-docker run -p 4848:4848 -p 8080:8080 payara/server-full:{currentVersion}
+docker run -p 4848:4848 -p 8080:8080 payara/server-full
 ----
 
 By default, the admin service will be secure-enabled, meaning that HTTPS communication will be used exclusively.
@@ -98,7 +94,7 @@ The following sample command will launch a new Payara Server container and deplo
 
 [docker, shell]
 ----
-docker run -p 8080:8080 -v ~/payara/apps:/opt/payara/deployments payara/server-full:{currentVersion}
+docker run -p 8080:8080 -v ~/payara/apps:/opt/payara/deployments payara/server-full
 ----
 
 [[deploy-using-custom-image]]
@@ -110,7 +106,7 @@ The following sample _Dockerfile_ can be used to prepare a custom Payara Server 
 
 [source, Docker]
 ----
-FROM payara/server-full:{currentVersion}
+FROM payara/server-full
 COPY myapplication.war $DEPLOY_DIR
 ----
 
@@ -168,14 +164,14 @@ For example, the following sample command will execute all commands listed in th
 
 [source, shell]
 ----
-docker run -p 8080:8080 -v /local/path/with/boot/file:/config -e POSTBOOT_COMMANDS=/config/post-boot-commands.asadmin payara/server-full:{currentVersion}
+docker run -p 8080:8080 -v /local/path/with/boot/file:/config -e POSTBOOT_COMMANDS=/config/post-boot-commands.asadmin payara/server-full
 ----
 
 Alternatively, the same outcome can be achieved by defining a custom Docker image:
 
 [source, Docker]
 ----
-FROM payara/server-full:{currentVersion}
+FROM payara/server-full
 COPY post-boot-commands.asadmin $POSTBOOT_COMMANDS
 ----
 
@@ -214,5 +210,5 @@ You can override the default entrypoint if needed to test or browse the containe
 
 [source, shell]
 ----
-docker run -p 8080:8080 -it payara/server-full:{currentVersion} bash
+docker run -p 8080:8080 -it payara/server-full bash
 ----

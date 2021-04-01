@@ -19,8 +19,6 @@ Keep in mind the following:
 * Accessing the default HTTP endpoint will yield a `404 - Not Found` response.
 * The instance's JVM process runs under the `payara` user.
 
-NOTE: It is always recommended to specify the tag name of the Docker image that you plan to use. Otherwise, you will be running the latest version and might encounter some unwanted effects due to changes between versions.
-
 [source, shell]
 .Using a specific version
 ----
@@ -78,7 +76,7 @@ The following command will start a new Payara Micro instance container and deplo
 [source, shell]
 ----
 docker run -p 8080:8080 \
- -v ~/payara-micro/applications:/opt/payara/deployments payara/micro:{currentVersion}
+ -v ~/payara-micro/applications:/opt/payara/deployments payara/micro
 ----
 
 To only deploy a specific artefact within the directory, simply pass the `--deploy` argument to the container's run command and specify which application to deploy:
@@ -87,8 +85,7 @@ To only deploy a specific artefact within the directory, simply pass the `--depl
 ----
 docker run -p 8080:8080 \
  -v ~/payara-micro/applications:/opt/payara/deployments \
- payara/micro:{currentVersion} \
- --deploy /opt/payara/deployments/myapplication.war
+ payara/micro --deploy /opt/payara/deployments/myapplication.war
 ----
 
 NOTE: Make sure to prefix the artefact names with the absolute path to the local deployment directory.
@@ -102,7 +99,7 @@ The following sample _Dockerfile_ can be used to prepare a custom Payara Micro i
 
 [source, Docker]
 ----
-FROM payara/micro:{currentVersion}
+FROM payara/micro
 COPY myapplication.war $DEPLOY_DIR
 ----
 
@@ -115,7 +112,7 @@ Here's an example of how to deploy a sample application located in a local Maven
 
 [source, shell]
 ----
-docker docker run -p 8080:8080 payara/micro:{currentVersion} \
+docker docker run -p 8080:8080 payara/micro \
  --deployFromGAV "fish.payara.examples:my-application:1.0-SNAPSHOT" \
  --additionalRepository https://172.17.0.10/content/repositories/snapshots
 ----
@@ -138,7 +135,7 @@ Here are some basic examples:
 .One application deployed, uses the `myRoot` context root
 ----
 docker run -p 8080:8080 \
- -v ~/payara-micro/applications:/opt/payara/deployments payara/micro:{currentVersion}  \
+ -v ~/payara-micro/applications:/opt/payara/deployments payara/micro  \
 --deploymentDir /opt/payara/deployments  \
  --contextroot myRoot
 ----
@@ -148,7 +145,7 @@ docker run -p 8080:8080 \
 ----
 docker run -p 8080:8080 \
  -v ~/payara-micro/applications:/opt/payara/deployments \
- payara/micro:{currentVersion} \
+ payara/micro \
  --deploy /opt/payara/deployments/myapplication.war \
  --contextroot ROOT
 ----
@@ -157,7 +154,7 @@ You can also prepare a custom Docker image that overrides the default `CMD` inst
 
 [source, Docker]
 ----
-FROM payara/micro:{currentVersion}
+FROM payara/micro
 COPY myapplication.war $DEPLOY_DIR
 CMD ["--deploymentDir", "/opt/payara/deployments", "--contextroot", "my"]
 ----
@@ -174,7 +171,7 @@ To disable the Data Grid, you can pass the `--noCluster` argument to the entry p
 [source, shell]
 ----
 docker run -p 8080:8080 \
- -v ~/payara-micro/applications:/opt/payara/deployments payara/micro:{currentVersion} --noCluster
+ -v ~/payara-micro/applications:/opt/payara/deployments payara/micro --noCluster
 ----
 
 [[using-environment-variables]]
