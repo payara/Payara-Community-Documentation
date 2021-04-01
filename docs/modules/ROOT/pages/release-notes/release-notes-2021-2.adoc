@@ -1,4 +1,4 @@
-= Payara Community 5.2021.1 Release Notes
+= Payara Community 5.2021.2 Release Notes
 
 == Supported APIs and Applications
 
@@ -14,7 +14,7 @@ In this release, we have fixed several issues relating to our Jakarta EE 9 Web C
 
 == New Feature
 
-*   [[FISH-1064](https://github.com/payara/Payara/pull/5166)] - Asadmin to clear out old job executions of JBatch in all supported databases
+*   [https://github.com/payara/Payara/pull/5166[FISH-1064]] - Asadmin to clear out old job executions of JBatch in all supported databases
 
 == Improvement
 

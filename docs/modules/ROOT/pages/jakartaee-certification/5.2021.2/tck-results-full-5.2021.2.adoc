@@ -15,7 +15,7 @@ following is a summary of the TCK results for releases of Jakarta EE Platform, F
 |
 {empty} +
 {empty} +
-https://www.payara.fish/downloads/payara-platform-community-edition[Payara Server 5.2021.1]
+https://www.payara.fish/downloads/payara-platform-community-edition[Payara Server 5.2021.2]
 |===
 
 - Specification Name, Version and download URL:
@@ -28,7 +28,7 @@ http://download.eclipse.org/jakartaee/platform/8/eclipse-jakartaeetck-8.0.2.zip[
 
 - Public URL of TCK Results Summary:
 +
-https://docs.payara.fish/community/docs/5.2021.1/jakartaee-certification/5.2021.1/tck-results-full-5.2021.1.html
+https://docs.payara.fish/community/docs/5.2021.2/jakartaee-certification/5.2021.2/tck-results-full-5.2021.2.html
 
 - Any Additional Specification Certification Requirements:
 
