@@ -22,7 +22,7 @@ Keep in mind the following:
 [source, shell]
 .Using a specific version
 ----
-docker run -p 8080:8080 payara/server-full:${currentVersion}
+docker run -p 8080:8080 payara/server-full:\{currentVersion\}
 ----
 
 [[other-distributions]]
@@ -178,19 +178,13 @@ COPY post-boot-commands.asadmin $POSTBOOT_COMMANDS
 [[executing-custom-scripts-before-domain-startup]]
 === Executing Custom Scripts before Domain Startup
 
-If preboot command files are not enough, you can add your own customized shell scripts to the `${SCRIPT_DIR}` directory, which will allow you to modify the environment before the Payara Server domain starts. 
+If preboot command files are not enough, you can add your customized shell scripts to the `${SCRIPT_DIR}/init.d` directory. This will allow you to modify the environment before the Payara Server domain starts. 
 
-Scripts added to this folder should be named with the following convention:
+Scripts added to this folder should be link:https://www.gnu.org/software/bash/[Bash] scripts and they should end with the `.sh` suffix.
 
-----
-init_<num>_<text>.sh 
-----
-* `<num>` is a positive integer that allows you to set the order in which the scripts are run.
-* `<text>` is a descriptive help text that summarizes what the script does.
+TIP: Scripts in `${SCRIPT_DIR}/init.d` will be executed in the standard file order. If you need to start them in a specific order, we recommend prepending a prefix number to their name, for example, `01_script1.sh`, `02_script2.sh`, and so on.
 
-NOTE: Be aware that the default deploy command script (`init_1_generate_deploy_commands.sh`) also uses follows this convention, so custom scripts should start with number 2.
-
-As with the preboot command file, you may either create a custom Docker image that already contains the script files in question or you can also mount a volume mapped to the `${SCRIPT_DIR}` directory instead.
+As with the preboot command file, you may either create a custom Docker image that already contains the script files in question or you can also mount a volume mapped to the `${SCRIPT_DIR}/init.d` directory instead.
 
 [[default-entrypoint]]
 === The Default Docker Entrypoint
@@ -200,7 +194,7 @@ The default entry point of the Docker image is defined using the https://github.
 The default `CMD` argument for _tini_ runs the `bin/entrypoint.sh` shell script in `exec` mode, which in turn runs the following scripts in order:
 
 . `${SCRIPT_DIR}/init_1_generate_deploy_commands.sh`: This script outputs deploy commands to the post-boot command file located at `$POSTBOOT_COMMANDS` (default `$CONFIG_DIR/post-boot-commands.asadmin`). If deploy commands are already found in that file, this script does nothing.
-. `${SCRIPT_DIR}/init_*.sh`: As described above, these scripts can be provided by you to run and configure the environment *before* domain startup.
+. `${SCRIPT_DIR}/init.d/*.sh`: As described above, these scripts can be provided by you to run and configure the environment *before* the domain startup.
 . `${SCRIPT_DIR}/startInForeground.sh`. This script starts the domain in the foreground, in a manner that allows the JVM to be controlled by the docker host.
 
 [[browsing-container]]
