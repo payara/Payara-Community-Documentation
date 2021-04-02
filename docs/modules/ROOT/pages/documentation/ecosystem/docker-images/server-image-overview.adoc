@@ -22,7 +22,7 @@ Keep in mind the following:
 [source, shell]
 .Using a specific version
 ----
-docker run -p 8080:8080 payara/server-full:{{currentVersion}}
+docker run -p 8080:8080 payara/server-full:${currentVersion}
 ----
 
 [[other-distributions]]
@@ -42,7 +42,7 @@ To switch from the default JDK 8 based image to the JDK 11 compatible one, just 
 
 [source, shell]
 ----
-docker run -p 8080:8080 payara/server-full:{currentVersion}-jdk11
+docker run -p 8080:8080 payara/server-full:${currentVersion}-jdk11
 ----
 
 [[ports]]
