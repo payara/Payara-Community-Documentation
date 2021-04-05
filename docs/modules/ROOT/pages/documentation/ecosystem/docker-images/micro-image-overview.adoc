@@ -112,7 +112,7 @@ Here's an example of how to deploy a sample application located in a local Maven
 
 [source, shell]
 ----
-docker docker run -p 8080:8080 payara/micro \
+docker run -p 8080:8080 payara/micro \
  --deployFromGAV "fish.payara.examples:my-application:1.0-SNAPSHOT" \
  --additionalRepository https://172.17.0.10/content/repositories/snapshots
 ----
