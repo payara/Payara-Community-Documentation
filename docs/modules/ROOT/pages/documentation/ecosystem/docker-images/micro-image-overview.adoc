@@ -19,10 +19,10 @@ Keep in mind the following:
 * Accessing the default HTTP endpoint will yield a `404 - Not Found` response.
 * The instance's JVM process runs under the `payara` user.
 
-[source, shell]
+[source, shell, subs=attributes+]
 .Using a specific version
 ----
-docker run -p 8080:8080 payara/micro:${currentVersion}
+docker run -p 8080:8080 payara/micro:{currentVersion}
 ----
 
 [[jdk-version]]
@@ -35,9 +35,9 @@ There are 2 different, alternative versions of the JDK images:
 
 To switch from the default JDK 8 based image to the JDK 11 compatible one, just add the corresponding suffix to the tag's name like this:
 
-[source, shell]
+[source, shell, subs=attributes+]
 ----
-docker run -p 8080:8080 payara/micro:${currentVersion}-jdk11
+docker run -p 8080:8080 payara/micro:{currentVersion}-jdk11
 ----
 
 [[ports]]
