@@ -14,7 +14,7 @@ Payara platform. This guide describes how you can create your Notifier.
 
 . A class defining the configuration
 +
-Since the data needs to be stored in de _domain.xml_ file.
+Since the data needs to be stored in the _domain.xml_ file.
 
 . Asadmin commands
 +
@@ -435,7 +435,7 @@ Override this method if you want to perform some actions when the Notifier is cr
 Override this method if you want to perform some actions when the Notfier is destroyed.
 
 [[payaranotification]]
-== PayaraNotification
+== Payara Notification
 
 This is the main class of the Notification event. Events can be raised for
 
