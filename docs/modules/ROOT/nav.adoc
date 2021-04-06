@@ -276,6 +276,7 @@
 *** xref:documentation/extensions/notifiers/snmp-notifier.adoc[SNMP Notifier]
 *** xref:documentation/extensions/notifiers/teams-notifier.adoc[Teams Notifier]
 *** xref:documentation/extensions/notifiers/xmpp-notifier.adoc[XMPP Notifier]
+*** xref:documentation/extensions/notifiers/custom-notifier.adoc[Creating a Custom Notifier]
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
