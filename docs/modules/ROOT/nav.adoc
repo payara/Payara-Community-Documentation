@@ -2,7 +2,7 @@
 * xref:README.adoc[Introduction]
 ** xref:general-info/general-info.adoc[Overview]
 ** xref:release-notes/README.adoc[Release Notes]
-*** xref:release-notes/release-notes-2021-1.adoc[Payara Community 5.2021.1 Release Notes]
+*** xref:release-notes/release-notes-2021-2.adoc[Payara Community 5.2021.2 Release Notes]
 ** xref:security/security.adoc[Security]
 *** xref:security/security-fix-list.adoc[Security Fixes Summary]
 ** xref:general-info/supported-platforms.adoc[Supported Platforms]
@@ -297,6 +297,7 @@
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
+** xref:release-notes/release-notes-2021-2.adoc[Payara Community 5.2021.2 Release Notes]
 ** xref:release-notes/release-notes-2021-1.adoc[Payara Community 5.2021.1 Release Notes]
 ** xref:release-notes/release-notes-2020-7.adoc[Payara Community 5.2020.7 Release Notes]
 ** xref:release-notes/release-notes-2020-6.adoc[Payara Community 5.2020.6 Release Notes]
@@ -337,6 +338,8 @@
 * xref:schemas/README.adoc[Schemas]
 
 * xref:jakartaee-certification/README.adoc[Jakarta EE Platform 8 certification summaries]
+** xref:jakartaee-certification/5.2021.2/README.adoc[Payara Server 5.2021.2]
+*** xref:jakartaee-certification/5.2021.2/tck-results-full-5.2021.2.adoc[5.2021.2 Full Profile]
 ** xref:jakartaee-certification/5.2021.1/README.adoc[Payara Server 5.2021.1]
 *** xref:jakartaee-certification/5.2021.1/tck-results-full-5.2021.1.adoc[5.2021.1 Full Profile]
 ** xref:jakartaee-certification/5.2020.7/README.adoc[Payara Server 5.2020.7]
