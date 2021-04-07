@@ -13,7 +13,7 @@ for HTTPS communication on a listener. | TLSv1, TLSv1.1, TLSv1.2, TLSv1.3 |TLSv1
 
 | fish.payara.classloading.delegate | Boolean | When set to false,
 libraries from applications, and
-_latexmath:[${Domain}_/lib will override the library in _$]\{Product-Root}_/modules
+`<domain>/lib` will override the library in `<payara-installation>/glassfish/modules`
 directory | true, false | true
 
 | fish.payara.admin.command.jline.log.disable | Boolean | When set to true, JLine logging entries for invalid key bindings and other unwanted errors will be prevented - This is a property for the asadmin tool | true, false | false
