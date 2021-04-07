@@ -2,11 +2,11 @@
 = Creating Custom Notifier
 
 The notification service received a major overhaul in Payara Server Community 5.2020.5 (October 2020)
-that makes implementing new notifiers in a modular fashion possible. The overhaul also involved rewriting
-the existing notifiers as extensions, porting them over to a new community repository.
+which made it possible to implement new notifiers in a modular fashion. The overhaul also involved rewriting
+the existing notifiers as extensions and porting them over to a new community repository.
 
 The modular design allows developers to create their custom Notifier and plug it in into the
-Payara Platform. This guide describes how you can create your Notifier.
+Payara Platform. This guide describes how to create your Notifier.
 
 
 [[requirements]]
@@ -176,7 +176,7 @@ The Notifier API itself is available in the `internal-api` artifact that is loca
    </dependency>
 ----
 
-The Notifier API did not change since it was released, the above dependency can be used to create a notifier that can be used on all Community versions since 5.2020.5.
+The Notifier API did not change since it was released so the above dependency can be used to create a notifier that can be used on all Community versions since 5.2020.5.
 
 ----
   <repository>
@@ -242,7 +242,7 @@ public interface CustomNotifierConfiguration extends PayaraNotifierConfiguration
 }
 ----
 
-The highlight of the above code are
+The highlights of the above code are
 
 * @Configured`
 +
@@ -257,7 +257,7 @@ Defines an additional configuration property. You can specify the type of the va
 [[asadmin-commands]]
 == Notifier Asadmin Commands
 
-The Asadmin Commands are required so that your custom notifier can be configured and activated once it is installed on the Payara Platform.
+The Asadmin Commands are required so your custom notifier can be configured and activated once it is installed on the Payara Platform.
 You can choose the name of those commands, but the Payara naming scheme is
 
 ----
@@ -390,7 +390,7 @@ Parameters in the REST call holding the new configuration values. The name is th
 [[notifier-code]]
 == Notifier code
 
-Now that we have the configuration data, and the possibility to configure the custom notifier, wre can implement the Notifier itself.
+Now that we have the configuration data, and the possibility to configure the custom notifier, we can implement the Notifier itself.
 
 ----
 import org.jvnet.hk2.annotations.Service;
