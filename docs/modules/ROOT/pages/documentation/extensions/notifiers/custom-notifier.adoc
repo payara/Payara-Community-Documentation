@@ -6,7 +6,7 @@ that makes implementing new notifiers in a modular fashion possible. The overhau
 the existing notifiers as extensions, porting them over to a new community repository.
 
 The modular design allows developers to create their custom Notifier and plug it in into the
-Payara platform. This guide describes how you can create your Notifier.
+Payara Platform. This guide describes how you can create your Notifier.
 
 
 [[requirements]]
@@ -22,16 +22,16 @@ To read and write the configuration, including activating the plugin.
 . The Notifier itself
 +
 Which takes the Notification event and writes it to the channel you want to implement.
-. Optionally, a plugin for the Web Console
+. Optionally, a plugin for the Admin Console
 +
-So that the notifier can be managed through the Web Console of Payara.
+So that the notifier can be managed through Payara Admin Console.
 
 [[setup]]
 == Project Setup
 
 The Notifier must be an OSGI bundle before it can be integrated within the Payara Platform.
 One bundle contains the configuration class, the asadmin commands and the notifier itself.
-The other module is the optional plugin for the Web Console.
+The other module is the optional plugin for the Admin Console.
 
 Since each module must be an OSGI module, define the maven packaging
 
@@ -481,13 +481,13 @@ Data for the Request Tracing notification event like the Tacing Span information
 [[notifier-plugin]]
 == Notifier Plugin
 
-With the Notifier Web Console Plugin, you can have a dedicated screen for the configuration of the custom notifier. This is optional and doesn't need to be created.
+With the Notifier Admin Console Plugin, you can have a dedicated screen for the configuration of the custom notifier. This is optional and doesn't need to be created.
 
 The configuration class, Asadmin commands and Notifier itself are enough to have a working custom Notifier.
 
 In this section, the basic requirements and conventions are described in order to create such a plugin.  Have a look at the plugins of the existing notifiers to see several examples how such a custom plugin could be created.
 
-The Notifier plugin is based on the Console Provider of Payara to extend the Web Console functionality.
+The Notifier plugin is based on the Console Provider of Payara to extend the Admin Console functionality.
 
 == Plugin
 
@@ -546,7 +546,7 @@ Link here to the location of the snippet defining the body of the Notifier confi
 
 == Configuration Page
 
-This page has more requirements in order to operate correctly within the Payara Web Console.  The easiest way to define is to start from an existing example and modify the configuration fields.
+This page has more requirements in order to operate correctly within the Payara Admin Console.  The easiest way to define is to start from an existing example and modify the configuration fields.
 
 each configuration property requires the following snippet
 
