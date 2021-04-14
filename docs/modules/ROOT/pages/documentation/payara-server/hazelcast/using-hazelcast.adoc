@@ -27,7 +27,7 @@ dependency (if using a non-Maven based project). To add the Payara
 Hazelcast package as a dependency in a POM, enter the following in the
 dependencies section:
 
-[source, xml]
+[source, xml, subs=attributes+]
 ----
 <dependency>
   <groupId>fish.payara.api</groupId>
