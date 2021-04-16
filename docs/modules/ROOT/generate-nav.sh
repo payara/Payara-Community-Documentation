@@ -3,7 +3,7 @@
 readonly WORKING_DIR="$(pwd)/pages"
 readonly NEW_NAV_FILE_NAME="nav.adoc"
 readonly OUTPUT_NAV_LOCATION="$(pwd)/$NEW_NAV_FILE_NAME"
-readonly PARENT_DIR="/home/alanroth/workspace/payara-docs-overhaul/payara-community-documentation"
+readonly PARENT_DIR="/home/alanroth/workspace/payara-community-documentation"
 
 rm $OUTPUT_NAV_LOCATION
 touch $OUTPUT_NAV_LOCATION
