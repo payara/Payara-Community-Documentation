@@ -4,7 +4,7 @@ The Payara Cloud Connectors are a collection of JCA adapters for use with
 various popular cloud messaging providers. These connectors can be deployed to
 Payara Server Community or Payara Micro Community version 172 or higher.
 
-The available connectors are:
+In version {currentVersion}, the available connectors are:
 
 * xref:documentation/ecosystem/cloud-connectors/apache-kafka.adoc[Apache Kafka]
 * xref:documentation/ecosystem/cloud-connectors/amazon-sqs.adoc[Amazon SQS]
