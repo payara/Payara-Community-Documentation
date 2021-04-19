@@ -1,9 +1,4 @@
 
-.documentation
-* xref:documentation/extensions[extensions]
-** xref:documentation/extensions/notifiers[notifiers]
-*** xref:documentation/extensions/notifiers/custom-notifier.adoc[custom-notifier]
-
 .General Info
 * xref:General Info/build-instructions.adoc[build-instructions]
 * xref:General Info/contributing-to-payara.adoc[contributing-to-payara]
@@ -355,6 +350,7 @@
 **** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration[Notifier Configuration]
 ***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/asadmin-commands.adoc[asadmin-commands]
 ***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/cdi-event-bus-notifier.adoc[cdi-event-bus-notifier]
+***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/custom-notifier.adoc[custom-notifier]
 ***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/event-bus-notifier.adoc[event-bus-notifier]
 ***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/jms-notifier.adoc[jms-notifier]
 ***** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/log-notifier.adoc[log-notifier]
