@@ -72,7 +72,7 @@ to take effect.
 == Using `DN` parts as Groups in Applications
 
 When we configured realm to use parts of distinguished name for groups, and maybe even
-xref:certificate-realm-principal-name.adoc[using CN as principal name],
+xref:documentation//payara-server/server-configuration/security/certificate-realm-principal-name.adoc[using CN as principal name],
 we can also map these groups to roles.
 
 The mapping is done in standard way by other server components, but let's summarize some set of rules:

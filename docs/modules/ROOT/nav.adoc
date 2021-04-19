@@ -1,4 +1,9 @@
 
+.documentation
+* xref:documentation/extensions[extensions]
+** xref:documentation/extensions/notifiers[notifiers]
+*** xref:documentation/extensions/notifiers/custom-notifier.adoc[custom-notifier]
+
 .General Info
 * xref:General Info/build-instructions.adoc[build-instructions]
 * xref:General Info/contributing-to-payara.adoc[contributing-to-payara]
@@ -145,6 +150,10 @@
 **** xref:Technical Documentation/Ecosystem/Connector Suites/security-connectors/security-connectors.adoc[security-connectors]
 ** xref:Technical Documentation/Ecosystem/ecosystem.adoc[ecosystem]
 ** xref:Technical Documentation/Ecosystem/IDE Intergration[IDE Intergration]
+*** xref:Technical Documentation/Ecosystem/IDE Intergration/docker-images[docker-images]
+**** xref:Technical Documentation/Ecosystem/IDE Intergration/docker-images/micro-image-overview.adoc[micro-image-overview]
+**** xref:Technical Documentation/Ecosystem/IDE Intergration/docker-images/overview.adoc[overview]
+**** xref:Technical Documentation/Ecosystem/IDE Intergration/docker-images/server-image-overview.adoc[server-image-overview]
 *** xref:Technical Documentation/Ecosystem/IDE Intergration/eclipse-plugin[eclipse-plugin]
 **** xref:Technical Documentation/Ecosystem/IDE Intergration/eclipse-plugin/payara-micro.adoc[payara-micro]
 **** xref:Technical Documentation/Ecosystem/IDE Intergration/eclipse-plugin/payara-server.adoc[payara-server]
