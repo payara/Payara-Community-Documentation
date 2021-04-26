@@ -1,0 +1,21 @@
+[[payara-java-util-logging-extensions]]
+= Payara Java Util Logging Extensions
+
+_Since version 5.2021.4_
+
+In version 5.2021.4 we radically reworked the logging used by the server to fix several issues caused
+by architectural decisions made years ago in old Glassfish versions, optimize logging and make it's
+configuration also more flexible.
+
+That means also changes in the configuration.
+
+== New Features
+
+* our formatters are based on DateTimeFormatter instead of SimpleDateFormat now
+* formatters can be configured by properties relative to handlers.
+* you can use JUL log handlers and formatters instead of ours
+  (but then you cannot use features implemented just for Payara Server Community handlers)
+* when the logging.properties file is saved from the application server, properties are sorted by name
+* more consistent reconfigurations
+* it is possible to log also bootstrapping of the server
+* it is possible to trace the logging system too (in extreme cases)

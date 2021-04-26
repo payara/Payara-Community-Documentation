@@ -2,16 +2,41 @@
 = ANSI Coloured Logging
 
 _Since version 4.1.2.174_
+_Revisited in 5.2021.4_
 
-Payara Server now supports using ANSI colours when running in verbose mode.
+Payara Server supports using ANSI colours when running in verbose mode. Colors are supported also by Payara's
+docker images and by Payara Micro.
 
-To enable ANSI colours using the `asadamin` tool:
+To enable ANSI colours using the `asadmin` tool:
+
+== Versions before 5.2021.4:
 
 [source, shell]
 ----
 asadmin> set-log-attributes com.sun.enterprise.server.logging.UniformLogFormatter.ansiColor=true
 ----
 
-NOTE: This is enabled by default on Linux and Mac from Payara 5.181.
+== Versions since 5.2021.4:
 
+[source, shell]
+----
+asadmin> asadmin set-log-attributes fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.enabled=true
 
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.enabled logging attribute value set to true.
+The logging attributes are saved successfully for server.
+
+Command set-log-attributes executed successfully.
+----
+
+NOTE: This is enabled by default on Linux and Mac since Payara 5.181.
+
+Concrete colors can be configured too, we use this configuration by default:
+
+[source, properties]
+----
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.enabled=true
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.logger=BOLD_INTENSE_BLUE
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.info=BOLD_INTENSE_GREEN
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.warning=BOLD_INTENSE_YELLOW
+fish.payara.jul.handler.SimpleLogHandler.formatter.ansiColor.severe=BOLD_INTENSE_RED
+----

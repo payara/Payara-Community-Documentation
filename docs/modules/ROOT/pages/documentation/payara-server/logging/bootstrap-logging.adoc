@@ -1,0 +1,34 @@
+[[payara-java-util-logging-extensions]]
+= Bootstrap Logging
+
+_Since version 5.2021.4_
+
+This feature is critical for developers - some probably noticed, that Payara Server doesn't print any logs until it
+starts except few lines. This is caused by the fact that it requires to load all services required to find
+and load the `logging.properties` file.
+Some log records were cached, but it was limited just on records with level INFO and higher,
+and so-called "early log messages".
+
+Current implementation uses the `startup queue` which collects all log records until the configuration is complete
+and then it resolves them. As you can expect, it is for some cost paid by time (in our tests around 50ms) and memory.
+That is the reason why with the default configuration the behavior is same as in old versions - now the difference
+means collecting 3515 log records compared to just 2.
+
+If you need to watch what Payara Server really does when it starts, you need to do two things:
+
+* change the logging.properties file and reconfigure log levels in a way you need.
+Instead of editing bare logging.properties file you can also use the `set-log-attribute` command.
+
+[source]
+----
+fish.payara.jul.handler.SimpleLogHandler.level=ALL
+javax.enterprise.bootstrap.level=FINEST
+----
+
+* enable bootsrap logging and start the domain
+
+[source, shell]
+----
+export AS_TRACE_BOOTSTRAP=true
+asadmin start-domain --verbose
+----
