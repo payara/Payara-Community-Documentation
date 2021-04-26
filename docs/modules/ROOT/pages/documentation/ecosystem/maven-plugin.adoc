@@ -109,7 +109,7 @@ GAVs to be copied under MICRO-INF/lib folder.
 
 | `systemProperties`
 | _None_
-| Set addtional system properties that can be use to configure Payara Micro. See https://docs.payara.fish/community/docs/5.2021.1/documentation/payara-micro/configuring/config-sys-props.html[Configuring Payara Micro via System Properties and Environment Variables] for the list of system properties available.
+| Set addtional system properties that can be used to configure Payara Micro. See https://docs.payara.fish/community/docs/5.2021.1/documentation/payara-micro/configuring/config-sys-props.html[Configuring Payara Micro via System Properties and Environment Variables] for the list of available system properties.
 
 |=== 
 
@@ -394,4 +394,3 @@ mvn toolchains:toolchain payara-micro:start
 ----
 mvn toolchains:toolchain payara-micro:stop
 ----
-
