@@ -1,5 +1,6 @@
 [[release-notes]]
 = Release notes
+:ordinal: 900
 
 Detailed information about features and fixes in every release.
 

@@ -11,30 +11,52 @@ touch $OUTPUT_NAV_LOCATION
 cd $WORKING_DIR
 
 create_nav () {
+    echo $1
     for file in "$1"/* ; do
-        #Count the depth of the file
+        declare -A ordinal_list
+
         depth=$(grep -o '/' <<< $file | grep -c .)
         stars=$(printf '%*s' $depth '')
-        
-        #Trim filepath for better readable titles
+
         filename=${file##*/}
         filename=${filename%.adoc}
 
         echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
-        if [ -d "$file" ]; then
+        if [[ ! -d "$file" ]]; then
+            ordinal_list[$filename]=$(get_ordinal "$file")
+        else
             create_nav "$file"
         fi
     done
+    
+    for K in "${!ordinal_list[@]}"; do echo $K "->" ${ordinal_list[$K]}; done
+    read -p "Press Any Key"
+}
+
+sort() {
+    echo "TODO"
+}
+
+get_ordinal() {
+    content=$(cat "$1")
+    regex=":ordinal: ([[:digit:]]+)"
+    if [[ $content =~ $regex ]]; then
+        echo ${BASH_REMATCH[1]}
+    fi
 }
 
 for dir in */ ; do
-    #Remove trailing / for easier formatting
+    echo $dir
     dir=${dir%?}
-    #New line character required before heading for correct formatting
-    echo >> $OUTPUT_NAV_LOCATION
-    echo ".$dir" >> $OUTPUT_NAV_LOCATION
-    create_nav "$dir"
+    if [[ $dir == "Test" ]]; then
+        #Remove trailing / for easier formatting
+        
+        #New line character required before heading for correct formatting
+        echo >> $OUTPUT_NAV_LOCATION
+        echo ".$dir" >> $OUTPUT_NAV_LOCATION
+        create_nav "$dir"
+    fi
 done
 
 echo "---- GENERATED NAV -----"
-cat $OUTPUT_NAV_LOCATION
+#cat $OUTPUT_NAV_LOCATION
