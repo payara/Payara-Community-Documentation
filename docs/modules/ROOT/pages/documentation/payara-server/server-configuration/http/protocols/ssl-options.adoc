@@ -142,3 +142,39 @@ Whether TLS rollback is enabled or not.
 
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.tls-rollback-enabled=[true/false]`
 
+
+[[configuration-hsts-enabled]]
+== HSTS Enabled
+
+Whether HSTS is enabled. When enabled, the server will respond to insecure requests with the `Strict-Transport-Security` header. While these requests often return a 301 directing the client to the secure site, this header instructs the requester to make all connections to this site secure for the next year. The header takes the following form:
+
+~~~
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+~~~
+
+The last 2 attributes are added based on the other HSTS configuration options.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.hsts-enabled=[true/false]`
+
+
+[[configuration-hsts-subdomains]]
+== HSTS Subdomains
+
+When enabled in combination with HSTS, `Strict-Transport-Security` headers will include the `includeSubDomains` attribute. When this is configured, the client will also assume subdomains of the targetted resource also require secure connections.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.hsts-sub-domains=[true/false]`
+
+
+[[configuration-hsts-preload]]
+== HSTS Preload
+
+When enabled in combination with HSTS, `Strict-Transport-Security` headers will include the `preload` attribute. When this is configured, the domain of the target resource will be added to the browser preload list, meaning that initial requests to this resource in future won't be insecure.
+
+*Asadmin Command:*
+
+`set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.hsts-preload=[true/false]`
+
