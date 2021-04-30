@@ -46,6 +46,12 @@ Example:
                     <version>6.0</version>
                 </artifactItem>
             </customJars>
+            <systemProperties>
+                <property>
+                    <name>payaramicro.port</name>
+                    <value>8080</value>
+                </property>
+            </systemProperties>
         </configuration>
     </plugin>
 ----
@@ -100,6 +106,10 @@ GAVs to be copied under MICRO-INF/lib folder.
 |`uberJarClassifier`
 |microbundle
 |Specifies the maven artifact classifier to use for the generated uber-jar.
+
+| `systemProperties`
+| _None_
+| Set addtional system properties that can be used to configure Payara Micro. See https://docs.payara.fish/community/docs/5.2021.1/documentation/payara-micro/configuring/config-sys-props.html[Configuring Payara Micro via System Properties and Environment Variables] for the list of available system properties.
 
 |=== 
 
@@ -384,4 +394,3 @@ mvn toolchains:toolchain payara-micro:start
 ----
 mvn toolchains:toolchain payara-micro:stop
 ----
-
