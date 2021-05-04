@@ -12,7 +12,7 @@
 It is important to note in this release that with the upgrade of Hazelcast to version 4.2, support for rolling updates from previous versions of Payara Community Edition to 5.2021.3 will not be supported.
 
 === Metro (JAX-WS implementation) remote code vulnerability
-We have fixed a remote code vulnerability in the Metro framework. If you have an application deployed on the Payara Server that makes use of the JAX-WS features, please update your environment.
+IMPORTANT: We have fixed a remote code vulnerability in the Metro framework. If you have an application deployed on Payara Server that makes use of any JAX-WS features, please update your environment as soon as possible.
 
 === New Feature
 * [https://github.com/payara/Payara/pull/5179[FISH-1021]] - Add Support for Setting the HSTS Header
