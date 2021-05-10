@@ -154,11 +154,13 @@ Whether HSTS is enabled. When enabled, the server will respond to requests with 
 
 The last 2 attributes are added based on the other HSTS configuration options.
 
+NOTE: HSTS can be enabled on any HTTP listener. However, it's meant to be enabled on a secure HTTP listener if an insecure HTTP listener redirects to the secure listener. When browsers receive the `Strict-Transport-Security` header over HTTPS, they will use HTTPS immediately for all future connections requested over plain HTTP. If the header is retrieved over HTTP, it is ignored by browsers due to security reasons. More information in https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security[MDN Docs].
+
 *Asadmin Command:*
 
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.ssl.hsts-enabled=[true/false]`
 
-When the configuration value is set to true, the HSTS header is added with a max-age property value of 31536000. The max-age property is not configurable.
+When the configuration value is set to `true`, the HSTS header is added with a `max-age` property value of `31536000`. The `max-age` property is not configurable.
 
 [[configuration-hsts-subdomains]]
 == HSTS Subdomains
