@@ -146,13 +146,15 @@ Whether TLS rollback is enabled or not.
 [[configuration-hsts-enabled]]
 == HSTS Enabled
 
-Whether HSTS is enabled. When enabled, the server will respond to insecure requests with the `Strict-Transport-Security` header. While these requests often return a 301 directing the client to the secure site, this header instructs the requester to make all connections to this site secure for the next year. The header takes the following form:
+Whether HSTS is enabled. When enabled, the server will respond to requests with the `Strict-Transport-Security` header. While these requests often return a 301 directing the client to the secure site, this header instructs the requester to make all connections to this site secure for the next year. The header takes the following form:
 
 
 `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
 
 
 The last 2 attributes are added based on the other HSTS configuration options.
+
+NOTE: HSTS can be enabled on any HTTP listener. However, it's meant to be enabled on a secure HTTP listener if an insecure HTTP listener redirects to the secure listener. When browsers receive the `Strict-Transport-Security` header over HTTPS, they will use HTTPS immediately for all future connections requested over plain HTTP. If the header is retrieved over HTTP, it is ignored by browsers due to security reasons. More information in https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security[MDN Docs].
 
 *Asadmin Command:*
 
