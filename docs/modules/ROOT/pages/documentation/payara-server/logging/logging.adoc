@@ -38,11 +38,11 @@ Documentation about daily log rotation in Payara and how to configure it.
 
 _Since version 5.184_
 
-The logging properties file supports ENV variables like
+The logging properties file supports environment variables like
 
 [source]
 ----
 .level=${ENV=logLevel}
 ----
 
-Whenever the server starts up or the logging properties are changed, the value for the `.level` property will be taken from the ENV variable `logLevel`.
+Whenever the server starts up or the logging properties are changed, the value for the `.level` property will be taken from the environment variable `logLevel`.
