@@ -34,7 +34,7 @@ xref:/documentation/payara-server/logging/daily-log-rotation.adoc[Daily log rota
 Documentation about daily log rotation in Payara and how to configure it.
 
 [[env-var-replacement]]
-== ENV variable replacement
+== Environment Variable Replacement
 
 _Since version 5.184_
 
