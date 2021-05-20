@@ -8,33 +8,48 @@ readonly PARENT_DIR="/home/alanroth/workspace/payara-community-documentation"
 rm $OUTPUT_NAV_LOCATION
 touch $OUTPUT_NAV_LOCATION
 
+declare -A ordinal_list
+sorted_list=()
+
 cd $WORKING_DIR
 
 create_nav () {
-    echo $1
     for file in "$1"/* ; do
-        declare -A ordinal_list
-
-        depth=$(grep -o '/' <<< $file | grep -c .)
-        stars=$(printf '%*s' $depth '')
-
-        filename=${file##*/}
-        filename=${filename%.adoc}
-
-        echo "${stars// /*} xref:$file[$filename]" >> $OUTPUT_NAV_LOCATION
         if [[ ! -d "$file" ]]; then
-            ordinal_list[$filename]=$(get_ordinal "$file")
+            ordinal_list[$file]=$(get_ordinal "$file")
         else
             create_nav "$file"
         fi
     done
     
-    for K in "${!ordinal_list[@]}"; do echo $K "->" ${ordinal_list[$K]}; done
-    read -p "Press Any Key"
+    sorted_list=$(sort_list)
+
+    for sorted_file in "${sorted_list[@]}"; do
+        echo $sorted_file
+        read -p "Press Any Key"
+
+        depth=$(grep -o '/' <<< $sorted_file | grep -c .)
+        stars=$(printf '%*s' $depth '')
+
+        filename=${sorted_file##*/}
+        filename=${filename%.adoc}
+
+        echo $sorted_file
+        echo "${stars// /*} xref:$sorted_file[$filename]" >> $OUTPUT_NAV_LOCATION
+    done
 }
 
-sort() {
-    echo "TODO"
+sort_list() {
+    sorted_list=()
+    KEYS=$(
+        for KEY in ${!ordinal_list[@]}; do
+            echo "${ordinal_list[$KEY]}:::$KEY"
+        done | sort -r | awk -F::: '{print $2}'
+    )
+
+    for KEY in $KEYS; do
+        sorted_list+=($KEY)
+    done
 }
 
 get_ordinal() {
@@ -42,6 +57,8 @@ get_ordinal() {
     regex=":ordinal: ([[:digit:]]+)"
     if [[ $content =~ $regex ]]; then
         echo ${BASH_REMATCH[1]}
+    else
+        echo 0
     fi
 }
 
@@ -50,7 +67,6 @@ for dir in */ ; do
     dir=${dir%?}
     if [[ $dir == "Test" ]]; then
         #Remove trailing / for easier formatting
-        
         #New line character required before heading for correct formatting
         echo >> $OUTPUT_NAV_LOCATION
         echo ".$dir" >> $OUTPUT_NAV_LOCATION
@@ -59,4 +75,4 @@ for dir in */ ; do
 done
 
 echo "---- GENERATED NAV -----"
-#cat $OUTPUT_NAV_LOCATION
+cat $OUTPUT_NAV_LOCATION
