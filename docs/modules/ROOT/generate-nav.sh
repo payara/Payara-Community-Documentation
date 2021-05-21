@@ -22,10 +22,11 @@ create_nav () {
         fi
     done
     
-    sorted_list=$(sort_list)
+    sort_list
+    echo "SORTED LIST: " $sorted_list[@]
 
     for sorted_file in "${sorted_list[@]}"; do
-        echo $sorted_file
+        echo "SORTED FILE:" $sorted_file
         read -p "Press Any Key"
 
         depth=$(grep -o '/' <<< $sorted_file | grep -c .)
@@ -34,7 +35,6 @@ create_nav () {
         filename=${sorted_file##*/}
         filename=${filename%.adoc}
 
-        echo $sorted_file
         echo "${stars// /*} xref:$sorted_file[$filename]" >> $OUTPUT_NAV_LOCATION
     done
 }
@@ -47,8 +47,10 @@ sort_list() {
         done | sort -r | awk -F::: '{print $2}'
     )
 
+    echo "KEYS:" $KEYS[@]
+
     for KEY in $KEYS; do
-        sorted_list+=($KEY)
+        sorted_list+=( $KEY )
     done
 }
 

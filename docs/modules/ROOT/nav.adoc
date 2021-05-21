@@ -1,3 +1,7 @@
 
 .Test
- xref:[]
+* xref:Test/file5.adoc[file5]
+* xref:Test/file50.adoc[file50]
+* xref:Test/file2.adoc[file2]
+* xref:Test/file4.adoc[file4]
+* xref:Test/file8.adoc[file8]
