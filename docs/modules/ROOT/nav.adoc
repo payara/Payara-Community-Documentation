@@ -267,6 +267,8 @@
 *** xref:documentation/ecosystem/docker-images/micro-image-overview.adoc[Payara Micro Docker Image Overview]
 
 * xref:documentation/extensions/README.adoc[Extensions]
+** xref:documentation/extensions/autoscale/README.adoc[AutoScale]
+*** xref:documentation/extensions/autoscale/nodes-scaling-group.adoc[Nodes Scaling Groups]
 ** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
 *** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
 *** xref:documentation/extensions/notifiers/discord-notifier.adoc[Discord Notifier]

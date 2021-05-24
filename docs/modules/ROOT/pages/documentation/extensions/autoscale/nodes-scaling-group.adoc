@@ -1,0 +1,119 @@
+= Nodes Scaling Groups Extension
+
+This AutoScale extension can be used to scale a Deployment Group up and down across preconfigured
+SSH nodes.
+
+[[installation]]
+== Installation
+
+Installation is done by dropping modules into the `${GLASSFISH_HOME}/modules` directory of your Payara Server
+installation. Ensure that you have the three core modules installed, and then download and install the
+following two modules.
+
+* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/nodes/autoscale-groups-nodes-plugin-core/1.0/autoscale-groups-core-1.0.jar[Nodes Scaling Groups Core 1.0]
+* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/nodes/autoscale-groups-nodes-plugin-console/1.0/autoscale-groups-console-1.0.jar[Nodes Scaling Groups Admin Console Plugin 1.0]
+
+[[nodes-scaling-group-configuration]]
+== Nodes Scaling Group Configuration
+
+A nodes scaling group can be configured either via the command line or the Admin Console.
+
+### Command Line
+The `set-nodes-scaling-group-configuration` command accepts the following parameters:
+
+* `--deploymentgroup` - The Deployment Group tha the scaling group should be attached to. A Deployment Group cannot
+have more than one Scaling Group attached to it, and a Scaling Group must be attached to a Deployment Group.
+* `--config` - The config that instances created via the `scale-up` command will use.
+* `--nodes` - The nodes that the scaling group will add or remove instances to. All nodes must be SSH nodes,
+though it will also accept the default node used by the DAS (typically _localhost-domain1_).
+
+The primary parameter of the command is the name of the scaling group you wish to configure.
+
+`set-nodes-scaling-group-configuration --deploymentgroup group1 --config group1-config --nodes "localhost-domain1,node1,node2" scale1`
+
+### Admin Console
+
+From _Deployment Groups_, select the deployment group that you wish to add a nodes scaling group for
+and click on the _AutoScale_ tab. This will display the active AutoScale group for the deployment
+group (currently none).
+
+image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
+
+From here, click on _Nodes AutoScale Groups_, to view the current configured nodes scaling groups.
+
+image:autoscale/nodes/list-nodes-scaling-groups.png[List Nodes Scaling Groups in Admin Console]
+
+Click on the name of the nodes scaling group that you'd like to configure, enter the details, and hit _Save_.
+
+image:autoscale/nodes/edit-nodes-scaling-group.png[Edit Nodes Scaling Group in Admin Console]
+
+[[Usage]]
+== Usage
+
+### Creating a Nodes Scaling Group
+Creating a scaling group can be done via admin commands or from the admin console.
+
+#### Prerequisites
+* Each nodes scaling group must be attached to a deployment group, and said deployment group must not have
+any other scaling group attached to it.
+* Each nodes scaling group requires a config which isn't the default or server config.
+* Each nodes scaling group requires at least one SSH node (the default DAS node can also be used)
+* Each nodes scaling group must have a unique name
+
+#### Admin Command
+
+`create-nodes-scaling-group --deploymentgroup group1 --config group1-config --nodes "localhost-domain1,node1,node2" nodes-scaler-1`
+
+#### Admin Console
+
+From _Deployment Groups_, select the deployment group that you wish to add a nodes scaling group for
+and click on the _AutoScale_ tab. This will display the active AutoScale group for the deployment
+ group (currently none).
+
+image:autoscale/active-autoscale-group-empty.png[Active AutoScale Group in the Admin Console]
+
+From here, click on _Nodes AutoScale Groups_, to view the current configured nodes scaling groups.
+
+image:autoscale/nodes/list-nodes-scaling-groups-empty.png[List Nodes Scaling Groups in Admin Console]
+
+Click on the _New_ button, and enter your desired details before hitting _OK_.
+
+image:autoscale/nodes/new-nodes-scaling-group.png[New Nodes Scaling Groups in Admin Console]
+
+### Scaling Up
+A Nodes Scaling Group attempts to balance the instances across the configured nodes, but currently takes no
+other criteria for determining where the instances should be created.
+
+#### Admin Command
+The `scale-up` command accepts a `--quantity` parameter, and is executed against your chosen
+_Deployment Group_ (*not* the scaling group).
+
+`scale-up --quantity 3 group1`
+
+#### Admin Console
+
+From _Deployment Groups_, select the deployment group that you wish to scale and click on the _AutoScale_ tab.
+This will display the active AutoScale group for the deployment group.
+
+Enter a quantity for how much you'd like to scale the deployment group up by, and click the _Scale Up_ button.
+
+image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
+
+### Scaling Down
+A Nodes Scaling Group attempts to balance the instances across the configured nodes, but currently takes no
+other criteria for determining which instances should be stopped and removed.
+
+#### Admin Command
+The `scale-down` command accepts a `--quantity` parameter, and is executed against your chosen
+_Deployment Group_ (*not* the scaling group).
+
+`scale-down --quantity 3 group1`
+
+#### Admin Console
+
+From _Deployment Groups_, select the deployment group that you wish to scale and click on the _AutoScale_ tab.
+This will display the active AutoScale group for the deployment group.
+
+Enter a quantity for how much you'd like to scale the deployment group down by, and click the _Scale Down_ button.
+
+image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]

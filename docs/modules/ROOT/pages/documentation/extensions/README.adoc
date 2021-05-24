@@ -7,3 +7,8 @@ Currently, the following extensions are provided:
 == xref:documentation/extensions/notifiers/README.adoc[Notifier Extensions]
 
 The notifier extensions allow notifications from the Notification Service to propagate to various channels on top of the notifiers provided by default. See xref:documentation/payara-server/notification-service/notifiers.adoc[the notifier page] for more information on the default notifiers.
+
+== xref:documentation/extensions/autoscale/README.adoc[AutoScale Extensions]
+
+The AutoScale extensions provide the means for users to scale Payara Server instances up and down
+across different environments.
