@@ -84,6 +84,9 @@ image:autoscale/nodes/new-nodes-scaling-group.png[New Nodes Scaling Groups in Ad
 A Nodes Scaling Group attempts to balance the instances across the configured nodes, but currently takes no
 other criteria for determining where the instances should be created.
 
+Scaling is by default limited to between 1 and 100 instances per command. The upper limit can be changed by specifying
+the `fish.payara.autoscale.maxscale` system property in the _server-config_.
+
 #### Admin Command
 The `scale-up` command accepts a `--quantity` parameter, and is executed against your chosen
 _Deployment Group_ (*not* the scaling group).
@@ -102,6 +105,9 @@ image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in t
 ### Scaling Down
 A Nodes Scaling Group attempts to balance the instances across the configured nodes, but currently takes no
 other criteria for determining which instances should be stopped and removed.
+
+Scaling is by default limited to between 1 and 100 instances per command. The upper limit can be changed by specifying
+the `fish.payara.autoscale.maxscale` system property in the _server-config_.
 
 #### Admin Command
 The `scale-down` command accepts a `--quantity` parameter, and is executed against your chosen
