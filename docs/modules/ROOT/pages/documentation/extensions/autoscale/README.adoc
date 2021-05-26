@@ -5,7 +5,74 @@ across different environments.
 
 You can find the code for each AutoScale extension here: https://github.com/payara/AutoScale-Groups.
 
-== AutoScale Summary
+== Installing AutoScale Extensions
+
+Regardless of which AutoScale extension you wish to install, it is expected that the API and the two Core module JARs
+are added to the server by dropping them into the `${GLASSFISH_HOME}/modules` directory of your Payara Server
+installation.
+
+You can then drop the implementation and admin console plugin JARs of your desired extensions into the same directory.
+
+For example, to install the SSH Nodes AutoScale Extension, you would drop the following JARs into the `modules`
+directory:
+
+* _autoscale-groups-api_
+* _autoscale-groups-core_
+* _autoscale-groups-console_
+* _autoscale-groups-nodes-plugin-core_
+* _autoscale-groups-nodes-plugin-console_
+
+You must restart the server if it was running to see your extension activated.
+
+IMPORTANT: Make sure that if the AutoScale extension has dependencies in order to run the dependency artifacts are also
+in the _modules_ directory.
+
+### Core Downloads
+* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-api/1.0/autoscale-groups-api-1.0.jar[AutoScale API 1.0]
+* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-core/1.0/autoscale-groups-core-1.0.jar[AutoScale Core 1.0]
+* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-console/1.0/autoscale-groups-console-1.0.jar[AutoScale Admin Console Plugin 1.0]
+
+== Creating A New AutoScale Extension
+
+To create a new AutoScale extension, it's recommended that you use one of the existing extensions as a base. Extensions
+are expected to be split into an implementation module and an admin console plugin, and utilise the various interfaces,
+abstract classes, and utility methods found within the three core modules (_autoscale-groups-api_,
+_autoscale-groups-core_, and _autoscale-groups-console_).
+
+It's recommended that you place your two implementation modules under a parent aggregator module, similar as to how
+was done here with the
+https://github.com/payara/AutoScale-Groups/tree/master/autoscale-groups-nodes-plugin[autoscale-groups-nodes-plugin].
+
+### The Implementation Module
+The implementation module is where the admin commands, services, and config bean interfaces should exist. The following
+is expected as a minimum:
+
+* A ConfigBean extension for `ScalingGroup` - This ConfigBean is the "type" of AutoScale Group, and as such should
+contain any extension specific attributes and elements. It is expected to follow the naming format of
+`${type}ScalingGroup` (e.g. _**Nodes**ScalingGroup_).
+* A service extension for `Scaler` - This service should implement the `scaleUp` and `scaleDown` methods, and should be
+qualified with the `ScalerFor` annotation pointing at your `ScalingGroup` ConfigBean.
+* Create command - An admin command used to create a scaling group of your extension's type. This command
+is expected to be in the format of `create-${ScalingGroupExtensionName}`, and to have a REST endpoint under
+its own config bean (e.g. the `create-nodes-scaling-group` command has a REST endpoint under the
+`NodesScalingGroup` config bean).
+* Get command - An admin command used to get the configuration of a scaling group of your extension's type. This command
+is expected to be in the format of `get-${ScalingGroupExtensionName}-configuration`, and to have a REST endpoint under
+its own config bean (e.g. the `get-nodes-scaling-group-configuration` command has a REST endpoint under the
+`NodesScalingGroup` config bean).
+* Set command - An admin command used to set the configuration of a scaling group of your extension's type. This command
+is expected to be in the format of `set-${ScalingGroupExtensionName}-configuration`, and to have a REST endpoint under
+its own config bean (e.g. the `set-nodes-scaling-group-configuration` command has a REST endpoint under the
+`NodesScalingGroup` config bean).
+
+### The Admin Console Plugin
+
+The admin console plugin is where you add your tabs and pages for listing, creating, deleting, and editing AutoScale
+groups of your extension's type. The "base" admin console plugin provides a tab group integration point that you can add
+your extension tabs to named `fish.payara.admingui.extensions:autoScaleGroupsTab` (done via your extension's
+`console-config.xml` file).
+
+== Developer Documentation
 
 AutoScale is split into a number of separate modules, but can be summarised into:
 
@@ -23,7 +90,7 @@ contains the list of all configured scaling groups
 should extend from to create their own scaling group type.
 * The `Scaler` abstract class contract - This is the abstract class extensions should create an implementation service
 for. This service is used to perform the `scaleUp` and `scaleDown` operations.
-* The `Scales` qualifier - This qualifier is used to link a `Scaler` service to a specific `ScalingGroup`, there is
+* The `ScaleFor` qualifier - This qualifier is used to link a `Scaler` service to a specific `ScalingGroup`, there is
 only ever meant to be one `Scaler` service for each `ScalingGroup` extension.
 * Abstract classes for creating the get, set, and create Admin Commands from.
 
@@ -50,62 +117,3 @@ This module contains common handler methods, the tab group that admin console pl
 a generic "Active AutoScale Group" page from which a user can see which AutoScale group is attached to a specific
 Deployment Group and scale it up or down.
 
-### Extension Modules
-
-Extensions are intended to be composed of 2 parts: an implementation module, and an admin console plugin.
-
-### The Implementation Module
-The implementation module is where the admin commands, services, and config bean interfaces should exist. The following
-is expected as a minimum:
-
-* A ConfigBean extension for `ScalingGroup` - This ConfigBean is the "type" of AutoScale Group, and as such should
-contain any extension specific attributes and elements
-* A service extension for `Scaler` - This service should implement the `scaleUp` and `scaleDown` methods, and should be
-qualified with the `Scales` annotation pointing at your `ScalingGroup` ConfigBean.
-* Create command - An admin command used to create a scaling group of your extension's type.
-* Get command - An admin command used to get the configuration of a scaling group of your extension's type. This command
-is expected to be in the format of `get-${ScalingGroupExtensionName}-configuration`
-(e.g. `get-nodes-scaling-group-configuration`)
-* Set command - An admin command used to set the configuration of a scaling group of your extension's type. This command
-is expected to be in the format of `set-${ScalingGroupExtensionName}-configuration`
-(e.g. `set-nodes-scaling-group-configuration`)
-
-### The Admin Console Plugin
-
-The admin console plugin is where you add your tabs and pages for listing, creating, deleting, and editing AutoScale
-groups of your extension's type. The "base" admin console plugin provides a tab group integration point that you can add
-your extension tabs to named `fish.payara.admingui.extensions:autoScaleGroupsTab` (done via your extension's
-`console-config.xml` file).
-
-== Installing AutoScale Extensions
-
-Regardless of which AutoScale extension you wish to install, it is expected that the API and the two Core module JARs
-are added to the server, by dropping them into the `${GLASSFISH_HOME}/modules` directory of your Payara Server
-installation.
-
-You can then drop the implementation and admin console plugin JARs of your desired extensions to the same directory.
-
-For example, to install the SSH Nodes AutoScale Extension, you would drop the following JARs into the `modules`
-directory:
-
-* _autoscale-groups-api_
-* _autoscale-groups-core_
-* _autoscale-groups-console_
-* _autoscale-groups-nodes-plugin-core_
-* _autoscale-groups-nodes-plugin-console_
-
-You must restart the server if it was running to see your extension activated.
-
-IMPORTANT: Make sure that if the AutoScale extension has dependencies in order to run the dependency artifacts are also in
-the _modules_ directory.
-
-### Core Downloads
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-api/1.0/autoscale-groups-api-1.0.jar[AutoScale API 1.0]
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-core/1.0/autoscale-groups-core-1.0.jar[AutoScale Core 1.0]
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-console/1.0/autoscale-groups-console-1.0.jar[AutoScale Admin Console Plugin 1.0]
-
-== Creating A New AutoScale Extension
-
-To create a new AutoScale extension, it's recommended that you use one of the existing extensions as a base. As noted
-above, extensions are expected to be split into an implementation module and an admin console plugin; see the relevant
-sections above for details of what is expected in each.
