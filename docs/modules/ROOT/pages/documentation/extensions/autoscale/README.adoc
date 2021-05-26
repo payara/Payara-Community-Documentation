@@ -3,7 +3,7 @@
 The AutoScale extensions provide the means for users to scale Payara Server instances up and down
 across different environments.
 
-You can find the code for each AutoScale extension here: https://github.com/payara/AutoScale-Groups. The codebase includes a notifier example in case a notifier you want is not available and you'd like to implement it yourself.
+You can find the code for each AutoScale extension here: https://github.com/payara/AutoScale-Groups.
 
 == AutoScale Summary
 
@@ -36,6 +36,7 @@ Both of these modules are expected to be included in the server, regardless of w
 
 #### The Base Implementation Module
 This module contains generic admin commands and util classes:
+
 * The `scale-up` and `scale-down` admin commands - this command looks up the `Scaler` service for the `ScalingGroup`
 type attached to the Deployment Group to be scaled, and from it scales the Deployment Group up or down the requested
 amount.
@@ -95,7 +96,7 @@ directory:
 
 You must restart the server if it was running to see your extension activated.
 
-TIP: Make sure that, if the AutoScale extension has dependencies in order to run, the dependency artifacts are also in
+IMPORTANT: Make sure that if the AutoScale extension has dependencies in order to run the dependency artifacts are also in
 the _modules_ directory.
 
 ### Core Downloads
