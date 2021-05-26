@@ -5,6 +5,7 @@ across different environments.
 
 You can find the code for each AutoScale extension here: https://github.com/payara/AutoScale-Groups.
 
+[[installation]]
 == Installing AutoScale Extensions
 
 Regardless of which AutoScale extension you wish to install, it is expected that the API and the two Core module JARs
@@ -27,7 +28,8 @@ You must restart the server if it was running to see your extension activated.
 IMPORTANT: Make sure that if the AutoScale extension has dependencies in order to run the dependency artifacts are also
 in the _modules_ directory.
 
-### Core Downloads
+[[core-downloads]]
+=== Core Downloads
 * link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-api/1.0/autoscale-groups-api-1.0.jar[AutoScale API 1.0]
 * link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-core/1.0/autoscale-groups-core-1.0.jar[AutoScale Core 1.0]
 * link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-console/1.0/autoscale-groups-console-1.0.jar[AutoScale Admin Console Plugin 1.0]
