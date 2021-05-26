@@ -1,4 +1,4 @@
-= Payara Community 5.2021.3 Release Notes
+= Payara Community 5.2021.4 Release Notes
 
 == Supported APIs and Applications
 
@@ -10,9 +10,6 @@
 
 === Incompatibility with the latest JVM / JDK versions and Monitoring
 IMPORTANT: Payara Platform products do run correctly on JDK 8u292+ and 11.0.11+ due to the removal of SSL/TLS  1.0 and SSL/TLS 1.1 protocols in these versions. The JMX service doesn't start properly which means there are no monitoring data available.
-
-=== Metro (JAX-WS implementation) remote code vulnerability
-IMPORTANT: We have fixed a remote code vulnerability in the Metro framework. If you have an application deployed on Payara Server that makes use of any JAX-WS features, please update your environment as soon as possible.
 
 === New Feature
 * [https://github.com/payara/AutoScale-Groups/pull/1[FISH-1223]] - Create Instance Autoscaling API
