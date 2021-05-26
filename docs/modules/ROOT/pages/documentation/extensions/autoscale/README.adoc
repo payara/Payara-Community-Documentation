@@ -117,3 +117,10 @@ This module contains common handler methods, the tab group that admin console pl
 a generic "Active AutoScale Group" page from which a user can see which AutoScale group is attached to a specific
 Deployment Group and scale it up or down.
 
+### Extension Modules
+Extension modules are the implementations that provide the ability for Payara Server to scale across different
+environments. They consist of an implementation module and an admin console plugin. The implemention module provides
+the config beans, services, and admin commands for creating, configuring, and using an AutoScale group, while the admin
+console plugin contains the pages and tabs for doing the same from the admin console.
+
+Greater detail of what each module contains can be found above in the _Creating A New AutoScale Extension_ section.
