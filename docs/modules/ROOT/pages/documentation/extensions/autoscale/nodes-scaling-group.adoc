@@ -31,11 +31,20 @@ The primary parameter of the command is the name of the scaling group you wish t
 
 `set-nodes-scaling-group-configuration --deploymentgroup group1 --config group1-config --nodes "localhost-domain1,node1,node2" scale1`
 
+If the name of the scaling group you wish to configure is unknown, you can use the `list-scaling-groups` command to
+retrieve all scaling groups, or the `get-deployment-group-scaling-group` to get the name of the scaling group attached
+to a deployment group.
+
+The `list-scaling-group` command accepts no parameters.
+The `get-deployment-group-scaling-group` command accepts one parameter: the name of the deployment group to query.
+
+`get-deployment-group-scaling-group group1`
+
 ### Admin Console
 
 From _Deployment Groups_, select the deployment group that you wish to add a nodes scaling group for
 and click on the _AutoScale_ tab. This will display the active AutoScale group for the deployment
-group (currently none).
+group.
 
 image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
 
@@ -123,3 +132,46 @@ This will display the active AutoScale group for the deployment group.
 Enter a quantity for how much you'd like to scale the deployment group down by, and click the _Scale Down_ button.
 
 image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
+
+### Deleting a Nodes Scaling Group
+Creating a scaling group can be done via admin commands or from the admin console.
+
+#### Admin Command
+The `delete-scaling-group` command can be used to delete any AutoScale group from Payara Server. It accepts one
+parameter: the name of the scaling group you wish to delete.
+
+`delete-scaling-group nodes-scaler-1`
+
+#### Admin Console
+
+From _Deployment Groups_, select the deployment group that you wish to delete a nodes scaling group for
+and click on the _AutoScale_ tab. This will display the active AutoScale group for the deployment
+group.
+
+image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
+
+From here, click on _Nodes AutoScale Groups_, to view the current configured nodes scaling groups.
+
+image:autoscale/nodes/list-nodes-scaling-groups.png[List Nodes Scaling Groups in Admin Console]
+
+Check the box of the nodes scaling group that you'd like to delete, and hit _Delete_.
+
+### Listing Nodes Scaling Groups
+Listing all node scaling groups can be done via the admin console, or you can list all scaling groups
+(not necessarily nodes scaling groups) using admin commands.
+
+#### Admin Command
+The `list-scaling-groups` command can be used to list all scaling groups (not necessarily just nodes scaling groups).
+The command accepts no parameters.
+
+`list-scaling-groups`
+
+#### Admin Console
+From _Deployment Groups_, select any deployment group and click on the _AutoScale_ tab.
+This will display the active AutoScale group for the deployment group.
+
+image:autoscale/nodes/active-nodes-scaling-group.png[Active AutoScale Group in the Admin Console]
+
+From here, click on _Nodes AutoScale Groups_, to view the current configured nodes scaling groups.
+
+image:autoscale/nodes/list-nodes-scaling-groups.png[List Nodes Scaling Groups in Admin Console]
