@@ -9,7 +9,7 @@
 == Notes
 
 === Incompatibility with the latest JVM / JDK versions and Monitoring
-IMPORTANT: Payara Platform products do run correctly on JDK 8u292 and 11.0.11 and later. Due to removal of SSL/TLS 1.0 and 1.1 protocols, monitoring data will not be available because the JMX service will fail to start and will not produce monitoring data. Other issues due to the missing protocols may also be present.
+IMPORTANT: Payara Platform products do run correctly on JDK 8u292, 11.0.11 or later. Due to removal of SSL/TLS 1.0 and 1.1 protocols, monitoring data will not be available because the JMX service fails to start, and will not produce monitoring data. Other issues due to the missing protocols may also be present.
 
 === New Feature
 * [https://github.com/payara/AutoScale-Groups/pull/1[FISH-1223]] - Create Instance Autoscaling API
