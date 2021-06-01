@@ -14,9 +14,7 @@
 .Technical Documentation
 * xref:documentation/payara-server/README.adoc[Payara Server Documentation]
 ** xref:documentation/payara-server/server-configuration/README.adoc[Server Configuration]
-*** xref:documentation/payara-server/server-configuration/var-substitution/README.adoc[Variables in the configuration]
-**** xref:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Variable types]
-**** xref:documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[Using variables]
+*** xref:documentation/payara-server/server-configuration/var-substitution/variables-in-the-configuration.adoc[Variables in the configuration]
 *** xref:documentation/payara-server/server-configuration/http/README.adoc[HTTP Service]
 **** xref:documentation/payara-server/server-configuration/http/network-listeners.adoc[Network Listeners]
 ***** xref:documentation/payara-server/server-configuration/http/security/sni.adoc[SNI]
