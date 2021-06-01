@@ -5,7 +5,7 @@ This AutoScale extension can be used to scale a Deployment Group up and down acr
 [[installation]]
 == Installation
 
-Installation is done by dropping modules into the `${GLASSFISH_HOME}/modules` directory of your Payara Server
+Installation is done by dropping modules into the `${PAYARA_HOME}/glassfish/modules` directory of your Payara Server
 installation. Ensure that you have the three core modules installed, and then download and install the
 following two modules.
 
