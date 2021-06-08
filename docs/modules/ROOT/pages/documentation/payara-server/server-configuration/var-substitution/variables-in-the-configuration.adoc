@@ -23,7 +23,6 @@ the environment later when Payara Server Community is started.
 
 see <<Examples>> here.
 
-
 [[types-of-variable-references]]
 == Types of variable references
 
@@ -46,7 +45,6 @@ Values of system properties can be specified by:
 * the `create-system-properties` asadmin command (or in the Admin
 console `System properties` section)
 * a JVM option prefixed with `-D`
-
 
 [[references-to-environment-variables]]
 === References to environment variables
@@ -95,7 +93,6 @@ By adding a colon after the property name, you may append a default value if
 the property has not been set.
 
 [NOTE]
-.Some important points to consider.
 ====
 
 * A variable can be referenced anywhere inside a string value of a property which supports variable references.
