@@ -94,6 +94,22 @@ xref:/documentation/microprofile/config/README.adoc#config-sources[config source
 By adding a colon after the property name, you may append a default value if
 the property has not been set.
 
+[NOTE]
+.Some important points to consider.
+====
+
+* A variable can be referenced anywhere inside a string value of a property which supports variable references.
+
+* Multiple references to system properties and environment variables can be used within the same configuration value, concatenating any number of variable references and plain text chunks.
+
+* When custom properties are specified, their value can also contain other
+variable references. It is therefore possible to define a system
+property using other system properties or environment variables.
+
+* When a reference to a password alias is used, it has to expand to the whole property value and cannot be combined with any other text or variable references.
+
+====
+
 [[examples]]
 == Examples
 
@@ -165,3 +181,5 @@ fish.payara.example.env=${ENV=PATH}
 fish.payara.example.password=${ALIAS=secret}
 fish.payara.example.multiple=property containing both an ${ENV=envProperty} and a ${sysProp}
 ----
+
+
