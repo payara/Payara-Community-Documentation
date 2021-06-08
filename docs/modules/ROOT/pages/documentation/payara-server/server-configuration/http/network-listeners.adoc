@@ -1,5 +1,4 @@
 = Network Listeners
-:toc:
 
 A network listener is a listener socket that has an IP address, port number, protocol,
 as well as various other configuration options. A listener can listen on a specific
