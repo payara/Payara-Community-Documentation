@@ -16,38 +16,44 @@ cd $WORKING_DIR
 create_nav () {
     for file in "$1"/* ; do
         if [[ ! -d "$file" ]]; then
-            ordinal_list[$file]=$(get_ordinal "$file")
+            ext="${file##*.}"
+            #We only want to process Asciidoc files, ignore other files.
+            if [[ $ext == "adoc" ]]; then
+                ordinal_list[$file]=$(get_ordinal "$file")
+                #read -p "Press Any Key"
+            fi
         else
             create_nav "$file"
         fi
     done
-    
-    sort_list
-    echo "SORTED LIST: " $sorted_list[@]
+}
 
+write_to_nav() {
     for sorted_file in "${sorted_list[@]}"; do
-        echo "SORTED FILE:" $sorted_file
-        read -p "Press Any Key"
+        path_step=""
+        path_index=0
+        for path in $(tr / " " <<< $sorted_file); do
+            path_step+=$path"/"
+            $((path_index++))
 
-        depth=$(grep -o '/' <<< $sorted_file | grep -c .)
-        stars=$(printf '%*s' $depth '')
+            #depth=$(grep -o '/' <<< $path_step | grep -c .)
+            stars=$(printf "%"$path_index"s")
 
-        filename=${sorted_file##*/}
-        filename=${filename%.adoc}
+            filename=${path##*/}
+            filename=${filename%.adoc}
 
-        echo "${stars// /*} xref:$sorted_file[$filename]" >> $OUTPUT_NAV_LOCATION
+            echo "${stars// /*} xref:$path_step[$filename]" >> $OUTPUT_NAV_LOCATION
+        done
     done
+    ordinal_list=()
+    sorted_list=()
 }
 
 sort_list() {
-    sorted_list=()
     KEYS=$(
         for KEY in ${!ordinal_list[@]}; do
             echo "${ordinal_list[$KEY]}:::$KEY"
-        done | sort -r | awk -F::: '{print $2}'
-    )
-
-    echo "KEYS:" $KEYS[@]
+        done | sort -r | awk -F::: '{print $2}')
 
     for KEY in $KEYS; do
         sorted_list+=( $KEY )
@@ -56,6 +62,10 @@ sort_list() {
 
 get_ordinal() {
     content=$(cat "$1")
+    if [[ -z $content ]]; then 
+        echo 0
+    fi
+
     regex=":ordinal: ([[:digit:]]+)"
     if [[ $content =~ $regex ]]; then
         echo ${BASH_REMATCH[1]}
@@ -65,14 +75,15 @@ get_ordinal() {
 }
 
 for dir in */ ; do
-    echo $dir
     dir=${dir%?}
-    if [[ $dir == "Test" ]]; then
+    if [[ $dir == "FolderTest" || $dir == "Appendix" || $dir == "Test" ]]; then
         #Remove trailing / for easier formatting
         #New line character required before heading for correct formatting
         echo >> $OUTPUT_NAV_LOCATION
         echo ".$dir" >> $OUTPUT_NAV_LOCATION
         create_nav "$dir"
+        sort_list
+        write_to_nav
     fi
 done
 

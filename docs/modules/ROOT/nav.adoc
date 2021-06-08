@@ -1,7 +1,24 @@
 
+.Appendix
+* xref:Appendix/[Appendix]
+** xref:Appendix/Schemas/[Schemas]
+*** xref:Appendix/Schemas/README.adoc/[README]
+
+.FolderTest
+* xref:FolderTest/[FolderTest]
+** xref:FolderTest/Folder1/[Folder1]
+*** xref:FolderTest/Folder1/Folder2/[Folder2]
+**** xref:FolderTest/Folder1/Folder2/Folder3/[Folder3]
+***** xref:FolderTest/Folder1/Folder2/Folder3/file.adoc/[file]
+
 .Test
-* xref:Test/file5.adoc[file5]
-* xref:Test/file50.adoc[file50]
-* xref:Test/file2.adoc[file2]
-* xref:Test/file4.adoc[file4]
-* xref:Test/file8.adoc[file8]
+* xref:Test/[Test]
+** xref:Test/file5.adoc/[file5]
+* xref:Test/[Test]
+** xref:Test/file50.adoc/[file50]
+* xref:Test/[Test]
+** xref:Test/file2.adoc/[file2]
+* xref:Test/[Test]
+** xref:Test/file4.adoc/[file4]
+* xref:Test/[Test]
+** xref:Test/file8.adoc/[file8]
