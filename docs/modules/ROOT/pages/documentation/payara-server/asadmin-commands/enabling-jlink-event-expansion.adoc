@@ -1,0 +1,10 @@
+= Enable JLink Event Expansion
+
+When escaping characters in the CLI and Asadmin multimode using the \ character JLink removes the escape character for any character. This occured due to JLink updating from 2.x to 3.x, previously, the escape character was only removed for special characters. 
+
+Due to this, JLink Event Expansion can now be enabled and disabled.
+
+This is disabled by default. 
+
+== Enabling JLink Event Expansion
+Set the environment variable `+DISABLE_EVENT_EXPANSION+` to `+true+` 
