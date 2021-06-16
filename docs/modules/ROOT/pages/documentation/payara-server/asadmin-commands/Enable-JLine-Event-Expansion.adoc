@@ -1,0 +1,42 @@
+= Enable JLine Event Expansion
+
+Enable this feature if you would like to use the Event Designators inside the Asadmin Multimode.
+
+An Event Designator is a reference to a command line entry in the history list.
+
+This is disabled by default. 
+
+== Enabling JLine Event Expansion
+Set the environment variable `+AS_ADMIN_DISABLE_EVENT_EXPANSION+` to `+false+` 
+
+=== For Linux
+. Open the Terminal
+. Type the following command
++
+----
+export AS_ADMIN_DISABLE_EVENT_EXPANSION=false
+----
++
+. Check that the variable is set by typing the following command
++
+----
+echo $AS_ADMIN_DISABLE_EVENT_EXPANSION
+----
++
+
+
+=== For Windows
+. Open Command Prompt as an Administrator
+. Type the following commands
++
+----
+setx AS_ADMIN_DISABLE_EVENT_EXPANSION "false" /m
+set AS_ADMIN_DISABLE_EVENT_EXPANSION=false
+----
++
+. Check that the variable is set by typing the following command
++
+----
+echo %AS_ADMIN_DISABLE_EVENT_EXPANSION%
+----
++
