@@ -55,7 +55,7 @@ SHA-256: `c975fd229df0c40947a9f0a69b779ec92bebb3d21e05fdc65fccc1d11ef5525b`
 ** Jakarta Batch 2.0.0 TCK tests are included in Jakarta EE 9.1 CTS tests, See test results in section `batch` 
 - Java runtime used to run the implementation:
 +
-`Zulu Runtime Environment (zulu-11-amd64)
+`Zulu Runtime Environment (zulu-11-amd64)`
 - Summary of the information for the certification environment:
 +
 Apache Derby, Linux, Ubuntu 18.04.3 +
