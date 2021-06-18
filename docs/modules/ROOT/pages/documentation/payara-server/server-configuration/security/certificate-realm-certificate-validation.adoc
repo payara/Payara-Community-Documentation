@@ -6,7 +6,8 @@ _Since Payara Server 5.2021.5_
 
 By default, Payara checks only if the submitted Client Certificate is present in the trust store. If it is found, it is accepted without any additional checks.
 
-Since Payara 5.2021.5, you can now implement a Client Certificate Validator which performs additional checks in addition to the presence of the certificate in the trust store.  You can perform a check on the validity date, use the Online Certificate Status Protocol (OCSP) to validate the certificate when it has a Certificate Revocation List entry (CRL), or lookup the DN name in a database for example, and determine based on this information if the certificate is still accepted.
+Custom Client Certificate Validation allows you to perform extra checks in addition to checking for the presence of the certificate in the trust store.
+You can perform a check on the validity date, and use the Online Certificate Status Protocol (OCSP) to validate the certificate when it has a Certificate Revocation List entry (CRL), or lookup the DN name in a database for example, and determine based on this information if the certificate is still accepted.
 
 When you want to implement custom validation, implement the `fish.payara.security.client.ClientCertificateValidator` interface and define your class through the ServiceLoader mechanism.
 
