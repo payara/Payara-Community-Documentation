@@ -25,7 +25,10 @@ Here's a sample of a post boot script used to configure an instance for producti
 [source, shell]
 ----
 #Disable dynamic reloading of applications
-set "configs.config.server-config.admin-service.das-config.dynamic-reload-enabled=false"
+set configs.config.server-config.admin-service.das-config.dynamic-reload-enabled=false
+
+# Set a system property which contains spaces
+create-system-properties "property.name=This is a property value"
 #Disable auto deployment
 set "configs.config.server-config.admin-service.das-config.autodeploy-enabled=false"
 
