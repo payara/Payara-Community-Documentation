@@ -10,7 +10,7 @@ Since Payara 5.2021.5, you can now implement a Client Certificate Validator whic
 
 When you want to implement custom validation, implement the `fish.payara.security.client.ClientCertificateValidator` interface and define your class through the ServiceLoader mechanism.
 
-== Creating Custom Validation.
+== Creating Custom Validation
 
 To have the `ClientCertificateValidator` interface available in your application, add the `payara-api` artifact to your application with the provided scope.
 
@@ -50,4 +50,3 @@ com.company.certificate.MyCertificateValidator
 ----
 
 NOTE: You can @Inject CDI and EJB beans in your validator implementation, however since the validator itself is not a Jakarta EE bean, `@PostConstruct` and `@PreDestroy`-annotated methods will not be called on the validator instance.
-
