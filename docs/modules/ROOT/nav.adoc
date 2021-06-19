@@ -25,7 +25,7 @@
 ***** xref:documentation/payara-server/server-configuration/http/protocols/protocols-asadmin.adoc[Asadmin commands]
 **** xref:documentation/payara-server/server-configuration/http/virtual-servers.adoc[Virtual Servers]
 *** xref:documentation/payara-server/server-configuration/security/README.adoc[Security Extensions]
-**** xref:documentation/payara-server/server-configuration/security/certificate-realm-principal-group-name.adoc[Certificate Realm - Principal Name, Group Names]
+**** xref:documentation/payara-server/server-configuration/security/certificate-realm.adoc[Certificate Realm]
 **** xref:documentation/payara-server/server-configuration/security/multiple-mechanism-in-ear.adoc[Multiple HttpAuthenticationMechanism in EAR]
 *** xref:documentation/payara-server/server-configuration/jvm-options.adoc[JVM Options]
 *** xref:documentation/payara-server/server-configuration/jsf-options.adoc[JSF Options]
