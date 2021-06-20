@@ -11,7 +11,7 @@ asciidoc:
         attribute-missing: 'skip'
 ui:
     bundle:
-        url: https://github.com/payara/antora-ui-default/raw/master/build/ui-bundle.zip
+        url: /home/alan/Workspace/documentation/ui-bundle.zip
         snapshot: true
 runtime:
     fetch: true

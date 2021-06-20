@@ -32,9 +32,11 @@ write_to_nav() {
     for sorted_file in "${sorted_list[@]}"; do
         path_step=""
         path_index=0
+        #We need to write each part of path on each line
+        #Cut the first part of the path as that is a duplication
         for path in $(tr / " " <<< $sorted_file); do
+            ((path_index++))
             path_step+=$path"/"
-            $((path_index++))
 
             #depth=$(grep -o '/' <<< $path_step | grep -c .)
             stars=$(printf "%"$path_index"s")
@@ -45,8 +47,21 @@ write_to_nav() {
             echo "${stars// /*} xref:$path_step[$filename]" >> $OUTPUT_NAV_LOCATION
         done
     done
-    ordinal_list=()
-    sorted_list=()
+}
+
+write_to_nav_2() {
+    path_index=0
+    for sorted_file in "${sorted_list[@]}"; do
+        #((path_index++))
+
+        depth=$(grep -o '/' <<< $sorted_file | grep -c .)
+        stars=$(printf "%"$depth"s")
+
+        filename=${sorted_file##*/}
+        filename=${filename%.adoc}
+
+        echo "${stars// /*} xref:$sorted_file[$filename]" >> $OUTPUT_NAV_LOCATION
+    done
 }
 
 sort_list() {
@@ -54,9 +69,10 @@ sort_list() {
         for KEY in ${!ordinal_list[@]}; do
             echo "${ordinal_list[$KEY]}:::$KEY"
         done | sort -r | awk -F::: '{print $2}')
-
+        
     for KEY in $KEYS; do
-        sorted_list+=( $KEY )
+        #sorted_list+=( $(echo $KEY | cut -d '/' -f 1 --complement) )
+        sorted_list+=($KEY)
     done
 }
 
@@ -76,14 +92,16 @@ get_ordinal() {
 
 for dir in */ ; do
     dir=${dir%?}
-    if [[ $dir == "FolderTest" || $dir == "Appendix" || $dir == "Test" ]]; then
+    if [[ $dir == "FolderTest" || $dir == "Appendix" || $dir == "Test" || $dir == "Security" ]]; then
         #Remove trailing / for easier formatting
         #New line character required before heading for correct formatting
         echo >> $OUTPUT_NAV_LOCATION
         echo ".$dir" >> $OUTPUT_NAV_LOCATION
         create_nav "$dir"
         sort_list
-        write_to_nav
+        write_to_nav_2
+        ordinal_list=()
+        sorted_list=()
     fi
 done
 
