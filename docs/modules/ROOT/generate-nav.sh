@@ -64,6 +64,37 @@ write_to_nav_2() {
     done
 }
 
+write_to_nav_b() {
+    readarray -t dirs < <(find . -type d -printf '%P\n')
+
+    for dir in "${dirs[@]}"; do
+        readarray -t files_to_sort < <(find "$dir" -maxdepth 1 -type f)
+        #Add parent folder to root of the path
+        dir="${1}/$dir"
+
+        depth=$(grep -o '/' <<< $dir | grep -c .)
+        stars=$(printf "%"$depth"s")
+
+        filename=${dir##*/}
+        filename=${filename%.adoc}
+
+        if [ ${#files_to_sort[@]} -gt 0 ]; then
+            sort_files "$dir"
+            for file in "${sorted_files[@]}"; do
+                filename=${file##*/}
+                filename=${filename%.adoc}
+                echo "${stars// /*} xref:"$dir$file"[$filename]" >> $OUTPUT_NAV_LOCATION
+            done
+            continue
+        else
+            filename=${dir##*/}
+            filename=${filename%.adoc}
+
+            echo "${stars// /*} xref:${dir}[${filename}]" >> $OUTPUT_NAV_LOCATION
+        fi
+    done
+}
+
 sort_list() {
     KEYS=$(
         for KEY in ${!ordinal_list[@]}; do

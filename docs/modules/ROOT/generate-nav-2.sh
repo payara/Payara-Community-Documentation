@@ -9,16 +9,19 @@ rm $OUTPUT_NAV_LOCATION
 touch $OUTPUT_NAV_LOCATION
 
 dirs=()
-sorted_dirs=()
+sorted_files=()
 
 cd $WORKING_DIR
 
 write_to_nav() {
-    readarray -t dirs < <(find . -printf '%P\n')
+    readarray -t dirs < <(find . -type d -printf '%P\n')
 
-    sort_dirs "$1"
-
-    for dir in "${sorted_dirs[@]}"; do
+    for dir in "${dirs[@]}"; do
+        readarray -t files_to_sort < <(find "$dir" -maxdepth 1 -type f)
+        if [[ ${#dirs[@]} -eq 1 ]]; then
+            readarray -t files_to_sort < <(find * -maxdepth 1 -type f)
+        fi
+        
         #Add parent folder to root of the path
         dir="${1}/$dir"
 
@@ -29,25 +32,49 @@ write_to_nav() {
         filename=${filename%.adoc}
 
         echo "${stars// /*} xref:${dir}[${filename}]" >> $OUTPUT_NAV_LOCATION
+
+        if [[ ${#files_to_sort[@]} -ne 0 ]]; then
+            sort_files "$dir"
+            for file in "${sorted_files[@]}"; do
+                file="$1/$file"
+
+                depth=$(grep -o '/' <<< $file | grep -c .)
+                stars=$(printf "%"$depth"s")
+
+                filename=${file##*/}
+                filename=${filename%.adoc}
+
+                echo "${stars// /*} xref:${file}[${filename}]" >> $OUTPUT_NAV_LOCATION
+            done
+        fi
     done
 }
 
-sort_dirs() {
+sort_files() {
     ordinal_list=()
+    #files_to_sort=$1
 
-    for file in "${dirs[@]:1}"; do
-        ordinal_list+=("$(get_ordinal "$1/$file"):::$file")
+    for file in "${files_to_sort[@]}"; do
+        ordinal_list+=("$(get_ordinal "$file"):::$file")
     done
 
     #We want to delimit based on new line, not the default space
     SAVEDIFS=$IFS
     IFS=$'\n'
-    sorted_dirs=($(
+    sorted_files=($(
         for KEY in "${ordinal_list[@]}"; do
             echo "$KEY"
         done | sort -r | awk -F::: '{print $2}'
     ))
     IFS=$SAVEDIFS
+}
+
+get_depth() {
+
+}
+
+get_filename() {
+    
 }
 
 get_ordinal() {
@@ -67,13 +94,13 @@ get_ordinal() {
 
 for dir in */ ; do
     dir=${dir%?}
-    if [[ $dir == "FolderTest" ]]; then
-        cd "${dir}"
-        echo >> $OUTPUT_NAV_LOCATION
-        echo ".$dir" >> $OUTPUT_NAV_LOCATION
-        write_to_nav "$dir"
-        cd $WORKING_DIR
-    fi
+    #if [[ $dir == "Test" || $dir == "FolderTest" ]]; then
+    cd "${dir}"
+    echo >> $OUTPUT_NAV_LOCATION
+    echo ".$dir" >> $OUTPUT_NAV_LOCATION
+    write_to_nav "$dir"
+    cd $WORKING_DIR
+    #fi
 done
 
 echo "---- GENERATED NAV -----"
