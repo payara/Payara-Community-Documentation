@@ -1,3 +1,0 @@
-:ordinal: 900
-
-ordinal is 900

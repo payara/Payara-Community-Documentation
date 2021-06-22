@@ -1,117 +1,120 @@
 #!/bin/bash
 
+#--- README ---
+# This script will generate a nav file for Antora using the physical file structure of the files.
+# Folders will act as drop downs.
+# Files in folders will be children to those dropdowns.
+# Files will have the same name, including punctuation as the file name.
+
+# To use this script, place it in the same folder as the 'pages' directory
+# For example: payara-community-documentation/docs/modules/ROOT/
+
+#--- CONSTANTS ---
+
+# You do not need to change this unless the script is in a different directory
 readonly WORKING_DIR="$(pwd)/pages"
+
+# The output name of the nav file, this should be the same as configured in antora.yml
 readonly NEW_NAV_FILE_NAME="nav.adoc"
+
+# The output location of the nav file, by default it will be in the same directory as the script.
 readonly OUTPUT_NAV_LOCATION="$(pwd)/$NEW_NAV_FILE_NAME"
-readonly PARENT_DIR="/home/alanroth/workspace/payara-community-documentation"
+
+#--- SETUP ---
 
 rm $OUTPUT_NAV_LOCATION
 touch $OUTPUT_NAV_LOCATION
 
-declare -A ordinal_list
-sorted_list=()
-
 cd $WORKING_DIR
 
-create_nav () {
-    for file in "$1"/* ; do
-        if [[ ! -d "$file" ]]; then
-            ext="${file##*.}"
-            #We only want to process Asciidoc files, ignore other files.
-            if [[ $ext == "adoc" ]]; then
-                ordinal_list[$file]=$(get_ordinal "$file")
-                #read -p "Press Any Key"
-            fi
-        else
-            create_nav "$file"
-        fi
-    done
-}
+#--- FUNCTIONS ---
 
+# Parameters: Parent directory for formatting
+# This function is responsible for writing to the nav at appropriate points
 write_to_nav() {
-    for sorted_file in "${sorted_list[@]}"; do
-        path_step=""
-        path_index=0
-        #We need to write each part of path on each line
-        #Cut the first part of the path as that is a duplication
-        for path in $(tr / " " <<< $sorted_file); do
-            ((path_index++))
-            path_step+=$path"/"
-
-            #depth=$(grep -o '/' <<< $path_step | grep -c .)
-            stars=$(printf "%"$path_index"s")
-
-            filename=${path##*/}
-            filename=${filename%.adoc}
-
-            echo "${stars// /*} xref:$path_step[$filename]" >> $OUTPUT_NAV_LOCATION
-        done
-    done
-}
-
-write_to_nav_2() {
-    path_index=0
-    for sorted_file in "${sorted_list[@]}"; do
-        #((path_index++))
-
-        depth=$(grep -o '/' <<< $sorted_file | grep -c .)
-        stars=$(printf "%"$depth"s")
-
-        filename=${sorted_file##*/}
-        filename=${filename%.adoc}
-
-        echo "${stars// /*} xref:$sorted_file[$filename]" >> $OUTPUT_NAV_LOCATION
-    done
-}
-
-write_to_nav_b() {
     readarray -t dirs < <(find . -type d -printf '%P\n')
 
     for dir in "${dirs[@]}"; do
         readarray -t files_to_sort < <(find "$dir" -maxdepth 1 -type f)
-        #Add parent folder to root of the path
-        dir="${1}/$dir"
+        #If there is only one directory, it is the one we currently are in, so we search in it.
+        if [[ ${#dirs[@]} -eq 1 ]]; then
+            readarray -t files_to_sort < <(find * -maxdepth 1 -type f)
+        fi
 
-        depth=$(grep -o '/' <<< $dir | grep -c .)
-        stars=$(printf "%"$depth"s")
+        #If directory is not a empty string, write it to the nav
+        if [[ ! -z $dir ]]; then
+            #Add parent folder to root of the path
+            dir="${1}/$dir"
 
-        filename=${dir##*/}
-        filename=${filename%.adoc}
+            echo "$(construct_line "$dir")" >> $OUTPUT_NAV_LOCATION
+        fi
 
-        if [ ${#files_to_sort[@]} -gt 0 ]; then
+        #Sort then write files in directory seperate from writing the directory to nav
+        if [[ ${#files_to_sort[@]} -ne 0 ]]; then
             sort_files "$dir"
             for file in "${sorted_files[@]}"; do
-                filename=${file##*/}
-                filename=${filename%.adoc}
-                echo "${stars// /*} xref:"$dir$file"[$filename]" >> $OUTPUT_NAV_LOCATION
-            done
-            continue
-        else
-            filename=${dir##*/}
-            filename=${filename%.adoc}
+                file="$1/$file"
 
-            echo "${stars// /*} xref:${dir}[${filename}]" >> $OUTPUT_NAV_LOCATION
+                echo "$(construct_line "$file")" >> $OUTPUT_NAV_LOCATION
+            done
         fi
     done
 }
 
-sort_list() {
-    KEYS=$(
-        for KEY in ${!ordinal_list[@]}; do
-            echo "${ordinal_list[$KEY]}:::$KEY"
-        done | sort -r | awk -F::: '{print $2}')
-        
-    for KEY in $KEYS; do
-        #sorted_list+=( $(echo $KEY | cut -d '/' -f 1 --complement) )
-        sorted_list+=($KEY)
+
+# Parameters: List of .adoc files
+# Sorts files according to the 'Ordinal' attribute in the page
+sort_files() {
+    local ordinal_list=()
+
+    for file in "${files_to_sort[@]}"; do
+        ordinal_list+=("$(get_ordinal "$file"):::$file")
     done
+
+    #We want to delimit based on new line, not the default space
+    SAVEDIFS=$IFS
+    IFS=$'\n'
+    sorted_files=($(
+        for KEY in "${ordinal_list[@]}"; do
+            echo "$KEY"
+        done | sort -r | awk -F::: '{print $2}'
+    ))
+    IFS=$SAVEDIFS
 }
 
+# Parameters The path to the directory which depth is calculated from and filename is taken from
+# This function is responsible for creating the line that will be appended into the nav file
+construct_line() {
+    local file=$1
+    local depth=$(get_depth "$file")
+    local filename=$(get_filename "$file")
+    local stars=$(printf "%"$depth"s")
+    echo "${stars// /*} xref:${file}[${filename}]"
+}
+
+# Parameters: The path to the file
+# Counts the number of '/' which represents the depth of the file in subfolders
+get_depth() {
+    echo "$(grep -o '/' <<< $1 | grep -c .)"
+}
+
+# Parameters: The path of the file
+# Returns just the filename without file extension or path
+get_filename() {
+    local path=$1
+    filename=${path##*/}
+    filename=${filename%.adoc}
+    echo $filename
+}
+
+# Parameters: File path
+# Returns the ordinal value that is present in the :ordinal: attribute in the page.
 get_ordinal() {
-    content=$(cat "$1")
-    if [[ -z $content ]]; then 
+    if [[ ! -f $1 ]]; then
         echo 0
+        return
     fi
+    content=$(cat "$1")
 
     regex=":ordinal: ([[:digit:]]+)"
     if [[ $content =~ $regex ]]; then
@@ -121,20 +124,14 @@ get_ordinal() {
     fi
 }
 
+#--- MAIN ---
+
+#Loops through directories in the WORKING_DIR and constructs a nav from them.
 for dir in */ ; do
     dir=${dir%?}
-    if [[ $dir == "FolderTest" || $dir == "Appendix" || $dir == "Test" || $dir == "Security" ]]; then
-        #Remove trailing / for easier formatting
-        #New line character required before heading for correct formatting
-        echo >> $OUTPUT_NAV_LOCATION
-        echo ".$dir" >> $OUTPUT_NAV_LOCATION
-        create_nav "$dir"
-        sort_list
-        write_to_nav_2
-        ordinal_list=()
-        sorted_list=()
-    fi
+    cd "${dir}"
+    echo >> $OUTPUT_NAV_LOCATION
+    echo ".$dir" >> $OUTPUT_NAV_LOCATION
+    write_to_nav "$dir"
+    cd $WORKING_DIR
 done
-
-echo "---- GENERATED NAV -----"
-cat $OUTPUT_NAV_LOCATION

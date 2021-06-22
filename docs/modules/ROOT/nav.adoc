@@ -1,24 +1,11 @@
 
 .Appendix
-* xref:Appendix/[]
 * xref:Appendix/Schemas[Schemas]
 ** xref:Appendix/Schemas/README.adoc[README]
 ** xref:Appendix/Schemas/payara-web-app_4.dtd[payara-web-app_4.dtd]
 ** xref:Appendix/Schemas/payara-resources_1_6.dtd[payara-resources_1_6.dtd]
 
-.FolderTest
-* xref:FolderTest/[]
-* xref:FolderTest/Folder1[Folder1]
-** xref:FolderTest/Folder1/Folder2[Folder2]
-*** xref:FolderTest/Folder1/Folder2/testfile.adoc[testfile]
-*** xref:FolderTest/Folder1/Folder2/Folder3[Folder3]
-**** xref:FolderTest/Folder1/Folder2/Folder3/file.adoc[file]
-* xref:FolderTest/Folder Two[Folder Two]
-** xref:FolderTest/Folder Two/File.adoc[File]
-** xref:FolderTest/Folder Two/Folder Folder[Folder Folder]
-
 .General Info
-* xref:General Info/[]
 * xref:General Info/technical-preview.adoc[technical-preview]
 * xref:General Info/supported-platforms.adoc[supported-platforms]
 * xref:General Info/getting-started.adoc[getting-started]
@@ -27,7 +14,6 @@
 * xref:General Info/build-instructions.adoc[build-instructions]
 
 .Jakarta EE Certification
-* xref:Jakarta EE Certification/[]
 * xref:Jakarta EE Certification/5.201[5.201]
 ** xref:Jakarta EE Certification/5.201/tck-results-full-5.201.adoc[tck-results-full-5.201]
 ** xref:Jakarta EE Certification/5.201/README.adoc[README]
@@ -58,7 +44,6 @@
 ** xref:Jakarta EE Certification/5.2021.2/README.adoc[README]
 
 .Release Notes
-* xref:Release Notes/[]
 * xref:Release Notes/5.181[5.181]
 ** xref:Release Notes/5.181/release-notes-181.adoc[release-notes-181]
 * xref:Release Notes/4.1.151[4.1.151]
@@ -135,12 +120,10 @@
 ** xref:Release Notes/4.1.1.163/release-notes-163.adoc[release-notes-163]
 
 .Security
-* xref:Security/[]
 * xref:Security/security-fix-list.adoc[security-fix-list]
 * xref:Security/security.adoc[security]
 
 .Technical Documentation
-* xref:Technical Documentation/[]
 * xref:Technical Documentation/Payara Micro Documentation[Payara Micro Documentation]
 ** xref:Technical Documentation/Payara Micro Documentation/payara-micro.adoc[payara-micro]
 ** xref:Technical Documentation/Payara Micro Documentation/javadoc.adoc[javadoc]
@@ -482,11 +465,3 @@
 *** xref:Technical Documentation/Public API/realm-identitystores/pam-identity-store-definition.adoc[pam-identity-store-definition]
 *** xref:Technical Documentation/Public API/realm-identitystores/file-identity-store-definition.adoc[file-identity-store-definition]
 *** xref:Technical Documentation/Public API/realm-identitystores/certificate-identity-store-definition.adoc[certificate-identity-store-definition]
-
-.Test
-* xref:Test/[]
-* xref:Test/file5.adoc[file5]
-* xref:Test/file50.adoc[file50]
-* xref:Test/file2.adoc[file2]
-* xref:Test/file4.adoc[file4]
-* xref:Test/file8.adoc[file8]
