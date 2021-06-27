@@ -161,7 +161,7 @@ The character set used to decode the request URIs received.
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.uri-encoding=value`
 
 [[configuration-http-compression]]
-==== Compression
+=== Compression
 
 Whether to enable HTTP/1.1 GZIP compression to save server bandwidth. Will be ignored when HTTP/2 is used.
 
@@ -170,7 +170,7 @@ Whether to enable HTTP/1.1 GZIP compression to save server bandwidth. Will be ig
 `set configs.config.server-config.network-config.protocols.protocol.${protocol-name}.http.compression=[off/on/force]`
 
 [[configuration-http-compressable-mime-type]]
-==== Compressible Mime Types
+=== Compressible Mime Types
 
 Comma separated list of MIME types for which HTTP compression is used.
 
