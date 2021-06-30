@@ -70,7 +70,9 @@ restarting the Server or manual redeployment to maximize your productivity.
 [[hot-deploy]]
 === Hot Deploy
 
-_Since *5.201*&nbsp;_ Payara Server Community provides the Hot Deployment capability by boosting the performance 
+_Since *5.201*&nbsp;_
+
+Payara Server provides the Hot Deployment capability, which boosts the performance
 of the application redeployment operation and dynamically replaces the classloader of the application on each redeployment in the hot deploy mode.
 
 The Hot Deploy mode can be enabled in Visual Studio Code from the *Deployment Settings* of Payara Server.
