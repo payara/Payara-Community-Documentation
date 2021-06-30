@@ -1,7 +1,7 @@
 [security]
 = Security Extensions
 
-This section documents several extensions made to the security mechanisms and APIs that are provided by Payara Server Community.
+This section documents several extensions made to the security mechanisms and APIs that are provided by Payara Server.
 
 * xref:documentation/payara-server/server-configuration/security/certificate-realm.adoc[Certificate Realm]
 * xref:documentation/payara-server/server-configuration/security/multiple-mechanism-in-ear.adoc[Multiple HttpAuthenticationMechanism in EAR]
