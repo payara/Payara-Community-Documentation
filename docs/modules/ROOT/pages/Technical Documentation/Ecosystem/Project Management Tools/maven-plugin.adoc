@@ -16,7 +16,7 @@ phase.
 
 Example:
 
-[source,XML]
+[source, xml, subs=attributes+]
 ----
     <plugin>
         <groupId>fish.payara.maven.plugins</groupId>
