@@ -72,6 +72,6 @@ ${MPCONFIG=bar:default}
 -----------------------
 
 MicroProfile properties need to be declared in one of the Payara defined
-xref:/documentation/microprofile/config/README.adoc#config-sources[config sources].
+xref:/documentation/microprofile/config/Overview.adoc#config-sources[config sources].
 By adding a colon after the property name, you may append a default value if
 the property has not been set.

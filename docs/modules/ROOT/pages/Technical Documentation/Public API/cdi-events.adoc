@@ -11,7 +11,7 @@ instances provided that they are connected to the same cluster.
 [[requirements]]
 == Requirements
 
-Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:documentation/payara-server/hazelcast/README.adoc[Data Grid] section for more details.
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:documentation/payara-server/hazelcast/Overview.adoc[Data Grid] section for more details.
 
 
 [[initializing-the-event-bus]]

@@ -9,8 +9,8 @@ The Fault Tolerance API was created to help separate execution logic from execut
 The execution can be configured with a number of fault tolerance policies.
 
 A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-fault-tolerance/blob/master/README.adoc[the
-README for the source code repository.]
+https://github.com/eclipse/microprofile-fault-tolerance/blob/master/Overview.adoc[the
+Overview for the source code repository.]
 
 == Additions to the Fault Tolerance Spec
 In addition to the functionality

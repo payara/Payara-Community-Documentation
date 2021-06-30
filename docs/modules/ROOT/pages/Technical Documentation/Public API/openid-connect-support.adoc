@@ -305,9 +305,9 @@ A programmatic logout is performed by calling `OpenIdContext#logout()` which inv
 
 The client secret can be input directly, or for added security it can be aliased using any of the following features:
 
-- xref:/documentation/payara-server/password-aliases/README.adoc[Password Aliases]
-- xref:/documentation/payara-server/server-configuration/var-substitution/README.adoc[Environment Variables / System Properties]
-- xref:/documentation/microprofile/config/README.adoc[Config API]
+- xref:/documentation/payara-server/password-aliases/Overview.adoc[Password Aliases]
+- xref:/documentation/payara-server/server-configuration/var-substitution/Overview.adoc[Environment Variables / System Properties]
+- xref:/documentation/microprofile/config/Overview.adoc[Config API]
 
 [[fetch-caller-data]]
 === Fetch Caller Data

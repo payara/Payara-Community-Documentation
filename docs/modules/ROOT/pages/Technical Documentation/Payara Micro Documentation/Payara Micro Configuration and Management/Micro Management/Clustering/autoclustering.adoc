@@ -62,7 +62,7 @@ if all the instances have the same cluster name and cluster password.
 
 _Since Payara Micro 5.181_
 
-With the introduction of the xref:/documentation/payara-server/hazelcast/README.adoc[Domain Data Grid]
+With the introduction of the xref:/documentation/payara-server/hazelcast/Overview.adoc[Domain Data Grid]
 Payara Micro now includes a number of alternative discovery modes configurable on the command line
 using the `--clustermode` command line option. The default cluster mode is multicast as described above.
 

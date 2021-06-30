@@ -10,7 +10,7 @@ Provided version of the API: {mpHealthSpecUrl}[MicroProfile Health Check {mpHeal
 The Health Check API was created to allow easier probing of the state of computing nodes with a cloud infrastructure environment.
 
 A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-health/blob/master/README.adoc[the README for the source code repository.]
+https://github.com/eclipse/microprofile-health/blob/master/Overview.adoc[the Overview for the source code repository.]
 
 {mpHealthSpecUrl}[The complete specification] is maintained in the same repository.
 

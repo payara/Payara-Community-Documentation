@@ -25,7 +25,7 @@ Since version __5.184__
 <!DOCTYPE resources PUBLIC "-//Payara.fish//DTD Payara Server 4 Resource Definitions//EN" "{payaraResourcesDtd}">
 ----
 
-See the xref:/schemas/README.adoc[schema reference] for the list of deployment descriptor DTD files.
+See the xref:/schemas/Overview.adoc[schema reference] for the list of deployment descriptor DTD files.
 
 == Allowed configuration elements
 

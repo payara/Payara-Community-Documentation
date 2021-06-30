@@ -11,8 +11,8 @@ configuration from outside the application without needing the application to be
 repackaged.
 
 A full overview for the reasoning behind the API can be found in
-https://github.com/eclipse/microprofile-config/blob/master/README.adoc[the
-README for the source code repository.]
+https://github.com/eclipse/microprofile-config/blob/master/Overview.adoc[the
+Overview for the source code repository.]
 
 {mpConfigSpecUrl}[The complete specification] is maintained in the same repository
 
@@ -94,7 +94,7 @@ xref:documentation/payara-server/server-configuration/var-substitution/types-of-
 
 |`cloud`
 |180
-|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:documentation/microprofile/config/cloud/README.adoc[Cloud Config Sources]
+|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:documentation/microprofile/config/cloud/Overview.adoc[Cloud Config Sources]
 
 |`jdbc`
 |190
