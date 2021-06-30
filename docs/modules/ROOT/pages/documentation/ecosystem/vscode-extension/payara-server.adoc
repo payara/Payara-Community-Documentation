@@ -92,4 +92,6 @@ and modify any Java class of the application to perform the auto redeploy of app
 By enabling the Auto Deploy feature, you may automate the manual deployment 
 processes to boost the developers productivity. It will undeploy the existing 
 application and redeploy the new application on every save action so developers 
-can focus on the key development task.
+can focus on the key development task. Auto Deploy feature full redeploys an 
+application and therefore is slower than hot redpeloy, which redeploys only the
+changed part of an application.
