@@ -82,7 +82,7 @@ NOTE: The Hot Deploy feature is in technical preview.
 
 After enabling the Hot Deploy settings as mentioned above, simply deploy web applications to Payara Server 
 and modify any Java class of the application to perform the auto redeploy of application on save 
-and observer the fast redeployment of the application in Payara Server console log in compare to vanilla redeployment.
+. You'll observe that redeployment of the application in Payara Server is faster than vanilla redeployment and console log will confirm that the hot redeployment happened.
 
 
 [[auto-deploy]]
