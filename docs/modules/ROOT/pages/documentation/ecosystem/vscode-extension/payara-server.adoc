@@ -52,7 +52,7 @@ Right-click on the application and select *Run on Payara Server* to deploy the a
 
 image::vscode-extension/payara-server/deploy-application.png[alt=Deploy application, width="60%"]
 
-Alternatively application can be deployed from *Java Projects* interface:
+Alternatively, an application can be deployed from *Java Projects* interface:
 
 image::vscode-extension/payara-server/java-projects-deploy.png[alt=Deploy application, width="60%"]
 
