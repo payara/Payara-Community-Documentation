@@ -80,7 +80,7 @@ image::vscode-extension/payara-server/deployment-settings-options.png[Enable Hot
 
 NOTE: The Hot Deploy feature is in technical preview.
 
-After enabling the Hot Deploy settings as mentioned above, Simply deploy the Web Applications to Payara Server Community
+After enabling the Hot Deploy settings as mentioned above, simply deploy web applications to Payara Server 
 and modify any Java class of the application to perform the auto redeploy of application on save 
 and observer the fast redeployment of the application in Payara Server console log in compare to vanilla redeployment.
 
