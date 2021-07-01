@@ -48,14 +48,14 @@ the maximum size of the log file, after which a file rotation will occur.
 If the value for this option is set to 0 rotation is disabled.
 
 
-=== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Max File Size` option using Admin Console:
 
 image:logging/max_file_size.png[Max File Size]
 
 [[using-asadmin-utility]]
-=== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to set maximum size for access log files:
 
@@ -128,15 +128,15 @@ of Payara Server Notifications. When disabled this should help to minimize disk
 usage. This option will be more accommodating if Payara Server is running in 
 cloud environment where disk space is scarce. 
 
-[[using-web-admin-console]]
-==== Using the Admin Console
+
+*Using the Admin Console*
 
 To configure `Log to File` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_log_to_file.png[Log to File enabled]
 
-[[using-asadmin-utility]]
-==== Using an `asadmin` command
+
+*Using an `asadmin` command*
 
 Use the following command to enable or disabled logging to a file:
 
@@ -166,15 +166,15 @@ explained in the following section:
 
 `Rotation On Date Change` option provides a way to set log rotation at date change (at midnight).  
 
-[[using-web-admin-console-1]]
-==== Using the Admin Console
+
+*Using the Admin Console*
 
 To configure `Rotation on Date Change` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_rotation_on_date_change.png[Rotation on Date Change enabled]
 
-[[using-asadmin-utility-1]]
-==== Using an `asadmin` command
+
+*Using an `asadmin` command*
 
 Use the following command to enable or disabled rotation of log on date change:
 
@@ -192,15 +192,13 @@ specifying the maximum size of the log file, after which a file rotation will
 occur. The minimum size it can be set to is 500000 Bytes. If the value for this 
 option is set to 0 rotation is disabled. 
 
-[[using-web-admin-console-2]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `File Rotation Limit` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_rotation_on_file_size.png[File Rotation Limit]
 
-[[using-asadmin-utility-2]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to change rotation of log on file size:
 
@@ -215,15 +213,13 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 `File Roatation Time Limit` option provides a way to change the log file 
 rotation time limit interval.
 
-[[using-web-admin-console-3]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `File Roatation Time Limit` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_rotation_on_time_limit.png[File Roatation Time Limit]
 
-[[using-asadmin-utility-3]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to change rotation of log on time limit interval:
 
@@ -237,15 +233,13 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 
 `Log File Logging Format` option will provide a way to change logging format. There are 3 logging formats available: ULF, ODL and JSON.
 
-[[using-web-admin-console-4]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Log File Logging Format` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_change_logging_format.png[Change Logging Format]
 
-[[using-asadmin-utility-4]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to change logging format:
 
@@ -262,15 +256,13 @@ log files that can be created by Payara Server. Once the number of files
 reaches the set limit, oldest rotated log file is deleted. If the value for 
 this option is set 0, all the rotated log files are preserved. 
 
-[[using-web-admin-console-5]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Maximum History File` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_set_maximum_number_of_history_files.png[Maximum History File]
 
-[[using-asadmin-utility-5]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to set the limit on the number of log files that can be created by Payara Server:
 
@@ -285,15 +277,13 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 `Log File` option provides a way to change the name and location of the log 
 files. 
 
-[[using-web-admin-console-6]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Log File` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_change_name_and_location_of_log_file.png[Log File]
 
-[[using-asadmin-utility-6]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to change the name and location of the log file:
 
@@ -308,15 +298,14 @@ asadmin> set-log-attributes fish.payara.enterprise.server.logging.PayaraNotifica
 `Compress on Rotation` provides a way to set compression of log files on 
 rotation automatically. 
 
-[[using-web-admin-console-7]]
-==== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Compress on Rotation` option using Admin Console:
 
 image:logging/notification-logging/payara_notification_set_compress_on_rotation.png[Compress on Rotation enabled]
 
-[[using-asadmin-utility-7]]
-==== Using an `asadmin` command
+*Using an `asadmin` command*
+
 [[daily-log-rotation]]
 == Daily Log Rotation
 
@@ -377,8 +366,8 @@ configured to compress rotated files automatically. This is done
 transparently, so  it is still possible to view  log entries that are using the
 the log viewer in the Web Admin Console.
 
-[[using-web-admin-console]]
-=== Using the Web Admin Console
+
+*Using the Web Admin Console*
 
 When log rotation is configured, you can turn on compression of rotated
 files in the `Logger Settings` section, by ticking the `Compress on Rotation`
@@ -386,8 +375,7 @@ checkbox:
 
 image:logging/compress_on_rotation.png[Compress on Rotation enabled]
 
-[[using-asadmin-utility]]
-=== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to enable or disabled the automatic compression
 of log files on rotation:
@@ -478,15 +466,13 @@ and disable logging to a file in Payara Server Community. When disabled this sho
 to minimize disk usage. This option will be more accommodating if Payara Server 
 is running in cloud environment where disk space is scarce. 
 
-[[using-web-admin-console]]
-=== Using the Admin Console
+*Using the Admin Console*
 
 To configure `Log to File` option using Admin Console:
 
 image:logging/log_to_file.png[Log to File enabled]
 
-[[using-asadmin-utility]]
-=== Using an `asadmin` command
+*Using an `asadmin` command*
 
 Use the following command to enable or disabled logging to a file:
 
