@@ -66,6 +66,43 @@ In a default installation, the _http-listener-2_ is responsible for handling the
 
 The information can also be entered in the Web Administration console, by navigating to the page Configurations -> server-config -> HTTP Service -> HTTP Listeners > http-listener-2.
 
+[[loading-certificates-from-multiple-keystores]]
+== Loading certificates from multiple keystores
+
+_Since Payara Server 5.2021.5_
+
+IMPORTANT: All additional keystores must have the same password as your domain master password. If you want to load more than one additional keystore use ':' as a delimiter between file paths.
+
+To add additional keystores to the Payara Server you will need to have your keystore and truststore files in a local directory. You can then configure this either in the admin console or using asadmin commands.
+
+The new JVM properties used to add additional keystores are:
+
+* -Dfish.payara.ssl.additionalKeyStores
+* -Dfish.payara.ssl.additionalTrustStores
+
+=== Using the Admin Console
+To configure the additional keystore locations in the admin console, head to the *Configurations -> <instance configuration> -> JVM Settings* and on the *JVM Options* tab click *Add JVM Option*.
+
+In the new blank JVM property, you can add the new JVM properties and the relative paths to your keystores and truststores respectively.
+
+image::ssl/add-additional-keystores-admin-console.png[Configure additional keystores and truststores in Admin Console]
+
+=== Using Asadmin Commands
+JVM options can be configured using the 'create-jvm-options' asadmin command, you can configure your additional keystore and truststore files like in the following examples:
+
+*Additional Keystores*
+[source, shell]
+----
+asadmin create-jvm-options "-Dfish.payara.ssl.additionalKeyStores=/path/to/keystore.jks:/path2/to/keystore2.jks"
+----
+*Additional Truststores*
+[source, shell]
+----
+asadmin create-jvm-options "-Dfish.payara.ssl.additionalTrustStores=/path/to/truststore.jks:/path2/to/truststore2.jks"
+----
+
+NOTE: If you load multiple keystores with the same alias, the server will use the keystore with that alias declared first in the JVM options.
+
 [certificate-expiration]
 == Certificate expiration
 
