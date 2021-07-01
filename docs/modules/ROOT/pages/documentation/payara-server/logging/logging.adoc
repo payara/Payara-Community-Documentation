@@ -47,7 +47,7 @@ Server rotates the access log file. This option accepts an integer value specify
 the maximum size of the log file, after which a file rotation will occur. 
 If the value for this option is set to 0 rotation is disabled.
 
-[[using-web-admin-console]]
+
 === Using the Admin Console
 
 To configure `Max File Size` option using Admin Console:
