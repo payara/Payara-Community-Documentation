@@ -69,11 +69,9 @@ The information can also be entered in the Web Administration console, by naviga
 [[loading-certificates-from-multiple-keystores]]
 == Loading certificates from multiple keystores
 
-_Since Payara Server 5.2021.5_
+IMPORTANT: All additional keystores must have the same password as your domain master password.
 
-IMPORTANT: All additional keystores must have the same password as your domain master password. If you want to load more than one additional keystore use ':' as a delimiter between file paths.
-
-To add additional keystores to the Payara Server you will need to have your keystore and truststore files in a local directory. You can then configure this either in the admin console or using asadmin commands.
+To add additional keystores to the Payara Server you will need to have your keystore and truststore files in a local directory. You can then configure this either in the admin console or using asadmin commands. If you want to load more than one additional keystore use ':' as a delimiter between file paths.
 
 The new JVM properties used to add additional keystores are:
 
@@ -83,25 +81,25 @@ The new JVM properties used to add additional keystores are:
 === Using the Admin Console
 To configure the additional keystore locations in the admin console, head to the *Configurations -> <instance configuration> -> JVM Settings* and on the *JVM Options* tab click *Add JVM Option*.
 
-In the new blank JVM property, you can add the new JVM properties and the relative paths to your keystores and truststores respectively.
+In the new blank JVM property, you can add the new JVM property and the relative paths to your keystores and truststores respectively.
 
 image::ssl/add-additional-keystores-admin-console.png[Configure additional keystores and truststores in Admin Console]
 
 === Using Asadmin Commands
-JVM options can be configured using the 'create-jvm-options' asadmin command, you can configure your additional keystore and truststore files like in the following examples:
+JVM options can be configured using the 'create-jvm-options' asadmin command, you can configure your additional keystore and truststore files like in the following examples. If you are loading in multiple additional keystores via asadmin commands, you will need to use '\:' as the delimeter to avoid creating multiple JVM options.
 
 *Additional Keystores*
 [source, shell]
 ----
-asadmin create-jvm-options "-Dfish.payara.ssl.additionalKeyStores=/path/to/keystore.jks:/path2/to/keystore2.jks"
+asadmin create-jvm-options "-Dfish.payara.ssl.additionalKeyStores=/path/to/keystore.jks\:/path2/to/keystore2.jks"
 ----
 *Additional Truststores*
 [source, shell]
 ----
-asadmin create-jvm-options "-Dfish.payara.ssl.additionalTrustStores=/path/to/truststore.jks:/path2/to/truststore2.jks"
+asadmin create-jvm-options "-Dfish.payara.ssl.additionalTrustStores=/path/to/truststore.jks\:/path2/to/truststore2.jks"
 ----
 
-NOTE: If you load multiple keystores with the same alias, the server will use the keystore with that alias declared first in the JVM options.
+NOTE: If you load multiple keystores with the same alias, the server will use the first keystore with that alias, starting with the default and then the additional keystores in the order they are listed in the JVM option.
 
 [certificate-expiration]
 == Certificate expiration
