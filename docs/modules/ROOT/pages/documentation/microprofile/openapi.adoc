@@ -172,6 +172,7 @@ asadmin> set-openapi-configuration
         [--corsheaders=true|false]
         [--securityenabled=true|false]
         [--roles=<role-list>] 
+        [--endpoint=<context-root[default:openapi]>] 
         [--target=<target[default:server]>]
         [--virtualservers=<virtualserver-list>]
 ----
@@ -179,7 +180,7 @@ asadmin> set-openapi-configuration
 Enables or disables the OpenAPI service.
 
 [[configuration-note]]
-NOTE: When the OpenAPI service is disabled, the `/openapi` endpoint will always return a 403 error and any applications deployed during this period will *not* have an OpenAPI document built. Enabling the service again will not cause a documents to be built for any currently deployed applications.
+NOTE: When the OpenAPI service is disabled, the endpoint will always return a 403 error and any applications deployed during this period will *not* have an OpenAPI document built. Enabling the service again will not cause a documents to be built for any currently deployed applications.
 
 ===== Command Options
 
@@ -219,6 +220,12 @@ _Since Payara Server 5.193_
 
 _Since Payara Server 5.193_
 |`microprofile`
+|No
+
+|`endpoint`
+|String
+|The context root used to expose the openapi checks endpoint.
+|openapi
 |No
 
 |`target`
