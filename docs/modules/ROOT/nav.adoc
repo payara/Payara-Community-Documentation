@@ -2,7 +2,7 @@
 * xref:README.adoc[Introduction]
 ** xref:general-info/general-info.adoc[Overview]
 ** xref:release-notes/README.adoc[Release Notes]
-*** xref:release-notes/release-notes-2021-2.adoc[Payara Community 5.2021.2 Release Notes]
+*** xref:release-notes/release-notes-2021-4.adoc[Payara Community 5.2021.4 Release Notes]
 ** xref:security/security.adoc[Security]
 *** xref:security/security-fix-list.adoc[Security Fixes Summary]
 ** xref:general-info/supported-platforms.adoc[Supported Platforms]
@@ -30,6 +30,7 @@
 *** xref:documentation/payara-server/server-configuration/security/README.adoc[Security Extensions]
 **** xref:documentation/payara-server/server-configuration/security/certificate-realm-principal-name.adoc[Certificate Realm - Principal Name]
 **** xref:documentation/payara-server/server-configuration/security/certificate-realm-groups.adoc[Certificate Realm - Group Mapping]
+**** xref:documentation/payara-server/server-configuration/security/certificate-realm-certificate-validation.adoc[Certificate Realm - Custom Validation on Client Certificate]
 **** xref:documentation/payara-server/server-configuration/security/multiple-mechanism-in-ear.adoc[Multiple HttpAuthenticationMechanism in EAR]
 *** xref:documentation/payara-server/server-configuration/jvm-options.adoc[JVM Options]
 *** xref:documentation/payara-server/server-configuration/jsf-options.adoc[JSF Options]
@@ -65,6 +66,7 @@
 *** xref:documentation/payara-server/asadmin-commands/misc-commands.adoc[Miscellaneous Commands]
 *** xref:documentation/payara-server/asadmin-commands/disabling-jline.adoc[Disabling JLine]
 *** xref:documentation/payara-server/asadmin-commands/auto-naming.adoc[Auto-Naming]
+*** xref:documentation/payara-server/asadmin-commands/Enable-JLine-Event-Expansion.adoc[Enable JLine Event Expansion]
 ** xref:documentation/payara-server/rest-api/rest-api-documentation.adoc[REST API Documentation]
 *** xref:documentation/payara-server/rest-api/overview.adoc[Overview]
 *** xref:documentation/payara-server/rest-api/security.adoc[Security]
@@ -267,6 +269,9 @@
 *** xref:documentation/ecosystem/docker-images/micro-image-overview.adoc[Payara Micro Docker Image Overview]
 
 * xref:documentation/extensions/README.adoc[Extensions]
+** xref:documentation/extensions/autoscale/README.adoc[AutoScale]
+*** xref:documentation/extensions/autoscale/nodes-scaling-group.adoc[Nodes Scaling Groups]
+*** xref:documentation/extensions/autoscale/create-autoscale-extensions.adoc[Creating AutoScale Extensions]
 ** xref:documentation/extensions/notifiers/README.adoc[Notifiers]
 *** xref:documentation/extensions/notifiers/datadog-notifier.adoc[Datadog Notifier]
 *** xref:documentation/extensions/notifiers/discord-notifier.adoc[Discord Notifier]
@@ -298,6 +303,8 @@
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
+** xref:release-notes/release-notes-2021-4.adoc[Payara Community 5.2021.4 Release Notes]
+** xref:release-notes/release-notes-2021-3.adoc[Payara Community 5.2021.3 Release Notes]
 ** xref:release-notes/release-notes-2021-2.adoc[Payara Community 5.2021.2 Release Notes]
 ** xref:release-notes/release-notes-2021-1.adoc[Payara Community 5.2021.1 Release Notes]
 ** xref:release-notes/release-notes-2020-7.adoc[Payara Community 5.2020.7 Release Notes]
@@ -338,7 +345,14 @@
 
 * xref:schemas/README.adoc[Schemas]
 
+* xref:jakartaee-certification/README.adoc[Jakarta EE Platform 9 certification summaries]
+** xref:jakartaee-certification/6.2021.1.Alpha1/README.adoc[Payara Server 6.2021.1.Alpha1]
+*** xref:jakartaee-certification/6.2021.1.Alpha1/tck-results-full-6.2021.1.Alpha1.adoc[6.2021.1.Alpha1 Full Profile]
 * xref:jakartaee-certification/README.adoc[Jakarta EE Platform 8 certification summaries]
+** xref:jakartaee-certification/5.2021.4/README.adoc[Payara Server 5.2021.4]
+*** xref:jakartaee-certification/5.2021.4/tck-results-full-5.2021.4.adoc[5.2021.4 Full Profile]
+** xref:jakartaee-certification/5.2021.3/README.adoc[Payara Server 5.2021.3]
+*** xref:jakartaee-certification/5.2021.3/tck-results-full-5.2021.3.adoc[5.2021.3 Full Profile]
 ** xref:jakartaee-certification/5.2021.2/README.adoc[Payara Server 5.2021.2]
 *** xref:jakartaee-certification/5.2021.2/tck-results-full-5.2021.2.adoc[5.2021.2 Full Profile]
 ** xref:jakartaee-certification/5.2021.1/README.adoc[Payara Server 5.2021.1]
