@@ -1,3 +1,4 @@
+:Ordinal: 900
 = Jakarta EE Platform 9.1 certification summaries
 
 Payara Server is certified https://jakarta.ee/[Jakarta EE] implementation.
