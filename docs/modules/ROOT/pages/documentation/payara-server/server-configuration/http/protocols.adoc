@@ -739,11 +739,11 @@ set configs.config.server-config.network-config.protocols.protocol.${protocol-na
 ----
 
 [[main-asadmin-commands]]
-== Main Asadmin Commands
+= Main Asadmin Commands
 
 The following asadmin commands can be used to manage protocol records.
 
-=== `create-protocol`
+== `create-protocol`
 
 The `create-protocol` command creates a bare protocol to be configured with `create-http` and `create-ssl`.
 
@@ -755,7 +755,7 @@ asadmin create-protocol [--help]
            protocol-name
 ----
 
-=== `create-http`
+== `create-http`
 
 The `create-http` command creates a set of HTTP parameters for a created protocol.
 
@@ -772,7 +772,7 @@ asadmin  create-http [--help]
            protocol-name
 ----
 
-=== `create-ssl`
+== `create-ssl`
 
 The `create-ssl` command creates a set of SSL parameters for a created protocol.
 
