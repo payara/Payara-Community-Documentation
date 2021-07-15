@@ -3,7 +3,7 @@
 Java Database Connectivity is a Java API used for managing connections to a database. This page will detail specific features related to the use of JDBC Connections.
 
 [[configuring-a-connection-pool]]
-= Configuring a Connection Pool
+== Configuring a Connection Pool
 
 A connection pool is a store of database connections that can be used and (more importantly)
 re-used to connect to a RDBMS database. They help to improve both the performance
@@ -20,13 +20,13 @@ Once the connection is finished with, rather than closing it the connection is
 returned to the connection pool for use by the next requester.
 
 [[creating-the-connection-pool]]
-== Creating a connection pool
+=== Creating a connection pool
 
 It is possible to create a JDBC connection pool on the web administration console,
 or using administration commands.
 
 [[using-admin-console]]
-=== Using Admin Console
+==== Using Admin Console
 
 In the left hand panel of the Admin console go to _Resources_ -> _JDBC_ -> _JDBC Connection Pools_
 
@@ -65,7 +65,7 @@ _Ping_ button at the top of the screen. You should see a message stating that th
 ping succeeded.
 
 [[using-asadmin]]
-=== Using administration commands
+==== Using administration commands
 
 You can also create a JDBC connection pool using the `asadmin` command line tool
 with the following options:
@@ -87,7 +87,7 @@ asadmin> ping-connection-pool test-pool
 ----
 
 [[jdbc-call-logging-sql-tracing]]
-= JDBC Call Logging (SQL Tracing)
+== JDBC Call Logging (SQL Tracing)
 :page-aliases: documentation/payara-server/advanced-jdbc/log-jdbc-calls.adoc
 
 WARNING: This is a feature best used for development purposes due to the volume
@@ -113,7 +113,7 @@ below;
   PoolName=H2Pool | ExecutionTime=1ms | ClassName=org.apache.derby.client.net.NetConnection40 | MethodName=prepareStatement | arg[0]=SELECT ID, AGE, BIO, BIRTHDATE, BIRTHDAY, DATEFORMAT, DATEOFBIRTH, DATEOFHIRE, EMAIL, HIREDATE, HIREDAY, MEMBERAGE, NAME, TODAYSDATE FROM MEMBERENTITY WHERE (NAME = ?) | arg[1]=1003 | arg[2]=1007 | |#]
 ----
 
-[[administration-console]]
+[[jdbc-call-logging-administration-console]]
 === Using the Administration Console
 
 SQL Tracing can be enabled through the Payara Server Web administration
@@ -137,10 +137,10 @@ property of your connection pool to `true`, like in the following example:
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.log-jdbc-calls=true
 ----
 
-[[deployment]]
+[[jdbc-call-logging-deployment]]
 == Application Deployment
 
-In Java EE 7 applications and above, a JDBC data source can be deployed by adding the
+In Java EE 7+ applications and above, a JDBC data source can be deployed by adding the
 `@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`
 EJB bean for example). The *Log JDBC Calls* setting can be configured using
 this annotation as well:
@@ -195,7 +195,7 @@ asadmin create jdbc-connection-pool --datasourceclassname org.h2.jdbcx.JdbcDataS
 ----
 
 [[advance-connection-pool-properties-in-deployment-descriptors]]
-= Advanced Connection Pool Properties in Deployment Descriptors
+== Advanced Connection Pool Properties in Deployment Descriptors
 :page-aliases: documentation/payara-server/advanced-jdbc/advanced-connection-pool-properties.adoc
 
 Payara Serverb supports setting advanced JDBC connection pool
@@ -203,7 +203,7 @@ properties directly on data source definitions made with the
 `@DataSourceDefinition` annotation or directly on deployment descriptors.
 
 [[setting-properties-in-the-deployment-descriptor]]
-== Setting Properties in the Deployment Descriptor
+=== Setting Properties in the Deployment Descriptor
 
 In a Java EE 7+ application, a data source definition can be added to a
 deployment descriptor of an application. For a web application,
@@ -230,7 +230,7 @@ following example:
 ----
 
 [[setting-properties-via-annotations.]]
-== Setting Properties on the `@DataSourceDefinition` Annotation.
+=== Setting Properties on the `@DataSourceDefinition` Annotation.
 
 In Java EE 7+ applications, a JDBC data source can be deployed by adding the
 `@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`

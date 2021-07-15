@@ -1,5 +1,5 @@
 [[sql-statement-overview]]
-= SQL Statement Overview
+= SQL in Payara Server
 :page-aliases: documentation/payara-server/advanced-jdbc/sql-statement-overview.adoc
 
 Payara Server keeps track of the recently executed SQL statements for monitoring purposes.
@@ -63,7 +63,7 @@ These values can be configured by defining some key-value pairs in the propertie
 When the cache size is too small, you see an information message in the log to indicate that not all statements could be retained.
 
 [[slow-sql-logger]]
-= Slow SQL Logger
+== Slow SQL Logger
 :page-aliases: documentation/payara-server/advanced-jdbc/slow-sql-logger.adoc
 
 Many performance problems in Enterprise Applications can be traced to
@@ -86,7 +86,7 @@ for the Slow SQL Logger to function correctly.
 There are a number of ways to configure the slow SQL threshold time on a
 JDBC connection pool.
 
-[[administration-console]]
+[[slow-sql-administration-console]]
 === Using the Administration Console
 
 To configure slow SQL logging on a JDBC connection pool via the
@@ -97,7 +97,7 @@ disables the feature:
 
 image:advanced-jdbc/slowsqllogging.png[Slow SQL Logging settings in the administration console]
 
-[[asadmin]]
+[[slow-sql-asadmin]]
 === Using Asadmin commands
 
 The *Slow Query Log Threshold* time for a JDBC connection pool can also be
@@ -118,8 +118,8 @@ decimal value. Below is a example of setting the threshold on the
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.slow-query-threshold-in-seconds=0.2
 ----
 
-[[deployment]]
-== Application Deployment
+[[slow-sqldeployment]]
+=== Application Deployment
 
 In Java EE 7+ applications, a JDBC data source can be deployed by adding the
 `@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`
@@ -157,7 +157,7 @@ an application, for example in the _web.xml_ standard deployment descriptor:
 ----
 
 [[example-trace]]
-== Example Trace
+=== Example Trace
 
 Below is an example `WARNING` trace for a slow query recollected from the
 server's log:
@@ -200,7 +200,7 @@ java.lang.Exception: Stack Trace shows code path to SQL
 ----
 
 [[sql-trace-listeners]]
-= SQL Trace Listeners
+== SQL Trace Listeners
 :page-aliases: documentation/payara-server/advanced-jdbc/sql-trace-listeners.adoc
 
 Payara Server provides support for custom SQL Trace Listeners.
@@ -216,7 +216,7 @@ or can be enabled on application specific data sources by including them in
 the application's WAR or EAR.
 
 [[sql-trace-listener-interface]]
-== SQL Trace listener Interface
+=== SQL Trace listener Interface
 
 The SQL Trace Listener interface is shown below:
 
@@ -280,9 +280,9 @@ methods:
 ----
 
 [[example-sql-trace-listener]]
-== SQL Trace Listener Sample
+=== SQL Trace Listener Example
 
-The following code fragment illustrates a sample SQL trace listener that
+The following code fragment illustrates a example SQL trace listener that
 just logs the executed call to the server's log file:
 
 [source, java]
@@ -306,10 +306,10 @@ public class SQLTraceLogger implements SQLTraceListener {
 ----
 
 [[configuring-sql-trace-listeners]]
-== Configuring SQL Trace Listeners
+=== Configuring SQL Trace Listeners
 
-[[administration-console]]
-=== Using the Administration Console
+[[sql-trace-administration-console]]
+==== Using the Administration Console
 
 SQL Trace Listeners can be enabled on a JDBC connection pool through the
 administration web console. Navigate to the *Advanced Tab* of
@@ -324,7 +324,7 @@ image:advanced-jdbc/sqltracelistener.png[Enabling SQL Tracing in the administrat
 IMPORTANT: The implementation class must be on the server's _classpath_ for
 it to work correctly
 
-=== Using asadmin commands
+==== Using asadmin commands
 
 SQL Trace Listeners can be enabled on a JDBC connection pool using with an
 `asadmin` commands by using the `set` command to set the
@@ -336,10 +336,10 @@ your listener implementation, like on the following example:
 asadmin set domain.resources.jdbc-connection-pool.__TimerPool.sql-trace-listeners=fish.payara.examples.payaramicro.datasource.example.CustomSQLTracer
 ----
 
-[[deployment]]
-== Application Deployment
+[[sql-trace-deployment]]
+=== Application Deployment
 
-In Java EE 7 applications, a JDBC data source can be deployed by adding the
+In Java EE 7+ applications, a JDBC data source can be deployed by adding the
 `@DataSourceDefinition` annotation to  a managed component (like and `@Stateless`
 EJB bean for example). SQL Trace Listener classes can be configured using this
 annotation, like in the following example:
@@ -375,7 +375,8 @@ an application, for example in the _web.xml_ standard deployment descriptor:
 ----
 
 [[see-also]]
-= See Also
+== See Also
 
-xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/SQL Trace Listeners.adoc[SQL Trace Listeners in Payara Micro]
-
+* xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/SQL Trace Listeners.adoc[SQL Trace Listeners in Payara Micro]
+* xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/Slow SQL Logger.adoc[Slow SQL Logging in Payara Micro]
+* xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/Log JDBC Calls.adoc[JDBC Call Logging in Payara Micro]

@@ -138,8 +138,7 @@
 
 .Technical Documentation
 * xref:Technical Documentation/Payara Micro Documentation[Payara Micro Documentation]
-** xref:Technical Documentation/Payara Micro Documentation/payara-micro.adoc[payara-micro]
-** xref:Technical Documentation/Payara Micro Documentation/javadoc.adoc[javadoc]
+** xref:Technical Documentation/Payara Micro Documentation/Overview.adoc[Overview]
 ** xref:Technical Documentation/Payara Micro Documentation/Extensions[Extensions]
 *** xref:Technical Documentation/Payara Micro Documentation/Extensions/Running Callable Objects.adoc[Running Callable Objects]
 *** xref:Technical Documentation/Payara Micro Documentation/Extensions/Remote CDI Events.adoc[Remote CDI Events]
@@ -156,7 +155,6 @@
 *** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Docker Image/docker-micro-usage.adoc[docker-micro-usage]
 ** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management[Payara Micro Configuration and Management]
 *** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management[Database Management]
-**** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/SQL Trace Listeners.adoc~[SQL Trace Listeners.adoc~]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/SQL Trace Listeners.adoc[SQL Trace Listeners]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/Slow SQL Logger.adoc[Slow SQL Logger]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Database Management/Log JDBC Calls.adoc[Log JDBC Calls]
@@ -336,7 +334,6 @@
 *** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Thread Pools[Thread Pools]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Thread Pools/default-thread-pool-size.adoc[default-thread-pool-size]
 *** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/JDBC Resource Management[JDBC Resource Management]
-**** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/JDBC Resource Management/SQL.adoc~[SQL.adoc~]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/JDBC Resource Management/SQL.adoc[SQL]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/JDBC Resource Management/JPA Cache Coordination.adoc[JPA Cache Coordination]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/JDBC Resource Management/JDBC.adoc[JDBC]
