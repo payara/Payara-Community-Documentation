@@ -205,10 +205,5 @@ You can override the default entrypoint if needed to test or browse the containe
 
 [source, shell]
 ----
-<<<<<<< HEAD
 docker run -p 8080:8080 -it payara/server-full bash
 ----
-=======
-docker run -p 8080:8080 -it nexus.payara.fish:5000/payara/server-full:{currentVersion} bash
-----
->>>>>>> d9f7bbe3... Removed "since version"
