@@ -1,7 +1,0 @@
-[[jdbc-connection-validation-changes]]
-= JDBC Connection Validation Changes
-
-Starting from _Payara 4.1.1.171_ the validators `table` and `custom-validation` now
-take the connection pool's _Statement Timeout_ into account. Previously
-the lack of timeouts would lead to validators endlessly waiting for a
-response, causing unwanted side effects.

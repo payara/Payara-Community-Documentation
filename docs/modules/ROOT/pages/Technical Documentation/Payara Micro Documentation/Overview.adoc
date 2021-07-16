@@ -1,3 +1,4 @@
+:Ordinal: 900
 [[payara-micro-documentation]]
 = Payara Micro Documentation
 
@@ -22,3 +23,10 @@ Micro instances before they have been bootstrapped (instances that have not
 yet been started) are contained in the `PayaraMicro` class, whereas methods
 that operate on bootstrapped instances (running instances) are contained
 within the `PayaraMicroRuntime` class.
+
+[[javadoc]]
+== Javadoc
+
+The Javadoc for the most recent version of the Payara Micro API can be
+found here:
+https://javadoc.io/doc/fish.payara.extras/payara-micro
