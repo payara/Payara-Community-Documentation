@@ -138,7 +138,7 @@
 
 .Technical Documentation
 * xref:Technical Documentation/Payara Micro Documentation[Payara Micro Documentation]
-** xref:Technical Documentation/Payara Micro Documentation/payara-micro.adoc[payara-micro]
+** xref:Technical Documentation/Payara Micro Documentation/Overview.adoc[Overview]
 ** xref:Technical Documentation/Payara Micro Documentation/javadoc.adoc[javadoc]
 ** xref:Technical Documentation/Payara Micro Documentation/Extensions[Extensions]
 *** xref:Technical Documentation/Payara Micro Documentation/Extensions/Running Callable Objects.adoc[Running Callable Objects]
@@ -178,6 +178,7 @@
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Configuring An Instance/config-cmd-line.adoc[config-cmd-line]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Configuring An Instance/config-access-log.adoc[config-access-log]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options[Command Line Options]
+***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable PhoneHome]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/config-methods.adoc[config-methods]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Command Line Options.adoc[Command Line Options]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Deploying Applications[Deploying Applications]
@@ -318,10 +319,7 @@
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/SSL Certificates/ssl-options.adoc[ssl-options]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/SSL Certificates/ssl-certificates.adoc[ssl-certificates]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home[Phone Home]
-***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/phonehome-overview.adoc[phonehome-overview]
-***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/phone-home-information.adoc[phone-home-information]
-***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/phone-home-asadmin.adoc[phone-home-asadmin]
-***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/disabling-phone-home.adoc[disabling-phone-home]
+***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/PhoneHome.adoc[PhoneHome]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration[Variables in the configuration]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration/usage-of-variables.adoc[usage-of-variables]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration/types-of-variables.adoc[types-of-variables]
