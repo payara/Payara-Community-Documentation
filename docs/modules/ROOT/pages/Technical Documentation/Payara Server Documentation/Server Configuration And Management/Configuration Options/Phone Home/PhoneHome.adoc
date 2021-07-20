@@ -1,23 +1,19 @@
-[[gathered-data]]
-= Gathered Data
-
-[[what-information-is-sent]]
-== What information is sent?
+[[phone-home]]
+= PhoneHome
 
 All versions of Payara return a limited amount of information about its
 specific configuration. No sensitive data about your machine or specific usage
 of Payara Server is sent to 0s or any member of the Payara Services team.
 
-[[gathered-fields]]
-== Gathered attributes
+Gathered phone home data is sent via a `GET` request to http://www.payara.fish/phonehome
 
 The following is the list of information attributes gathered by the Phone
-Home serviceL
+Home service.
 
 [cols=",",options="header",]
 |=======================================================================
 |Attribute |Example
-|Payara Server Version |4.1.1.164 #badassfish
+|Payara Server Version |5.2021.5 #badassfish
 |Java Virtual Machine Version |1.8.0_121
 |Domain Uptime |36500
 |Number of nodes in the domain |1
@@ -31,22 +27,6 @@ system.
 
 NOTE: The UUID is specific to the DAS and is randomly generated on
 startup, so it is not machine specific.
-
-[[changes-to-gathered-fields]]
-== Changes to gathered attributes
-
-The following is an historic list of changes made to the phone home service
-and the information attributes that are gathered by the service if its needed
-for auditing purposes:
-
-* `4.1.1.162`: Initial implementation of the service.
-* `4.1.1.164`: *UUID* added.
-
-[[how-is-the-information-transferred]]
-== How is the information transferred?
-
-Gathered phone home data is sent via a `GET` request to
-http://www.payara.fish/phonehome[this address]
 
 [[what-is-the-data-used-for]]
 == What is the data used for?
@@ -65,9 +45,59 @@ would only gather data specific to Payara and has no contact with any
 running applications, or indeed anything on your machine other than the
 mentioned attributes.
 
+== Disabling and Enabling PhoneHome
+
+The phone home service is enabled by default when starting a Payara
+Server or Payara Micro. The phone home
+service can easily disabled in four different ways.
+
+[[enable-phone-home]]
+== Enable the Phone Home service
+
+====
+asadmin> enable-phone-home
+====
+
+[[disable-phone-home]]
+== Disable the Phone Home service
+
+[[disable-with-asadmin]]
+=== Using Asadmin
+
+Run this asadmin command then restart the server to disable PhoneHome
+
+====
+asadmin> disable-phone-home
+====
+
+[[disable-with-domainxml]]
+=== Disabling in the _domain.xml_ File
+
+- Open `domain.xml` with a text editor
+- Find the tag `<config name="server-config">
+- Within that tag, add the following tag:
+- <phone-home-runtime-configuration enabled="false"/>
+
+[[removing-the-service-module]]
+=== Disable by Removing The Service Module
+
+- Navigate to the `${PAYARA_INSTALL_DIR}/glassfish/modules` directory
+- Delete the `phonehome-bootstrap.jar` module.
+
+[[list-phone-home]]
+== List the current status of the Phone Home service.
+
+====
+asadmin> list-phone-home
+====
+
 [[source-code]]
-== Source Code
+=== Source Code
 
 If needed, the source code for the phone home script is available to
 https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[view
 on github].
+
+== See Also
+
+* xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable PhoneHome in Payara Micro]
