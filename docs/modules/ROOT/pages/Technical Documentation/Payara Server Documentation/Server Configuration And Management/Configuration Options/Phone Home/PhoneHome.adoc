@@ -1,5 +1,5 @@
 [[phone-home]]
-= PhoneHome
+= Phone Home
 
 All versions of Payara return a limited amount of information about its
 specific configuration. No sensitive data about your machine or specific usage
