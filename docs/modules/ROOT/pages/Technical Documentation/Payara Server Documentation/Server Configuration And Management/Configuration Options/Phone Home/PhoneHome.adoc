@@ -70,13 +70,6 @@ Run this asadmin command and then restart the server to disable PhoneHome
 asadmin> disable-phone-home
 ====
 
-[[disable-with-domainxml]]
-=== Disabling in the _domain.xml_ File
-
-- Open `domain.xml` with a text editor
-- Find the tag `<config name="server-config">
-- Within that tag, add the following tag:
-- <phone-home-runtime-configuration enabled="false"/>
 
 [[removing-the-service-module]]
 === Disable by Removing The Service Module
