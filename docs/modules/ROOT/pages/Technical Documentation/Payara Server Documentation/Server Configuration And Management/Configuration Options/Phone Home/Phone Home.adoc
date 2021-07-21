@@ -84,13 +84,7 @@ asadmin> disable-phone-home
 asadmin> list-phone-home
 ====
 
-[[source-code]]
-=== Source Code
-
-If needed, the source code for the phone home script is available to
-https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[view
-on github].
-
 == See Also
 
 * xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable PhoneHome in Payara Micro]
+* https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[Phone Home Source Code]
