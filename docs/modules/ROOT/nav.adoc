@@ -319,7 +319,7 @@
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/SSL Certificates/ssl-options.adoc[ssl-options]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/SSL Certificates/ssl-certificates.adoc[ssl-certificates]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home[Phone Home]
-***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Phone Home/PhoneHome.adoc[PhoneHome]
+***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/PhoneHome.adoc[Phone Home]
 **** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration[Variables in the configuration]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration/usage-of-variables.adoc[usage-of-variables]
 ***** xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variables in the configuration/types-of-variables.adoc[types-of-variables]
