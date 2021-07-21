@@ -64,7 +64,7 @@ asadmin> enable-phone-home
 [[disable-with-asadmin]]
 === Using Asadmin
 
-Run this asadmin command then restart the server to disable PhoneHome
+Run this asadmin command and then restart the server to disable PhoneHome
 
 ====
 asadmin> disable-phone-home
