@@ -178,7 +178,7 @@
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Configuring An Instance/config-cmd-line.adoc[config-cmd-line]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Configuring An Instance/config-access-log.adoc[config-access-log]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options[Command Line Options]
-***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable PhoneHome]
+***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable Phone Home]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/config-methods.adoc[config-methods]
 ***** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Command Line Options.adoc[Command Line Options]
 **** xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Deploying Applications[Deploying Applications]
