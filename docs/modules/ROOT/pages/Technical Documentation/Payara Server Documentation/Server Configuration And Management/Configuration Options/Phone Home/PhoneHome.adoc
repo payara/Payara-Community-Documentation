@@ -49,7 +49,7 @@ mentioned attributes.
 
 The phone home service is enabled by default when starting a Payara
 Server or Payara Micro. The phone home
-service can easily disabled in four different ways.
+service can be easily disabled in the following ways.
 
 [[enable-phone-home]]
 == Enable the Phone Home service
