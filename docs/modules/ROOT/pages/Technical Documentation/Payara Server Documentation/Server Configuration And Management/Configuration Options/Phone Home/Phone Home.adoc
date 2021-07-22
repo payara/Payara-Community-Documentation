@@ -8,7 +8,7 @@ of Payara Server is sent to 0s or any member of the Payara Services team.
 Gathered phone home data is sent via a `GET` request to http://www.payara.fish/phonehome
 
 The following is the list of information attributes gathered by the Phone
-Home service.
+Home service:
 
 [cols=",",options="header",]
 |=======================================================================
