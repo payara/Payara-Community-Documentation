@@ -45,7 +45,7 @@ would only gather data specific to Payara and has no contact with any
 running applications, or indeed anything on your machine other than the
 mentioned attributes.
 
-== Disabling and Enabling PhoneHome
+== Disabling and Enabling Phone Home
 
 The phone home service is enabled by default when starting a Payara
 Server or Payara Micro. The phone home
