@@ -1,5 +1,5 @@
 [[phone-home]]
-= PhoneHome
+= Phone Home
 
 All versions of Payara return a limited amount of information about its
 specific configuration. No sensitive data about your machine or specific usage
@@ -8,12 +8,12 @@ of Payara Server is sent to 0s or any member of the Payara Services team.
 Gathered phone home data is sent via a `GET` request to http://www.payara.fish/phonehome
 
 The following is the list of information attributes gathered by the Phone
-Home service.
+Home service:
 
 [cols=",",options="header",]
 |=======================================================================
 |Attribute |Example
-|Payara Server Version |5.2021.5 #badassfish
+|Payara Server Version |{currentVersion} #badassfish
 |Java Virtual Machine Version |1.8.0_121
 |Domain Uptime |36500
 |Number of nodes in the domain |1
@@ -49,7 +49,7 @@ mentioned attributes.
 
 The phone home service is enabled by default when starting a Payara
 Server or Payara Micro. The phone home
-service can easily disabled in four different ways.
+service can be easily disabled in the following ways.
 
 [[enable-phone-home]]
 == Enable the Phone Home service
@@ -64,19 +64,12 @@ asadmin> enable-phone-home
 [[disable-with-asadmin]]
 === Using Asadmin
 
-Run this asadmin command then restart the server to disable PhoneHome
+Run this asadmin command and then restart the server to disable PhoneHome
 
 ====
 asadmin> disable-phone-home
 ====
 
-[[disable-with-domainxml]]
-=== Disabling in the _domain.xml_ File
-
-- Open `domain.xml` with a text editor
-- Find the tag `<config name="server-config">
-- Within that tag, add the following tag:
-- <phone-home-runtime-configuration enabled="false"/>
 
 [[removing-the-service-module]]
 === Disable by Removing The Service Module
@@ -91,13 +84,7 @@ asadmin> disable-phone-home
 asadmin> list-phone-home
 ====
 
-[[source-code]]
-=== Source Code
-
-If needed, the source code for the phone home script is available to
-https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[view
-on github].
-
 == See Also
 
 * xref:Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Disable PhoneHome.adoc[Disable PhoneHome in Payara Micro]
+* https://github.com/payara/Payara/blob/master/nucleus/payara-modules/phonehome-bootstrap/src/main/java/fish/payara/nucleus/phonehome/PhoneHomeTask.java[Phone Home Source Code]
