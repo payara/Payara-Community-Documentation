@@ -10,8 +10,7 @@ It exposes MBeans over HTTP with a REST API to stop JMX monitoring requiring RMI
 [[rest-monitoring-configuration]]
 == Configuring REST monitoring
 
-REST monitoring is configurable through asadmin commands. This feature is in
-technical preview, so some things may not work quite as intended.
+REST monitoring is configurable through several asadmin commands.
 
 [[setting-rest-configuration]]
 === Setting REST monitoring Configuration
@@ -66,20 +65,24 @@ asadmin> set-rest-monitoring-configuration --enabled true --target ${config name
 [[rest-monitoring-security]]
 === Rest Monitoring Security
 
+NOTE This requires secure admin to be enabled.
+
 [source, shell]
 ----
 asadmin> set-rest-monitoring-configuration --securityenabled=true
 ----
 The `securityenabled` property defines whether the REST monitoring application
 is available over HTTPS. Since the REST monitoring application is hosted on the
-`admin-listener`, this requires secure admin to be enabled.
+`admin-listener`.
 
 Enabling secure admin can be done by first configuring the admin password with
 the `change-admin-password` command, then using the `enable-secure-admin`
 command. Enabling secure admin requires a server restart.
 
 When `securityenabled` is set to true, a username and password is required to
-use REST monitoring. By default the username is set to `payara` and the password
+use REST monitoring.
+
+NOTE The default username is set to `payara` and the default password
 is set to `rest`. The user `payara` is defined in the `file` realm.
 
 The password can be changed with the following command:
@@ -116,6 +119,7 @@ option retrieves the REST monitoring from another instance or cluster.
 [[example-output]]
 ==== Example Asadmin Output
 
+[source, shell]
 ----
 asadmin> get-rest-monitoring-configuration --target server-config
 
@@ -144,6 +148,8 @@ true       __restmonitoring                    /rest-monitoring   false
 [[rest-monitoring-usage]]
 == Usage
 
+INFO Only the READ Operations are supported currently
+
 Common usage examples with REST Monitoring through Asadmin and admin console.
 
 [[enabling-security]]
@@ -153,26 +159,12 @@ The `securityenabled` property defines whether the REST monitoring application i
 
 NOTE: Enabling secure admin requires a server restart.
 
-[[how-to-enable-secure-admin]]
-==== How to Enable Secure Admin
-
-Enabling secure admin can be done by first configuring the admin password with the change-admin-password command.
-
-----
-asadmin> change-admin-password 
-----
-
-then using the enable-secure-admin command
-
-----
-asadmin> enable-secure-admin 
-----
-
 [[enabling-secure-rest-monitoring]]
 ==== Enabling Secure REST Monitoring
 
 Once secure admin is enabled, you may enable security for REST Monitoring.
 
+[source, shell]
 ----
 asadmin> set-rest-monitoring-configuration --securityenabled=true
 ----
@@ -184,6 +176,7 @@ When `securityenabled` is set to true, a username and password are required to u
 
 The password can be changed with the `update-file-user`` command
 
+[source, shell]
 ----
 asadmin> update-file-user --groups=rest --target=server-config --authrealmname=file payara
 ----
@@ -195,14 +188,13 @@ This updates the `payara` user, which is part of the rest group. Any users who a
 
 New users can be added using the `create-file-user` command.
 
+[source, shell]
 ----
 asadmin> create-file-user --groups=rest --target=server-config --authrealmname=file ${username}
 ----
 
 [[performing-read-operations]]
 === Performing READ Operations
-
-INFO Only the READ Operation is supported.
 
 REST Monitoring supports a subset of operations in the Jolokia API.
 
@@ -221,6 +213,7 @@ To read the MBean `java.lang:type=Memory` using the default configuration, you w
 
 *Example Output*
 
+[source, json]
 ----
 {
   "request": {
@@ -252,8 +245,6 @@ To read the MBean `java.lang:type=Memory` using the default configuration, you w
 [[performing-bulk-read-operations]]
 === Performing Bulk READ Operations
 
-INFO Only the READ Operation is supported.
-
 It is possible to execute bulk operations using the REST monitoring API. To do this, issue a POST request to the REST API URL with the following JSON structure as the body payload.
 
 [[example-bulk-payload]]
@@ -261,6 +252,7 @@ It is possible to execute bulk operations using the REST monitoring API. To do t
 
 The payload is a JSON array consisting of objects of type, mbean, and attribute json objects. You may send a single operation request instead of an array also.
 
+[source, json]
 ----
 [
   {
@@ -276,17 +268,18 @@ The payload is a JSON array consisting of objects of type, mbean, and attribute 
 ]
 ----
 
-*type*: The ‘type’ of operation to execute, e.g. read, search, write, etc.
+* *type* - The ‘type’ of operation to execute, e.g. read, search, write, etc.
 
-*mbean*: The MBean attribute which the operation will be executed on.
+* *mbean* - The MBean attribute which the operation will be executed on.
 
-*attribute*: The MBean attribute upon which the operation will be executed. If omitted, all attributes of the MBean will be involved in the operation.
+* *attribute* - The MBean attribute upon which the operation will be executed. If omitted, all attributes of the MBean will be involved in the operation.
 
 [[example-bulk-execution]]
 ==== Example Execution
 
 Using `curl` and a sample REST API URL of `http://localhost:4848/rest-monitoring/rest`
 
+[source, shell]
 ----
 curl -X POST \
   http://localhost:4848/rest-monitoring/rest/ \
@@ -305,6 +298,7 @@ curl -X POST \
 
 *Example Output*
 
+[source, json]
 ----
 [
     {
