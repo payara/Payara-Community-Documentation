@@ -1,0 +1,12 @@
+[[docker-images]]
+= Docker Images
+
+Payara Services Limited provides official Docker Images for the Payara Platform Community which are updated every release. Currently, only Payara Server and Payara Micro images are available.
+
+The images are published on Docker hub in the following locations:
+
+* https://hub.docker.com/r/payara/server-full/[Payara Server Full Profile Docker Image]
+* https://hub.docker.com/r/payara/server-web/[Payara Server Web Profile Docker Image]
+* https://hub.docker.com/r/payara/micro/[Payara Micro Docker Image]
+
+TIP: Payara Enterprise customers have access to a private Docker repository containing Docker Images containing the Payara Enterprise Edition. These images are maintained every month. They receive JDK updates, expired Security Certificates are removed and OS updates can be requested.
