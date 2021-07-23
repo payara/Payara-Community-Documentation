@@ -4,7 +4,7 @@ Amazon SQS (Simple Queue Service) is a hosted and highly scalable distributed
 message queue.
 
 In order to connect to Amazon SQS, the `AmazonSQSRAR-0.1.0-SNAPSHOT.rar` has to
-be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/README.adoc#Installing-a-connector[
+be deployed as shown in the xref:documentation/ecosystem/cloud-connectors/Overview.adoc#Installing-a-connector[
 Installing a connector section] of the Cloud Connectors overview.
 
 Once deployed, something like the following should be printed to the startup log

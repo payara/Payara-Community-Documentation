@@ -1,3 +1,4 @@
+:ordinal: 900
 = Payara Apache NetBeans IDE tools
 
 Apache NetBeans IDE 11.1 provides out-of-the-box support for Payara Platform 
@@ -12,7 +13,7 @@ You can install NetBeans IDE in different ways:
 
 * Extracting from a ZIP: https://netbeans.apache.org/download/index.html
 
-* Building from sources: https://github.com/apache/netbeans (see the README)
+* Building from sources: https://github.com/apache/netbeans (see the Overview)
 
 
 [[tools]]

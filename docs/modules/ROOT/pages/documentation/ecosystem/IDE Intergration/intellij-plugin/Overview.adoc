@@ -1,3 +1,4 @@
+:ordinal: 900
 = Payara IntelliJ IDEA Plugin
 
 Payara Platform tools provide integration of the Payara Platform into IntelliJ 
