@@ -65,7 +65,7 @@ asadmin> set-rest-monitoring-configuration --enabled true --target ${config name
 [[rest-monitoring-security]]
 === Rest Monitoring Security
 
-NOTE This requires secure admin to be enabled.
+NOTE: This requires secure admin to be enabled.
 
 [source, shell]
 ----
@@ -82,7 +82,7 @@ command. Enabling secure admin requires a server restart.
 When `securityenabled` is set to true, a username and password is required to
 use REST monitoring.
 
-NOTE The default username is set to `payara` and the default password
+NOTE: The default username is set to `payara` and the default password
 is set to `rest`. The user `payara` is defined in the `file` realm.
 
 The password can be changed with the following command:
@@ -148,7 +148,7 @@ true       __restmonitoring                    /rest-monitoring   false
 [[rest-monitoring-usage]]
 == Usage
 
-INFO Only the READ Operations are supported currently
+INFO: Only the READ Operations are supported currently
 
 Common usage examples with REST Monitoring through Asadmin and admin console.
 
