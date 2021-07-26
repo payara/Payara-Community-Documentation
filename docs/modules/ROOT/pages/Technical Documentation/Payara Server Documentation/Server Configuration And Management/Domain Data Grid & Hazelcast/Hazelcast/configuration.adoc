@@ -1,5 +1,5 @@
 [[configuring-hazelcast]]
-== Configuring the Domain Data Grid underlying Hazelcast
+= Configuring the Domain Data Grid underlying Hazelcast
 :toc:
 :toclevels: 3
 
