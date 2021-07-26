@@ -1,4 +1,4 @@
-= Release notes - Payara Platform Development - Version 5.2021.5
+= Release notes - Payara Platform Community Edition - Version 5.2021.5
 
 === New Feature
 * [https://github.com/payara/Payara/pull/5324[FISH-1342]] Support for loading certificates from multiple keystores
