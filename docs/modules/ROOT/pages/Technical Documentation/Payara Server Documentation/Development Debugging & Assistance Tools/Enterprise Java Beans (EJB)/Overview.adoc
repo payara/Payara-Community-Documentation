@@ -360,15 +360,12 @@ public interface BeanRemote {
 ----
 @Stateless
 public class Bean implements BeanRemote, Serializable {
-
     private static final long serialVersionUID = 1L;
-
     @Override
     @RolesAllowed("g1")
     public String method() {
         return "method";
     }
-
 }
 ----
 
@@ -378,21 +375,15 @@ public class Bean implements BeanRemote, Serializable {
 ----
 import static javax.naming.Context.INITIAL_CONTEXT_FACTORY;
 import static javax.naming.Context.PROVIDER_URL;
-
 import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
 public class RemoteEJBLiteClient{
-
     public static void main(String... args) throws NamingException{
-
         Properties environment = new Properties();
         environment.put(INITIAL_CONTEXT_FACTORY, "fish.payara.ejb.rest.client.RemoteEJBContextFactory");
         environment.put(PROVIDER_URL, "http://localhost:8080/ejb-invoker");
-
         InitialContext ejbRemoteContext = new InitialContext(environment);
-
         BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
         beanRemote.method() // returns "method"
     }
@@ -450,23 +441,17 @@ import static javax.naming.Context.INITIAL_CONTEXT_FACTORY;
 import static javax.naming.Context.PROVIDER_URL;
 import static javax.naming.Context.SECURITY_CREDENTIALS;
 import static javax.naming.Context.SECURITY_PRINCIPAL;
-
 import java.util.Properties;
 import javax.naming.Context;
 import javax.naming.InitialContext;
-
 public class RemoteEJBLiteClient{
-
     public static void main(String... args) throws NamingException{
-
         Properties environment = new Properties();
         environment.put(INITIAL_CONTEXT_FACTORY,"fish.payara.ejb.rest.client.RemoteEJBContextFactory");
         environment.put(PROVIDER_URL, "https://localhost:8181/ejb-invoker");
         environment.put(SECURITY_PRINCIPAL, "u1");
         environment.put(SECURITY_CREDENTIALS, "p1");
-
         InitialContext ejbRemoteContext = new InitialContext(environment);
-
         BeanRemote beanRemote = (BeanRemote) ejbRemoteContext.lookup("java:global/test/Bean");
         beanRemote.method() // returns "method"
     }
@@ -559,7 +544,6 @@ public interface ClientAdapter {
      */
     Optional<Object> makeLocalProxy(String jndiName, Context remoteContext)
         throws NamingException;
-
 }
 ----
 
@@ -650,7 +634,6 @@ This will return the current state taken from the _domain.xml_ configuration fil
 [source, bash]
 ----
 asadmin> get configs.config.server-config.ejb-container.ejb-timer-service
-
 configs.config.server-config.ejb-container.ejb-timer-service.ejb-timer-service=Database
 configs.config.server-config.ejb-container.ejb-timer-service.max-redeliveries=1
 configs.config.server-config.ejb-container.ejb-timer-service.minimum-delivery-interval-in-millis=1000
@@ -694,6 +677,6 @@ allows a user to pre-emptively move their timers around without having to resort
 It is now possible to configure the MDB bean pool size with the `ActivationConfigProperty`.
 Any Bean annotated with `@MessageDriven` can use `@ActivationConfigProperty` to set property names and property values. For Example;
 
-	@ActivationConfigProperty(propertyName = ""MaxPoolSize"", propertyValue = "100")
+    @ActivationConfigProperty(propertyName = ""MaxPoolSize"", propertyValue = "100")
 
 `MaxPoolSize`, `MaxWaitTimeInMillis`, `PoolResizeQuantity`, `SteadyPoolSize` and `PoolIdleTimeoutInSeconds` are all MDB pool properties that can configured using `@ActivationConfigProperty`
