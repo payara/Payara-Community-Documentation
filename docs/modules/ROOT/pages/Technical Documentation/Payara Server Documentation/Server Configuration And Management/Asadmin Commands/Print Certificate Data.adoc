@@ -1,18 +1,24 @@
 [[print-certificate]]
 = Printing Certificate Data
 
-_Since Payara Server 5.193_
-
-The `print-certificate` is an offline command that prints data of the selected certificate.
-
-The main reason for this command is that keytool output and especially distinguished names are
-not standardized - usually they use RFC 1779.
-
-This command prints the certificate's distinguished name in RFC 2253 format, which is used in Payara,
+The keytool output and especially distinguished names are
+not standardized - usually they use RFC 1779. This command prints the certificate's distinguished name in RFC 2253 format, which is used in Payara,
 so it can be directly used for role mapping when using client certificate authentication,
-for example:
 
-    <principal-name>CN=My Client,OU=Payara,O=Payara Foundation,L=Great Malvern,ST=Worcestershire,C=UK</principal-name>
+
+The command supports only X.509 certificates in files with the following extensions:
+
+* keystores: p12, pkcs12, pfx, jks, jceks
+* PEM or DER encoded certificates: cer, cert, crt, der, pem
+
+The further requirement is also the JVM support of the file type.
+
+INFO: If the file contains more certificates, the command prints only the first one.
+
+[[usage]]
+== Usage
+
+The `print-certificate` is an offline command that prints data of the selected certificate in RFC 2253 format.
 
 Beside this the command prints other useful data about the certificate:
 - validity dates
@@ -21,17 +27,6 @@ Beside this the command prints other useful data about the certificate:
 - issuer's distinguished name
 - public key algorithm and size
 - signature algorithm including OID
-
-The command supports only X.509 certificates in files with the following extensions:
-- keystores: p12, pkcs12, pfx, jks, jceks
-- PEM or DER encoded certificates: cer, cert, crt, der, pem
-
-The further requirement is also the JVM support of the file type.
-
-If the file contains more certificates, the command prints only the first one.
-
-[[usage]]
-== Usage
 
 === Options
 

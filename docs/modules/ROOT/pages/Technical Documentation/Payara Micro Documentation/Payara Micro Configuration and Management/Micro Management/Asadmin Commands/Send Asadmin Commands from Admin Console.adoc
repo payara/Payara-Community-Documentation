@@ -4,12 +4,8 @@
 Asadmin commands can be sent from the Domain Administration Server (DAS) to
 Payara Micro Community instances that are running within the same data grid as the DAS.
 
-Since *5.184*, `stop-domain` can also be issued to a Payara Micro Community instance.
-
-This can be achieved either using the admin console or from the command line.
-
 [[sending-asadmin-commands-using-the-admin-console]]
-== Sending Asadmin Commands using the Admin Console
+== How to Send Asadmin Commands To Payara Micro using the Admin Console
 
 Sending an Asadmin command is performed through the Domain Data Grid. This
 Data Grid is powered by Hazelcast and is enabled by default. You can verify if it
