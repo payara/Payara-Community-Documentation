@@ -9,27 +9,6 @@ Payara Micro Community is an embedded release of Payara built from the Payara Em
 [[documentation-conventions]]
 == Documentation Conventions
 
-<<<<<<< HEAD:docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/Overview.adoc
-. Any commands listed will be written assuming they are being run from the same
-directory as the Payara Micro JAR file.
-. Any commands listed will also be written assuming that the system environment
-variables have been set up to have Java on the system Path.
-. Any paths listed throughout the documentation will use the Unix/Linux file
-path structure (forward slashes).
-. The owning class of an API method will not be explicitly stated unless it is
-not clear if an instance has been started or not; methods that operate on Payara
-Micro instances before they have been bootstrapped (instances that have not
-yet been started) are contained in the `PayaraMicro` class, whereas methods
-that operate on bootstrapped instances (running instances) are contained
-within the `PayaraMicroRuntime` class.
-
-[[javadoc]]
-== Javadoc
-
-The Javadoc for the most recent version of the Payara Micro API can be
-found here:
-https://javadoc.io/doc/fish.payara.extras/payara-micro
-=======
 . Any commands listed will be written assuming they are being run from the same directory as the Payara Micro JAR file.
 . Any commands listed will also be written assuming that the system environment variables have been set up to have Java on the system Path.
 . Any paths listed throughout the documentation will use the Unix/Linux file path structure (forward slashes).
@@ -45,4 +24,3 @@ These images are hosted on Docker hub in the following locations:
 * https://hub.docker.com/r/payara/micro/[Payara Micro Docker Image]
 
 TIP: Payara Enterprise customers have access to a private Docker repository containing Payara Enterprise Edition equivalent images, which are also released and updated every month.
->>>>>>> ed5e2030787a04a4842c8a1b135b626b6af3779e:docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/payara-micro.adoc
