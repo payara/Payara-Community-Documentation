@@ -1,42 +1,93 @@
-[[configuring-the-jmx-monitoring-service]]
-= Configuring the JMX Monitoring Service
+[[jmx-monitoring-service]]
+= JMX Monitoring
 
-There are two ways to configure the JMX Monitoring Service:
+Payara offers a custom JMX Monitoring Service. Once configured, Payara
+Server Community will monitor and log the values of attributes that have been listed
+for monitoring. The metrics are logged together in a single log message as
+a series of key-value pairs prefixed by the string `JMX-MONITORING:`.
 
-. Using the `set-jmx-monitoring-configuration` asadmin command
-. Editing the `domain.xml` file directly.
+[[enable-jmx]]
+== Enabling JMX Monitoring
 
-NOTE: In versions prior to _Payara Server 4.1.2.183 or 5.183_, the `set-monitoring-configuration` 
-command was used instead. This command is now deprecated.
+IMPORTANT: Payara uses the AMX API for working with _JMX MBeans_. AMX is not fully
+exposed by default and as such needs to be loaded to access most _JMX MBean_
+objects. The JMX Monitoring Service can be used without AMX but
+there is a limit to what can be monitored without it.
 
-Examples on how to use the service to monitor the `HeapMemoryUsage`
-attribute using both methods are shown below, but it is first worth
-noting the default configuration values for the service:
 
-* _enabled_: `false`, valid type: `Boolean`
-* _amx_: `false`, valid type: `Boolean`, _optional_
-* _logfrequency_: `15`, valid type: `Long`, _optional_
-* _logfrequencyunit_: `SECONDS`, valid type: `TimeUnit`, _optional_
+[[boot-amx]]
+=== Boot AMX
 
-TIP: You can also boot AMX at startup or independently from the JMX Monitoring 
-service. For more information go xref:documentation/payara-server/jmx-monitoring-service/amx.adoc[here].
+To boot AMX at startup or independently from the JMX Monitoring service, run the 
+command below: 
+[source, shell]
+----
+asadmin>set-amx-enabled --enabled true --dynamic true --target server 
+----
 
-Monitoring attributes are added to the service as properties of the
-configuration and contain the following values:
+To boot AMX using Admin Console:
 
-* _attributeName_: the MBean attribute name
-* _objectName_: the MBean object name
-* _description_: displayed in the `get-jmx-monitoring-configuration` asadmin
-command, _optional_
+image:jmx-monitoring-service/enable_amx.png[Enable AMX]
 
-NOTE: In versions prior to _Payara Server 4.1.2.183 or 5.183_, the `get-monitoring-configuration` 
-command was used instead. This command is now deprecated.
+[[using-web-admin-console]]
+== Using the Admin Console
 
-[[using-the-asadmin-command]]
-== Using the asadmin command
+You can enable JMX Monitoring using the `set-jmx-monitoring-configuration` asadmin command
+
+JMX Monitoring can either be enabled for next startup or the service can be dynamically 
+enabled on a running instance of Payara (provided a non-empty configuration exists 
+at server startup). To enable the service dynamically on the default running 
+instance of Payara the command to run is:
+
+[source, shell]
+----
+asadmin> set-jmx-monitoring-configuration --dynamic true --enabled true
+----
+
+To enable the service for next startup the `--dynamic` option would need
+to be dropped from the command.
+
+[[get-jmx-config]]
+== Getting The JMX Monitoring Configuration
+
+*Usage*::
+`asadmin> get-jmx-monitoring-configuration --pretty false|true`
+
+*Aim*::
+Retrieves the monitoring service configuration and outputs it.
+
+[[command-options-2]]
+=== Command Options
+
+[cols=",,,,",options="header",]
+|====
+|Option
+|Type
+|Description
+|Default
+|Mandatory
+
+|`--target`
+|String
+|The name of the configuration to get the monitoring service configuration from.
+|`server`
+|no
+
+|`--pretty`
+|Boolean
+|Displays Boolean configuration options as a tick
+or cross
+|`N/A`
+|no
+|====
+
+[[configure-jmx]]
+== Setting The JMX Monitoring Configuration
+
+You can configure JMX Monitoring using the `set-jmx-monitoring-configuration` asadmin command.
 
 [[adding-the-monitoring-attribute]]
-=== Adding the monitoring attribute
+=== Adding a monitoring attribute
 
 To add the `HeapMemoryUsage` attribute to the list of MBean attributes to monitor 
 using the service the following command can be used:
@@ -107,19 +158,7 @@ have the monitoring service log messages every one minute execute the following 
 asadmin> set-jmx-monitoring-configuration --logfrequency 60 --enabled false
 ----
 
-[[enabling-the-monitoring-service]]
-=== Enabling the monitoring service
+[[see-also]]
+== See Also
 
-After configuring the monitoring service, it can either be enabled for next startup or the service can be dynamically 
-enabled on a running instance of Payara (provided a non-empty configuration exists 
-at server startup). To enable the service dynamically on the default running 
-instance of Payara the command to run is:
-
-[source, shell]
-----
-asadmin> set-jmx-monitoring-configuration --dynamic true --enabled true
-----
-
-To enable the service for next startup the `--dynamic` option would need
-to be dropped from the command.
-
+* xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notifier Configuration/JMX Monitoring Notification/JMX Monitoring Notifiers Configuration.adoc[Configuring Notification for JMX Monitoring]

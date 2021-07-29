@@ -1,16 +1,9 @@
 [[notification-logging]]
 = Notification Logging Service
 
-_Since version 4.1.2.181_
-
 Payara Notification Logging Service captures information about events which come 
 from other services, such as the JMX Monitoring Service, the HealthCheck service 
 or the Request Tracing service and stores it into a log file.
-
-All the generated logs are stored in _server.log_ by default. But, _since Payara 
-Server 4.1.1.163_ it is possible to configure the Log Notifier to output to a 
-separate log file. More information on Log Notifier can be found on the 
-xref:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
 
 If Log Notifier is configured to use a separate log file, the default log file 
 can be found at:
