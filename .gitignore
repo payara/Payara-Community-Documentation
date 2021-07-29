@@ -30,3 +30,4 @@ migrate-antora.sh
 
 # Antora local build
 build/
+.vscode/settings.json
