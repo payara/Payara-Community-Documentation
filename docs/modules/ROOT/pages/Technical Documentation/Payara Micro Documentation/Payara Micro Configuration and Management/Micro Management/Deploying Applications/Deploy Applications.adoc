@@ -1,55 +1,14 @@
-[[deploying-applications-from-the-command-line]]
-= Deploying Applications From the Command Line
-
-Payara Micro Community supports deploying applications directly from the command line.
+= Deploying Applications
 
 [[deploying-an-application]]
-== Deploying an Application
+== Deploying an Application From the Command Line
 
-As noted in the section
-xref:/documentation/payara-micro/starting-instance.adoc#starting-an-instance-from-the-command-line[Starting an Instance],
-all Payara Micro actions are run for the Payara Micro JAR, all in one command.
-
-The general structure of starting, configuring, and deploying an application to
-an instance is as follows:
-
-[source, shell]
-----
-java -jar payara-micro.jar --option1 --option2 ...
-----
-
-[[persistent-rootdir]]
-== Using Persistent Configuration Directory
-
-When xref:documentation/payara-micro/rootdir.adoc[persistent configuration directory] is reused across restarts (i. e. not running in a container), it is recommended not to specify deployment each time Payara Micro is invoked from that directory.
-Doing so will cause the application to be deployed twice -- once at startup and second time when deployment section of the command line is processed.
-
-The best approach if your application uses persistent filesystem is to use warmup run for deployment:
-
-[source,shell]
-----
-# perform deployments and configuration
-java -jar payara-micro.jar --rootdir micro-root --warmup application.war
-
-# all further invocations do not specify deployment
-java -jar payara-micro.jar --rootdir micro-root
-----
-
-Alternatively a launcher can be generated for configured root directory as well:
-
-[source,shell]
-----
-# perform deployments and configuration
-java -jar payara-micro.jar --rootdir micro-root --warmup application.war
-java -jar payara-micro.jar --rootdir micro-root --outputlauncher
-
-# all further invocations use parameterless launcher
-java -jar micro-root/launch-micro.jar
-----
-
+NOTE: If you wish to deploy multiple packages, you must specify the `--deploy` again, or point to a `--deploymentDir` with multiple applications.
 
 [[deploying-an-application-package]]
-== Deploying an Application Package
+=== Deploying an Application Package
+
+NOTE: All Payara Micro actions are run for the Payara Micro JAR, all in one command.
 
 To deploy a WAR file to an instance, you need to use the `--deploy` option, followed
 by the path to the application to deploy. See below for an example of starting a
@@ -60,48 +19,25 @@ Payara Micro Community instance and deploying a WAR file:
 java -jar payara-micro.jar --deploy /home/user/example.war
 ----
 
-NOTE: Since 4.1.2.181 and 5.181 the `--deploy` option is optional if your deployment file
+NOTE: The `--deploy` option is optional if your deployment file
 ends with `.jar`, `.rar` or `.war` therefore the command line below can also be used
+
 [source, shell]
 ----
 java -jar payara-micro.jar /home/user/example.war
 ----
 
 [[deploying-an-exploded-war]]
-== Deploying an Exploded War
+=== Deploying an Exploded War
 
-An exploded war can be deployed to a Payara Micro Community instance just be specifying
+An exploded war can be deployed to a Payara Micro instance just be specifying
 the path to the exploded war root directory on the `--deploy` command line or
 via the API. The exploded war can be redeployed by creating a file _.reload_
 in the root directory of the exploded war and updating its timestamp for example
 using `touch .reload` in a LINUX machine.
 
-[[deploying-multiple-applications]]
-== Deploying Multiple Applications
-
-If you want to deploy multiple applications to an instance with the `--deploy`
-option, you must use it once for each application to be deployed; it does not
-accept multiple paths.
-
-For example, to deploy 2 applications:
-
-[source, shell]
-----
-java -jar payara-micro.jar --deploy /home/user/example.war --deploy /home/user/test.war
-----
-
-Alternatively, you can use the `--deploymentDir` option. This option specifies
-a directory to scan for deployable archives, allowing you to store all of the
-applications you wish to be deployed in a directory, and have them be deployed
-automatically upon instance startup.
-
-[source, shell]
-----
-java -jar payara-micro.jar --deploymentDir /home/user/deployments
-----
-
 [[deploying-applications-from-a-maven-repository]]
-== Deploying Applications from a Maven repository
+=== Deploying Applications from a Maven repository
 
 You can deploy an application directly from a Maven repository using the
 `--deployFromGAV` option. This option accepts a comma separated string denoting
@@ -169,3 +105,79 @@ Here `example.war` is deployed in `/foo` while `test.war` is deployed in `/bar`.
 
 NOTE: `--deploy example.war:` is identical to `--deploy example.war:/` and deploys to the effective context root `/` while `--deploy example.war` deploys to `/example`. 
 It follows that leading `/` can be given but aren't required. However, tailing `/` must not be given. Using `--deploy example.war:/foo/` renders the URL `<host>/foo/` inaccessible.
+
+[[persistent-rootdir]]
+== Using Persistent Configuration Directory
+
+When persistent configuration directory is reused across restarts (i. e. not running in a container), it is recommended not to specify deployment each time Payara Micro is invoked from that directory.
+Doing so will cause the application to be deployed twice -- once at startup and second time when deployment section of the command line is processed.
+
+The best approach if your application uses persistent filesystem is to use warmup run for deployment:
+
+[source,shell]
+----
+# perform deployments and configuration
+java -jar payara-micro.jar --rootdir micro-root --warmup application.war
+
+# all further invocations do not specify deployment
+java -jar payara-micro.jar --rootdir micro-root
+----
+
+Alternatively a launcher can be generated for configured root directory as well:
+
+[source,shell]
+----
+# perform deployments and configuration
+java -jar payara-micro.jar --rootdir micro-root --warmup application.war
+java -jar payara-micro.jar --rootdir micro-root --outputlauncher
+
+# all further invocations use parameterless launcher
+java -jar micro-root/launch-micro.jar
+----
+
+[[payara-micro-post-boot-output]]
+== Payara Micro Post Boot Output
+
+Information about the output made by Payara Micro after its booting has completed.
+
+[[deployed-apps]]
+=== Deployed Apps
+
+After Payara Micro Community has booted, the log output will list data about the instance and its deployed apps.
+
+This data includes:
+
+* The name of the host
+* The HTTP ports in use by the instance
+* The HTTPS ports in use by the instance
+* The generated instance name
+* The instance group name
+* The hazelcast member UUID
+* The deployed applications
+* The URLs of the deployed applications
+
+Here is an example of this output:
+
+[source, shell]
+----
+[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[
+Instance Configuration
+Host: Example-Host
+HTTP Port(s): 8080
+HTTPS Port(s):
+Instance Name: Adjective-Fish
+Instance Group: MicroShoal
+Hazelcast Member UUID 000a0aa0-000a-0a00-000a-a00000a00aa0
+Deployed: ExampleApp01 ( exampleapp01 war /exampleappendpoint1 )
+Deployed: ExampleApp02 ( exampleapp02 war /exampleappendpoint2 )
+]]
+
+[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[[DATE:TIME+TIMEZONE] [] [INFO] [] [PayaraMicro] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: EPOCHTIME] [levelValue: 800] [[
+
+Payara Micro URLs
+http://example:port/exampleappendpoint1
+https://example:port/exampleappendpoint1
+http://example:port/exampleappendpoint2
+https://example:port/exampleappendpoint2
+]]
+----
