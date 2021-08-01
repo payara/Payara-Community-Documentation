@@ -1,7 +1,11 @@
 [[log-to-console]]
 = Log To Console
 
-The `Log to Console` option is only effective when the Server or the Instance is started with the verbose option.
+The `Log to Console` option controls if the server writes the logging entries to the console. The property only has an effect when the server or instance is started in verbose mode.
+
+== Enabling
+
+To enable the `Log to Console` option you simply have to start the Server or Instance with the verbose option.
 
 [source, shell]
 ----
