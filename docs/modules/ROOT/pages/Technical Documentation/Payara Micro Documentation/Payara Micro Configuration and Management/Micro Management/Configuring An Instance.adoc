@@ -14,8 +14,7 @@ one line.
 The options available can be seen by running the JAR with the `--help` option,
 or by consulting the
 xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Command Line Options/Command Line Options.adoc[Payara Micro Command Line Options]
-section in the
-xref:/Technical Documentation/Payara Micro Documentation/appendices/appendices.adoc[Appendices].
+section.
 
 The general structure of starting, configuring, and deploying an application to
 an instance is as follows:
@@ -35,7 +34,7 @@ java -jar payara-micro.jar --port 2468
 [[warmup]]
 === Separating Configuration from Production Run
 
-An instance can be configured separately, but only when xref:documentation/payara-micro/rootdir.adoc[persistent root configuration directory] is specified by means of command line argument `--rootDir`.
+An instance can be configured separately, but only when xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Jar Structure & Configuration/rootdir.adoc[persistent root configuration directory] is specified by means of command line argument `--rootDir`.
 
 When switch `--warmup` is supplied all configuration and deployment command line parameters are applied to configuration directory and the instance immediately shuts down:
 
@@ -96,9 +95,8 @@ however.
 The configuration methods available to you should be detected by your IDE, allowing
 you to view them using the auto-complete feature common to most popular IDEs.
 Alternatively, you can consult the
-xref:/documentation/payara-micro/appendices/config-methods.adoc[Payara Micro Configuration Methods]
-section in the
-xref:/documentation/payara-micro/appendices/appendices.adoc[Appendices].
+xref:/Technical Documentation/Payara Micro Documentation/API/Payara Micro API/micro-api.adoc[Payara Micro Configuration Methods]
+section.
 
 As noted in the
 xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Deploying Applications/deploy-program-bootstrap.adoc[Deploying an Application Programmatically]
@@ -218,8 +216,6 @@ http://localhost:9080/
 
 [[package-additional-files]]
 === Package Additional Files
-
-_Since Payara Server 4.1.1.171_
 
 It's also possible to package additional files into an Uber JAR, by using a custom
 root directory. You can run a Payara Micro instance first by generating the domain
