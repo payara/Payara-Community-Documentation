@@ -1,10 +1,10 @@
 [[jpa-cache-coordination]]
 = Using Hazelcast EclipseLink Cache Coordination Protocol
 
-Configure `persistence.xml` as follows:
+Configure the `persistence.xml` deployment descriptor as follows:
 
-- Set `eclipselink.cache.coordination.protocol` property to `fish.payara.persistence.eclipselink.cache.coordination.HazelcastPublishingTransportManager`
-- Add `eclipselink.cache.coordination.channel` property
+. Set the `eclipselink.cache.coordination.protocol` property to `fish.payara.persistence.eclipselink.cache.coordination.HazelcastPublishingTransportManager`
+. Set the `eclipselink.cache.coordination.channel` property to a unique value for the coordination channel's name. 
 
 The channel property is optional, but is highly recommended if the application has more than one Persistence Unit. Best practice is to name the channel after the persistence unit.
 
