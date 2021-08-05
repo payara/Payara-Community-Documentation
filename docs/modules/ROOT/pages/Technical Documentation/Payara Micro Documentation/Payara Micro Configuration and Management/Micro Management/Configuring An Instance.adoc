@@ -1,7 +1,7 @@
 [[configuring-an-instance]]
 = Configuring an Instance
 
-This section details how to configure a Payara Micro Community instance.
+This section details how to configure a Payara Micro instance.
 
 [[configuring-an-instance-from-the-command-line]]
 == Configuring an Instance from the Command Line
@@ -88,7 +88,7 @@ specified with the `port` or `sslPort` options.
 [[configuring-an-instance-programmatically]]
 == Configuring an Instance Programmatically
 
-There are various methods available for configuring a Payara Micro Community instance
+There are various methods available for configuring a Payara Micro instance
 programmatically. You can only configure an instance before it is bootstrapped
 however.
 
@@ -157,7 +157,7 @@ public class EmbeddedPayara{
 
 Sometimes it is preferable to package the application (or applications),
 configuration and dependencies into a single executable jar. To do this with
-Payara Micro Community use the `--outputUberJar` command line option as in this example:
+Payara Micro use the `--outputUberJar` command line option as in this example:
 
 [source, shell]
 ----
@@ -325,7 +325,7 @@ Payara Micro supports the following system properties:
 [[configuring-alternate-keystores-for-ssl]]
 == Configuring Alternate KeyStores for SSL
 
-Payara Micro Community comes with Keystore files directly embedded within the JAR file.
+Payara Micro comes with Keystore files directly embedded within the JAR file.
 
 These can be overridden using the following standard Java SSL system properties:
 
