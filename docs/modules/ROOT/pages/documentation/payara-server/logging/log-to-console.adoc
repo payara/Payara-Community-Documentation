@@ -25,7 +25,7 @@ To configure `Log to Console` option using Admin Console:
 image:logging/log_to_file.png[Log to Console disabled]
 
 [[using-asadmin-utility]]
-== Configure Logging To File Using Asadmin CLI
+== Configure Logging To Console Using Asadmin CLI
 
 Use the following command to enable or disabled logging to the console:
 
