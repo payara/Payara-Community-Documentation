@@ -18,14 +18,14 @@ When the server or domain is not started in verbose mode, the `java.util.Console
 When in verbose mode, the log to Console option will also be active, regardless of the initial value in the _logging.properties_ as otherwise, no log output would be visible on the console. Once started in verbose mode, you can use the Admin Console or the asadmin CLI to change the option.
 
 [[using-web-admin-console]]
-== Disable Logging To Console Using Admin Console
+== Configure Logging To Console Using Admin Console
 
 To configure `Log to Console` option using Admin Console:
 
 image:logging/log_to_file.png[Log to Console disabled]
 
 [[using-asadmin-utility]]
-== Disable Logging To File Using Asadmin CLI
+== Configure Logging To File Using Asadmin CLI
 
 Use the following command to enable or disabled logging to the console:
 
@@ -33,5 +33,4 @@ Use the following command to enable or disabled logging to the console:
 ----
 asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.logtoConsole=false
 ----
-
 
