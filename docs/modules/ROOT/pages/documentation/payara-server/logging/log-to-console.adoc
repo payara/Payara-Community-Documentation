@@ -1,5 +1,5 @@
 [[log-to-console]]
-= Logging To Console
+= Log To Console
 
 The `Log to Console` option controls if the server writes the logging entries to the console. The property only has an effect when the server or instance is started in verbose mode.
 
@@ -33,6 +33,5 @@ Use the following command to enable or disabled logging to the console:
 ----
 asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.logtoConsole=false
 ----
-
 
 
