@@ -1,5 +1,5 @@
 [[creating-custom-notifier]]
-= Create Custom Notifier
+= Create A Custom Notifier
 
 The notification service received a major overhaul in Payara Server Community 5.2020.5 (October 2020)
 which made it possible to implement new notifiers in a modular fashion. The overhaul also involved rewriting
