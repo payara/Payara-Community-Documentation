@@ -4,7 +4,7 @@
 
 * Jakarta EE 8
 * Java EE 8 Applications
-* Jakarta EE9
+* Jakarta EE 9
 * MicroProfile 4.0
 
 == Notes
