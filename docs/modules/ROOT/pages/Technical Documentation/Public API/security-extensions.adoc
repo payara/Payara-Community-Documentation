@@ -13,7 +13,7 @@ The Payara Platform Public API offers the following custom authentication mechan
 
 The Jakarta EE Security API doesn't include any specific authentication mechanisms for support client certificate validation, so the `@CertificateAuthenticationMechanismDefinition` can be used to instruct any application to initiate client certificate validation when any HTTP request is to be authenticated.
 
-TIP: This authentication mechanism will mostly used in conjunction with the `@CertificateIdentityStoreDefinition` (see below for more information), since certificates are probably stored in a client certificate security realm.
+TIP: This authentication mechanism will mostly be used in conjunction with the `@CertificateIdentityStoreDefinition` (see below for more information), since certificates are probably stored in a client certificate security realm.
 
 [[configuration]]
 ==== Configuration
@@ -195,7 +195,7 @@ The file realm identity store can be configured via both `@FileIdentityStoreDefi
 | `jaasContext` | `payara.security.file.jaasContext` | The JAAS Context of the file realm. | `fileRealm` | `false`
 |===
 
-CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property will always takes precedence.
+CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property always takes precedence.
 
 [[usage-example]]
 ==== Example
@@ -231,7 +231,7 @@ The certificate realm identity store can be configured via both `@CertificateIde
 | `assignGroups` | `payara.security.certificate.assignGroups` | Users will get assigned membership to these groups automatically on successful authentication.| |`false` 
 |===
 
-CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property will always takes precedence.
+CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property always takes precedence.
 
 [[usage-example]]
 ==== Example
@@ -284,7 +284,7 @@ public class MyRestApp extends Application {
 }
 ----
 
-CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property will always takes precedence.
+CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property always takes precedence.
 
 [[solaris-identity-store]]
 === Solaris Identity Store
@@ -321,4 +321,4 @@ The Solaris realm identity store can be configured via both `@SolarisIdentitySto
 | `jaasContext`| `payara.security.solaris.jaasContext`| The JAAS Context of the Solaris realm.| `solarisRealm`|`false`
 |===
 
-CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property will always takes precedence.
+CAUTION: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the configuration property always takes precedence.
