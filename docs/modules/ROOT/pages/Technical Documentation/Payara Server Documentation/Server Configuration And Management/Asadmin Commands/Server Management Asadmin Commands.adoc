@@ -10,54 +10,18 @@ This is a non-exhaustive list of asadmin commands for Payara Server.
 `asadmin> start-domain <options> <domain>`
 
 *Aim*::
-This command start the specified domain
+This command starts the specified domain
 
 [cols="2,1,4,1,1",options="header"]
 |===
 |Options | Type | Description | Default | Mandatory
-
-| verbose
-| boolean
-| starts the domain in verbose mode
-| false
-| No
-
-| upgrade
-| boolean
-|
-| false
-| No
-
-| watchdog
-| boolean
-|
-| false
-| No
-
-| dry-run
-| boolean
-|
-| false
-| No
-
-| drop-interrupted-commands
-| boolean
-|
-| false
-| No
-
-| prebootcommandfile
-| string
-| path to file containing commands to run before booting the server. Only a limited amount of commands will work at this point. _Since Payara Server 4.1.2.172_
-|
-| No
-
-| postbootcommandfile
-| String
-| path to file containg commands to run after the server is booted. _Since Payara Server 4.1.2.172_
-|
-| No
-
+| `--verbose`| `Boolean` | Starts the domain in verbose mode| `false`| No
+| `--upgrade` | `Boolean`| | `false`| No
+| `--watchdog` | `Boolean`| | `false`| No
+| `--dry-run` | `Boolean` | | `false`| No
+| `--drop-interrupted-commands` | `Boolean`| | `false`| No
+| `--prebootcommandfile`| `String` | Path to file containing commands to run before booting the server. Only a limited amount of commands will work at this point|| No
+| `--postbootcommandfile` | `String` | Path to file containing commands to run after the server is booted. | | No
 |===
 
 [[start-domains]]
@@ -67,12 +31,9 @@ This command start the specified domain
 `asadmin> start-domains <list of domains>`
 
 *Aim*::
-This command can be used to start the specified list of domains in the operand.
-This list must be specified as a comma separated string of values.
+This command can be used to start the specified list of domains in the operand. This list must be specified as a comma separated string of values.
 
-NOTE: The domains will be started assuming default values for all options you would
-specify when running the `start-domain` command against one domain (default domain directory,
-debug mode off, verbose mode off, etc.)
+NOTE: The domains will be started assuming default values for all options you would specify when running the `start-domain` command against one domain (default domain directory, debug mode off, verbose mode off, etc.)
 
 [[command-options]]
 === Command Options
@@ -84,7 +45,7 @@ No command options available.
 
 To start the `domain1` and `production` domains, run the following command:
 
-[source]
+[source, shell]
 ----
 asadmin> start-domains domain1, production
 ----
@@ -96,12 +57,9 @@ asadmin> start-domains domain1, production
 `asadmin> stop-domains <list of domains>`
 
 *Aim*::
-This command can be used to stop the specified list of domains in the operand.
-This list must be specified as a comma separated string of values.
+This command can be used to stop the specified list of domains in the operand. This list must be specified as a comma separated string of values.
 
-NOTE: The domains will be stopped assuming default values for all options you would
-specify when running the `stop-domain` command against one domain (forced stopping
- and process killing)
+NOTE: The domains will be stopped assuming default values for all options you would specify when running the `stop-domain` command against one domain (forced stopping and process killing)
 
 [[command-options-1]]
 === Command Options
@@ -113,7 +71,7 @@ No command options available.
 
 To stop the `domain1` and `production` domains, run the following command:
 
-[source]
+[source, shell]
 ----
 asadmin> stop-domains domain1, production
 ----
@@ -125,8 +83,7 @@ asadmin> stop-domains domain1, production
 `asadmin> restart-domains <list of domains>`
 
 *Aim*::
-This command can be used to restart the specified list of domains in the operand.
-This list must be specified as a comma separated string of values.
+This command can be used to restart the specified list of domains in the operand. This list must be specified as a comma separated string of values.
 
 [[command-options-2]]
 === Command Options
@@ -138,8 +95,7 @@ No command options available.
 
 To restart the `domain1` and `production` , run the following command:
 
-
-[source]
+[source, shell]
 ----
 asadmin> restart-domains domain1, production
 ----
@@ -151,7 +107,7 @@ asadmin> restart-domains domain1, production
 `asadmin> stop-all-domains`
 
 *Aim*::
-This command can be used to stop all running domains on the server installation.
+This command can be used to stop ALL current running domains on the server's installation.
 
 [[command-options-5]]
 === Command Options
@@ -159,10 +115,8 @@ This command can be used to stop all running domains on the server installation.
 [cols="1,1,4,1,1",options="header",]
 |====
 |Option |Type |Description |Default |Mandatory
-|`--force` |Boolean |Specifies whether each domain is forcibly stopped
-immediately. |true |No
-|`--kill` |Boolean |Specifies whether the domain is killed by using functionality
-of the operating system to terminate the domain process |false |No
+|`--force` | `Boolean` | Specifies whether each domain is forcibly stopped immediately.| `true`|No
+|`--kill` | `Boolean` |Specifies whether the domain is killed by using functionality of the operating system to terminate the domain process | `false`|No
 |====
 
 [[example-5]]
@@ -170,11 +124,10 @@ of the operating system to terminate the domain process |false |No
 
 To forcibly stop all running domains, run the following command:
 
-[source]
+[source, shell]
 ----
 asadmin> stop-all-domains --force=false
 ----
-
 
 [[start-instance]]
 == `start-instance`
@@ -183,30 +136,30 @@ asadmin> stop-all-domains --force=false
 `asadmin> start-instance instancename`
 
 *Aim*::
-This command can be used to start a specified instance of Payara, which can be either a local or remote instance. This command runs on the DAS.
+This command can be used to start a specified instance of Payara Server, which can be either a local or remote instance. This command runs on the DAS.
 
 [[command-options-4]]
 === Command Options
 
-NOTE: These are not the same as the options for the `start-local-instance` command.
+NOTE: These are not the same options available for the `start-local-instance` command.
 
 [cols="2,1,4,1,1",options="header",]
 |====
 |Option |Type |Description |Default |Mandatory
-|`--sync` | none, normal or full |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | normal |No
-|`--debug` |Boolean |Specifies whether the instance is started in debug mode |false |No
-|`--terse` |Boolean |Specifies whether information on the result is output |false |No
-|`--timeout` |Integer |Specifies how long to take for the instance to start in seconds. If starting the instance takes longer than this amount then this command will fail. Available since 4.1.2.181 |120 |No
+|`--sync` | `none`\|`normal`\|`full` |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | `normal`| No
+|`--debug` |`Boolean` |Specifies whether the instance is started in debug mode |`false` |No
+|`--terse` |`Boolean` |Specifies whether information on the result is output |`false` |No
+|`--timeout` |`Integer` |Specifies how long to take for the instance to start in seconds. If starting the instance takes longer than this amount then this command will fail |`120` |No
 |====
 
-WARNING: Using full sync will cause the configuration to be deleted if the DAS cannot be reached.
+WARNING: Using full synchronization will cause the configuration to be deleted if the DAS cannot be reached.
 
 [[example-4]]
 === Example
 
 To start an instance named instance1 and sync it with the DAS with a timeout of 180 seconds:
 
-[source]
+[source, shell]
 ----
 asadmin> start-instance --timeout 180 --sync true instance1
 ----
@@ -223,33 +176,31 @@ This command can be used to start a specified instance of Payara, but only when 
 [[command-options-3]]
 === Command Options
 
-NOTE: These are not the same as the options for the `start-instance` command.
+NOTE: These are not the same as the options available for the `start-instance` command.
 
-
-Usage: asadmin [asadmin-utility-options] start-local-instance
-
-
-[cols="1,1,4,1,1",options="header",]
+[cols="1,1,4,1,1a",options="header",]
 |====
 |Option |Type |Description |Default |Mandatory
-|`-v, --verbose` | Boolean |Specifies that the server log is printed to the console from which asadmin is executed. Control is not returned to the console after the instance has started. The instance can be stopped and control returned by typing `CTRL-C`. | false |No
-|`-w, --watchdog` | Boolean |Starts the server in watchdog mode. This is only useful if verbose is false. It does the same thing as verbose -- except without the dumping of output to standard out and err streams.| false |No
-|`-d, --debug` |Boolean |Specifies whether the instance is started in debug mode |false |No
-|`-n, --dry-run` |Boolean | Specifies to dump the full human readable JVM invocation command that would be used to launch the instance instead of actually launching it. |false |No
-|`--sync` | none, normal or full |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | normal |No
-|`--nodedir` | String | Specifies the folder on the local filesystem where the node the instance is in resides. | ${PAYARA_INSTALL_DIR}/glassfish/nodes/. |No
-|`--node` | String | Specifies the node the instance is in. | The single folder inside the `nodedir` directory, in the case that there's only a single folder. |No - if the node directory contains a single folder, Yes - otherwise
-|`--timeout` |Integer |Specifies how long to take for the local instance to start in seconds. If starting the instance takes longer than this amount then this command will fail (but the instance may still continue its startup process...). Available since 4.1.2.191.3 and 5.192 |600 |No
+|`-v, --verbose` | `Boolean` |Specifies that the server log is printed to the console from which asadmin is executed. Control is not returned to the console after the instance has started. The instance can be stopped and control returned by inputting `CTRL-C`. | false |No
+|`-w, --watchdog` | `Boolean` |Starts the server in watchdog mode. This is only useful if verbose is false. It does the same thing as verbose -- except without the dumping of output to standard out and err streams.| false |No
+|`-d, --debug` |`Boolean` |Specifies whether the instance is started in debug mode |false |No
+|`-n, --dry-run` |`Boolean` | Specifies to dump the full human readable JVM invocation command that would be used to launch the instance instead of actually launching it. |false |No
+|`--sync` | `none` \| `normal` \| `full` |Specifies whether the instance is to be synced with the DAS. In normal mode only config files and top-level application file are synched. In full all files are synced. | `normal` |No
+|`--nodedir` | String | Specifies the folder on the local filesystem where the node the instance is in resides. | `${PAYARA_INSTALL_DIR}/glassfish/nodes/`. |No
+|`--node` | String | Specifies the node the instance is in. | The single folder inside the `nodedir` directory, in the case that there's only a single folder. 
+| No:: If the node directory contains a single folder
+  Yes:: Otherwise
+|`--timeout` |Integer |Specifies how long to take for the local instance to start in seconds. If starting the instance takes longer than this amount then this command will fail (but the instance may still continue its startup process...) |`600` |No
 |====
 
-WARNING: Using full sync will cause the configuration to be deleted if the DAS cannot be reached.
+WARNING: Using full synchronization will cause the configuration to be deleted if the DAS cannot be reached.
 
 [[example-3]]
 === Example
 
 To start a local instance named instance1 with a timeout of 180 seconds:
 
-[source]
+[source, shell]
 ----
 asadmin> start-local-instance --timeout 180 instance1
 ----
@@ -261,16 +212,11 @@ asadmin> start-local-instance --timeout 180 instance1
 `asadmin> add-library <options> file`
 
 *Aim*::
-This command adds a jar library to Payara Server Community and loads it
+This command adds a JAR library to a Payara Server domain and immediately initiates makes it available for class loading.
 
 |===
 |Options | Type | Description | Default | Mandatory
-
-| type
-| String
-| Specifies the type of library. The supported values are `common`, `ext`, `app`. If it's of type `app` the server must be restarted to take effect.
-| common
-| No
+| `--type`| `String`| Specifies the type of library. The supported values are `common`, `ext`, `app`. If it's of type `app` the server must be restarted to take effect| `common`| No
 |===
 
 [[create-iiop-listener-command]]
@@ -286,44 +232,13 @@ Creates a listener for IIOP network traffic
 
 |===
 |Option | Type | Description | Default | Mandatory
-
-| listeneraddress
-| address
-|
-|
-| Yes
-
-| iiopport
-| Integer
-|
-| 1072
-| No
-
-| enabled
-| Boolean
-|
-| true
-| No
-
-| securityenabled
-| Boolean
-|
-| false
-| No
-
-| lazyInit
-| Boolean
-|
-| false
-| No
-
-| property
-| List
-| Colon seperated list of properties
-|
-| No
+| `--listeneraddress`| `String`|Network address used to bind the listener|| Yes
+| `--iiopport`| `Integer`|Port number to bind the listener| `1072`| No
+| `--enabled`| `Boolean`| Whether to enable the listener after its creation| `true`| No
+| `--securityenabled`| `Boolean`|Whether to enable the listener as a secure listener| `false`| No
+| `--lazyInit`| `Boolean`|Whether to lazily initialize the listener| `false`| No
+| `--property`| `List<String>`| Colon-separated list of properties to configure the listener|| No
 |===
-
 
 [[generate-bash-autocomplete-command]]
 == `generate-bash-autocomplete`
@@ -334,33 +249,17 @@ Creates a listener for IIOP network traffic
 *Aim*::
 Creates an asadmin autocompletion script for bash.
 
-The created file will be on the server and not the client.
-If they are on different hosts, then the file will be needed
-to copied from the server to the client.
-Add the resulting file to your bash path by adding
-`source path/to/outputfile` to your .bashrc
-or copy the file into the `/etc/bash_completion.d` folder.
+The created file will be located in the server's host and not the client. If they are on different hosts, then the file will be needed to copied from the server to the client.
+TIP: You can add the resulting file to your bash path by adding `source path/to/outputfile` to your `.bashrc` settings or copy the file into the `/etc/bash_completion.d` directory.
 
-This means that you can run asadmin commands by typing
-`asadmin` in a terminal and you can use double-tab to autocomplete a command,
-similar to other bash commands.
+This means that you can run asadmin commands by typing `asadmin` in a terminal and you can use double-tab to autocomplete a command, similar to other bash commands.
 
 === Command Options
 
 |===
 |Option | Type | Description | Default | Mandatory
-
-| force
-| boolean
-| whether to write over a file if one already exists
-| false
-| No
-
-| file
-| File path
-| The path for the resulting file
-| ${payara.home}/glassfish/bin/bash_autocomplete
-| No
+| `--force`| `Boolean`| Whether to overwrite a script file if one already exists| `false`| No
+| `--file`| `String` | The path for the resulting file| `${payara.home}/glassfish/bin/bash_autocomplete`| No
 |===
 
 [[get-domain-xml-command]]
@@ -370,18 +269,18 @@ similar to other bash commands.
 `asadmin > get-domain-xml`
 
 *Aim*::
-Gets the text of the domain.xml file. This command will only run against a local instance.
+Gets the text of the `domain.xml` configuration file. 
 
+IMPORTANT: This command will only run against a local instance.
 
 [[list-rest-endpoints-command]]
 == `list-rest-endpoints`
 
 *Aim*::
-Lists all the rest endpoints of an application
+Lists all the rest endpoints of a deployed web application
 
 *Usage*::
 `asadmin > list-rest-endpoints applicationName`
-
 
 [[restart-cluster-command]]
 == `restart-cluster`
@@ -392,7 +291,6 @@ Restarts all instances in a cluster. Must be run from the DAS.
 *Usage*::
 `asadmin > restart-cluster clusterName`
 
-
 [[set-network-listener-configuration-command]]
 == `set-network-listener-configuration`
 
@@ -400,67 +298,20 @@ Restarts all instances in a cluster. Must be run from the DAS.
 `asadmin> set-network-listener-configuration <options> network_listener_name`
 
 *Aim*::
-This command helps to modify existing network listener
+This command helps to modify an existing HTTP network listener
 
 |===
-|Options | Type | Description | Default | Mandatory
-
-| enabled
-| Boolean
-| Enables or disables the network listener.
-| true
-| No
-
-| dynamic
-| Boolean
-| When set to true, applies the changes without a restart. Otherwise a restart is required.
-| false
-| No
-
-| address
-| String
-| The IP address on which the network listener is going to be listening.
-|
-| No
-
-| Port
-| Integer
-| The port on which the network listener is going to be listening.
-|
-| Yes
-
-| listenerPortRange
-| String
-| Port range which the network listener can bind to.
-|
-| No
-
-| threadPool
-| String
-| The thread pool which will be associated with the network listener.
-|
-| No
-
-| transport
-| String
-| The transport layer that is going to be used by the network listener
-|
-| No
-
-| jkenabled
-| Boolean
-| If enabled, the network listener will become an Apache mod-jk listener
-| false
-| No
-
-| target
-| String
-| The config whose values will be set.
-| server-config
-| No
+| Options | Type | Description | Default | Mandatory
+| `--enabled`| `Boolean`| Enables or disables the network listener| `true`| No
+| `--dynamic`| `Boolean`| When set to `true`, applies the changes without a restart. Otherwise a restart is required for changes to apply| `false`| No
+| `--address`| `String`| The network address on which the network listener is going to be listening|| No
+| `--port`| `Integer`| The port on which the network listener is going to be listening.|| Yes
+| `--listenerPortRange`| `String`| Port range which the network listener can bind to.|| No
+| `--threadPool`| `String`| The thread pool which will be associated with the network listener|| No
+| `--transport`| `String`| The transport layer that is going to be used by the network listener|| No
+| `--jkenabled`| `Boolean`| If enabled, the network listener will become an **Apache mod-jk** listener| `false`| No
+| `--target`| `String`| The configuration object whose values will be set.| `server-config`| No
 |===
-
-
 
 [[restart-http-listeners-command]]
 == `restart-http-listeners`
@@ -469,34 +320,30 @@ This command helps to modify existing network listener
 `asadmin> restart-http-listeners <options>`
 
 *Aim*::
-This command restarts all http listeners of the targeted instance(s).
-Usually used to make network configuration changes take effect without restarting the server.
+This command restarts all http listeners of the targeted instance(s). Usually used to make network configuration changes take effect without restarting the server.
 
 |===
 |Options | Type | Description | Default | Mandatory
-
-| all
-| Boolean
-| Apply command to all instances
-| false
-| No
-
-| target
-| String
-| Name of the target instance, deployment group or cluster
-| server
-| No
+| `--all`| `Boolean` | Apply command to all instances| `false`| No
+| `--target`| `String`| Name of the target instance, deployment group or cluster| `server`| No
 |===
 
+IMPORTANT: This command only restarts all HTTP listeners except the `admin-listener`.
+
 *Examples*::
-Restart all HTTP listeners of all instances:
 
-`asadmin> restart-http-listeners --all`
+Run the following command to restart all HTTP network listeners that belong to all instances:
 
-Restart all HTTP listeners of a particular instance named `FlyingFish`:
+[source, shell]
+----
+asadmin> restart-http-listeners --all
+----
 
-`asadmin> restart-http-listeners FlyingFish`
+Run the following command to restart all HTTP network listeners that belong to a particular instance named `FlyingFish`:
 
-The `--target` can be omitted as `target` is the primary parameter.
+[source, shell]
+----
+asadmin> restart-http-listeners FlyingFish
+----
 
-NOTE: This command only restarts all HTTP listeners except the `admin-listener`. IIOP listeners are not affected and may require a server restart to make changes take effect.
+TIP: The `--target` can be omitted as `target` is the primary parameter.
