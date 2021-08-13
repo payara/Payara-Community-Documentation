@@ -17,7 +17,7 @@
 * [https://github.com/payara/Payara/pull/5343[FISH-1530]] - Fix OpenAPI TCK Tag Collection Test
 * [https://github.com/payara/Payara/pull/5336[FISH-1521]] - Fix Incorrect Group/Role Mapping in OIDC Provider
 * [https://github.com/payara/Payara/pull/5372[FISH-1520]] - Fix MicroProfile JWT-Auth TCK Failures
-* [https://github.com/payara/Payara/pull/5359[FISH-1345]] - EE9 Transformer does not recognize the CDI 3.0 namespace in beans.xml; interceptor ingnored.
+* [https://github.com/payara/Payara/pull/5359[FISH-1345]] - EE9 Transformer does not recognize the CDI 3.0 namespace in beans.xml; interceptor ignored.
 * [https://github.com/payara/Payara/pull/5342[FISH-1312]] - MP OpenAPI schema property hidden is ignored
 * [https://github.com/payara/Payara/pull/5359[FISH-1278]] - Jakarta namespace transformation ignored for JSP packaged in the EAR
 
