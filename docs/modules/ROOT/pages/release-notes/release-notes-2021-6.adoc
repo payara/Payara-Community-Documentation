@@ -1,4 +1,4 @@
-= Release notes - Payara Platform Development - Version 5.2021.6
+= Release Notes - Payara Platform Community 5.2021.6
 
 == Supported APIs and Applications
 
