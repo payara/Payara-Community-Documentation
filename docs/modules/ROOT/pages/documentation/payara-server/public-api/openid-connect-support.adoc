@@ -234,9 +234,7 @@ NOTE: If both an annotation attribute and a MicroProfile Config property are def
 then the MicroProfile Config property value always takes precedence over the `@OpenIdAuthenticationDefinition` annotation value.
 
 NOTE: If you are using MicroProfile Config properties and the value contains a placeholder that should not be resolved by MicroProfile Config
-itself but by the Server (like `payara.security.openid.redirectURI=${baseURL}/Callback`) make sure the value is properly escaped. It will otherwise result in `NoSuchElementException`. Here's an example how such a value should be escaped:
-
-`payara.security.openid.redirectURI=\\${baseURL}/Callback`
+itself but by the Server (like `payara.security.openid.redirectURI=${baseURL}/Callback`) make sure the value is properly escaped. It will otherwise result in `NoSuchElementException`. Here's an example how such a value should be escaped: `payara.security.openid.redirectURI=\\${baseURL}/Callback`
 
 
 [[el-support]]
