@@ -647,4 +647,6 @@ public class SecurityBean {
 [[extra-resources]]
 == See Also
 
-To read more about OpenID Connect itself, visit http://openid.net/specs/openid-connect-core-1_0.html
+* http://openid.net/specs/openid-connect-core-1_0.html[OpenID Connect Specification]
+* xref:documentation/microprofile/jwt.adoc[MicroProfile JWT Authentication API]
+* https://jakarta.ee/specifications/security/[Jakarta Security API]
