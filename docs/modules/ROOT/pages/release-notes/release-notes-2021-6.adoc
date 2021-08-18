@@ -25,5 +25,5 @@
 * [https://github.com/payara/Payara/pull/5373[FISH-786]] - Integrate Security Connector with the Payara Platform
 
 === Security Fixes
-* [https://github.com/payara/Payara/pull/5349[FISH-5545]] - Upgrade jackson-databind to 2.12.3
+* [https://github.com/payara/Payara/pull/5349[FISH-5545]] - Upgrade jackson-databind to 2.12.4
 * [https://github.com/payara/Payara/pull/5344[FISH-5544]] - Upgrade json-smart dependency to 2.4.7
