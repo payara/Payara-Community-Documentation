@@ -1,24 +1,20 @@
 [[deploy-programatically]]
-= Deploying Applications on Micro Programatically
+= Deploying Applications on Micro Programmatically
 
-You can deploy applications onto Payara Micro programatically.
+You can deploy applications onto Payara Micro programmatically via its API.
 
 [[deploying-applications-using-an-asadmin-command]]
 == Deploying Applications Using an asadmin Command
 
-You can deploy applications using the equivalent administration commands present
-on Payara Server.
+Applications can be deployed using the equivalent administration (`asadmin`) commands present on Payara Server.
 
 [[deploying-on-a-local-instance]]
 === Deploying on a Local Instance
 
-It's possible to use the
-`run(Collection<InstanceDescriptor> members, String command, String... args )`
-method to run the `deploy` asadmin command. To deploy to a single instance, you
-must create a _members_ `Collection` object only containing a single instance, like
-in the following example:
+It's possible to use the `run(Collection<InstanceDescriptor> members, String command, String... args )`
+method to run the `deploy` asadmin command. To deploy to a single instance, you must create a `members` `Collection` object only containing a single instance like in the following example:
 
-[source,Java]
+[source, java]
 ----
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
@@ -52,17 +48,14 @@ public class EmbeddedPayara {
 }
 ----
 
-[[deploying-an-application-to-multiple-bootstrapped-instances]]
-== Deploying an Application to Multiple Bootstrapped Instances
+[[deploying-on-multiple-instances]]
+== Deploying on Multiple Running Instances
 
-You can use the `run` method to run the `deploy` asadmin command on multiple
-clustered instances. There are two `run` methods available for running administration
-commands: one which runs an asadmin command on a subset of instances in a cluster,
-and another than runs an asadmin command on all instances in a cluster.
+You can use the `run` method to run the `deploy` asadmin command on multiple Payara Micro instances that belong to the same cluster. There are two `run` method variants available for running administration commands: One which runs an `asadmin` command on a subset of instances in a cluster, and another than runs an `asadmin` command on ALL instances in a cluster.
 
-Here is an example of deploying an application to all instances in a cluster:
+Here is an example of deploying an application to ALL instances in a cluster:
 
-[source,Java]
+[source, java]
 ----
 import fish.payara.micro.PayaraMicro;
 import fish.payara.micro.BootstrapException;
@@ -78,20 +71,17 @@ public class EmbeddedPayara{
 }
 ----
 
-See the example for deploying on local instance on using the `run` method on a
-subset of instances in a cluster.
+See the example for <<deploying-on-a-local-instance, deploying on local instance>> on how to use the `run` method on a subset of instances in a cluster.
 
 [[deploying-an-application-programmatically-during-bootstrap]]
 == Deploying an Application Programmatically during Bootstrap
 
-There are two methods you can use to deploy an application during the
-bootstrapping process:
+There are two methods you can use to deploy an application during Payara Micro's bootstrap process:
 
 * `addDeployment(String pathToWar)`
 * `addDeploymentFile(File file)`
 
-The first, `addDeployment(String pathToWar)`, accepts a String that points to the
-path of the file to be deployed. For example:
+The first, `addDeployment(String pathToWar)`, accepts a String that points to the path of the artefact to be deployed. For example:
 
 [source, java]
 ----
@@ -105,9 +95,7 @@ public class EmbeddedPayara{
 }
 ----
 
-The second method, `addDeploymentFile(File file)`, functions in the same way as
-the `addDeployment(String pathToWar)` method, but takes a `File` object as its
-parameter instead:
+The second method, `addDeploymentFile(File file)`, functions in the same way, but takes a `File` object instead:
 
 [source, java]
 ----
@@ -123,9 +111,7 @@ public class EmbeddedPayara{
 }
 ----
 
-Unlike when controlling Payara Micro from the command line, you can split the
-instance initialization and configuration across multiple lines methods. For
-example, to deploy an application on one line, and start the instance on another:
+Unlike when controlling Payara Micro from the command line, you can split the instance initialization and configuration across multiple method invocations. For example, to deploy an application and start the instance on separate method calls, you can run the following code:
 
 [source, java]
 ----
@@ -141,11 +127,12 @@ public class EmbeddedPayara{
 }
 ----
 
-INFO: You can use this to deploy multiple deployments to bootstrapped instances by calling `addDeployment` multiple times, or use `setDeploymentDir` with multiple applications to deploy.
+TIP: You can use this strategy to deploy multiple deployments by calling `addDeployment` multiple times, or use `setDeploymentDir` to point to a deployment directory that contains the applications to deploy.
 
+[[deploying-an-application-programmatically-after-bootstrap]]
 == Deploying an Application Programmatically After Bootstrap
 
-There are three methods available for deploying an application to a bootstrapped instance:
+There are three methods available for deploying an application to a running instance:
 
 * `deploy(File war)`
 * `deploy(String name, InputStream is)`
@@ -154,8 +141,7 @@ There are three methods available for deploying an application to a bootstrapped
 [[deployfile-war]]
 === `deploy(File war)`
 
-The first method works in the same way as the `addDeploymentFile` method described
-in the section <<deploying-an-application-programmatically-during-bootstrap, Deploying Programmatically during Bootstrap>>
+The first method works in the exact same way as the `addDeploymentFile` method described in the  <<deploying-an-application-programmatically-during-bootstrap, Deploying Programmatically during Bootstrap>> section.
 
 [[deploystring-name-inputstream-is]]
 === `deploy(String name, InputStream is)`
@@ -190,9 +176,7 @@ public class EmbeddedPayara {
 [[deploystring-name-string-contextroot-inputstream-is]]
 === `deploy(String name, String contextRoot, InputStream is)`
 
-This method works in the same way as the previous method, but allows you to specify
-the context root of the application. The following example would deploy the
- _test_ application to a context root of _/app_:
+This method works in the same way as the previous one, but allows you to specify the context root of the application at the same time. The following example would deploy the `test` application to a context root of `/app`:
 
 [source, java]
 ----
@@ -222,15 +206,12 @@ public class EmbeddedPayara{
 [[deploying-an-application-programmatically-from-a-maven-repository]]
 == Deploying an Application Programmatically from a Maven Repository
 
-Payara Micro Community supports deployment of application directly from a Maven repository.
+Payara Micro supports the deployment of an application's artefact that is hosted in a Maven repository.
 
 [[deploying-an-artefact-using-maven-coordinates]]
 === Deploying an Artefact Using Maven Coordinates
 
-To deploy an application programmatically directly from a Maven repository, you
-will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()`
-method. This method accepts a comma separated string denoting a maven artefact's
-`groupId`, `artifactId`, and `version` attributes.
+To deploy an application directly from a Maven repository, you will need to add a Maven GAV coordinate. This can be done using `addDeployFromGAV()` method. This method accepts a comma separated string denoting a maven artefact's `groupId`, `artifactId`, and `version` attributes.
 
 [source, java]
 ----
@@ -247,9 +228,7 @@ public class EmbeddedPayara{
 [[specifying-additional-maven-repositories]]
 == Specifying Additional Maven Repositories
 
-By default, Payara Micro Community will only search for artefacts in the Maven Central
-repository. If you wish to search additional repositories, you can add them to
-the list of repositories to search with the `addRepoUrl()` method:
+By default, Payara Micro will only search for artefacts in the Maven Central repository. If you wish to search additional repositories, you can add them to the list of repositories to search with the `addRepoUrl()` method:
 
 [source, java]
 ----
@@ -264,8 +243,7 @@ public class EmbeddedPayara{
 }
 ----
 
-To search through multiple additional repositories, you can simply call the `addRepoUrl`
-method, using commas to separate URLs:
+To search through multiple additional repositories, you can simply call the `addRepoUrl` method, and specify a comma-separated list of the URLs of each repository:
 
 [source, java]
 ----
@@ -285,11 +263,7 @@ public class EmbeddedPayara{
 [[deploying-multiple-applications-from-a-maven-repository]]
 === Deploying Multiple Applications from a Maven Repository
 
-Similar to when deploying multiples applications from the command line, you must
-call the `addDeployFromGAV` method for each application you wish to deploy directly
-from a Maven repository.
-
-For example, to deploy two applications:
+To deploy multiple applications hosted in a Maven repository, you must call the `addDeployFromGAV` method for each application.For example, to deploy two applications:
 
 [source, java]
 ----
