@@ -144,7 +144,7 @@ After Payara Micro has booted, the log output will list data about the instance 
 * The generated instance name
 * The instance's group name
 * The Hazelcast member UUID
-* A list of all deployed application names and their entry-point URL's
+* A list of all deployed application names and their entry-point URLs
 
 Here is an example of this output:
 
