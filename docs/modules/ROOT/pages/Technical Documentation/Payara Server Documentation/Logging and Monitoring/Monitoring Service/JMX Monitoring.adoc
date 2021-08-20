@@ -25,14 +25,12 @@ command below:
 asadmin>set-amx-enabled --enabled true --dynamic true --target server 
 ----
 
-To boot AMX using Admin Console:
+[[using-web-admin-console]]
+=== Boot AMX Using the Admin Console
 
 image:jmx-monitoring-service/enable_amx.png[Enable AMX]
 
-[[using-web-admin-console]]
-== Using the Admin Console
-
-You can enable JMX Monitoring using the `set-jmx-monitoring-configuration` asadmin command
+You can now enable JMX Monitoring using the `set-jmx-monitoring-configuration` asadmin command
 
 JMX Monitoring can either be enabled for next startup or the service can be dynamically 
 enabled on a running instance of Payara (provided a non-empty configuration exists 
