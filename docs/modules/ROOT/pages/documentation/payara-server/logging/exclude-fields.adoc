@@ -6,7 +6,7 @@ All the three log formatters `ODLLogFormatter`, `UniformLogFormatter`, and `JSON
 
 You can change the `com.sun.enterprise.server.logging.GFFileHandler.excludeFields` within the _<PAYARA_HOME>/glassfish/domains/<domain-name>/config/logging.properties_ file or use the Admin Console or an `asadmin` command.
 
-When the configuration is changed when the server is running, a log rotation happens so that a log file always contains the same set of information.
+If the configuration is changed while the server is running, a log rotation happens so that a log file always contains the same set of information.
 
 [[using-web-admin-console]]
 == Using the Admin Console
