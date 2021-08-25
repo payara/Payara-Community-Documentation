@@ -209,6 +209,7 @@
 **** xref:Technical Documentation/Payara Micro Documentation/API/JCache in Payara Micro/jcache.adoc[jcache]
 *** xref:Technical Documentation/Payara Micro Documentation/API/Payara Micro API[Payara Micro API]
 **** xref:Technical Documentation/Payara Micro Documentation/API/Payara Micro API/using-the-payara-micro-api.adoc[using-the-payara-micro-api]
+**** xref:Technical Documentation/Payara Micro Documentation/API/Payara Micro API/operation-methods.adoc[operation-methods]
 **** xref:Technical Documentation/Payara Micro Documentation/API/Payara Micro API/micro-api.adoc[micro-api]
 ** xref:Technical Documentation/Payara Micro Documentation/Extensions[Extensions]
 *** xref:Technical Documentation/Payara Micro Documentation/Extensions/Running Callable Objects.adoc[Running Callable Objects]
