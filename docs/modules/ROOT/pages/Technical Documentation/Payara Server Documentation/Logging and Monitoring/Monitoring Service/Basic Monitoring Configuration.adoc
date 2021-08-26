@@ -125,7 +125,7 @@ asadmin > get-monitoring-service-configuration --target=server
 ----
 
 [[set-monitoring-level]]
-== `set-monitoring-level`
+=== `set-monitoring-level`
 
 *Usage*::
 `asadmin> set-monitoring-level`
@@ -134,7 +134,7 @@ asadmin > get-monitoring-service-configuration --target=server
 This command can be used set monitoring level of a module.
 
 [[command-options-3]]
-=== Command Options
+==== Command Options
 
 [cols="3,1,5,1,1",options="header"]
 |===
@@ -164,7 +164,7 @@ This command can be used set monitoring level of a module.
 |===
 
 [[example-3]]
-=== Example
+==== Example
 
 [source, shell]
 ----
@@ -275,7 +275,7 @@ This command can be used to restart monitoring levels.
 NOTE: The command will set all modules to `OFF` before setting them to their previous level.
 
 [[command-options-5]]
-=== Command Options
+==== Command Options
 
 [cols="3,1,5,1,1",options="header"]
 |===
@@ -296,16 +296,14 @@ NOTE: The command will set all modules to `OFF` before setting them to their pre
 |Enable verbose output for the current command.
 |`false`
 |no
-
 |===
 
 [[example-5]]
-=== Example
+==== Example
 
 [source, shell]
 ----
-asadmin > restart-monitoring
-     --target=server-config
+asadmin > restart-monitoring --target=server-config
 ----
 
 This will generate an output similar to the following:
