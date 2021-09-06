@@ -28,6 +28,8 @@ package-lock.json
 .project
 migrate-antora.sh
 
-# Antora local build
+#Antora local build
 build/
-.vscode/settings.json
+
+#VSCode
+.vscode/*

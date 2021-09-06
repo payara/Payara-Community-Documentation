@@ -2,8 +2,6 @@
 [[public-api]]
 = Public API
 
-_Since Payara Server 4.1.1.171_
-
 This page contains information on using the Public API integrated within
 Payara Server Community and Payara Micro Community.
 
