@@ -1,6 +1,0 @@
-[[phone-home-service]]
-= Phone Home service
-
-_Since Payara Version 4.1.1.162_
-
-Documentation on the *Phone Home* Service
