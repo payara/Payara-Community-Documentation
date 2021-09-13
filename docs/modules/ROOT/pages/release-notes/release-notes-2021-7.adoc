@@ -8,6 +8,7 @@
 * MicroProfile 4.1
 
 === New Features
+<<<<<<< HEAD
 * [https://github.com/payara/Payara/pull/5398[FISH-5646]] Add Client Certificate Validation API
 
 === Bug Fixes
@@ -27,3 +28,24 @@
 
 === Security Fixes
 * [https://github.com/payara/Payara/pull/5396[FISH-5702]] Improper Limitation of a Pathname to a Restricted Directory \('Path Traversal'\) When Context Root is /
+=======
+* [https://github.com/payara/Payara/pull/5398[FISH-5646] Add Client Certificate Validation API
+
+=== Bug Fixes
+* [https://github.com/payara/Payara/pull/5399[FISH-5711]] Fix Could Not Load Formatter Class Error in Payara Micro
+* [https://github.com/payara/Payara/pull/5397[FISH-5701]] Application does not deploy anymore on Payara Server Docker image
+* [https://github.com/payara/Payara/pull/5374[FISH-5695]] ArrayIndexOutOfBoundsException when the ConfigProperty value ends in a dollar sign \[Community Contribution\]
+* [https://github.com/payara/Payara/pull/5395[FISH-5693]] Delimiter for configuring multiple KeyStores and TrustStores must use JVM Platform Delimiter
+* [https://github.com/payara/Payara-Enterprise/pull/447[FISH-5691]] Do not propagate non-transactional EM to managed tasks
+* [https://github.com/payara/Payara-Enterprise/pull/447[FISH-5690]] Remove duplicate postInvoke handler invocation on failure
+* [https://github.com/payara/Payara/pull/5390[FISH-5660]] Deployment Failure on Payara Micro
+* [https://github.com/payara/Payara-Enterprise/pull/447[FISH-1058]] Payara Micro - wrong ClassLoader with multiple apps
+* [https://github.com/payara/Payara/pull/5392[FISH-966]] Fix Asadmin stop-domain help text
+* [https://github.com/payara/Payara/pull/5369[FISH-81]] Fix Incorrect error "No valid EE environment for injection" for CDI reported for events
+
+=== Component Upgrades
+* [https://github.com/payara/Payara/pull/5385[FISH-5655]] Update Jersey to 2.34
+
+=== Security Fixes
+* [https://github.com/payara/Payara/pull/5396[FISH-5702]] Improper Limitation of a Pathname to a Restricted Directory \('Path Traversal'\) when context root is /
+>>>>>>> 5.2021.7 Release Notes
