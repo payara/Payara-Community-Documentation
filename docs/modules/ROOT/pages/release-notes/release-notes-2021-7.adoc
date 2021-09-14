@@ -38,7 +38,7 @@
 === Bug Fixes
 * [https://github.com/payara/Payara/pull/5399[FISH-5711]] Fix Could Not Load Formatter Class Error in Payara Micro
 * [https://github.com/payara/Payara/pull/5397[FISH-5701]] Application does not deploy anymore on Payara Server Docker image
-* [https://github.com/payara/Payara/pull/5374[FISH-5695]] ArrayIndexOutOfBoundsException when the ConfigProperty value ends in a dollar sign \[Community Contribution\]
+* [https://github.com/payara/Payara/pull/5374[FISH-5695]] (Community Contribution - https://github.com/Empressia[Empressia]) ArrayIndexOutOfBoundsException when the ConfigProperty value ends in a dollar sign (Community Contribution
 * [https://github.com/payara/Payara/pull/5395[FISH-5693]] Delimiter for configuring multiple KeyStores and TrustStores must use JVM Platform Delimiter
 * [https://github.com/payara/Payara-Enterprise/pull/447[FISH-5691]] Do not propagate non-transactional EM to managed tasks
 * [https://github.com/payara/Payara-Enterprise/pull/447[FISH-5690]] Remove duplicate postInvoke handler invocation on failure
