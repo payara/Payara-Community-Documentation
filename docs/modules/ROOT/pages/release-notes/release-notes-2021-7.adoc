@@ -8,7 +8,7 @@
 * MicroProfile 4.1
 
 === New Features
-* [https://github.com/payara/Payara/pull/5398[FISH-5646] Add Client Certificate Validation API
+* [https://github.com/payara/Payara/pull/5398[FISH-5646]] Add Client Certificate Validation API
 
 === Bug Fixes
 * [https://github.com/payara/Payara/pull/5399[FISH-5711]] Fix Could Not Load Formatter Class Error in Payara Micro
