@@ -9,6 +9,7 @@
 
 === New Features
 <<<<<<< HEAD
+<<<<<<< HEAD
 * [https://github.com/payara/Payara/pull/5398[FISH-5646]] Add Client Certificate Validation API
 
 === Bug Fixes
@@ -30,6 +31,9 @@
 * [https://github.com/payara/Payara/pull/5396[FISH-5702]] Improper Limitation of a Pathname to a Restricted Directory \('Path Traversal'\) When Context Root is /
 =======
 * [https://github.com/payara/Payara/pull/5398[FISH-5646] Add Client Certificate Validation API
+=======
+* [https://github.com/payara/Payara/pull/5398[FISH-5646]] Add Client Certificate Validation API
+>>>>>>> Errors in notes
 
 === Bug Fixes
 * [https://github.com/payara/Payara/pull/5399[FISH-5711]] Fix Could Not Load Formatter Class Error in Payara Micro
