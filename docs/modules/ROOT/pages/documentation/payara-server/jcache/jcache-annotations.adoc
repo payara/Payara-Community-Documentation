@@ -6,23 +6,23 @@ set of JCache annotations to be used.
 
 The JCache annotations are as follows:
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CachePut.html[@CachePut]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CachePut.html[@CachePut]::
 Puts the specified key and value in the cache.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheRemove.html[@CacheRemove]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheRemove.html[@CacheRemove]::
 Removes the specified key and value from the cache.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheResult.html[@CacheResult]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheResult.html[@CacheResult]::
 Retrieves the value associated with the specified key.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheRemoveAll.html[@CacheRemoveAll]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheRemoveAll.html[@CacheRemoveAll]::
 Removes all keys and values from the cache.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheDefaults.html[@CacheDefaults]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheDefaults.html[@CacheDefaults]::
 Allows the configuration of defaults for `CacheResult`, `CachePut`, `CacheRemove`, and `CacheRemoveAll` at the class level.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheKey.html[@CacheKey]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheKey.html[@CacheKey]::
 Marks a method parameter as the key of a cache.
 
-https://ignite.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheValue.html[@CacheValue]::
+https://ignite.incubator.apache.org/jcache/1.0.0/javadoc/javax/cache/annotation/CacheValue.html[@CacheValue]::
 Marks a method parameter as the value of a cache key.

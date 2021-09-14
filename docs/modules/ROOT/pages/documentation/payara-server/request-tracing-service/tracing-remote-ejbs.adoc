@@ -29,7 +29,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
+    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
 } catch (NamingException ne) {
     logger.warning("Failed performing lookup:\n" + ne.getMessage());
 }
@@ -65,7 +65,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
+    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
 
     Tracer tracer = GlobalTracer.get();
 } catch (NamingException ne) {
@@ -108,7 +108,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
+    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
 
     Tracer tracer = GlobalTracer.get();
 
