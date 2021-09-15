@@ -80,6 +80,25 @@ vendor_jdbc_connection_pool_numconnfree_total{name="resources/H2Pool"} 0
 vendor_jdbc_connection_pool_numconnfree_total{name="resources/__TimerPool"} 0 0
 ----
 
+==== Instance Name
+_Since Payara Server 5.2021.8_
+
+For the purpose of attributes specific to the running instance, Payara provides placeholder `${instance}`. It is replaced with the name of the current instance:
+```
+    <metadata>
+      <name>requestcount.${instance}</name>
+      <mbean>amx:type=web-request-mon,pp=/mon/server-mon[${instance}],name=clusterjsp/server/requestcount#count</mbean>
+      <type>gauge</type>
+      <unit>none</unit>
+      <displayName>Request count for clusterjsp</displayName>
+    </metadata>
+```
+
+Running on instance `i1`, the output is
+```
+vendor_requestcount_i1 1
+```
+
 [[advanced-templating]]
 === Advanced Templating
 
