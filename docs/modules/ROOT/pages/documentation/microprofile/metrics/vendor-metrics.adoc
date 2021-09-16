@@ -81,7 +81,7 @@ vendor_jdbc_connection_pool_numconnfree_total{name="resources/__TimerPool"} 0 0
 [[instance-names]]
 ==== Instance Names
 
-Payara provides the placeholder `${instance}`. It is replaced with the name of the current Payara instance:
+Payara provides the placeholder `${instance}`. It is replaced with the name of the Payara instance, where the metrics is running:
 ```
     <metadata>
       <name>requestcount.${instance}</name>
