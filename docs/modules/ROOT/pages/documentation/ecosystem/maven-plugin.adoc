@@ -347,7 +347,7 @@ an application is redeployed and boost developer productivity even more.
 
 |`sourcesChanged`
 |_none_
-|Defines a list(comma separated) of the absolute paths to the source file which need
+|Defines a list (comma separated) of the absolute paths to the source file which need
 to be reloaded via the Hot Reload feature.
 
 |`metadataChanged`
