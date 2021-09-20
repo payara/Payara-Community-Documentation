@@ -343,7 +343,7 @@ an application is redeployed and boost developer productivity even more.
 
 |`hotDeploy`
 |false
-|Enables the hot reload mode.
+|Enables the Hot Deploy mode.
 
 |`sourcesChanged`
 |_none_
