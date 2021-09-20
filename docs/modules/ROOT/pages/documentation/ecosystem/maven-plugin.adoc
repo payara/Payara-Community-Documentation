@@ -245,7 +245,7 @@ values. key-value pairs will be formatted as `key=value`.
 
 |`hotDeploy`
 |false
-|Enables the hot reload mode.
+|Enables the Hot Deploy mode.
 
 |===
 
