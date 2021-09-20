@@ -157,7 +157,7 @@ the existing application instance and updating its classloader & internal compon
 relative to the modified source. This can lead to significant savings of time when
 an application is redeployed and boost developer productivity even more.
 
-*Usage*: `mvn payara-micro:reload`
+*Usage*: `gradle microReload`
 
 .Configuration tags
 [cols="2,1,7",options="header"]
