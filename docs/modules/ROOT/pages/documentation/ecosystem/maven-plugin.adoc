@@ -352,7 +352,7 @@ to be reloaded via the Hot Deploy feature.
 
 |`metadataChanged`
 |false
-|If set to true, reloads deployment descriptors metadata in hot deploy mode
+|If set to true, reloads deployment descriptors metadata in Hot Deploy mode
 
 |===
 
