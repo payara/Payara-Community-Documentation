@@ -323,7 +323,7 @@ the process id of the running Payara Micro instance.
 === `reload`
 *Aim*: This goal reloads the Payara Micro application with the specified configuration.
 By default, this goal performs the vanilla deployment of the application without restarting the 
-Payara Micro instance. If `hotDeploy` is set to true then the Hot Reload functionality
+Payara Micro instance. If `hotDeploy` is set to true then the Hot Deploy functionality
  will be enabled. 
 
 NOTE: This goal is specifically designed for integration with the IDEs and Editors.
