@@ -6,7 +6,7 @@ nav:
 - modules/ROOT/nav.adoc
 asciidoc:
   attributes:
-    currentVersion: '5.2021.7'
+    currentVersion: '5.2021.4'
     glassfishVersion: '5'
     payaraWebDtd: 'https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-web-app_4.dtd'
     payaraResourcesDtd: 'https://raw.githubusercontent.com/payara/Payara-Community-Documentation/master/docs/modules/ROOT/pages/schemas/payara-resources_1_6.dtd'
@@ -17,8 +17,8 @@ asciidoc:
     mpConfigSpecUrl: 'https://github.com/eclipse/microprofile-config/releases/tag/2.0'
     mpMetricsVersion: '3.0'
     mpMetricsSpecUrl: 'https://github.com/eclipse/microprofile-metrics/releases/tag/3.0'
-    mpHealthVersion: '3.1'
-    mpHealthSpecUrl: 'https://github.com/eclipse/microprofile-health/releases/tag/3.1'
+    mpHealthVersion: '3.0'
+    mpHealthSpecUrl: 'https://github.com/eclipse/microprofile-health/releases/tag/3.0'
     mpFaultToleranceVersion: '3.0'
     mpFaultToleranceSpecUrl: 'https://github.com/eclipse/microprofile-fault-tolerance/releases/tag/3.0'
     mpJwtVersion: '1.2.1'
