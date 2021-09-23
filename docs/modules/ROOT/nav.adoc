@@ -142,8 +142,6 @@
 ** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring[Logging and Monitoring]
 *** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Logging.adoc[Logging]
 *** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/HealthCheck Service.adoc[HealthCheck Service]
-*** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Logging[Logging]
-**** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Logging/notification-logging.adoc[notification-logging]
 *** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Request Tracing Service[Request Tracing Service]
 **** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Request Tracing Service/usage.adoc[usage]
 **** xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Request Tracing Service/terminology.adoc[terminology]
