@@ -1,25 +1,64 @@
-= Resources
+[[payara-server-rest-api-documentation]]
+= Payara Server REST API Documentation
 
-== Configuration
+This section contains a detailed description of the REST API available
+for administration and monitoring Payara Server domains. This
+documentation is based on the
+https://github.com/OAI/OpenAPI-Specification[OpenAPI specification]
+(formerly known as Swagger v2.0).
+
+== Overview
+This API allows users to interact with the Payara Server's
+DAS through a REST interface. It allows execution of administration
+commands in a similar way as the `asadmin` utility, such as:
+
+* Execute administration commands to modify the domain's configuration.
+* Retrieve monitoring statistics
+* Look at the domain's log entries.
+
+To change the configuration of the domain, it is really necessary to
+understand how the configuration resources are organized in a tree
+model. To interact with a resource, it is recommended to first call the
+`GET` method of the `/management/domain/{resource}` endpoint to
+understand what operations are supported and other details (parameters,
+subcommands, etc.)
+
+To execute the API calls to the server, consider the following URL as an
+example:
+
+*_http(s)://localhost:4848/management/domain_*
+
+Remember to change the administration port (usually *4848* by default on
+most domain configurations).
+
+In order to successfully consume the endpoints in this API, it must be
+taken into consideration if the domain's access is already secured. If
+so, then one of the _2_ described security schemes must be used.
+
+== Resources
+
+Configuration, Logging and Session resources are discussed here.
+
+=== Configuration
 
 Used for domain configuration operations
 
-=== Add or Update a resource
+==== Add or Update a resource
 
 ----------------------------------
 POST /management/domain/{resource}
 ----------------------------------
 
-[[description]]
-==== Description
+
+*Description*
 
 Use this operation to add new resources to the configuration tree or to
 update the configuration of an existing resource. If the resource is a
 parent resource, then the operation would add a new child resource.
 Otherwise, the operation would update the resource's configuration.
 
-[[parameters]]
-==== Parameters
+
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -36,8 +75,7 @@ update. If multiple parameters are used, repeat this placeholder for
 each one. |string
 |=======================================================================
 
-[[responses]]
-==== Responses
+*Responses*
 
 [cols=",,", options="header"]
 |=======================================================================
@@ -58,15 +96,13 @@ operation|xref:/documentation/payara-server/rest-api/definitions.adoc#generalres
 target resource (when updating a resource) does not exists.|No Content
 |=======================================================================
 
-[[produces]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security]]
-==== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
@@ -77,21 +113,19 @@ target resource (when updating a resource) does not exists.|No Content
 |*xref:/documentation/payara-server/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
-=== Get information for a resource
+==== Get information for a resource
 
 ---------------------------------
 GET /management/domain/{resource}
 ---------------------------------
 
-[[description-1]]
-==== Description
+*Description*
 
 Use this operation to determine the current configuration of a resource
 and what are its supported methods, method parameters and available
 commands.
 
-[[parameters-1]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -102,8 +136,7 @@ notation, e.g. if the object's name is _nodes.node.localhost-domain1_
 then the correct value is _nodes/node/localhost-domain1_ |string
 |=======================================================================
 
-[[responses-1]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -116,15 +149,13 @@ resource
 |*404* |The specified resource does not exist |No Content
 |=======================================================================
 
-[[produces-1]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security-1]]
-==== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
@@ -135,21 +166,19 @@ resource
 |*xref:/documentation/payara-server/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
-=== Delete a resource
+==== Delete a resource
 
 ------------------------------------
 DELETE /management/domain/{resource}
 ------------------------------------
 
-[[description-2]]
-==== Description
+*Description*
 
 Removes the specified resource from the configuration's tree. The
 deleted resource will no longer be present in the _child-resources_ list
 of the parent's resource.
 
-[[parameters-2]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -160,8 +189,7 @@ to the value *_GlassFish REST HTML interface_* |string
 |string
 |=======================================================================
 
-[[responses-2]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -177,15 +205,13 @@ set correctly.
 |*404* |The target resource does not exists. |No Content
 |=======================================================================
 
-[[produces-2]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security-2]]
-===== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
@@ -196,24 +222,22 @@ set correctly.
 |*xref:/documentation/payara-server/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
-== Logging
+=== Logging
 Used for domain logging purposes
 
-=== Get domain log
+==== Get domain log
 
 -------------------------------
 GET /management/domain/view-log
 -------------------------------
 
-[[description-3]]
-==== Description
+*Description*
 
 Get the server's log contents of the target domain. Each time this
 operation is executed, the response will include the `X-Text-Append-Next`
 header to retrieve changes made to the log since the operation was called.
 
-[[parameters-3]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -222,8 +246,7 @@ header to retrieve changes made to the log since the operation was called.
 number of characters in the log file. |number(integer)
 |=======================================================================
 
-[[responses-3]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -235,26 +258,23 @@ the changes made to this log after this call was executed. |No Content
 |xref:/documentation/payara-server/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
-[[produces-3]]
-==== Produces
+*Produces*
 
 * `text/plain`
 
-=== Get log entries
+==== Get log entries
 
 --------------------------------
 GET /management/view-log/details
 --------------------------------
 
-[[description-4]]
-==== Description
+*Description*
 
 Get the server's log details of the target domain. The details can be
 retrieved on both JSON or XML formats. If the 'Accept' header is
 omitted, the default format is XML.
 
-[[responses-4]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -266,22 +286,20 @@ xref:/documentation/payara-server/rest-api/definitions.adoc#logrecord[LogRecord]
 |xref:/documentation/payara-server/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
-[[produces-4]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 
-=== Monitoring Used for monitoring operations
+==== Monitoring Used for monitoring operations
 
-==== Get monitoring statistics
+*Get monitoring statistics*
 
 ---------------------------------
 GET /monitoring/domain/{resource}
 ---------------------------------
 
-[[description-5]]
-==== Description
+*Description*
 
 Retrieves the monitoring statistics for a monitorable resource in the
 domain. In order to retrieve the monitoring statistics for a specific
@@ -289,8 +307,7 @@ resource, you must configure the monitoring level of the specific
 category the resource falls into (JVM, Connection Pools, ORB, etc.)
 first.
 
-[[parameters-4]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -302,8 +319,7 @@ parameter using *dotted* path notation, e.g. if the resource's name is
 `server/jvm/class-loading` |string
 |=======================================================================
 
-[[responses-5]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -321,15 +337,13 @@ yet.
 |xref:/documentation/payara-server/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
-[[produces-5]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security-3]]
-==== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
@@ -340,24 +354,22 @@ yet.
 |*xref:/documentation/payara-server/rest-api/security.adoc#token_cookie[token_cookie]*
 |=======================================================================
 
-== Sessions
+=== Sessions
 Used for session management
 
-=== Get session token
+==== Get session token
 
 -------------------------
 POST /management/sessions
 -------------------------
 
-[[description-6]]
-==== Description
+*Description*
 
 Use this method for retrieving a special session token that can be used
 to authenticate an user when executing administration or monitoring
 operations.
 
-[[parameters-5]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -366,8 +378,7 @@ operations.
 to the value *_GlassFish REST HTML interface_* |string
 |=======================================================================
 
-[[responses-6]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -381,15 +392,13 @@ set correctly.
 |xref:/documentation/payara-server/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
-[[produces-6]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security-4]]
-==== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
@@ -398,20 +407,18 @@ set correctly.
 |*xref:/documentation/payara-server/rest-api/security.adoc#simple-auth[simple_auth]*
 |=======================================================================
 
-=== Delete session token
+==== Delete session token
 
 -----------------------------------
 DELETE /management/sessions/{token}
 -----------------------------------
 
-[[description-7]]
-==== Description
+*Description*
 
 Retires a session token so that users can no longer do requests
 that authenticate with it.
 
-[[parameters-6]]
-==== Parameters
+*Parameters*
 
 [cols=",,,",options="header",]
 |=======================================================================
@@ -421,8 +428,7 @@ to the value *_GlassFish REST HTML interface_* |string
 |*Path* |*token* _required_ |The session token to delete |string
 |=======================================================================
 
-[[responses-7]]
-==== Responses
+*Responses*
 
 [cols=",,",options="header",]
 |=======================================================================
@@ -436,15 +442,13 @@ not set correctly or the supplied token does not exist.
 |xref:/documentation/payara-server/rest-api/definitions.adoc#generalresult[GeneralResult]
 |=======================================================================
 
-[[produces-7]]
-==== Produces
+*Produces*
 
 * `application/json`
 * `application/xml`
 * `text/html`
 
-[[security-5]]
-==== Security
+*Security*
 
 [cols=",",options="header",]
 |=======================================================================
