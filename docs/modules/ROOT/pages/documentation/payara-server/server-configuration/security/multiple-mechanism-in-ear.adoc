@@ -22,6 +22,8 @@ In order to configure a specific `HttpAuthenticationMechanism` for a Web applica
 </context-param>
 ----
 
+NOTE: Implicit CDI scanning for all CDI modules inside the EAR assembly must be disabled or @Veto annotation can be used on class that implement HTTP authentication in order for `HttpAuthenticationMechanism` to work as expected because if two or more CDI beans implement HTTP authentication they will clash and an exception is raised. CDI beans can be defined through web.xml descriptor. Payara Server will turn only defined once into CDI bean for a specific WAR app.
+
 The supported values are
 
 |===
