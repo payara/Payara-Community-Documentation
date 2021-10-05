@@ -13,6 +13,7 @@ MicroProfile ConfigSource for Payara Variable Expressions
 Console: Server Side Configuration and Sharing
 * [https://github.com/payara/Payara/pull/4694[APPSERV-149]] - Add
 Command to Generate Self-Signed Certificate
+* [https://github.com/payara/Payara/pull/4604[CLOUD-59]] - Allow Executing 'preboot' and 'postboot' Commands over Payara Micro API
 
 
 == Improvements
@@ -43,6 +44,7 @@ deployment failure when to use @RolesPermitted in Faces backing bean
 Hazelcast being started twice to improve Micro boot times
 * [https://github.com/payara/Payara/pull/4594[CUSTCOM-238]] - Support
 JSP on Payara Micro Docker
+
 
 == Bug Fixes
 
