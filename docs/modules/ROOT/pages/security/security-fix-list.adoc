@@ -9,6 +9,9 @@ can or have impacted Payara Server across releases:
 |=======================================================================
 |ID |CVSS v3.0 Base Score |Status |Summary |Release |Pull Requests |Observations
 
+| https://nvd.nist.gov/vuln/detail/CVE-2021-41381[CVE-2021-41381]  | 5.3 | FIXED | Improper Limitation of a pathname to a restricted directory (exposes an application to "Path Traversal") when context root is / | 5.2021.7 | https://github.com/payara/Payara/pull/5396[#5396] | Recommended to immediately upgrade to this release if any of your applications is deployed on the / context root on Payara Server or Payara Micro
+
+
 | https://nvd.nist.gov/vuln/detail/CVE-2021-28170[CVE-2021-28170] | 5.3 | FIXED | A bug in the ELParserTokenManager enables invalid EL expressions to be evaluated as if they were valid | 5.2021.5 | https://github.com/eclipse-ee4j/el-ri/pull/160[el-ri #160] | Fixed by backporting a fix from the latest Jakarta Expression Language snapshot version 
 
 |https://nvd.nist.gov/vuln/detail/CVE-2020-10693[CVE-2020-10693] | 5.3 | FIXED | A flaw was found in Hibernate Validator version 6.1.2.Final. A bug in the message interpolation processor enables invalid EL expressions to be evaluated as if they were valid. This flaw allows attackers to bypass input sanitation (escaping, stripping) controls. | 5.2020.7 | https://github.com/payara/Payara/pull/4977[#4977] | Fixed by upgrading Hibernate Validator to 6.1.5
@@ -67,7 +70,6 @@ as well:
 [cols="<,<,<,<,<,<",options="header",]
 |=======================================================================
 |Reference |Status |Summary | Release |Pull Requests |Observations
-| Reported by the community | FIXED | Improper Limitation of a pathname to a restricted directory (exposes an application to "Path Traversal") when context root is / | 5.2021.7 | https://github.com/payara/Payara/pull/5396[#5396] | Recommended to immediately upgrade to this release if any of your applications is deployed on the / context root on Payara Server or Payara Micro
 | Payara Enterprise Support Ticket| FIXED | Vulnerability in Metro's WSDL Code Importing/Parsing - Remote Code Execution | 5.2021.3 | [https://github.com/payara/Payara/pull/5198[#5198]] | Recommended to immediately upgrade to this release if using any JAX-WS features in applications deployed in public-facing environments. 
 | https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet[OWASP Docs] |FIXED | Web administration console is vulnerable against clickjacking/UI redress attacks. | 4.1.2.174 | https://github.com/payara/Payara/pull/2097[#2097] |
 | Payara Support Ticket | FIXED | Under some circumstances authenticated caller/user identities get confused. | 4.1.1.171.11 | https://github.com/payara/Payara/pull/2493/files[#2493] |
