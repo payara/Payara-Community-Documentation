@@ -30,6 +30,15 @@ public class MyRestApp extends Application {
 }
 ----
 
+NOTE: Jakarta Security 2.0 did not implement CLIENT-CERT authentication. If you are using a self-signed certificate you still need to specify the CLIENT-CERT auth-method in your web.xml
+
+[source, xml]
+----
+<login-config>
+    <auth-method>CLIENT-CERT</auth-method>
+</login-config>
+----
+
 [[configuration]]
 == Configuration
 
