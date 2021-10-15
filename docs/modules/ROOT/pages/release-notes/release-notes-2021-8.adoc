@@ -1,0 +1,69 @@
+# Release Notes - Payara Platform Community 5.2021.8
+
+
+### Supported APIs and Applications
+* Jakarta EE 8
+* Java EE 8 Applications
+* Jakarta EE 9
+* MicroProfile 4.1
+
+
+#### Breaking Changes
+
+##### Client Certificate Validation Checks
+
+After upgrading to Payara Community 5.2021.8,  a certificate that was accepted in earlier versions might be rejected now. It is no longer enough that the client certificates are included within the Payara Keystore. See [Certificate Expiration Validation :: Payara Community Documentation](https://docs.payara.fish/community/docs/documentation/payara-server/server-configuration/security/certificate-realm-certificate-validation.html#_client-certificate-expiration-validator)
+
+### Improvements
+
+[[FISH-5687](https://github.com/payara/Payara/pull/5394)] Integrate HotSwap Agent in Payara Platform
+
+[[FISH-5686](https://github.com/payara/Payara/pull/5417)] Log Warning When Not Running on a Supported LTS JDK Version
+
+[[FISH-5658](https://github.com/payara/Payara/pull/5414)] Add Placeholder for Instance Names in Custom Vendor Metrics
+
+[[FISH-5645](https://github.com/payara/Payara/pull/5427)] Add Validity Checks on Client Certificates in the Trust Store
+
+[[FISH-5636](https://github.com/payara/Payara/pull/5410)] Performance Optimizations to Remote EJB Tracing Feature
+
+[[FISH-1467](https://github.com/payara/Payara/pull/5394)] Reload the Web Application Container and Deployer
+
+[[FISH-376](https://github.com/payara/Payara/pull/5407)] Allow Configuration Details of HTTP GZIP Compression
+
+
+### Security Fixes
+
+[[FISH-5697](https://github.com/payara/Payara/pull/5416)] Upgrade H2 Database Engine to 1.4.200
+
+
+### Bug Fixes
+
+[[FISH-5768](https://github.com/payara/Payara/pull/5435)] Clustered CDI Events Not Being Received
+
+[[FISH-5736](https://github.com/payara/Payara/pull/5411)] Fix Unknown Exclude Field Provided Warning on Startup
+
+[[FISH-5734](https://github.com/payara/Payara/pull/5431)] Recursive Update Exception when Reading a MicroProfile Config Value After Server Restart
+
+[[FISH-5724](https://github.com/payara/Payara/pull/5420)] Deployment Failure Due to  'The lifecycle method \[postConstruct\] Must Not Throw a Checked Exception'
+
+[[FISH-5678](https://github.com/payara/Payara/pull/5408)] Jakarta Named Properties in 'persistence.xml' Are Not Recognized
+
+[[FISH-5675](https://github.com/payara/Payara/pull/5440)] \(Community Contribution - [phillipross](https://github.com/PhillipRoss95/PhillipRoss) \) Full State Saving with Mojarra Results in ArrayIndexOutOfBoundsException
+
+[[FISH-470](https://github.com/payara/Payara/pull/5405)] NullPointerException when Deploying MDB into a Customized MDB Pool
+
+
+
+### Component Upgrades
+
+[[FISH-5776](https://github.com/payara/Payara/pull/5440)] Upgrade to Mojarra 2.3.14.payara-p3
+
+[[FISH-5751](https://github.com/payara/Payara/pull/5426)] Upgrade ASM to 9.1
+
+[[FISH-5750](https://github.com/payara/Payara/pull/5434)] Upgrade Felix to 7.0.1
+
+[[FISH-5698](https://github.com/payara/Payara/pull/5413)] Upgrade Apache Commons IO to Version 2.11
+
+[[FISH-261](https://github.com/payara/Payara/pull/5433)] Upgrade 'tini' to 0.19.0 in Docker Images
+
+
