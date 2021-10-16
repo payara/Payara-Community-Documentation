@@ -1,0 +1,36 @@
+= Payara JAX-RS Client Automatic SSL Context
+
+JAX-RS Client Automatic SSL Context is an implementation to automatically indicate the certificate when doing a Rest Client call
+
+To enable this we need to include the next dependency on the application
+
+[source,XML]
+----
+<dependency>
+  <groupId>com.ecosystem.extensions</groupId>
+  <artifactId>ecosystem-rest-ssl-configuration</artifactId>
+  <version>1.0</version>
+</dependency>
+----
+
+Also it is needed to specify the next property for Rest Client call
+
+[cols="1,1", options="header"]
+|===
+|Property
+|Description
+
+|`fish.payara.jaxrs.client.certificate.alias`
+| The alias name of the certificate
+
+|===
+
+==== Example
+
+[source, java]
+----
+ClientBuilder.newBuilder().property("fish.payara.jaxrs.client.certificate.alias", "someAliasName").build()
+.target(new URI("http://localhost:8080/service")).request().get(Service.class)
+----
+
+NOTE: For this to work, you need to include the certificate and the alias on the default payara keystore. In case you don't add it the default `SslContext` will be use

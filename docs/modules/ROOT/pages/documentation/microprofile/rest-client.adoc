@@ -83,3 +83,45 @@ On a per-client basis, or via Microprofile Config properties, the following aspe
 * Keystore for setting up mutual SSL trust
 
 Programmatically it is also possible to provide an implementation of `SslContext` to control all aspects of SSL communication.
+
+[[Automatic-SSL-Context-configuration]]
+== Automatic SSL Context configuration
+
+Now it was enabled the automatic configuration of `SslContext` by following one of next approaches
+
+* Adding the property during the Rest Client call
+
+[cols="1,1", options="header"]
+|===
+|Property
+|Description
+
+|`fish.payara.rest.client.certificate.alias`
+| The alias name of the certificate
+
+|===
+
+==== Example
+
+[source, java]
+----
+RestClientBuilder.newBuilder().baseUri(new URI("http://localhost:8080/service")).property("fish.payara.rest.client.certificate.alias", "someAliasName").build(Service.class);
+----
+
+* Adding with MicroProfile Config
+
+[cols="1,1", options="header"]
+|===
+|Property
+|Description
+
+|`certificate.alias`
+| The alias name of the certificate
+
+|===
+
+In this case you don't need to add it during the Rest Client Call
+
+You can find out more about MicroProfile Config property here: xref:documentation/microprofile/config/README.adoc[MicroProfile Config]
+
+NOTE: For this to work, you need to include the certificate and the alias on the default payara keystore. In case you don't add it the default `SslContext` will be use
