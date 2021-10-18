@@ -63,7 +63,7 @@ By enabling the Auto Deploy or Hot Deploy feature, you may automate the manual d
 Auto Deploy will undeploy the existing application and redeploy the new application on every save action whereas
 the Hot Deploy mode reuses the existing application instance and updating its classloader & internal components relative to the modified source.
 
-Note: The Auto Deploy or Hot Deploy feature is only supported for the Exploded WAR artifact.
+NOTE: The Auto Deploy or Hot Deploy feature is only supported for the Exploded WAR artifact.
 
 * Add the configuration to *Run and Debug* menu and press the *Apply* button to save the configuration:
 
