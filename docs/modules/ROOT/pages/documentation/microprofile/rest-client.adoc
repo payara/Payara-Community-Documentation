@@ -84,10 +84,10 @@ On a per-client basis, or via Microprofile Config properties, the following aspe
 
 Programmatically it is also possible to provide an implementation of `SslContext` to control all aspects of SSL communication.
 
-[[Automatic-SSL-Context-configuration]]
-== Automatic SSL Context configuration
+[[SSL-Context-configuration]]
+== SSL Context configuration
 
-Now it was enabled the automatic configuration of `SslContext` by following one of next approaches
+You can define the certificate alias rest client will use with one of the following approaches
 
 * Adding the property during the Rest Client call
 
@@ -105,7 +105,7 @@ Now it was enabled the automatic configuration of `SslContext` by following one 
 
 [source, java]
 ----
-RestClientBuilder.newBuilder().baseUri(new URI("http://localhost:8080/service")).property("fish.payara.rest.client.certificate.alias", "someAliasName").build(Service.class);
+RestClientBuilder.newBuilder().baseUri(new URI("https://localhost:8080/service")).property("fish.payara.rest.client.certificate.alias", "someAliasName").build(Service.class);
 ----
 
 * Adding with MicroProfile Config
@@ -115,7 +115,7 @@ RestClientBuilder.newBuilder().baseUri(new URI("http://localhost:8080/service"))
 |Property
 |Description
 
-|`certificate.alias`
+|`payara.certificate.alias`
 | The alias name of the certificate
 
 |===
@@ -124,4 +124,4 @@ In this case you don't need to add it during the Rest Client Call
 
 You can find out more about MicroProfile Config property here: xref:documentation/microprofile/config/README.adoc[MicroProfile Config]
 
-NOTE: For this to work, you need to include the certificate and the alias on the default payara keystore. In case you don't add it the default `SslContext` will be use
+NOTE: For this to work, you need to include the certificate with the given alias in the default payara keystore.
