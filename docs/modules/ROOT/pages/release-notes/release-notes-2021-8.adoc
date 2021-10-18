@@ -48,7 +48,7 @@ After upgrading to Payara Community 5.2021.8,  a certificate that was accepted i
 
 [https://github.com/payara/Payara/pull/5408[FISH-5678]] Jakarta Named Properties in 'persistence.xml' Are Not Recognized
 
-[https://github.com/payara/Payara/pull/5440[FISH-5675]] (Community Contribution - https://github.com/PhillipRoss95/PhillipRoss[phillipross]) Full State Saving with Mojarra Results in ArrayIndexOutOfBoundsException
+[https://github.com/payara/Payara/pull/5440[FISH-5675]] (Community Contribution - https://github.com/PhillipRoss95[phillipross]) Full State Saving with Mojarra Results in ArrayIndexOutOfBoundsException
 
 [https://github.com/payara/Payara/pull/5405[FISH-470]] NullPointerException when Deploying MDB into a Customized MDB Pool
 
