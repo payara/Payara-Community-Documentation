@@ -32,5 +32,4 @@ Also it is needed to specify the next property for Rest Client call
 ClientBuilder.newBuilder().property("fish.payara.jaxrs.client.certificate.alias", "someAliasName").build()
 .target(new URI("https://localhost:8080/service")).request().get(Service.class)
 ----
-
 NOTE: For this to work, you need to include the certificate with the given alias in the default payara keystore.
