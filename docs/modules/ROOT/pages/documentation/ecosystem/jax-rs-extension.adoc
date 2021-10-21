@@ -8,7 +8,7 @@ To enable this we need to include the next dependency on the application
 ----
 <dependency>
   <groupId>fish.payara.ecosystem.jaxrs</groupId>
-  <artifactId>ecosystem-rest-ssl-configuration</artifactId>
+  <artifactId>rest-ssl-configuration</artifactId>
   <version>1.0</version>
 </dependency>
 ----
