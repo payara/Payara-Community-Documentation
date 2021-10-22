@@ -2,7 +2,7 @@
 * xref:README.adoc[Introduction]
 ** xref:general-info/general-info.adoc[Overview]
 ** xref:release-notes/README.adoc[Release Notes]
-*** xref:release-notes/release-notes-2021-7.adoc[Payara Community 5.2021.7 Release Notes]
+*** xref:release-notes/release-notes-2021-8.adoc[Payara Community 5.2021.8 Release Notes]
 ** xref:security/security.adoc[Security]
 *** xref:security/security-fix-list.adoc[Security Fixes Summary]
 ** xref:general-info/supported-platforms.adoc[Supported Platforms]
@@ -304,6 +304,7 @@
 
 .Appendices
 * xref:release-notes/release-notes-history.adoc[History of Release Notes]
+** xref:release-notes/release-notes-2021-8.adoc[Payara Community 5.2021.8 Release Notes]
 ** xref:release-notes/release-notes-2021-7.adoc[Payara Community 5.2021.7 Release Notes]
 ** xref:release-notes/release-notes-2021-6.adoc[Payara Community 5.2021.6 Release Notes]
 ** xref:release-notes/release-notes-2021-5.adoc[Payara Community 5.2021.5 Release Notes]

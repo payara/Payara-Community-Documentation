@@ -22,6 +22,8 @@ In order to configure a specific `HttpAuthenticationMechanism` for a Web applica
 </context-param>
 ----
 
+NOTE: There must not be any CDI beans in any of the EAR modules that implement `HttpAuthenticationMechanism` or they must be disabled (e.g. by the `@Vetoed` annotation or using the `scan` and `exclude` elements in `beans.xml`). Payara Server enables an internal implementation of `HttpAuthenticationMechanism` which provides different authentication mechanisms to different web modules and any other enabled mechanism would clash and an exception would be raised. 
+
 The supported values are
 
 |===
