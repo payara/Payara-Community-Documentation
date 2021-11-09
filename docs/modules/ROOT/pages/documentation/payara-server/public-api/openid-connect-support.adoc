@@ -418,6 +418,38 @@ public class SecurityBean {
 }
 ----
 
+[[microsof-adfs-userinfo-integration]]
+=== Microsof ADFS UserInfo integration
+
+For on-premise ADFS (Active Directory Federation Services) the following property was added to get user information from the ID Token.
+
+.Configuration Option
+|===
+| Option | MP Config property | Required | Description | Default value | Requirements
+
+| `userClaimsFromIDToken`
+| `payara.security.openid.userClaimsFromIDToken`
+| false
+| Enables to get the user information from the ID Token
+| false
+| This property should be use in case it is needed to get the user information from the ID Token.
+
+|===
+
+[[usage-example]]
+=== Example
+
+[source, java]
+----
+@AzureAuthenticationDefinition(
+    providerURI="#{openidConfigBean.tokenEndpointURL}",
+    clientId="#{openidConfigBean.clientId}",
+    clientSecret="#{openidConfigBean.clientSecret}",
+    userClaimsFromIDToken=true
+)
+public class SecurityBean {
+}
+----
 
 [[keycloak-oidc-integration]]
 === Keycloak integration
