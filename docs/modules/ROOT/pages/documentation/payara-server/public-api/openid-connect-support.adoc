@@ -354,8 +354,8 @@ NOTE: To integrate with Microsoft ADFS this property will be needed because by d
 
 |===
 
-[[usage-example]]
-=== Example
+[[user-information-from-the-id-token-example]]
+==== Example
 
 [source, java]
 ----
@@ -461,20 +461,6 @@ public class SecurityBean {
 
 To enable the integration for Microsoft ADFS it is needed to use the new property: userClaimsFromIDToken. See <<user-information-from-the-id-token>> for more information.
 
-[[usage-example]]
-=== Example
-
-[source, java]
-----
-@AzureAuthenticationDefinition(
-    providerURI="#{openidConfigBean.tokenEndpointURL}",
-    clientId="#{openidConfigBean.clientId}",
-    clientSecret="#{openidConfigBean.clientSecret}",
-    userClaimsFromIDToken=true
-)
-public class SecurityBean {
-}
-----
 
 [[keycloak-oidc-integration]]
 === Keycloak integration
