@@ -87,7 +87,7 @@ NOTE: Only some basic redirect is supported namely a GET. Only the URL and query
 [[configuration]]
 == Configuration
 
-OpenID Client can be configured with both `@OpenIdAuthenticationDefinition` annotation attributes and Microprofile Config properties.
+OpenID Client can be configured with both `@OpenIdAuthenticationDefinition` annotation attributes and MicroProfile Config properties.
 The annotation and MicroProfile properties has several configuration options.
 
 They are detailed below.
@@ -308,7 +308,9 @@ A programmatic logout is performed by calling `OpenIdContext#logout()` which inv
 [[provider-metadata]]
 === Provider Metadata
 
-If the OpenId server doesn't provide autoconfiguration or it is necessary to customize it, it is possible to set these values in the `providerMetadata` field of the `@OpenIdAuthenticationDefinition` annotation. All values are also possible to specify by Microprofile Config values. None of the fields are required in the annotation, but all of the values must be read from one of the sources. The order of evaluation is 1) Microprofile Config, 2) `@OpenIdProviderMetadata`, 3) autoconfiguration on `providerURI` address.
+If the OpenId server doesn't provide autoconfiguration or it is necessary to customize it, it is possible to set these values in the `providerMetadata` field of the `@OpenIdAuthenticationDefinition` annotation. All values are also possible to specify by MicroProfile Config values. None of the fields are required in the annotation, but all of the values must be read from one of the sources. The order of evaluation is 1) MicroProfile Config, 2) `@OpenIdProviderMetadata`, 3) autoconfiguration on `providerURI` address.
+
+When fields, which are lists (e.g. `scopesSupported`, `responseTypesSupported`), are loaded from MicroProfile Config, they are separated by a comma, following https://download.eclipse.org/microprofile/microprofile-config-2.0/microprofile-config-spec-2.0.html#_array_converters[MicroProfile Config Array conventions].
 
 .Provider Metadata Options
 |===
@@ -347,12 +349,12 @@ If the OpenId server doesn't provide autoconfiguration or it is necessary to cus
 | `scopesSupported`
 | `payara.security.openid.provider.scopesSupported`
 | recommended
-| JSON array containing a list of the OAuth 2.0 scope values that this server supports, e.g. `openid`.
+| List of the OAuth 2.0 scope values that this server supports, e.g. `openid`.
 
 | `responseTypesSupported`
 | `payara.security.openid.provider.responseTypeSupported`
 | true
-| JSON array containing a list of the OAuth 2.0 response_type values that this OP supports, e.g. `code`, `id_token`, `token id_token`.
+| List of the OAuth 2.0 response_type values that this OP supports, e.g. `code`, `id_token`, `token id_token`.
 
 | `subjectTypesSupported`
 | `payara.security.openid.provider.subjectTypesSupported`
