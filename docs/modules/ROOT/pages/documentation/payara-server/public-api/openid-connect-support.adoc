@@ -334,44 +334,6 @@ Authorization Server.
 - The `getClaims()` method - Gets the User Claims that were received from the userinfo endpoint.
 - The `getProviderMetadata()` method - The OpenId Connect Provider's metadata document fetched via provider URI.
 
-[[user-information-from-the-id-token]]
-=== User information from the ID Token
-
-The following property is added to get user information from the ID Token.
-
-NOTE: To integrate with Microsoft ADFS this property will be needed because by default Microsoft ADFS doesn't provide user information from the /userinfo endpoint.
-
-.Configuration Option
-|===
-| Option | MP Config property | Required | Description | Default value | Requirements
-
-| `userClaimsFromIDToken`
-| `payara.security.openid.userClaimsFromIDToken`
-| false
-| Enables to get the user information from the ID Token
-| false
-| This property should be use in case it is needed to get the user information from the ID Token.
-
-|===
-
-[[user-information-from-the-id-token-example]]
-==== Example
-
-[source, java]
-----
-@OpenIdAuthenticationDefinition(
-       providerURI = "https://sample-openid-server.com",
-       clientId = "87068hgfg5675htfv6mrucov57bknst.apps.sample.com",
-       clientSecret = "{my-secret}",
-       redirectURI = "${baseURL}/callback",
-       userClaimsFromIDToken=true
-)
-public class SecurityBean {
-
-}
-----
-
-
 [[google-oidc-integration]]
 === Google integration
 
@@ -455,11 +417,6 @@ image:security-connector/oidc/azure/add_groups_claim.png[Add Groups Claim]
 public class SecurityBean {
 }
 ----
-
-[[microsoft-adfs-integration]]
-==== Microsoft ADFS integration
-
-To enable the integration for Microsoft ADFS it is needed to use the new property: userClaimsFromIDToken. See <<user-information-from-the-id-token>> for more information.
 
 
 [[keycloak-oidc-integration]]
