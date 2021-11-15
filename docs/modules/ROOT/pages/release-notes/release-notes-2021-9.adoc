@@ -58,6 +58,8 @@ The JDK version within the Docker images is upgraded to 8u312 and 11.0.13 respec
 
 [https://github.com/payara/Payara/pull/5406[FISH-773]] (Community Contribution - alexk201) Schedulers are not removed correctly from database after redeployment of an application
 
+[https://github.com/payara/patched-src-openmq/pull/12[FISH-28]] OpenMQ Doesn't Start on Windows with JDK11
+
 
 ### Component Upgrades
 
