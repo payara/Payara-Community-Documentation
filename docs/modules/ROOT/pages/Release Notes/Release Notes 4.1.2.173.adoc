@@ -1,4 +1,4 @@
-[release-notes-current]
+[Release Notes-current]
 = Payara Server 4.1.2.173 Release Notes
 
 [[release-highlights]]

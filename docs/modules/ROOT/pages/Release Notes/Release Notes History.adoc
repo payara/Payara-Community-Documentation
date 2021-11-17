@@ -1,4 +1,4 @@
-[[appendix-history-of-release-notes]]
+[[appendix-history-of-Release Notes]]
 = Appendix: History of release notes
 
 Detailed information about features and fixes in every release.
