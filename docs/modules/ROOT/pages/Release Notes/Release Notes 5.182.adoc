@@ -1,4 +1,4 @@
-[release-notes]
+[Release Notes]
 = Payara Server 5.182 Release Notes
 
 [[release-highlights]]
