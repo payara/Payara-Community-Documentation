@@ -420,6 +420,19 @@ public class SecurityBean {
 }
 ----
 
+[[azure-ad-scope-validation]]
+==== Azure AD scope validation
+To disable the scope validation we can use the following MP Config property.
+
+.Configuration Options
+|===
+| MP Config property | Description | Default value
+
+| payara.security.openid.disableScopeValidation
+| This property disable the scope validation for custom scope configurations
+| false 
+
+|===
 
 [[keycloak-oidc-integration]]
 === Keycloak integration
