@@ -455,6 +455,38 @@ public class SecurityBean {
 }
 ----
 
+[[disable-scope-validation]]
+== Disable scope validation
+
+To disable the scope validation it is needed to use the following property of the `OpenIdProviderMetadata`.
+
+.Configuration Options
+|===
+| Option | MP Config property | Description | Default value
+
+| disableScopeValidation
+| payara.security.openid.disableScopeValidation
+| This property disable the scope validation for custom scope configurations
+| false 
+
+|===
+
+[[disable-scope-validation-example]]
+=== Example
+
+[source, java]
+----
+@OpenIdAuthenticationDefinition(
+       providerURI = "https://sample-openid-server.com",
+       clientId = "87068hgfg5675htfv6mrucov57bknst.apps.sample.com",
+       clientSecret = "{my-secret}",
+       redirectURI = "${baseURL}/callback",
+       providerMetadata = @OpenIdProviderMetadata(disableScopeValidation = true))
+public class SecurityBean {
+
+}
+----
+
 [[bearer-auth]]
 ## Bearer Authentication and Authorization
 
@@ -604,17 +636,8 @@ To enable the integration for Microsoft ADFS it is needed to use the new propert
 
 [[azure-ad-scope-validation]]
 ==== Azure AD scope validation
-To disable the scope validation we can use the following MP Config property.
 
-.Configuration Options
-|===
-| MP Config property | Description | Default value
-
-| payara.security.openid.disableScopeValidation
-| This property disable the scope validation for custom scope configurations
-| false 
-
-|===
+To disable the scope validation for Azure AD integration it is needed to use the following property: disableScopeValidation. See <<disable-scope-validation>> for more information.
 
 [[keycloak-oidc-integration]]
 === Keycloak integration
