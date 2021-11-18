@@ -602,6 +602,19 @@ public class SecurityBean {
 
 To enable the integration for Microsoft ADFS it is needed to use the new property: userClaimsFromIDToken. See <<user-information-from-the-id-token>> for more information.
 
+[[azure-ad-scope-validation]]
+==== Azure AD scope validation
+To disable the scope validation we can use the following MP Config property.
+
+.Configuration Options
+|===
+| MP Config property | Description | Default value
+
+| payara.security.openid.disableScopeValidation
+| This property disable the scope validation for custom scope configurations
+| false 
+
+|===
 
 [[keycloak-oidc-integration]]
 === Keycloak integration
