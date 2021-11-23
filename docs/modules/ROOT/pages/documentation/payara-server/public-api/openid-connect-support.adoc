@@ -91,7 +91,7 @@ itself but by the Server (like `payara.security.openid.redirectURI=${baseURL}/Ca
 
 The annotation and MicroProfile properties have several configuration options. They are detailed below.
 
-.Configuration Options
+.Configuration Options For `@OpenIdAuthenticationDefinition`
 |===
 | Option | MP Config property | Required | Description | Default value | Requirements
 
@@ -458,15 +458,18 @@ public class SecurityBean {
 [[disable-scope-validation]]
 == Disable scope validation
 
-To disable the scope validation it is needed to use the following property of the `OpenIdProviderMetadata`.
+By default, Payara OpenID Connect connector validates that a scope is reported as a supported 
+scope by the provider. However, some providers support more scopes than they actually report as
+supported scopes. In order to disable the validation and allow using such scopes, it's possible to
+use the following property of `OpenIdProviderMetadata`.
 
-.Configuration Options
+.Configuration Options For `@OpenIdProviderMetadata`
 |===
 | Option | MP Config property | Description | Default value
 
 | disableScopeValidation
 | payara.security.openid.disableScopeValidation
-| This property disable the scope validation for custom scope configurations
+| This property disables the scope validation for custom scope configurations
 | false 
 
 |===
