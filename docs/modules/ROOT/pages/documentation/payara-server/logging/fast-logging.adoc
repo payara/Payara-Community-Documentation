@@ -1,7 +1,7 @@
 [[fast-logging]]
 = Fast Logging
 
-By default, a toString() is forced on all parameters within the same thread as the application. This stops an immutable object being changed after the log statement is issued but can cause a performance impact with JPA entities as it may result in database access.
+By default, a toString() is forced on all parameters within the same thread as the application. This stops a mutable object being changed after the log statement is issued and thus wrong values be written out in the log entry, but can cause a performance impact with JPA entities as it may result in database access.
 
 With `Fast Logging` enabled, this forced toString() is skipped.
 
@@ -14,7 +14,7 @@ You can disable the forced toString() by enabling the `Fast Logging` option via 
 
 To configure the `Fast Logging` option, set it in the Logger settings.
 
-image:logging/fast_logging.png[Log to Console disabled]
+image:logging/fast_logging.png[Fast Logging enabled]
 
 [[using-asadmin-utility]]
 == Using an asadmin command
