@@ -245,7 +245,7 @@ then the MicroProfile Config property value always takes precedence over the `@O
 | `payara.security.openid.disableScopeValidation`
 | This property disables the scope validation for custom scope configurations
 | false 
-
+|===
 [[el-support]]
 == Expression Language Support
 
@@ -477,7 +477,6 @@ scope by the provider. However, some providers support more scopes than they act
 supported scopes. In order to disable the validation and allow using such scopes, it's possible to
 use the `disableScopeValidation` property of `OpenIdProviderMetadata`. See the <<configuration>> section for more details about this option.
 
-|===
 
 [[disable-scope-validation-example]]
 === Example
