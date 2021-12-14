@@ -29,7 +29,7 @@
 
 [https://github.com/payara/Payara/pull/5497[FISH-5858]] [https://github.com/svendiedrichsen[Community Contribution - svendiedrichsen]] Fix Possible Deadlocks in RWLockDataStructure Class
 
-[https://github.com/payara/Payara/pull/5492[FISH-5851]] [https://github.com/payara/Payara/pull/5492[Community Contribution - chrjohn]] Prevent NPE in com.sun.jts.CosTransactions.RecoveryManager
+[https://github.com/payara/Payara/pull/5492[FISH-5851]] [https://github.com/chrjohn[Community Contribution - chrjohn]] Prevent NPE in com.sun.jts.CosTransactions.RecoveryManager
 
 [https://github.com/payara/Payara/pull/5499[FISH-5824]] Monitoring Console Web Application Loads Files from External Sources
 
