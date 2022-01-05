@@ -1,24 +1,18 @@
-[[payara-server-deployment-descriptor-files]]
+[[overview]]
 = Payara Server Deployment Descriptor Files
-:toc:
-
-[[glassfish]]
-== Support of GlassFish deployment descriptors
-Payara Server Community supports specifying deployment configuration using GlassFish deployment descriptor files. 
+By default, the Payara Platform allows the use of standard GlassFish Server deployment descriptor files to configure application behaviour.
 
 [[payara-web-info]]
-== Payara deployment descriptors
+== Payara Platform Deployment Descriptors
 
-Additionally from version __5.183__, `payara-web.xml` can be used instead of `glassfish-web.xml`. The top level element for the `payara-web.xml` file must be `_payara-web-app_` and the schema can be refererenced by:
+The `payara-web.xml` deployment descriptor can be used instead of `glassfish-web.xml`. The top level element for the `payara-web.xml` file must be `_payara-web-app_` and the schema is referenced by the following declaration:
 
 [source,xml,subs=attributes+]
 ----
 <!DOCTYPE payara-web-app PUBLIC "-//Payara.fish//DTD Payara Server 4 Servlet 3.0//EN" "{payaraWebDtd}">
 ----
 
-Since version __5.184__
-
-`payara-resources.xml` can also be used instead of `glassfish-resources.xml`. The schema can be referenced by:
+The `payara-resources.xml` can be used instead of `glassfish-resources.xml`. Its structure is exactly the same, and the schema is referenced by the following declaration:
 
 [source,xml,subs=attributes+]
 ----
@@ -68,37 +62,35 @@ The following elements are supported in Payara Server on top of elements support
 
 [[payara-resources.xml]]
 == _payara-resources.xml_
-Since version __5.184__
 
 * `snapshot` (_property of transaction isolation, this isolation level is only supported by Microsoft SQL Server_)
-
-Since version __5.2020.5__
-
 * `log-jdbc-calls` (_attribute of jdbc-connection-pool_)
-
 
 [[deployment-descriptor-precedence-order]]
 == Deployment Descriptor Precedence Order
 
-When multiple deployment descriptors are present in the same archive, the descriptors are
- processed with the following precedence order in default mode:
+When multiple vendor deployment descriptors are present in the same module (including deployment descriptors of the old *Sun Application Server*), the descriptors are processed with the following precedence order in default mode:
 
-    `WebLogic descriptor > Payara descriptor > GlassFish descriptor > Sun descriptor`
+----
+WebLogic Server > Payara Platform > GlassFish Server > Sun Application Server
+----
 
-The default precedence order can be customized and configured via following
- system properties:
+The default precedence order can be customized and configured via the system properties documented in the following sections.
 
-[[gfdd.over.wlsdd]]
-=== `gfdd.over.wlsdd` property
-This system property controls the precedence between GlassFish Server 
-descriptor and Weblogic Server descriptor when they are both present. When `gfdd.over.wlsdd`
- property is set to true, the descriptors are processed with the following precedence order:
+[[gfdd-over-wlsdd]]
+=== `gfdd.over.wlsdd`
 
-    `Payara descriptor > GlassFish descriptor > WebLogic descriptor > Sun descriptor`
+This system property controls the precedence between GlassFish Server and WebLogic Server deployment descriptors when they are both present. When the `gfdd.over.wlsdd` property is set to true, the descriptors are processed in this order:
 
-[[ignore.wlsdd]]
-=== `ignore.wlsdd` property
-When `ignore.wlsdd` property is set to true, WLS descriptor will be ignored and other
- descriptors will be processed with the following precedence order:
+----
+Payara Platform > GlassFish Server > WebLogic Server > Sun Application Server
+----
 
-    `GlassFish descriptor > Payara descriptor > Sun descriptor`
+[[ignore-wlsdd]]
+=== `ignore.wlsdd`
+
+When the `ignore.wlsdd` property is set to true, the WebLogic Server deployment descriptors will be completely ignored and other descriptors will be processed in the following order:
+
+----
+GlassFish Server > Payara Platform > Sun Application Server
+----
