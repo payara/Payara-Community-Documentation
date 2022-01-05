@@ -1,7 +1,7 @@
 [[custom-vendor-metrics]]
 = Custom Vendor Metrics
 
-JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
+xref:documentation/user-guides/monitoring/mbeans.adoc[JMX MBeans] can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/master/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
 
 [source, xml]
 ----
@@ -30,12 +30,10 @@ JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplyin
 </config>
 ----
 
-IMPORTANT: Payara Server Community has a more extensive range of MBeans available than Payara Micro Community, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application that uses the connection pool is deployed.
+IMPORTANT: Payara Server has a more extensive range of MBeans available than Payara Micro, but these _AMX_ MBeans need to be enabled through the _Monitoring_ section of the admin console before they will be usable. Each of these AMX MBeans are also lazily loaded so, for example, JDBC connection pool MBeans will not be visible until an application that uses the connection pool is deployed.
 
 [[templating-metrics-amx-mbeans]]
 == Templating Metrics for AMX MBeans
-
-_Since Payara Server 4.1.2.182 and 5.182_
 
 It is possible to create a template for a metric based on AMX MBeans properties for multiple resource configurations or similar objects (like JDBC connection pools for example).
 
@@ -82,8 +80,6 @@ vendor_jdbc_connection_pool_numconnfree_total{name="resources/__TimerPool"} 0 0
 
 [[advanced-templating]]
 === Advanced Templating
-
-_Since Payara Server 4.1.2.184 and 5.184_
 
 If you need more control on the attributes of specific MBeans used in a metric definition, you can use the `${key}`, `${attribute}` and `${subattribute}` placeholders to define more fine-grained metrics.
 
@@ -142,3 +138,7 @@ vendor:jdbc_connection_pool_resources/_h2_pool_pool_numconncreated#count 0
 ......
 ......
 ----
+
+== See Also
+
+* xref:documentation/user-guides/monitoring/mbeans.adoc[JMX MBeans Reference]
