@@ -415,6 +415,118 @@ The Payara Public API also provides a `fish.payara.security.openid.api.OpenIdCon
 - The `getClaims()` method - Gets the User Claims that were received from the `userinfo` endpoint.
 - The `getProviderMetadata()` method - The OpenId Connect Provider's metadata document fetched via provider URI.
 
+[[user-information-from-the-id-token]]
+== User Information from the ID Token
+
+The `userClaimsFromIDToken` attribute that belongs to the `@OpenIdAuthenticationDefinition` will instruct the container to retrieve the user information details from the ID Token instead of calling the `userinfo` endpoint, as defined by the OpenID Connect standard workflow. As such, this behaviour is non-standard and should be used on special cases.
+
+TIP: To properly connect an application with Microsoft ADFS this property is required because by default Microsoft ADFS doesn't allow calls to the `userinfo` endpoint.
+
+.Configuration Option
+|===
+| Option | MP Config Property Name | Required | Description | Default value
+
+| `userClaimsFromIDToken`
+| `payara.security.openid.userClaimsFromIDToken`
+| false
+| Instructs the container to retrieve user information from the ID Token
+| false
+
+|===
+
+[[user-information-from-the-id-token-example]]
+=== Example
+
+[source, java]
+----
+@OpenIdAuthenticationDefinition(
+       providerURI = "https://sample-openid-server.com",
+       clientId = "87068hgfg5675htfv6mrucov57bknst.apps.sample.com",
+       clientSecret = "{my-secret}",
+       redirectURI = "${baseURL}/callback",
+       userClaimsFromIDToken=true
+)
+public class SecurityBean {
+
+}
+----
+
+[[disable-scope-validation]]
+== Disable Scope Validation
+
+By default, the OpenID Connect connector validates that a scope is reported as a supported scope by the provider. However, some providers support more scopes than they actually report as supported scopes. In order to disable the validation and allow using such scopes, it's possible to use the `disableScopeValidation` property of `OpenIdProviderMetadata`. See the <<configuration>> section for more details about this option.
+
+[[disable-scope-validation-example]]
+=== Example
+
+[source, java]
+----
+@OpenIdAuthenticationDefinition(
+       providerURI = "https://sample-openid-server.com",
+       clientId = "87068hgfg5675htfv6mrucov57bknst.apps.sample.com",
+       clientSecret = "{my-secret}",
+       redirectURI = "${baseURL}/callback",
+       providerMetadata = @OpenIdProviderMetadata(disableScopeValidation = true))
+public class SecurityBean {
+
+}
+----
+
+[[bearer-auth]]
+== Bearer Authentication and Authorization
+
+In order to authenticate and authorize calls between services using the OpenID mechanism, it is possible to use authorization compatible with https://datatracker.ietf.org/doc/html/rfc6750[RFC 6750]. In this case, the access token presented to the resource service is an JWT token that is used to verify that the caller has access to OAuth2 protected resources.
+
+[[obtaining-token]]
+=== Obtaining JWT Token
+
+Obtaining the token is specific to the OAuth provider and the application. The usual approach is using https://datatracker.ietf.org/doc/html/rfc6749#section-4.4[Client Credentials Grant], where an application posts its clientId and secret to identity provider and receives access and refresh tokens in return.
+
+[[passing-token]]
+=== Passing Token To The Resource Service
+
+The obtained access token is passed with every request to the resource service by adding it into the `Authorization` HTTP header:
+
+----
+Authorization: Bearer access__token
+----
+
+[[processing-token]]
+=== Processing Bearer Authorization
+
+When the `Bearer` authorization header is present in the request, the provided token is verified. It's validated that it comes from the expected issuer and hasn't expired.
+
+NOTE: Compared to the normal browser flow, no groups are automatically assigned to the identity. The reason for this is that machine-to-machine communication tends to be much more fine-grained and services might want to check more claims, such as `audience`.
+
+The resource service is required to map the information in the JWT token to groups utilizing the `https://jakarta.ee/specifications/platform/8/apidocs/javax/security/enterprise/identitystore/identitystore[IdentityStore]` interface. The OpenID connector provides the following classes to make this process possible:
+
+`AccessTokenCallerPrincipal`:: Caller principal subclass that contains access to all claims of passed JWT token
+`BearerGroupIdentityStore`:: A convenience base implementation of the necessary Jakarta EE security identity store.
+
+[source, java]
+----
+@ApplicationScoped
+@DeclareRoles({"user", "calendar-reader"})
+public class Auth0BearerIdentityStore extends BearerGroupsIdentityStore {
+
+    @Override
+    protected Set<String> getCallerGroups(AccessTokenCallerPrincipal callerPrincipal) {
+        if (callerPrincipal.hasAudience("https://example.org/api/user")) {
+            // if the token is for USER api, set this group
+            return Set.of("user");
+        }
+        if (callerPrincipal.hasAudience("https://example.org/api/delegate")
+                // delegate API is further constrained by scope
+                && callerPrincipal.getAccessToken().getScope().contains("read:calendar")) {
+            return Set.of("calendar-reader");
+        }
+        return Set.of();
+    }
+}
+----
+
+TIP: The Payara Platform also provides similar functionality by way of the MicroProfile JWT Authentication specification, which is limited only to securing JAX-RS resources. On the other hand, the OpenID Connect Bearer Authentication and Authorization feature is better aligned with the OpenID Connect support in Payara Platform and can also be used to secure other web resources like Jakarta Servlets, for example.
+
 [[specific-providers]]
 == Integration with Specific Providers
 
@@ -584,3 +696,5 @@ public class SecurityBean {
 
 * http://openid.net/specs/openid-connect-core-1_0.html[OpenID Connect Core]
 * https://www.keycloak.org/documentation.html[KeyCloak Documentation]
+* https://jakarta.ee/specifications/security/[Jakarta Security API]
+* xref:Technical Documentation/MicroProfile/jwt.adoc[MicroProfile JWT Authentication API]
