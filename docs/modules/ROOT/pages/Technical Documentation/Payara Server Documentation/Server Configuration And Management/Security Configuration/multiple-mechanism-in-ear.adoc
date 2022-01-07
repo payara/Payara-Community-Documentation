@@ -1,18 +1,20 @@
 [[multiple-httpauthenticationmechanism-ear]]
-= Multiple HttpAuthenticationMechanism in EAR
+= Multiple HttpAuthenticationMechanisms in EAR Application
 
-_Since Payara Server 5.2020.3_
+Within the Security API specification, an `HttpAuthenticationMechanism` can be defined to retrieve the user credentials from the HTTP Request. These credentials are then used by the any configured identity stores to validate the user. 
 
-Within the Security API specification, an `HttpAuthenticationMechanism` can be defined to retrieve the user credentials from the HTTP Request. These credentials are then used by the IdentityStore to validate the user. For an introduction, have a look at https://blog.payara.fish/ee-security-jaspic-jacc-loginmodules-realms[this article]
+However, a restriction of the Security API specification is that only one `HttpAuthenticationMechanism` can be defined per application. This restriction is also in place for EAR applications file where its possible to have multiple web modules.
 
-A restriction of the current Security API specification is that only 1 `HttpAuthenticationMechanism` can be defined within an application. This restriction also applies to an EAR file where you can have multiple Web application bundled.
+Payara Server allows to circumvent this restriction so that multiple authentication mechanisms are used in an EAR application that hosts more than one Web module. To this effect, each web module must configure its own authentication mechanism separately.
 
-There is already an issue to address this restriction at the Security API project, but as an intermediate solution, we have introduced a new `web.xml` parameter within Payara so that you can define an `HttpAuthenticationMechanism` for each Web applications in an EAR artifact.
+IMPORTANT: In order to use this feature, there must not be any custom `HttpAuthenticationMechanism` implementations bundled in any of the modules hosted in the EAR artifact. If this is the case, the feature will not work as intended.
+
+NOTE: This behaviour is specific to the Payara Platform and not compatible with the Jakarta Security specification.
 
 [[configure]]
-== Configure
+== How to Configure
 
-In order to configure a specific `HttpAuthenticationMechanism` for a Web application, define the parameter `fish.payara.security.mechanism` within the _web.xml_ file.
+In order to configure a specific `HttpAuthenticationMechanism` for a Web application, define the `fish.payara.security.mechanism` parameter in the _web.xml_ deployment descriptor like in the following case:
 
 [source, xml]
 ----
@@ -22,8 +24,9 @@ In order to configure a specific `HttpAuthenticationMechanism` for a Web applica
 </context-param>
 ----
 
-The supported values are
+The following mechanisms can be used:
 
+[cols="2,10", options="header"]
 |===
 |Value |Description
 |Basic |Use _BasicAuthenticationMechanism_ as mechanism.
@@ -34,7 +37,12 @@ The supported values are
 |Azure | Use the custom Payara _AzureOpenIdAuthenticationMechanism_ as mechanism.
 |Google | Use the custom Payara _GoogleOpenIdAuthenticationMechanism_ as mechanism.
 |OAuth2 |Use the custom Payara _OAuth2AuthenticationMechanism_ as mechanism.
-|<any Fully Qualified Class Name> |Use the `HttpAuthenticationMechanism` indicated by the classname.
+|<any Fully Qualified Class Name> |Use the `HttpAuthenticationMechanism` indicated by the class name.
 |===
 
-When no parameter is specified, the standard rules of the Security API are active (only 1 allowed per artifact).
+NOTE: When no parameter is specified, the standard rules of the Security API are active (only 1 allowed per artifact).
+
+[[see-also]]
+== See Also
+
+* https://blog.payara.fish/ee-security-jaspic-jacc-loginmodules-realms[Introduction to JASPIC Login Modules]
