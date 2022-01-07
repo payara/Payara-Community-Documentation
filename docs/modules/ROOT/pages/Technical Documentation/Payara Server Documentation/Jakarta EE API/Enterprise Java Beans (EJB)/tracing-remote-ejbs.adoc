@@ -24,7 +24,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
+    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
 } catch (NamingException ne) {
     logger.warning("Failed performing lookup:\n" + ne.getMessage());
 }
@@ -35,7 +35,7 @@ try {
 
 Injection of an OpenTracing tracer is not supported on Java SE clients, so you must create an instance yourself and register it to a `GlobalTracer` instance. 
 
-WARNING: Manual registration of a tracer instance is only required if using a third-party tracer such as Zipkin or Jaeger - if using the built-in Payara Request Tracing service the registration will automatically happen during creation of the initial context.
+WARNING: Manual registration of a tracer instance is only required if using a third-party tracer such as ZipKin or Jaeger - if using the built-in Payara Request Tracing service the registration will automatically happen during creation of the initial context.
 
 NOTE: The built-in Payara Request Tracing service does not support tracing of Java SE clients (though will still propagate the active span context to the server) - if you wish to trace the client itself you must set up and use a third-party tracer such as ZipKin or Jaeger. Details on setting these up can be found xref:/documentation/microprofile/opentracing.adoc#alternative-implementation[here].
 
@@ -56,7 +56,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
+    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
 
     Tracer tracer = GlobalTracer.get();
 } catch (NamingException ne) {
@@ -96,7 +96,7 @@ contextProperties.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterpri
 
 try {
     Context context = new InitialContext(contextProperties);
-    EjbRemote ejb = (EjbRemote) context.lookup(java:global/myRemoteEjb/Ejb);
+    EjbRemote ejb = (EjbRemote) context.lookup("java:global/myRemoteEjb/Ejb");
 
     Tracer tracer = GlobalTracer.get();
 
@@ -133,5 +133,4 @@ public class Ejb implements EjbRemote {
 }
 ----
 
-NOTE: Baggage items are attached to the Span you invoke `setBaggageItem` on, as well as any child spans, so you are not
-prevented from starting additional child spans on your EJB methods manually or via the `@Traced` annotation.
+NOTE: Baggage items are attached to the Span you invoke `setBaggageItem` on, as well as any child spans, so you are not prevented from starting additional child spans on your EJB methods manually or via the `@Traced` annotation.
