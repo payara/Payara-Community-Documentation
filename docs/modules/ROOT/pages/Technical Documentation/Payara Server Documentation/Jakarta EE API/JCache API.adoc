@@ -49,7 +49,7 @@ CacheManager manager = (CacheManager) ctx.lookup("payara/CacheManager");
 
 You can create a cache using either the `CacheManager.getCache` method, or by directly injecting the cache instance into a CDI bean.
 
-[[using-injection]]
+[[using-injection-cache]]
 === Using Injection
 
 Injecting a cache into a CDI bean is simple enough:

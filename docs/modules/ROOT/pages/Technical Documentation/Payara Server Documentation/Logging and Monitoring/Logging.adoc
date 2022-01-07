@@ -468,3 +468,47 @@ LogRecord lr = new LogRecord(Level.INFO, "Sample message");
 lr.setParameters(new Object[]{Collections.singletonMap("key", "value")});
 logger.log(lr);
 ----
+
+[[exclude-fields]]
+== Exclude Fields
+
+All the three log formatters `ODLLogFormatter`, `UniformLogFormatter`, and `JSONLogFormatter` support excluding log entry fields when being recorded. This makes the log file more compact and removes unnecessary information in the case you do not need it or want to use it.
+
+You can change the `com.sun.enterprise.server.logging.GFFileHandler.excludeFields` within the `<PAYARA_HOME>/glassfish/domains/<domain-name>/config/logging.properties` file or use the Admin Console the Asadmin CLI.
+
+NOTE: If the configuration is changed while the server is running, a log rotation happens so that a log file always contains the same set of information.
+
+[[using-web-admin-console]]
+=== Using the Admin Console
+
+To configure the excluded fields in the log entries, select them on the _Logger_ settings screen:
+
+image:logging/exclude-fields.png[Exclude Fields]
+
+[[using-asadmin-cli]]
+=== Using the Asadmin CLI
+
+Use the following command to change the excluded fields:
+
+[source, shell]
+----
+asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.excludeFields=tid,version
+----
+
+IMPORTANT: Multiple fields must be separated by a `,` and no additional spaces should be included.
+
+[[fields-description]]
+=== Excludable Fields
+
+The following table lists the fields that can be excluded:
+
+|===
+|Field | Description
+|tid |ThreadId, the thread name that generated the log entry.
+
+|timeMillis |The time in milliseconds since January 1st, 1970 (Unix epoch) when the log entry is generated.  The human-readable version of the timestamp at the beginning of the log entry is always in the output.
+
+|levelValue |The numeric value corresponding to the severity level of the message. The severity level name is always present in the log entry. SEVERE = 1000, INFO = 800, FINE = 500, etc...
+
+|version |The Payara Server version number.
+|===
