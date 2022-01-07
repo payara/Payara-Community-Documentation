@@ -222,13 +222,28 @@ They are detailed below.
 | 
 |===
 
-NOTE: If both an annotation attribute and a MicroProfile Configuration property are defined for the same option then the MicroProfile Configuration property value always takes precedence over the `@OpenIdAuthenticationDefinition` annotation value.
+NOTE: If both an annotation attribute and a MicroProfile Config property are defined for the same option
+then the MicroProfile Config property value always takes precedence over the `@OpenIdAuthenticationDefinition` annotation value.
+
+.Configuration Options For `@OpenIdProviderMetadata`
+|===
+| Option | MP Config property | Description | Default value
+
+| `endSessionEndpoint`
+| `payara.security.openid.provider.endSessionEndpoint`
+| OIDC provider’s logout endpoint URL. If set, overrides the URL obtained via the `end_session_endpoint` element of the OIDC provider’s metadata.
+|  
+
+| `disableScopeValidation`
+| `payara.security.openid.disableScopeValidation`
+| This property disables the scope validation for custom scope configurations
+| false 
+|===
 
 [[el-support]]
 === Expression Language Support
 
-The `@OpenIdAuthenticationDefinition` supports the use of expression language (EL) notation for programmatic configuration scenarios. 
-This means that you can use any CDI bean properties to set the OpenID Connect configuration like this:
+The `@OpenIdAuthenticationDefinition` supports the use of expression language (EL) notation for programmatic configuration scenarios. This means that you can use any CDI bean properties to set the OpenID Connect configuration like this:
 
 [source, java]
 ----
