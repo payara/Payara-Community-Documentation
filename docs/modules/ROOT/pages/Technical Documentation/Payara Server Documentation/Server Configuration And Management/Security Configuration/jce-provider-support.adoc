@@ -1,12 +1,9 @@
 [[jce-provider-support]]
 = JCE Provider Support
 
-_Since Payara Server 5.184_
-
-Payara Server Community supports using the JCE framework to configure custom security providers. Custom providers can be installed statically in the JDK, via the service loader mechanism, or via the programmatic API.
+Payara Server supports using the JCE framework to configure custom security providers. Custom providers can be installed statically in the JDK, via the service loader mechanism, or via the programmatic API.
 
 NOTE: Although the provider can be changed while the server is running, this can influence other processes that already use the previous preferred provider.
-
 
 [[example]]
 == Example
@@ -33,7 +30,6 @@ public class MyJCECertificateFactory extends CertificateFactory {
  
 }
 ----
-
 
 This factory is based on the https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/cert/CertificateFactorySpi.html[CertificateFactorySpi] type, but instead of implementing it fully the Bouncy Castle's CertificateFactory is used. The returned https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/cert/Certificate.html[Certificate] is then wrapped in our own. A custom certificate type might then look as follows:
 
