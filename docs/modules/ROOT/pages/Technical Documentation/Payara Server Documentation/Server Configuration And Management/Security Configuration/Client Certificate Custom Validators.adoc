@@ -38,7 +38,7 @@ public class MyCertificateValidator implements ClientCertificateValidator {
 }
 ----
 
-The most important parameter here is the `principal` parameter which contains the user information contained in the Client Certificate presented in the request.  The Certificate itself is in the last parameter and in the case you like to have access already to the `Subject` for this validation, it is passed in as the first parameter.
+The most important parameter here is the `principal` parameter which contains the user information contained in the Client Certificate presented in the request. The Certificate itself is in the last parameter and in the case you like to have access already to the `Subject` for this validation, it is passed in as the first parameter.
 
 When you return `true` as the method result, the processing of the request continues. In the case false is returned, a `LoginException` is thrown resulting in a status 401 for the request.
 
@@ -47,5 +47,3 @@ This class is loaded through the Java ServiceLoader mechanism. Make sure you hav
 ----
 com.company.certificate.MyCertificateValidator
 ----
-
-NOTE: You can @Inject CDI and EJB beans in your validator implementation, however since the validator itself is not a Jakarta EE bean, `@PostConstruct` and `@PreDestroy`-annotated methods will not be called on the validator instance.
