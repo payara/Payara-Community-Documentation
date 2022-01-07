@@ -1,36 +1,16 @@
-:Ordinal: 900
-= AutoScale Extensions
+= Server Extensions
 
-The AutoScale extensions provide the means for users to scale Payara Server instances up and down
-across different environments.
+Payara Server Community Edition allows plugin extensions to expand the features of the server's runtime. This is a way of keeping the Community Edition more compact, and allowing these extensions to be developed and released quickly without being forced into the Community release cycle. This also makes it much easier to extend the server functionality and provide additional features.
 
-You can find the code for each AutoScale extension here: https://github.com/payara/AutoScale-Groups.
+Currently, the following extensions are provided:
 
-[[installation]]
-== Installing AutoScale Extensions
+xref:Technical Documentation/Payara Server Documentation/Extensions/Notifiers/Overview.adoc[Notifier Extensions]::
+The notifier extensions allow notifications from the Notification Service to propagate to various channels on top of the notifiers provided by default.
 
-Regardless of which AutoScale extension you wish to install, it is expected that the API and the two Core module JARs
-are added to the server by dropping them into the `${PAYARA_HOME}/glassfish/modules` directory of your Payara Server
-installation.
+xref:Technical Documentation/Payara Server Documentation/Extensions/Notifiers/Autoscale Groups/Overview.adoc[AutoScale Extensions]::
+The AutoScale extensions provide the means for users to scale Payara Server instances up and down across different environments.
 
-You can then drop the implementation and admin console plugin JARs of your desired extensions into the same directory.
+[[see-also]]
+== See Also
 
-For example, to install the SSH Nodes AutoScale Extension, you would drop the following JARs into the `modules`
-directory:
-
-* _autoscale-groups-api_
-* _autoscale-groups-core_
-* _autoscale-groups-console_
-* _autoscale-groups-nodes-plugin-core_
-* _autoscale-groups-nodes-plugin-console_
-
-You must restart the server if it was running to see your extension activated.
-
-IMPORTANT: Make sure that if the AutoScale extension has dependencies in order to run the dependency artifacts are also
-in the _modules_ directory.
-
-[[core-downloads]]
-=== Core Downloads
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-api/1.0/autoscale-groups-api-1.0.jar[AutoScale API 1.0]
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-core/1.0/autoscale-groups-core-1.0.jar[AutoScale Core 1.0]
-* link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/autoscale/groups/autoscale-groups-console/1.0/autoscale-groups-console-1.0.jar[AutoScale Admin Console Plugin 1.0]
+* xref:Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Notification Service.adoc[Notification Service Overview]

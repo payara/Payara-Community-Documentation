@@ -1,5 +1,5 @@
-[[creating-custom-notifier]]
-= Create A Custom Notifier
+[[creating-custom-notifiers]]
+= Create Custom Notifiers
 
 The notification service allows customized notifiers to be implemented by users in a modular fashion. New notifiers can be plugin into Payara Server easily. The following are the general steps to follow to implement a custom notifier.
 
