@@ -7,7 +7,7 @@ The following is a list of tracked _**C**ommon **V**ulnerabilities and **E**xpos
 |=======================================================================
 |ID |CVSS v3.0 Base Score |Status |Summary |Release |Pull Requests |Observations
 
-|https://www.cvedetails.com/cve/CVE-2018-10054/[CVE-2018-10054] | 6.5 | FIXED | Remote code execution vulnerability in H2 DB because CREATE ALIAS can execute arbitrary Java code | 5.2021.8 | https://github.com/payara/Payara/pull/5416[#5416] | Fixed by upgrading H2 DB to 1.4.200
+|https://www.cvedetails.com/cve/CVE-2018-10054/[CVE-2018-10054] | 6.5 | FIXED | Remote code execution vulnerability in H2 DB because `CREATE ALIAS` can execute arbitrary Java code | 5.2021.8 | https://github.com/payara/Payara/pull/5416[#5416] | Fixed by upgrading H2 DB to 1.4.200
 
 |https://www.cvedetails.com/cve/CVE-2018-14335/[CVE-2018-14335] | 4.0 | FIXED |  Insecure handling of permissions in the backup function of the H2 DB | 5.2021.8 | https://github.com/payara/Payara/pull/5416[#5416] | Fixed by upgrading H2 DB to 1.4.200
 
