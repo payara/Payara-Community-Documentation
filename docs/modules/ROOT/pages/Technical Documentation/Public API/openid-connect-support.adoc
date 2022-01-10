@@ -615,7 +615,7 @@ TIP: The Payara Platform also provides similar functionality by way of the Micro
 == Integration with Specific Providers
 
 [[google-oidc-integration]]
-=== Google integration
+=== Google Integration
 
 The Payara Public API provides built-in support for Google OpenID Provider via the `@GoogleAuthenticationDefinition` annotation.
 
@@ -640,7 +640,7 @@ public class SecurityBean {
 ----
 
 [[azure-ad-oidc-integration]]
-=== Azure AD integration
+=== Azure AD Integration
 
 The Payara Public API also provides built-in support for Azure AD OpenID Provider via the `@AzureAuthenticationDefinition` annotation.
 
@@ -663,7 +663,7 @@ public class SecurityBean {
 ----
 
 [[azure-groups]]
-==== Groups mapping
+==== Groups Mapping
 
 - To add the groups to the registered application, Sign in to the Azure portal > Azure Active Directory > Manage > App registrations > select your application:
 image:security-connector/oidc/azure/app_registrations.png[Select application]
@@ -696,11 +696,20 @@ public class SecurityBean {
 }
 ----
 
+[[microsoft-adfs-integration]]
+==== Microsoft ADFS Integration
+
+To enable integration for Microsoft ADFS it is needed to use the `userClaimsFromIDToken` annotation attribute. See <<user-information-from-the-id-token>> for more information.
+
+[[azure-ad-scope-validation]]
+==== Azure AD Scope Validation
+
+To disable the scope validation for Azure AD integration it is needed to use the `disableScopeValidation` annotation attribute. See <<disable-scope-validation>> for more information.
+
 [[keycloak-oidc-integration]]
 === Keycloak Integration
 
-Keycloak is an Open Source Identity and Access Management Server, which is a OAuth2 and OpenID Connect(OIDC) protocol complaint. In this section, the basic steps 
-are described to setup Keycloak OpenId provider.
+Keycloak is an Open Source Identity and Access Management Server, which is a OAuth2 and OpenID Connect(OIDC) protocol complaint. In this section,the basic steps are described to setup Keycloak OpenId provider.
 
 - Refer to Keycloak https://www.keycloak.org/docs/latest/getting_started/index.html[getting started documentation] to run and setup keycloak.
 
