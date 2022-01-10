@@ -82,11 +82,12 @@ NOTE: Only some basic redirect is supported namely a GET. Only the URL and query
 OpenID Client can be configured with both `@OpenIdAuthenticationDefinition` annotation attributes and Microprofile Config properties.
 The annotation and MicroProfile properties has several configuration options.
 
-CAUTION: When using MicroProfile Config properties, if you use a reference to a variable provided by Payara using the `${}` notation inside the values, you need to escape the `$` sign with a double back-slash (`\\`). Otherwise they will be treated as references to other MicroProfile Config properties, which may result in an error when no matching variables are found. This especially applies to the `baseURL` variable, which is only accepted in the value of the `redirectURI` option. For example, to specify `redirectURI` using a MicroProfile Config property which is equal to `${baseURL}/Callback` used in the annotation, you need to use the following MicroProfile configuration variable `key=value` definition: `payara.security.openid.redirectURI=\\${baseURL}/Callback`.
+CAUTION: If you are using MicroProfile Config properties and the value contains a placeholder that should not be resolved by MicroProfile Config
+itself but by the Server (like `payara.security.openid.redirectURI=${baseURL}/Callback`) make sure the value is properly escaped. It will otherwise result in `NoSuchElementException`. Here's an example how such a value should be escaped: `payara.security.openid.redirectURI=\\${baseURL}/Callback`
 
 The annotation and MicroProfile properties has several configuration options. They are detailed below.
 
-.Configuration Options
+.Configuration Options for `@OpenIdAuthenticationDefinition
 |===
 | Option | MP Config property | Required/Type | Description | Default value | Requirements
 
@@ -250,7 +251,7 @@ then the MicroProfile Config property value always takes precedence over the `@O
 |===
 
 [[el-support]]
-=== Expression Language Support
+== Expression Language Support
 
 The `@OpenIdAuthenticationDefinition` supports the use of expression language (EL) notation for programmatic configuration scenarios. This means that you can use any CDI bean properties to set the OpenID Connect configuration like this:
 
@@ -621,7 +622,7 @@ TIP: The Payara Platform also provides similar functionality by way of the Micro
 
 The Payara Public API provides built-in support for Google OpenID Provider via the `@GoogleAuthenticationDefinition` annotation.
 
-[[google-token]]
+[[google-refresh-token]]
 ==== Request Refresh Token
 To enable the refresh token feature, set the `tokenAutoRefresh` to true and add the `access_type` parameter value to `offline` so that application can refresh access tokens when the user is not present at the browser. 
 
