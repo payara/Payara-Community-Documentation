@@ -118,7 +118,7 @@ They are detailed below.
 
 | `redirectURI`
 | `payara.security.openid.redirectURI`
-| true
+| `true`
 | The URL to redirect the user to upon successful authentication.
 | ${baseURL}/Callback
 | Must be equal to one set in the OpenID Connect provider.
@@ -162,21 +162,21 @@ They are detailed below.
 | `payara.security.openid.useNonce`
 | false
 | Enables string value used to mitigate replay attacks.
-| true
+| `true`
 | N/A.
 
 | `useSession`
 | `payara.security.openid.useSession`
-| false
+| `false`
 | If enabled state & nonce value stored in session otherwise in cookies.
-| true
+| `true`
 | N/A.
 
 | `jwksConnectTimeout`
 | `payara.security.openid.jwks.connect.timeout`
 | false
 | Sets the connect timeout(in milliseconds) for Remote JWKS retrieval.
-| 500
+| `500`
 | Value must not be negative and if value is zero then infinite timeout.
 
 | `jwksReadTimeout`
@@ -195,31 +195,31 @@ They are detailed below.
 
 | `tokenMinValidity`
 | `payara.security.openid.token.minValidity`
-| false
+| `false`
 | Sets the minimum validity time(in milliseconds) the Access Token must be valid before it is considered expired.
 | 10000
 | Value must not be negative.
 
 | `claimsDefinition.callerNameClaim`
 | `payara.security.openid.callerNameClaim`
-| false
+| `false`
 | Defines the name of callerName claim and maps the claim's value to caller name value in IdentityStore#validate.
 | preferred_username
 | N/A.
 
 | `claimsDefinition.callerGroupsClaim`
 | `payara.security.openid.callerGroupsClaim`
-| false
+| `false`
 | Defines the name of callerGroups claim and maps the claim's value to caller groups value in IdentityStore#validate.
 | groups
 | N/A.
 
 | `extraParameters`
 |
-| false
+| `false`
 | An array of extra options to be sent to the OpenID Connect provider.
 |
-| Must be in the form `"key=value"`.
+| Must be in the form `key=value` and follow URL query pattern, i.e. `key1=value1&key2=value2&key2=value+with+spaces`. Key entries can be repeated
 
 | `logout`
 |
