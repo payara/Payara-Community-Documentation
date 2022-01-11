@@ -21,6 +21,32 @@ Logging settings can be configured by either using the Asadmin CLI or in the Web
 
 image:logging/logging_setup.png[Logger Settings]
 
+[[fast-logging]]
+== Fast Logging
+
+Whenever logging occurs on an application, if the LogRecord in question contains set parameters, they will undergo a forced transformation by having a `toString()` method call. In most cases this is the desirable outcome, but will not provide the best performance. You can enable the **Fast Logging** setting to skip this forced parameter transformation at runtime.
+
+A common use case of this feature would be to prevent database access done by JPA entities, as it is a common occurrence for entity data to be logged out for auditing purposes.
+
+CAUTION: Enabling this setting can cause log entries that contain mutable parameters to be out of sync when they are resolved. Exert caution when using fast logging, as it may cause stale information to be printed out to the log.
+
+[[using-admin-console]]
+=== Using the Admin Console
+
+To configure the `Fast Logging` option, set it in the Logger settings.
+
+image:logging/fast_logging.png[Fast Logging enabled]
+
+[[using-asadmin-cli]]
+=== Using Asadmin CLI
+
+Use the following command to enable or disable fast logging:
+
+[source, shell]
+----
+asadmin> set-log-attributes com.sun.enterprise.server.logging.GFFileHandler.fastLogging=true
+----
+
 [[log-to-file]]
 == Log to File
 
