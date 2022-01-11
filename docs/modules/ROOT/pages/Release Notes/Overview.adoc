@@ -9,6 +9,11 @@ Detailed information about features and fixes in every release.
 
 *2021*
 
+* 2021 December - xref:release-notes/release-notes-2021-10.adoc[Payara Community 5.2021.10]
+* 2021 November - xref:release-notes/release-notes-2021-9.adoc[Payara Community 5.2021.9]
+* 2021 October - xref:release-notes/release-notes-2021-8.adoc[Payara Community 5.2021.8]
+* 2021 September - xref:release-notes/release-notes-2021-7.adoc[Payara Community 5.2021.7]
+* 2021 August - xref:release-notes/release-notes-2021-6.adoc[Payara Community 5.2021.6]
 * 2021 July - xref:release-notes/release-notes-2021-5.adoc[Payara Community 5.2021.5]
 * 2021 June - xref:release-notes/release-notes-2021-4.adoc[Payara Community 5.2021.4]
 * 2021 May - xref:release-notes/release-notes-2021-3.adoc[Payara Community 5.2021.3]

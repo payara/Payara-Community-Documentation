@@ -1,11 +1,9 @@
 [[tck-results]]
 = TCK Results
 
-As required by the
-https://www.eclipse.org/legal/tck.php[Eclipse Foundation Technology Compatibility Kit License],
-following is a summary of the TCK results for releases of Jakarta EE Platform, Full Profile.
+As required by the https://www.eclipse.org/legal/tck.php[Eclipse Foundation Technology Compatibility Kit License], following is a summary of the TCK results for releases of Jakarta EE Platform, Full Profile.
 
-== Payara Server 6.2021.1.Alpha1 Full Profile Certification Summary
+== Payara Server 5.2021.7 Full Profile Certification Summary
 
 - Product Name, Version and download URL (if applicable):
 +
@@ -15,51 +13,49 @@ following is a summary of the TCK results for releases of Jakarta EE Platform, F
 |
 {empty} +
 {empty} +
-https://search.maven.org/artifact/fish.payara.distributions/payara/6.2021.1.Alpha1/zip[Payara Server 6.2021.1.Alpha1]
+https://www.payara.fish/downloads/payara-platform-community-edition[Payara Server 5.2021.7]
 |===
 
 - Specification Name, Version and download URL:
 +
-https://jakarta.ee/specifications/platform/9.1/[Jakarta EE Platform, Full Profile 9.1]
+https://jakarta.ee/specifications/platform/8/[Jakarta EE Platform, Full Profile 8]
 - TCK Version, digital SHA-256 fingerprint and download URL:
 +
-https://download.eclipse.org/jakartaee/platform/9.1/jakarta-jakartaeetck-9.1.0.zip[Jakarta EE Platform CTS 9.1.0]
-, SHA-256: `16904b7ccd7ae61287b763587e8bfbff50608ab09f3876bb41af65d043263ca7`
+http://download.eclipse.org/jakartaee/platform/8/eclipse-jakartaeetck-8.0.2.zip[Jakarta EE Platform CTS 8.0.2]
+, SHA-256: `14a21b617bb646055c2952f1422ec04a71389fb37301e1c2969f6c3700aee965`
 
 - Public URL of TCK Results Summary:
 +
-https://docs.payara.fish/community/docs/6.2021.1.Alpha1/jakartaee-certification/6.2021.1.Alpha1/tck-results-full-6.2021.1.Alpha1.html
+https://docs.payara.fish/community/docs/5.2021.7/jakartaee-certification/5.2021.7/tck-results-full-5.2021.7.html
 
 - Any Additional Specification Certification Requirements:
 
-** Jakarta Dependency Injection 2.0 TCK
+** Jakarta Dependency Injection 1.0 TCK
 + 
 See test results in section `di`. +
 Download URL & SHA-256:
-https://download.eclipse.org/jakartaee/dependency-injection/2.0/jakarta.inject-tck-2.0.1-bin.zip[jakarta.inject-tck-2.0.1-bin.zip], 
-SHA-256: `7853d02d372838f8300f5a18cfcc23011c9eb9016cf3980bba9442e4b1f8bfc6`
+https://download.eclipse.org/jakartaee/dependency-injection/1.0/jakarta.inject-tck-1.0-bin.zip[jakarta.inject-tck-1.0-bin.zip], 
+SHA-256: `b679bac9b1057df894753892a880ba6ade530607dd811157106ed767aa26481f`
 
-** Jakarta Contexts and Dependency Injection 3.0 TCK
+** Jakarta Contexts and Dependency Injection 2.0 TCK
 +
 See test results in section `cdi`. + 
 Download URL & SHA-256: 
-https://download.eclipse.org/jakartaee/cdi/3.0/cdi-tck-3.0.1-dist.zip[cdi-tck-3.0.1-dist.zip],
-SHA-256:  `f0a3bdd81ea552ddf2c2a6cd2576f0d5ca45026665cb4a5c42606a58bf1c133d`
-
-** Jakarta Bean Validation 3.0 TCK, 
+https://download.eclipse.org/jakartaee/cdi/2.0/cdi-tck-2.0.6-dist.zip[cdi-tck-2.0.6-dist.zip],
+SHA-256:  `75e969a7a3b3c77332154a2008309aad821a923d8684139242048a7640762808`
+** Jakarta Bean Validation 2.0 TCK, 
 +
 See test results in section `beanvalidation`. +
-Download URL & SHA-256:
-https://download.eclipse.org/jakartaee/bean-validation/3.0/beanvalidation-tck-dist-3.0.0.zip[beanvalidation-tck-dist-3.0.0.zip], 
-SHA-256: `c975fd229df0c40947a9f0a69b779ec92bebb3d21e05fdc65fccc1d11ef5525b`
-** Jakarta Batch 2.0.0 TCK tests are included in Jakarta EE 9.1 CTS tests, See test results in section `batch` 
+https://download.eclipse.org/jakartaee/bean-validation/2.0/beanvalidation-tck-dist-2.0.5.zip[beanvalidation-tck-dist-2.0.5.zip], 
+SHA-256: `b6778914f78bfcce5d6934347d71502603b1b0a6bbfdfbcf956271c367d40974`
+** Jakarta Batch 1.0 TCK tests are included in Jakarta EE 8 CTS tests, See test results in section `batch` 
 - Java runtime used to run the implementation:
 +
-`Zulu Runtime Environment (zulu-11-amd64)`
+`OpenJDK Runtime Environment (build 1.8.0_242-8u242-b08-0ubuntu3~18.04-b08)
 - Summary of the information for the certification environment:
 +
 Apache Derby, Linux, Ubuntu 18.04.3 +
-Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
+Interoperatibility tests carried out against Eclipse Glassfish 5.1.0
 
 == Test results
 
@@ -84,28 +80,37 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### beanvalidation
 
 ```
- [mvn.test] [INFO] Tests run: 1045, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 601.688 s - in TestSuite
- [mvn.test] [INFO] 
- [mvn.test] [INFO] Results:
- [mvn.test] [INFO] 
- [mvn.test] [INFO] Tests run: 1045, Failures: 0, Errors: 0, Skipped: 0
- [mvn.test] [INFO] 
- [mvn.test] [INFO] 
- [mvn.test] [INFO] --- maven-surefire-report-plugin:2.22.1:report-only (generate-test-report) @ tck-runner ---
- [mvn.test] [WARNING] Unable to locate Test Source XRef to link to - DISABLED
- [mvn.test] [INFO] ------------------------------------------------------------------------
- [mvn.test] [INFO] BUILD SUCCESS
+[INFO] Tests run: 1043, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 675.286 s - in TestSuite
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1043, Failures: 0, Errors: 0, Skipped: 0
 ```
-
 ### cdi
 
 ```
- [mvn.test] [INFO] Tests run: 1794, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1,627.38 s - in TestSuite
+ [mvn.test] [INFO] Tests run: 1805, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1,704.271 s - in TestSuite
  [mvn.test] [INFO] 
  [mvn.test] [INFO] Results:
  [mvn.test] [INFO] 
- [mvn.test] [INFO] Tests run: 1794, Failures: 0, Errors: 0, Skipped: 0
- [mvn.test] [INFO] 
+ [mvn.test] [INFO] Tests run: 1805, Failures: 0, Errors: 0, Skipped: 0
+```
+### compat12 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 12 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 12
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
+### compat13 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 15 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 15
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
 
 ### concurrency 
@@ -120,8 +125,8 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### connector 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 477 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 477
+   [runcts] OUT => [javatest.batch] Completed running 495 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 495
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -130,14 +135,13 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 
 ```
     [junit] Testsuite: org.jboss.weld.atinject.tck.AtInjectTCK
-    [junit] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec
+    [junit] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 sec
 ```
-
 ### ejb 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 1793 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1793
+   [runcts] OUT => [javatest.batch] Completed running 1809 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1809
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -154,8 +158,8 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### ejb30/bb 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 1193 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1193
+   [runcts] OUT => [javatest.batch] Completed running 1200 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1200
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -367,6 +371,33 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
 
+### interop forward
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 428 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 428
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
+### interop reverse
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 392 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 392
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
+### j2eetools 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 134 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 134
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
 ### jacc 
 
 ```
@@ -403,6 +434,24 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
 
+### jaxr 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 1372 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1372
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
+### jaxrpc 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 1478 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1478
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
 ### jaxrs 
 
 ```
@@ -415,10 +464,10 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### jbatch 
 
 ```
-[javatest.batch] Completed running 322 tests.
-[javatest.batch] Number of Tests Passed      = 322
-[javatest.batch] Number of Tests Failed      = 0
-[javatest.batch] Number of Tests with Errors = 0
+   [javatest.batch] Completed running 322 tests.
+   [javatest.batch] Number of Tests Passed      = 322
+   [javatest.batch] Number of Tests Failed      = 0
+   [javatest.batch] Number of Tests with Errors = 0
 ```
 
 ### jdbc_appclient 
@@ -577,8 +626,8 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### jsp 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 730 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 730
+   [runcts] OUT => [javatest.batch] Completed running 731 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 731
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -601,11 +650,20 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
 
+### rmiiiop 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 129 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 129
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
 ### samples 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 12 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 12
+   [runcts] OUT => [javatest.batch] Completed running 13 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 13
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -613,8 +671,8 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### securityapi 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 84 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 84
+   [runcts] OUT => [javatest.batch] Completed running 83 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 83
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -622,8 +680,8 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### servlet 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 1730 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1730
+   [runcts] OUT => [javatest.batch] Completed running 1746 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 1746
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
@@ -631,8 +689,17 @@ Interoperatibility tests carried out against Eclipse Glassfish 6.1.0
 ### signaturetest/javaee 
 
 ```
-   [runcts] OUT => [javatest.batch] Completed running 4 tests.
-   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 4
+   [runcts] OUT => [javatest.batch] Completed running 5 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 5
+   [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
+   [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
+```
+
+### webservices 
+
+```
+   [runcts] OUT => [javatest.batch] Completed running 507 tests.
+   [runcts] OUT => [javatest.batch] Number of Tests Passed      = 507
    [runcts] OUT => [javatest.batch] Number of Tests Failed      = 0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
