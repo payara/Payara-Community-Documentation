@@ -15,7 +15,7 @@ At long last, Payara Platform is shipping with support for JDK 11. It should be
 stressed that firstly: this support is in tech preview and secondly: if
 upgrading from an older version of Payara, you’ll need to add some extra JVM
 options to your domain.xml configuration files. These are documented in the
-https://docs.payara.fish/documentation/user-guides/upgrade-payara.html#jdk-11-upgrade-considerations[release
+https://docs.payara.fish/Technical Documentation/user-guides/upgrade-payara.html#jdk-11-upgrade-considerations[release
 documentation].
 
 === MicroProfile Changes

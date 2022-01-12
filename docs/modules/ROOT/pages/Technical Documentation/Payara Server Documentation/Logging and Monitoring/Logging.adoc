@@ -89,7 +89,7 @@ or the Request Tracing service and stores it into a log file.
 
 All the generated logs are stored in _server.log_ by default. But, it is possible to configure the Log Notifier to output to a 
 separate log file. More information on Log Notifier can be found on the 
-xref:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
+xref:/Technical Documentation/Payara Server Documentation/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
 
 If Log Notifier is configured to use a separate log file, the default log file 
 can be found at:

@@ -474,7 +474,7 @@ Interoperatibility tests carried out against Eclipse Glassfish 5.1.0
    [runcts] OUT => [javatest.batch] Number of Tests with Errors = 0
 ```
 
-### jbatch 
+### Jakarta EE API/JBatch API 
 
 ```
 [javatest.batch] Completed running 322 tests.

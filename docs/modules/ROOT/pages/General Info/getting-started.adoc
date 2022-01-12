@@ -5,7 +5,7 @@ This page covers how to download Payara Server, start Payara Server, access
 the Administration Console, deploy an application and how to access the
 deployed application.
 
-Visit our https://www.payara.fish/documentation/getting-started-with-payara/[Getting Started] page for additional, step-by-step resources for beginners.
+Visit our https://www.payara.fish/Technical Documentation/getting-started-with-payara/[Getting Started] page for additional, step-by-step resources for beginners.
 
 [[downloading-payara-server]]
 == Downloading Payara Server

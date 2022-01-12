@@ -7,7 +7,7 @@ This section details how to configure a Payara Micro instance.
 == Configuring an Instance from the Command Line
 
 As described in
-xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Deploying Applications/deploy-cmd-line.adoc[Deploying From the Command Line],
+xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Deploying Applications/Deploy Applications.adoc[Deploying From the Command Line],
 the starting and configuration of an instance can be done in its entirety on
 one line.
 

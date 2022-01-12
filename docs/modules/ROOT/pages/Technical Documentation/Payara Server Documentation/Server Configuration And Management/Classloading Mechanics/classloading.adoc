@@ -182,7 +182,7 @@ cannot be loaded from a deployed application:
 * org.glassfish
 * org.apache.jasper
 * fish.payara
-* com.ibm.jbatch
+* com.ibm.Jakarta EE API/JBatch API
 * org.hibernate.validator
 * org.jboss.weld
 * com.ctc.wstx
