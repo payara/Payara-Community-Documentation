@@ -8,13 +8,13 @@ The 163 release of Payara will feature a couple of new tech previews. These are 
 Updated Modules
 ---------------
 
-* ibm.jbatch.container.version 1.0.1.payara-p2
+* ibm.Jakarta EE API/JBatch API.container.version 1.0.1.payara-p2
 * Hazelcast 3.6.4
 * Grizzly 2.3.25
 * mimepull 1.9.6
 * javax.batch-api.version 1.0.1
-* jbatch.container.version 1.0.1
-* jbatch.spi.version 1.0.1
+* Jakarta EE API/JBatch API.container.version 1.0.1
+* Jakarta EE API/JBatch API.spi.version 1.0.1
 * Weld 2.3.5.Final
 * Tyrus 1.13
 

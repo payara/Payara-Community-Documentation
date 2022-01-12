@@ -569,7 +569,7 @@ The HTTP adapter uses stateless HTTP requests. In its current form, it is unfit 
 [[persistent-timers]]
 == Advanced Persistent Timer Configuration
 
-If using an external RDBMS engine for storing persistent timer data is not an option, it is also possible to use the Domain Data Grid to function as a replacement in production environments. The same feature is available in xref:/documentation/payara-micro/persistent-ejb-timers.adoc[Payara Micro].
+If using an external RDBMS engine for storing persistent timer data is not an option, it is also possible to use the Domain Data Grid to function as a replacement in production environments. The same feature is available in xref://Technical Documentation/Payara Micro Documentation/persistent-ejb-timers.adoc[Payara Micro].
 
 :previewVersion: {currentVersion}
 include::partial$tech-preview.adoc[]

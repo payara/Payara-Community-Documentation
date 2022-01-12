@@ -7,7 +7,7 @@
 # Files will have the same name, including punctuation as the file name.
 
 # To use this script, place it in the same folder as the 'pages' directory
-# For example: payara-community-documentation/docs/modules/ROOT/
+# For example: payara-community-Technical Documentation/docs/modules/ROOT/
 
 #--- CONSTANTS ---
 
