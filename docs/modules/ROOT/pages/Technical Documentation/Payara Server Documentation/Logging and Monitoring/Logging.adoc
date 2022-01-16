@@ -184,7 +184,10 @@ NOTE: If this setting is enabled, the default log file will be found at `${DOMAI
 All the generated logs are stored in _server.log_ by default. But, it is possible to configure the Log Notifier to output to a 
 separate log file. More information on Log Notifier can be found on the 
 xref:/Technical Documentation/Payara Server Documentation/notification-service/notifiers/log-notifier.adoc[the Log Notifier].
+<<<<<<< HEAD
 >>>>>>> 7722c9e9 (Fixing broken links)
+=======
+>>>>>>> 7722c9e93387852daff94f2343cb58d1504fac98
 
 The Notification Logging Service uses its own collection of logging properties which are separate from the standard logging facilities of Payara Server. However, they are stored in the same configuration file.
 

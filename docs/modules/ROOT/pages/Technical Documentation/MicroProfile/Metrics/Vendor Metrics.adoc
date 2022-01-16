@@ -1,11 +1,15 @@
 [[custom-vendor-metrics]]
 = Custom Vendor Metrics
 
+<<<<<<< HEAD
 <<<<<<< HEAD:docs/modules/ROOT/pages/Technical Documentation/MicroProfile/metrics/vendor-metrics.adoc
 xref:documentation/user-guides/monitoring/mbeans.adoc[JMX MBeans] can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/master/appserver/payara-appserver-modules/microprofile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
 =======
 JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/MicroProfile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
 >>>>>>> 7722c9e9 (Fixing broken links):docs/modules/ROOT/pages/Technical Documentation/MicroProfile/Metrics/Vendor Metrics.adoc
+=======
+JMX Mbeans can be exposed as ***Custom Vendor Metrics*** by the user by supplying a custom https://github.com/payara/Payara/blob/f30de88abca76111caadf0d57249d77d53b067e7/appserver/payara-appserver-modules/MicroProfile/metrics/src/main/resources/metrics.xml[metrics.xml] file in the `${PAYARA_HOME}/glassfish/domains/${DOMAIN_NAME}/config/` folder with the following format:
+>>>>>>> 7722c9e93387852daff94f2343cb58d1504fac98
 
 [source, xml]
 ----
