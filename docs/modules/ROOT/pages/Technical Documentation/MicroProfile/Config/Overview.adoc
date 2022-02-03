@@ -90,11 +90,11 @@ should be stored in the same location as your `microprofile-config.properties` f
 This file can be used to reference properties containing variables which will be
 translated to their actual values upon retrieval. The property values should be in
 the format referenced here:
-xref:Technical Documentation/Payara Server Documentation/Server Configuration And Management/var-substitution/types-of-variables.adoc[Types of Variables]
+xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variable Substitution/Types of Variables.adoc[Types of Variables]
 
 |`cloud`
 |180
-|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:Technical Documentation/MicroProfile/config/cloud/Overview.adoc[Cloud Config Sources]
+|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:/Technical Documentation/MicroProfile/Config/Cloud/Overview.adoc[Cloud Config Sources]
 
 |`jdbc`
 |190

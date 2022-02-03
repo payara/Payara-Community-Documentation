@@ -11,7 +11,7 @@ instances provided that they are connected to the same cluster.
 [[requirements]]
 == Requirements
 
-Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:Technical Documentation/Payara Server Documentation/hazelcast/Overview.adoc[Data Grid] section for more details.
+Hazelcast must be enabled for all Payara Server instances and they must be able to connect to the same Hazelcast cluster. See the xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Domain Data Grid And Hazelcast/Overview.adoc[Data Grid] section for more details.
 
 
 [[initializing-the-event-bus]]
@@ -162,7 +162,7 @@ If you are using Payara Server, the name of the DAS instance is `server`
 by default. In the case of a separate standalone instance, use the
 instance's name in the configuration. If you are using Payara Micro, the
 instance's name is configured using the `--name` option, or is generated
-by if not configured (see the section xref://Technical Documentation/Payara Micro Documentation/configuring/instance-names.adoc[Payara Micro Instance
+by if not configured (see the section xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Configuring An Instance.adoc[Payara Micro Instance
 Names]).
 
 [[loopback]]

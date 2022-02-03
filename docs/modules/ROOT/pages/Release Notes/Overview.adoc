@@ -19,10 +19,6 @@ Detailed information about features and fixes in every release.
 * 2021 May - xref:Release Notes/Release Notes 5.2021.3.adoc[Payara Community 5.2021.3]
 * 2021 April - xref:Release notes/Release Notes 5.2021.2.adoc[Payara Community 5.2021.2]
 * 2021 February - xref:Release Notes/Release Notes 5.2021.1.adoc[Payara Community 5.2021.1]
-* 2021 June - xref:Release Notes/Release Notes 5.2021.4.adoc[Payara Community 5.2021.4]
-* 2021 May - xref:Release Notes/Release Notes 5.2021.3.adoc[Payara Community 5.2021.3]
-* 2021 April - xref:Release Notes/Release Notes 5.2021.2.adoc[Payara Community 5.2021.2]
-* 2021 February - xref:Release Notes/Release Notes 5.2021.1.adoc[Payara Community 5.2021.1]
 
 *2020*
 
@@ -32,7 +28,7 @@ Detailed information about features and fixes in every release.
 * 2020 August - xref:Release Notes/Release Notes 5.2020.4.adoc[Payara Community 5.2020.4]
 * 2020 July - xref:Release Notes/Release Notes 5.2020.3.adoc[Payara Community 5.2020.3]
 * 2020 June - xref:Release Notes/Release Notes 5.2020.2.adoc[Payara Community 5.2020.2]
-* 2020 Q1 - xref:Release Notes/Release Note 5.201.adoc[Payara Server 5.201]
+* 2020 Q1 - xref:Release Notes/Release Notes 5.201.adoc[Payara Server 5.201]
 
 *2019*
 
@@ -54,7 +50,7 @@ Detailed information about features and fixes in every release.
 * 2017 Q4 - xref:Release Notes/Release Notes 4.1.2.174.adoc[Payara Server 4.1.2.174]
 * 2017 Q3 - xref:Release Notes/Release Notes 4.1.2.173.adoc[Payara Server 4.1.2.173]
 * 2017 Q2 - xref:Release Notes/Release Notes 4.1.2.172.adoc[Payara Server 4.1.2.172]
-* 2017 Q1 - xref:Release Notes/Release Notes 4.1.2.171.adoc[Payara Server 4.1.1.171]
+* 2017 Q1 - xref:Release Notes/Release Notes 4.1.1.171.adoc[Payara Server 4.1.1.171]
 
 *2016*
 

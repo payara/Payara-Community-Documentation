@@ -90,17 +90,6 @@ asadmin> requesttracing-log-notifier-configure
     --dynamic=true
 ----
 
-. To disable the
-xref:/Technical Documentation/Payara Server Documentation/notification-service/notifiers/slack-notifier.adoc[Slack notifier]
-without having to restart the server, use the following command:
-+
-[source, shell]
-----
-asadmin> requesttracing-slack-notifier-configure
-    --enabled=false
-    --dynamic=true
-----
-
 [[get-requesttracing-configuration]]
 == `get-requesttracing-configuration`
 

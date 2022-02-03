@@ -33,7 +33,7 @@ In your project's POM, include the following dependency:
 
 <<<<<<< HEAD
 <<<<<<< HEAD:docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/Maven Support/maven.adoc
-IMPORTANT: The xref:/documentation/payara-server/public-api/Overview.adoc[Public API] dependency must be also added to the project's POM when developing applications that use proprietary features (`@Clustered` or `@NamedCache` for example).
+IMPORTANT: The xref:/Technical Documentation/Public API/Overview.adoc[Public API] dependency must be also added to the project's POM when developing applications that use proprietary features (`@Clustered` or `@NamedCache` for example).
 =======
 =======
 >>>>>>> 7722c9e93387852daff94f2343cb58d1504fac98
@@ -46,7 +46,7 @@ artifact, e.g. {currentVersion}.
 _Since Payara Micro 4.1.1.171_
 
 Starting from this release, you need to add a dependency to
-the xref:/Technical Documentation/Payara Server Documentation/Public API/Overview.adoc[Public API]
+the xref:/Technical Documentation/Public API/Overview.adoc[Public API]
 when developing applications that use proprietary features (`@Clustered` or
 `@NamedCache` for example)
 <<<<<<< HEAD
@@ -59,13 +59,13 @@ when developing applications that use proprietary features (`@Clustered` or
 
 <<<<<<< HEAD
 <<<<<<< HEAD:docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/Maven Support/maven.adoc
-There is a maven plugin built specifically for use with Payara Micro. It has goals to `bundle` the application into an Uber JAR, `start` and `stop` Payara Micro. This plugin is xref:/documentation/ecosystem/maven-plugin.adoc[fully documented in its own section].
+There is a maven plugin built specifically for use with Payara Micro. It has goals to `bundle` the application into an Uber JAR, `start` and `stop` Payara Micro. This plugin is xref:/Technical Documentation/Ecosystem/Project Management Tools/Maven Plugin.adoc[fully documented in its own section].
 =======
 =======
 >>>>>>> 7722c9e93387852daff94f2343cb58d1504fac98
 There is a maven plugin built specifically for use with Payara Micro. It has
 goals to `bundle` the application into an Uber JAR, `start` and `stop` Payara
-Micro. This plugin is xref://Technical Documentation/Ecosystem/Project Management Tools/.adoc[fully
+Micro. This plugin is xref:/Technical Documentation/Ecosystem/Project Management Tools/Maven Archetype.adoc[fully
 documented in the Ecosystem section.]
 <<<<<<< HEAD
 >>>>>>> 7722c9e9 (Fixing broken links):docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/Maven Support.adoc
@@ -77,7 +77,7 @@ documented in the Ecosystem section.]
 
 <<<<<<< HEAD
 <<<<<<< HEAD:docs/modules/ROOT/pages/Technical Documentation/Payara Micro Documentation/Maven Support/maven.adoc
-There is a https://github.com/payara/ecosystem-netbeans-plugin/tree/master/payara.micro[NetBeans IDE plugin - payara.micro module] built specifically for Payara Micro to create and manage the application actions (e.g run, reload & debug). This plugin is xref:/documentation/ecosystem/netbeans-plugin/payara-micro.adoc[fully documented in its own section].
+There is a https://github.com/payara/ecosystem-netbeans-plugin/tree/master/payara.micro[NetBeans IDE plugin - payara.micro module] built specifically for Payara Micro to create and manage the application actions (e.g run, reload & debug). This plugin is xref:/Technical Documentation/Ecosystem/IDE Integration/NetBeans Plugin/Payara Micro.adoc[fully documented in its own section].
 =======
 =======
 >>>>>>> 7722c9e93387852daff94f2343cb58d1504fac98

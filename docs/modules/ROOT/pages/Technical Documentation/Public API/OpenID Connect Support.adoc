@@ -387,7 +387,7 @@ This example should showcase the following steps:
 
 * Enable session-scoped OpenID Connect configuration
 * Resolve the tenant name from an HTTP request query parameter
-* Use the tenant name to read the configuration value from the respective xref:documentation/microprofile/config/README.adoc[MicroProfile Config] property
+* Use the tenant name to read the configuration value from the respective xref:/Technical Documentation/MicroProfile/Config/Overview.adoc[MicroProfile Config] property
 * Retrieve the value from an EL expression defined in the `@OpenIdAuthenticationDefinition` annotation
 
 TIP: The tenant can also be resolved from a cookie, which is set the first time a user loads the application; from the domain name in the URL (if different tenants use a different domain name to access the same application); from a path prefix that follows the context root and prepends all application URLs (e.g. `contextroot/tenant1/index.xhtml`, `contextroot/tenant2/index.xhtml`).
@@ -598,8 +598,8 @@ A programmatic logout is performed by calling `OpenIdContext#logout()` which inv
 The client secret can be input directly, or for added security it can be aliased using any of the following features:
 
 - xref://Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Password Aliases.adoc[Password Aliases]
-- xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/var-substitution/Overview.adoc[Environment Variables / System Properties]
-- xref:/Technical Documentation/MicroProfile/config/Overview.adoc[Config API]
+- xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variable Substitution/Types of Variables.adoc[Environment Variables / System Properties]
+- xref:/Technical Documentation/MicroProfile/Config/Overview.adoc[Config API]
 
 [[fetch-caller-data]]
 <<<<<<< HEAD
@@ -994,7 +994,7 @@ public class SecurityBean {
 * http://openid.net/specs/openid-connect-core-1_0.html[OpenID Connect Core]
 * https://www.keycloak.org/documentation.html[KeyCloak Documentation]
 * https://jakarta.ee/specifications/security/[Jakarta Security API]
-* xref:Technical Documentation/MicroProfile/jwt.adoc[MicroProfile JWT Authentication API]
+* xref:Technical Documentation/MicroProfile/JWT.adoc[MicroProfile JWT Authentication API]
 =======
 [[extra-resources]]
 == Extra Resources

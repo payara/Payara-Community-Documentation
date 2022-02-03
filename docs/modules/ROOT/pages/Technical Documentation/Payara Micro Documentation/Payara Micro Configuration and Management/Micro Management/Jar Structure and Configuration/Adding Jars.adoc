@@ -55,7 +55,7 @@ in the following example:
 java -jar payara-micro.jar --addLibs third-party.jar --addLibs /opt/application/jars --addLibs ~/v/mysql-jdbc-driver.jar
 ----
 
-This argument cannot be used when instance is started via xref:/Technical Documentation/Payara Micro Documentation/starting-instance.adoc[root directory launcher]. 
+This argument cannot be used when instance is started via xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Stopping and Starting Instances/Starting Instance.adoc[root directory launcher]. 
 It is however accepted when creating a launcher via `--outputlauncher` and provided libraries will be added to launcher's classpath.
 
 [[programmatically-using-api]]
