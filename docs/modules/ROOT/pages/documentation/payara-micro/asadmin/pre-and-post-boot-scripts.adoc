@@ -83,7 +83,7 @@ A command in a boot script usually results in change of configuration in `config
 When persistent root directory is reused between restarts, it may cause some commands to fail, particulary those that create new resources, like for example `create-jdbc-connection-pool`.
 However, failure of a script command is not critical for server startup, just a warning is logged in such case.
 
-By utilizing <<../configuring/config-cmd-line.adoc#warmup, warmup run>>, these commands can be run as part of preparation of root directory rather than run on every startup.
+By utilizing xref:/documentation/payara-micro/configuring/config-cmd-line.adoc#warmup[warmup run], these commands can be run as part of preparation of root directory rather than run on every startup.
 That also spares startup time for productive instance.
 
 When command uses xref:/documentation/payara-server/server-configuration/var-substitution/usage-of-variables.adoc[variable references], the values for variables are determined during execution of the script, before executing the command and changing the configuration.
