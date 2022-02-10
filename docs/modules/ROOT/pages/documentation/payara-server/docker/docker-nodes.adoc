@@ -42,9 +42,11 @@ instances require secure admin to be enabled to start.
 * Docker Image - The Docker image to use. Payara Server will default to using the
 `payara/payaraserver-node:{currentVersion}` image.
 
-The configuration options of CONFIG nodes are also available, namely _nodehost_, _nodedir_, and _installdir_. Specifying
-the _nodehost_ option remains mandatory, but for docker nodes the _installdir_ and _nodedir_ options can safely be left as
-their defaults unless you're specifying your own Docker image.
+The configuration options of CONFIG nodes are also available, namely _nodehost_ and _nodedir_. Specifying
+the _nodehost_ option remains mandatory, but for docker nodes the _nodedir_ option can safely be left as
+the default unless you're specifying your own Docker image.
+
+NOTE: The _installdir_ option has no effect on docker nodes, as the installation directory of the Payara Server is determined by the docker image and not the server.
 
 Please take particular note of the _Docker Password File_ option: this is mandatory and *must be present on the remote machine*.
 Payara Server Community does not currently support propagating password files from the DAS to your remote machines.
