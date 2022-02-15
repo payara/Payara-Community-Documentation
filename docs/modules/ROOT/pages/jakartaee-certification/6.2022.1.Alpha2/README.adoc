@@ -1,0 +1,8 @@
+= Jakarta EE Platform 9.1 certification summaries
+
+Payara Server is certified https://jakarta.ee/[Jakarta EE] implementation.
+As proof of compatibility, output of Jakarta EE Compatibility Test Suite tests are presented for each certified version.
+
+The following distributions of Payara 6.2022.1.Alpha2 are certified:
+
+* xref:jakartaee-certification/6.2022.1.Alpha2/tck-results-full-6.2022.1.Alpha2.adoc[Payara Server 6.2022.1.Alpha2 - Full profile]
