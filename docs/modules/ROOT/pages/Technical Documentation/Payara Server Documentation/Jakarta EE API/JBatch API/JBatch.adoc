@@ -1,0 +1,16 @@
+[[contents]]
+= JBatch Enhancements
+
+_Since Payara Server 4.1.1.162_
+
+This section covers how to use the enhanced JBatch functionality included
+in Payara Server Community.
+
+
+xref:Technical Documentation/Payara Server Documentation/Jakarta EE API/JBatch API/Schema Name.adoc[Defining a Schema name]
+
+xref:Technical Documentation/Payara Server Documentation/Jakarta EE API/JBatch API/Table Prefix and Suffix.adoc[Setting a Table Prefix and/or Suffix]
+
+xref:Technical Documentation/Payara Server Documentation/Jakarta EE API/JBatch API/Database Support.adoc[Database support]
+
+xref:Technical Documentation/Payara Server Documentation/Jakarta EE API/JBatch API/Asadmin.adoc[Improved Asadmin Commands]
