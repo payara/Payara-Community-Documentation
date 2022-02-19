@@ -170,9 +170,9 @@ different applications, modules, etc.
 You cannot use directories or files whose names start with a dot. They will
 be ignored, following the POSIX philosophy of hidden files and folders.
 
-Symlinks will be followed, so you can expose files from such hidden areas,
+Symbolic links will be followed, so you can expose files from such hidden areas,
 allowing for all types of mangling with names etc. (This allows the Kubernetes
-Secret mounting magic to happen...) Don't symlink to directories, as the
+Secret mounting magic to happen...). Don't link to directories, as the
 file monitors rely on real directories.
 
 ==== Kubernetes Example

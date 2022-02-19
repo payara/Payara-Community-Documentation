@@ -1,7 +1,7 @@
 [[notification-service]]
 = Notification Service
 
-Payara Server comes with a general Notification service that can be used to log events which come from other services, such as the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/Monitoring Service/JMX Monitoring.adoc[JMX Monitoring Service], the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/HealthCheck Service.adoc[HealthCheck service] or the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/Request Tracing Service/Request Tracing Service.adoc[Request Tracing service].
+Payara Server comes with a general Notification service that can be used to log events which come from other services, such as the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/Monitoring Service/JMX Monitoring.adoc[JMX Monitoring Service], the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/HealthCheck Service.adoc[HealthCheck service] or the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/Request Tracing Service/Overview.adoc[Request Tracing service].
 
 [[notifiers]]
 == Notifiers
