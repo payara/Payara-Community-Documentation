@@ -37,7 +37,7 @@ NOTE: Where multiple configuration properties exist, the property from a source 
 |Reads configuration properties from files in a specified directory. Each file name
 is the configuration property name and the contents of the file are the config property
 value. This config source can be used to read https://kubernetes.io/docs/concepts/configuration/secret/#using-secrets-as-files-from-a-pod[Kubernetes secrets files].
-You can find out more about directory config sources here: xref:documentation/microprofile/config/directory.adoc[Directory Config Sources]
+You can find out more about directory config sources here: xref:/Technical Documentation/MicroProfile/Config/Directory.adoc[Directory Config Sources]
 
 |`password`
 |105
@@ -90,19 +90,19 @@ should be stored in the same location as your `microprofile-config.properties` f
 This file can be used to reference properties containing variables which will be
 translated to their actual values upon retrieval. The property values should be in
 the format referenced here:
-xref:documentation/payara-server/server-configuration/var-substitution/types-of-variables.adoc[Types of Variables]
+xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Variable Substitution/Types of Variables.adoc[Types of Variables]
 
 |`cloud`
 |180
-|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:documentation/microprofile/config/cloud/Overview.adoc[Cloud Config Sources]
+|Reads configuration properties from various Cloud provider secret stores. You can find out more about our supported cloud config sources here: xref:/Technical Documentation/MicroProfile/Config/Cloud/Overview.adoc[Cloud Config Sources]
 
 |`jdbc`
 |190
-|Reads configuration properties from a specified database table. You can find out more about JDBC config sources here: xref:documentation/microprofile/config/jdbc.adoc[JDBC Config Sources]
+|Reads configuration properties from a specified database table. You can find out more about JDBC config sources here: xref:/Technical Documentation/MicroProfile/Config/JDBC.adoc[JDBC Config Sources]
 
 |`ldap`
 |200
-|Reads configuration properties from a specified LDAP directory. You can find out more about LDAP config sources here: xref:documentation/microprofile/config/ldap.adoc[LDAP Config Sources]
+|Reads configuration properties from a specified LDAP directory. You can find out more about LDAP config sources here: xref:/Technical Documentation/MicroProfile/Config/LDAP.adoc[LDAP Config Sources]
 
 |===
 

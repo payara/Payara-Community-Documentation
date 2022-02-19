@@ -22,7 +22,7 @@ Payara Server Community and Payara Micro Community implement the JWT authenticat
 
 == Vending tokens
 
-A JWT token, like most API tokens, is typically vended from a website for use with the services provided by that site. For instance, from Google or Faceone can obtain such a token for usage with their respective APIs.
+A JWT token, like most API tokens, is typically vended from a website for use with the services provided by that site. For instance, from Google or Facebook can obtain such a token for usage with their respective APIs.
 
 Though JWT tokens are more universal in format, they are still intended for use with a specific service (website / api). This is encoded in the *mandatory* `iss` ("issuer") field. The value of the field can be anything that the intended service can recognize (see below).
 
@@ -255,7 +255,7 @@ With `base` being the context where the application is deployed, e.g. `http://ex
 
 == Switching off @RolesAllowed support in JAX-RS
 
-The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switched off by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` to `false`. For more information see the documentation for the xref:/documentation/payara-server/app-deployment/descriptor-elements.adoc#jaxrs-roles-allowed-enabled[jaxrs-roles-allowed-enabled] element.
+The out-of-the-box support of `@RolesAllowed` for JAX-RS resources can be switched off by setting the `<jaxrs-roles-allowed-enabled>` tag in `WEB-INF/glassfish-web.xml` to `false`. For more information see the documentation for the xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Application Deployment/Descriptor Elements.adoc#jaxrs-roles-allowed-enabled[jaxrs-roles-allowed-enabled] element.
 
 
 == Full examples

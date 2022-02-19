@@ -21,7 +21,7 @@ NOTE: By default, the KV Secrets Engine is enabled at the /secret path in Vault.
 
 ### From the Admin Console
 
-To configure the `HASHICORP_VAULT_TOKEN` password alias from the admin console, refer to the xref:documentation/payara-server/password-aliases/password-alias-admin-console-commands.adoc[Password Aliases Admin Console configuration] guide.
+To configure the `HASHICORP_VAULT_TOKEN` password alias from the admin console, refer to the xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Password Aliases.adoc[Password Aliases Admin Console configuration] guide.
 
 To configure the config source from the admin console, go to `Configs` -> `your-config` -> `MicroProfile` -> `Config` -> `HashiCorp Secrets`.
 
@@ -31,7 +31,7 @@ From here you can select the KV Secrets Engine API version you want to use, conf
 
 ### From the Command Line
 
-To configure the `HASHICORP_VAULT_TOKEN` password alias from the admin console, refer to the xref:documentation/payara-server/password-aliases/password-alias-admin-console-commands.adoc[Password Aliases Admin Console configuration] guide.
+To configure the `HASHICORP_VAULT_TOKEN` password alias from the admin console, refer to the xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Configuration Options/Password Aliases.adoc[Password Aliases Admin Console configuration] guide.
 
 To configure the HashiCorp Secrets Config Source from the command line, use the `set-hashicorp-config-source-configuration` asadmin command, specifying the required parameters like this:
 

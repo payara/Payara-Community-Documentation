@@ -176,7 +176,7 @@ asadmin> set configs.config.server-config.http-service.access-log.maximum-file-s
 The Notification Logging Service captures information about events which come from other services, such as the JMX Monitoring Service, the HealthCheck service or the Request Tracing service and stores these entries it into a log file.
 
 All the generated entries are stored in _server.log_ by default. It is possible to configure the Log Notifier to store its output in a 
-separate log file. More information on the Log Notifier can be found on the xref:/documentation/payara-server/notification-service/notifiers/log-notifier.adoc[the Log Notifier section] of the Notification Service overview.
+separate log file. More information on the Log Notifier can be found on the xref:/Technical Documentation/Payara Server Documentation/Logging and Monitoring/Notification Service/Overview.adoc#log-notifier[the Log Notifier section] of the Notification Service overview.
 
 NOTE: If this setting is enabled, the default log file will be found at `${DOMAIN_DIR}/logs/notification.log`/
 

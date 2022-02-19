@@ -27,7 +27,7 @@ Click the _New_ button and enter the following values:
 |=======================================================================
 |Setting Name |Value
 |Pool Name |test-pool
-|Resource Type |javax.sql.DataSource
+|Resource Type |`javax.sql.DataSource`
 |Driver Vendor |(value for the driver, e.g. Derby30 for a Derby DB, MySQL for a MySQL DB)
 |=======================================================================
 
@@ -41,7 +41,7 @@ Add the following properties to the connection pool by going to the _Additional 
 |=======================================================================
 |Setting name |Value |Description
 |PortNumber |3306 |Database port
-|Password |mypassword |Database password
+|Password |`mypassword` |Database password
 |User |root |Database user
 |serverName |localhost |Database address
 |DatabaseName |test |Name of the database
@@ -73,7 +73,7 @@ asadmin> ping-connection-pool test-pool
 
 [[jdbc-call-logging-sql-tracing]]
 == JDBC Call Logging (SQL Tracing)
-:page-aliases: documentation/payara-server/advanced-jdbc/log-jdbc-calls.adoc
+:page-aliases:Technical Documentation/Payara Server Documentation/advanced-jdbc/log-jdbc-calls.adoc
 
 WARNING: This is a feature best used for development purposes due to the volume of trace data that is produced.
 
@@ -165,7 +165,7 @@ asadmin create jdbc-connection-pool --datasourceclassname org.h2.jdbcx.JdbcDataS
 
 [[advance-connection-pool-properties-in-deployment-descriptors]]
 == Advanced Connection Pool Properties in Deployment Descriptors
-:page-aliases: documentation/payara-server/advanced-jdbc/advanced-connection-pool-properties.adoc
+:page-aliases:Technical Documentation/Payara Server Documentation/advanced-jdbc/advanced-connection-pool-properties.adoc
 
 Payara Server supports setting advanced JDBC connection pool properties directly on data source definitions made with the `@DataSourceDefinition` annotation or directly on deployment descriptors.
 
@@ -218,7 +218,7 @@ The complete list of configurable properties is the following:
 Validate connections, allow server to reconnect in case of failure
 |fish.payara.connection-validation-method |String
 | |The method of connection validation table,
-autocommit, meta-data, custom-validation
+auto-commit, meta-data, custom-validation
 |fish.payara.validation-table-name |String |
 |The name of the table used for validation if the validation method is
 set to table
