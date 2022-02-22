@@ -1,8 +1,6 @@
 [[microprofile-metrics]]
 = Eclipse MicroProfile Metrics API
 
-_Since Payara Server 4.1.2.181 and 5.181_
-
 Provided version of the API: {mpMetricsSpecUrl}[MicroProfile Metrics {mpMetricsVersion}]
 
 The Metrics API was designed to provide monitoring support for applications as well as the underlying runtime. This is considered separate to ***health checks*** which are concerned with a binary status of "healthy" or "unhealthy". In design, the Metrics API has borrowed heavily from DropWizard Metrics, so many of the concepts in the API will be familiar.

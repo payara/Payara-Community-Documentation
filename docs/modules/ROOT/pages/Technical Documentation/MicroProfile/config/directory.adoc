@@ -4,8 +4,6 @@
 
 Config Directory can be configured by using Admin Console or Asadmin commands.
 
-_Since *5.184*&nbsp;_
-
 === Using the Admin Console
 
 To configure the Config Directory in the Admin Console, go to Configuration
@@ -106,7 +104,7 @@ asadmin> get-config-dir
 Especially when running Payara in a container, there is no way to restart after
 configuring via an `asadmin` command without loosing the domain configuration.
 
-Thus you should add the command to a bootscript as described at
+Thus you should add the command to a boot-script as described at
 xref:/Technical Documentation/Payara Micro Documentation/Payara Micro Configuration and Management/Micro Management/Asadmin Commands/Pre and Post Boot Commands.adoc[Pre- and Postboot scripts].
 See xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Docker Host Support/Docker Instances.adoc#_environment_variables[Payara Server container image env vars]
 for details how to use this within non-micro flavored containers.
@@ -122,8 +120,6 @@ make sure file names correspond to properties in your codebase.
 
 === Map property names to flat file hierarchy
 
-_Since *5.183*&nbsp;_
-
 1. Say you have two properties `property1` and `foo.bar.property2`.
 2. Payara is configured with secret directory `/home/payara/secrets`
 3. Secrets mounted as files to `/home/payara/secrets/property1` and
@@ -135,12 +131,9 @@ allowed.
 
 === Map property names to a sub-directory structure
 
-_Since *5.2021.1*&nbsp;_
-
 1. Say you have two properties `property1` and `foo.bar.property2`.
 2. Payara is configured with secret directory `/home/payara/secrets`
-3. Secrets mounted as files to `/home/payara/secrets/property1` and
-   `/home/payara/secrets/foo/bar/property2` will be read.
+3. Secrets mounted as files to `/home/payara/secrets/property1` and `/home/payara/secrets/foo/bar/property2` will be read.
 
 Restrictions on the files content are the same as with the flat hierarchy.
 

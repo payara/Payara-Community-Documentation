@@ -30,7 +30,7 @@ Documentation around configuration of the data sources for encryption assumes th
 [[generating-an-encryption-key]]
 === Generating an Encryption Key
 
-The key to be used by Payara Server Community to perform the actual encryption and decryption of data can be generated using the following command:
+The key to be used by Payara Server to perform the actual encryption and decryption of data can be generated using the following command:
 
 [source, shell]
 ----

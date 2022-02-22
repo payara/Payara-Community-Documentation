@@ -13,8 +13,6 @@ Variable references can be used inside text values in the following configuratio
 
 == Variable references in deployed applications
 
-_Since Payara Server 4.1.2.172_
-
 Variable references can be used inside text values also in the following places within deployed applications and modules:
 
 * Package descriptors:
@@ -28,9 +26,9 @@ Variable references can be used inside text values also in the following places 
 * In the annotations:
 ** `@EJB`, `@WebService`, `@Stateless`, `@Stateful`, `@Singleton`, `@ActivationConfigProperty`, `@DataSource`, `@WebServlet`
 *   In JNDI lookups inside an application
-* In pre and post boot command files. _[Since Payara Server 4.1.2.174]_
-* In JVM Options. _[Since Payara Server 4.1.2.182 and 5.182]_
-* In `payara-expression-config.properties` file _[Since Payara Server 5.2020.2]_.
+* In pre and post boot command files.
+* In JVM Options.
+* In `payara-expression-config.properties` file.
 
 [[examples]]
 == Examples
@@ -40,7 +38,7 @@ Here are several examples of where you can use variable references:
 [[examples-annotation]]
 === Within an annotation
 
-[source,java]
+[source, java]
 ----
 @DataSourceDefinition(name="java:global/ExampleDataSource",
       className="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource",
@@ -68,7 +66,7 @@ Here are several examples of where you can use variable references:
 ----
 
 [[examples-multi]]
-=== Multiple variable references combined in a single value withing the `domain.xml`
+=== Multiple variable references combined in a single value within the `domain.xml`
 
 [source,xml]
 ----
@@ -87,8 +85,6 @@ set configs.config.server-config.network-config.protocols.protocol.http-listener
 [[examples-logging]]
 === Within a `logging.properties` file
 
-NOTE: Environment variable substitution in the logging properties file is available since Payara Server _5.184_
-
 [source,properties]
 ----
 handlers=${ENV=CONSOLE-HANDLER}
@@ -97,8 +93,6 @@ handlerServices=${ENV=SYS-LOG-HANDLER}
 
 [[examples-ver-ref]]
 === Within a `payara-expression-config.properties` file
-
-NOTE: The `payara-expression-config.properties` config source is only available in Payara Server since _5.2020.2_
 
 [source,properties]
 ----

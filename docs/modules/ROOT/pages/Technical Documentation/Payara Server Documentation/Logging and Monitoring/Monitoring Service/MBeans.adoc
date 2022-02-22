@@ -2,7 +2,7 @@
 = MBeans in Payara Server
 
 Below is a non-exhaustive list of MBeans which are useful to monitor in Payara
-Server Community. Other MBeans not listed show static information or are JDK-specific.
+Server. Other MBeans not listed show static information or are JDK-specific.
 
 [[jvm-beans]]
 == JVM MBeans
@@ -63,11 +63,11 @@ depending on your JDK configuration options:
 
 | `collectioncount-count`
 | Total number of collections that have occurred
-| The number of times this garbage collector has been called since Payara was started
+| The number of times this garbage collector has been called since the server instance was started
 
 | `collectiontime-count`
 | Approximate accumulated collection elapsed time in milliseconds
-| How much time has been spent on garbage collection since Payara was started
+| How much time has been spent on garbage collection since the server instance was started
 |===
 
 [[memory]]
@@ -753,11 +753,11 @@ name of the Stateful EJB class.
 |
 
 | `methodreadycount`
-| Number of stateful session beans in `MethodReady` state
+| Number of Stateful Session Beans in `MethodReady` state
 |
 
 | `passivecount`
-| Number of stateful session beans in Passive state
+| Number of Stateful Session Beans in Passive state
 |
 |===
 
@@ -781,7 +781,7 @@ name of the Stateless EJB class.
 |
 
 | `methodreadycount`
-| Number of stateful session beans in `MethodReady` state
+| Number of Stateful Session Beans in `MethodReady` state
 |
 |===
 

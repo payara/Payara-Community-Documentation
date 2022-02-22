@@ -54,7 +54,7 @@ To use JMS as a notification target, you will need the following a JMS-compatibl
 
 IMPORTANT: The Payara Server Web Profile distribution does not come with JMS capabilities, so this notifier isn't supported.
 
-NOTE: The easiest way to configure the JMS notifier is to use the embedded OpenMQ broker, since Payara Server already comes with it by default.
+NOTE: The easiest way to configure the JMS notifier is to use the embedded OpenMQ broker, as Payara Server already comes with it by default.
 
 [[jms-configuration]]
 ==== JMS Notifier Configuration

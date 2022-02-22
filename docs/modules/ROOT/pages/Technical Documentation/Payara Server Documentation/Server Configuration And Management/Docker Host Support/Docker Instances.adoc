@@ -83,7 +83,7 @@ be deleted also the Docker container including it's logs.
 
 ==== From Docker
 
-Payara Server Community supports creating instances from Docker itself, making use of the
+Payara Server supports creating instances from Docker itself, making use of the
 xref:/Technical Documentation/Payara Server Documentation/Server Configuration And Management/Asadmin Commands/Auto Naming.adoc[auto-naming] feature to resolve any conflicts.
 The `docker container create` command creates a Payara Docker container without any contact with the DAS.
 This is also the reason why Docker container has different name than the Payara instance - they
@@ -105,7 +105,7 @@ unregistered from the DAS.
 The next start of the same Docker container creates new a Payara Server Instance and a new temporary
 Docker node again despite the fact that it uses the same Docker container.
 
-If the Docker containers are stopped externally to Payara (ie. by the `docker` command), the node
+If the Docker containers are stopped externally to Payara (i.e. by the `docker` command), the node
 and instance will be marked for deletion and cleaned up on shutdown of the DAS.
 
 [source, shell]
@@ -195,7 +195,7 @@ https://docs.docker.com/engine/api/v1.39/#operation/ContainerCreate
 IMPORTANT: The image name is not configurable - Payara Server expects the image name to
 match the value from the node config
 
-The configuration within Payara Server Community of the settings denoted in the above link takes the form of dotted names. These
+The configuration within Payara Server of the settings denoted in the above link takes the form of dotted names. These
 names adhere to the following syntax:
 
 * Each property is prepended with "Docker"
@@ -206,7 +206,7 @@ names adhere to the following syntax:
 * Objects within an array are separated using a comma
 
 Properties that are denoted by arrays of objects containing further objects or arrays are not currently supported.
-The Env property is unique in that the colon character is used to denote the equals sign, as Payara Server does not
+The environment property is unique in that the colon character is used to denote the equals sign, as Payara Server does not
 currently support properties that contain an equals in their value.
 
 See below for some examples:
@@ -216,7 +216,7 @@ See below for some examples:
 
 |Arrays must be surrounded with square braces & array values separated using the vertical bar symbol "\|"
 |{ENV: [arg1=foo,arg2=bar]}
-|Docker.Env=[arg1:foo\|arg2:bar]
+|`Docker.Env=[arg1:foo\|arg2:bar]`
 
 |Each child object of a parent object is specified individually
 |{HostConfig: {Memory: 2048, CpuShares: 3}
@@ -225,8 +225,8 @@ See below for some examples:
 
 |The colon character is used to denote the value of an object within an array & objects within an array are
  separated using a comma
-|{HostConfig: {BlkioDeviceReadBps: [{Path: /opt/foo, Rate: 24},{Path: /opt/bar, Rate: 48}]}
-|Docker.HostConfig.BlkioDeviceReadBps=[Path:/opt/foo,Rate:24\|Path:/opt/bar,Rate:48]
+|`{HostConfig: {BlkioDeviceReadBps: [{Path: /opt/foo, Rate: 24},{Path: /opt/bar, Rate: 48}]}`
+|`Docker.HostConfig.BlkioDeviceReadBps=[Path:/opt/foo,Rate:24\|Path:/opt/bar,Rate:48]`
 |===
 
 [[reserved-environment-properties]]

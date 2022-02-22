@@ -21,20 +21,13 @@ dependency is needed:
 </dependency>
 ----
 
-Note that this dependency have scope provided since the types within this
-dependency are globally available to every application deployed to Payara Micro Community
-after the `MQTTRAR-0.1.0-SNAPSHOT.rar` was deployed.
+Note that this dependency have scope provided since the types within this dependency are globally available to every application deployed to Payara Micro after the `MQTTRAR-0.1.0-SNAPSHOT.rar` was deployed.
 
 == Sending messages
-Sending messages to a MQTT broker can be done via the JCA and an MQTT specific
-API. In order to start using this API to send messages, a resource has to be
-defined via the JCA API; a connection factory.
+Sending messages to a MQTT broker can be done via the JCA and an MQTT specific API. In order to start using this API to send messages, a resource has to be defined via the JCA API; a connection factory.
 
-The connection factory has to be given a name, which can be any name that is
-valid for JNDI. The `java:app` namespace is typically recommended to be used.
-The type of the connection factory to be used for MQTT is 
-`fish.payara.cloud.connectors.MQTT.api.MQTTConnectionFactory`, and we have to
-specify the resource adapter name which is here `MQTTRAR-0.1.0-SNAPSHOT.rar`.
+The connection factory has to be given a name, which can be any name that is valid for JNDI. The `java:app` namespace is typically recommended to be used.
+The type of the connection factory to be used for MQTT is  `fish.payara.cloud.connectors.MQTT.api.MQTTConnectionFactory`, and we have to specify the resource adapter name which is here `MQTTRAR-0.1.0-SNAPSHOT.rar`.
 
 The following gives an example:
 
@@ -100,63 +93,63 @@ public class ReceiveMQTTMessage implements MQTTListener {
 |Default
 |Notes
 
-|serverURIs
+|`serverURIs`
 |String
 |tcp://localhost:1883
 |Server URIs for connection, comma separated
 
-|cleanSession
+|`cleanSession`
 |Boolean
 |false
 |Sets whether the client and server should remember state across reconnects
 
-|automaticReconnect
+|`automaticReconnect`
 |Boolean
 |true
 |Sets whether the client will automatically reconnect to the server if the
 connection is lost
 
-|filePersistance
+|`filePersistance`
 |Boolean
 |false
 |Whether the client should use file persistence for un-acknowledged messages
 
-|persistenceDirectory
+|`persistenceDirectory`
 |String
 |.
 |Directory to use for file persistence
 
-|connectionTimeout
+|`connectionTimeout`
 |Integer
 |30
 |Sets the connection timeout value in seconds
 
-|maxInflight
+|`maxInflight`
 |Integer
 |10
 |Sets the maximum messages that can be sent without acknowledgements
 
-|keepAliveInterval
+|`keepAliveInterval`
 |Integer
 |60
 |Sets the keep alive interval in seconds
 
-|userName
+|`userName`
 |String
 |None
 |The user name for the connection.
 
-|password
+|`password`
 |String
 |None
 |The password for the connection.
 
-|topicFilter
+|`topicFilter`
 |String
 |None
 |Topic Filter (For MDBs only)
 
-|qos
+|`qos`
 |String
 |0
 |Quality of Service for the subscription (For MDBs only)

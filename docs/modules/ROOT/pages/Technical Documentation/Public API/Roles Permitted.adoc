@@ -1,8 +1,6 @@
 [[roles-permitted]]
 = RolesPermitted Support
 
-_Since Payara Server & Payara Micro 4.1.2.182 and 5.182_
-
 The Payara Public API provides a `@RolesPermitted` annotation that creates an authorisation interceptor for usage with CDI beans. This largely works in the same way as the `@RolesAllowed` common annotation, which in Java EE/Jakarta EE is primarily used by the EJB specification.
 
 [[usage]]
@@ -60,8 +58,6 @@ They are detailed below.
 
 [[dynamic-roles]]
 == Dynamic Roles
-
-_Since Payara Server & Payara Micro 5.193_
 
 The `@RolesPermitted` annotation also allows to dynamically specify authorization roles that are allowed to call bean methods at runtime. With this feature, is possible to instruct the container to allow specific roles based on specific contextual information.
 
@@ -128,7 +124,6 @@ public void updateCustomer(Customer customer){
 }
 ----
 
+== See Also
 
-== Extra Resources
-
-See https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html[@RolesAllowed] for the original annotation on which this annotation is based.
+* https://javaee.github.io/javaee-spec/javadocs/javax/annotation/security/RolesAllowed.html[@RolesAllowed Annotation]

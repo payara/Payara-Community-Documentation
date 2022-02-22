@@ -1,8 +1,6 @@
 :ordinal: 900
 = Eclipse MicroProfile Config API
 
-_Since *4.1.2.173*&nbsp;_
-
 Provided version of the API: {mpConfigSpecUrl}[MicroProfile Config {mpConfigVersion}]
 
 == Background
@@ -51,7 +49,7 @@ then apply to all instances within a domain
 
 |`jndi`
 |115
-|Retrieves and stores config values within the jndi tree. The property name being
+|Retrieves and stores config values within the JNDI tree. The property name being
 the dotted name path in the JNDI tree and the value being stored in the JNDI tree.
 These are modifiable by current admin console functionality.
 
@@ -75,7 +73,7 @@ instances it is deployed
 |`module`
 |150
 |Retrieves and stores config values at the level of an individual module within
-an appllication. Property values will only be available for the specified module
+an application. Property values will only be available for the specified module
 on all server instances it is deployed
 
 |`cluster`
@@ -111,11 +109,11 @@ include::partial$tech-preview.adoc[]
 
 == Converters
 In addition to the standard converters specified by the API, Payara's implementation
-includes out-of-the-box converters for URL and InetAddress. These have `@Priority`
+includes out-of-the-box converters for URL and `InetAddress`. These have `@Priority`
 of `1`, the same as the default converters.
 
 == Payara Specific Configuration Properties
-In addition to the standard configuration properties, Payara Server Community and Micro Community provide a number of out-of-the-box config properties
+In addition to the standard configuration properties, Payara Server and Micro provide a number of out-of-the-box config properties
 you can use in your application to find information about the Payara runtime environment.
 
 [cols="7,10", options="header"]
@@ -170,15 +168,12 @@ you can use in your application to find information about the Payara runtime env
 
 |`payara.instance.https.enabled`
 |Whether the https listener is enabled
-
 |===
 
 [[config-ordinal-configuration]]
 == Config Ordinal Configuration
 
 Config Ordinal can be configured by using Admin Console or Asadmin commands.
-
-_Since *5.183*&nbsp;_
 
 [[using-the-admin-console]]
 === Using the Admin Console
@@ -191,8 +186,7 @@ image:microprofile/config-ordinal.png[Set Config Ordinal]
 [[using-asadmin-commands]]
 === Using Asadmin Commands
 
-IMPORTANT: A `--source` value of `jndi` is not supported for these asadmin commands in
-4.1.2.173. The JNDI `ConfigSource` does exist and is usable from the Config API, though.
+IMPORTANT: A `--source` value of `jndi` is not supported for these asadmin commands yet. The JNDI `ConfigSource` does exist and is usable from the Config API, though.
 
 ==== `set-config-ordinal`
 
@@ -228,7 +222,6 @@ number ordinal means lower order of precedence.
 |The target Payara config to apply the change to
 |server (the DAS)
 |no
-
 |===
 
 
@@ -275,8 +268,6 @@ asadmin> get-config-ordinal --source=cluster
 == Config Property Configuration
 
 Config Property can be configured by using Admin Console or Asadmin commands.
-
-_Since *5.183*&nbsp;_
 
 [[using-the-admin-console-get]]
 === Using the Admin Console
@@ -505,12 +496,9 @@ asadmin> get-config-property
 [[config-cache-duration-configuration]]
 == Config Cache Duration
 
-_Since *5.2020.2*&nbsp;_
-
-Config cache duration can be configured by using Asadmin commands.
-By default properties have a TTL (time to live) of 60 seconds.
+Config cache duration can be configured by using Asadmin commands. By default properties have a TTL (time to live) of 60 seconds.
 That means each individual property does not change for 60 seconds since it has been resolved before.
-Therefore it can take up to 60 seconds for changes made visiable by a config source to become effective.
+Therefore it can take up to 60 seconds for changes made visible by a config source to become effective.
 If properties were not resolved recently, the change can become visible faster than the cache duration or even immediately because some time already passed since they had been last resolved and cached.
 
 === Using Asadmin Commands

@@ -1,8 +1,6 @@
 = Supported Platforms
 
-Though it is always possible for new versions to be supported, this page
-details the JVMs currently supported by the Payara Platform Community (both Payara Server Community and Payara Micro Community).
-
+Though it is always possible for new versions to be supported, this page details the JVMs currently supported by the Payara Platform (both Payara Server and Payara Micro).
 
 == Supported Java Virtual Machines
 

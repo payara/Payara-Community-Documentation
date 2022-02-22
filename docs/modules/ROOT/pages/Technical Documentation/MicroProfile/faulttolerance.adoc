@@ -1,7 +1,5 @@
 = Eclipse MicroProfile Fault Tolerance API
 
-_Since *4.1.2.181*; *5.181*&nbsp;_
-
 Provided version of the API: {mpFaultToleranceSpecUrl}[MicroProfile Fault Tolerance {mpFaultToleranceVersion}]
 
 == Background
@@ -13,9 +11,7 @@ https://github.com/eclipse/microprofile-fault-tolerance/blob/master/Overview.ado
 Overview for the source code repository.]
 
 == Additions to the Fault Tolerance Spec
-In addition to the functionality
-https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc[
-detailed in the spec], the following is also implemented in Payara Server Community and Payara Micro Community:
+In addition to the functionality https://github.com/eclipse/microprofile-fault-tolerance/blob/master/spec/src/main/asciidoc/microprofile-fault-tolerance-spec.asciidoc[detailed in the spec], the following is also implemented in Payara Server and Payara Micro:
 
 === Configurable Executor Services
 The managed and scheduled managed executor pool can be configured via the _set-fault-tolerance-configuration_ asadmin command.
@@ -23,7 +19,8 @@ The managed and scheduled managed executor pool can be configured via the _set-f
 The executor service is used to execute methods annotated with `@Asynchronous`, whereas the scheduled executor service is used by the CircuitBreaker and Timeout interceptors for their timeout operations (scheduling the circuit breaker to be set to half open, and just timing out respectively).
 
 === Alternative @Asynchronous Annotations
-Since 5.192 the Payara specific configuration property `MP_Fault_Tolerance_Alternative_Asynchronous_Annotations` can be used to specify a comma separated list of fully qualified class names of those annotations that should have the same effect as FT's `@Asynchronous`. These annotations do not have to be interceptor bindings.
+
+The configuration property `MP_Fault_Tolerance_Alternative_Asynchronous_Annotations` can be used to specify a comma separated list of fully qualified class names of those annotations that should have the same effect as FT's `@Asynchronous`. These annotations do not have to be interceptor bindings.
 
 For example:
 
@@ -31,8 +28,8 @@ For example:
 MP_Fault_Tolerance_Alternative_Asynchronous_Annotations=javax.ejb.Asynchronous
 ----
 
-
 === Annotation Priority
+
 Prior to 5.192 the order that the fault tolerance annotations are invoked is as follows:
 
 * Fallback (_SPECIAL CASE - you'll ONLY get here if there is an exception kicking off the asynchronous thread_)
@@ -62,8 +59,6 @@ As specified the interceptor priority can be changed using the property `mp.faul
 
 Fault Tolerance can be configured by using Admin Console or Asadmin commands.
 
-_Since *5.183*&nbsp;_
-
 [[using-the-admin-console]]
 === Using the Admin Console
 
@@ -78,15 +73,14 @@ image:microprofile/fault-tolerance.png[Set Fault Tolerance Configuration]
 ==== `set-fault-tolerance-configuration`
 
 *Usage*::
-```
-asadmin>set-fault-tolerance-configuration
-  [--managedexecutorservicename=managedexecutorservicename]
-  [--managedscheduledexecutorservicename=managedscheduledexecutorservicename]
-  [--target=server-config]
-```
+
+[source, shell]
+----
+asadmin>set-fault-tolerance-configuration [--managedexecutorservicename=managedexecutorservicename] [--managedscheduledexecutorservicename=managedscheduledexecutorservicename] [--target=server-config]
+----
 
 *Aim*::
-Provides a way to set the configuration of the fault tolerance service of the targetted config.
+Provides a way to set the configuration of the fault tolerance service of the targeted config.
 
 ===== Command Options
 
@@ -129,7 +123,7 @@ asadmin> set-fault-tolerance-configuration --managedexecutorservicename=java:com
 *Usage*::
 `asadmin> get-fault-tolerance-configuration [--target=server-config]`
 *Aim*::
-Returns the current configuration options for the Fault Tolerance service on the targetted config.
+Returns the current configuration options for the Fault Tolerance service on the targeted config.
 
 ===== Command Options
 

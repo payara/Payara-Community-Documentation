@@ -80,7 +80,7 @@ It is possible to instruct Payara Server to override the name of an EJB-JAR modu
 [[overwriting-module-name]]
 === Overwriting the Module Name
 
-When deploying an EJB-JAR module on Payara Server Community, the portable JNDI names for all scanned EJBs will be generated using the name of the module as specified on the _ejb-jar.xml_ deployment descriptor:
+When deploying an EJB-JAR module on Payara Server, the portable JNDI names for all scanned EJBs will be generated using the name of the module as specified on the _ejb-jar.xml_ deployment descriptor:
 
 [source, xml]
 ----
@@ -247,7 +247,7 @@ The following command will enable the endpoint on the DAS:
 asadmin > set-ejb-invoker-configuration --enabled=true
 ----
 
-NOTE: The `set-ejb-invoker-configuration --enabled=true/false` commands actually deploy/undeploy an internal small WAR application that exposes the endpoint. In this version this application is shown in all overviews that show deployed applications once enabled.
+NOTE: The `set-ejb-invoker-configuration --enabled=true/false` commands actually deploy/un-deploy an internal small WAR application that exposes the endpoint. In this version this application is shown in all overviews that show deployed applications once enabled.
 
 
 [[get-ejb-invoker-configuration]]
@@ -495,8 +495,8 @@ That means it will not override an environment variable that is already present 
 === Client side adapter
 
 EJB Lite connector is, in its current form, suited for invoking stateless remote EJBs.
-However, if you're using the connector with existing clients, those may depend on stateful interactions, like invoking stateful EJBs or accessing application server data sources and connection factories.
-Client side adapters serve the purpose of emulating stateful behavior at the client and delegate the requests to stateful backend, when all information from the client is collected.
+However, if you're using the connector with existing clients, those may depend on Stateful interactions, like invoking Stateful EJBs or accessing application server data sources and connection factories.
+Client side adapters serve the purpose of emulating Stateful behavior at the client and delegate the requests to a Stateful backend, when all information from the client is collected.
 
 The API of client side adapters is prescribed by interface `fish.payara.ejb.http.client.adapter.ClientAdapter`:
 
@@ -561,7 +561,7 @@ The HTTP adapter utilizes http://json-b.net/[JSON-B] for serialization. This pla
 [[programming-model-limitations]]
 ==== Programming Model Limitations
 
-The HTTP adapter uses stateless HTTP requests. In its current form, it is unfit for invoking stateful objects like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
+The HTTP adapter uses stateless HTTP requests. In its current form, it is unfit for invoking Stateful objects like `@Stateful` Enterprise Java Beans, or using server resources like `DataSource` or `ConnectionFactory`.
 
 [[persistent-timers]]
 == Advanced Persistent Timer Configuration
