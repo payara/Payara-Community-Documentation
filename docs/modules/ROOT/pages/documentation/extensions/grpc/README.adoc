@@ -4,17 +4,17 @@
 [[what-is-grpc]]
 == What is gRPC?
 
-The gRPC is a modern open-source high performance Remote Procedure Call (RPC) framework that use HTTP2 and simplifies the communication with protocol buffers to share data between client and server. By enabling gRPC Payara is giving more options to create services accepted on the market.
+gRPC is a modern open-source high performance Remote Procedure Call (RPC) framework that use HTTP2 and simplifies the communication with protocol buffers to share data between client and server. By enabling gRPC Payara Server gives more options to create binary adaptable services.
 
 [[what-can-we-do-with-it]]
 == What can we do with it?
 
 * We can create services more efficient than REST.
-* Use HTTP2 to provide full duplex communication between the client and the service.
-* Use protol buffers to optimize and simplify communication.
-* Enables bidirectional-streaming out-of-the-box.
+* Use HTTP/2 to provide full duplex communication between the client and the service.
+* Use protocol buffers to optimize and simplify communication.
+* Enables bidirectional streaming out-of-the-box.
 
-The gRPC support provide the means for users to use the gRPC style service programming.
+gRPC supports the means for users to implement gRPC style service programming.
 
 [[installing-grpc-server-support-module]]
 == Installing gRPC Server Support Module
@@ -37,6 +37,7 @@ mvn clean install
 cd grpc/grpc-support/target
 cp grpc-support-1.0.0.jar ${PAYARA_HOME}/glassfish/modules
 ----
+
 Restart the domain and any running instances to enable the module.
 
 [[preparing-grpc-service-in-a-web-application]]
@@ -44,14 +45,14 @@ Restart the domain and any running instances to enable the module.
 
 To prepare the service gRPC application you need the following:
 
-* Create a sample web application.
-* Include configuration for empty context root.
-* Create the protobuf service difinition file.
-* Include build dependencies. 
-* Configure build section.
-* Build service.
-* Extend service implementation.
-* Deploy service application.
+. Create a sample web application.
+. Include configuration for empty context root.
+. Create the `protobuf` service definition file.
+. Include build dependencies.
+. Configure build section.
+. Build service.
+. Extend service implementation.
+. Deploy service application.
 
 [[create-sample-web-application]]
 === Create a sample web application
@@ -67,7 +68,7 @@ mvn archetype:generate -DgroupId=fish.payara.samples -DartifactId=payara-web -Da
 [[include-configuration-for-empty-context-root]]
 === Include configuration for empty context root
 
-You need to create a maven web application with empty context-root */*. You can add the the following payara-web.xml file to the WEB-INF folder of your application:
+You need to create a Maven web application with empty context-root `/`. You can add the the following `payara-web.xml` deployment descriptor to the `WEB-INF` folder of your application:
 
 [source, xml]
 ----
@@ -77,12 +78,12 @@ You need to create a maven web application with empty context-root */*. You can 
 </payara-web-app>
 ----
 
-IMPORTANT: The context-root */* is a restriction based on the gRPC style programming and it is because standard gRPC clients expect no base path on the requests.
+IMPORTANT: gRPC services must be deployed under the context-root `/`, since this is a constraint of the gRPC style programming as standard clients expect no base path on HTTP requests.
 
 [[create-the-protobuf-service-definition-file]]
-=== Create the protobuf service difinition file
+=== Create the `protobuf` service definition file
 
-You need to use the protobuf protocol in order to declare your service. Here's a sample 'helloworld' protobuf definition example:
+You need to use the `protobuf` protocol in order to define your service. Here's a sample "Hello World" snippet:
 
 [source, proto]
 ----
@@ -102,98 +103,97 @@ message PayaraResp {
 }
 ----
 
-To summarize the content, this proto file is defining a service named PayaraService with a single method communicate with a request named PayarReq and a response PayaraResp. We can see also the content of each type with an string field named message. That will be the content of the messages to process.
+To summarize the snippet above, this file is defining a service named `PayaraService` with a single method named `communicate` that handles a request named `PayarReq` and a returns a response named `PayaraResp`. We can see also the structure of these objects as they each have an string field named `message`. That will be the content of the messages to process by the service.
 
-The probuf file should be added under the following folder: 
+The `protobuf` file should be added under the following folder: 
 
 * src
 ** main
 *** proto
 **** payara.proto 
 
-NOTE: The name of the file is irrelevant, it only matters that its extension is .proto .
+NOTE: The name of the file is irrelevant, it only matters that its extension is `.proto`.
 
 [[include-build-dependencies]]
 === Include build dependencies
 
-It is needed to declare the following dependencies to build the service and generate stubs:
-
-NOTE: It was included the jakarta.platform dependency to resolve some annotations for the web application.
+It is needed to declare the following dependencies to build the service and generate its stubs:
 
 Example:
 [source, XML]
 ----
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf</artifactId>
-            <version>1.43.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-stub</artifactId>
-            <version>1.43.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>8.0.0</version>
-            <scope>provided</scope>
-        </dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-protobuf</artifactId>
+    <version>1.43.1</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-stub</artifactId>
+    <version>1.43.1</version>
+    <scope>provided</scope>
+</dependency>
+<dependency>
+    <groupId>jakarta.platform</groupId>
+    <artifactId>jakarta.jakartaee-api</artifactId>
+    <version>8.0.0</version>
+    <scope>provided</scope>
+</dependency>
 ----
 
-* The grpc-protobuf used during the autogeneration of stubs and resolve internal proto types.
-* The grpc-stub used to resolve internal types for the stubbing classes.
+* The `grpc-protobuf` artifact is used to parse the `protobuf` files and generate the correspondent stubs class files.
+* The `grpc-stub` artifact is used to resolve internal types for the stub classes.
 
 [[configure-build-section]]
-=== Configure build section
+=== Configure the build section
 
 The build section is needed to generate the stubs and service implementation.
 
 Example:
 [source, XML]
 ----
-    <build>
-      <extensions>
-          <extension>
-              <groupId>kr.motd.maven</groupId>
-              <artifactId>os-maven-plugin</artifactId>
-              <version>1.6.2</version>
-          </extension>
-      </extensions>
-      <plugins>
-          <plugin>
-              <groupId>org.xolstice.maven.plugins</groupId>
-              <artifactId>protobuf-maven-plugin</artifactId>
-              <version>0.6.1</version>
-              <configuration>
-                  <protocArtifact>com.google.protobuf:protoc:3.19.2:exe:${os.detected.classifier}</protocArtifact>
-                  <pluginId>grpc-java</pluginId>
-                  <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.43.1:exe:${os.detected.classifier}</pluginArtifact>
-              </configuration>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>compile</goal>
-                          <goal>compile-custom</goal>
-                      </goals>
-                  </execution>
-              </executions>
-          </plugin>
-      </plugins>
-  </build>
+<build>
+    <extensions>
+        <extension>
+            <groupId>kr.motd.maven</groupId>
+            <artifactId>os-maven-plugin</artifactId>
+            <version>1.6.2</version>
+        </extension>
+    </extensions>
+    <plugins>
+        <plugin>
+            <groupId>org.xolstice.maven.plugins</groupId>
+            <artifactId>protobuf-maven-plugin</artifactId>
+            <version>0.6.1</version>
+            <configuration>
+                <protocArtifact>com.google.protobuf:protoc:3.19.2:exe:${os.detected.classifier}</protocArtifact>
+                <pluginId>grpc-java</pluginId>
+                <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.43.1:exe:${os.detected.classifier}</pluginArtifact>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                        <goal>compile-custom</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ----
 
-* The os-maven-plugin dependency is used to identify OS properties used during generation of stubs.
-* The protobuf-maven-plugin use the protobuf compiler (protoc) to generate the stubs.
+* The `os-maven-plugin` extension is used to identify OS properties used during generation of stubs classes.
+* The `protobuf-maven-plugin` plugin calls the `protobuf` compiler (`protoc`) to generate the stubs classes.
 
 [[build-service]]
-=== Build Service
+=== Build the Service
 
-After doing the previous steps, you can build the project to generate the stubs. This stubs are needed to resolve the types used into the service implementation.
+After doing the previous steps, you can build the project to generate the stubs. These stubs are needed to resolve the types used in the service implementation.
 
 Example:
+
 [source, shell]
 ----
 ${webapp root folder} > mvn clean install
@@ -203,13 +203,13 @@ The stubs should be generated with similar structure like the following:
 
 image::grpc/grpc-stubs-folders.png[Stubs folders]
 
-* target/generated-sources/protobuf/grpc-java/fish.payara.samples.grpc (*here you can see the service class*)
-* target/generated-sources/protobuf/java/fish.payara.samples.grpc (*here you can see the types associated to the service*)
-
-To implement the service's endpoint you'll have to extend the implementation base class that is nested inside the recently compile gRPC stub located under `/target/generated-sources/protobuf/grpc-java` .
+target/generated-sources/protobuf/grpc-java/fish.payara.samples.grpc:: Here you can see the service class
+target/generated-sources/protobuf/java/fish.payara.samples.grpc:: Here you can see the types associated to the service
 
 [[extend-service-implementation]]
-=== Extend service implementation
+=== Extending service implementation class
+
+To implement the service's endpoint you'll have to extend the implementation base class that is nested inside the recently compiled gRPC stub class located under `/target/generated-sources/protobuf/grpc-java`:
 
 [source, Java]
 ----
@@ -233,16 +233,17 @@ public class PayaraService extends PayaraServiceGrpc.PayaraServiceImplBase {
 }
 ----
 
-Our example is a simple echo service that will print a "Hello World" message. We can see the method communicate that receive the PayaraReq and the StreamObserver<fish.payara.samples.grpc.PayaraResp> those parameters are needed to process the incomming request with the 'Hello World' message and create the response with the same incoming message.
+Our example is a simple "echo" service that will print a "Hello World" message. We can see that the  `communicate` method receives the `PayaraReq` and the `StreamObserver<fish.payara.samples.grpc.PayaraResp>` parameters which are needed to process the incoming request with the 'Hello World' message and create the response using the same message.
 
 [[deploy-service-application]]
 === Deploy service application
 
-The final step is to deploy the application in a Payara server domain. We can do this by the use of the GUI tool or by command line as following:
+The final step is to deploy the application in a Payara Server domain. We can do this by using the Admin Console or the Asadmin CLI:
 
-image::grpc/deploy-gui-tool.png[Deploy tool]
+image::grpc/deploy-gui-tool.png[Admin Console]
 
-Command Example:
+Here's an example running the Asadmin CLI equivalent from the command line:
+
 [source, shell]
 ----
  ${PAYARA_HOME}/glassfish/bin > asadmin deploy [filelocation]/service.war
@@ -251,21 +252,19 @@ Command Example:
 [[creating-sample-grpc-client-application]]
 == Creating a sample gRPC client application
 
-After deploying the server application now we can create a client. To achieve this it is needed to do the following steps:
+After deploying the service we'll proceed to create a client. To achieve this let's follow these steps:
 
-* Create client application
-* Copy stubs files to the client source directories
-* Add client dependencies
-* Create client implementation
-* Execution of the HelloWorld application
-
-include stub generated files to the client application. You can create a new maven application and include the stub files on a package within the application. 
+. Create client application
+. Copy stubs files to the client source directories
+. Add client dependencies
+. Create client implementation
+. Execution of the `HelloWorld` application 
 
 [[create-client-application]]
 === Create the client application 
 
-We can create a client application using the following Maven archetype.
-Example:
+We can create a client application using the following Maven archetype:
+
 [source,shell]
 ----
 mvn archetype:generate -DgroupId=fish.payara.samples -DartifactId=payara-client -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -274,18 +273,14 @@ mvn archetype:generate -DgroupId=fish.payara.samples -DartifactId=payara-client 
 [[copy-stubs-files-client-source-folder]]
 === Copy stubs files to the client source folder
 
-Manually copy the service stub files that were generated in the previous section to the following locations in the client application's source directories: 
+Now, we'll manually copy the service stub files that were generated in the previous section to the following locations in the client application's source directories: 
 
-* fish.payara.samples.grpc
-
-Example:
 [source,shell]
 ----
 cp ${server app folder}/target/generated-sources/protobuf/grpc-java/fish.payara.samples.grpc  ${client app}/src/main/java/fish/payara/samples/grpc
 
 cp ${server app folder}/target/generated-sources/protobuf/java/fish.payara.samples.grpc ${client app}/src/main/java/fish/payara/samples/grpc
 ----
-
 
 [[add-client-dependencies]]
 === Add Client dependencies
@@ -295,43 +290,44 @@ The following Maven dependencies are needed to build and run the client applicat
 Example:
 [source,XML]
 ----
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-netty-shaded</artifactId>
-        <version>1.43.1</version>
-        <scope>runtime</scope>
-    </dependency>
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-protobuf</artifactId>
-        <version>1.43.1</version>
-    </dependency>
-    <dependency>
-        <groupId>io.grpc</groupId>
-        <artifactId>grpc-stub</artifactId>
-        <version>1.43.1</version>
-    </dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-netty-shaded</artifactId>
+    <version>1.43.1</version>
+    <scope>runtime</scope>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-protobuf</artifactId>
+    <version>1.43.1</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-stub</artifactId>
+    <version>1.43.1</version>
+</dependency>
 ----
 
-* The grpc-netty-shaded it is needed at runtime to create the communication Channel and send the message to the service
-* The grpc-protobuf used during the autogeneration of stubs and resolve internal proto types.
-* The grpc-stub used to resolve internal types for the stubbing classes.
+* The `grpc-netty-shaded` it is needed at runtime to create the communication channel and send the message to the service.
+* The `grpc-protobuf` artifact is used to parse the `protobuf` files and generate the correspondent stubs class files.
+* The `grpc-stub` artifact is used to resolve internal types for the stub classes.
 
 [[create-client-implementation]]
 === Create client implementation
 
-This is the client code to call the gRPC service deployed in Payara Server
+Finally, here is the client code to call the gRPC service deployed in Payara Server:
 
 [source, Java]
 ----
 public class GrpcClient {
+    
     private static final Logger LOGGER = Logger.getLogger(GrpcClient.class.getName());
     private final PayaraServiceGrpc.PayaraServiceStub stub; //reference to the stub service implementation class
     private CountDownLatch latch;
     private AtomicReference<Throwable> error;
 
     public static void main(String[] args) throws InterruptedException, MalformedURLException, URISyntaxException {
-        URL myURL = new URL("http://localhost:8080/fish.payara.samples.grpc.PayaraService"); // url for the deployed grpc service
+        URL myURL = new URL("http://localhost:8080/fish.payara.samples.grpc.PayaraService"); // URL for the deployed gRPC service
         final GrpcClient client = new GrpcClient(myURL); // creating client
         client.communicate(); // call service
     }
@@ -380,45 +376,40 @@ public class GrpcClient {
 }
 ----
 
-[[execution-of-helloworl-application]]
-=== Execution of the HelloWorld application
+[[execution-of-helloworld-application]]
+=== Execution of the "HelloWorld" application
 
 To execute the client application, build the project and run the following command:
-Example:
 
 [source,shell]
 ----
 ${client app} mvn compile exec:java -Dexec.mainClass="fish.payara.samples.grpc.GrpcClient"
 ----
 
-Server log: 
+And you'll see the following log entries on the server that the service prints after processing the corresponding message: 
 
-[source, shell]
+[source, log]
 ----
-[#|2022-03-02T14:15:10.947-0600|INFORMACIËN|Payara 5.2022.2-SNAPSHOT|javax.enterprise.system.container.web.com.sun.web.security|_ThreadID=118;_ThreadName=http-thread-pool::http-listener-1(2);_TimeMillis=1646252110947;_LevelValue=800;|
+[#|2022-03-02T14:15:10.947-0600|INFO|Payara 5.2022.2-SNAPSHOT|javax.enterprise.system.container.web.com.sun.web.security|_ThreadID=118;_ThreadName=http-thread-pool::http-listener-1(2);_TimeMillis=1646252110947;_LevelValue=800;|
   Context path from ServletContext:  differs from path from bundle: /|#]
 
-[#|2022-03-02T14:15:10.990-0600|INFORMACIËN|Payara 5.2022.2-SNAPSHOT|fish.payara.samples.grpc.PayaraService|_ThreadID=234;_ThreadName=grpc-default-executor-0;_TimeMillis=1646252110990;_LevelValue=800;|
+[#|2022-03-02T14:15:10.990-0600|INFO|Payara 5.2022.2-SNAPSHOT|fish.payara.samples.grpc.PayaraService|_ThreadID=234;_ThreadName=grpc-default-executor-0;_TimeMillis=1646252110990;_LevelValue=800;|
   Processing message: Hello World|#]
 ----
 
-Client output: 
+While the following entries are printed out on the client side: 
 
-[source, shell]
+[source, log]
 ----
 mar 02, 2022 2:26:37 PM fish.payara.samples.grpc.GrpcClient$ResponseObserver onNext
-INFORMACIÓN: Response received: "Hello World".
+INFO: Response received: "Hello World".
 ----
 
-This is the indicator that all the gRPC configuration is running and accepting client calls.
+This shows that both client and server are running correctly.
 
 [[see-also]]
 == See also
 
-You can find detailed information about gRPC here: https://grpc.io/docs/what-is-grpc/introduction/.
-
-You can find detailed information about to define a grpc service and client here: https://grpc.io/docs/languages/java/basics/ .
-
-You can find detailed information about protobuf protocol here: https://grpc.io/docs/what-is-grpc/introduction/#working-with-protocol-buffers.
-
-
+* You can find detailed information about gRPC here: https://grpc.io/docs/what-is-grpc/introduction/
+* You can find detailed information about to define a grpc service and client here: https://grpc.io/docs/languages/java/basics/ .
+* You can find detailed information about `protobuf` protocol here: https://grpc.io/docs/what-is-grpc/introduction/#working-with-protocol-buffers.
