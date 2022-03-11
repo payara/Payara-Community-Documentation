@@ -34,7 +34,7 @@ Example:
 ----
 cd grpc
 mvn clean install
-cd grpc/grpc-support/target
+cd grpc-support/target
 cp grpc-support-1.0.0.jar ${PAYARA_HOME}/glassfish/modules
 ----
 
