@@ -52,6 +52,7 @@ To prepare the service gRPC application you need the following:
 . Configure build section.
 . Build service.
 . Extend service implementation.
+. Rebuild service.
 . Deploy service application.
 
 [[create-sample-web-application]]
@@ -213,6 +214,10 @@ To implement the service's endpoint you'll have to extend the implementation bas
 
 [source, Java]
 ----
+package fish.payara.samples.grpc;
+import javax.enterprise.context.Dependent;
+import java.util.logging.Logger;
+
 @Dependent
 public class PayaraService extends PayaraServiceGrpc.PayaraServiceImplBase {
     private final static Logger log = Logger.getLogger(PayaraService.class.getName());
@@ -234,6 +239,11 @@ public class PayaraService extends PayaraServiceGrpc.PayaraServiceImplBase {
 ----
 
 Our example is a simple "echo" service that will print a "Hello World" message. We can see that the  `communicate` method receives the `PayaraReq` and the `StreamObserver<fish.payara.samples.grpc.PayaraResp>` parameters which are needed to process the incoming request with the 'Hello World' message and create the response using the same message.
+
+[[rebuild-service]]
+=== Rebuild service
+
+After doing the previous steps, you need to rebuild the project to include the service implementation.
 
 [[deploy-service-application]]
 === Deploy service application
@@ -319,6 +329,20 @@ Finally, here is the client code to call the gRPC service deployed in Payara Ser
 
 [source, Java]
 ----
+package fish.payara.samples.grpc;
+
+import io.grpc.Channel;
+import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class GrpcClient {
     
     private static final Logger LOGGER = Logger.getLogger(GrpcClient.class.getName());
