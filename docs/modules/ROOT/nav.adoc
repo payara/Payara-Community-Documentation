@@ -284,6 +284,7 @@
 *** xref:documentation/extensions/notifiers/teams-notifier.adoc[Teams Notifier]
 *** xref:documentation/extensions/notifiers/xmpp-notifier.adoc[XMPP Notifier]
 *** xref:documentation/extensions/notifiers/custom-notifier.adoc[Creating a Custom Notifier]
+** xref:documentation/extensions/grpc/README.adoc[gRPC]
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
