@@ -3,6 +3,8 @@
 
 This section details several improvements and enhancements done to the EJB features available on Payara Server.
 
+NOTE: If using a Java SE client for remote EJB lookups on JDK 17, you need to specify `--add-opens=java.base/java.lang=ALL-UNNAMED` to the JVM options of the client.
+
 [[concurrent-instance-configuration]]
 == Concurrent Instance Configuration
 
@@ -41,4 +43,3 @@ Any Bean annotated with `@MessageDriven` can use `@ActivationConfigProperty` to 
 	@ActivationConfigProperty(propertyName = ""MaxPoolSize"", propertyValue = "100")
 
 `MaxPoolSize`, `MaxWaitTimeInMillis`, `PoolResizeQuantity`, `SteadyPoolSize` and `PoolIdleTimeoutInSeconds` are all MDB pool properties that can configured using `@ActivationConfigProperty`
-
