@@ -3,7 +3,7 @@
 
 This section details several improvements and enhancements done to the EJB features available on Payara Server.
 
-NOTE: If using a JavaSE client for remote EJB lookups on JDK 17, you need to specify `--add-opens=java.base/java.lang=ALL-UNNAMED` to the invoking command.
+NOTE: If using a Java SE client for remote EJB lookups on JDK 17, you need to specify `--add-opens=java.base/java.lang=ALL-UNNAMED` to the JVM options of the client.
 
 [[concurrent-instance-configuration]]
 == Concurrent Instance Configuration
