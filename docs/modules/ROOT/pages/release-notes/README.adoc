@@ -8,6 +8,7 @@ Detailed information about features and fixes in every release.
 
 *2022*
 
+* 2022 April - xref:release-notes/release-notes-2022-2.adoc[Payara Community 5.2022.2]
 * 2022 February - xref:release-notes/release-notes-2022-1.adoc[Payara Community 5.2022.1]
 
 *2021*
