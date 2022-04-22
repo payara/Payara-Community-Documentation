@@ -42,9 +42,7 @@ The `create-ssl` command creates a set of SSL parameters for a created protocol.
 asadmin> create-ssl [--help]
         --certname certname
         --type protocol
-        [--ssl3enabled={false|true}]
         [--ssl3tlsciphers ssl3tlsciphers]
-        [--tlsenabled={false|true}]
         [--tlsrollbackenabled={false|true}]
         [--clientauthenabled={false|true}]
         [--target target]
