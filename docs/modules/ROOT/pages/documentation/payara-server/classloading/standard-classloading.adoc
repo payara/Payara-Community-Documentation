@@ -41,7 +41,7 @@ To install a library into Payara Server domain, use the asadmin xref:documentati
 * `ext` - the library is installed as an extension library into the `lib/ext` directory in the Payara domain
 * `app` - the library is installed as an application library into the `lib/applibs` directory in the Payara domain
 
-=== Common Libraries
+== Common Libraries
 
 Common libraries are available to all applications or modules deployed on servers with the same configuration. There are several levels of common libraries:
 
@@ -51,17 +51,17 @@ Common libraries are available to all applications or modules deployed on server
 
 NOTE: Only libraries shared by applications in the same domain can be installed by the `add-library` asadmin command. All other types have to be installed manually by copying the libraries into the particular locations.
 
-=== Extension Libraries
+== Extension Libraries
 
 Application developers can use libraries installed as extension libraries to extend the functionality of the core Payara Server platform. For example, the Oracle JDBC driver should be installed as an extension library if it's going to be used via JPA in order to use the Oracle-specific JPA features. Or a Java agent library should be installed as an extension library if the Java agent instruments classes in Payara Server to use classes from the agent library itself.
 
 CAUTION: Classes in extension libraries will be available to all deployed applications. If you need that classes from an extension library are available also to Payara Server's internal classes (and OSGi bundles in general) as is often the case with Java agents, you also need to add the packages exported by the library into OSGi boot delegation. In the file `glassfish/config/osgi.properties` in the Payara Server installation, add the packages to the list in the `org.osgi.framework.bootdelegation` property. Note that packages exported by the Oracle JDBC driver are already added by default.
 
-==== Extension Libraries Support On JDK 8
+=== Extension Libraries Support On JDK 8
 
 When Payara Server runs on JDK 8, extension libraries are added to the JVM using the standard https://docs.oracle.com/javase/tutorial/ext/index.html[Java extension mechanism], by adding the `lib/ext` directory in the current domain as an extension directory using the `java.ext.dirs` JVM option.
 
-==== Extension Libraries Support On JDK 11+
+=== Extension Libraries Support On JDK 11+
 
 When Payara Server runs on JDK 11 and newer, extension libraries are added to the system classpath at the beginning of the classpath, so that they have higher priority than all other classes and libraries on the classpath. This is because the Java extension mechanism isn't supported in Java 11 and newer and the official recommend way to replace it is to add the libraries to the classpath.
 
