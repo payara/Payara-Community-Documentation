@@ -12,8 +12,8 @@ its implementations.
 [[downloads]]
 == Downloads
 
-- link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/notifiers/xmpp-notifier-core/1.0/xmpp-notifier-core-1.0.jar[XMPP Notifier Core 1.0]
-- link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/notifiers/xmpp-notifier-console-plugin/1.0/xmpp-notifier-console-plugin-1.0.jar[XMPP Notifier Console Plugin 1.0]
+- link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/notifiers/xmpp-notifier-core/1.2/xmpp-notifier-core-1.2.jar[XMPP Notifier Core 1.2]
+- link:https://nexus.payara.fish/repository/payara-artifacts/fish/payara/extensions/notifiers/xmpp-notifier-console-plugin/1.1/xmpp-notifier-console-plugin-1.1.jar[XMPP Notifier Console Plugin 1.1]
 - link:https://repo.maven.apache.org/maven2/org/igniterealtime/smack/smack-java7/4.3.4/smack-java7-4.3.4.jar[Dependency: smack-java7 4.3.4]
 - link:https://repo.maven.apache.org/maven2/org/igniterealtime/smack/smack-tcp/4.3.4/smack-tcp-4.3.4.jar[Dependency: smack-tcp 4.3.4]
 - link:https://repo.maven.apache.org/maven2/org/igniterealtime/smack/smack-extensions/4.3.4/smack-extensions-4.3.4.jar[Dependency: smack-extensions 4.3.4]
