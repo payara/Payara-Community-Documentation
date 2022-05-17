@@ -1,3 +1,4 @@
+[[jax-rs-extention]]
 = JAX-RS extension
 
 JAX-RS Extension help to define the certificate alias rest client will use
@@ -29,7 +30,8 @@ Also it is needed to specify the next property for Rest Client call
 
 NOTE: The name of the property is defined as a constant in the `fish.payara.security.client.PayaraConstants` class.
 
-==== Example
+[[example]]
+== Example
 
 [source, java]
 ----

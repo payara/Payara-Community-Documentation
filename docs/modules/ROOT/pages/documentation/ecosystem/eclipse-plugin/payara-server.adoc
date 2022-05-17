@@ -70,6 +70,6 @@ To enable the automatic publishing from the Eclipse IDE, open The
 +
 image::eclipse-plugin/payara-server/auto-publish.png[Auto Publish applications]
 
-2. The *Hot Deploy* mode can be enabled from the Payara Server properties page 
+The *Hot Deploy* mode can be enabled from the Payara Server properties page 
 to boost the deployment performance which reuses the existing application 
 instance relative to the modified source.

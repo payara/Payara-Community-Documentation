@@ -3,8 +3,6 @@
 
 :repo: https://github.com/eclipse/microprofile-rest-client/tree/1.4.0
 
-_Since Payara Server 4.1.2.182 and 5.182_
-
 Provided version of the API: {repo}[MicroProfile Rest Client 1.4]
 
 [[background]]
@@ -89,7 +87,10 @@ Programmatically it is also possible to provide an implementation of `SslContext
 
 You can define the certificate alias rest client will use with one of the following approaches
 
-* Adding the property during the Rest Client call
+NOTE: For this to work, you need to include the certificate with the given alias in the default payara keystore.
+
+[[SSL-Context-configuration-client-call]]
+=== Adding the property during the Rest Client call
 
 [cols="1,1,1", options="header"]
 |===
@@ -105,6 +106,7 @@ You can define the certificate alias rest client will use with one of the follow
 
 NOTE: The name of the property is defined as a constant in the `fish.payara.security.client.PayaraConstants` class.
 
+[[SSL-Context-configuration-example]]
 ==== Example
 
 [source, java]
@@ -115,7 +117,8 @@ RestClientBuilder.newBuilder()
   .build(Service.class);
 ----
 
-* Adding with MicroProfile Config
+[[SSL-Context-configuration-mp-config]]
+=== Adding with MicroProfile Config
 
 [cols="1,1,1", options="header"]
 |===
@@ -131,7 +134,6 @@ RestClientBuilder.newBuilder()
 
 You can define the alias globally as a xref:documentation/microprofile/config/README.adoc[MicroProfile config] property, either in an application-specific config source only for a single application, or with a global config source for all applicaitons. In this case you don't need to add it during every single Rest Client call.
 
-NOTE: For this to work, you need to include the certificate with the given alias in the default payara keystore.
 
 [[proxy-configuration]]
 == Proxy Configuration

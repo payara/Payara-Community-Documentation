@@ -1,3 +1,4 @@
+[[creating-autoscale-extension]]
 = Creating A New AutoScale Extension
 
 To create a new AutoScale extension, it's recommended that you use one of the existing extensions as a base. Extensions
@@ -9,7 +10,9 @@ It's recommended that you place your two implementation modules under a parent a
 was done here with the
 https://github.com/payara/AutoScale-Groups/tree/master/autoscale-groups-nodes-plugin[autoscale-groups-nodes-plugin].
 
-=== The Implementation Module
+[[implementation-module]]
+== The Implementation Module
+
 The implementation module is where the admin commands, services, and config bean interfaces should exist. The following
 is expected as a minimum:
 
@@ -31,13 +34,15 @@ is expected to be in the format of `set-${ScalingGroupExtensionName}-configurati
 its own config bean (e.g. the `set-nodes-scaling-group-configuration` command has a REST endpoint under the
 `NodesScalingGroup` config bean).
 
-=== The Admin Console Plugin
+[[admin-console-plugin]]
+== The Admin Console Plugin
 
 The admin console plugin is where you add your tabs and pages for listing, creating, deleting, and editing AutoScale
 groups of your extension's type. The "base" admin console plugin provides a tab group integration point that you can add
 your extension tabs to named `fish.payara.admingui.extensions:autoScaleGroupsTab` (done via your extension's
 `console-config.xml` file).
 
+[[developer-doc]]
 == Developer Documentation
 
 AutoScale is split into a number of separate modules, but can be summarised into:
@@ -46,6 +51,7 @@ AutoScale is split into a number of separate modules, but can be summarised into
 * Two Core modules (base implementation module and a base Admin Console Plugin)
 * Extension modules
 
+[[api-module]]
 ### The API Module
 This module contains the interfaces and abstract classes intended for use or extension within Payara Server and any
 extensions. More specifically, it contains:
@@ -62,11 +68,13 @@ only ever meant to be one `Scaler` service for each `ScalingGroup` extension.
 
 This module is expected to be included in the server, regardless of what extension you choose to use.
 
+[[core-modules]]
 ### The Core Modules
 There are currently two core modules: a base implementation module, and a base Admin Console plugin.
 
 Both of these modules are expected to be included in the server, regardless of what extension you choose to use.
 
+[[base-impl-module]]
 #### The Base Implementation Module
 This module contains generic admin commands and util classes:
 
@@ -78,11 +86,13 @@ provide their own delete commands unless you wish additional actions to be taken
 * The `list-scaling-groups` command lists all configured scaling groups.
 * The `get-deployment-group-scaling-group` command returns the `ScalingGroup` attached to the provided Deployment Group
 
+[[base-admin-console-plugin]]
 #### The Base Admin Console Plugin
 This module contains common handler methods, the tab group that admin console plugin extensions should attach to, and
 a generic "Active AutoScale Group" page from which a user can see which AutoScale group is attached to a specific
 Deployment Group and scale it up or down.
 
+[[extension-modules]]
 ### Extension Modules
 Extension modules are the implementations that provide the ability for Payara Server to scale across different
 environments. They consist of an implementation module and an admin console plugin. The implementation module provides
