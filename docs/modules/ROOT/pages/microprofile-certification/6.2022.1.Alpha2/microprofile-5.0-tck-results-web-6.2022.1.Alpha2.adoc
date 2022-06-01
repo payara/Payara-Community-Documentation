@@ -15,7 +15,7 @@ following is a summary of the TCK results for releases of MicroProfile 5.0.
 |
 {empty} +
 {empty} +
-https://www.payara.fish/page/payara-enterprise-downloads/[Payara Server 5.2022.2 (Web Profile)]
+https://www.payara.fish/downloads/payara-platform-community-edition/[Payara Server 6.2022.1.Alpha2 (Web Profile)]
 |===
 
 - Specification Names, Versions and download URLs:
