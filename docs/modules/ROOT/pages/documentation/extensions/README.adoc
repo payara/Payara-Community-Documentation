@@ -12,3 +12,9 @@ The notifier extensions allow notifications from the Notification Service to pro
 
 The AutoScale extensions provide the means for users to scale Payara Server instances up and down
 across different environments.
+
+== xref:documentation/extensions/transformer/README.adoc[Deployment Transformer Extension]
+
+The Deployment Transformer extension integrates the Eclipse Jakarta EE namespace transformer
+into Payara Server, allowing a user to have their Jakarta EE 8 applications transformed on the
+fly into the Jakarta EE 10 namespace.

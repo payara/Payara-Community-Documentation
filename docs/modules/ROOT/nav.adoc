@@ -285,6 +285,7 @@
 *** xref:documentation/extensions/notifiers/xmpp-notifier.adoc[XMPP Notifier]
 *** xref:documentation/extensions/notifiers/custom-notifier.adoc[Creating a Custom Notifier]
 ** xref:documentation/extensions/grpc/README.adoc[gRPC]
+** xref:documentation/extensions/transformer/README.adoc[Deployment Transformer]
 
 .User Guides
 * xref:documentation/user-guides/user-guides.adoc[User Guides Overview]
