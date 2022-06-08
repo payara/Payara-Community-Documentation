@@ -409,3 +409,8 @@
 ** xref:microprofile-certification/5.2022.2/README.adoc[Payara Server 5.2022.2]
 *** xref:microprofile-certification/5.2022.2/microprofile-4.1-tck-results-full-5.2022.2.adoc[5.2022.2 Full Profile]
 *** xref:microprofile-certification/5.2022.2/microprofile-4.1-tck-results-web-5.2022.2.adoc[5.2022.2 Web Profile]
+
+* xref:microprofile-certification/README.adoc[MicroProfile 5.0 certification summaries]
+** xref:microprofile-certification/6.2022.1.Alpha2/README.adoc[Payara Server 6.2022.1.Alpha2]
+*** xref:microprofile-certification/6.2022.1.Alpha2/microprofile-5.0-tck-results-full-6.2022.1.Alpha2.adoc[6.2022.1.Alpha2 Full Profile]
+*** xref:microprofile-certification/6.2022.1.Alpha2/microprofile-5.0-tck-results-web-6.2022.1.Alpha2.adoc[6.2022.1.Alpha2 Web Profile]
